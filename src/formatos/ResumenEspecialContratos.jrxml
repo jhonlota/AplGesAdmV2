@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ResumenEspecialContratos" language="groovy" pageWidth="880" pageHeight="595" orientation="Landscape" columnWidth="840" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9c373adb-634e-4127-a7a3-411bd90f48cb">
+	<property name="ireport.zoom" value="1.2396694214876032"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT contrato, codigotipo, tipocontrato, plazo, fechainicio, fechaterminacion, fechalegalizacion, fechaperfeccionamiento,
+fechasuscripcion, contratos.fktercero, objeto, obervaciones, formapago, valor, valorsiniva,
+anexoscontratos.documento AS documento1,
+anexoscontratos.archivo AS archivo1,
+anexoscontratos.fecha AS fecha1,
+anexosterceros.documento AS documento2,
+anexoscontratos.archivo AS archivo2,
+anexosterceros.fecha AS fecha2
+FROM CONTRATOS LEFT JOIN ANEXOSCONTRATOS
+	ON CONTRATOS.contrato = ANEXOSCONTRATOS.fkcontrato
+     LEFT JOIN ANEXOSTERCEROS
+	ON CONTRATOS.fktercero = ANEXOSTERCEROS.fktercero
+WHERE CONTRATOS.fechasuscripcion > date '2013-08-31'
+ORDER BY CONTRATOS.contrato]]>
+	</queryString>
+	<field name="contrato" class="java.lang.String"/>
+	<field name="codigotipo" class="java.lang.String"/>
+	<field name="tipocontrato" class="java.lang.String"/>
+	<field name="plazo" class="java.lang.String"/>
+	<field name="fechainicio" class="java.sql.Date"/>
+	<field name="fechaterminacion" class="java.sql.Date"/>
+	<field name="fechalegalizacion" class="java.sql.Date"/>
+	<field name="fechaperfeccionamiento" class="java.sql.Date"/>
+	<field name="fechasuscripcion" class="java.sql.Date"/>
+	<field name="fktercero" class="java.lang.String"/>
+	<field name="objeto" class="java.lang.String"/>
+	<field name="obervaciones" class="java.lang.String"/>
+	<field name="formapago" class="java.lang.String"/>
+	<field name="valor" class="java.lang.Long"/>
+	<field name="valorsiniva" class="java.lang.Long"/>
+	<field name="documento1" class="java.lang.String"/>
+	<field name="archivo1" class="java.lang.String"/>
+	<field name="fecha1" class="java.sql.Date"/>
+	<field name="documento2" class="java.lang.String"/>
+	<field name="archivo2" class="java.lang.String"/>
+	<field name="fecha2" class="java.sql.Date"/>
+	<title>
+		<band height="10" splitType="Stretch"/>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="848beef3-8128-4ab7-a20a-ee8ed9d51cdb" x="40" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[codigotipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="908eec44-a4b9-40a9-8e9b-e3c0f6c9f159" x="80" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[tipocontrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4a8d4b57-1cb1-4206-abeb-798ab47085eb" x="120" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[plazo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="76fabd39-253d-412f-a12f-db5adf83e46e" x="160" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[fechainicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3c662774-4334-4eed-8103-767d6d6f405e" x="200" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[fechaterminacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e766e0fe-6466-4e8f-87ac-0d2511b69b98" x="240" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[fechalegalizacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8eeb1462-4318-40b7-81ea-457360558d5a" x="280" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[fechaperfeccionamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="94642919-f216-4f10-88f1-279a3c118b2d" x="320" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[fechasuscripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4d146573-4f03-4389-b9e0-097850c625ec" x="360" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[fktercero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d4dbf8f3-e7f4-4ec1-94c0-2558ea63daed" x="400" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[objeto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0de32276-af03-48d5-8861-de9112363156" x="440" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[obervaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5581b4df-f64b-413a-804c-22be7174d094" x="480" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[formapago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f72ad591-7526-473e-acad-47a2bad79ac1" x="520" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="67b48efc-8566-4545-bba0-f2133d306dd4" x="560" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[valorsiniva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3c2721b4-dfa7-401c-b3b7-89e35524fc30" x="600" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[documento1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="501326be-8c5d-4478-9ee1-2dc4fca1e007" x="640" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[archivo1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="46eaa2c6-1194-4049-97ff-be82bab3dce2" x="680" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[fecha1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0596410e-5d3e-43e6-b316-653d4e713986" x="720" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[documento2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ff39a08f-8992-47aa-8ec3-15af00e920df" x="760" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[archivo2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="24561af3-182d-41f1-a255-68359ac9f0b1" x="800" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[fecha2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e2e6ad0c-9a9e-48f7-8c26-aa344766e152" x="0" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<text><![CDATA[contrato]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="e50805cf-c606-4051-96dc-462907b3c29d" isPrintRepeatedValues="false" x="40" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{codigotipo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="8b399892-19fb-4eb0-b10a-5d90f4d6c9d2" isPrintRepeatedValues="false" x="80" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tipocontrato}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c553fbb7-8a26-492c-9350-70c3ab9bd532" isPrintRepeatedValues="false" x="120" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{plazo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="yyyy/MM/dd">
+				<reportElement uuid="eaf5a707-beb5-4fda-974c-1ef8e3d414fb" isPrintRepeatedValues="false" x="160" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechainicio}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="yyyy/MM/dd">
+				<reportElement uuid="aaeaef5e-116a-411b-80b4-49f39c7a1a80" isPrintRepeatedValues="false" x="200" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechaterminacion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="yyyy/MM/dd">
+				<reportElement uuid="7953c2d7-6414-4a51-aeeb-7212be75b224" isPrintRepeatedValues="false" x="240" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechalegalizacion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="yyyy/MM/dd">
+				<reportElement uuid="7b98104d-bc65-4720-bbb8-85b5535567f3" isPrintRepeatedValues="false" x="280" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechaperfeccionamiento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="yyyy/MM/dd">
+				<reportElement uuid="5a804cc3-1b68-4637-a91e-a6458141a5b0" isPrintRepeatedValues="false" x="320" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechasuscripcion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5c333e13-76de-4b8e-bfde-2465ccbb59eb" isPrintRepeatedValues="false" x="360" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fktercero}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ad520b2c-28a3-438d-bd3e-fffe6e803701" isPrintRepeatedValues="false" x="400" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{objeto}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="0d4a9750-0b7c-4784-ad3f-38cdc9010b40" isPrintRepeatedValues="false" x="440" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{obervaciones}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="4ad22a38-fdc8-42df-a51d-948786576d18" isPrintRepeatedValues="false" x="480" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{formapago}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0">
+				<reportElement uuid="4850f46a-3d85-4249-844a-06a6aef20d25" isPrintRepeatedValues="false" x="520" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0">
+				<reportElement uuid="2b476567-e019-4b37-92a9-84764dd4bf99" isPrintRepeatedValues="false" x="560" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{valorsiniva}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="10a4475a-e0d1-4b6a-be7b-a5825ffc3367" isPrintRepeatedValues="false" x="600" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{documento1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="736832fd-4c23-4d0e-89c1-9957e02c5950" isPrintRepeatedValues="false" x="640" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{archivo1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="yyyy/MM/dd">
+				<reportElement uuid="e73cb053-b37a-40ef-a2d1-8aabef4788db" isPrintRepeatedValues="false" x="680" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="88b7dfef-dc08-450b-b55e-967ca988123f" isPrintRepeatedValues="false" x="720" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{documento2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="30f2fdf0-26cf-4594-b9eb-1a8ad479902f" isPrintRepeatedValues="false" x="760" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{archivo2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="yyyy/MM/dd">
+				<reportElement uuid="022909b3-2e86-4793-aff3-e73c60946abd" isPrintRepeatedValues="false" x="800" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement uuid="a588a65d-6007-4e33-b556-c835f866c4dc" isPrintRepeatedValues="false" x="0" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{contrato}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

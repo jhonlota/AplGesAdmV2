@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InformeResumenEgresos_subreport" language="groovy" columnCount="11" printOrder="Horizontal" pageWidth="285" pageHeight="802" columnWidth="25" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a6099d5-b3d9-4f21-aecd-f14caa3eba3a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="subgrupo" class="java.lang.String"/>
+	<parameter name="ccostos" class="java.lang.String"/>
+	<parameter name="cinfo" class="java.lang.String"/>
+	<parameter name="ano" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaaplicacion" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipopago" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT COMPROBANTE, COMPROBANTES.ANO
+FROM COMPROBANTES, SOPORTESCOMPROBANTES
+WHERE COMPROBANTES.FECHAAPLICACION = $P{fechaaplicacion}
+AND COMPROBANTES.ID = SOPORTESCOMPROBANTES.FKCOMPROBANTE
+AND COMPROBANTES.ANO = $P{ano}
+AND COMPROBANTES.TIPOPAGO = $P{tipopago}
+AND SOPORTESCOMPROBANTES.ANO = $P{ano}
+AND SOPORTESCOMPROBANTES.SUBGRUPO = $P{subgrupo}
+AND SOPORTESCOMPROBANTES.CCOSTOS = $P{ccostos}
+AND SOPORTESCOMPROBANTES.CINFO = $P{cinfo}]]>
+	</queryString>
+	<field name="comprobante" class="java.lang.Integer"/>
+	<field name="ano" class="java.lang.Integer"/>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="1a907d7b-b7f9-4f5f-90a1-798bb491e776" x="0" y="0" width="26" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comprobante}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

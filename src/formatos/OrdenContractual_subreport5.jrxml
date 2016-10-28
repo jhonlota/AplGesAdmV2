@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport5" language="groovy" pageWidth="412" pageHeight="35" columnWidth="35" leftMargin="20" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKCONTRATO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     f_soportescontratos('Certificado', $P{FKCONTRATO}) AS "F_SOPORTESCONTRATOS",
+     SOPORTESCONTRATOS.FECHA AS "SOPORTESCONTRATOS_FECHA"
+FROM
+     SOPORTESCONTRATOS
+WHERE
+     SOPORTESCONTRATOS.FKCONTRATO = $P{FKCONTRATO}
+     AND SOPORTESCONTRATOS.TIPO = 'Certificado'
+ORDER BY SOPORTESCONTRATOS.NUMERO ASC]]>
+	</queryString>
+	<field name="F_SOPORTESCONTRATOS" class="java.lang.String"/>
+	<field name="SOPORTESCONTRATOS_FECHA" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<printWhenExpression><![CDATA[( $V{COLUMN_COUNT} <= 1 ? true : false )]]></printWhenExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="5" y="15" width="275" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{F_SOPORTESCONTRATOS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="285" y="10" width="28" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{SOPORTESCONTRATOS_FECHA}.getDate()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="313" y="10" width="28" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{SOPORTESCONTRATOS_FECHA}.getMonth() + 1]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="341" y="10" width="50" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{SOPORTESCONTRATOS_FECHA}.getYear() + 1900]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

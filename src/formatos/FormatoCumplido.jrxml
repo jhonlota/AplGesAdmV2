@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="840" whenNoDataType="AllSectionsNoDetail" columnWidth="435" leftMargin="80" rightMargin="80" topMargin="20" bottomMargin="20" uuid="2e038880-cfc5-489f-9843-5ccfec079b8c">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CONTENIDO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FKTERCEROFUNCIONARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\xampp\\htdocs\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<pageHeader>
+		<band height="240" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="6553bcc0-0527-4f09-9097-01a811acaef5" x="55" y="10" width="380" height="30"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="20" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD DEL VALLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b73f0997-3a89-4aae-9f6b-f0a98a7fad31" x="55" y="40" width="380" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb85abd8-f421-41e7-9188-588059aa19fd" x="0" y="100" width="435" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[EL SUSCRITO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b6decd4f-c51b-472e-a7ff-5b7084a540e2" x="0" y="150" width="435" height="35"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="24" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[HACE CONSTAR QUE : ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="9a7abbe6-91a4-49b7-a149-0b5862a0a36d" x="55" y="60" width="380" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="300" splitType="Immediate">
+			<textField>
+				<reportElement uuid="dff3c747-c28a-4365-84df-43d22c12355c" x="0" y="0" width="435" height="300"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CONTENIDO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="260">
+			<staticText>
+				<reportElement uuid="4cda3772-f978-4d15-9db2-13fd496c1509" x="0" y="45" width="435" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Atentamente,]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="54493c71-5fcd-4c81-8772-8f7b4861a43d" x="35" y="130" width="365" height="1"/>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="ec6b4730-f015-42c4-b64e-2ebb8ccd7f0a" x="145" y="10" width="290" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cbf92b33-0660-4638-b774-8b89bfd07176" x="0" y="10" width="145" height="20"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Se firma en Santiago de Cali, ]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="f1440581-b645-4d5a-b535-bae74cb40db8" x="35" y="131" width="365" height="40"/>
+				<subreportParameter name="ID">
+					<subreportParameterExpression><![CDATA[$P{FKTERCEROFUNCIONARIO}.substring( 0, $P{FKTERCEROFUNCIONARIO}.indexOf( " - " ) )]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoCumplido_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageFooter>
+</jasperReport>
