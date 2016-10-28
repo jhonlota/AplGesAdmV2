@@ -31,13 +31,13 @@ if ($fktercero == "") {
         $divtercero .= "<input id=\"tercero\" type=\"hidden\" value=\"$tercero\">";
 
         $tabla1 = "<div class=\"table-responsiv\">
-                    <table class=\"table table-striped\" >
+                    <table class=\"table table-striped table-bordered table-hover dataTables-example dataTable dtr-inline\" id=\"DataTables_Table_0\" aria-describedby=\"DataTables_Table_0_info\" role=\"grid\">
                         <thead>
-                            <tr>
-                                <th>Contrato</th>
-                                <th>Objeto del Contrato</th>
-                                <th>Valor</th>
-                                <th>Acci&oacute;n</th>
+                            <tr role=\"row\">
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Contrato</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Objeto del Contrato</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Valor</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Acci&oacute;n</th>
                             </tr>
                         </thead>
                         <tbody>";
@@ -53,23 +53,23 @@ if ($fktercero == "") {
         while ($rowContratos = pg_fetch_array($resultContratos, NULL, PGSQL_ASSOC)) {
             $sVer = "";
             $sVer .= (empty($rowContratos["secopnumeroconstancia"])) ? "<span class=\"label label-danger\"> - </span>" : "<button id=\"ver$i\" type=\"button\" class=\"btn btn-default btn-xs\" onclick=\"window.open('https://www.contratos.gov.co/consultas/detalleProceso.do?numConstancia=" . $rowContratos["secopnumeroconstancia"] . "')\" formtarget=\"_blank\">VER EN SECOP</button>";
-            $tabla1 .= "<tr>";
-            $tabla1 .= "<td>" . $rowContratos["contrato"] . "</td>";
-            $tabla1 .= "<td>" . $rowContratos["objeto"] . "</td>";
-            $tabla1 .= "<td>" . $rowContratos["valor"] . "</td>";
-            $tabla1 .= "<td>" . $sVer . "</td>";
+            $tabla1 .= "<tr class=\"gradeA odd\" role=\"row\">";
+            $tabla1 .= "<td class=\"sorting_1\" tabindex=\"0\" >" . $rowContratos["contrato"] . "</td>";
+            $tabla1 .= "<td class=\"sorting_1\" tabindex=\"0\">" . $rowContratos["objeto"] . "</td>";
+            $tabla1 .= "<td class=\"sorting_1\" tabindex=\"0\" style=\"text-align: right\">" .  number_format($rowContratos["valor"], 0, ',', '.') . "</td>";
+            $tabla1 .= "<td class=\"sorting_1\" tabindex=\"0\">" . $sVer . "</td>";
             $tabla1 .= "</tr>";   
             $i++;
         }
 
         $tabla2 = "<div class=\"table-responsiv\">
-                    <table class=\"table table-striped\" >
+                    <table table class=\"table table-striped table-bordered table-hover dataTables-example dataTable dtr-inline\" id=\"DataTables_Table_0\" aria-describedby=\"DataTables_Table_0_info\" role=\"grid\">
                         <thead>
-                            <tr>
-                                <th>Cuenta</th>
-                                <th>Descripci&oacute;n del Pago</th>
-                                <th>Ingreso</th>
-                                <th>Egreso</th>
+                            <tr role=\"row\">
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Cuenta</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Descripci&oacute;n del Pago</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Ingreso</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Egreso</th>
                             </tr>
                         </thead>
                         <tbody>";
@@ -84,23 +84,23 @@ if ($fktercero == "") {
             
         }
         while ($rowCuentas = pg_fetch_array($resultCuentas, NULL, PGSQL_ASSOC)) {
-            $tabla2 .= "<tr>";
-            $tabla2 .= "<td>" . $rowCuentas["cuenta"] . "</td>";
-            $tabla2 .= "<td>" . $rowCuentas["descripcion"] . "</td>";
-            $tabla2 .= "<td>" . $rowCuentas["ingreso"] . "</td>";
-            $tabla2 .= "<td>" . $rowCuentas["egreso"] . "</td>";
+            $tabla2 .= "<tr class=\"gradeA odd\" role=\"row\">";
+            $tabla2 .= "<td class=\"sorting_1\" tabindex=\"0\">" . $rowCuentas["cuenta"] . "</td>";
+            $tabla2 .= "<td class=\"sorting_1\" tabindex=\"0\">" . $rowCuentas["descripcion"] . "</td>";
+            $tabla2 .= "<td class=\"sorting_1\" tabindex=\"0\" style=\"text-align: right\">" .  number_format($rowCuentas["ingreso"], 0, ',', '.') . "</td>";
+            $tabla2 .= "<td class=\"sorting_1\" tabindex=\"0\" style=\"text-align: right\">" .  number_format($rowCuentas["egreso"], 0, ',', '.') . "</td>";
             $tabla2 .= "</tr>";
             $i++;
         }
 
         $tabla3 = "<div class=\"table-responsiv\">
-                    <table class=\"table table-striped\" >
+                    <table table class=\"table table-striped table-bordered table-hover dataTables-example dataTable dtr-inline\" id=\"DataTables_Table_0\" aria-describedby=\"DataTables_Table_0_info\" role=\"grid\">
                         <thead>
                             <tr>
-                                <th>Comprobante</th>
-                                <th>Año</th>
-                                <th>Observaci&oacute;n al pago</th>
-                                <th>Valor</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Comprobante</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">A&ntilde;o</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Observaci&oacute;n al pago</th>
+                                <th class=\"sorting_asc\" tabindex=\"0\" aria-controls=\"DataTables_Table_0\" rowspan=\"1\" colspan=\"1\" aria-sort=\"ascending\" aria-label=\"Rendering engine: activate to sort column descending\">Valor</th>
                             </tr>
                         </thead>
                         <tbody>";
@@ -115,11 +115,11 @@ if ($fktercero == "") {
             
         }
         while ($rowComprobantes = pg_fetch_array($resultComprobantes, NULL, PGSQL_ASSOC)) {
-            $tabla3 .= "<tr>";
-            $tabla3 .= "<td>" . $rowComprobantes["comprobante"] . "</td>";
-            $tabla3 .= "<td>" . $rowComprobantes["ano"] . "</td>";
-            $tabla3 .= "<td>" . $rowComprobantes["observacion"] . "</td>";
-            $tabla3 .= "<td>" . $rowComprobantes["valor"] . "</td>";
+            $tabla3 .= "<tr class=\"gradeA odd\" role=\"row\">";
+            $tabla3 .= "<td class=\"sorting_1\" tabindex=\"0\">" . $rowComprobantes["comprobante"] . "</td>";
+            $tabla3 .= "<td class=\"sorting_1\" tabindex=\"0\">" . $rowComprobantes["ano"] . "</td>";
+            $tabla3 .= "<td class=\"sorting_1\" tabindex=\"0\">" . $rowComprobantes["observacion"] . "</td>";
+            $tabla3 .= "<td class=\"sorting_1\" tabindex=\"0\"  style=\"text-align: right\">" .  number_format($rowComprobantes["valor"], 0, ',', '.') . "</td>";
             $tabla3 .= "</tr>";
             $i++;
         }
@@ -146,5 +146,6 @@ $arr = array("tabla1" => utf8_encode($tabla1),
     "tabla2" => utf8_encode($tabla2),
     "tabla3" => utf8_encode($tabla3),
     "divtercero" => utf8_encode($divtercero));
+//$arr = array("tabla1" => utf8_encode($tabla1));
 echo json_encode($arr);
 ?>
