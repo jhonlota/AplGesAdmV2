@@ -46,6 +46,8 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
      */
     private IFrameSolicitudesoferta solicitudesoferta;
     private IFrameBienessolicitudesoferta bienessolicitudesoferta;
+    
+    private IFrameSoportesresoluciones soportesresoluciones;
 
     private IFrameAnexoscontratos anexoscontratos;
     private IFrameAnexosterceros anexosterceros;
@@ -544,10 +546,10 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     resolucion.metodoLimpiar();
                 } else if (hijo.equals("Soportes")
                         && ClaseGeneral.resoluciones.getResolucionPK().getId() > 0) {
-//                    tercerosresoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-//                    tercerosresoluciones.setVisible(true);
-//                    tercerosresoluciones.metodoEstado("reiniciar");
-//                    tercerosresoluciones.metodoLimpiar();
+                    soportesresoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    soportesresoluciones.setVisible(true);
+                    soportesresoluciones.metodoEstado("reiniciar");
+                    soportesresoluciones.metodoLimpiar();
                 }
             } else if (padre.equals("Gastos Facultad")) {
                 if (hijo.equals("Cuentas *")) {
@@ -973,6 +975,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
          */
         solicitudesoferta.setVisible(false);
         bienessolicitudesoferta.setVisible(false);
+        soportesresoluciones.setVisible(false);
         /**
          * *********
          */
@@ -1097,7 +1100,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         @Override
         public void run() {
             int min = 1;
-            int max = 24;//**// IMPORTANTE
+            int max = 25;//**// IMPORTANTE
 
             FrameInicio.jProgressBar.setValue(min);
             FrameInicio.jProgressBar.setMinimum(min);

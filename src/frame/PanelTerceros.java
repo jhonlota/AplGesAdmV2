@@ -599,6 +599,7 @@ public class PanelTerceros extends javax.swing.JPanel {
             ClaseGeneral.controlCuentas.editFktercero(id.getText() + " - " + nombre.getText(), tercerosId.getId());
             ClaseGeneral.controlCumplidoscomprobantes.editFktercero(id.getText() + " - " + nombre.getText(), tercerosId.getId());
             ClaseGeneral.controlResoluciones.editFktercero(id.getText() + " - " + nombre.getText(), tercerosId.getId());
+            ClaseGeneral.controlSolicitudesoferta.editFktercero(id.getText() + " - " + nombre.getText(), tercerosId.getId());
         } catch (Exception ex) {
             Logger.getLogger(PanelTerceros.class.getName()).log(Level.SEVERE, null, ex);
         }

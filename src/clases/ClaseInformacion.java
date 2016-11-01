@@ -629,6 +629,7 @@ public class ClaseInformacion {
         ClaseGeneral.cuentas = null;
         ClaseGeneral.resoluciones = null;
         ClaseGeneral.terceros = null;
+        ClaseGeneral.solicitudesoferta = null;
     }
 
     public static void LimpiarSecundarios() {
@@ -649,6 +650,8 @@ public class ClaseInformacion {
         ClaseGeneral.soportescontratos = null;
         ClaseGeneral.soportescuentas = null;
         ClaseGeneral.tercerosresoluciones = null;
+        ClaseGeneral.bienessolicitudesoferta = null;
+        ClaseGeneral.soportesresoluciones = null;
     }
 
     public static String ConvertirNombre(String texto) {

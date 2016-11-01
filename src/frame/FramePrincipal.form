@@ -330,6 +330,9 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTreeMouseClicked"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="FramePrincipal_jTree"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

@@ -19,6 +19,9 @@ public class ClaseGeneral {
     public static Bienessolicitudesoferta bienessolicitudesoferta = new Bienessolicitudesoferta();
     public static BienessolicitudesofertaJpaController controlBienessolicitudesoferta = new BienessolicitudesofertaJpaController();
     public static BienessolicitudesofertaPK bienessolicitudesofertaPK = new BienessolicitudesofertaPK();
+    public static Soportesresoluciones soportesresoluciones = new Soportesresoluciones();
+    public static SoportesresolucionesJpaController controlSoportesresoluciones = new SoportesresolucionesJpaController();
+    public static SoportesresolucionesPK soportesresolucionesPK = new SoportesresolucionesPK();
     /*******************************************************************/
     public static Anexoscontratos anexoscontratos = new Anexoscontratos();
     public static AnexoscontratosJpaController controlAnexoscontratos = new AnexoscontratosJpaController();

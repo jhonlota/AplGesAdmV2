@@ -166,7 +166,7 @@
                         </div>
                         <div class="row" id="columnacontratos" style="display: none">
                             <div class="col-lg-12">
-                                <div class="ibox">
+                                <div class="ibox collapsed">
                                     <div class="ibox-title">
                                         <h5>Contratos</h5>
                                         <div class="ibox-tools">
@@ -184,7 +184,7 @@
 
                         <div class="row" id="columnacuentas" style="display: none">
                             <div class="col-lg-12">
-                                <div class="ibox">
+                                <div class="ibox collapsed">
                                     <div class="ibox-title">
                                         <h5>Cuentas</h5>
                                         <div class="ibox-tools">
@@ -207,7 +207,7 @@
 
                         <div class="row" id="columnacomprobantes" style="display: none">
                             <div class="col-lg-12">
-                                <div class="ibox">
+                                <div class="ibox collapsed">
                                     <div class="ibox-title">
                                         <h5>Comprobantes</h5>
                                         <div class="ibox-tools">
