@@ -223,6 +223,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         /**********/
         solicitudesoferta.setResizable(false);
         bienessolicitudesoferta.setResizable(false);
+        soportesresoluciones.setResizable(false);
         /*********/
 
         jDesktopPane.add(anexoscontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -251,6 +252,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         /*********/
         jDesktopPane.add(solicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(bienessolicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(soportesresoluciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
         /********/
         getContentPane().add(jDesktopPane, java.awt.BorderLayout.CENTER);
 
@@ -412,9 +414,9 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
             String padre = "" + jTree.getSelectionPath().getPathComponent(1);
             String padreDos = "" + jTree.getSelectionPath().getPathComponent(2);
             String hijo = "" + jTree.getSelectionPath().getLastPathComponent();
-//            System.err.println(padre);
-//            System.err.println("*" + padreDos);
-//            System.err.println("+++" + hijo);
+            System.err.println(padre);
+            System.err.println("*" + padreDos);
+            System.err.println("+++" + hijo);
 
             metodoEntidadSeleccionada(padre, hijo);
 
@@ -544,8 +546,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     resolucion.setVisible(true);
                     resolucion.metodoEstado("reiniciar");
                     resolucion.metodoLimpiar();
-                } else if (hijo.equals("Soportes")
-                        && ClaseGeneral.resoluciones.getResolucionPK().getId() > 0) {
+                } else if (hijo.equals("Soportes")) {
                     soportesresoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     soportesresoluciones.setVisible(true);
                     soportesresoluciones.metodoEstado("reiniciar");
@@ -943,6 +944,10 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
             case 24:
                 bienessolicitudesoferta = new IFrameBienessolicitudesoferta();
                 System.out.println("*** IFrameBienessolicitudesoferta()");
+                break;
+            case 25:
+                soportesresoluciones = new IFrameSoportesresoluciones();
+                System.out.println("*** IFrameSoportesresoluciones()");
                 break;
         }
     }

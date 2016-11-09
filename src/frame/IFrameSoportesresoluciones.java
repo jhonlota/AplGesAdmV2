@@ -31,7 +31,7 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
 
     private List lista = new ArrayList();
     private int posicion;
-    private PanelSoportescomprobantes panelPrincipal = new PanelSoportescomprobantes();
+    private PanelSoportesresoluciones panelPrincipal = new PanelSoportesresoluciones();
     private ClaseBaseDatos datos = new ClaseBaseDatos();
 
     /**
@@ -69,6 +69,7 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
         jPanel = new javax.swing.JPanel();
 
         setTitle("Soportes");
+        setName(""); // NOI18N
 
         jToolBar.setFloatable(false);
 
@@ -245,7 +246,7 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
     private void botonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevoActionPerformed
         metodoLimpiar();
 
-        panelPrincipal = new PanelSoportescomprobantes();
+        panelPrincipal = new PanelSoportesresoluciones();
         jPanel.add(panelPrincipal, java.awt.BorderLayout.CENTER);
         jPanel.setVisible(false);
         jPanel.setVisible(true);
@@ -278,7 +279,7 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
         metodoLimpiar();
 
-        panelPrincipal = new PanelSoportescomprobantes();
+        panelPrincipal = new PanelSoportesresoluciones();
         jPanel.add(panelPrincipal, java.awt.BorderLayout.CENTER);
         jPanel.setVisible(false);
         jPanel.setVisible(true);

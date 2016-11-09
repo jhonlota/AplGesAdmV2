@@ -104,11 +104,4 @@ public class ClaseBaseDatos {
             error = ex.toString();
         }
     }
-    
-    public void metodoPrueba (){
-        System.out.println("Linea Agregada en el Metodo de Prueba");
-    }
-    public void metodoPrueba2 (){
-        System.out.println("Linea Agregada en el Metodo de Prueba");
-    }
 }
