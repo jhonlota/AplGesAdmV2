@@ -108,7 +108,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         jScrollObservacion = new javax.swing.JScrollPane();
         observacion = new javax.swing.JTextArea();
         jLabeL16 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPane = new javax.swing.JTabbedPane();
         jScrollPane = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         jScrollPaneSoportesComprobantes = new javax.swing.JScrollPane();
@@ -396,8 +396,8 @@ public class PanelComprobantes extends javax.swing.JPanel {
         jLabeL16.setPreferredSize(new java.awt.Dimension(810, 10));
         add(jLabeL16);
 
-        jTabbedPane1.setBackground(ClaseGeneral.boton);
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(810, 185));
+        jTabbedPane.setBackground(ClaseGeneral.boton);
+        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 185));
 
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane.setPreferredSize(new java.awt.Dimension(810, 185));
@@ -1416,7 +1416,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         jTable.setSelectionBackground(ClaseGeneral.campo);
         jScrollPane.setViewportView(jTable);
 
-        jTabbedPane1.addTab("COMPROBANTES", jScrollPane);
+        jTabbedPane.addTab("COMPROBANTES", jScrollPane);
 
         jScrollPaneSoportesComprobantes.setPreferredSize(new java.awt.Dimension(810, 370));
 
@@ -1534,9 +1534,9 @@ public class PanelComprobantes extends javax.swing.JPanel {
         jTableSoportesComprobantes.setSelectionBackground(ClaseGeneral.campo);
         jScrollPaneSoportesComprobantes.setViewportView(jTableSoportesComprobantes);
 
-        jTabbedPane1.addTab("IMPUTACION", jScrollPaneSoportesComprobantes);
+        jTabbedPane.addTab("IMPUTACION", jScrollPaneSoportesComprobantes);
 
-        add(jTabbedPane1);
+        add(jTabbedPane);
 
         jTextField16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField16.setEnabled(false);
@@ -1689,6 +1689,34 @@ public class PanelComprobantes extends javax.swing.JPanel {
         }
     }
 
+    public void metodoMostrar() {//Luego de buscar que muestre la informacion
+        ClaseGeneral.comprobantes = new Comprobantes();
+
+        jTable.getColumnModel().getColumn(2).setCellRenderer(informacion.modeloDerecha);
+
+        for (int i = 0; i < 1000; i++) {
+            jTable.setValueAt("", i, 0);
+            jTable.setValueAt("", i, 1);
+            jTable.setValueAt("", i, 2);
+        }
+
+        int i = 0;
+        for (Object lista1 : lista) {
+            ClaseGeneral.comprobantes = (Comprobantes) lista1;
+            if (i < 1000) {
+                jTable.setValueAt("" + ClaseGeneral.comprobantes.getId(), i, 0);
+                jTable.setValueAt("" + ClaseGeneral.comprobantes.getFktercero(), i, 1);
+                jTable.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.comprobantes.getValor()), i, 2);
+            }
+            i++;
+        }
+
+        jTable.clearSelection();
+        jTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        jTable.getColumnModel().getColumn(1).setPreferredWidth(510);
+        jTable.getColumnModel().getColumn(2).setPreferredWidth(150);
+    }
+    
     public void metodoMostrar(int ano) {
         ClaseGeneral.comprobantes = new Comprobantes();
         lista = ClaseGeneral.controlComprobantes.findAllInComprobantesByORDERBYAno(ano);
@@ -1800,7 +1828,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTabbedPane jTabbedPane;
     public javax.swing.JTable jTable;
     private javax.swing.JTable jTableSoportesComprobantes;
     private javax.swing.JTextField jTextField1;

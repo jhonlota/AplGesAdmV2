@@ -414,7 +414,9 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
             metodoEstado("reiniciar");
         } else {
             lista = panelComprobantes.listaComprobante;
-
+            
+            panelPrincipal.metodoMostrar();
+            
             posicion = panelComprobantes.posicion;
             ClaseGeneral.comprobantes = (Comprobantes) lista.get(posicion);
             panelPrincipal.metodoConsultar();
@@ -544,6 +546,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
                 panelPrincipal.comprobante.setEnabled(false);
                 panelPrincipal.fechaaplicacion.setEnabled(false);
                 panelPrincipal.observacion.setFocusable(true);
+                panelPrincipal.jTabbedPane.setVisible(false);
             } else if (ClaseGeneral.perfil.equals("usuario")
                     && estado.equals("consultar")) {
                 panelPrincipal.fechaelaboracion.setEnabled(false);
@@ -552,14 +555,17 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
                 panelPrincipal.comprobante.setEnabled(false);
                 panelPrincipal.fechaaplicacion.setEnabled(false);
                 panelPrincipal.observacion.setFocusable(false);
+                panelPrincipal.jTabbedPane.setVisible(true);
             } else if (ClaseGeneral.perfil.equals("root")
                     && estado.equals("nuevo")) {
                 panelPrincipal.fechaelaboracion.setEnabled(true);
                 panelPrincipal.ano.setFocusable(true);
+                panelPrincipal.jTabbedPane.setVisible(false);
             } else if (ClaseGeneral.perfil.equals("root")
                     && estado.equals("consultar")) {
                 panelPrincipal.fechaelaboracion.setEnabled(false);
                 panelPrincipal.ano.setFocusable(false);
+                panelPrincipal.jTabbedPane.setVisible(true);
             }
         } catch (SQLException ex) {
             Logger.getLogger(IFrameComprobantes.class.getName()).log(Level.SEVERE, null, ex);

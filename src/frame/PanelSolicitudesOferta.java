@@ -116,7 +116,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jScrollInformacionServicio = new javax.swing.JScrollPane();
         informacionservicio = new javax.swing.JTextArea();
         jLabeL16 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPane = new javax.swing.JTabbedPane();
         jScrollPane = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         jScrollPaneBienesSolicitudOferta = new javax.swing.JScrollPane();
@@ -139,7 +139,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         panelBalanceSoportes.add(scrollPaneBalanceSoportes, java.awt.BorderLayout.CENTER);
 
         setName("panelSolicitudesOferta"); // NOI18N
-        setLayout(new java.awt.FlowLayout(0));
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabelId.setText("NÚMERO DE SOLICITUD : ");
         jLabelId.setPreferredSize(new java.awt.Dimension(155, 25));
@@ -381,7 +381,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jLabel15.setPreferredSize(new java.awt.Dimension(810, 10));
         add(jLabel15);
 
-        jPanelInformacionServicio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INFORMACIÓN SERVICIO", 0, 0, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanelInformacionServicio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INFORMACIÓN SERVICIO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanelInformacionServicio.setPreferredSize(new java.awt.Dimension(810, 90));
         jPanelInformacionServicio.setLayout(new java.awt.BorderLayout());
 
@@ -409,9 +409,9 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jLabeL16.setPreferredSize(new java.awt.Dimension(810, 10));
         add(jLabeL16);
 
-        jTabbedPane1.setBackground(ClaseGeneral.boton);
-        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(810, 190));
+        jTabbedPane.setBackground(ClaseGeneral.boton);
+        jTabbedPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 190));
 
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane.setPreferredSize(new java.awt.Dimension(810, 185));
@@ -1430,7 +1430,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jTable.setSelectionBackground(ClaseGeneral.campo);
         jScrollPane.setViewportView(jTable);
 
-        jTabbedPane1.addTab("SOLICITUD DE OFERTA", jScrollPane);
+        jTabbedPane.addTab("SOLICITUD DE OFERTA", jScrollPane);
 
         jScrollPaneBienesSolicitudOferta.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPaneBienesSolicitudOferta.setPreferredSize(new java.awt.Dimension(810, 185));
@@ -2449,10 +2449,10 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jTableBienesSolicitudoferta.setSelectionBackground(ClaseGeneral.campo);
         jScrollPaneBienesSolicitudOferta.setViewportView(jTableBienesSolicitudoferta);
 
-        jTabbedPane1.addTab("BIENES SOLICITUD DE OFERTA", jScrollPaneBienesSolicitudOferta);
+        jTabbedPane.addTab("BIENES SOLICITUD DE OFERTA", jScrollPaneBienesSolicitudOferta);
 
-        add(jTabbedPane1);
-        jTabbedPane1.getAccessibleContext().setAccessibleName("BIENES SOLICITUD DE OFERTA");
+        add(jTabbedPane);
+        jTabbedPane.getAccessibleContext().setAccessibleName("BIENES SOLICITUD DE OFERTA");
     }// </editor-fold>//GEN-END:initComponents
 
     private void TextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TextFieldFocusGained
@@ -2582,6 +2582,33 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
             Logger.getLogger(PanelSolicitudesOferta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void metodoMostrar() {
+        ClaseGeneral.solicitudesoferta = new Solicitudesoferta();     
+
+//        jTable.getColumnModel().getColumn(1).setCellRenderer(informacion.modeloDerecha);
+
+        for (int i = 0; i < 1000; i++) {
+            jTable.setValueAt("", i, 0);
+            jTable.setValueAt("", i, 1);
+        }
+
+        int i = 0;
+        for (Object lista1 : lista) {
+            ClaseGeneral.solicitudesoferta = (Solicitudesoferta) lista1;
+            if (i < 1000) {
+                jTable.setValueAt("" + ClaseGeneral.solicitudesoferta.getId(), i, 0);
+                jTable.setValueAt("" + ClaseGeneral.solicitudesoferta.getFktercero(), i, 1);
+//                jTable.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.solicitudesoferta.getValor()), i, 2);
+            }
+            i++;
+        }
+
+        jTable.clearSelection();
+        jTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTable.getColumnModel().getColumn(1).setPreferredWidth(710);
+//        jTable.getColumnModel().getColumn(2).setPreferredWidth(150);
+    }
 
     public void metodoMostrar(int ano) {
         ClaseGeneral.solicitudesoferta = new Solicitudesoferta();
@@ -2681,7 +2708,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTabbedPane jTabbedPane;
     public javax.swing.JTable jTable;
     public javax.swing.JTable jTableBienesSolicitudoferta;
     private javax.swing.JTextField jTextField4;

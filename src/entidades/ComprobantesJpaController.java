@@ -261,7 +261,7 @@ public class ComprobantesJpaController {
 
         try {
             if (ClaseGeneral.perfil.equals("usuario")) {
-                if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")
+                if (ClaseGeneral.parametro.equals("CAST(comprobantes.id AS TEXT)")
                         || ClaseGeneral.parametro.equals("CAST(comprobante AS TEXT)")) {
                     datos.query("SELECT DISTINCT(TABLA.ID), COMPROBANTE, FECHAAPLICACION, FECHAELABORACION, FECHAPAGO, FKTERCERO, FKTERCEROFUNCIONARIO, OBSERVACION, TIPOPAGO, VALOR, ANO "
                             + "FROM (SELECT COMPROBANTES.*, ROW_NUMBER() OVER(ORDER BY COMPROBANTES.ID DESC, COMPROBANTES.ANO DESC) AS FILA "
@@ -286,7 +286,7 @@ public class ComprobantesJpaController {
                             + "WHERE FILA BETWEEN 1 AND 1000");
                 }
             } else {
-                if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")
+                if (ClaseGeneral.parametro.equals("CAST(comprobantes.id AS TEXT)")
                         || ClaseGeneral.parametro.equals("CAST(comprobante AS TEXT)")) {
                     datos.query("SELECT DISTINCT(TABLA.ID), COMPROBANTE, FECHAAPLICACION, FECHAELABORACION, FECHAPAGO, FKTERCERO, FKTERCEROFUNCIONARIO, OBSERVACION, TIPOPAGO, VALOR, ANO "
                             + "FROM (SELECT COMPROBANTES.*, ROW_NUMBER() OVER(ORDER BY COMPROBANTES.ID DESC, COMPROBANTES.ANO DESC) AS FILA "
@@ -362,7 +362,7 @@ public class ComprobantesJpaController {
         }
     }
 
-    public List<Comprobantes> findAllInComprobantesnoreembolsadosByFechaaplicacion() {
+    public List<Comprobantes> findAllInComprobantesnoreembolsadosByFechaaplicacion() {//COMPROBANTES PENDIENTES POR REEMBOLSAR AL COLOCAR UN CRITERIO EN BUSCAR
         List<Comprobantes> listComprobantes = new ArrayList<Comprobantes>();
         Comprobantes comprobantes;
 
@@ -428,36 +428,37 @@ public class ComprobantesJpaController {
         }
     }
 
-    public List<Comprobantes> findAllInComprobantesByFktercero(String fktercero) {
-        List<Comprobantes> listComprobantes = new ArrayList<Comprobantes>();
-        Comprobantes comprobantes;
-
-        try {
-            datos.query("SELECT * FROM COMPROBANTES "
-                    + "WHERE "
-                    + "FKTERCERO LIKE '" + fktercero + " - %' ORDER BY FECHAELABORACION DESC, ID DESC");
-            while (ClaseBaseDatos.resultado.next()) {
-                comprobantes = new Comprobantes();
-                comprobantes.setId(ClaseBaseDatos.resultado.getInt("ID"));
-                comprobantes.setComprobante(ClaseBaseDatos.resultado.getInt("COMPROBANTE"));
-                comprobantes.setFechaaplicacion(ClaseBaseDatos.resultado.getDate("FECHAAPLICACION"));
-                comprobantes.setFechaelaboracion(ClaseBaseDatos.resultado.getDate("FECHAELABORACION"));
-                comprobantes.setFechapago(ClaseBaseDatos.resultado.getDate("FECHAPAGO"));
-                comprobantes.setFktercero(ClaseBaseDatos.resultado.getString("FKTERCERO"));
-                comprobantes.setFktercerofuncionario(ClaseBaseDatos.resultado.getString("FKTERCEROFUNCIONARIO"));
-                comprobantes.setObservacion(ClaseBaseDatos.resultado.getString("OBSERVACION"));
-                comprobantes.setTipopago(ClaseBaseDatos.resultado.getString("TIPOPAGO"));
-                comprobantes.setValor(BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("VALOR"))));
-                comprobantes.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
-
-                listComprobantes.add(comprobantes);
-            }
-            return listComprobantes;
-        } catch (SQLException ex) {
-            ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return null;
-        }
-    }
+    //BORRAR
+//    public List<Comprobantes> findAllInComprobantesByFktercero(String fktercero) { 
+//        List<Comprobantes> listComprobantes = new ArrayList<Comprobantes>();
+//        Comprobantes comprobantes;
+//
+//        try {
+//            datos.query("SELECT * FROM COMPROBANTES "
+//                    + "WHERE "
+//                    + "FKTERCERO LIKE '" + fktercero + " - %' ORDER BY FECHAELABORACION DESC, ID DESC");
+//            while (ClaseBaseDatos.resultado.next()) {
+//                comprobantes = new Comprobantes();
+//                comprobantes.setId(ClaseBaseDatos.resultado.getInt("ID"));
+//                comprobantes.setComprobante(ClaseBaseDatos.resultado.getInt("COMPROBANTE"));
+//                comprobantes.setFechaaplicacion(ClaseBaseDatos.resultado.getDate("FECHAAPLICACION"));
+//                comprobantes.setFechaelaboracion(ClaseBaseDatos.resultado.getDate("FECHAELABORACION"));
+//                comprobantes.setFechapago(ClaseBaseDatos.resultado.getDate("FECHAPAGO"));
+//                comprobantes.setFktercero(ClaseBaseDatos.resultado.getString("FKTERCERO"));
+//                comprobantes.setFktercerofuncionario(ClaseBaseDatos.resultado.getString("FKTERCEROFUNCIONARIO"));
+//                comprobantes.setObservacion(ClaseBaseDatos.resultado.getString("OBSERVACION"));
+//                comprobantes.setTipopago(ClaseBaseDatos.resultado.getString("TIPOPAGO"));
+//                comprobantes.setValor(BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("VALOR"))));
+//                comprobantes.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
+//
+//                listComprobantes.add(comprobantes);
+//            }
+//            return listComprobantes;
+//        } catch (SQLException ex) {
+//            ClaseMensaje.errorFind(this.toString(), ex.toString());
+//            return null;
+//        }
+//    }
 
     public DefaultComboBoxModel COMBOFechaaplicacionInComprobantesBy() {
         DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();

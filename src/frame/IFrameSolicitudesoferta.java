@@ -415,6 +415,8 @@ public class IFrameSolicitudesoferta extends javax.swing.JInternalFrame {
             metodoEstado("reiniciar");
         } else {
             lista = panelSolicitudesOferta.listaSolicitudesOferta;
+            
+            panelPrincipal.metodoMostrar();
 
             posicion = panelSolicitudesOferta.posicion;
             ClaseGeneral.solicitudesoferta = (Solicitudesoferta) lista.get(posicion);
@@ -528,26 +530,22 @@ public class IFrameSolicitudesoferta extends javax.swing.JInternalFrame {
                     && estado.equals("nuevo")) {
                 panelPrincipal.fechaelaboracion.setEnabled(false);
                 panelPrincipal.ano.setFocusable(false);
-//                panelPrincipal.fechapago.setEnabled(false);
-//                panelPrincipal.comprobante.setEnabled(false);
-//                panelPrincipal.fechaaplicacion.setEnabled(false);
-//                panelPrincipal.observacion.setFocusable(true);
+                panelPrincipal.jTabbedPane.setVisible(false);
             } else if (ClaseGeneral.perfil.equals("usuario")
                     && estado.equals("consultar")) {
                 panelPrincipal.fechaelaboracion.setEnabled(false);
                 panelPrincipal.ano.setFocusable(false);
-//                panelPrincipal.fechapago.setEnabled(false);
-//                panelPrincipal.comprobante.setEnabled(false);
-//                panelPrincipal.fechaaplicacion.setEnabled(false);
-//                panelPrincipal.observacion.setFocusable(false);
+                panelPrincipal.jTabbedPane.setVisible(true);
             } else if (ClaseGeneral.perfil.equals("root")
                     && estado.equals("nuevo")) {
                 panelPrincipal.fechaelaboracion.setEnabled(true);
                 panelPrincipal.ano.setFocusable(true);
+                panelPrincipal.jTabbedPane.setVisible(false);
             } else if (ClaseGeneral.perfil.equals("root")
                     && estado.equals("consultar")) {
                 panelPrincipal.fechaelaboracion.setEnabled(false);
                 panelPrincipal.ano.setFocusable(false);
+                panelPrincipal.jTabbedPane.setVisible(true);
             }
         } catch (SQLException ex) {
             Logger.getLogger(IFrameSolicitudesoferta.class.getName()).log(Level.SEVERE, null, ex);
