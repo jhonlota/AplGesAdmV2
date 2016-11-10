@@ -14,9 +14,7 @@ import clases.ClaseGeneral;
 import clases.ClaseInformacion;
 import clases.ClaseMensaje;
 import entidades.Bienessolicitudesoferta;
-import entidades.Comprobantes;
 import entidades.Solicitudesoferta;
-import entidades.Soportescomprobantes;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -2583,7 +2581,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         }
     }
     
-    public void metodoMostrar() {
+    public void metodoMostrar(List lista) {
         ClaseGeneral.solicitudesoferta = new Solicitudesoferta();     
 
 //        jTable.getColumnModel().getColumn(1).setCellRenderer(informacion.modeloDerecha);

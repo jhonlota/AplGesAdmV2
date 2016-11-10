@@ -416,7 +416,7 @@ public class IFrameSolicitudesoferta extends javax.swing.JInternalFrame {
         } else {
             lista = panelSolicitudesOferta.listaSolicitudesOferta;
             
-            panelPrincipal.metodoMostrar();
+            panelPrincipal.metodoMostrar(lista);
 
             posicion = panelSolicitudesOferta.posicion;
             ClaseGeneral.solicitudesoferta = (Solicitudesoferta) lista.get(posicion);
