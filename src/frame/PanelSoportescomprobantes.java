@@ -461,6 +461,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
         if (ClaseGeneral.controlSoportescomprobantes.verify(ClaseGeneral.soportescomprobantes)) {
             try {
                 ClaseGeneral.controlSoportescomprobantes.edit(ClaseGeneral.soportescomprobantes, soportescomprobantesId);
+                ClaseGeneral.controlSoportesresoluciones.editFkcomprobante(ClaseGeneral.soportescomprobantes, soportescomprobantesId);
             } catch (Exception ex) {
                 Logger.getLogger(PanelSoportescomprobantes.class.getName()).log(Level.SEVERE, null, ex);
             }

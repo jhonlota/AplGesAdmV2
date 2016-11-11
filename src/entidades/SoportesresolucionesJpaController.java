@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package entidades;
 
 import clases.ClaseBaseDatos;
@@ -21,17 +20,19 @@ import java.util.List;
  * @author User
  */
 public class SoportesresolucionesJpaController {
+
     private ClaseBaseDatos datos = new ClaseBaseDatos();
 
     public SoportesresolucionesJpaController() {
     }
-    
+
     public void create(Soportesresoluciones soportesresoluciones) {
         try {
             datos.update("INSERT INTO " + soportesresoluciones.tabla + " VALUES ("
                     + soportesresoluciones.getSoportesresolucionesPK().getFkresolucion() + ", "
                     //+ soportescomprobantes.getSoportescomprobantesPK().getId() + ", "
                     + "'" + soportesresoluciones.getFkcuenta() + "', "
+                    + "'" + soportesresoluciones.getFkcomprobante() + "', "
                     + "'" + soportesresoluciones.getActividad() + "', "
                     + "'" + soportesresoluciones.getCcostos() + "', "
                     + "'" + soportesresoluciones.getCinfo() + "', "
@@ -48,11 +49,12 @@ public class SoportesresolucionesJpaController {
         } finally {
         }
     }
-    
+
     public void edit(Soportesresoluciones soportesresoluciones, Soportesresoluciones id) {
         try {
             datos.update("UPDATE SOPORTESRESOLUCIONES SET "
                     + "FKCUENTA = '" + soportesresoluciones.getFkcuenta() + "', "
+                    + "FKCOMPROBANTE = '" + soportesresoluciones.getFkcomprobante() + "', "
                     + "ACTIVIDAD = '" + soportesresoluciones.getActividad() + "', "
                     + "CCOSTOS = '" + soportesresoluciones.getCcostos() + "', "
                     + "CINFO = '" + soportesresoluciones.getCinfo() + "', "
@@ -72,12 +74,60 @@ public class SoportesresolucionesJpaController {
         } finally {
         }
     }
-    
+
+    public void editFkcuenta(Soportescuentas soportescuentas) {
+        try {
+            datos.update("UPDATE SOPORTESRESOLUCIONES SET "
+                    + "FKCUENTA = '"+ soportescuentas.getSoportescuentasPK().getId()+"', "
+                    + "FKCOMPROBANTE = " + 0 + ", "
+                    + "ACTIVIDAD = '" + soportescuentas.getActividad() + "', "
+                    + "CCOSTOS = '" + soportescuentas.getCcostos() + "', "
+                    + "CINFO = '" + soportescuentas.getCinfo() + "', "
+                    + "CUENTA = '" + soportescuentas.getCuenta() + "', "
+                    + "CUENTAINTERNA = '" + soportescuentas.getCuentainterna() + "', "
+                    + "SUBGRUPO = '" + soportescuentas.getSubgrupo() + "', "
+                    + "VALOR = " + soportescuentas.getValor() + " "
+                    + "WHERE "
+                    + "FKCUENTA = " + soportescuentas.getSoportescuentasPK().getFkcuenta());
+            if (!datos.isError) {
+                ClaseMensaje.informacionActualizarBD("Soporte Resolución");
+            }
+        } catch (Exception ex) {
+            ClaseMensaje.errorActualizarBD();
+        } finally {
+        }
+    }
+
+    public void editFkcomprobante(Soportescomprobantes soportescomprobantes, Soportescomprobantes id) {
+        try {
+            datos.update"UPDATE SOPORTESRESOLUCIONES SET "
+                    + "FKCUENTA = '-', "
+                    + "FKCOMPROBANTE = '" +  + "', "
+                    + "ACTIVIDAD = '" + soportescomprobantes.getActividad() + "', "
+                    + "CCOSTOS = '" + soportescomprobantes.getCcostos() + "', "
+                    + "CINFO = '" + soportescomprobantes.getCinfo() + "', "
+                    + "CUENTA = '" + soportescomprobantes.getCuenta() + "', "
+                    + "CUENTAINTERNA = '" + soportescomprobantes.getCuentainterna() + "', "
+                    + "SUBGRUPO = '" + soportescomprobantes.getSubgrupo() + "', "
+                    + "VALOR = " + soportescomprobantes.getValor() + " "
+                    + "WHERE "
+                    + "FKCOMPROBANTE = " + id.getSoportescomprobantesPK().getFkcomprobante() + " AND "
+                    + "ID = " + id.getSoportescomprobantesPK().getId() + " AND "
+                    + "ANO = " + id.getSoportescomprobantesPK().getAno();
+            if (!datos.isError) {
+                ClaseMensaje.informacionActualizarBD("Soporte Resolución");
+            }
+        } catch (Exception ex) {
+            ClaseMensaje.errorActualizarBD();
+        } finally {
+        }
+    }
+
     public void destroy(SoportesresolucionesPK id) {
         try {
             datos.update("DELETE FROM SOPORTESRESOLUCIONES "
                     + "WHERE "
-                    + "FKRESOLUCION = " + id.getFkresolucion()+ " AND "
+                    + "FKRESOLUCION = " + id.getFkresolucion() + " AND "
                     + "ID = " + id.getId() + " AND "
                     + "ANO = " + id.getAno());
             if (!datos.isError) {
@@ -88,7 +138,7 @@ public class SoportesresolucionesJpaController {
         } finally {
         }
     }
-    
+
     public void destroyFkresolucionAno(Resoluciones id) {
         try {
             datos.update("DELETE FROM SOPORTESRESOLUCIONES "
@@ -103,7 +153,7 @@ public class SoportesresolucionesJpaController {
         } finally {
         }
     }
-    
+
     public boolean verify(Soportesresoluciones soportesresoluciones) {
         try {
             ClaseGeneral.errorValidacion = "";
@@ -121,7 +171,7 @@ public class SoportesresolucionesJpaController {
         } finally {
         }
     }
-    
+
     public List<Soportesresoluciones> findAllInSoportesresolucionesByFkresolucionAno(int fkresolucion, int ano) {
         List<Soportesresoluciones> listSoportesresoluciones = new ArrayList<Soportesresoluciones>();
         Soportesresoluciones soportesresoluciones;
@@ -152,7 +202,7 @@ public class SoportesresolucionesJpaController {
             return null;
         }
     }
-    
+
     public boolean findCALCInSoportesresolucionesByFkresolucionAno(int fkresolucion, int ano) {
         try {
             datos.query("SELECT * FROM SOPORTESRESOLUCIONES WHERE FKRESOLUCION = " + fkresolucion + " "
@@ -167,7 +217,7 @@ public class SoportesresolucionesJpaController {
             return false;
         }
     }
-    
+
     public List<Soportesresoluciones> findCALCInSoportesresolucionesByFkresolucionAnoFechaAplicacion(int fkresolucion, int ano, Date fechaAplicacion) {
         List<Soportesresoluciones> listSoportesresoluciones = new ArrayList<Soportesresoluciones>();
         Soportesresoluciones soportesresoluciones;
@@ -209,8 +259,8 @@ public class SoportesresolucionesJpaController {
             return null;
         }
     }
-    
-     public List<Soportesresoluciones> findCALCInSoportesresolucionesByAnoFechaAplicacion(int ano, Date fechaAplicacion) {
+
+    public List<Soportesresoluciones> findCALCInSoportesresolucionesByAnoFechaAplicacion(int ano, Date fechaAplicacion) {
         List<Soportesresoluciones> listSoportesresolucioness = new ArrayList<Soportesresoluciones>();
         Soportesresoluciones soportesresoluciones;
         SoportesresolucionesPK soportesresolucionesPK;

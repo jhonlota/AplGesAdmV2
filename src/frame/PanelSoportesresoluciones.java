@@ -33,6 +33,8 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
     private List lista = new ArrayList();
     private ClaseInformacion informacion = new ClaseInformacion();
     private List listaImputacion = new ArrayList();
+    private int fkcomprobante;
+    private String fkcuenta;
 
     /**
      * Creates new form PanelSoportesresolucionesContratos
@@ -123,6 +125,7 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         botonSeleccionarImputacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         botonSeleccionarImputacion.setName("botonSeleccionarImputacion"); // NOI18N
         botonSeleccionarImputacion.setPreferredSize(new java.awt.Dimension(200, 24));
+        botonSeleccionarImputacion.setEnabled(false);
         botonSeleccionarImputacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSeleccionarImputacionActionPerformed(evt);
@@ -428,6 +431,8 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
                 cinfo.setSelectedItem("" + listaImputacion.get(4));
                 cuentainterna.setSelectedItem("" + listaImputacion.get(5));
                 valor.setText("" + listaImputacion.get(6));
+                fkcomprobante = panelBuscarImputacion.numeroComprobante;
+                fkcuenta = panelBuscarImputacion.numeroCuenta;
             }
         }
     }//GEN-LAST:event_botonSeleccionarImputacionActionPerformed
@@ -438,8 +443,9 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         ClaseGeneral.soportesresolucionesPK.setFkresolucion(Integer.parseInt("" + fkresolucion.getText()));
         ClaseGeneral.soportesresolucionesPK.setId(0);
         ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getResolucionPK().getAno());
-//        ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getAno());
         ClaseGeneral.soportesresoluciones.setSoportesresolucionesPK(ClaseGeneral.soportesresolucionesPK);
+        ClaseGeneral.soportesresoluciones.setFkcuenta(fkcuenta);
+        ClaseGeneral.soportesresoluciones.setFkcomprobante(fkcomprobante);
         ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
         ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
         ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getSelectedItem());
@@ -504,7 +510,7 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
             ClaseGeneral.soportesresolucionesPK = new SoportesresolucionesPK();
             ClaseGeneral.soportesresolucionesPK.setFkresolucion(Integer.parseInt(fkresolucion.getText()));
             ClaseGeneral.soportesresolucionesPK.setId(ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK().getId());
-            ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getAno());
+            ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getResolucionPK().getAno());
 
             ClaseGeneral.controlSoportesresoluciones.destroy(ClaseGeneral.soportesresolucionesPK);
         } catch (Exception ex) {
@@ -515,7 +521,7 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
     public void metodoMostrar() {
         BigDecimal valTotal = BigDecimal.ZERO;
         ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
-        lista = ClaseGeneral.controlSoportesresoluciones.findAllInSoportesresolucionesByFkresolucionAno(Integer.parseInt(fkresolucion.getText()), ClaseGeneral.resoluciones.getAno());
+        lista = ClaseGeneral.controlSoportesresoluciones.findAllInSoportesresolucionesByFkresolucionAno(Integer.parseInt(fkresolucion.getText()), ClaseGeneral.resoluciones.getResolucionPK().getAno());
 
         jTable.getColumnModel().getColumn(6).setCellRenderer(informacion.modeloDerecha);
 

@@ -28,6 +28,9 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
     private List listaSoportesComprobante = new ArrayList();    
     private List listaSoportesCuenta = new ArrayList();
     public String soporte = "Seleccione - ";
+    public String tipoPago = "";
+    public int numeroComprobante;
+    public String numeroCuenta;
 
     /** Creates new form ExternoPanelFktercero */
     public ExternoPanelBuscarImputacion() {
@@ -180,6 +183,19 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
             return;
         } else {
             soporte = "" + laLista.getSelectedValue();
+            tipoPago ="" +parametro.getSelectedItem();
+            if(tipoPago.equals("FONDO RENOVABLE Y/O CAJA MENOR")){
+                numeroComprobante = Integer.parseInt(fkcomprobante.getText());
+                numeroCuenta = "-";
+            }
+            if(tipoPago.equals("ORDEN DE GASTO")){
+                numeroComprobante = 0;
+                numeroCuenta = ""+fkcuenta.getText();
+            }
+            System.out.println("TIPO PAGO --> "+tipoPago);
+            System.out.println("NUMERO COMPROBANTE --> "+numeroComprobante);
+            System.out.println("NUMERO CUENTA --> "+numeroCuenta);
+            
         }
 }//GEN-LAST:event_listaValueChanged
 

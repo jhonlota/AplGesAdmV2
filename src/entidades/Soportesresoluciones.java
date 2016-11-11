@@ -16,7 +16,8 @@ import java.math.BigDecimal;
 
 public class Soportesresoluciones {
     protected SoportesresolucionesPK soportesresolucionesPK = new SoportesresolucionesPK();
-    private int fkcuenta;
+    private String fkcuenta;
+    private int fkcomprobante;
     private String actividad;
     private String ccostos;
     private String cinfo;
@@ -25,7 +26,7 @@ public class Soportesresoluciones {
     private String subgrupo;
     private BigDecimal valor; 
     
-    public String tabla = "soportesresoluciones(fkresolucion, fkcuenta, actividad, ccostos, cinfo, cuenta, cuentainterna,"
+    public String tabla = "soportesresoluciones(fkresolucion, fkcuenta, fkcomprobante, actividad, ccostos, cinfo, cuenta, cuentainterna,"
             + "subgrupo, valor, ano)";
 
     public Soportesresoluciones() {
@@ -35,12 +36,56 @@ public class Soportesresoluciones {
         return soportesresolucionesPK;
     }
 
+    public String getFkcuenta() {
+        return fkcuenta;
+    }
+
+    public int getFkcomprobante() {
+        return fkcomprobante;
+    }
+
+    public String getActividad() {
+        return actividad;
+    }
+
+    public String getCcostos() {
+        return ccostos;
+    }
+
+    public String getCinfo() {
+        return cinfo;
+    }
+
+    public String getCuenta() {
+        return cuenta;
+    }
+
+    public String getCuentainterna() {
+        return cuentainterna;
+    }
+
+    public String getSubgrupo() {
+        return subgrupo;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public String getTabla() {
+        return tabla;
+    }
+
     public void setSoportesresolucionesPK(SoportesresolucionesPK soportesresolucionesPK) {
         this.soportesresolucionesPK = soportesresolucionesPK;
     }
 
-    public void setFkcuenta(int fkcuenta) {
+    public void setFkcuenta(String fkcuenta) {
         this.fkcuenta = fkcuenta;
+    }
+
+    public void setFkcomprobante(int fkcomprobante) {
+        this.fkcomprobante = fkcomprobante;
     }
 
     public void setActividad(String actividad) {
@@ -75,42 +120,5 @@ public class Soportesresoluciones {
         this.tabla = tabla;
     }
     
-    
-
-    public int getFkcuenta() {
-        return fkcuenta;
-    }
-
-    public String getActividad() {
-        return actividad;
-    }
-
-    public String getCcostos() {
-        return ccostos;
-    }
-
-    public String getCinfo() {
-        return cinfo;
-    }
-
-    public String getCuenta() {
-        return cuenta;
-    }
-
-    public String getCuentainterna() {
-        return cuentainterna;
-    }
-
-    public String getSubgrupo() {
-        return subgrupo;
-    }
-
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public String getTabla() {
-        return tabla;
-    }
     
 }
