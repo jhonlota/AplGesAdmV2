@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport4" language="groovy" pageWidth="753" pageHeight="15" columnWidth="713" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport4" language="groovy" pageWidth="753" pageHeight="15" columnWidth="713" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="7bf53ca7-59ec-46f8-9f81-b9f4fb906f06">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -47,46 +47,46 @@ WHERE
 		<band height="15" splitType="Stretch">
 			<printWhenExpression><![CDATA[( $V{COLUMN_COUNT} <= 8 ? true : false )]]></printWhenExpression>
 			<textField isBlankWhenNull="true">
-				<reportElement x="18" y="0" width="431" height="15"/>
+				<reportElement uuid="9150791c-b829-4e88-b717-7f18486f446e" x="18" y="0" width="431" height="15"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{CUBS_DESCRIPCION}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CUBS_DESCRIPCION}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="452" y="0" width="23" height="15"/>
+				<reportElement uuid="2bcb7358-1b7c-4cf9-b113-8884c337e359" x="452" y="0" width="23" height="15"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{CUBS_CANTIDAD}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CUBS_CANTIDAD}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0" isBlankWhenNull="true">
-				<reportElement x="483" y="0" width="43" height="15"/>
+				<reportElement uuid="ba716b3a-4e0c-4f55-b159-e5b409f06481" x="483" y="0" width="43" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{CUBS_VALORSINIVA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CUBS_VALORSINIVA}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0" isBlankWhenNull="true">
-				<reportElement x="539" y="0" width="48" height="15"/>
+				<reportElement uuid="96dd21ca-e42c-4355-af57-62bd0965723b" x="539" y="0" width="48" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{CUBS_VALOR}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CUBS_VALOR}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0" isBlankWhenNull="true">
-				<reportElement x="597" y="0" width="50" height="15"/>
+				<reportElement uuid="c1e62e28-2716-4326-9879-efa1cee8f188" x="597" y="0" width="50" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{CUBS_VALORTOTALSINIVA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CUBS_VALORTOTALSINIVA}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0" isBlankWhenNull="true">
-				<reportElement x="660" y="0" width="50" height="15"/>
+				<reportElement uuid="af650952-4fd0-4d91-ac68-1f3c1c8840d5" x="660" y="0" width="50" height="15"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{CUBS_VALORTOTAL}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CUBS_VALORTOTAL}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

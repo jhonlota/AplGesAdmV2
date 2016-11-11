@@ -182,7 +182,7 @@ public class ResolucionesJpaController {
             datos.query("SELECT DISTINCT(RESOLUCION.ID), RESOLUCION.ACUERDO, RESOLUCION.ANO, RESOLUCION.FECHA, RESOLUCION.FECHAINICIO, RESOLUCION.FECHATERMINACION, RESOLUCION.FKTERCEROORDENADORGASTO, RESOLUCION.OBSERVACION, RESOLUCION.TIPO, RESOLUCION.VEHICULO, RESOLUCION.ISFINDESEMANA "
                     + "FROM RESOLUCION LEFT JOIN TERCEROSRESOLUCION ON RESOLUCION.ID = TERCEROSRESOLUCION.FKRESOLUCION "
                     + "WHERE "
-                    + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' ORDER BY RESOLUCION.ID DESC, RESOLUCION.ANO DESC");//ORDER BY
+                    + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' AND RESOLUCION.ANO = TERCEROSRESOLUCION.ANO ORDER BY RESOLUCION.ID DESC, RESOLUCION.ANO DESC");//ORDER BY
             while (ClaseBaseDatos.resultado.next()) {
                 resoluciones = new Resoluciones();
                 resolucionesPK = new ResolucionesPK();
@@ -207,39 +207,40 @@ public class ResolucionesJpaController {
         }
     }
 
-    public List<Resoluciones> findAllInResolucionByFktercero(String fktercero) {
-        List<Resoluciones> listResoluciones = new ArrayList<Resoluciones>();
-        Resoluciones resoluciones = new Resoluciones();
-        ResolucionesPK resolucionesPK = new ResolucionesPK();
-        try {
-            datos.query("SELECT RESOLUCION.* FROM RESOLUCION, TERCEROSRESOLUCION "
-                    + "WHERE "
-                    + "RESOLUCION.ID = TERCEROSRESOLUCION.FKRESOLUCION AND "
-                    + "FKTERCERO LIKE '" + fktercero + " - %' ORDER BY RESOLUCION.ID DESC");//ORDER BY
-            while (ClaseBaseDatos.resultado.next()) {
-                resoluciones = new Resoluciones();
-                resolucionesPK = new ResolucionesPK();
-                resolucionesPK.setId(ClaseBaseDatos.resultado.getInt("ID"));
-                resoluciones.setAcuerdo(ClaseBaseDatos.resultado.getString("ACUERDO"));
-                resolucionesPK.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
-                resoluciones.setFecha(ClaseBaseDatos.resultado.getDate("FECHA"));
-                resoluciones.setFechainicio(ClaseBaseDatos.resultado.getDate("FECHAINICIO"));
-                resoluciones.setFechaterminacion(ClaseBaseDatos.resultado.getDate("FECHATERMINACION"));
-                resoluciones.setFkterceroordenadorgasto(ClaseBaseDatos.resultado.getString("FKTERCEROORDENADORGASTO"));
-                resoluciones.setObservacion(ClaseBaseDatos.resultado.getString("OBSERVACION"));
-                resoluciones.setTipo(ClaseBaseDatos.resultado.getString("TIPO"));
-                resoluciones.setVehiculo(ClaseBaseDatos.resultado.getString("VEHICULO"));
-                resoluciones.setIsfindesemana(ClaseBaseDatos.resultado.getBoolean("ISFINDESEMANA"));
-                resoluciones.setResolucionPK(resolucionesPK);
-
-                listResoluciones.add(resoluciones);
-            }
-            return listResoluciones;
-        } catch (SQLException ex) {
-            ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return null;
-        }
-    }
+    //BORRAR
+//    public List<Resoluciones> findAllInResolucionByFktercero(String fktercero) { 
+//        List<Resoluciones> listResoluciones = new ArrayList<Resoluciones>();
+//        Resoluciones resoluciones = new Resoluciones();
+//        ResolucionesPK resolucionesPK = new ResolucionesPK();
+//        try {
+//            datos.query("SELECT RESOLUCION.* FROM RESOLUCION, TERCEROSRESOLUCION "
+//                    + "WHERE "
+//                    + "RESOLUCION.ID = TERCEROSRESOLUCION.FKRESOLUCION AND "
+//                    + "FKTERCERO LIKE '" + fktercero + " - %' AND RESOLUCION.ANO = TERCEROSRESOLUCION.ANO ORDER BY RESOLUCION.ID DESC");//ORDER BY
+//            while (ClaseBaseDatos.resultado.next()) {
+//                resoluciones = new Resoluciones();
+//                resolucionesPK = new ResolucionesPK();
+//                resolucionesPK.setId(ClaseBaseDatos.resultado.getInt("ID"));
+//                resoluciones.setAcuerdo(ClaseBaseDatos.resultado.getString("ACUERDO"));
+//                resolucionesPK.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
+//                resoluciones.setFecha(ClaseBaseDatos.resultado.getDate("FECHA"));
+//                resoluciones.setFechainicio(ClaseBaseDatos.resultado.getDate("FECHAINICIO"));
+//                resoluciones.setFechaterminacion(ClaseBaseDatos.resultado.getDate("FECHATERMINACION"));
+//                resoluciones.setFkterceroordenadorgasto(ClaseBaseDatos.resultado.getString("FKTERCEROORDENADORGASTO"));
+//                resoluciones.setObservacion(ClaseBaseDatos.resultado.getString("OBSERVACION"));
+//                resoluciones.setTipo(ClaseBaseDatos.resultado.getString("TIPO"));
+//                resoluciones.setVehiculo(ClaseBaseDatos.resultado.getString("VEHICULO"));
+//                resoluciones.setIsfindesemana(ClaseBaseDatos.resultado.getBoolean("ISFINDESEMANA"));
+//                resoluciones.setResolucionPK(resolucionesPK);
+//
+//                listResoluciones.add(resoluciones);
+//            }
+//            return listResoluciones;
+//        } catch (SQLException ex) {
+//            ClaseMensaje.errorFind(this.toString(), ex.toString());
+//            return null;
+//        }
+//    }
 
     public DefaultComboBoxModel COMBOIdNombreInResolucionBy() {
         DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();

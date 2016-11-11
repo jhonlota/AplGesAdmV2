@@ -415,7 +415,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
         } else {
             lista = panelComprobantes.listaComprobante;
             
-            panelPrincipal.metodoMostrar();
+            panelPrincipal.metodoMostrar(lista);
             
             posicion = panelComprobantes.posicion;
             ClaseGeneral.comprobantes = (Comprobantes) lista.get(posicion);

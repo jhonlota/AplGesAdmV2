@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractualServicios_subreport4" language="groovy" pageWidth="753" pageHeight="14" columnWidth="713" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractualServicios_subreport4" language="groovy" pageWidth="753" pageHeight="15" columnWidth="713" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="a8be3a57-eb8d-42f3-835b-466a88b755f7">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -40,14 +40,14 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="14" splitType="Stretch">
+		<band height="15" splitType="Stretch">
 			<printWhenExpression><![CDATA[( $V{COLUMN_COUNT} <= 8 ? true : false )]]></printWhenExpression>
 			<textField isBlankWhenNull="true">
-				<reportElement x="18" y="0" width="690" height="13"/>
+				<reportElement uuid="b50fb98f-12de-4f75-838e-5435c1c29836" x="18" y="0" width="690" height="14"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{CUBS_DESCRIPCION}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CUBS_DESCRIPCION}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

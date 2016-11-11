@@ -2,12 +2,62 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1132" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1dff2f7-1a7b-4e7a-8338-fb7503d22907">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="254"/>
+	<property name="ireport.y" value="455"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset_CUBS" uuid="31618a6e-9a68-48b0-a173-3ef2f45165a5">
+		<parameter name="CONTRATO" class="java.lang.String">
+			<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     CUBS.DESCRIPCION AS "CUBS_DESCRIPCION",
+     CUBS.FKCONTRATO AS "CUBS_FKCONTRATO",
+     CUBS.CANTIDAD AS "CUBS_CANTIDAD",
+     CUBS.CERTIFICADO AS "CUBS_CERTIFICADO",
+     CUBS.CODIGO AS "CUBS_CODIGO",
+     CUBS.VALOR AS "CUBS_VALOR",
+     CUBS.VALORSINIVA AS "CUBS_VALORSINIVA",
+     CUBS.VALORTOTAL AS "CUBS_VALORTOTAL",
+     CUBS.VALORTOTALSINIVA AS "CUBS_VALORTOTALSINIVA"
+FROM
+     CUBS
+WHERE
+     CUBS.FKCONTRATO = $P{CONTRATO} ]]>
+		</queryString>
+		<field name="CUBS_DESCRIPCION" class="java.lang.String"/>
+		<field name="CUBS_FKCONTRATO" class="java.lang.String"/>
+		<field name="CUBS_CANTIDAD" class="java.lang.Long"/>
+		<field name="CUBS_CERTIFICADO" class="java.lang.String"/>
+		<field name="CUBS_CODIGO" class="java.lang.String"/>
+		<field name="CUBS_VALOR" class="java.lang.Long"/>
+		<field name="CUBS_VALORSINIVA" class="java.lang.Long"/>
+		<field name="CUBS_VALORTOTAL" class="java.lang.Long"/>
+		<field name="CUBS_VALORTOTALSINIVA" class="java.lang.Long"/>
+	</subDataset>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AGA\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT

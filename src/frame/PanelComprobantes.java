@@ -1689,7 +1689,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         }
     }
 
-    public void metodoMostrar() {//Luego de buscar que muestre la informacion
+    public void metodoMostrar(List lista) {//Luego de buscar que muestre la informacion
         ClaseGeneral.comprobantes = new Comprobantes();
 
         jTable.getColumnModel().getColumn(2).setCellRenderer(informacion.modeloDerecha);

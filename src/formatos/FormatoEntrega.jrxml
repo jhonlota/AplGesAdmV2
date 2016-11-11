@@ -14,10 +14,15 @@
      OBSERVACIONESCUENTAS.OBSERVACION AS "OBSERVACIONESCUENTAS_OBSERVACI",
      CUENTAS.EGRESO AS "CUENTAS_EGRESO",
      CUENTAS.FKTERCERO AS "CUENTAS_FKTERCERO",
-     CUENTAS.SOPORTE AS "CUENTAS_SOPORTE"
+     CUENTAS.SOPORTE AS "CUENTAS_SOPORTE",
+     CALIFICACION.TRAMITE AS "CALIFICACION_TRAMITE",
+     CASE
+          WHEN CALIFICACION.TRAMITE is null THEN 'vacio'
+          ELSE 'ok'
+     END
 FROM
      CUENTAS INNER JOIN OBSERVACIONESCUENTAS ON CUENTAS.SOPORTE = OBSERVACIONESCUENTAS.FKCUENTA
-     INNER JOIN CALIFICACION ON CUENTAS.SOPORTE = CALIFICACION.TRAMITE
+     LEFT JOIN CALIFICACION ON CUENTAS.SOPORTE = CALIFICACION.TRAMITE
 WHERE
      TO_CHAR (OBSERVACIONESCUENTAS.FECHA, 'yyyy-mm-dd') LIKE $P{FECHA}
      AND OBSERVACIONESCUENTAS.OBSERVACION LIKE '%ENTREGA PRESUPUESTO%'
@@ -27,7 +32,8 @@ GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
      OBSERVACIONESCUENTAS.OBSERVACION,
      CUENTAS.EGRESO,
      CUENTAS.FKTERCERO,
-     CUENTAS.SOPORTE]]>
+     CUENTAS.SOPORTE,
+     CALIFICACION.TRAMITE]]>
 	</queryString>
 	<field name="OBSERVACIONESCUENTAS_FKCUENTA" class="java.lang.String"/>
 	<field name="OBSERVACIONESCUENTAS_FECHA" class="java.lang.String"/>
@@ -36,6 +42,8 @@ GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
 	<field name="CUENTAS_EGRESO" class="java.lang.Long"/>
 	<field name="CUENTAS_FKTERCERO" class="java.lang.String"/>
 	<field name="CUENTAS_SOPORTE" class="java.lang.String"/>
+	<field name="CALIFICACION_TRAMITE" class="java.lang.String"/>
+	<field name="case" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -124,7 +132,9 @@ GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
 				<textFieldExpression><![CDATA[$F{OBSERVACIONESCUENTAS_FKCUENTA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="c66c1748-9ade-4fc5-a961-884580f3da86" x="100" y="0" width="350" height="12"/>
+				<reportElement uuid="c66c1748-9ade-4fc5-a961-884580f3da86" x="100" y="0" width="350" height="12">
+					<printWhenExpression><![CDATA[$F{case}.equals( "ok" )]]></printWhenExpression>
+				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -138,7 +148,9 @@ GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
 				<textFieldExpression><![CDATA[$F{CUENTAS_EGRESO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="c66c1748-9ade-4fc5-a961-884580f3da86" x="100" y="12" width="350" height="12"/>
+				<reportElement uuid="c66c1748-9ade-4fc5-a961-884580f3da86" x="100" y="12" width="350" height="12">
+					<printWhenExpression><![CDATA[$F{case}.equals( "ok" )]]></printWhenExpression>
+				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -150,6 +162,15 @@ GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
 					<pen lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
+			<staticText>
+				<reportElement uuid="f9c2f383-0f1c-4007-abbc-6e63c3aa9d76" mode="Transparent" x="100" y="0" width="350" height="24">
+					<printWhenExpression><![CDATA[$F{case}.equals( "vacio" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ * CUENTA SIN CALIFICAR]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<summary>

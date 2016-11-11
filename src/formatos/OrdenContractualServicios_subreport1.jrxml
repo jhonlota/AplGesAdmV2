@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractualServicios_subreport1" language="groovy" pageWidth="753" pageHeight="80" columnWidth="713" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractualServicios_subreport1" language="groovy" pageWidth="753" pageHeight="45" columnWidth="713" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="c17bc93d-fecd-4f36-8e66-1716a4cc0b11">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -56,41 +56,36 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="80" splitType="Stretch">
+		<band height="45" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="0" y="5" width="406" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
+				<reportElement uuid="f1ec1a16-bdca-4b49-a826-f96731f0f44d" mode="Transparent" x="0" y="3" width="406" height="20"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="415" y="5" width="298" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_DIRECCION}]]></textFieldExpression>
+				<reportElement uuid="bd488999-b6f3-427a-be97-770189ed5b78" mode="Transparent" x="415" y="3" width="298" height="20"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{TERCEROS_DIRECCION}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="0" y="32" width="210" height="20"/>
+				<reportElement uuid="8504a7ab-c172-4bcf-9d3c-3d66316f7f43" mode="Transparent" x="0" y="24" width="210" height="20"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="215" y="32" width="220" height="20"/>
+				<reportElement uuid="4826a172-eb7e-4f5f-8ce3-4b7b71c766da" mode="Transparent" x="215" y="24" width="220" height="20"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_REGIMEN}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TERCEROS_REGIMEN}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="440" y="32" width="165" height="20"/>
+				<reportElement uuid="57294883-9acd-4a07-89af-7dd71199c9fe" mode="Transparent" x="440" y="24" width="165" height="20"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="625" y="32" width="88" height="20"/>
+				<reportElement uuid="c0ba3133-9964-4f29-8885-d2573f6e3ab3" mode="Transparent" x="625" y="24" width="88" height="20"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="0" y="60" width="406" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_PROFESION}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

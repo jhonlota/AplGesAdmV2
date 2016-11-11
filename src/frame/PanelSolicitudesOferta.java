@@ -74,7 +74,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jTextField5 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         jLabelFechaSolicitud = new javax.swing.JLabel();
         fechaelaboracion = new org.jdesktop.swingx.JXDatePicker();
         jLabel2 = new javax.swing.JLabel();
@@ -166,9 +165,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jTextField5.setOpaque(false);
         jTextField5.setPreferredSize(new java.awt.Dimension(495, 25));
         add(jTextField5);
-
-        jLabel6.setPreferredSize(new java.awt.Dimension(810, 10));
-        add(jLabel6);
 
         jLabelFechaSolicitud.setText("FECHA SOLICITUD : ");
         jLabelFechaSolicitud.setPreferredSize(new java.awt.Dimension(120, 25));
@@ -409,7 +405,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
 
         jTabbedPane.setBackground(ClaseGeneral.boton);
         jTabbedPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 190));
+        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 205));
 
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane.setPreferredSize(new java.awt.Dimension(810, 185));
@@ -2685,7 +2681,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAño;
