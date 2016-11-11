@@ -4,7 +4,7 @@
  */
 
 /*
- * IFrameContrato.java
+ * IFrameResoluciones.java
  *
  * Created on 4/01/2012, 09:52:57 AM
  */
@@ -14,7 +14,7 @@ import clases.ClaseBaseDatos;
 import clases.ClaseGeneral;
 import clases.ClaseInformacion;
 import clases.ClaseMensaje;
-import entidades.Soportescomprobantes;
+import entidades.Soportesresoluciones;
 import java.awt.Rectangle;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -27,17 +27,17 @@ import javax.swing.JOptionPane;
  *
  * @author Jhon Lopez
  */
-public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
+public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
 
     private List lista = new ArrayList();
     private int posicion;
-    private PanelSoportescomprobantes panelPrincipal = new PanelSoportescomprobantes();
+    private PanelSoportesresoluciones panelPrincipal = new PanelSoportesresoluciones();
     private ClaseBaseDatos datos = new ClaseBaseDatos();
 
     /**
      * Creates new form IFrameContrato
      */
-    public IFrameSoportescomprobantes() {
+    public IFrameSoportesresoluciones() {
         initComponents();
         //datos.conectar();
     }
@@ -246,7 +246,8 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
     private void botonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevoActionPerformed
         metodoLimpiar();
 
-        panelPrincipal = new PanelSoportescomprobantes();
+        panelPrincipal = new PanelSoportesresoluciones();
+        panelPrincipal.botonSeleccionarImputacion.setEnabled(true);
         jPanel.add(panelPrincipal, java.awt.BorderLayout.CENTER);
         jPanel.setVisible(false);
         jPanel.setVisible(true);
@@ -265,7 +266,7 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
                                 "" + panelPrincipal.actividad.getText(),
                                 "" + panelPrincipal.ccostos.getText())))) {
             panelPrincipal.metodoInsertar();
-            if (ClaseGeneral.controlSoportescomprobantes.verify(ClaseGeneral.soportescomprobantes)) {
+            if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
                 metodoLimpiar();
                 metodoEstado("guardar");
             } else {
@@ -279,17 +280,17 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
         metodoLimpiar();
 
-        panelPrincipal = new PanelSoportescomprobantes();
+        panelPrincipal = new PanelSoportesresoluciones();
         jPanel.add(panelPrincipal, java.awt.BorderLayout.CENTER);
         jPanel.setVisible(false);
         jPanel.setVisible(true);
         jToolBarConsultar.setVisible(true);
 
-        lista = ClaseGeneral.controlSoportescomprobantes.findAllInSoportescomprobantesByFkcomprobanteAno(ClaseGeneral.comprobantes.getId(), ClaseGeneral.comprobantes.getAno());
+        lista = ClaseGeneral.controlSoportesresoluciones.findAllInSoportesresolucionesByFkresolucionAno(ClaseGeneral.resoluciones.getResolucionPK().getId(), ClaseGeneral.resoluciones.getResolucionPK().getAno());
 
         if (!lista.isEmpty()) {
             posicion = 0;
-            ClaseGeneral.soportescomprobantes = (Soportescomprobantes) lista.get(posicion);
+            ClaseGeneral.soportesresoluciones = (Soportesresoluciones) lista.get(posicion);
             panelPrincipal.metodoConsultar();
         } else {
             posicion = -1;
@@ -314,7 +315,7 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
             if (!lista.isEmpty()) {
                 panelPrincipal.metodoActualizar();
             }
-            if (ClaseGeneral.controlSoportescomprobantes.verify(ClaseGeneral.soportescomprobantes)) {
+            if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
                 metodoLimpiar();
                 metodoEstado("actualizar");
             } else {
@@ -349,7 +350,7 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
                 posicion = lista.size() - 1;
             }
             textoPosicionBuscar.setText((posicion + 1) + " / " + lista.size());
-            ClaseGeneral.soportescomprobantes = (Soportescomprobantes) lista.get(posicion);
+            ClaseGeneral.soportesresoluciones = (Soportesresoluciones) lista.get(posicion);
             panelPrincipal.metodoConsultar();
             Rectangle r = panelPrincipal.jTable.getCellRect(posicion, 0, true);
             panelPrincipal.jScrollPane.getViewport().scrollRectToVisible(r);
@@ -368,7 +369,7 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
                 posicion = -1;
             }
             textoPosicionBuscar.setText((posicion + 1) + " / " + lista.size());
-            ClaseGeneral.soportescomprobantes = (Soportescomprobantes) lista.get(posicion);
+            ClaseGeneral.soportesresoluciones = (Soportesresoluciones) lista.get(posicion);
             panelPrincipal.metodoConsultar();
             Rectangle r = panelPrincipal.jTable.getCellRect(posicion, 0, true);
             panelPrincipal.jScrollPane.getViewport().scrollRectToVisible(r);
@@ -419,8 +420,9 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
             } else {
                 botonReiniciar.setBackground(ClaseGeneral.gris);
             }
+            
         } catch (SQLException ex) {
-            Logger.getLogger(IFrameSoportescomprobantes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IFrameSoportesresoluciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

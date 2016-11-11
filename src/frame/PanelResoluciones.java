@@ -418,6 +418,7 @@ public class PanelResoluciones extends javax.swing.JPanel {
     private void botonBuscarFkterceroordenadorgastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarFkterceroordenadorgastoActionPerformed
         javax.swing.JButton componente = (javax.swing.JButton) evt.getSource();
         String eventoFktercero = componente.getName();
+        System.out.println("EVENTO = "+eventoFktercero);
         ExternoPanelFktercero panelFktercero = new ExternoPanelFktercero();
         ClaseMensaje.panel(panelFktercero);
 

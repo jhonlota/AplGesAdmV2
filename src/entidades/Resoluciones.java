@@ -3,9 +3,9 @@ package entidades;
 import java.util.Date;
 
 public class Resoluciones {
-
-    public String tabla = "resolucion(acuerdo, ano, fecha, fechainicio, fechaterminacion, fkterceroordenadorgasto, observacion, tipo, vehiculo, isfindesemana)";//id, 
     protected ResolucionesPK resolucionPK = new ResolucionesPK();
+    private int id;
+    private int ano;
     private String acuerdo;
     private Date fecha;
     private Date fechainicio;
@@ -15,6 +15,7 @@ public class Resoluciones {
     private String tipo;
     private String vehiculo;
     private boolean isfindesemana;
+    public String tabla = "resolucion(acuerdo, ano, fecha, fechainicio, fechaterminacion, fkterceroordenadorgasto, observacion, tipo, vehiculo, isfindesemana)";//id, 
 
     public Resoluciones() {
     }
@@ -98,4 +99,22 @@ public class Resoluciones {
     public boolean getIsfindesemana() {
         return isfindesemana;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }  
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+    
+    
 }

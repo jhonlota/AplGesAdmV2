@@ -66,6 +66,35 @@
             }
 
         </script>
+
+        <script type="text/javascript">
+            function tabla(){
+                $(document).ready(function() {
+                $('.dataTables-example').DataTable({
+                    pageLength: 10,
+                    responsive: true,
+                    dom: '<"html5buttons"B>lTfgitp',
+                    buttons: [
+                        {extend: 'copy'},
+                        {extend: 'excel', title: 'Reporte'},
+                        {extend: 'pdf', title: 'Reporte'},
+                        {extend: 'print',
+                            customize: function(win) {
+                                $(win.document.body).addClass('white-bg');
+                                $(win.document.body).css('font-size', '10px');
+
+                                $(win.document.body).find('table')
+                                        .addClass('compact')
+                                        .css('font-size', 'inherit');
+                            }
+                        }
+                    ]
+
+                });
+
+            });
+            }      
+        </script>
     </head>
     <body class="top-navigation">
 
@@ -93,7 +122,7 @@
                                             <button class="btn btn-danger" type="submit">Consultar</button>
                                         </form>
                                         <div id="divtercero">
-                                            
+
                                         </div>
                                         <script type="text/javascript">
                                             $(document).ready(function() {
@@ -124,6 +153,7 @@
                                                             $('#columnacomprobantes').show();
                                                             checkbox();
                                                             datepicker();
+                                                            tabla();
                                                         }
                                                     });
                                                 });
@@ -136,7 +166,7 @@
                         </div>
                         <div class="row" id="columnacontratos" style="display: none">
                             <div class="col-lg-12">
-                                <div class="ibox">
+                                <div class="ibox collapsed">
                                     <div class="ibox-title">
                                         <h5>Contratos</h5>
                                         <div class="ibox-tools">
@@ -154,7 +184,7 @@
 
                         <div class="row" id="columnacuentas" style="display: none">
                             <div class="col-lg-12">
-                                <div class="ibox">
+                                <div class="ibox collapsed">
                                     <div class="ibox-title">
                                         <h5>Cuentas</h5>
                                         <div class="ibox-tools">
@@ -163,7 +193,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    
+
                                     <div id="informacion" class="alert alert-success" role="alert" style="display: none"></div>
                                     <div id="error" class="alert alert-danger" role="alert" style="display: none"></div>
 
@@ -177,7 +207,7 @@
 
                         <div class="row" id="columnacomprobantes" style="display: none">
                             <div class="col-lg-12">
-                                <div class="ibox">
+                                <div class="ibox collapsed">
                                     <div class="ibox-title">
                                         <h5>Comprobantes</h5>
                                         <div class="ibox-tools">

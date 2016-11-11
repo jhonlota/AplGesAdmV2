@@ -46,6 +46,8 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
      */
     private IFrameSolicitudesoferta solicitudesoferta;
     private IFrameBienessolicitudesoferta bienessolicitudesoferta;
+    
+    private IFrameSoportesresoluciones soportesresoluciones;
 
     private IFrameAnexoscontratos anexoscontratos;
     private IFrameAnexosterceros anexosterceros;
@@ -221,6 +223,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         /**********/
         solicitudesoferta.setResizable(false);
         bienessolicitudesoferta.setResizable(false);
+        soportesresoluciones.setResizable(false);
         /*********/
 
         jDesktopPane.add(anexoscontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -249,6 +252,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         /*********/
         jDesktopPane.add(solicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(bienessolicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(soportesresoluciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
         /********/
         getContentPane().add(jDesktopPane, java.awt.BorderLayout.CENTER);
 
@@ -410,9 +414,9 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
             String padre = "" + jTree.getSelectionPath().getPathComponent(1);
             String padreDos = "" + jTree.getSelectionPath().getPathComponent(2);
             String hijo = "" + jTree.getSelectionPath().getLastPathComponent();
-//            System.err.println(padre);
-//            System.err.println("*" + padreDos);
-//            System.err.println("+++" + hijo);
+            System.err.println(padre);
+            System.err.println("*" + padreDos);
+            System.err.println("+++" + hijo);
 
             metodoEntidadSeleccionada(padre, hijo);
 
@@ -544,10 +548,11 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     resolucion.metodoLimpiar();
                 } else if (hijo.equals("Soportes")
                         && ClaseGeneral.resoluciones.getResolucionPK().getId() > 0) {
-//                    tercerosresoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-//                    tercerosresoluciones.setVisible(true);
-//                    tercerosresoluciones.metodoEstado("reiniciar");
-//                    tercerosresoluciones.metodoLimpiar();
+                    System.out.println("ClaseGeneral.resoluciones.getResolucionPK().getId() = "+ClaseGeneral.resoluciones.getResolucionPK().getId());
+                    soportesresoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    soportesresoluciones.setVisible(true);
+                    soportesresoluciones.metodoEstado("reiniciar");
+                    soportesresoluciones.metodoLimpiar();
                 }
             } else if (padre.equals("Gastos Facultad")) {
                 if (hijo.equals("Cuentas *")) {
@@ -942,6 +947,10 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                 bienessolicitudesoferta = new IFrameBienessolicitudesoferta();
                 System.out.println("*** IFrameBienessolicitudesoferta()");
                 break;
+            case 25:
+                soportesresoluciones = new IFrameSoportesresoluciones();
+                System.out.println("*** IFrameSoportesresoluciones()");
+                break;
         }
     }
 
@@ -973,6 +982,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
          */
         solicitudesoferta.setVisible(false);
         bienessolicitudesoferta.setVisible(false);
+        soportesresoluciones.setVisible(false);
         /**
          * *********
          */
@@ -1097,7 +1107,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         @Override
         public void run() {
             int min = 1;
-            int max = 24;//**// IMPORTANTE
+            int max = 25;//**// IMPORTANTE
 
             FrameInicio.jProgressBar.setValue(min);
             FrameInicio.jProgressBar.setMinimum(min);

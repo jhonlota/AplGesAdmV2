@@ -167,6 +167,7 @@ public class ExternoPanelFktercero extends javax.swing.JPanel {
             fktercero = "" + laLista.getSelectedValue();
         }
 }//GEN-LAST:event_listaValueChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField idFktercero;
     private javax.swing.JLabel jLabel1;
