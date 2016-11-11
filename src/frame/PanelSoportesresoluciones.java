@@ -12,11 +12,14 @@ package frame;
 
 import clases.ClaseGeneral;
 import clases.ClaseInformacion;
+import clases.ClaseMensaje;
 import entidades.Soportesresoluciones;
 import entidades.SoportesresolucionesPK;
+import entidades.Terceros;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -29,6 +32,7 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
 
     private List lista = new ArrayList();
     private ClaseInformacion informacion = new ClaseInformacion();
+    private List listaImputacion = new ArrayList();
 
     /**
      * Creates new form PanelSoportesresolucionesContratos
@@ -44,7 +48,7 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         AutoCompleteDecorator.decorate(cinfo);
         AutoCompleteDecorator.decorate(cuentainterna);
 
-        fkresolucion.setText("" + ClaseGeneral.resoluciones.getId());
+        fkresolucion.setText("" + ClaseGeneral.resoluciones.getResolucionPK().getId());
         metodoMostrar();
     }
 
@@ -62,9 +66,10 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         fkresolucion = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
         jSeparator16 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        tipoSoporte = new javax.swing.JComboBox();
-        jTextField15 = new javax.swing.JTextField();
+        botonSeleccionarImputacion = new javax.swing.JButton();
+        jLabel75 = new javax.swing.JLabel();
+        jSeparator17 = new javax.swing.JSeparator();
+        jTextField3 = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -81,8 +86,6 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         cinfo = new javax.swing.JComboBox();
         cuentainterna = new javax.swing.JComboBox();
         valor = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        valorTotal = new javax.swing.JTextField();
         jLabel74 = new javax.swing.JLabel();
         jScrollPane = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
@@ -114,22 +117,33 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         jSeparator16.setPreferredSize(new java.awt.Dimension(20, 25));
         add(jSeparator16);
 
-        jLabel2.setText("TIPO DE SOPORTE : ");
-        jLabel2.setPreferredSize(new java.awt.Dimension(125, 25));
-        add(jLabel2);
+        botonSeleccionarImputacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
+        botonSeleccionarImputacion.setText("Seleccionar Imputación");
+        botonSeleccionarImputacion.setFocusable(false);
+        botonSeleccionarImputacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        botonSeleccionarImputacion.setName("botonSeleccionarImputacion"); // NOI18N
+        botonSeleccionarImputacion.setPreferredSize(new java.awt.Dimension(200, 24));
+        botonSeleccionarImputacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSeleccionarImputacionActionPerformed(evt);
+            }
+        });
+        add(botonSeleccionarImputacion);
 
-        tipoSoporte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipoSoporte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "OG: ORDEN DE GASTO", "FR: FONDO RENOVABLE", "CM: CAJA MENOR" }));
-        tipoSoporte.setPreferredSize(new java.awt.Dimension(150, 25));
-        add(tipoSoporte);
+        jLabel75.setPreferredSize(new java.awt.Dimension(20, 25));
+        add(jLabel75);
 
-        jTextField15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField15.setEnabled(false);
-        jTextField15.setFocusable(false);
-        jTextField15.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField15.setOpaque(false);
-        jTextField15.setPreferredSize(new java.awt.Dimension(425, 25));
-        add(jTextField15);
+        jSeparator17.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator17.setPreferredSize(new java.awt.Dimension(20, 25));
+        add(jSeparator17);
+
+        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField3.setEnabled(false);
+        jTextField3.setFocusable(false);
+        jTextField3.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField3.setOpaque(false);
+        jTextField3.setPreferredSize(new java.awt.Dimension(220, 25));
+        add(jTextField3);
 
         jLabel72.setPreferredSize(new java.awt.Dimension(810, 25));
         add(jLabel72);
@@ -258,23 +272,6 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         jPanel1.add(valor);
 
         add(jPanel1);
-
-        jTextField16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField16.setEnabled(false);
-        jTextField16.setFocusable(false);
-        jTextField16.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField16.setOpaque(false);
-        jTextField16.setPreferredSize(new java.awt.Dimension(635, 25));
-        add(jTextField16);
-
-        valorTotal.setBackground(ClaseGeneral.verde);
-        valorTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        valorTotal.setForeground(new java.awt.Color(255, 0, 0));
-        valorTotal.setText("0");
-        valorTotal.setFocusable(false);
-        valorTotal.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        valorTotal.setPreferredSize(new java.awt.Dimension(170, 25));
-        add(valorTotal);
 
         jLabel74.setPreferredSize(new java.awt.Dimension(810, 25));
         add(jLabel74);
@@ -412,12 +409,36 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TextFieldKeyReleased
 
+    private void botonSeleccionarImputacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarImputacionActionPerformed
+        javax.swing.JButton componente = (javax.swing.JButton) evt.getSource();
+        String evento = componente.getName();
+        ExternoPanelBuscarImputacion panelBuscarImputacion = new ExternoPanelBuscarImputacion();
+        ClaseMensaje.panel(panelBuscarImputacion);
+
+        if (evento.equals("botonSeleccionarImputacion")) {
+            if (!panelBuscarImputacion.soporte.equals("Seleccione - ")) {
+                StringTokenizer st = new StringTokenizer(panelBuscarImputacion.soporte.trim(), "-");
+                while (st.hasMoreTokens()) {
+                    listaImputacion.add(st.nextToken().trim());
+                }
+                cuenta.setText("" + listaImputacion.get(0));
+                actividad.setText("" + listaImputacion.get(1));
+                subgrupo.setSelectedItem("" + listaImputacion.get(2));
+                ccostos.setText("" + listaImputacion.get(3));
+                cinfo.setSelectedItem("" + listaImputacion.get(4));
+                cuentainterna.setSelectedItem("" + listaImputacion.get(5));
+                valor.setText("" + listaImputacion.get(6));
+            }
+        }
+    }//GEN-LAST:event_botonSeleccionarImputacionActionPerformed
+
     public void metodoInsertar() {
         ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
         ClaseGeneral.soportesresolucionesPK = new SoportesresolucionesPK();
         ClaseGeneral.soportesresolucionesPK.setFkresolucion(Integer.parseInt("" + fkresolucion.getText()));
         ClaseGeneral.soportesresolucionesPK.setId(0);
-        ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getAno());
+        ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getResolucionPK().getAno());
+//        ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getAno());
         ClaseGeneral.soportesresoluciones.setSoportesresolucionesPK(ClaseGeneral.soportesresolucionesPK);
         ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
         ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
@@ -530,10 +551,10 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         jTable.getColumnModel().getColumn(4).setPreferredWidth(110);
         jTable.getColumnModel().getColumn(5).setPreferredWidth(110);
         jTable.getColumnModel().getColumn(6).setPreferredWidth(150);
-        valorTotal.setText("" + ClaseInformacion.formatoDecimal.format(valTotal));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextField actividad;
+    public javax.swing.JButton botonSeleccionarImputacion;
     public javax.swing.JTextField ccostos;
     public javax.swing.JComboBox cinfo;
     public javax.swing.JTextField cuenta;
@@ -541,7 +562,6 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
     private javax.swing.JTextField fkresolucion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -550,17 +570,16 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JScrollPane jScrollPane;
     private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
     public javax.swing.JTable jTable;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField3;
     public javax.swing.JComboBox subgrupo;
-    private javax.swing.JComboBox tipoSoporte;
     private javax.swing.JTextField valor;
-    private javax.swing.JTextField valorTotal;
     // End of variables declaration//GEN-END:variables
 }

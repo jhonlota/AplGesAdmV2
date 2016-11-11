@@ -546,7 +546,9 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     resolucion.setVisible(true);
                     resolucion.metodoEstado("reiniciar");
                     resolucion.metodoLimpiar();
-                } else if (hijo.equals("Soportes")) {
+                } else if (hijo.equals("Soportes")
+                        && ClaseGeneral.resoluciones.getResolucionPK().getId() > 0) {
+                    System.out.println("ClaseGeneral.resoluciones.getResolucionPK().getId() = "+ClaseGeneral.resoluciones.getResolucionPK().getId());
                     soportesresoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     soportesresoluciones.setVisible(true);
                     soportesresoluciones.metodoEstado("reiniciar");

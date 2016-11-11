@@ -14,6 +14,7 @@ import frame.ExternoPanelImportar;
 import frame.ExternoPanelContrasena;
 import frame.ExternoPanelCodigocubs;
 import frame.ExternoPanelAccionesContratos;
+import frame.ExternoPanelBuscarImputacion;
 import frame.ExternoPanelCalificacionTramites;
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -182,7 +183,7 @@ public class ClaseMensaje {
         JDialog.setDefaultLookAndFeelDecorated(true);
         JOptionPane.showMessageDialog(null, panelFktercero, null, JOptionPane.PLAIN_MESSAGE);
     }
-
+    
     public static void panel(PanelReportes panelInformes) {
         JDialog.setDefaultLookAndFeelDecorated(true);
         JOptionPane.showMessageDialog(null, panelInformes, null, JOptionPane.PLAIN_MESSAGE);
@@ -191,5 +192,10 @@ public class ClaseMensaje {
     public static int panel(ExternoPanelImportar panelImportar) {
         JDialog.setDefaultLookAndFeelDecorated(true);
         return JOptionPane.showOptionDialog(null, panelImportar, null, JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
+    }
+    
+    public static void panel(ExternoPanelBuscarImputacion panelBuscarImputacion) {
+        JDialog.setDefaultLookAndFeelDecorated(true);
+        JOptionPane.showMessageDialog(null, panelBuscarImputacion, null, JOptionPane.PLAIN_MESSAGE);
     }
 }
