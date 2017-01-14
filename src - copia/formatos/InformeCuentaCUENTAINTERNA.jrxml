@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e5642153-5086-406e-9516-030d4b223f4f">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="291"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#FABEBE"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="CINFO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CUENTAINTERNA" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAINICIAL" class="java.util.Date">
+		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAFINAL" class="java.util.Date">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SOPORTESALDO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["#SALDO122011"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CUENTA" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBGRUPO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SOPORTE" class="java.lang.String">
+		<parameterDescription><![CDATA[En los casos que deseamos obtener en detalles los pagos reembolsados de una OG del Fonfo Renovable]]></parameterDescription>
+		<defaultValueExpression><![CDATA["%%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     CUENTAS.DOCUMENTO AS "CUENTAS_DOCUMENTO",
+     CUENTAS.CUENTACONTROL AS "CUENTAS_CUENTACONTROL",
+     CUENTAS.DESCRIPCION AS "CUENTAS_DESCRIPCION",
+     CUENTAS.EGRESO AS "CUENTAS_EGRESO",
+     CUENTAS.FECHADIGITACION AS "CUENTAS_FECHADIGITACION",
+     CUENTAS.FECHAPRESUPUESTAL AS "CUENTAS_FECHAPRESUPUESTAL",
+     CUENTAS.FECHATRANSACCION AS "CUENTAS_FECHATRANSACCION",
+     CUENTAS.FKTERCERO AS "CUENTAS_FKTERCERO",
+     CUENTAS.INGRESO AS "CUENTAS_INGRESO",
+     CUENTAS.SOPORTE AS "CUENTAS_SOPORTE",
+     SOPORTESCUENTAS.FKCUENTA AS "SOPORTESCUENTAS_FKCUENTA",
+     SOPORTESCUENTAS.ID AS "SOPORTESCUENTAS_ID",
+     SOPORTESCUENTAS.ACTIVIDAD AS "SOPORTESCUENTAS_ACTIVIDAD",
+     SOPORTESCUENTAS.CCOSTOS AS "SOPORTESCUENTAS_CCOSTOS",
+     SOPORTESCUENTAS.CINFO AS "SOPORTESCUENTAS_CINFO",
+     SOPORTESCUENTAS.CINGRESO AS "SOPORTESCUENTAS_CINGRESO",
+     SOPORTESCUENTAS.CUENTA AS "SOPORTESCUENTAS_CUENTA",
+     SOPORTESCUENTAS.CUENTAINTERNA AS "SOPORTESCUENTAS_CUENTAINTERNA",
+     SOPORTESCUENTAS.SUBGRUPO AS "SOPORTESCUENTAS_SUBGRUPO",
+     SOPORTESCUENTAS.VALOR AS "SOPORTESCUENTAS_VALOR"
+FROM
+     SOPORTESCUENTAS INNER JOIN CUENTAS ON SOPORTESCUENTAS.FKCUENTA = CUENTAS.SOPORTE
+WHERE
+     SOPORTESCUENTAS.CINFO LIKE $P{CINFO}
+ AND SOPORTESCUENTAS.CUENTAINTERNA LIKE $P{CUENTAINTERNA}
+ AND CUENTAS.SOPORTE LIKE $P{SOPORTE}
+ AND SOPORTESCUENTAS.CUENTA LIKE $P{CUENTA}
+ AND SOPORTESCUENTAS.SUBGRUPO LIKE $P{SUBGRUPO}
+ AND NOT(CUENTAS.SOPORTE LIKE '%#SALDO%')
+ AND CUENTAS.FECHAPRESUPUESTAL BETWEEN ($P{FECHAINICIAL}::DATE) AND ($P{FECHAFINAL}::DATE)
+ORDER BY SOPORTESCUENTAS.CUENTAINTERNA ASC, SOPORTESCUENTAS.CINFO ASC, CUENTAS.FECHAPRESUPUESTAL ASC]]>
+	</queryString>
+	<field name="CUENTAS_DOCUMENTO" class="java.lang.String"/>
+	<field name="CUENTAS_CUENTACONTROL" class="java.lang.String"/>
+	<field name="CUENTAS_DESCRIPCION" class="java.lang.String"/>
+	<field name="CUENTAS_EGRESO" class="java.lang.Long"/>
+	<field name="CUENTAS_FECHADIGITACION" class="java.sql.Date"/>
+	<field name="CUENTAS_FECHAPRESUPUESTAL" class="java.sql.Date"/>
+	<field name="CUENTAS_FECHATRANSACCION" class="java.sql.Date"/>
+	<field name="CUENTAS_FKTERCERO" class="java.lang.String"/>
+	<field name="CUENTAS_INGRESO" class="java.lang.Long"/>
+	<field name="CUENTAS_SOPORTE" class="java.lang.String"/>
+	<field name="SOPORTESCUENTAS_FKCUENTA" class="java.lang.String"/>
+	<field name="SOPORTESCUENTAS_ID" class="java.lang.Integer"/>
+	<field name="SOPORTESCUENTAS_ACTIVIDAD" class="java.lang.String"/>
+	<field name="SOPORTESCUENTAS_CCOSTOS" class="java.lang.String"/>
+	<field name="SOPORTESCUENTAS_CINFO" class="java.lang.String"/>
+	<field name="SOPORTESCUENTAS_CINGRESO" class="java.lang.String"/>
+	<field name="SOPORTESCUENTAS_CUENTA" class="java.lang.String"/>
+	<field name="SOPORTESCUENTAS_CUENTAINTERNA" class="java.lang.String"/>
+	<field name="SOPORTESCUENTAS_SUBGRUPO" class="java.lang.String"/>
+	<field name="SOPORTESCUENTAS_VALOR" class="java.lang.Long"/>
+	<variable name="INGRESO" class="java.lang.Long" resetType="Group" resetGroup="SOPORTESCUENTAS_CINFO" calculation="Sum">
+		<variableExpression><![CDATA[( $F{SOPORTESCUENTAS_CINGRESO} == '0' ? 0 :$F{SOPORTESCUENTAS_VALOR} )]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="EGRESO" class="java.lang.Long" resetType="Group" resetGroup="SOPORTESCUENTAS_CINFO" calculation="Sum">
+		<variableExpression><![CDATA[( $F{SOPORTESCUENTAS_SUBGRUPO} == '0' ? 0 :$F{SOPORTESCUENTAS_VALOR} )]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="TOTALINGRESO" class="java.lang.Long" resetType="Group" resetGroup="SOPORTESCUENTAS_CUENTAINTERNA" calculation="Sum">
+		<variableExpression><![CDATA[( $F{SOPORTESCUENTAS_CINGRESO} == '0' ? 0 :$F{SOPORTESCUENTAS_VALOR} )]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="TOTALEGRESO" class="java.lang.Long" resetType="Group" resetGroup="SOPORTESCUENTAS_CUENTAINTERNA" calculation="Sum">
+		<variableExpression><![CDATA[( $F{SOPORTESCUENTAS_SUBGRUPO} == '0' ? 0 :$F{SOPORTESCUENTAS_VALOR} )]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<group name="SOPORTESCUENTAS_CUENTAINTERNA">
+		<groupExpression><![CDATA[$F{SOPORTESCUENTAS_CUENTAINTERNA}]]></groupExpression>
+		<groupHeader>
+			<band height="60">
+				<frame>
+					<reportElement uuid="d26f0f14-8e1a-4f82-86a9-ac6aea1bd1ad" mode="Transparent" x="-21" y="7" width="843" height="24" forecolor="#000000" backcolor="#FA6464"/>
+					<rectangle>
+						<reportElement uuid="d57fe920-5f8a-40a6-872d-86420bedaaab" mode="Opaque" x="20" y="0" width="36" height="24" backcolor="#990000"/>
+						<graphicElement>
+							<pen lineWidth="0.0"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement uuid="171dc646-5bfe-4bcd-86fa-c8098e1fed7e" mode="Transparent" x="20" y="0" width="36" height="24" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="7" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+						</textElement>
+						<text><![CDATA[CUENTA INTERNA]]></text>
+					</staticText>
+					<rectangle>
+						<reportElement uuid="15c464a2-dd01-482b-91b4-6d7cea327d90" mode="Transparent" x="0" y="0" width="843" height="24"/>
+						<graphicElement>
+							<pen lineWidth="1.0"/>
+						</graphicElement>
+					</rectangle>
+				</frame>
+				<frame>
+					<reportElement uuid="1915b16d-3831-4d26-9422-ff7a2236b887" mode="Transparent" x="439" y="33" width="383" height="24" forecolor="#000000" backcolor="#FA6464"/>
+					<subreport>
+						<reportElement uuid="ccdb084a-2929-4e5d-9b85-0a1b61683d1c" x="171" y="2" width="192" height="20"/>
+						<subreportParameter name="CUENTAINTERNA">
+							<subreportParameterExpression><![CDATA[$F{SOPORTESCUENTAS_CUENTAINTERNA}]]></subreportParameterExpression>
+						</subreportParameter>
+						<subreportParameter name="SOPORTESALDO">
+							<subreportParameterExpression><![CDATA[$P{SOPORTESALDO}]]></subreportParameterExpression>
+						</subreportParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "InformeCuentaCUENTAINTERNA_subreport1.jasper"]]></subreportExpression>
+					</subreport>
+					<rectangle>
+						<reportElement uuid="e97c3101-03af-4925-80c2-a1bde24433ab" mode="Opaque" x="0" y="0" width="36" height="24" backcolor="#990000"/>
+						<graphicElement>
+							<pen lineWidth="0.0"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement uuid="b292ab4d-092b-4edd-a2e7-0d563e32c421" x="51" y="2" width="121" height="20"/>
+						<textElement verticalAlignment="Middle">
+							<font size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Saldo anterior : ]]></text>
+					</staticText>
+					<rectangle>
+						<reportElement uuid="d7f0e2a5-4825-41c6-8528-ab0954440dcd" mode="Transparent" x="0" y="0" width="383" height="24"/>
+						<graphicElement>
+							<pen lineWidth="1.0"/>
+						</graphicElement>
+					</rectangle>
+				</frame>
+				<subreport>
+					<reportElement uuid="31d4cf0d-a133-4f84-a47e-d2dd17e6479a" x="50" y="8" width="750" height="22"/>
+					<subreportParameter name="CODIGO">
+						<subreportParameterExpression><![CDATA[$F{SOPORTESCUENTAS_CUENTAINTERNA}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CUENTAINTERNA_subreport1.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="55">
+				<frame>
+					<reportElement uuid="cde21ed0-3ba2-45b3-b46d-a4161244f803" mode="Transparent" x="439" y="30" width="383" height="24" forecolor="#000000" backcolor="#FA6464"/>
+					<rectangle>
+						<reportElement uuid="416c01fc-ff5f-4ddb-a7ee-c4f86d637fd4" mode="Opaque" x="0" y="0" width="36" height="24" backcolor="#990000"/>
+						<graphicElement>
+							<pen lineWidth="0.0"/>
+						</graphicElement>
+					</rectangle>
+					<rectangle>
+						<reportElement uuid="2dfdefe9-7219-4faa-8a88-eb373830d215" mode="Transparent" x="0" y="0" width="383" height="24"/>
+						<graphicElement>
+							<pen lineWidth="1.0"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement uuid="08800700-1160-4be5-9ade-da54b80df073" x="50" y="2" width="120" height="20"/>
+						<textElement verticalAlignment="Middle">
+							<font size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Saldo actual : ]]></text>
+					</staticText>
+					<subreport>
+						<reportElement uuid="83529fce-27f3-4c5c-849c-eb4338a1ea9b" x="171" y="2" width="192" height="20"/>
+						<subreportParameter name="CUENTAINTERNA">
+							<subreportParameterExpression><![CDATA[$F{SOPORTESCUENTAS_CUENTAINTERNA}]]></subreportParameterExpression>
+						</subreportParameter>
+						<subreportParameter name="SOPORTESALDO">
+							<subreportParameterExpression><![CDATA[$P{SOPORTESALDO}]]></subreportParameterExpression>
+						</subreportParameter>
+						<subreportParameter name="TOTALCUENTAINTERNA">
+							<subreportParameterExpression><![CDATA[$V{TOTALINGRESO} - $V{TOTALEGRESO}]]></subreportParameterExpression>
+						</subreportParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "InformeCuentaCUENTAINTERNA_subreport1.jasper"]]></subreportExpression>
+					</subreport>
+				</frame>
+				<frame>
+					<reportElement uuid="9c0259a6-73f0-4f7c-bdd2-56717622516a" mode="Transparent" x="0" y="30" width="310" height="24" forecolor="#000000" backcolor="#FA6464"/>
+					<rectangle>
+						<reportElement uuid="e019fdc4-f4f8-4e54-bb51-227bcb9f3e90" mode="Opaque" x="0" y="0" width="36" height="24" backcolor="#666666"/>
+						<graphicElement>
+							<pen lineWidth="0.0"/>
+						</graphicElement>
+					</rectangle>
+					<rectangle>
+						<reportElement uuid="943ae12e-cd4e-4395-b47f-f9ed7a54a206" mode="Transparent" x="0" y="0" width="310" height="24"/>
+						<graphicElement>
+							<pen lineWidth="1.0"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement uuid="e97581d6-920f-4b5a-9a81-76eb19fdf65f" mode="Transparent" x="0" y="0" width="36" height="24" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="7" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+						</textElement>
+						<text><![CDATA[CUENTA INTERNA]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="9cb20637-fe2c-4692-89e9-c9ecbed56f76" x="50" y="2" width="90" height="20"/>
+						<textElement verticalAlignment="Middle">
+							<font size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Sumatoria : ]]></text>
+					</staticText>
+					<textField pattern="#,##0">
+						<reportElement uuid="5db5309b-74e3-44d3-a448-e6b19b340b61" x="140" y="2" width="167" height="22"/>
+						<textElement>
+							<font size="16" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{TOTALINGRESO} - $V{TOTALEGRESO}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<textField pattern="#,##0">
+					<reportElement uuid="df7f792b-2831-4f86-b5dc-970116b8007a" x="542" y="0" width="66" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TOTALEGRESO}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement uuid="5e2c3dbe-dc09-41f3-9854-cb3b5f326d6e" mode="Transparent" x="470" y="0" width="70" height="20"/>
+				</rectangle>
+				<textField pattern="#,##0">
+					<reportElement uuid="5c7f5e7c-be1c-45bd-884b-ccf95e229d75" x="472" y="0" width="66" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TOTALINGRESO}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement uuid="685accb5-bc09-4770-bc49-c8432a5c0514" mode="Transparent" x="540" y="0" width="70" height="20"/>
+				</rectangle>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="SOPORTESCUENTAS_CINFO" keepTogether="true">
+		<groupExpression><![CDATA[$F{SOPORTESCUENTAS_CINFO}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<subreport>
+					<reportElement uuid="6270fc7c-e345-44e0-a817-ade4f15926f7" x="50" y="5" width="750" height="22"/>
+					<subreportParameter name="CODIGO">
+						<subreportParameterExpression><![CDATA[$F{SOPORTESCUENTAS_CINFO}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CINFO_subreport1.jasper"]]></subreportExpression>
+				</subreport>
+				<rectangle>
+					<reportElement uuid="c7768da4-e9a7-4768-a75e-39e243d18bc5" mode="Opaque" x="0" y="5" width="36" height="20" backcolor="#666666"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement uuid="351b5b2d-4f7c-4c18-abf9-5a066012f62c" mode="Transparent" x="0" y="6" width="36" height="19" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[C. INFO]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<textField pattern="#,##0">
+					<reportElement uuid="5c7f5e7c-be1c-45bd-884b-ccf95e229d75" x="472" y="0" width="66" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{INGRESO}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0">
+					<reportElement uuid="df7f792b-2831-4f86-b5dc-970116b8007a" x="542" y="0" width="66" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+						<paragraph leftIndent="4"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{EGRESO}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement uuid="685accb5-bc09-4770-bc49-c8432a5c0514" mode="Transparent" x="540" y="0" width="70" height="20"/>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="5e2c3dbe-dc09-41f3-9854-cb3b5f326d6e" mode="Transparent" x="470" y="0" width="70" height="20"/>
+				</rectangle>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<image>
+				<reportElement uuid="ca92bb7d-2412-4914-b442-978879637384" x="0" y="0" width="42" height="60"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Univalle.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd">
+				<reportElement uuid="b9bd507b-402d-4cf2-a310-ad646229b30c" style="Detail" x="610" y="40" width="90" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAINICIAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd">
+				<reportElement uuid="aca94270-d77f-4af6-8e29-e2e68b65b380" style="Detail" x="711" y="40" width="90" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAFINAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7b5c6c52-8bb8-4394-99ed-1cb038fc332a" x="611" y="20" width="91" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CUENTA}.replace( "%", "" )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9d8d780e-d5a2-4894-8495-225443ebddf9" x="50" y="0" width="752" height="60"/>
+				<textElement>
+					<font size="15" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS
+COORDINACIÓN DE ÁREA ADMINISTRATIVA
+MOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ee0abcde-f5b1-4bcd-9fa2-2705fcbcaa1c" x="540" y="40" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6eca7895-35c4-44ec-a93f-8e5a5d4d8f7f" x="540" y="20" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuenta : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e3d6fcfb-5afe-48ea-b440-cd30fe71b88b" x="700" y="40" width="11" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[//]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="e8148d36-abcc-4fd5-ae7e-27954d38494f" mode="Transparent" x="610" y="40" width="192" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="cb5b3b3d-50d1-497e-8b47-07e346f8e76a" mode="Opaque" x="490" y="40" width="36" height="20" backcolor="#666666"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="863473c2-2935-491b-8e3c-fb0476a55633" mode="Transparent" x="610" y="20" width="92" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="5f5785e4-996a-4799-8fe7-4e3de743fc4c" mode="Opaque" x="490" y="20" width="36" height="20" backcolor="#990000"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement uuid="e8770e23-1931-4e8e-bb55-18ce144fd453" mode="Opaque" x="0" y="0" width="802" height="20" forecolor="#000000" backcolor="#666666"/>
+				<staticText>
+					<reportElement uuid="f3514ba1-7381-462a-a526-8d146f2955d2" style="Column header" x="0" y="0" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[DOCUMENTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="b7b32f99-8ed4-45ce-945a-f03673a4dd3b" style="Column header" x="610" y="0" width="192" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[DESCRIPCION]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0869452c-8abe-43b4-b2dd-3320761ae03a" style="Column header" x="310" y="0" width="60" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[FECHA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="2570b0a3-1885-456c-b4b9-d417cbf40676" style="Column header" x="80" y="0" width="160" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[TERCERO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a1faf0e7-272b-408a-8b6f-7e098e28fc2c" style="Column header" x="470" y="0" width="70" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[INGRESO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="c8277978-b643-4c9d-8b12-5c8c4c9f3f3f" style="Column header" x="240" y="0" width="70" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[SOPORTE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="79f4fb7a-65ba-46a9-8b49-8698854b5a6c" style="Column header" x="540" y="0" width="70" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[EGRESO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1271c671-b20b-418f-b6ce-1894336cf891" style="Column header" x="370" y="0" width="100" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[IMPUTACION]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement uuid="f065368b-e619-4a42-9640-a3ec8c89020f" mode="Transparent" x="0" y="0" width="80" height="20"/>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="dbf2e437-3192-4bd1-bd0b-d2ebb3c27511" mode="Transparent" x="80" y="0" width="160" height="20"/>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="a968d5cd-6226-4012-b3b0-d83408651731" mode="Transparent" x="240" y="0" width="70" height="20"/>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="ce4952cb-7bc2-4d08-af17-f24bf3423d45" mode="Transparent" x="310" y="0" width="60" height="20"/>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="5ad6abf8-99d8-4305-ab60-489fcfe040c5" mode="Transparent" x="370" y="0" width="100" height="20"/>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="01fa368b-0a67-4e17-93ee-a216b391ec5d" mode="Transparent" x="470" y="0" width="70" height="20"/>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="2456e953-6702-407d-85d4-e3c67a6c06d4" mode="Transparent" x="540" y="0" width="70" height="20"/>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="d569164a-6cf3-438c-958e-bebfd6bfb9b3" mode="Transparent" x="610" y="0" width="192" height="20"/>
+				</rectangle>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement uuid="00810601-cae8-49d4-913d-552a8ea9be4b" style="Row" mode="Opaque" x="0" y="0" width="802" height="15"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="6dbd6629-875c-4dbf-b20a-193814081055" style="Detail" x="2" y="0" width="76" height="15"/>
+					<textElement verticalAlignment="Top">
+						<font size="9"/>
+						<paragraph leftIndent="2" spacingBefore="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CUENTAS_DOCUMENTO}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="2d838586-6881-42a3-9078-fc70fcc6950c" style="Detail" x="82" y="0" width="156" height="15"/>
+					<textElement verticalAlignment="Top">
+						<font size="9"/>
+						<paragraph leftIndent="2" spacingBefore="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CUENTAS_FKTERCERO}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="741fe591-a919-4a34-95d2-a8529e0619d6" style="Detail" x="242" y="0" width="66" height="15"/>
+					<textElement verticalAlignment="Top">
+						<font size="9"/>
+						<paragraph leftIndent="2" spacingBefore="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CUENTAS_SOPORTE}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd" isBlankWhenNull="true">
+					<reportElement uuid="ba49dd13-f192-410e-9ac7-1fc503900515" style="Detail" x="312" y="0" width="56" height="15"/>
+					<textElement verticalAlignment="Top">
+						<font size="9"/>
+						<paragraph leftIndent="2" spacingBefore="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CUENTAS_FECHAPRESUPUESTAL}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="8b09575c-ef49-44ce-bd69-6545ca4b028d" style="Detail" x="372" y="0" width="96" height="15"/>
+					<textElement verticalAlignment="Top">
+						<font size="9"/>
+						<paragraph leftIndent="2" spacingBefore="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $F{SOPORTESCUENTAS_CUENTA}.equals("0") ? "" : $F{SOPORTESCUENTAS_CUENTA} + "-" ) + "" + ( $F{SOPORTESCUENTAS_ACTIVIDAD}.equals("0") ? "" : $F{SOPORTESCUENTAS_ACTIVIDAD} + "-" ) + "" + ( $F{SOPORTESCUENTAS_SUBGRUPO}.equals("0") ? "" : $F{SOPORTESCUENTAS_SUBGRUPO} ) + "" + ( $F{SOPORTESCUENTAS_CINGRESO}.equals("0") ? "" : $F{SOPORTESCUENTAS_CINGRESO} )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+					<reportElement uuid="58c37869-c27a-4740-92f0-295a40a93d37" style="Detail" x="472" y="0" width="66" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="9"/>
+						<paragraph leftIndent="2" spacingBefore="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $F{SOPORTESCUENTAS_CINGRESO} == '0' ? 0 :$F{SOPORTESCUENTAS_VALOR} )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+					<reportElement uuid="b4264454-043b-4c50-8d97-36b9b3b4307a" style="Detail" x="542" y="0" width="66" height="15"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="9"/>
+						<paragraph leftIndent="2" spacingBefore="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $F{SOPORTESCUENTAS_SUBGRUPO} == '0' ? 0 : $F{SOPORTESCUENTAS_VALOR} )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="d30ea1fd-d2cf-4cf7-ab2a-8e9eaa8d423e" style="Detail" x="612" y="0" width="188" height="15"/>
+					<textElement verticalAlignment="Top">
+						<font size="9"/>
+						<paragraph leftIndent="2" spacingBefore="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CUENTAS_DESCRIPCION}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement uuid="7e7d5902-7a19-447a-8973-0a79640ab1e4" stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="80" height="15"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Dotted"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="01b28fa8-58bd-4cf6-bd53-89284fc2e298" stretchType="RelativeToBandHeight" mode="Transparent" x="80" y="0" width="160" height="15"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Dotted"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="6fa9ae49-8ac7-430d-b047-55e4b1142946" stretchType="RelativeToBandHeight" mode="Transparent" x="240" y="0" width="70" height="15"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Dotted"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="f48e764d-69eb-4fef-9354-286b4fb539f9" stretchType="RelativeToBandHeight" mode="Transparent" x="310" y="0" width="60" height="15"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Dotted"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="92d3d491-6ed5-465d-a354-fe40cc9a8136" stretchType="RelativeToBandHeight" mode="Transparent" x="370" y="0" width="100" height="15"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Dotted"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="c38ab307-35fd-4ecd-87fd-694d21a15342" stretchType="RelativeToBandHeight" mode="Transparent" x="470" y="0" width="70" height="15"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Dotted"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="2ec1c476-0511-4dd8-a79f-0603ab5499b7" stretchType="RelativeToBandHeight" mode="Transparent" x="540" y="0" width="70" height="15"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Dotted"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement uuid="6e24634e-c8d8-48fe-bc86-0e9b038113ac" stretchType="RelativeToBandHeight" mode="Transparent" x="610" y="0" width="192" height="15"/>
+					<graphicElement>
+						<pen lineWidth="1.0" lineStyle="Dotted"/>
+					</graphicElement>
+				</rectangle>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch">
+			<line>
+				<reportElement uuid="f37f1ddb-b5ce-4a60-b39f-70b01c003e0b" positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="83c6ff3c-2f99-48e0-84dd-be0b2f066a78" mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textField>
+					<reportElement uuid="27c2585a-2715-4d36-ad8b-45015c3e513a" style="Column header" x="683" y="1" width="90" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement uuid="0a7a3237-84b3-4498-ab27-db8486603f73" style="Column header" x="773" y="1" width="50" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="85b3d23b-28e0-4eeb-918d-36a0be0d1a3b" style="Column header" x="22" y="1" width="197" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

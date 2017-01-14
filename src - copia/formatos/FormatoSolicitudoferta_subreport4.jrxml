@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudCuenta_subreport1" language="groovy" pageWidth="710" pageHeight="100" columnWidth="710" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
+	<property name="ireport.zoom" value="1.331000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     TERCEROS.NOMBREREPRESENTANTE AS "TERCEROS_NOMBREREPRESENTANTE",
+     TERCEROS.NOMBRE AS "TERCEROS_NOMBRE",
+     TERCEROS.TIPOID AS "TERCEROS_TIPOID",
+     TERCEROS.ID AS "TERCEROS_ID"
+FROM
+     TERCEROS
+WHERE
+     TERCEROS.ID = $P{ID}]]>
+	</queryString>
+	<field name="TERCEROS_NOMBREREPRESENTANTE" class="java.lang.String"/>
+	<field name="TERCEROS_NOMBRE" class="java.lang.String"/>
+	<field name="TERCEROS_TIPOID" class="java.lang.String"/>
+	<field name="TERCEROS_ID" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Prevent">
+			<rectangle>
+				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="0" width="185" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="20" width="185" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="0" width="185" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Representante Legal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="20" width="185" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Nombre Sociedad]]></text>
+			</staticText>
+			<rectangle radius="0">
+				<reportElement uuid="7879f6fe-91b1-4405-907e-71f8d05f3745" x="185" y="0" width="526" height="20"/>
+			</rectangle>
+			<rectangle radius="0">
+				<reportElement uuid="7879f6fe-91b1-4405-907e-71f8d05f3745" x="185" y="20" width="526" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="40" width="185" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="40" width="185" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Tipo de Identificación]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="185" y="40" width="125" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="310" y="40" width="39" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="310" y="40" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Nro.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="349" y="40" width="362" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="0" width="527" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+					<paragraph leftIndent="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_NOMBREREPRESENTANTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="20" width="527" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+					<paragraph leftIndent="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="40" width="125" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+					<paragraph leftIndent="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_TIPOID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="349" y="40" width="361" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+					<paragraph leftIndent="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

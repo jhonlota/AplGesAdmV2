@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1044" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
+	<property name="ireport.zoom" value="0.7513148009015777"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     COMPROBANTES.ID AS "COMPROBANTES_ID",
+     COMPROBANTES.COMPROBANTE AS "COMPROBANTES_COMPROBANTE",
+     COMPROBANTES.FECHAAPLICACION AS "COMPROBANTES_FECHAAPLICACION",
+     COMPROBANTES.FECHAELABORACION AS "COMPROBANTES_FECHAELABORACION",
+     COMPROBANTES.FECHAPAGO AS "COMPROBANTES_FECHAPAGO",
+     COMPROBANTES.FKTERCERO AS "COMPROBANTES_FKTERCERO",
+     COMPROBANTES.FKTERCEROFUNCIONARIO AS "COMPROBANTES_FKTERCEROFUNCIONA",
+     COMPROBANTES.OBSERVACION AS "COMPROBANTES_OBSERVACION",
+     COMPROBANTES.TIPOPAGO AS "COMPROBANTES_TIPOPAGO",
+     COMPROBANTES.VALOR AS "COMPROBANTES_VALOR"
+FROM
+     COMPROBANTES COMPROBANTES
+WHERE
+     COMPROBANTES.ID = $P{ID}
+     AND COMPROBANTES.ANO = $P{ANO}]]>
+	</queryString>
+	<field name="COMPROBANTES_ID" class="java.lang.Integer"/>
+	<field name="COMPROBANTES_COMPROBANTE" class="java.lang.Integer"/>
+	<field name="COMPROBANTES_FECHAAPLICACION" class="java.sql.Date"/>
+	<field name="COMPROBANTES_FECHAELABORACION" class="java.sql.Date"/>
+	<field name="COMPROBANTES_FECHAPAGO" class="java.sql.Date"/>
+	<field name="COMPROBANTES_FKTERCERO" class="java.lang.String"/>
+	<field name="COMPROBANTES_FKTERCEROFUNCIONA" class="java.lang.String"/>
+	<field name="COMPROBANTES_OBSERVACION" class="java.lang.String"/>
+	<field name="COMPROBANTES_TIPOPAGO" class="java.lang.String"/>
+	<field name="COMPROBANTES_VALOR" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="1004" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="866b81b7-ba8f-437a-b139-98bf9f26e286" mode="Transparent" x="596" y="135" width="45" height="35"/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3a24f50a-bc39-40c4-bd90-0376ad6fc478" x="555" y="55" width="165" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[( $F{COMPROBANTES_ID} < 10 ? "00" + ($F{COMPROBANTES_ID} + "-" + ($F{COMPROBANTES_FECHAELABORACION}.getYear() - 100)) : ( $F{COMPROBANTES_ID} < 100 ? "0" + $F{COMPROBANTES_ID} + "-" + ($F{COMPROBANTES_FECHAELABORACION}.getYear() - 100) : $F{COMPROBANTES_ID} + "-" + ($F{COMPROBANTES_FECHAELABORACION}.getYear() - 100) ) )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="00b856b9-71e5-48bc-b5f6-b17f7feb869e" x="596" y="155" width="45" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPROBANTES_FECHAELABORACION}.getDate()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="0a209cc2-36b4-4ea4-a72d-457616007c2b" x="641" y="155" width="45" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPROBANTES_FECHAELABORACION}.getMonth() + 1]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3c83df00-5aa5-47e1-9c27-3f34468ea12e" x="686" y="155" width="45" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPROBANTES_FECHAELABORACION}.getYear() + 1900]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement uuid="6e4e3d3d-6775-4d58-b409-175df0d05fbc" x="555" y="606" width="170" height="25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPROBANTES_VALOR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="0588914e-1582-4638-b122-e1e54eb97ab6" x="20" y="750" width="400" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPROBANTES_FKTERCEROFUNCIONA}.substring( $F{COMPROBANTES_FKTERCEROFUNCIONA}.lastIndexOf( " - " ) + 3, $F{COMPROBANTES_FKTERCEROFUNCIONA}.length() )]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="021aeb44-36b3-4c51-9ab5-e3dcda84c3ed" x="20" y="290" width="710" height="105"/>
+				<subreportParameter name="FKCOMPROBANTE">
+					<subreportParameterExpression><![CDATA[$F{COMPROBANTES_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ANO">
+					<subreportParameterExpression><![CDATA[$P{ANO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoComprobante_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement uuid="c8a52d17-15e2-48e9-86ab-e27b8b1ef3a2" mode="Opaque" x="20" y="270" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUENTA No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8a52d17-15e2-48e9-86ab-e27b8b1ef3a2" mode="Opaque" x="120" y="270" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACTIVIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8a52d17-15e2-48e9-86ab-e27b8b1ef3a2" mode="Opaque" x="220" y="270" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUBGRUPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8a52d17-15e2-48e9-86ab-e27b8b1ef3a2" mode="Opaque" x="320" y="270" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C. DE COSTOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8a52d17-15e2-48e9-86ab-e27b8b1ef3a2" mode="Opaque" x="420" y="270" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C.INFORMACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8a52d17-15e2-48e9-86ab-e27b8b1ef3a2" mode="Opaque" x="520" y="270" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C. INTERNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8a52d17-15e2-48e9-86ab-e27b8b1ef3a2" mode="Opaque" x="620" y="270" width="110" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1442b3ad-20e6-4449-b323-c4c0c012e5c6" x="440" y="10" width="280" height="21"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SOLICITUD DE CANCELACIÓN DE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c22532a3-630d-44a1-abfb-161de7f64e3d" x="440" y="31" width="280" height="21"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURAS Y/O CUENTA DE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="029d03a9-7111-4643-88ba-d6e9bc474182" x="440" y="52" width="280" height="21"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COBRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="30a477a4-67e8-4094-b2e0-13fe15b4149f" x="100" y="10" width="290" height="18"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8c65405a-b413-44a7-b13a-eec9946a344e" x="100" y="28" width="290" height="18"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXACTAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8ff0e825-f716-4cd4-8c1d-689268334c50" x="100" y="46" width="290" height="18"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Coordinación de Área Administrativa]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="b1c7633e-3ef1-4651-87e6-8599d31ec422" mode="Transparent" x="20" y="1" width="710" height="80"/>
+			</rectangle>
+			<image>
+				<reportElement uuid="62ff49af-27bf-4b3d-864a-c9b73f5acc18" x="37" y="10" width="42" height="60"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Univalle.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="97dd5528-1218-49e7-b46b-59856d8fef5d" x="20" y="91" width="710" height="40"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NOTA: CANCELACIÓN DE FACTURAS Y/O CUENTAS DE COBRO PARA SER CANCELADAS POR CAJA MENOR Y/O FONDO RENOVABLE, DE LAS CUALES SE OBTUVO CRÉDITO NO SUPERIOR A 30 (TREINTA) DÍAS.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="510" y="135" width="80" height="25"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ba516944-0e20-48b6-9b2e-71b68bde9333" mode="Opaque" x="596" y="135" width="134" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   DIA        MES      AÑO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="6839a3df-d9ba-4184-b650-965b8f7ff3dc" mode="Transparent" x="641" y="135" width="45" height="35"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="fb6d9ff2-68af-418c-8a19-2647017c7142" mode="Transparent" x="686" y="135" width="45" height="35"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="50bfffce-5941-4f1c-a8c4-5e32083fc54c" x="20" y="200" width="710" height="60"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Estoy haciendo entrega de las facturas en original y con sus respectivas copias para ser canceladas mediante Caja Menor y/o Fondo Renovable de la Facultad de Ciencias Naturales y Exactas con cargo a la cuenta autorizada. Igualmente encontrará los demás soportes requeridos para su pago.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="89ab8bd6-1b06-4b76-86b1-541f9c5ec690" mode="Transparent" x="20" y="270" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="3b241e18-d2f8-48a6-a053-b2178740acbc" mode="Transparent" x="220" y="270" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="9be26e26-d71c-40e1-a7e1-b3220b326bfe" mode="Transparent" x="320" y="270" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2ff3a885-189d-4e95-b6c0-ba4788227405" mode="Transparent" x="420" y="270" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="937f6f0c-58bb-47f1-8a01-3b2f49a5a83b" mode="Transparent" x="620" y="270" width="110" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="44349637-7fc7-4a5e-b710-928335cfe173" x="20" y="405" width="710" height="60"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[A los siguientes proveedores, a quienes se les advirtió de las deducciones de Ley correspondientes a Retención en la Fuente, Reteiva sobre cualquier cuantía (50%), Reteica, Estampilla Pro-univalle, Prodesarrollo, Pro-hospital, Pro-cultura.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="615029cb-319d-4fb1-b7be-06be040e4a21" mode="Opaque" x="20" y="475" width="710" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                                 PROVEEDOR                                                FACTURA Y/O COBRO                  FECHA                  VALOR]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="69ab0b45-3116-4d60-bb04-e759271b6441" mode="Transparent" x="20" y="475" width="330" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="47d56a3e-a078-4f66-83ff-f4ce72b9b8e3" mode="Transparent" x="350" y="475" width="180" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="a07eb68c-f6f6-487c-b550-80ced7b44bde" mode="Transparent" x="530" y="475" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1b361034-466b-4453-b76d-d84a179b95de" mode="Transparent" x="630" y="475" width="100" height="20"/>
+			</rectangle>
+			<subreport>
+				<reportElement uuid="a3670abe-93d4-452f-bf1d-416425b918a3" x="20" y="495" width="710" height="105" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="FKTERCERO">
+					<subreportParameterExpression><![CDATA[$F{COMPROBANTES_FKTERCERO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCOMPROBANTE">
+					<subreportParameterExpression><![CDATA[$F{COMPROBANTES_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ANO">
+					<subreportParameterExpression><![CDATA[$P{ANO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoComprobante_subreport2.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement uuid="d62cd57c-c1cb-4561-9cde-d583d93316f8" mode="Transparent" x="555" y="605" width="175" height="27"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2ea2dea5-2117-4ae4-9a00-d40d095b2a23" mode="Transparent" x="20" y="670" width="400" height="105"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="57379d90-4b7b-49fa-86ea-bd4f1a574ebf" mode="Opaque" x="20" y="645" width="710" height="25" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                         SOLICITADO POR                                       RECIBIDO COORDINACION ADMIN.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="a210bb45-c7a4-4be1-ab9f-852e5c3495f3" mode="Transparent" x="20" y="645" width="710" height="25"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="0c960263-212e-4184-bf89-9b45a7bbd2aa" mode="Transparent" x="420" y="670" width="310" height="105"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="58363f89-bfac-4cbe-9d53-daf7147a60c0" x="20" y="785" width="710" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[AUTORIZACIÓN PARA ELABORACIÓN DEL CHEQUE]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="54afcb3f-b02b-4cf5-b549-58b5a9ef9304" mode="Transparent" x="20" y="815" width="710" height="155"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="0623e5e9-5ad6-4aaa-bf8f-44dca4eea2ba" x="40" y="825" width="670" height="20"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[__________________ : Favor programar la elaboración de cheque a este Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7cca1c05-a975-4a78-b74b-583e50d9d61c" mode="Opaque" x="553" y="860" width="134" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   DIA        MES      AÑO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="e809df9d-7ebc-430b-8ba1-e7a6a4ef54f2" mode="Transparent" x="643" y="860" width="45" height="35"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="3b688e04-7d81-4ca5-94e5-9e208391a574" mode="Transparent" x="553" y="860" width="45" height="35"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="4817f608-8680-43e2-8f8b-fdee3d3561a4" mode="Transparent" x="598" y="860" width="45" height="35"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="0dfe602c-8227-4e99-a294-fb88f8f815ea" x="390" y="855" width="150" height="25"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE PAGO ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="6a710122-97f1-4dd8-a603-d3e85560842c" x="230" y="935" width="320" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="824f1d46-dd7c-4c5f-8b25-29b78b2cad9f" x="230" y="940" width="320" height="25"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Coordinadora de Área Administrativa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8aa6a55b-59bb-4b6b-9c65-4ecbfacdbfb9" x="420" y="605" width="130" height="25"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR TOTAL]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="2f697aa6-c982-4eef-b4c0-f61b2e49fd01" x="20" y="600" width="710" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="20" y="135" width="120" height="25"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESOLUCION]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="fb42774d-1dd3-4553-b4c3-ed3c011cafec" x="140" y="135" width="50" height="25"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$F{COMPROBANTES_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ano">
+					<subreportParameterExpression><![CDATA[$P{ANO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "RESOLUCION_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement uuid="79eb43e9-f92b-4629-90c6-6b4bad847372" mode="Transparent" x="140" y="135" width="50" height="25"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="937f6f0c-58bb-47f1-8a01-3b2f49a5a83b" mode="Transparent" x="520" y="270" width="100" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="89ab8bd6-1b06-4b76-86b1-541f9c5ec690" mode="Transparent" x="120" y="270" width="100" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="20" y="165" width="155" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMA DE PAGO : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="175" y="165" width="231" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPROBANTES_TIPOPAGO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

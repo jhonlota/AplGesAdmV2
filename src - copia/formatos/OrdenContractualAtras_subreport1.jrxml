@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractualAtras_subreport2" language="groovy" pageWidth="285" pageHeight="30" columnWidth="285" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     TERCEROS.ID AS "TERCEROS_ID",
+     TERCEROS.CARGO AS "TERCEROS_CARGO",
+     TERCEROS.DEPENDENCIA AS "TERCEROS_DEPENDENCIA",
+     TERCEROS.DIRECCION AS "TERCEROS_DIRECCION",
+     TERCEROS.EDIFICIO AS "TERCEROS_EDIFICIO",
+     TERCEROS.EMAIL AS "TERCEROS_EMAIL",
+     TERCEROS.NOMBRE AS "TERCEROS_NOMBRE",
+     TERCEROS.OFICINA AS "TERCEROS_OFICINA",
+     TERCEROS.PROFESION AS "TERCEROS_PROFESION",
+     TERCEROS.REGIMEN AS "TERCEROS_REGIMEN",
+     TERCEROS.TELEFONO AS "TERCEROS_TELEFONO",
+     TERCEROS.TIPOID AS "TERCEROS_TIPOID",
+     TERCEROS.NOMBREBANCO AS "TERCEROS_NOMBREBANCO",
+     TERCEROS.NUMEROCUENTA AS "TERCEROS_NUMEROCUENTA",
+     TERCEROS.TIPOCUENTA AS "TERCEROS_TIPOCUENTA"
+FROM
+     TERCEROS
+WHERE
+     TERCEROS.ID = $P{ID}]]>
+	</queryString>
+	<field name="TERCEROS_ID" class="java.lang.String"/>
+	<field name="TERCEROS_CARGO" class="java.lang.String"/>
+	<field name="TERCEROS_DEPENDENCIA" class="java.lang.String"/>
+	<field name="TERCEROS_DIRECCION" class="java.lang.String"/>
+	<field name="TERCEROS_EDIFICIO" class="java.lang.String"/>
+	<field name="TERCEROS_EMAIL" class="java.lang.String"/>
+	<field name="TERCEROS_NOMBRE" class="java.lang.String"/>
+	<field name="TERCEROS_OFICINA" class="java.lang.String"/>
+	<field name="TERCEROS_PROFESION" class="java.lang.String"/>
+	<field name="TERCEROS_REGIMEN" class="java.lang.String"/>
+	<field name="TERCEROS_TELEFONO" class="java.lang.String"/>
+	<field name="TERCEROS_TIPOID" class="java.lang.String"/>
+	<field name="TERCEROS_NOMBREBANCO" class="java.lang.String"/>
+	<field name="TERCEROS_NUMEROCUENTA" class="java.lang.String"/>
+	<field name="TERCEROS_TIPOCUENTA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="285" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="15" width="285" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_CARGO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

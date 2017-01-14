@@ -936,7 +936,6 @@ public class PanelReportes extends javax.swing.JPanel {
 
         fechaaplicacion_4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fechaaplicacion_4.setModel(ClaseGeneral.controlComprobantes.COMBOFechaaplicacionInComprobantesBy());
-        fechaaplicacion_4.setName("TIPOPAGO"); // NOI18N
         fechaaplicacion_4.setPreferredSize(new java.awt.Dimension(180, 25));
         jPanel4.add(fechaaplicacion_4);
 
@@ -1278,7 +1277,6 @@ public class PanelReportes extends javax.swing.JPanel {
 
         fechaaplicacion_6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fechaaplicacion_6.setModel(ClaseGeneral.controlComprobantes.COMBOFechaaplicacionInComprobantesBy());
-        fechaaplicacion_6.setName("TIPOPAGO"); // NOI18N
         fechaaplicacion_6.setPreferredSize(new java.awt.Dimension(180, 25));
         jPanel6.add(fechaaplicacion_6);
 
@@ -1326,7 +1324,7 @@ public class PanelReportes extends javax.swing.JPanel {
         botonVerResumenegresosreembolso.setText("Ver pdf");
         botonVerResumenegresosreembolso.setFocusable(false);
         botonVerResumenegresosreembolso.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        botonVerResumenegresosreembolso.setName("botonVerTotalComprobanteCUENTAINTERNA"); // NOI18N
+        botonVerResumenegresosreembolso.setName("botonVerResumenegresosreembolso"); // NOI18N
         botonVerResumenegresosreembolso.setPreferredSize(new java.awt.Dimension(110, 24));
         botonVerResumenegresosreembolso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1345,7 +1343,6 @@ public class PanelReportes extends javax.swing.JPanel {
 
         fechaaplicacion_7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fechaaplicacion_7.setModel(ClaseGeneral.controlComprobantes.COMBOFechaaplicacionInComprobantesBy());
-        fechaaplicacion_7.setName("TIPOPAGO"); // NOI18N
         fechaaplicacion_7.setPreferredSize(new java.awt.Dimension(180, 25));
         jPanel7.add(fechaaplicacion_7);
 
@@ -1393,7 +1390,7 @@ public class PanelReportes extends javax.swing.JPanel {
         botonVerComprobantesnoreembolsados.setText("Ver pdf");
         botonVerComprobantesnoreembolsados.setFocusable(false);
         botonVerComprobantesnoreembolsados.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        botonVerComprobantesnoreembolsados.setName("botonVerTotalComprobanteCUENTAINTERNA"); // NOI18N
+        botonVerComprobantesnoreembolsados.setName("botonVerComprobantesnoreembolsados"); // NOI18N
         botonVerComprobantesnoreembolsados.setPreferredSize(new java.awt.Dimension(110, 24));
         botonVerComprobantesnoreembolsados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

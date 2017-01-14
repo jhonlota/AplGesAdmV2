@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoResolucion_Cuentainterna" language="groovy" pageWidth="360" pageHeight="90" columnWidth="360" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d81d0f6b-a4b4-4154-92b6-81d92ba957f7">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fkresolucion" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ano" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	soportescomprobantes."fkcomprobante" AS soportescomprobantes_fkcomprobantes,
+	soportescomprobantes."cuentainterna" AS soportescomprobantes_cuentainterna,
+	soportescomprobantes."valor" AS soportescomprobantes_valor
+FROM
+	"tercerosresolucion" tercerosresolucion LEFT JOIN "comprobantes" comprobantes
+	ON tercerosresolucion."fkcomprobante" = CAST(comprobantes."id" AS TEXT)
+	AND comprobantes."ano" = tercerosresolucion."ano"
+	LEFT JOIN "soportescomprobantes" soportescomprobantes ON comprobantes."id" = soportescomprobantes."fkcomprobante"
+	AND comprobantes."ano" = soportescomprobantes."ano"
+WHERE
+	tercerosresolucion."fkresolucion" = $P{fkresolucion}
+	AND tercerosresolucion."ano" = $P{ano}
+GROUP BY soportescomprobantes."fkcomprobante", soportescomprobantes."cuentainterna", soportescomprobantes."valor"]]>
+	</queryString>
+	<field name="soportescomprobantes_fkcomprobantes" class="java.lang.Integer"/>
+	<field name="soportescomprobantes_cuentainterna" class="java.lang.String"/>
+	<field name="soportescomprobantes_valor" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<printWhenExpression><![CDATA[!$F{soportescomprobantes_cuentainterna}.equals( null )]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="f2110b3c-751a-43fd-a83c-cf368a2ba39d" x="0" y="0" width="10" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{soportescomprobantes_cuentainterna}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[*]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="5f4f9347-5037-4338-9e08-a316815275bc" x="10" y="0" width="280" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{soportescomprobantes_cuentainterna}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="CODIGO">
+					<subreportParameterExpression><![CDATA[$F{soportescomprobantes_cuentainterna}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CUENTAINTERNA_subreport1_resolucion.jasper"]]></subreportExpression>
+			</subreport>
+			<textField pattern="¤ #,##0" isBlankWhenNull="true">
+				<reportElement uuid="87fcca4d-f839-4db7-bde6-613b15d8bb1f" x="290" y="0" width="70" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{soportescomprobantes_cuentainterna}.equals( null )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{soportescomprobantes_valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
