@@ -302,28 +302,28 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
 }//GEN-LAST:event_botonConsultarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-        if (ClaseInformacion.ValidarCUENTA("" + panelPrincipal.cuenta.getText())
-                && ClaseInformacion.ValidarACTIVIDAD("" + panelPrincipal.actividad.getText())
-                && ClaseInformacion.ValidarSUBGRUPO("" + panelPrincipal.subgrupo.getSelectedItem())
-                && ClaseInformacion.ValidarCCOSTOS("" + panelPrincipal.ccostos.getText())
-                && ClaseInformacion.ValidarCINFO("" + panelPrincipal.cinfo.getSelectedItem())
-                && ClaseInformacion.ValidarCUENTAINTERNA("" + panelPrincipal.cuentainterna.getSelectedItem())
-                && (panelPrincipal.cuentainterna.getSelectedItem().equals(ClaseInformacion.ValidarIngresoCUENTAINTERNA("" + panelPrincipal.cinfo.getSelectedItem(),
-                                "000",
-                                "" + panelPrincipal.actividad.getText(),
-                                "" + panelPrincipal.ccostos.getText())))) {
-            if (!lista.isEmpty()) {
-                panelPrincipal.metodoActualizar();
-            }
-            if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
-                metodoLimpiar();
-                metodoEstado("actualizar");
-            } else {
-                ClaseMensaje.error("Error - Falta completar información.\n\n" + ClaseGeneral.errorValidacion);
-            }
-        } else {
-            ClaseMensaje.error("Error en la imputacion.");
-        }
+//        if (ClaseInformacion.ValidarCUENTA("" + panelPrincipal.cuenta.getText())
+//                && ClaseInformacion.ValidarACTIVIDAD("" + panelPrincipal.actividad.getText())
+//                && ClaseInformacion.ValidarSUBGRUPO("" + panelPrincipal.subgrupo.getSelectedItem())
+//                && ClaseInformacion.ValidarCCOSTOS("" + panelPrincipal.ccostos.getText())
+//                && ClaseInformacion.ValidarCINFO("" + panelPrincipal.cinfo.getSelectedItem())
+//                && ClaseInformacion.ValidarCUENTAINTERNA("" + panelPrincipal.cuentainterna.getSelectedItem())
+//                && (panelPrincipal.cuentainterna.getSelectedItem().equals(ClaseInformacion.ValidarIngresoCUENTAINTERNA("" + panelPrincipal.cinfo.getSelectedItem(),
+//                                "000",
+//                                "" + panelPrincipal.actividad.getText(),
+//                                "" + panelPrincipal.ccostos.getText())))) {
+//            if (!lista.isEmpty()) {
+//                panelPrincipal.metodoActualizar();
+//            }
+//            if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
+//                metodoLimpiar();
+//                metodoEstado("actualizar");
+//            } else {
+//                ClaseMensaje.error("Error - Falta completar información.\n\n" + ClaseGeneral.errorValidacion);
+//            }
+//        } else {
+//            ClaseMensaje.error("Error en la imputacion.");
+//        }
 }//GEN-LAST:event_botonActualizarActionPerformed
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed

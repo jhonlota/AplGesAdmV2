@@ -16,8 +16,12 @@ import java.math.BigDecimal;
 
 public class Soportesresoluciones {
     protected SoportesresolucionesPK soportesresolucionesPK = new SoportesresolucionesPK();
-    private String fkcuenta;
-    private int fkcomprobante;
+    private String fksoportecuenta;
+    private int fksoportecuentaid;
+    private int fksoportecomprobante;
+    private int fksoportecomprobanteid;
+    private int fksoportecomprobanteano;
+    private int fktercerosresolucion;
     private String actividad;
     private String ccostos;
     private String cinfo;
@@ -26,7 +30,7 @@ public class Soportesresoluciones {
     private String subgrupo;
     private BigDecimal valor; 
     
-    public String tabla = "soportesresoluciones(fkresolucion, fkcuenta, fkcomprobante, actividad, ccostos, cinfo, cuenta, cuentainterna,"
+    public String tabla = "soportesresoluciones(fkresolucion, fksoportecuenta, fksoportecuentaid, fksoportecomprobante, fksoportecomprobanteid, fksoportecomprobanteano, fktercerosresolucion, actividad, ccostos, cinfo, cuenta, cuentainterna,"
             + "subgrupo, valor, ano)";
 
     public Soportesresoluciones() {
@@ -36,12 +40,20 @@ public class Soportesresoluciones {
         return soportesresolucionesPK;
     }
 
-    public String getFkcuenta() {
-        return fkcuenta;
+    public String getFksoportecuenta() {
+        return fksoportecuenta;
     }
 
-    public int getFkcomprobante() {
-        return fkcomprobante;
+    public int getFksoportecomprobante() {
+        return fksoportecomprobante;
+    }
+
+    public int getFksoportecomprobanteid() {
+        return fksoportecomprobanteid;
+    }
+
+    public int getFksoportecomprobanteano() {
+        return fksoportecomprobanteano;
     }
 
     public String getActividad() {
@@ -80,12 +92,20 @@ public class Soportesresoluciones {
         this.soportesresolucionesPK = soportesresolucionesPK;
     }
 
-    public void setFkcuenta(String fkcuenta) {
-        this.fkcuenta = fkcuenta;
+    public void setFksoportecuenta(String fksoportecuenta) {
+        this.fksoportecuenta = fksoportecuenta;
     }
 
-    public void setFkcomprobante(int fkcomprobante) {
-        this.fkcomprobante = fkcomprobante;
+    public void setFksoportecomprobante(int fksoportecomprobante) {
+        this.fksoportecomprobante = fksoportecomprobante;
+    }
+
+    public void setFksoportecomprobanteid(int fksoportecomprobanteid) {
+        this.fksoportecomprobanteid = fksoportecomprobanteid;
+    }
+
+    public void setFksoportecomprobanteano(int fksoportecomprobanteano) {
+        this.fksoportecomprobanteano = fksoportecomprobanteano;
     }
 
     public void setActividad(String actividad) {
@@ -119,6 +139,22 @@ public class Soportesresoluciones {
     public void setTabla(String tabla) {
         this.tabla = tabla;
     }
-    
+
+    public int getFksoportecuentaid() {
+        return fksoportecuentaid;
+    }
+
+    public void setFksoportecuentaid(int fksoportecuentaid) {
+        this.fksoportecuentaid = fksoportecuentaid;
+    }
+
+    public int getFktercerosresolucion() {
+        return fktercerosresolucion;
+    }
+
+    public void setFktercerosresolucion(int fktercerosresolucion) {
+        this.fktercerosresolucion = fktercerosresolucion;
+    }
+   
     
 }

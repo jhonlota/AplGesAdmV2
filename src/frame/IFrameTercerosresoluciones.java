@@ -246,6 +246,7 @@ public class IFrameTercerosresoluciones extends javax.swing.JInternalFrame {
         metodoLimpiar();
         
         panelPrincipal = new PanelTercerosresoluciones();
+//        panelPrincipal.botonSeleccionarImputacion.setEnabled(true);
         jPanel.add(panelPrincipal, java.awt.BorderLayout.CENTER);
         jPanel.setVisible(false);
         jPanel.setVisible(true);

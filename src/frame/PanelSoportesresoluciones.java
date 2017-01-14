@@ -32,9 +32,13 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
 
     private List lista = new ArrayList();
     private ClaseInformacion informacion = new ClaseInformacion();
-    private List listaImputacion = new ArrayList();
-    private int fkcomprobante;
-    private String fkcuenta;
+    private List listaSoporte = new ArrayList();
+    private String fksoportecuenta;
+    private int fksoportecuentaid;
+    private int fksoportecomprobante;
+    private int fksoportecomprobanteid;
+    private int fksoportecomprobanteano;
+    
 
     /**
      * Creates new form PanelSoportesresolucionesContratos
@@ -422,17 +426,21 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
             if (!panelBuscarImputacion.soporte.equals("Seleccione - ")) {
                 StringTokenizer st = new StringTokenizer(panelBuscarImputacion.soporte.trim(), "-");
                 while (st.hasMoreTokens()) {
-                    listaImputacion.add(st.nextToken().trim());
+                    listaSoporte.add(st.nextToken().trim());
                 }
-                cuenta.setText("" + listaImputacion.get(0));
-                actividad.setText("" + listaImputacion.get(1));
-                subgrupo.setSelectedItem("" + listaImputacion.get(2));
-                ccostos.setText("" + listaImputacion.get(3));
-                cinfo.setSelectedItem("" + listaImputacion.get(4));
-                cuentainterna.setSelectedItem("" + listaImputacion.get(5));
-                valor.setText("" + listaImputacion.get(6));
-                fkcomprobante = panelBuscarImputacion.numeroComprobante;
-                fkcuenta = panelBuscarImputacion.numeroCuenta;
+                cuenta.setText("" + listaSoporte.get(0));
+                actividad.setText("" + listaSoporte.get(1));
+                subgrupo.setSelectedItem("" + listaSoporte.get(2));
+                ccostos.setText("" + listaSoporte.get(3));
+                cinfo.setSelectedItem("" + listaSoporte.get(4));
+                cuentainterna.setSelectedItem("" + listaSoporte.get(5));
+                valor.setText("" + listaSoporte.get(6));
+                fksoportecuenta = panelBuscarImputacion.fksoportecuenta;
+                fksoportecuentaid = panelBuscarImputacion.fksoportecuentaid;
+                fksoportecomprobante = panelBuscarImputacion.fksoportecomprobante;
+                fksoportecomprobanteid = panelBuscarImputacion.fksoportecomprobanteid;
+                fksoportecomprobanteano = panelBuscarImputacion.fksoportecomprobanteano;
+                
             }
         }
     }//GEN-LAST:event_botonSeleccionarImputacionActionPerformed
@@ -444,8 +452,11 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
         ClaseGeneral.soportesresolucionesPK.setId(0);
         ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getResolucionPK().getAno());
         ClaseGeneral.soportesresoluciones.setSoportesresolucionesPK(ClaseGeneral.soportesresolucionesPK);
-        ClaseGeneral.soportesresoluciones.setFkcuenta(fkcuenta);
-        ClaseGeneral.soportesresoluciones.setFkcomprobante(fkcomprobante);
+        ClaseGeneral.soportesresoluciones.setFksoportecuenta(fksoportecuenta);
+        ClaseGeneral.soportesresoluciones.setFksoportecuentaid(fksoportecuentaid);
+        ClaseGeneral.soportesresoluciones.setFksoportecomprobante(fksoportecomprobante);
+        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteid(fksoportecomprobanteid);
+        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteano(fksoportecomprobanteano);
         ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
         ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
         ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getSelectedItem());
@@ -475,33 +486,6 @@ public class PanelSoportesresoluciones extends javax.swing.JPanel {
             valor.setText("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.soportesresoluciones.getValor()));
         } catch (Exception ex) {
             Logger.getLogger(PanelResoluciones.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void metodoActualizar() {
-        Soportesresoluciones soportesresolucionesId = ClaseGeneral.soportesresoluciones;
-        soportesresolucionesId.setSoportesresolucionesPK(ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK());
-
-        ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
-        ClaseGeneral.soportesresolucionesPK = new SoportesresolucionesPK();
-        ClaseGeneral.soportesresolucionesPK.setFkresolucion(Integer.parseInt(fkresolucion.getText()));
-        //ClaseGeneral.soportesresolucionesPK.setId();
-        ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getAno());
-        ClaseGeneral.soportesresoluciones.setSoportesresolucionesPK(ClaseGeneral.soportesresolucionesPK);
-        ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
-        ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
-        ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getSelectedItem());
-        ClaseGeneral.soportesresoluciones.setCcostos(ccostos.getText());
-        ClaseGeneral.soportesresoluciones.setCinfo("" + cinfo.getSelectedItem());
-        ClaseGeneral.soportesresoluciones.setCuentainterna("" + cuentainterna.getSelectedItem());
-        ClaseGeneral.soportesresoluciones.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
-
-        if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
-            try {
-                ClaseGeneral.controlSoportesresoluciones.edit(ClaseGeneral.soportesresoluciones, soportesresolucionesId);
-            } catch (Exception ex) {
-                Logger.getLogger(PanelSoportesresoluciones.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
 

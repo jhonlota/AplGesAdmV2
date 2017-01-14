@@ -21,7 +21,7 @@ public class ClaseGeneral {
     public static BienessolicitudesofertaPK bienessolicitudesofertaPK = new BienessolicitudesofertaPK();
     public static Soportesresoluciones soportesresoluciones = new Soportesresoluciones();
     public static SoportesresolucionesJpaController controlSoportesresoluciones = new SoportesresolucionesJpaController();
-    public static SoportesresolucionesPK soportesresolucionesPK = new SoportesresolucionesPK();
+    public static SoportesresolucionesPK soportesresolucionesPK = new SoportesresolucionesPK();    
     /*******************************************************************/
     public static Anexoscontratos anexoscontratos = new Anexoscontratos();
     public static AnexoscontratosJpaController controlAnexoscontratos = new AnexoscontratosJpaController();
@@ -115,4 +115,7 @@ public class ClaseGeneral {
     public static Color negro = new Color(0, 0, 0);
     public static Color rojo = new Color(255, 3, 26);
     public static Color verde = new Color(165, 240, 89);
+    /********************************************************************/
+    public static int idTercerosresolucion;//Guarda el id retornado de la inserción en tercerosresolucion
+    /********************************************************************/
 }
