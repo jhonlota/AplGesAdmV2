@@ -461,7 +461,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
         if (ClaseGeneral.controlSoportescomprobantes.verify(ClaseGeneral.soportescomprobantes)) {
             try {
                 ClaseGeneral.controlSoportescomprobantes.edit(ClaseGeneral.soportescomprobantes, soportescomprobantesId);
-                ClaseGeneral.controlSoportesresoluciones.editFkcomprobante(ClaseGeneral.soportescomprobantes, soportescomprobantesId);
+                ClaseGeneral.controlSoportesresoluciones.editFksoportecomprobante(ClaseGeneral.soportescomprobantes, soportescomprobantesId);
             } catch (Exception ex) {
                 Logger.getLogger(PanelSoportescomprobantes.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -476,6 +476,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
             ClaseGeneral.soportescomprobantesPK.setAno(ClaseGeneral.comprobantes.getAno());
 
             ClaseGeneral.controlSoportescomprobantes.destroy(ClaseGeneral.soportescomprobantesPK);
+            ClaseGeneral.controlSoportesresoluciones.destroyFkcomprobante(ClaseGeneral.soportescomprobantesPK);
         } catch (Exception ex) {
             Logger.getLogger(PanelSoportescomprobantes.class.getName()).log(Level.SEVERE, null, ex);
         }

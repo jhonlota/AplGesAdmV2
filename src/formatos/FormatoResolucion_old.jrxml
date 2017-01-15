@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoResolucion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="60" bottomMargin="60" uuid="9c373adb-634e-4127-a7a3-411bd90f48cb">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="643"/>
+	<property name="ireport.y" value="467"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
@@ -37,16 +37,12 @@
      terceros."cargo" AS terceros_cargo,
      terceros."dependencia" AS terceros_dependencia,
      tercerosresolucion."salario" AS tercerosresolucion_salario,
-     comprobantesA."id" AS comprobantes_a_id,
-     comprobantesA."fktercero" AS comprobantes_a_fktercero,
-     comprobantesA."ano" AS comprobantes_a_ano,
-     comprobantesA."tipopago" AS comprobantes_a_tipopago,
-     comprobantesB."tipopago" AS comprobantes_b_tipopago,
+     comprobantes."id" AS comprobantes_id,
+     comprobantes."fktercero" AS comprobantes_fktercero,
+     comprobantes."ano" AS comprobantes_ano,
+     comprobantes."tipopago" AS comprobantes_tipopago,
      cuentas."fktercero" AS cuentas_fktercero,
      cuentas."soporte" AS cuentas_soporte,
-     soportesresoluciones."fktercerosresolucion" AS fkterceros_resolucion,
-     soportesresoluciones."fksoportecomprobante" AS soportesresoluciones_fksoportecomprobante,
-     soportesresoluciones."fksoportecuenta" AS soportesresoluciones_fksoportecuenta,
      (fechaterminacion-fechainicio) AS duracion,
      tercerosresolucion.diario AS tercerosresolucion_diario,
      (SELECT SUM(tercerosresolucion."valor")
@@ -74,58 +70,50 @@ FROM
      AND resolucion."ano" = tercerosresolucion."ano"
      INNER JOIN "public"."terceros" terceros ON tercerosresolucion."fktercero" = (terceros."id" || ' - ' || terceros."nombre")
      LEFT JOIN "public"."cuentas" cuentas ON tercerosresolucion."fkcuenta" = cuentas."soporte"
-     LEFT JOIN "public"."soportesresoluciones" soportesresoluciones ON tercerosresolucion."id" = soportesresoluciones."fktercerosresolucion"
-     AND resolucion."ano" = soportesresoluciones."ano"
-     LEFT JOIN "public"."comprobantes" comprobantesA ON tercerosresolucion."fkcomprobante" = CAST(comprobantesA."id" AS TEXT)
-     AND resolucion."ano" = comprobantesA."ano"
-LEFT JOIN "public"."comprobantes" comprobantesB ON soportesresoluciones."fksoportecomprobante" = comprobantesB."id"
-     AND resolucion."ano" = comprobantesB."ano"
+     LEFT JOIN "public"."comprobantes" comprobantes ON tercerosresolucion."fkcomprobante" = CAST(comprobantes."id" AS TEXT)
+     AND comprobantes."ano" = tercerosresolucion."ano"
 WHERE
      resolucion."id" = $P{id}
      AND resolucion."ano" = $P{ano}
 ORDER BY
      tercerosresolucion.fkcomprobante, tercerosresolucion.fkcuenta, tercerosresolucion.soporte]]>
 	</queryString>
-	<field name="resolucion_acuerdo" class="java.lang.String"/>
-	<field name="comprobantes_a_ano" class="java.lang.Integer"/>
-	<field name="soportesresoluciones_fksoportecomprobante" class="java.lang.Integer"/>
-	<field name="tercerosresolucion_tarifa" class="java.lang.String"/>
-	<field name="resolucion_ano" class="java.lang.Integer"/>
-	<field name="terceros_id" class="java.lang.String"/>
-	<field name="tercerosresolucion_fktercero" class="java.lang.String"/>
-	<field name="tercerosresolucion_diario" class="java.math.BigDecimal"/>
-	<field name="tercerosresolucion_salario" class="java.lang.Long"/>
-	<field name="sum_valor" class="java.math.BigDecimal"/>
-	<field name="tercerosresolucion_objetivo" class="java.lang.String"/>
-	<field name="resolucion_fechainicio" class="java.sql.Date"/>
-	<field name="resolucion_isfindesemana" class="java.lang.Boolean"/>
-	<field name="cuentas_fktercero" class="java.lang.String"/>
-	<field name="terceros_dependencia" class="java.lang.String"/>
-	<field name="resolucion_vehiculo" class="java.lang.String"/>
-	<field name="tercerosresolucion_soporte" class="java.lang.String"/>
-	<field name="resolucion_fkterceroordenadorgasto" class="java.lang.String"/>
-	<field name="resolucion_tipo" class="java.lang.String"/>
-	<field name="comprobantes_a_id" class="java.lang.Integer"/>
 	<field name="resolucion_id" class="java.lang.Integer"/>
+	<field name="resolucion_acuerdo" class="java.lang.String"/>
+	<field name="resolucion_ano" class="java.lang.Integer"/>
 	<field name="resolucion_fecha" class="java.sql.Date"/>
-	<field name="terceros_cargo" class="java.lang.String"/>
-	<field name="tercerosresolucion_fkresolucion" class="java.lang.Integer"/>
-	<field name="count_id" class="java.lang.Long"/>
-	<field name="comprobantes_a_fktercero" class="java.lang.String"/>
-	<field name="fkterceros_resolucion" class="java.lang.Integer"/>
-	<field name="tercerosresolucion_id" class="java.lang.Integer"/>
-	<field name="tercerosresolucion_valor" class="java.lang.Long"/>
-	<field name="terceros_tipoid" class="java.lang.String"/>
-	<field name="tercerosresolucion_destino" class="java.lang.String"/>
-	<field name="comprobantes_b_tipopago" class="java.lang.String"/>
-	<field name="soportesresoluciones_fksoportecuenta" class="java.lang.String"/>
-	<field name="duracion" class="java.lang.Integer"/>
-	<field name="cuentas_soporte" class="java.lang.String"/>
-	<field name="tercerosresolucion_ano" class="java.lang.Integer"/>
-	<field name="resolucion_observacion" class="java.lang.String"/>
+	<field name="resolucion_fechainicio" class="java.sql.Date"/>
 	<field name="resolucion_fechaterminacion" class="java.sql.Date"/>
+	<field name="resolucion_fkterceroordenadorgasto" class="java.lang.String"/>
+	<field name="resolucion_observacion" class="java.lang.String"/>
+	<field name="resolucion_tipo" class="java.lang.String"/>
+	<field name="resolucion_vehiculo" class="java.lang.String"/>
+	<field name="resolucion_isfindesemana" class="java.lang.Boolean"/>
+	<field name="tercerosresolucion_id" class="java.lang.Integer"/>
+	<field name="tercerosresolucion_ano" class="java.lang.Integer"/>
+	<field name="tercerosresolucion_fkresolucion" class="java.lang.Integer"/>
+	<field name="tercerosresolucion_fktercero" class="java.lang.String"/>
+	<field name="tercerosresolucion_valor" class="java.lang.Long"/>
+	<field name="tercerosresolucion_destino" class="java.lang.String"/>
+	<field name="tercerosresolucion_objetivo" class="java.lang.String"/>
+	<field name="tercerosresolucion_soporte" class="java.lang.String"/>
+	<field name="tercerosresolucion_tarifa" class="java.lang.String"/>
 	<field name="terceros_nombre" class="java.lang.String"/>
-	<field name="comprobantes_a_tipopago" class="java.lang.String"/>
+	<field name="terceros_tipoid" class="java.lang.String"/>
+	<field name="terceros_id" class="java.lang.String"/>
+	<field name="terceros_cargo" class="java.lang.String"/>
+	<field name="terceros_dependencia" class="java.lang.String"/>
+	<field name="tercerosresolucion_salario" class="java.lang.Long"/>
+	<field name="comprobantes_id" class="java.lang.Integer"/>
+	<field name="comprobantes_fktercero" class="java.lang.String"/>
+	<field name="comprobantes_ano" class="java.lang.Integer"/>
+	<field name="comprobantes_tipopago" class="java.lang.String"/>
+	<field name="cuentas_fktercero" class="java.lang.String"/>
+	<field name="cuentas_soporte" class="java.lang.String"/>
+	<field name="duracion" class="java.lang.Integer"/>
+	<field name="tercerosresolucion_diario" class="java.math.BigDecimal"/>
+	<field name="sum_valor" class="java.math.BigDecimal"/>
+	<field name="count_id" class="java.lang.Long"/>
 	<variable name="arregloFkterceroordenadorgasto" class="java.lang.String[]">
 		<initialValueExpression><![CDATA[$F{resolucion_fkterceroordenadorgasto}.split( ' ' )]]></initialValueExpression>
 	</variable>
@@ -250,7 +238,7 @@ ORDER BY
 					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[( $F{resolucion_tipo}.equals("TIQUETES AÉREOS") ? "Pagar tiquetes aéreos a la empresa " +
-    ( $F{comprobantes_a_fktercero}.equals( null ) ? "" : $F{comprobantes_a_fktercero}.substring($F{comprobantes_a_fktercero}.indexOf(" - ") + 3, $F{comprobantes_a_fktercero}.length()) ) +
+    ( $F{comprobantes_fktercero}.equals( null ) ? "" : $F{comprobantes_fktercero}.substring($F{comprobantes_fktercero}.indexOf(" - ") + 3, $F{comprobantes_fktercero}.length()) ) +
     ( $F{cuentas_fktercero}.equals( null ) ? "" : $F{cuentas_fktercero}.substring($F{cuentas_fktercero}.indexOf(" - ") + 3, $F{cuentas_fktercero}.length()) ) +
     " concedidos a:\n"
     : "Conceder " + $F{resolucion_tipo}.toLowerCase() + " a la siguiente persona:\n" ) +
@@ -386,15 +374,11 @@ ORDER BY
 				<textElement>
 					<font fontName="SansSerif" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{comprobantes_a_id} == null ? "" : $F{comprobantes_a_tipopago} + " - " + $F{comprobantes_a_id} )
+				<textFieldExpression><![CDATA[($F{comprobantes_id} == null ? "" : $F{comprobantes_tipopago} + " - " + $F{comprobantes_id} )
 + "" +
 ($F{cuentas_soporte} == null ? "" : " Solicitud de Pago - " + $F{cuentas_soporte} )
 + "" +
-($F{soportesresoluciones_fksoportecomprobante} == null ? "" : $F{comprobantes_b_tipopago} + " - " + $F{soportesresoluciones_fksoportecomprobante} )
-+ "" +
-($F{soportesresoluciones_fksoportecuenta} == null ? "" : " Solicitud de Pago - " + $F{soportesresoluciones_fksoportecuenta} )
-+ "" +
-$F{tercerosresolucion_soporte}]]></textFieldExpression>
+($F{comprobantes_id} == null && $F{cuentas_soporte} == null ? " " + $F{tercerosresolucion_soporte} : "" )]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="20">
@@ -489,7 +473,7 @@ $F{tercerosresolucion_soporte}]]></textFieldExpression>
 			</staticText>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="30" width="360" height="30" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[($F{comprobantes_a_id} == null && $F{cuentas_soporte} == null ? false : true )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[($F{comprobantes_id} == null && $F{cuentas_soporte} == null ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Justified">
 					<font fontName="SansSerif" size="10"/>
@@ -507,7 +491,7 @@ $F{tercerosresolucion_soporte}]]></textFieldExpression>
 			</textField>
 			<subreport>
 				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="60" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[($F{comprobantes_a_id} == null && $F{cuentas_soporte} == null ? false : true )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[($F{comprobantes_id} == null && $F{cuentas_soporte} == null ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<subreportParameter name="SUBREPORT_DIR">
 					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
@@ -523,7 +507,7 @@ $F{tercerosresolucion_soporte}]]></textFieldExpression>
 			</subreport>
 			<subreport>
 				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="75" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[($F{comprobantes_a_id} == null && $F{cuentas_soporte} == null ? false : true )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[($F{comprobantes_id} == null && $F{cuentas_soporte} == null ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<subreportParameter name="SUBREPORT_DIR">
 					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>

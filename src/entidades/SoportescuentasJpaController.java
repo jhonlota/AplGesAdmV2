@@ -137,7 +137,7 @@ public class SoportescuentasJpaController {
         SoportescuentasPK soportescuentasPK;
 
         try {
-            datos.query("SELECT * FROM SOPORTESCUENTAS WHERE FKCUENTA = '" + fkcuenta + "' ORDER BY ID");
+            datos.query("SELECT * FROM SOPORTESCUENTAS WHERE FKCUENTA LIKE '" + fkcuenta + "%' ORDER BY ID");
             while (ClaseBaseDatos.resultado.next()) {
                 soportescuentas = new Soportescuentas();
                 soportescuentasPK = new SoportescuentasPK();

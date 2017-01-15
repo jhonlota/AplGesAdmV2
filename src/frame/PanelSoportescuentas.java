@@ -482,7 +482,7 @@ public class PanelSoportescuentas extends javax.swing.JPanel {
         if (ClaseGeneral.controlSoportescuentas.verify(ClaseGeneral.soportescuentas)) {
             try {
                 ClaseGeneral.controlSoportescuentas.edit(ClaseGeneral.soportescuentas, soportescuentasId);
-                ClaseGeneral.controlSoportesresoluciones.editFkcuenta(ClaseGeneral.soportescuentas);
+                ClaseGeneral.controlSoportesresoluciones.editFksoportecuenta(ClaseGeneral.soportescuentas, soportescuentasId);
             } catch (Exception ex) {
                 Logger.getLogger(PanelSoportescuentas.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -496,6 +496,7 @@ public class PanelSoportescuentas extends javax.swing.JPanel {
             ClaseGeneral.soportescuentasPK.setId(ClaseGeneral.soportescuentas.getSoportescuentasPK().getId());
 
             ClaseGeneral.controlSoportescuentas.destroy(ClaseGeneral.soportescuentasPK);
+            ClaseGeneral.controlSoportesresoluciones.destroyFkcuenta(ClaseGeneral.soportescuentasPK);
         } catch (Exception ex) {
             Logger.getLogger(PanelSoportescuentas.class.getName()).log(Level.SEVERE, null, ex);
         }

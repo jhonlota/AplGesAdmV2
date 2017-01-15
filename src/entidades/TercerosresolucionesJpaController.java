@@ -20,7 +20,7 @@ public class TercerosresolucionesJpaController {
 
     public void create(Tercerosresoluciones tercerosresoluciones) {
         try {
-            datos.update("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("
+            datos.query("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("
                     //                    + tercerosresoluciones.getId() + ", "
                     + tercerosresoluciones.getAno() + ", "
                     + tercerosresoluciones.getFkresolucion() + ", "
@@ -33,7 +33,12 @@ public class TercerosresolucionesJpaController {
                     + tercerosresoluciones.getSalario() + ", "
                     + tercerosresoluciones.getDiario() + ", "
                     + "'" + tercerosresoluciones.getFkcomprobante() + "', "
-                    + "'" + tercerosresoluciones.getFkcuenta() + "')");
+                    + "'" + tercerosresoluciones.getFkcuenta() + "')  RETURNING id");
+
+            while (ClaseBaseDatos.resultado.next()) {
+                ClaseGeneral.idTercerosresolucion = ClaseBaseDatos.resultado.getInt("ID");
+            }
+
             if (!datos.isError) {
                 ClaseMensaje.informacionGuardarBD("Articulos - Resolucion");
             }
