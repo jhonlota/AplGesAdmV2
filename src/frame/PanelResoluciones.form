@@ -47,7 +47,7 @@
     </Container>
   </NonVisualComponents>
   <Properties>
-    <Property name="name" type="java.lang.String" value="panelResolucion" noResource="true"/>
+    <Property name="name" type="java.lang.String" value="panelResoluciones" noResource="true"/>
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>

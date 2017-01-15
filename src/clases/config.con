@@ -1,0 +1,9 @@
+<?php
+$host='192.168.131.52';
+$dbname='gest_ciencias';
+$user='aga_ciencias';
+$pass='AgA_CnS.hmcx36874';
+$servidor='//192.168.131.52/datos';
+$login='aga';
+$pwd='AgA.hmcx36874';
+?>

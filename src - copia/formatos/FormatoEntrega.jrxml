@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="420" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4d9048d5-dd9f-472f-8027-bd6fad30d1b6">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FECHA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     OBSERVACIONESCUENTAS.FKCUENTA AS "OBSERVACIONESCUENTAS_FKCUENTA",
+     TO_CHAR (OBSERVACIONESCUENTAS.FECHA, 'yyyy-mm-dd') AS "OBSERVACIONESCUENTAS_FECHA",
+     OBSERVACIONESCUENTAS.DEPENDENCIA AS "OBSERVACIONESCUENTAS_DEPENDENC",
+     OBSERVACIONESCUENTAS.OBSERVACION AS "OBSERVACIONESCUENTAS_OBSERVACI",
+     CUENTAS.EGRESO AS "CUENTAS_EGRESO",
+     CUENTAS.FKTERCERO AS "CUENTAS_FKTERCERO",
+     CUENTAS.SOPORTE AS "CUENTAS_SOPORTE",
+     CALIFICACION.TRAMITE AS "CALIFICACION_TRAMITE",
+     CASE
+          WHEN CALIFICACION.TRAMITE is null THEN 'vacio'
+          ELSE 'ok'
+     END
+FROM
+     CUENTAS INNER JOIN OBSERVACIONESCUENTAS ON CUENTAS.SOPORTE = OBSERVACIONESCUENTAS.FKCUENTA
+     LEFT JOIN CALIFICACION ON CUENTAS.SOPORTE = CALIFICACION.TRAMITE
+WHERE
+     TO_CHAR (OBSERVACIONESCUENTAS.FECHA, 'yyyy-mm-dd') LIKE $P{FECHA}
+     AND OBSERVACIONESCUENTAS.OBSERVACION LIKE '%ENTREGA PRESUPUESTO%'
+GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
+     TO_CHAR (OBSERVACIONESCUENTAS.FECHA, 'yyyy-mm-dd'),
+     OBSERVACIONESCUENTAS.DEPENDENCIA,
+     OBSERVACIONESCUENTAS.OBSERVACION,
+     CUENTAS.EGRESO,
+     CUENTAS.FKTERCERO,
+     CUENTAS.SOPORTE,
+     CALIFICACION.TRAMITE]]>
+	</queryString>
+	<field name="OBSERVACIONESCUENTAS_FKCUENTA" class="java.lang.String"/>
+	<field name="OBSERVACIONESCUENTAS_FECHA" class="java.lang.String"/>
+	<field name="OBSERVACIONESCUENTAS_DEPENDENC" class="java.lang.String"/>
+	<field name="OBSERVACIONESCUENTAS_OBSERVACI" class="java.lang.String"/>
+	<field name="CUENTAS_EGRESO" class="java.lang.Long"/>
+	<field name="CUENTAS_FKTERCERO" class="java.lang.String"/>
+	<field name="CUENTAS_SOPORTE" class="java.lang.String"/>
+	<field name="CALIFICACION_TRAMITE" class="java.lang.String"/>
+	<field name="case" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="96" splitType="Stretch">
+			<line>
+				<reportElement uuid="92a76e86-16d3-4604-9e36-5b63969a0eee" x="0" y="5" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="ad7263b2-5589-467d-a8ef-00324630d70c" x="0" y="10" width="555" height="30"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="20" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD DEL VALLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b54e67ab-4124-4b8a-af54-7d87bebd40d4" x="0" y="35" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="14" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9e74d12b-9f32-4346-b5bc-d7ec15383f0c" x="0" y="50" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="14" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[COORDINACION ADMINISTRATIVA]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="6a091d72-402e-4b8f-9f8f-e3cfd6c5389e" x="0" y="75" width="555" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement uuid="684fd828-13b4-4975-9ff2-683325fe478f" x="0" y="75" width="555" height="20" backcolor="#666666"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="98113547-1c59-41ce-a26d-addd2ca961d0" mode="Transparent" x="0" y="75" width="555" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTOS ENTREGADOS EN LA DIVISION FINANCIERA]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="014e583d-78a3-4778-8783-14f9557b75db" positionType="FixRelativeToBottom" x="0" y="95" width="555" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2a0ebe11-5714-468d-a26c-71b000de56d9" mode="Opaque" x="0" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.OG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="433bad8a-d53a-46d1-8290-903bb98e8ac6" mode="Opaque" x="100" y="0" width="350" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE PROVEEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="149d9d27-4f53-4e8d-8d06-982996d60bc9" mode="Opaque" x="450" y="0" width="105" height="20" forecolor="#FFFFFF" backcolor="#999999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="7fdf8bf9-7f46-4569-8b05-f7760f70210e" x="0" y="20" width="555" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement uuid="9a1d163d-6a8b-4127-8bf2-11d51a7b2bc5" x="0" y="0" width="95" height="24"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OBSERVACIONESCUENTAS_FKCUENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c66c1748-9ade-4fc5-a961-884580f3da86" x="100" y="0" width="350" height="12">
+					<printWhenExpression><![CDATA[$F{case}.equals( "ok" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUENTAS_FKTERCERO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement uuid="1ea85017-a161-4e5b-98ec-aa36dc62f64d" x="455" y="0" width="100" height="24"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUENTAS_EGRESO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c66c1748-9ade-4fc5-a961-884580f3da86" x="100" y="12" width="350" height="12">
+					<printWhenExpression><![CDATA[$F{case}.equals( "ok" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OBSERVACIONESCUENTAS_DEPENDENC}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="a261c5c5-4529-415c-beb6-dc0454c9ca4c" x="0" y="24" width="555" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="f9c2f383-0f1c-4007-abbc-6e63c3aa9d76" mode="Transparent" x="100" y="0" width="350" height="24">
+					<printWhenExpression><![CDATA[$F{case}.equals( "vacio" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ * CUENTA SIN CALIFICAR]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

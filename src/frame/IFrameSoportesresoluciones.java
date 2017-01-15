@@ -69,7 +69,6 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
         jPanel = new javax.swing.JPanel();
 
         setTitle("Soportes");
-        setName(""); // NOI18N
 
         jToolBar.setFloatable(false);
 

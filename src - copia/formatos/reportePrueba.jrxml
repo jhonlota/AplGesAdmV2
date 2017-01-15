@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportePrueba" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4741bd42-e900-42b6-b44d-09906c561b07">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataSetPrueba" uuid="747368b2-84e8-41c4-aabb-edbd76da93e5">
+		<parameter name="IDTABLE" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="ANOTABLE" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[SELECT
+     SOPORTESCOMPROBANTES.FKCOMPROBANTE AS "SOPORTESCOMPROBANTES_FKCOMPROB",
+     SOPORTESCOMPROBANTES.ID AS "SOPORTESCOMPROBANTES_ID",
+     SOPORTESCOMPROBANTES.ACTIVIDAD AS "SOPORTESCOMPROBANTES_ACTIVIDAD",
+     SOPORTESCOMPROBANTES.CCOSTOS AS "SOPORTESCOMPROBANTES_CCOSTOS",
+     SOPORTESCOMPROBANTES.CINFO AS "SOPORTESCOMPROBANTES_CINFO",
+     SOPORTESCOMPROBANTES.CUENTA AS "SOPORTESCOMPROBANTES_CUENTA",
+     SOPORTESCOMPROBANTES.CUENTAINTERNA AS "SOPORTESCOMPROBANTES_CUENTAINT",
+     SOPORTESCOMPROBANTES.SUBGRUPO AS "SOPORTESCOMPROBANTES_SUBGRUPO",
+     SOPORTESCOMPROBANTES.VALOR AS "SOPORTESCOMPROBANTES_VALOR"
+FROM
+     SOPORTESCOMPROBANTES SOPORTESCOMPROBANTES
+WHERE
+     SOPORTESCOMPROBANTES.FKCOMPROBANTE = $P{IDTABLE}
+     AND SOPORTESCOMPROBANTES.ANO = $P{ANOTABLE}]]>
+		</queryString>
+		<field name="SOPORTESCOMPROBANTES_FKCOMPROB" class="java.lang.Integer"/>
+		<field name="SOPORTESCOMPROBANTES_ID" class="java.lang.Integer"/>
+		<field name="SOPORTESCOMPROBANTES_ACTIVIDAD" class="java.lang.String"/>
+		<field name="SOPORTESCOMPROBANTES_CCOSTOS" class="java.lang.String"/>
+		<field name="SOPORTESCOMPROBANTES_CINFO" class="java.lang.String"/>
+		<field name="SOPORTESCOMPROBANTES_CUENTA" class="java.lang.String"/>
+		<field name="SOPORTESCOMPROBANTES_CUENTAINT" class="java.lang.String"/>
+		<field name="SOPORTESCOMPROBANTES_SUBGRUPO" class="java.lang.String"/>
+		<field name="SOPORTESCOMPROBANTES_VALOR" class="java.lang.Long"/>
+		<group name="SOPORTESCOMPROBANTES_ID">
+			<groupExpression><![CDATA[$F{SOPORTESCOMPROBANTES_ID}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     COMPROBANTES.ID AS "COMPROBANTES_ID",
+     COMPROBANTES.COMPROBANTE AS "COMPROBANTES_COMPROBANTE",
+     COMPROBANTES.FECHAAPLICACION AS "COMPROBANTES_FECHAAPLICACION",
+     COMPROBANTES.FECHAELABORACION AS "COMPROBANTES_FECHAELABORACION",
+     COMPROBANTES.FECHAPAGO AS "COMPROBANTES_FECHAPAGO",
+     COMPROBANTES.FKTERCERO AS "COMPROBANTES_FKTERCERO",
+     COMPROBANTES.FKTERCEROFUNCIONARIO AS "COMPROBANTES_FKTERCEROFUNCIONA",
+     COMPROBANTES.OBSERVACION AS "COMPROBANTES_OBSERVACION",
+     COMPROBANTES.TIPOPAGO AS "COMPROBANTES_TIPOPAGO",
+     COMPROBANTES.VALOR AS "COMPROBANTES_VALOR"
+FROM
+     COMPROBANTES COMPROBANTES
+WHERE
+     COMPROBANTES.ID = $P{ID}
+     AND COMPROBANTES.ANO = $P{ANO}]]>
+	</queryString>
+	<field name="COMPROBANTES_ID" class="java.lang.Integer"/>
+	<field name="COMPROBANTES_COMPROBANTE" class="java.lang.Integer"/>
+	<field name="COMPROBANTES_FECHAAPLICACION" class="java.sql.Date"/>
+	<field name="COMPROBANTES_FECHAELABORACION" class="java.sql.Date"/>
+	<field name="COMPROBANTES_FECHAPAGO" class="java.sql.Date"/>
+	<field name="COMPROBANTES_FKTERCERO" class="java.lang.String"/>
+	<field name="COMPROBANTES_FKTERCEROFUNCIONA" class="java.lang.String"/>
+	<field name="COMPROBANTES_OBSERVACION" class="java.lang.String"/>
+	<field name="COMPROBANTES_TIPOPAGO" class="java.lang.String"/>
+	<field name="COMPROBANTES_VALOR" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="140" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="101974d5-0738-49da-a4a7-bcae83d6d067" key="table" style="table" x="0" y="0" width="572" height="140"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dataSetPrueba" uuid="7122d101-bbea-449f-9b5d-859352aeb85d">
+						<datasetParameter name="IDTABLE">
+							<datasetParameterExpression><![CDATA[$P{ID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="ANOTABLE">
+							<datasetParameterExpression><![CDATA[$P{ANO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[$P{REPORT_CONNECTION}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column uuid="b6c17681-8d01-4fd2-9549-7f553e31585d" width="90">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:tableFooter style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30"/>
+						<jr:columnFooter style="table_CH" height="30"/>
+						<jr:detailCell style="table_TD" height="20"/>
+					</jr:column>
+					<jr:column uuid="a4588e0d-4042-424d-8ced-c3a6bc0a4a0c" width="90">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:tableFooter style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30"/>
+						<jr:columnFooter style="table_CH" height="30"/>
+						<jr:detailCell style="table_TD" height="20"/>
+					</jr:column>
+					<jr:column uuid="0218a5fb-fb90-46fa-b14b-e9e77ea3786e" width="90">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:tableFooter style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30"/>
+						<jr:columnFooter style="table_CH" height="30"/>
+						<jr:detailCell style="table_TD" height="20"/>
+					</jr:column>
+					<jr:column uuid="8d4bc1f0-f484-4081-9f15-04eac52b8c53" width="90">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:tableFooter style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30"/>
+						<jr:columnFooter style="table_CH" height="30"/>
+						<jr:detailCell style="table_TD" height="20"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

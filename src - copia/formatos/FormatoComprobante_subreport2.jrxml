@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudCuenta_subreport1" language="groovy" pageWidth="710" pageHeight="80" columnWidth="710" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6433ed45-7eac-4f77-928f-5b6b80c7aa58">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKCOMPROBANTE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FKTERCERO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     FACTURASCOMPROBANTES.FKCOMPROBANTE AS "FACTURASCOMPROBANTES_FKCOMPROB",
+     FACTURASCOMPROBANTES.NUMERO AS "FACTURASCOMPROBANTES_NUMERO",
+     FACTURASCOMPROBANTES.VALOR AS "FACTURASCOMPROBANTES_VALOR",
+     FACTURASCOMPROBANTES.ANO AS "FACTURASCOMPROBANTES_ANO",
+     FACTURASCOMPROBANTES.FECHA AS "FACTURASCOMPROBANTES_FECHA"
+FROM
+     FACTURASCOMPROBANTES FACTURASCOMPROBANTES
+WHERE
+     FACTURASCOMPROBANTES.FKCOMPROBANTE = $P{FKCOMPROBANTE}
+     AND FACTURASCOMPROBANTES.ANO = $P{ANO}]]>
+	</queryString>
+	<field name="FACTURASCOMPROBANTES_FKCOMPROB" class="java.lang.Integer"/>
+	<field name="FACTURASCOMPROBANTES_NUMERO" class="java.lang.String"/>
+	<field name="FACTURASCOMPROBANTES_VALOR" class="java.lang.Long"/>
+	<field name="FACTURASCOMPROBANTES_ANO" class="java.lang.Integer"/>
+	<field name="FACTURASCOMPROBANTES_FECHA" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[( $V{COLUMN_COUNT} <= 4 ? true : false )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="5d602304-4a0d-4999-af7b-8993bbc1709c" x="5" y="0" width="325" height="25"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FKTERCERO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="aa4ccd71-b38c-42ea-aee9-bff2376c3f59" x="330" y="0" width="180" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FACTURASCOMPROBANTES_NUMERO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy-MM-dd" isBlankWhenNull="true">
+				<reportElement uuid="10596d43-c9fb-45f0-be9c-96a1031346cf" x="510" y="0" width="100" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FACTURASCOMPROBANTES_FECHA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement uuid="f1d58f93-1a12-4048-bb28-161951a3605c" x="610" y="0" width="95" height="25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FACTURASCOMPROBANTES_VALOR}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="14ea4f57-c934-4b5b-b2d4-1e6f2d2f28f9" mode="Transparent" x="0" y="0" width="330" height="25"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="466eea15-f6da-4c38-b5eb-ce532f4aa3ba" mode="Transparent" x="330" y="0" width="180" height="25"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="40f50e24-6f7c-479d-bc5c-065cb747f9cd" mode="Transparent" x="510" y="0" width="100" height="25"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="837b9d24-6472-4312-b4bc-92fb90803d28" mode="Transparent" x="610" y="0" width="100" height="25"/>
+			</rectangle>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

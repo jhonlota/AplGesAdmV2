@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudCuenta_subreport1" language="groovy" pageWidth="710" pageHeight="80" columnWidth="710" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
+	<property name="ireport.zoom" value="0.9090909090909096"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKSOLICITUDOFERTA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA AS "BIENESSOLICITUDESOFERTA_FKSOLICITUD",
+     BIENESSOLICITUDESOFERTA.ID AS "BIENESSOLICITUDESOFERTA_ID",
+     BIENESSOLICITUDESOFERTA.NOMBRE AS "BIENESSOLICITUDESOFERTA_NOMBRE",
+     BIENESSOLICITUDESOFERTA.DESCRIPCION AS "BIENESSOLICITUDESOFERTA_DESCRIPCION",
+     BIENESSOLICITUDESOFERTA.CARACTERISTICAS AS "BIENESSOLICITUDESOFERTA_CARACTERISTICAS",
+     BIENESSOLICITUDESOFERTA.CANTIDAD AS "BIENESSOLICITUDESOFERTA_CANTIDAD",
+     BIENESSOLICITUDESOFERTA.ANO AS "BIENESSOLICITUDESOFERTA_ANO"
+FROM
+     BIENESSOLICITUDESOFERTA BIENESSOLICITUDESOFERTA
+WHERE
+     BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA = $P{FKSOLICITUDOFERTA}
+     AND BIENESSOLICITUDESOFERTA.ANO = $P{ANO}]]>
+	</queryString>
+	<field name="BIENESSOLICITUDESOFERTA_FKSOLICITUD" class="java.lang.Integer"/>
+	<field name="BIENESSOLICITUDESOFERTA_ID" class="java.lang.Integer"/>
+	<field name="BIENESSOLICITUDESOFERTA_NOMBRE" class="java.lang.String"/>
+	<field name="BIENESSOLICITUDESOFERTA_DESCRIPCION" class="java.lang.String"/>
+	<field name="BIENESSOLICITUDESOFERTA_CARACTERISTICAS" class="java.lang.String"/>
+	<field name="BIENESSOLICITUDESOFERTA_CANTIDAD" class="java.lang.Integer"/>
+	<field name="BIENESSOLICITUDESOFERTA_ANO" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<printWhenExpression><![CDATA[( $V{COLUMN_COUNT} <= 4 ? true : false )]]></printWhenExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="02f0f2b3-c484-4399-95c2-96806f6fbd3f" x="0" y="0" width="40" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="02f0f2b3-c484-4399-95c2-96806f6fbd3f" x="40" y="0" width="186" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BIENESSOLICITUDESOFERTA_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c405e106-df45-4e72-b169-e6cfa8a8ea3b" x="226" y="0" width="194" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BIENESSOLICITUDESOFERTA_DESCRIPCION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="7031ecc2-efea-4e6c-8865-8fc9c62a3725" x="420" y="0" width="258" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BIENESSOLICITUDESOFERTA_CARACTERISTICAS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="7031ecc2-efea-4e6c-8865-8fc9c62a3725" x="678" y="0" width="32" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BIENESSOLICITUDESOFERTA_CANTIDAD}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="29ebe0e8-4880-49f5-9f53-5d1b084cc875" mode="Transparent" x="0" y="0" width="40" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="24a8b30d-6e1e-4ec8-9321-2ae30007a4dd" mode="Transparent" x="40" y="0" width="186" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2953a89d-d0f3-4f8e-a417-9e8e52f5a312" mode="Transparent" x="226" y="0" width="194" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="137acce2-4a34-426c-88f9-83219bfc86d2" mode="Transparent" x="420" y="0" width="258" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="29ebe0e8-4880-49f5-9f53-5d1b084cc875" mode="Transparent" x="678" y="0" width="34" height="20"/>
+			</rectangle>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

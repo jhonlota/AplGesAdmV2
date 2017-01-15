@@ -2199,7 +2199,7 @@ public class PanelContratos extends javax.swing.JPanel {
         Calendar cal = Calendar.getInstance();
         cal.setTime(fechainicio.getDate());
         if (unidadduracion.getSelectedItem().equals("DÍAS")) {
-            cal.add(Calendar.DATE, intPlazo);
+            cal.add(Calendar.DATE, intPlazo - 1);
         } else if (unidadduracion.getSelectedItem().equals("SEMANAS")) {
             cal.add(Calendar.DATE, 7 * intPlazo);
         } else if (unidadduracion.getSelectedItem().equals("MESES")) {

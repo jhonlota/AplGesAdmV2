@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InformeTotalComprobanteCUENTAINTERNA_subreport1" language="groovy" pageWidth="80" pageHeight="20" columnWidth="80" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="eff57cc9-f6c2-4f3b-9ba3-2b68e5a7a0ca">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CINFO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAFINAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAINICIAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TIPOPAGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CUENTAINTERNA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     COUNT(DISTINCT(COMPROBANTES.COMPROBANTE)) "COUNT"
+FROM
+     SOPORTESCOMPROBANTES INNER JOIN COMPROBANTES ON SOPORTESCOMPROBANTES.FKCOMPROBANTE = COMPROBANTES.ID
+WHERE
+     SOPORTESCOMPROBANTES.CINFO LIKE $P{CINFO}
+ AND SOPORTESCOMPROBANTES.CUENTAINTERNA LIKE $P{CUENTAINTERNA}
+ AND COMPROBANTES.TIPOPAGO = $P{TIPOPAGO}
+ AND COMPROBANTES.FECHAAPLICACION BETWEEN ($P{FECHAINICIAL}::DATE) AND ($P{FECHAFINAL}::DATE)
+GROUP BY
+     SOPORTESCOMPROBANTES.CINFO]]>
+	</queryString>
+	<field name="COUNT" class="java.lang.Long"/>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="46b887e8-6f77-4414-ba13-4abb512662a0" x="0" y="0" width="75" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

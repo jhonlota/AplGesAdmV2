@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoResolucion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="60" bottomMargin="60" uuid="9c373adb-634e-4127-a7a3-411bd90f48cb">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="419"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id" class="java.lang.Integer"/>
+	<parameter name="ano" class="java.lang.Integer"/>
+	<parameter name="fkterceroordenadorgasto" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     resolucion."id" AS resolucion_id,
+     resolucion."acuerdo" AS resolucion_acuerdo,
+     resolucion."ano" AS resolucion_ano,
+     resolucion."fecha" AS resolucion_fecha,
+     resolucion."fechainicio" AS resolucion_fechainicio,
+     resolucion."fechaterminacion" AS resolucion_fechaterminacion,
+     resolucion."fkterceroordenadorgasto" AS resolucion_fkterceroordenadorgasto,
+     resolucion."observacion" AS resolucion_observacion,
+     resolucion."tipo" AS resolucion_tipo,
+     resolucion."vehiculo" AS resolucion_vehiculo,
+     resolucion."isfindesemana" AS resolucion_isfindesemana,
+     tercerosresolucion."id" AS tercerosresolucion_id,
+     tercerosresolucion."ano" AS tercerosresolucion_ano,
+     tercerosresolucion."fkresolucion" AS tercerosresolucion_fkresolucion,
+     tercerosresolucion."fktercero" AS tercerosresolucion_fktercero,
+     tercerosresolucion."valor" AS tercerosresolucion_valor,
+     tercerosresolucion."destino" AS tercerosresolucion_destino,
+     tercerosresolucion."objetivo" AS tercerosresolucion_objetivo,
+     tercerosresolucion."soporte" AS tercerosresolucion_soporte,
+     tercerosresolucion."tarifa" AS tercerosresolucion_tarifa,
+     terceros."nombre" AS terceros_nombre,
+     terceros."tipoid" AS terceros_tipoid,
+     terceros."id" AS terceros_id,
+     terceros."cargo" AS terceros_cargo,
+     terceros."dependencia" AS terceros_dependencia,
+     tercerosresolucion."salario" AS tercerosresolucion_salario,
+     comprobantes."id" AS comprobantes_id,
+     comprobantes."fktercero" AS comprobantes_fktercero,
+     comprobantes."ano" AS comprobantes_ano,
+     comprobantes."tipopago" AS comprobantes_tipopago,
+     cuentas."fktercero" AS cuentas_fktercero,
+     cuentas."soporte" AS cuentas_soporte,
+     (fechaterminacion-fechainicio) AS duracion,
+     tercerosresolucion.diario AS tercerosresolucion_diario,
+     (SELECT SUM(tercerosresolucion."valor")
+     FROM
+     "resolucion" resolucion INNER JOIN "tercerosresolucion" tercerosresolucion ON resolucion."id" = tercerosresolucion."fkresolucion"
+     AND resolucion."ano" = tercerosresolucion."ano"
+     WHERE
+     resolucion."id" = $P{id}
+     AND resolucion."ano" = $P{ano}
+     GROUP BY
+     tercerosresolucion."fkresolucion",
+     tercerosresolucion."ano" ) AS sum_valor,
+     (SELECT COUNT(tercerosresolucion."id")
+     FROM
+     "resolucion" resolucion INNER JOIN "tercerosresolucion" tercerosresolucion ON resolucion."id" = tercerosresolucion."fkresolucion"
+     AND resolucion."ano" = tercerosresolucion."ano"
+     WHERE
+     resolucion."id" = $P{id}
+     AND resolucion."ano" = $P{ano}
+     GROUP BY
+     tercerosresolucion."fkresolucion",
+     tercerosresolucion."ano" ) AS count_id
+FROM
+     "resolucion" resolucion INNER JOIN "tercerosresolucion" tercerosresolucion ON resolucion."id" = tercerosresolucion."fkresolucion"
+     AND resolucion."ano" = tercerosresolucion."ano"
+     INNER JOIN "public"."terceros" terceros ON tercerosresolucion."fktercero" = (terceros."id" || ' - ' || terceros."nombre")
+     LEFT JOIN "public"."cuentas" cuentas ON tercerosresolucion."fkcuenta" = cuentas."soporte"
+     LEFT JOIN "public"."comprobantes" comprobantes ON tercerosresolucion."fkcomprobante" = CAST(comprobantes."id" AS TEXT)
+     AND comprobantes."ano" = tercerosresolucion."ano"
+WHERE
+     resolucion."id" = $P{id}
+     AND resolucion."ano" = $P{ano}
+ORDER BY
+     tercerosresolucion.fkcomprobante, tercerosresolucion.fkcuenta, tercerosresolucion.soporte]]>
+	</queryString>
+	<field name="resolucion_id" class="java.lang.Integer"/>
+	<field name="resolucion_acuerdo" class="java.lang.String"/>
+	<field name="resolucion_ano" class="java.lang.Integer"/>
+	<field name="resolucion_fecha" class="java.sql.Date"/>
+	<field name="resolucion_fechainicio" class="java.sql.Date"/>
+	<field name="resolucion_fechaterminacion" class="java.sql.Date"/>
+	<field name="resolucion_fkterceroordenadorgasto" class="java.lang.String"/>
+	<field name="resolucion_observacion" class="java.lang.String"/>
+	<field name="resolucion_tipo" class="java.lang.String"/>
+	<field name="resolucion_vehiculo" class="java.lang.String"/>
+	<field name="resolucion_isfindesemana" class="java.lang.Boolean"/>
+	<field name="tercerosresolucion_id" class="java.lang.Integer"/>
+	<field name="tercerosresolucion_ano" class="java.lang.Integer"/>
+	<field name="tercerosresolucion_fkresolucion" class="java.lang.Integer"/>
+	<field name="tercerosresolucion_fktercero" class="java.lang.String"/>
+	<field name="tercerosresolucion_valor" class="java.lang.Long"/>
+	<field name="tercerosresolucion_destino" class="java.lang.String"/>
+	<field name="tercerosresolucion_objetivo" class="java.lang.String"/>
+	<field name="tercerosresolucion_soporte" class="java.lang.String"/>
+	<field name="tercerosresolucion_tarifa" class="java.lang.String"/>
+	<field name="terceros_nombre" class="java.lang.String"/>
+	<field name="terceros_tipoid" class="java.lang.String"/>
+	<field name="terceros_id" class="java.lang.String"/>
+	<field name="terceros_cargo" class="java.lang.String"/>
+	<field name="terceros_dependencia" class="java.lang.String"/>
+	<field name="tercerosresolucion_salario" class="java.lang.Long"/>
+	<field name="comprobantes_id" class="java.lang.Integer"/>
+	<field name="comprobantes_fktercero" class="java.lang.String"/>
+	<field name="comprobantes_ano" class="java.lang.Integer"/>
+	<field name="comprobantes_tipopago" class="java.lang.String"/>
+	<field name="cuentas_fktercero" class="java.lang.String"/>
+	<field name="cuentas_soporte" class="java.lang.String"/>
+	<field name="duracion" class="java.lang.Integer"/>
+	<field name="tercerosresolucion_diario" class="java.math.BigDecimal"/>
+	<field name="sum_valor" class="java.math.BigDecimal"/>
+	<field name="count_id" class="java.lang.Long"/>
+	<variable name="arregloFkterceroordenadorgasto" class="java.lang.String[]">
+		<initialValueExpression><![CDATA[$F{resolucion_fkterceroordenadorgasto}.split( ' ' )]]></initialValueExpression>
+	</variable>
+	<background>
+		<band height="10" splitType="Stretch">
+			<textField>
+				<reportElement uuid="b649dda1-ab61-41ed-a2e1-1c50b065d747" x="0" y="-29" width="495" height="25">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Resolución Nro. " +
+($F{resolucion_id} < 10 ? "00" + $F{resolucion_id} :
+    ($F{resolucion_id} < 100 ? "0" + $F{resolucion_id} : $F{resolucion_id} ))
++ "\n" +
+( $F{resolucion_fecha}.getMonth() == 0? "Enero" :
+    ( $F{resolucion_fecha}.getMonth() == 1? "Febrero" :
+        ( $F{resolucion_fecha}.getMonth() == 2? "Marzo" :
+            ( $F{resolucion_fecha}.getMonth() == 3? "Abril" :
+                ( $F{resolucion_fecha}.getMonth() == 4? "Mayo" :
+                    ( $F{resolucion_fecha}.getMonth() == 5? "Junio" :
+                        ( $F{resolucion_fecha}.getMonth() == 6? "Julio" :
+                            ( $F{resolucion_fecha}.getMonth() == 7? "Agosto" :
+                                ( $F{resolucion_fecha}.getMonth() == 8? "Septiembre" :
+                                    ( $F{resolucion_fecha}.getMonth() == 9? "Octubre" :
+                                        ( $F{resolucion_fecha}.getMonth() == 10? "Noviembre" : "Diciembre")))))))))))
+ + " " + $F{resolucion_fecha}.getDate() + " de " + ($F{resolucion_fecha}.getYear() + 1900)]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="0e11bd58-6032-46dd-94b2-2ceca6003f02" x="0" y="-4" width="495" height="1">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				</reportElement>
+			</line>
+		</band>
+	</background>
+	<title>
+		<band height="210" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b649dda1-ab61-41ed-a2e1-1c50b065d747" x="0" y="0" width="495" height="60"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["UNIVERSIDAD DEL VALLE\n" +
+"FACULTAD DE CIENCIAS NATURALES Y EXACTAS\n" +
+"Resolución Nro. " +
+($F{resolucion_id} < 10 ? "00" + $F{resolucion_id} :
+    ($F{resolucion_id} < 100 ? "0" + $F{resolucion_id} : $F{resolucion_id} ))
++ "\n" +
+( $F{resolucion_fecha}.getMonth() == 0? "Enero" :
+    ( $F{resolucion_fecha}.getMonth() == 1? "Febrero" :
+        ( $F{resolucion_fecha}.getMonth() == 2? "Marzo" :
+            ( $F{resolucion_fecha}.getMonth() == 3? "Abril" :
+                ( $F{resolucion_fecha}.getMonth() == 4? "Mayo" :
+                    ( $F{resolucion_fecha}.getMonth() == 5? "Junio" :
+                        ( $F{resolucion_fecha}.getMonth() == 6? "Julio" :
+                            ( $F{resolucion_fecha}.getMonth() == 7? "Agosto" :
+                                ( $F{resolucion_fecha}.getMonth() == 8? "Septiembre" :
+                                    ( $F{resolucion_fecha}.getMonth() == 9? "Octubre" :
+                                        ( $F{resolucion_fecha}.getMonth() == 10? "Noviembre" : "Diciembre")))))))))))
+ + " " + $F{resolucion_fecha}.getDate() + " de " + ($F{resolucion_fecha}.getYear() + 1900)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b649dda1-ab61-41ed-a2e1-1c50b065d747" x="0" y="70" width="495" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[( $F{resolucion_tipo}.equals("AYUDA ECONÓMICA") ? "\"POR LA CUAL SE CONCEDE UNA AYUDA ECONÓMICA\"" :
+    ( $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS") ? "\"POR LA CUAL SE CONCEDE UNA COMISIÓN ACADÉMICA Y VIÁTICOS\"" :
+        ( $F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS") ? "\"POR LA CUAL SE CONCEDE UNA COMISIÓN DE SERVICIOS Y VIÁTICOS\"" :
+            ( $F{resolucion_tipo}.equals("GASTOS DE VIAJE") ? "\"POR LA CUAL SE CONCEDE UNOS GASTOS DE VIAJE\"" :
+                ( $F{resolucion_tipo}.equals("GASTOS DE VIAJE Y TIQUETES AÉREOS") ? "\"POR LA CUAL SE CONCEDE UNOS GASTOS DE VIAJE\"" :
+                    ( $F{resolucion_tipo}.equals("TIQUETES AÉREOS") ? "" : "\"" + $F{resolucion_tipo} + "\""
+))))))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="15dc470b-3d00-4862-98a5-fbc8cb661107" x="0" y="110" width="495" height="55"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="11"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["EL DECANO DE LA FACULTAD DE CIENCIAS NATURALES Y EXACTAS DE LA UNIVERSIDAD DEL VALLE, en uso de sus facultades conferidas por el estatuto General, " +
+( $F{resolucion_acuerdo}.equals("Acuerdo No. 004 de 1996") ? "Acuerdo 004 de 1996, literal (j) del Consejo Superior" :
+    ( $F{resolucion_acuerdo}.equals("Acuerdo No. 004 de 1996 y Resolución No. 2252") ? "Acuerdo 004 de 1996, literal (j) del Consejo Superior y de la Resolución No. 2252 de Julio 24 de 2013 de la Rectoría" :
+        ( $F{resolucion_acuerdo}.equals("Acuerdo No. 004 de 1996 y Resolución No. 2784") ? "Acuerdo 004 de 1996, literal (j) del Consejo Superior y de la Resolución No. 2784 de Julio 24 de 2014 de la Rectoría" :
+            ( $F{resolucion_acuerdo}.equals("Acuerdo No. 004 de 1996 y Resolución No. 2253") ? "Acuerdo 004 de 1996, literal (j) del Consejo Superior y de la Resolución No. 2253 de Julio 24 de 2013 de la Rectoría" :
+                $F{resolucion_acuerdo} )))) + "."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="180" width="495" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESUELVE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="40">
+			<textField>
+				<reportElement uuid="85315c2a-1458-47be-947b-85bd168347e5" x="0" y="20" width="135" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ARTICULO " +
+($V{REPORT_COUNT} == 1 ? "PRIMERO :" :
+($V{REPORT_COUNT} == 2 ? "SEGUNDO :" :
+($V{REPORT_COUNT} == 3 ? "TERCERO :" :
+($V{REPORT_COUNT} == 4 ? "CUARTO :" :
+($V{REPORT_COUNT} == 5 ? "QUINTO :" :
+($V{REPORT_COUNT} == 6 ? "SEXTO :" :
+($V{REPORT_COUNT} == 7 ? "SEPTIMO :" :
+($V{REPORT_COUNT} == 8 ? "OCTAVO :" :
+($V{REPORT_COUNT} == 9 ? "NOVENO :" :
+($V{REPORT_COUNT} == 10 ? "DECIMO :" : ":"
+))))))))))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="20" width="360" height="15"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[( $F{resolucion_tipo}.equals("TIQUETES AÉREOS") ? "Pagar tiquetes aéreos a la empresa " +
+    ( $F{comprobantes_fktercero}.equals( null ) ? "" : $F{comprobantes_fktercero}.substring($F{comprobantes_fktercero}.indexOf(" - ") + 3, $F{comprobantes_fktercero}.length()) ) +
+    ( $F{cuentas_fktercero}.equals( null ) ? "" : $F{cuentas_fktercero}.substring($F{cuentas_fktercero}.indexOf(" - ") + 3, $F{cuentas_fktercero}.length()) ) +
+    " concedidos a:\n"
+    : "Conceder " + $F{resolucion_tipo}.toLowerCase() + " a la siguiente persona:\n" ) +
+( $F{resolucion_tipo}.equals("AYUDA ECONÓMICA") ? "Estudiante " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." :
+    ( $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + " " + $F{terceros_cargo} + " del " + $F{terceros_dependencia} + "." :
+        ( $F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS") ? "Señor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + " " + $F{terceros_cargo} + " del " + $F{terceros_dependencia} + "." :
+            ( $F{resolucion_tipo}.equals("GASTOS DE VIAJE") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." :
+                ( $F{resolucion_tipo}.equals("GASTOS DE VIAJE Y TIQUETES AÉREOS") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." :
+                    ( $F{resolucion_tipo}.equals("TIQUETES AÉREOS") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." : "\"" + $F{resolucion_tipo} + "\""
+))))))]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("AYUDA ECONÓMICA")]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="175" y="0" width="320" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tercerosresolucion_valor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="135" y="0" width="40" height="15"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor : ]]></text>
+			</staticText>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("TIQUETES AÉREOS") || $F{resolucion_tipo}.equals("GASTOS DE VIAJE Y TIQUETES AÉREOS")]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="0" width="135" height="15"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESTINO :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="360" height="15"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tercerosresolucion_destino} + "."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="0" width="135" height="15"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBJETIVO :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="360" height="15"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tercerosresolucion_objetivo} + "."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS") || $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS")]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="0" width="135" height="15"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DURACION :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="360" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[( $F{duracion} == 0 ? "" : $F{duracion} + ( $F{duracion} == 1 ? " dia (Pernoctando)\n" : " dias (Pernoctando)\n" ) ) +
+"1 dia (Sin pernoctar)"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="40">
+			<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS")
+|| $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS")]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="0" width="135" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{tercerosresolucion_salario} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SALARIO :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="360" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{tercerosresolucion_salario} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tercerosresolucion_salario}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="20" width="360" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{tercerosresolucion_diario} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tercerosresolucion_diario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="20" width="135" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{tercerosresolucion_diario} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIARIO :]]></text>
+			</staticText>
+		</band>
+		<band height="20">
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="0" width="135" height="15"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEDIO DE PAGO :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="360" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{comprobantes_id} == null ? "" : $F{comprobantes_tipopago} + " - " + $F{comprobantes_id} )
++ "" +
+($F{cuentas_soporte} == null ? "" : " Solicitud de Pago - " + $F{cuentas_soporte} )
++ "" +
+($F{comprobantes_id} == null && $F{cuentas_soporte} == null ? " " + $F{tercerosresolucion_soporte} : "" )]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT} == $F{count_id}.intValue()]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="0" width="135" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS")
+|| $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERIODO :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="60" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS")
+|| $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resolucion_fechainicio}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="245" y="0" width="250" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS")
+|| $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resolucion_fechaterminacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="195" y="0" width="50" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS")
+|| $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ HASTA ]]></text>
+			</staticText>
+		</band>
+		<band height="20">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT} == $F{count_id}.intValue()]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="0" width="135" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS")
+|| $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS")) &&
+!$F{resolucion_vehiculo}.equals("0")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VEHICULO :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="360" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS")
+|| $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS")) &&
+!$F{resolucion_vehiculo}.equals("0")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Utilizaran para desplazarse en el(los) vehículo(s) de placas : " + $F{resolucion_vehiculo} + "."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="95">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT} == $F{count_id}.intValue()]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="360" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{sum_valor} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[( $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS") ? "VIATICOS" :
+        ( $F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS") ? "VIATICOS" : $F{resolucion_tipo}
+))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="0" width="135" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{sum_valor} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="30" width="360" height="30" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{comprobantes_id} == null && $F{cuentas_soporte} == null ? false : true )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Los cuales serán pagados por la Facultad de Ciencias Naturales y Exactas, con la siguiente forma de pago:"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="268" y="15" width="227" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{sum_valor} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sum_valor}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="60" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[($F{comprobantes_id} == null && $F{cuentas_soporte} == null ? false : true )]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fkresolucion">
+					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_fkresolucion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ano">
+					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_ano}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoResolucion_Cuentainterna_comprobante.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="75" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[($F{comprobantes_id} == null && $F{cuentas_soporte} == null ? false : true )]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fkresolucion">
+					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_fkresolucion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ano">
+					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_ano}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoResolucion_Cuentainterna_cuenta.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="15" width="133" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{sum_valor} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{resolucion_tipo}.equals("GASTOS DE VIAJE Y TIQUETES AÉREOS") ? "Gastos de viaje por valor de " : "Pagar el valor total de ")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="40">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT} == $F{count_id}.intValue()]]></printWhenExpression>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="0" width="495" height="35" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS")
+|| $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS"))
+&& $F{resolucion_isfindesemana}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="11"/>
+				</textElement>
+				<text><![CDATA[Se autoriza esta comisión para llevarse a cabo durante el fin de semana ante necesidades en el desarrollo de la programacion de actividades docentes.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band height="100" splitType="Immediate">
+			<frame>
+				<reportElement uuid="9721990d-aa9f-485e-b90a-82edb8df2095" x="0" y="0" width="495" height="100"/>
+				<textField>
+					<reportElement uuid="b649dda1-ab61-41ed-a2e1-1c50b065d747" isPrintRepeatedValues="false" x="0" y="0" width="495" height="15"/>
+					<textElement textAlignment="Left">
+						<font fontName="SansSerif" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Dada en Santiago de Cali, a los " +
+$F{resolucion_fecha}.getDate() + " dia(s) de " +
+( $F{resolucion_fecha}.getMonth() == 0? "Enero" :
+    ( $F{resolucion_fecha}.getMonth() == 1? "Febrero" :
+        ( $F{resolucion_fecha}.getMonth() == 2? "Marzo" :
+            ( $F{resolucion_fecha}.getMonth() == 3? "Abril" :
+                ( $F{resolucion_fecha}.getMonth() == 4? "Mayo" :
+                    ( $F{resolucion_fecha}.getMonth() == 5? "Junio" :
+                        ( $F{resolucion_fecha}.getMonth() == 6? "Julio" :
+                            ( $F{resolucion_fecha}.getMonth() == 7? "Agosto" :
+                                ( $F{resolucion_fecha}.getMonth() == 8? "Septiembre" :
+                                    ( $F{resolucion_fecha}.getMonth() == 9? "Octubre" :
+                                        ( $F{resolucion_fecha}.getMonth() == 10? "Noviembre" : "Diciembre")))))))))))
++ " de " + ($F{resolucion_fecha}.getYear() + 1900) + "."]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="49be54c5-c35c-45dc-ad08-3d9098122b42" isPrintRepeatedValues="false" x="0" y="70" width="495" height="15"/>
+					<textElement>
+						<font fontName="SansSerif" size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{fkterceroordenadorgasto}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="49be54c5-c35c-45dc-ad08-3d9098122b42" isPrintRepeatedValues="false" x="0" y="85" width="495" height="15"/>
+					<textElement>
+						<font fontName="SansSerif" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($P{fkterceroordenadorgasto}.equals("WALTER TORRES HERNANDEZ") ? "Decano" : "Decano (E)")]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

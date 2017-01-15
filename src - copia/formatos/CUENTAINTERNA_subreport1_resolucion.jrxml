@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CINFO_subreport1" language="groovy" pageWidth="280" pageHeight="15" whenNoDataType="NoDataSection" columnWidth="280" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7ea8b47f-b402-484c-b115-f29d0ff8440d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CODIGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     CUENTAINTERNA.CODIGO AS "CUENTAINTERNA_CODIGO",
+     CUENTAINTERNA.NOMBRE AS "CUENTAINTERNA_NOMBRE"
+FROM
+     CUENTAINTERNA CUENTAINTERNA
+WHERE
+     CUENTAINTERNA.CODIGO = $P{CODIGO}]]>
+	</queryString>
+	<field name="CUENTAINTERNA_CODIGO" class="java.lang.String"/>
+	<field name="CUENTAINTERNA_NOMBRE" class="java.lang.String"/>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e2171620-16cf-4de9-8ca7-2aa34a3a5216" x="0" y="0" width="280" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUENTAINTERNA_NOMBRE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="15">
+			<textField>
+				<reportElement uuid="af3b9f65-3c62-4f3b-81b4-09e0725d0303" x="0" y="0" width="280" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CODIGO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</noData>
+</jasperReport>

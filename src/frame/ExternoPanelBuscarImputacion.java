@@ -56,7 +56,9 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         parametro = new javax.swing.JComboBox();
         jLabelNumero = new javax.swing.JLabel();
-        numero = new javax.swing.JTextField();
+        fkcomprobante = new javax.swing.JTextField();
+        jLabelNumeroOG = new javax.swing.JLabel();
+        fkcuenta = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         scrollLista = new javax.swing.JScrollPane();
@@ -65,7 +67,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(550, 300));
         setMinimumSize(new java.awt.Dimension(550, 300));
         setPreferredSize(new java.awt.Dimension(550, 300));
-        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        setLayout(new java.awt.FlowLayout(0));
 
         jLabel1.setBackground(ClaseGeneral.titulo);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -102,18 +104,36 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         this.jLabelNumero.setVisible(false);
         add(jLabelNumero);
 
-        numero.setBackground(ClaseGeneral.campo);
-        numero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        numero.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        numero.setName("NOMBRE"); // NOI18N
-        numero.setPreferredSize(new java.awt.Dimension(435, 25));
-        numero.setVisible(false);
-        numero.addKeyListener(new java.awt.event.KeyAdapter() {
+        fkcomprobante.setBackground(ClaseGeneral.campo);
+        fkcomprobante.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fkcomprobante.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        fkcomprobante.setName("COMPROBANTE"); // NOI18N
+        fkcomprobante.setPreferredSize(new java.awt.Dimension(435, 25));
+        fkcomprobante.setVisible(false);
+        fkcomprobante.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldnumeroKeyReleased(evt);
+                TexyFieldKeyReleased(evt);
             }
         });
-        add(numero);
+        add(fkcomprobante);
+
+        jLabelNumeroOG.setText("NUMERO OG :");
+        jLabelNumeroOG.setPreferredSize(new java.awt.Dimension(100, 25));
+        this.jLabelNumeroOG.setVisible(false);
+        add(jLabelNumeroOG);
+
+        fkcuenta.setBackground(ClaseGeneral.campo);
+        fkcuenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fkcuenta.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        fkcuenta.setName("SOPORTE"); // NOI18N
+        fkcuenta.setPreferredSize(new java.awt.Dimension(435, 25));
+        fkcuenta.setVisible(false);
+        fkcuenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TexyFieldKeyReleased(evt);
+            }
+        });
+        add(fkcuenta);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -139,7 +159,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         add(scrollLista);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TexyFieldnumeroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldnumeroKeyReleased
+    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
         String texto = componente.getText();
         componente.setText(texto.toUpperCase());
@@ -149,6 +169,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
 
         String seleccion = "" + parametro.getSelectedItem();
         System.out.println("SELECCION --> " + seleccion);
+        
         if (seleccion.equals("FONDO RENOVABLE Y/O CAJA MENOR")) {
             listaSoportesComprobante = ClaseGeneral.controlSoportescomprobantes.findAllInSoportescomprobantesByFkcomprobanteAno(Integer.parseInt(ClaseGeneral.valor), ClaseGeneral.resoluciones.getResolucionPK().getAno());
             DefaultListModel modeloLista = new DefaultListModel();
@@ -182,7 +203,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
             lista.setModel(modeloLista);
             System.out.println("SOPORTECUENTA --> FKSOPORTE = " + fksoportecuenta + "ID =" + fksoportecuentaid);
         }
-}//GEN-LAST:event_TexyFieldnumeroKeyReleased
+}//GEN-LAST:event_TexyFieldKeyReleased
 
     private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
         if (evt.getValueIsAdjusting()) {
@@ -203,24 +224,26 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         String seleccion = (String) parametro.getSelectedItem();
         if(!seleccion.equals("SELECCIONE")){
             jLabelNumero.setVisible(true);
-            numero.setVisible(true);
-            numero.setText("");
+            fkcomprobante.setVisible(true);
+            fkcomprobante.setText("");
         }else{
             jLabelNumero.setVisible(false);
-            numero.setVisible(false);
-            numero.setText("");
+            fkcomprobante.setVisible(false);
+            fkcomprobante.setText("");
         }
     }//GEN-LAST:event_parametroItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField fkcomprobante;
+    private javax.swing.JTextField fkcuenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelNumero;
+    private javax.swing.JLabel jLabelNumeroOG;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JList lista;
-    private javax.swing.JTextField numero;
     private javax.swing.JComboBox parametro;
     private javax.swing.JScrollPane scrollLista;
     // End of variables declaration//GEN-END:variables
