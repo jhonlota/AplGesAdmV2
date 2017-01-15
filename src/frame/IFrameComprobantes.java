@@ -234,7 +234,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
 
         ano.setBackground(ClaseGeneral.campo);
         ano.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ano.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2012", "2013", "2014", "2015", "2016" }));
+        ano.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2012", "2013", "2014", "2015", "2016", "2017" }));
         ano.setSelectedItem(ClaseGeneral.controlUtilidades.anoServidor());
         ano.setMaximumSize(new java.awt.Dimension(70, 24));
         ano.setMinimumSize(new java.awt.Dimension(70, 24));

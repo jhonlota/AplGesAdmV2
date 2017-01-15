@@ -263,16 +263,16 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="13">
             <StringItem index="0" value="Seleccione"/>
-            <StringItem index="1" value="Acuerdo No. 004 de 1996"/>
-            <StringItem index="2" value="Acuerdo No. 004 de 1996 y Resolucion No. 2252"/>
-            <StringItem index="3" value="Acuerdo No. 004 de 1996 y Resolucion No. 2253"/>
-            <StringItem index="4" value="Acuerdo No. 004 de 1996 y Resolucion No. 2784"/>
-            <StringItem index="5" value="Acuerdo No. 004 de 1996 y Resolucion No. 3478"/>
-            <StringItem index="6" value="Acuerdo No. 025 de 2014"/>
-            <StringItem index="7" value="Acuerdo No. 025 de 2014 y Resolucion No. 2252"/>
-            <StringItem index="8" value="Acuerdo No. 025 de 2014 y Resolucion No. 2253"/>
-            <StringItem index="9" value="Acuerdo No. 025 de 2014 y Resolucion No. 2784"/>
-            <StringItem index="10" value="Acuerdo No. 025 de 2014 y Resolucion No. 3478"/>
+            <StringItem index="1" value="Acuerdo No. 025 de 2014"/>
+            <StringItem index="2" value="Acuerdo No. 025 de 2014 y Resolucion No. 2252"/>
+            <StringItem index="3" value="Acuerdo No. 025 de 2014 y Resolucion No. 2253"/>
+            <StringItem index="4" value="Acuerdo No. 025 de 2014 y Resolucion No. 2784"/>
+            <StringItem index="5" value="Acuerdo No. 025 de 2014 y Resolucion No. 3478"/>
+            <StringItem index="6" value="Acuerdo No. 004 de 1996"/>
+            <StringItem index="7" value="Acuerdo No. 004 de 1996 y Resolucion No. 2252"/>
+            <StringItem index="8" value="Acuerdo No. 004 de 1996 y Resolucion No. 2253"/>
+            <StringItem index="9" value="Acuerdo No. 004 de 1996 y Resolucion No. 2784"/>
+            <StringItem index="10" value="Acuerdo No. 004 de 1996 y Resolucion No. 3478"/>
             <StringItem index="11" value="Resolucion No. 013"/>
             <StringItem index="12" value="No Aplica"/>
           </StringArray>

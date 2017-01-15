@@ -137,7 +137,38 @@ public class SoportescuentasJpaController {
         SoportescuentasPK soportescuentasPK;
 
         try {
-            datos.query("SELECT * FROM SOPORTESCUENTAS WHERE FKCUENTA LIKE '" + fkcuenta + "%' ORDER BY ID");
+            datos.query("SELECT * FROM SOPORTESCUENTAS WHERE FKCUENTA = '" + fkcuenta + "' ORDER BY ID");
+            while (ClaseBaseDatos.resultado.next()) {
+                soportescuentas = new Soportescuentas();
+                soportescuentasPK = new SoportescuentasPK();
+                soportescuentasPK.setFkcuenta(ClaseBaseDatos.resultado.getString("FKCUENTA"));
+                soportescuentasPK.setId(ClaseBaseDatos.resultado.getInt("ID"));
+                soportescuentas.setSoportescuentasPK(soportescuentasPK);
+                soportescuentas.setActividad(ClaseBaseDatos.resultado.getString("ACTIVIDAD"));
+                soportescuentas.setCcostos(ClaseBaseDatos.resultado.getString("CCOSTOS"));
+                soportescuentas.setCinfo(ClaseBaseDatos.resultado.getString("CINFO"));
+                soportescuentas.setCingreso(ClaseBaseDatos.resultado.getString("CINGRESO"));
+                soportescuentas.setCuenta(ClaseBaseDatos.resultado.getString("CUENTA"));
+                soportescuentas.setCuentainterna(ClaseBaseDatos.resultado.getString("CUENTAINTERNA"));
+                soportescuentas.setSubgrupo(ClaseBaseDatos.resultado.getString("SUBGRUPO"));
+                soportescuentas.setValor(BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("VALOR"))));
+
+                listSoportescuentas.add(soportescuentas);
+            }
+            return listSoportescuentas;
+        } catch (SQLException ex) {
+            ClaseMensaje.errorFind(this.toString(), ex.toString());
+            return null;
+        }
+    }
+    
+    public List<Soportescuentas> findAllInSoportescuentasLIKEFkcuenta(String fkcuenta) {
+        List<Soportescuentas> listSoportescuentas = new ArrayList<Soportescuentas>();
+        Soportescuentas soportescuentas;
+        SoportescuentasPK soportescuentasPK;
+
+        try {
+            datos.query("SELECT * FROM SOPORTESCUENTAS WHERE FKCUENTA LIKE '%" + fkcuenta + "%' ORDER BY ID");
             while (ClaseBaseDatos.resultado.next()) {
                 soportescuentas = new Soportescuentas();
                 soportescuentasPK = new SoportescuentasPK();

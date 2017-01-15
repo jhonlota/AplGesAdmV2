@@ -135,7 +135,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
 
         panelBalanceSoportes.add(scrollPaneBalanceSoportes, java.awt.BorderLayout.CENTER);
 
-        setName("panelSolicitudesOferta"); // NOI18N
+        setName("panelSolicitudesoferta"); // NOI18N
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabelId.setText("NÚMERO DE SOLICITUD : ");

@@ -216,7 +216,7 @@ public class SoportesresolucionesJpaController {
         SoportesresolucionesPK soportesresolucionesPK;
 
         try {
-            datos.query("SELECT * FROM SOPORTESRESOLUCIONES WHERE FKRESOLUCION = " + fkresolucion + " AND ANO = " + ano + "AND FKTERCEROSRESOLUCION = " +fkterceroresolucion+ " ORDER BY ID");
+            datos.query("SELECT * FROM SOPORTESRESOLUCIONES WHERE FKRESOLUCION = " + fkresolucion + " AND ANO = " + ano + " AND FKTERCEROSRESOLUCION = " +fkterceroresolucion+ " ORDER BY ID");
             while (ClaseBaseDatos.resultado.next()) {
                 soportesresoluciones = new Soportesresoluciones();
                 soportesresolucionesPK = new SoportesresolucionesPK();

@@ -20,6 +20,8 @@ public class TercerosresolucionesJpaController {
 
     public void create(Tercerosresoluciones tercerosresoluciones) {
         try {
+//            datos.update("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("// IMPOTANTE
+//            Se utiliza query, debido a que se debe retornar el id con el que se hace la insercion, para utilizarla en soportesresolucion
             datos.query("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("
                     //                    + tercerosresoluciones.getId() + ", "
                     + tercerosresoluciones.getAno() + ", "

@@ -29,28 +29,15 @@ public class ClaseBaseDatos {
         try {
             File archivo = new File("C:/config.con");
             ArrayList<String> array = ClaseGeneral.leer.MetodoLeer(archivo);
-//            String url = ClaseEncriptarDesencriptar.desencriptaCadena(array.get(2), array.get(0), array.get(1));
-//            String usuario = ClaseEncriptarDesencriptar.desencriptaCadena(array.get(3), array.get(0), array.get(1));
-//            String password = ClaseEncriptarDesencriptar.desencriptaCadena(array.get(4), array.get(0), array.get(1));
 
             String url = array.get(1).substring(array.get(1).indexOf("='") + 2, array.get(1).indexOf("';"));
             String dbname = array.get(2).substring(array.get(2).indexOf("='") + 2, array.get(2).indexOf("';"));
             String user = array.get(3).substring(array.get(3).indexOf("='") + 2, array.get(3).indexOf("';"));
             String pass = array.get(4).substring(array.get(4).indexOf("='") + 2, array.get(4).indexOf("';"));
             ClaseGeneral.servidor =  array.get(5).substring(array.get(5).indexOf("='") + 2, array.get(5).indexOf("';"));
-
-//            conexion = DriverManager.getConnection(url, usuario, password);
-//            conexion = DriverManager.getConnection("jdbc:postgresql://192.168.248.206:5432/gestciencias", "ciencias", "C64Ng4ZO");
-//            ClaseMensaje.informacion("Conectandose a CIENCIAS");
-            //http://cms.univalle.edu.co/ciencias/AGA/dist/ VARIABLE $servidor
             
             conexion = DriverManager.getConnection("jdbc:postgresql://" + url + ":5432/" + dbname, user, pass);
-
-///*PRUEBA*/    conexion = DriverManager.getConnection("jdbc:postgresql://localhost:5432/gestciencias", "ciencias", "ciencias123");
-//            ClaseMensaje.informacion("Conectandose a ***LOCALHOST***");
-
-//            conexion = DriverManager.getConnection("jdbc:postgresql://192.168.131.52:5432/aga", "aga", "aga123");
-//            http://192.168.131.52/AGA/dist/
+            System.out.println("jdbc:postgresql://" + url + ":5432/" + dbname + "," + user + "," + pass);
 
             estamento = conexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         } catch (SQLException ex) {

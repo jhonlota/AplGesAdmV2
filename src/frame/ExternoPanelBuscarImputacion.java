@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * ExternoPanelFktercero.java
  *
  * Created on 16/02/2012, 09:45:23 PM
@@ -168,8 +168,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         ClaseGeneral.valor = componente.getText();
 
         String seleccion = "" + parametro.getSelectedItem();
-        System.out.println("SELECCION --> " + seleccion);
-        
+
         if (seleccion.equals("FONDO RENOVABLE Y/O CAJA MENOR")) {
             listaSoportesComprobante = ClaseGeneral.controlSoportescomprobantes.findAllInSoportescomprobantesByFkcomprobanteAno(Integer.parseInt(ClaseGeneral.valor), ClaseGeneral.resoluciones.getResolucionPK().getAno());
             DefaultListModel modeloLista = new DefaultListModel();
@@ -181,14 +180,14 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
                 fksoportecomprobanteano = ClaseGeneral.soportescomprobantes.getSoportescomprobantesPK().getAno();
 //                fksoportecuenta = "-";
 //                fksoportecuentaid = 0;
-                mediopago = ""+seleccion;
+                mediopago = "" + seleccion;
             }
             lista.setModel(modeloLista);
-            System.out.println("SOPORTECOMPROBANTE --> FKSOPORTE = " + fksoportecomprobante + "ID =" + fksoportecomprobanteid + "ANO = " +fksoportecomprobanteano);
+            System.out.println("SOPORTECOMPROBANTE --> FKSOPORTE = " + fksoportecomprobante + ", ID =" + fksoportecomprobanteid + "ANO = " + fksoportecomprobanteano);
         }
 
         if (seleccion.equals("ORDEN DE GASTO")) {
-            listaSoportesCuenta = ClaseGeneral.controlSoportescuentas.findAllInSoportescuentasByFkcuenta(ClaseGeneral.valor);
+            listaSoportesCuenta = ClaseGeneral.controlSoportescuentas.findAllInSoportescuentasLIKEFkcuenta(ClaseGeneral.valor);
             DefaultListModel modeloLista = new DefaultListModel();
             for (int i = 0; i < listaSoportesCuenta.size(); i++) {
                 ClaseGeneral.soportescuentas = (Soportescuentas) listaSoportesCuenta.get(i);
@@ -198,10 +197,10 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
 //                fksoportecomprobante = 0;
 //                fksoportecomprobanteid = 0;
 //                fksoportecomprobanteano = 0;
-                mediopago = ""+seleccion;
+                mediopago = "" + seleccion;
             }
             lista.setModel(modeloLista);
-            System.out.println("SOPORTECUENTA --> FKSOPORTE = " + fksoportecuenta + "ID =" + fksoportecuentaid);
+            System.out.println("SOPORTECUENTA --> FKSOPORTE = " + fksoportecuenta + ", ID =" + fksoportecuentaid);
         }
 }//GEN-LAST:event_TexyFieldKeyReleased
 
@@ -222,11 +221,11 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
     private void parametroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_parametroItemStateChanged
         // TODO add your handling code here:
         String seleccion = (String) parametro.getSelectedItem();
-        if(!seleccion.equals("SELECCIONE")){
+        if (!seleccion.equals("SELECCIONE")) {
             jLabelNumero.setVisible(true);
             fkcomprobante.setVisible(true);
             fkcomprobante.setText("");
-        }else{
+        } else {
             jLabelNumero.setVisible(false);
             fkcomprobante.setVisible(false);
             fkcomprobante.setText("");

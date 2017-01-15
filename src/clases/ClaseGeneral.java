@@ -12,27 +12,18 @@ import java.awt.Color;
  * @author Jhon Lopez
  */
 public class ClaseGeneral {
-    
-    /********************************************************************/
-    public static Solicitudesoferta solicitudesoferta = new Solicitudesoferta();
-    public static SolicitudesofertaJpaController controlSolicitudesoferta = new SolicitudesofertaJpaController();
-    public static Bienessolicitudesoferta bienessolicitudesoferta = new Bienessolicitudesoferta();
-    public static BienessolicitudesofertaJpaController controlBienessolicitudesoferta = new BienessolicitudesofertaJpaController();
-    public static BienessolicitudesofertaPK bienessolicitudesofertaPK = new BienessolicitudesofertaPK();
-    public static Soportesresoluciones soportesresoluciones = new Soportesresoluciones();
-    public static SoportesresolucionesJpaController controlSoportesresoluciones = new SoportesresolucionesJpaController();
-    public static SoportesresolucionesPK soportesresolucionesPK = new SoportesresolucionesPK();    
-    /*******************************************************************/
+
     public static Anexoscontratos anexoscontratos = new Anexoscontratos();
     public static AnexoscontratosJpaController controlAnexoscontratos = new AnexoscontratosJpaController();
     public static AnexoscontratosPK anexoscontratosPK = new AnexoscontratosPK();
     public static Anexosterceros anexosterceros = new Anexosterceros();
     public static AnexostercerosJpaController controlAnexosterceros = new AnexostercerosJpaController();
     public static AnexostercerosPK anexostercerosPK = new AnexostercerosPK();
-    public static Tercerosresoluciones tercerosresoluciones = new Tercerosresoluciones();
-    public static TercerosresolucionesJpaController controlTercerosresoluciones = new TercerosresolucionesJpaController();
-    public static Calificacion calificacion  = new Calificacion ();
-    public static CalificacionJpaController controlCalificacion  = new CalificacionJpaController();
+    public static Bienessolicitudesoferta bienessolicitudesoferta = new Bienessolicitudesoferta();
+    public static BienessolicitudesofertaJpaController controlBienessolicitudesoferta = new BienessolicitudesofertaJpaController();
+    public static BienessolicitudesofertaPK bienessolicitudesofertaPK = new BienessolicitudesofertaPK();
+    public static Calificacion calificacion = new Calificacion();
+    public static CalificacionJpaController controlCalificacion = new CalificacionJpaController();
     public static Cinfo cinfo = new Cinfo();
     public static CinfoJpaController controlCinfo = new CinfoJpaController();
     public static Comprobantes comprobantes = new Comprobantes();
@@ -73,6 +64,8 @@ public class ClaseGeneral {
     public static Resoluciones resoluciones = new Resoluciones();
     public static ResolucionesJpaController controlResoluciones = new ResolucionesJpaController();
     public static ResolucionesPK resolucionesPK = new ResolucionesPK();
+    public static Solicitudesoferta solicitudesoferta = new Solicitudesoferta();
+    public static SolicitudesofertaJpaController controlSolicitudesoferta = new SolicitudesofertaJpaController();
     public static Soportescomprobantes soportescomprobantes = new Soportescomprobantes();
     public static SoportescomprobantesJpaController controlSoportescomprobantes = new SoportescomprobantesJpaController();
     public static SoportescomprobantesPK soportescomprobantesPK = new SoportescomprobantesPK();
@@ -82,15 +75,19 @@ public class ClaseGeneral {
     public static Soportescuentas soportescuentas = new Soportescuentas();
     public static SoportescuentasJpaController controlSoportescuentas = new SoportescuentasJpaController();
     public static SoportescuentasPK soportescuentasPK = new SoportescuentasPK();
+    public static Soportesresoluciones soportesresoluciones = new Soportesresoluciones();
+    public static SoportesresolucionesJpaController controlSoportesresoluciones = new SoportesresolucionesJpaController();
+    public static SoportesresolucionesPK soportesresolucionesPK = new SoportesresolucionesPK();
     public static Subgrupo subgrupo = new Subgrupo();
     public static SubgrupoJpaController controlSubgrupo = new SubgrupoJpaController();
     public static Terceros terceros = new Terceros();
     public static TercerosJpaController controlTerceros = new TercerosJpaController();
+    public static Tercerosresoluciones tercerosresoluciones = new Tercerosresoluciones();
+    public static TercerosresolucionesJpaController controlTercerosresoluciones = new TercerosresolucionesJpaController();
     public static UtilidadesJpaController controlUtilidades = new UtilidadesJpaController();
     public static ClaseEscribir escribir = new ClaseEscribir();
     public static ClaseLeer leer = new ClaseLeer();
-    public static boolean[][] estados = new boolean[]
-            []{
+    public static boolean[][] estados = new boolean[][]{
         //Cre...Inse...Cons...Mod...Elim
         {false, true, false, false, false},//Crear
         {true, false, true, false, false},//Insertar
@@ -115,7 +112,11 @@ public class ClaseGeneral {
     public static Color negro = new Color(0, 0, 0);
     public static Color rojo = new Color(255, 3, 26);
     public static Color verde = new Color(165, 240, 89);
-    /********************************************************************/
+    /**
+     * *****************************************************************
+     */
     public static int idTercerosresolucion;//Guarda el id retornado de la inserción en tercerosresolucion
-    /********************************************************************/
+    /**
+     * *****************************************************************
+     */
 }
