@@ -16,15 +16,13 @@ import clases.ClaseMensaje;
 import entidades.Soportesresoluciones;
 import entidades.SoportesresolucionesPK;
 import entidades.Tercerosresoluciones;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTable;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -115,6 +113,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         botonSeleccionarImputacion = new javax.swing.JButton();
         jLabel75 = new javax.swing.JLabel();
         jSeparator17 = new javax.swing.JSeparator();
+        botonGuardarImputacion = new javax.swing.JButton();
         botonEliminarImputacion = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
@@ -533,12 +532,25 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jSeparator17.setPreferredSize(new java.awt.Dimension(20, 25));
         panelSoportesresoluciones.add(jSeparator17);
 
+        botonGuardarImputacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/save.png"))); // NOI18N
+        botonGuardarImputacion.setText("Guardar");
+        botonGuardarImputacion.setFocusable(false);
+        botonGuardarImputacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        botonGuardarImputacion.setName("botonSeleccionarImputacion"); // NOI18N
+        botonGuardarImputacion.setPreferredSize(new java.awt.Dimension(120, 24));
+        botonGuardarImputacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGuardarImputacionActionPerformed(evt);
+            }
+        });
+        panelSoportesresoluciones.add(botonGuardarImputacion);
+
         botonEliminarImputacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/delete.png"))); // NOI18N
-        botonEliminarImputacion.setText("Eliminar Imputación");
+        botonEliminarImputacion.setText("Eliminar");
         botonEliminarImputacion.setFocusable(false);
         botonEliminarImputacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         botonEliminarImputacion.setName("botonSeleccionarImputacion"); // NOI18N
-        botonEliminarImputacion.setPreferredSize(new java.awt.Dimension(180, 24));
+        botonEliminarImputacion.setPreferredSize(new java.awt.Dimension(120, 24));
         botonEliminarImputacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEliminarImputacionActionPerformed(evt);
@@ -551,7 +563,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jTextField4.setFocusable(false);
         jTextField4.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField4.setOpaque(false);
-        jTextField4.setPreferredSize(new java.awt.Dimension(375, 25));
+        jTextField4.setPreferredSize(new java.awt.Dimension(310, 25));
         panelSoportesresoluciones.add(jTextField4);
 
         jLabel72.setPreferredSize(new java.awt.Dimension(790, 15));
@@ -669,116 +681,116 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 
         jTableImputacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR", "..."
+                "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR", "...", "fkresolucion", "id", "ano"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, true, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -935,8 +947,21 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
     }//GEN-LAST:event_botonSeleccionarImputacionActionPerformed
 
     private void botonEliminarImputacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarImputacionActionPerformed
-        // TODO add your handling code here:
+        int opcion = -1;
+        opcion = ClaseMensaje.preguntar();
+        if (opcion == JOptionPane.YES_OPTION) {
+            for (int i = 0; i < 100; i++) {
+                if (jTableImputacion.getValueAt(i, 7) == "true") {
+                    ClaseGeneral.controlSoportesresoluciones.destroy(Integer.parseInt("" + jTableImputacion.getValueAt(i, 8)), Integer.parseInt("" + jTableImputacion.getValueAt(i, 9)), Integer.parseInt("" + jTableImputacion.getValueAt(i, 10)));
+                };
+            }
+            metodoMostrar();
+        }
     }//GEN-LAST:event_botonEliminarImputacionActionPerformed
+
+    private void botonGuardarImputacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarImputacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonGuardarImputacionActionPerformed
 
     public void metodoInsertar() {
         ClaseGeneral.tercerosresoluciones = new Tercerosresoluciones();
@@ -954,26 +979,25 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         ClaseGeneral.tercerosresoluciones.setFkcomprobante("" + soporte.getText());
         ClaseGeneral.tercerosresoluciones.setFkcuenta("" + fkcuenta.getText());
 
-        ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
-        ClaseGeneral.soportesresolucionesPK = new SoportesresolucionesPK();
-        ClaseGeneral.soportesresolucionesPK.setFkresolucion(Integer.parseInt("" + fkresolucion.getText()));
-        ClaseGeneral.soportesresolucionesPK.setId(0);
-        ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getResolucionPK().getAno());
-        ClaseGeneral.soportesresoluciones.setSoportesresolucionesPK(ClaseGeneral.soportesresolucionesPK);
-        ClaseGeneral.soportesresoluciones.setFksoportecuenta(fksoportecuenta);
-        ClaseGeneral.soportesresoluciones.setFksoportecuentaid(fksoportecuentaid);
-        ClaseGeneral.soportesresoluciones.setFksoportecomprobante(fksoportecomprobante);
-        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteid(fksoportecomprobanteid);
-        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteano(fksoportecomprobanteano);
-//        ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
-        ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
-        ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
-        ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getSelectedItem());
-        ClaseGeneral.soportesresoluciones.setCcostos(ccostos.getText());
-        ClaseGeneral.soportesresoluciones.setCinfo("" + cinfo.getSelectedItem());
-        ClaseGeneral.soportesresoluciones.setCuentainterna("" + cuentainterna.getSelectedItem());
-        ClaseGeneral.soportesresoluciones.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
-
+//        ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
+//        ClaseGeneral.soportesresolucionesPK = new SoportesresolucionesPK();
+//        ClaseGeneral.soportesresolucionesPK.setFkresolucion(Integer.parseInt("" + fkresolucion.getText()));
+//        ClaseGeneral.soportesresolucionesPK.setId(0);
+//        ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getResolucionPK().getAno());
+//        ClaseGeneral.soportesresoluciones.setSoportesresolucionesPK(ClaseGeneral.soportesresolucionesPK);
+//        ClaseGeneral.soportesresoluciones.setFksoportecuenta(fksoportecuenta);
+//        ClaseGeneral.soportesresoluciones.setFksoportecuentaid(fksoportecuentaid);
+//        ClaseGeneral.soportesresoluciones.setFksoportecomprobante(fksoportecomprobante);
+//        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteid(fksoportecomprobanteid);
+//        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteano(fksoportecomprobanteano);
+////        ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
+//        ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
+//        ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
+//        ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getSelectedItem());
+//        ClaseGeneral.soportesresoluciones.setCcostos(ccostos.getText());
+//        ClaseGeneral.soportesresoluciones.setCinfo("" + cinfo.getSelectedItem());
+//        ClaseGeneral.soportesresoluciones.setCuentainterna("" + cuentainterna.getSelectedItem());
+//        ClaseGeneral.soportesresoluciones.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
         try {
             ClaseGeneral.controlTercerosresoluciones.create(ClaseGeneral.tercerosresoluciones);
         } catch (Exception ex) {
@@ -988,6 +1012,34 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 //                Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //        }
+    }
+
+    public void metodoInsertarSoportesresoluciones() {
+        ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
+        ClaseGeneral.soportesresolucionesPK = new SoportesresolucionesPK();
+        ClaseGeneral.soportesresolucionesPK.setFkresolucion(Integer.parseInt("" + fkresolucion.getText()));
+        ClaseGeneral.soportesresolucionesPK.setId(0);
+        ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getResolucionPK().getAno());
+        ClaseGeneral.soportesresoluciones.setSoportesresolucionesPK(ClaseGeneral.soportesresolucionesPK);
+        ClaseGeneral.soportesresoluciones.setFksoportecuenta(fksoportecuenta);
+        ClaseGeneral.soportesresoluciones.setFksoportecuentaid(fksoportecuentaid);
+        ClaseGeneral.soportesresoluciones.setFksoportecomprobante(fksoportecomprobante);
+        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteid(fksoportecomprobanteid);
+        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteano(fksoportecomprobanteano);
+        ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.tercerosresoluciones.getId());
+        ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
+        ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
+        ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getSelectedItem());
+        ClaseGeneral.soportesresoluciones.setCcostos(ccostos.getText());
+        ClaseGeneral.soportesresoluciones.setCinfo("" + cinfo.getSelectedItem());
+        ClaseGeneral.soportesresoluciones.setCuentainterna("" + cuentainterna.getSelectedItem());
+        ClaseGeneral.soportesresoluciones.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
+
+        try {
+            ClaseGeneral.controlSoportesresoluciones.create(ClaseGeneral.soportesresoluciones);
+        } catch (Exception ex) {
+            Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void metodoConsultar() {
@@ -1046,6 +1098,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         ClaseGeneral.tercerosresoluciones = new Tercerosresoluciones();
         try {
             ClaseGeneral.controlTercerosresoluciones.destroy(tercerosresolucionId);
+            ClaseGeneral.controlSoportesresoluciones.destroyFktercerosresolucion(tercerosresolucionId);
         } catch (Exception ex) {
             Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1090,6 +1143,9 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
             jTableImputacion.setValueAt("", i, 5);
             jTableImputacion.setValueAt("", i, 6);
             jTableImputacion.setValueAt(false, i, 7);
+            jTableImputacion.setValueAt("", i, 8);
+            jTableImputacion.setValueAt("", i, 9);
+            jTableImputacion.setValueAt("", i, 10);
         }
 
         int i = 0;
@@ -1103,6 +1159,9 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
             jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCuentainterna(), i, 5);
             jTableImputacion.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.soportesresoluciones.getValor()), i, 6);
             jTableImputacion.setValueAt(false, i, 7);
+            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK().getFkresolucion(), i, 8);
+            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK().getId(), i, 9);
+            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK().getAno(), i, 10);
             valTotal = valTotal.add(ClaseGeneral.soportesresoluciones.getValor());
             i++;
         }
@@ -1116,6 +1175,9 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jTableImputacion.getColumnModel().getColumn(5).setPreferredWidth(140);
         jTableImputacion.getColumnModel().getColumn(6).setPreferredWidth(120);
         jTableImputacion.getColumnModel().getColumn(7).setPreferredWidth(50);
+        jTableImputacion.getColumnModel().getColumn(8).setPreferredWidth(0);
+        jTableImputacion.getColumnModel().getColumn(9).setPreferredWidth(0);
+        jTableImputacion.getColumnModel().getColumn(10).setPreferredWidth(0);
 
 //        jTableImputacion.addMouseListener(new MouseAdapter() {
 //            public void mouseClicked(MouseEvent e) {
@@ -1128,7 +1190,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 //            }
 //        });
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextField actividad;
@@ -1138,6 +1200,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
     private javax.swing.JButton botonCALCValor;
     public javax.swing.JButton botonCambiar;
     public javax.swing.JButton botonEliminarImputacion;
+    public javax.swing.JButton botonGuardarImputacion;
     public javax.swing.JButton botonSeleccionarImputacion;
     public javax.swing.JTextField ccostos;
     public javax.swing.JComboBox cinfo;

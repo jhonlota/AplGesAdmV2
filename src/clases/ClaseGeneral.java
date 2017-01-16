@@ -115,7 +115,7 @@ public class ClaseGeneral {
     /**
      * *****************************************************************
      */
-    public static int idTercerosresolucion;//Guarda el id retornado de la inserción en tercerosresolucion
+//    public static int idTercerosresolucion;//Guarda el id retornado de la inserción en tercerosresolucion
     /**
      * *****************************************************************
      */

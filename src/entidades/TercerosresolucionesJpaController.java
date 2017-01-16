@@ -20,9 +20,9 @@ public class TercerosresolucionesJpaController {
 
     public void create(Tercerosresoluciones tercerosresoluciones) {
         try {
-//            datos.update("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("// IMPOTANTE
+            datos.update("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("// IMPOTANTE
 //            Se utiliza query, debido a que se debe retornar el id con el que se hace la insercion, para utilizarla en soportesresolucion
-            datos.query("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("
+//            datos.query("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("
                     //                    + tercerosresoluciones.getId() + ", "
                     + tercerosresoluciones.getAno() + ", "
                     + tercerosresoluciones.getFkresolucion() + ", "
@@ -37,9 +37,9 @@ public class TercerosresolucionesJpaController {
                     + "'" + tercerosresoluciones.getFkcomprobante() + "', "
                     + "'" + tercerosresoluciones.getFkcuenta() + "')  RETURNING id");
 
-            while (ClaseBaseDatos.resultado.next()) {
-                ClaseGeneral.idTercerosresolucion = ClaseBaseDatos.resultado.getInt("ID");
-            }
+//            while (ClaseBaseDatos.resultado.next()) {
+//                ClaseGeneral.idTercerosresolucion = ClaseBaseDatos.resultado.getInt("ID");
+//            }
 
             if (!datos.isError) {
                 ClaseMensaje.informacionGuardarBD("Articulos - Resolucion");

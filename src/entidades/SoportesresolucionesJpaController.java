@@ -46,7 +46,7 @@ public class SoportesresolucionesJpaController {
                     + soportesresoluciones.getValor() + ", "
                     + soportesresoluciones.getSoportesresolucionesPK().getAno() +")");
             if (!datos.isError) {
-                ClaseMensaje.informacionGuardarBD("Soporte Resolución");
+                ClaseMensaje.informacionGuardarBD("Soporte - Resolucion");
             }
         } catch (Exception ex) {
             ClaseMensaje.errorGuardarBD();
@@ -68,7 +68,7 @@ public class SoportesresolucionesJpaController {
                     + "FKSOPORTECUENTA = " + id.getSoportescuentasPK().getFkcuenta() + "AND "
                     + "FKSOPORTECUENTAID = " +id.getSoportescuentasPK().getId());
             if (!datos.isError) {
-                ClaseMensaje.informacionActualizarBD("Soporte Resolución");
+                ClaseMensaje.informacionActualizarBD("Soporte - Resolucion");
             }
         } catch (Exception ex) {
             ClaseMensaje.errorActualizarBD();
@@ -91,7 +91,7 @@ public class SoportesresolucionesJpaController {
                     + "FKSOPORTECOMPROBANTEID = " + id.getSoportescomprobantesPK().getId() + "AND "
                     + "FKSOPORTECOMPROBANTEANO = " +id.getSoportescomprobantesPK().getAno());
             if (!datos.isError) {
-                ClaseMensaje.informacionActualizarBD("Soporte Resolución");
+                ClaseMensaje.informacionActualizarBD("Soporte - Resolucion");
             }
         } catch (Exception ex) {
             ClaseMensaje.errorActualizarBD();
@@ -99,15 +99,15 @@ public class SoportesresolucionesJpaController {
         }
     }
 
-    public void destroy(SoportesresolucionesPK id) {
+    public void destroy(int fkresolucion, int id, int ano) {
         try {
             datos.update("DELETE FROM SOPORTESRESOLUCIONES "
                     + "WHERE "
-                    + "FKRESOLUCION = " + id.getFkresolucion() + " AND "
-                    + "ID = " + id.getId() + " AND "
-                    + "ANO = " + id.getAno());
+                    + "FKRESOLUCION = " + fkresolucion + " AND "
+                    + "ID = " + id+ " AND "
+                    + "ANO = " + ano);
             if (!datos.isError) {
-                ClaseMensaje.informacionEliminarBD("Soporte Resolución");
+                ClaseMensaje.informacionEliminarBD("Soporte - Resolucion");
             }
         } catch (Exception ex) {
             ClaseMensaje.errorEliminarBD();
@@ -122,7 +122,7 @@ public class SoportesresolucionesJpaController {
                     + "FKSOPORTECUENTA = " + id.getFkcuenta() + "AND "
                     + "FKSOPORTECUENTAID = " +id.getId());
             if (!datos.isError) {
-                ClaseMensaje.informacionEliminarBD("Soporte Resolución");
+                ClaseMensaje.informacionEliminarBD("Soporte - Resolucion");
             }
         } catch (Exception ex) {
             ClaseMensaje.errorEliminarBD();
@@ -138,7 +138,7 @@ public class SoportesresolucionesJpaController {
                     + "FKSOPORTECOMPROBANTEID = " + id.getId() + "AND "
                     + "FKSOPORTECOMPROBANTEANO = " +id.getAno());
             if (!datos.isError) {
-                ClaseMensaje.informacionEliminarBD("Soporte Resolución");
+                ClaseMensaje.informacionEliminarBD("Soporte - Resolucion");
             }
         } catch (Exception ex) {
             ClaseMensaje.errorEliminarBD();
@@ -153,11 +153,56 @@ public class SoportesresolucionesJpaController {
                     + "FKRESOLUCION = " + id.getId() + " AND "
                     + "ANO = " + id.getAno());
             if (!datos.isError) {
-                ClaseMensaje.informacionEliminarBD("Soporte Resolución");
+                ClaseMensaje.informacionEliminarBD("Soporte - Resolucion");
             }
         } catch (Exception ex) {
             ClaseMensaje.errorEliminarBD();
         } finally {
+        }
+    }
+    
+    public void destroyFktercerosresolucion(Tercerosresoluciones id) {
+        try {
+            datos.update("DELETE FROM SOPORTESRESOLUCIONES "
+                    + "WHERE "
+                    + "FKTERCEROSRESOLUCION = " + id.getId());
+            if (!datos.isError) {
+                ClaseMensaje.informacionEliminarBD("Soporte - Resolucion");
+            }
+        } catch (Exception ex) {
+            ClaseMensaje.errorEliminarBD();
+        } finally {
+        }
+    }
+    
+    public List<Soportesresoluciones> findAllInSoportesresolucionesByFkresolucionAnoFktercerosresolucion(int fkresolucion, int ano, int fkterceroresolucion) {
+        List<Soportesresoluciones> listSoportesresoluciones = new ArrayList<Soportesresoluciones>();
+        Soportesresoluciones soportesresoluciones;
+        SoportesresolucionesPK soportesresolucionesPK;
+
+        try {
+            datos.query("SELECT * FROM SOPORTESRESOLUCIONES WHERE FKRESOLUCION = " + fkresolucion + " AND ANO = " + ano + " AND FKTERCEROSRESOLUCION = " +fkterceroresolucion+ " ORDER BY ID");
+            while (ClaseBaseDatos.resultado.next()) {
+                soportesresoluciones = new Soportesresoluciones();
+                soportesresolucionesPK = new SoportesresolucionesPK();
+                soportesresolucionesPK.setFkresolucion(ClaseBaseDatos.resultado.getInt("FKRESOLUCION"));
+                soportesresolucionesPK.setId(ClaseBaseDatos.resultado.getInt("ID"));
+                soportesresolucionesPK.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
+                soportesresoluciones.setSoportesresolucionesPK(soportesresolucionesPK);
+                soportesresoluciones.setActividad(ClaseBaseDatos.resultado.getString("ACTIVIDAD"));
+                soportesresoluciones.setCcostos(ClaseBaseDatos.resultado.getString("CCOSTOS"));
+                soportesresoluciones.setCinfo(ClaseBaseDatos.resultado.getString("CINFO"));
+                soportesresoluciones.setCuenta(ClaseBaseDatos.resultado.getString("CUENTA"));
+                soportesresoluciones.setCuentainterna(ClaseBaseDatos.resultado.getString("CUENTAINTERNA"));
+                soportesresoluciones.setSubgrupo(ClaseBaseDatos.resultado.getString("SUBGRUPO"));
+                soportesresoluciones.setValor(BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("VALOR"))));
+
+                listSoportesresoluciones.add(soportesresoluciones);
+            }
+            return listSoportesresoluciones;
+        } catch (SQLException ex) {
+            ClaseMensaje.errorFind(this.toString(), ex.toString());
+            return null;
         }
     }
 }
