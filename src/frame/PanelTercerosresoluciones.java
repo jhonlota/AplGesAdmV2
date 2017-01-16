@@ -1187,7 +1187,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextArea objetivo;
-    private javax.swing.JPanel panelSoportesresoluciones;
+    public javax.swing.JPanel panelSoportesresoluciones;
     private javax.swing.JPanel panelTercerosresoluciones;
     private javax.swing.JTextArea soporte;
     public javax.swing.JComboBox subgrupo;

@@ -406,7 +406,18 @@ public class IFrameTercerosresoluciones extends javax.swing.JInternalFrame {
             
             if (ClaseGeneral.perfil.equals("usuario")
                     && estado.equals("consultar")) {
+                
+            }
+            
+            if (ClaseGeneral.perfil.equals("usuario")
+                    && estado.equals("nuevo")) {
+                panelPrincipal.panelSoportesresoluciones.setVisible(false);
+            } else if (ClaseGeneral.perfil.equals("usuario")
+                    && estado.equals("consultar")) {
                 panelPrincipal.botonCambiar.setEnabled(false);
+            } else if (ClaseGeneral.perfil.equals("root")
+                    && estado.equals("nuevo")) {
+                panelPrincipal.panelSoportesresoluciones.setVisible(false);
             }
             
         } catch (SQLException ex) {
