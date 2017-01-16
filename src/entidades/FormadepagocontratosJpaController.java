@@ -157,18 +157,18 @@ public class FormadepagocontratosJpaController {
         }
     }
 
-    public DefaultComboBoxModel COMBOIdNombreInFormadepagocontratosBy() {
-        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
-        try {
-            modeloCombo.addElement("Seleccione - ");
-            datos.query("SELECT DISTINCT(ID), NOMBRE FROM FORMADEPAGOCONTRATOS");// ORDER BY id
-            while (ClaseBaseDatos.resultado.next()) {
-                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("ID") + " - " + ClaseBaseDatos.resultado.getString("NOMBRE"));
-            }
-            return modeloCombo;
-        } catch (SQLException ex) {
-            ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return modeloCombo;
-        }
-    }
+//    public DefaultComboBoxModel COMBOIdNombreInFormadepagocontratosBy() {
+//        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
+//        try {
+//            modeloCombo.addElement("Seleccione - ");
+//            datos.query("SELECT DISTINCT(ID), NOMBRE FROM FORMADEPAGOCONTRATOS");// ORDER BY id
+//            while (ClaseBaseDatos.resultado.next()) {
+//                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("ID") + " - " + ClaseBaseDatos.resultado.getString("NOMBRE"));
+//            }
+//            return modeloCombo;
+//        } catch (SQLException ex) {
+//            ClaseMensaje.errorFind(this.toString(), ex.toString());
+//            return modeloCombo;
+//        }
+//    }
 }

@@ -6,13 +6,10 @@
 package entidades;
 
 import clases.ClaseBaseDatos;
-import clases.ClaseGeneral;
-import clases.ClaseInformacion;
 import clases.ClaseMensaje;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,11 +29,11 @@ public class SoportesresolucionesJpaController {
                     + soportesresoluciones.getSoportesresolucionesPK().getFkresolucion() + ", "
                     //+ soportescomprobantes.getSoportescomprobantesPK().getId() + ", "
                     + "'" + soportesresoluciones.getFksoportecuenta() + "', "
-                    + "'" + soportesresoluciones.getFksoportecuentaid()+ "', "
-                    + "'" + soportesresoluciones.getFksoportecomprobante()+ "', "
-                    + "'" + soportesresoluciones.getFksoportecomprobanteid()+ "', "
-                    + "'" + soportesresoluciones.getFksoportecomprobanteano()+ "', "
-                    + "'" + soportesresoluciones.getFktercerosresolucion()+ "', "
+                    + soportesresoluciones.getFksoportecuentaid()+ ", "
+                    + soportesresoluciones.getFksoportecomprobante()+ ", "
+                    + soportesresoluciones.getFksoportecomprobanteid()+ ", "
+                    + soportesresoluciones.getFksoportecomprobanteano()+ ", "
+                    + soportesresoluciones.getFktercerosresolucion()+ ", "
                     + "'" + soportesresoluciones.getActividad() + "', "
                     + "'" + soportesresoluciones.getCcostos() + "', "
                     + "'" + soportesresoluciones.getCinfo() + "', "
@@ -65,7 +62,7 @@ public class SoportesresolucionesJpaController {
                     + "SUBGRUPO = '" + soportescuentas.getSubgrupo() + "', "
                     + "VALOR = " + soportescuentas.getValor() + " "
                     + "WHERE "
-                    + "FKSOPORTECUENTA = " + id.getSoportescuentasPK().getFkcuenta() + "AND "
+                    + "FKSOPORTECUENTA = '" + id.getSoportescuentasPK().getFkcuenta() + "' AND "
                     + "FKSOPORTECUENTAID = " +id.getSoportescuentasPK().getId());
             if (!datos.isError) {
                 ClaseMensaje.informacionActualizarBD("Soporte - Resolucion");
@@ -87,8 +84,8 @@ public class SoportesresolucionesJpaController {
                     + "SUBGRUPO = '" + soportescomprobantes.getSubgrupo() + "', "
                     + "VALOR = " + soportescomprobantes.getValor() + " "
                     + "WHERE "
-                    + "FKSOPORTECOMPROBANTE = " + id.getSoportescomprobantesPK().getFkcomprobante() + "AND "
-                    + "FKSOPORTECOMPROBANTEID = " + id.getSoportescomprobantesPK().getId() + "AND "
+                    + "FKSOPORTECOMPROBANTE = " + id.getSoportescomprobantesPK().getFkcomprobante() + " AND "
+                    + "FKSOPORTECOMPROBANTEID = " + id.getSoportescomprobantesPK().getId() + " AND "
                     + "FKSOPORTECOMPROBANTEANO = " +id.getSoportescomprobantesPK().getAno());
             if (!datos.isError) {
                 ClaseMensaje.informacionActualizarBD("Soporte - Resolucion");
@@ -119,7 +116,7 @@ public class SoportesresolucionesJpaController {
         try {
             datos.update("DELETE FROM SOPORTESRESOLUCIONES "
                     + "WHERE "
-                    + "FKSOPORTECUENTA = " + id.getFkcuenta() + "AND "
+                    + "FKSOPORTECUENTA = '" + id.getFkcuenta() + "' AND "
                     + "FKSOPORTECUENTAID = " +id.getId());
             if (!datos.isError) {
                 ClaseMensaje.informacionEliminarBD("Soporte - Resolucion");
@@ -134,8 +131,8 @@ public class SoportesresolucionesJpaController {
         try {
             datos.update("DELETE FROM SOPORTESRESOLUCIONES "
                     + "WHERE "
-                    + "FKSOPORTECOMPROBANTE = " + id.getFkcomprobante() + "AND "
-                    + "FKSOPORTECOMPROBANTEID = " + id.getId() + "AND "
+                    + "FKSOPORTECOMPROBANTE = " + id.getFkcomprobante() + " AND "
+                    + "FKSOPORTECOMPROBANTEID = " + id.getId() + " AND "
                     + "FKSOPORTECOMPROBANTEANO = " +id.getAno());
             if (!datos.isError) {
                 ClaseMensaje.informacionEliminarBD("Soporte - Resolucion");
@@ -189,6 +186,11 @@ public class SoportesresolucionesJpaController {
                 soportesresolucionesPK.setId(ClaseBaseDatos.resultado.getInt("ID"));
                 soportesresolucionesPK.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
                 soportesresoluciones.setSoportesresolucionesPK(soportesresolucionesPK);
+                soportesresoluciones.setFksoportecuenta(ClaseBaseDatos.resultado.getString("FKSOPORTECUENTA"));
+                soportesresoluciones.setFksoportecuentaid(ClaseBaseDatos.resultado.getInt("FKSOPORTECUENTAID"));
+                soportesresoluciones.setFksoportecomprobante(ClaseBaseDatos.resultado.getInt("FKSOPORTECOMPROBANTE"));
+                soportesresoluciones.setFksoportecomprobanteid(ClaseBaseDatos.resultado.getInt("FKSOPORTECOMPROBANTEID"));
+                soportesresoluciones.setFksoportecomprobanteano(ClaseBaseDatos.resultado.getInt("FKSOPORTECOMPROBANTEANO"));
                 soportesresoluciones.setActividad(ClaseBaseDatos.resultado.getString("ACTIVIDAD"));
                 soportesresoluciones.setCcostos(ClaseBaseDatos.resultado.getString("CCOSTOS"));
                 soportesresoluciones.setCinfo(ClaseBaseDatos.resultado.getString("CINFO"));

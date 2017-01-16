@@ -35,7 +35,7 @@ public class TercerosresolucionesJpaController {
                     + tercerosresoluciones.getSalario() + ", "
                     + tercerosresoluciones.getDiario() + ", "
                     + "'" + tercerosresoluciones.getFkcomprobante() + "', "
-                    + "'" + tercerosresoluciones.getFkcuenta() + "')  RETURNING id");
+                    + "'" + tercerosresoluciones.getFkcuenta() + "')");
 
 //            while (ClaseBaseDatos.resultado.next()) {
 //                ClaseGeneral.idTercerosresolucion = ClaseBaseDatos.resultado.getInt("ID");
@@ -238,18 +238,18 @@ public class TercerosresolucionesJpaController {
         }
     }
 
-    public DefaultComboBoxModel COMBOIdNombreInTercerosresolucionesBy() {
-        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
-        try {
-            modeloCombo.addElement("Seleccione - ");
-            datos.query("SELECT DISTINCT(ID), FKRESOLUCION FROM TERCEROSRESOLUCION");// ORDER BY id
-            while (ClaseBaseDatos.resultado.next()) {
-                modeloCombo.addElement(ClaseBaseDatos.resultado.getInt("ID") + " - " + ClaseBaseDatos.resultado.getInt("FKRESOLUCION"));
-            }
-            return modeloCombo;
-        } catch (SQLException ex) {
-            ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return modeloCombo;
-        }
-    }
+//    public DefaultComboBoxModel COMBOIdNombreInTercerosresolucionesBy() {
+//        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
+//        try {
+//            modeloCombo.addElement("Seleccione - ");
+//            datos.query("SELECT DISTINCT(ID), FKRESOLUCION FROM TERCEROSRESOLUCION");// ORDER BY id
+//            while (ClaseBaseDatos.resultado.next()) {
+//                modeloCombo.addElement(ClaseBaseDatos.resultado.getInt("ID") + " - " + ClaseBaseDatos.resultado.getInt("FKRESOLUCION"));
+//            }
+//            return modeloCombo;
+//        } catch (SQLException ex) {
+//            ClaseMensaje.errorFind(this.toString(), ex.toString());
+//            return modeloCombo;
+//        }
+//    }
 }

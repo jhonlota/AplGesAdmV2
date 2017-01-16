@@ -13,7 +13,7 @@
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT
+		<![CDATA[(SELECT
 	soportescuentas."fkcuenta" AS soportescuentas_fkcuenta,
 	soportescuentas."cuentainterna" AS soportescuentas_cuentainterna,
 	soportescuentas."valor" AS soportescuentas_valor
@@ -23,8 +23,19 @@ FROM
 WHERE
 	tercerosresolucion."fkresolucion" = $P{fkresolucion}
 	AND tercerosresolucion."ano" = $P{ano}
-GROUP BY soportescuentas."fkcuenta", soportescuentas."cuentainterna", soportescuentas."valor"
-	]]>
+GROUP BY soportescuentas."fkcuenta", soportescuentas."cuentainterna", soportescuentas."valor")
+UNION
+(SELECT
+	soportescuentas."fkcuenta" AS soportescuentas_fkcuenta,
+	soportescuentas."cuentainterna" AS soportescuentas_cuentainterna,
+	soportescuentas."valor" AS soportescuentas_valor
+FROM
+	"soportesresoluciones" soportesresoluciones LEFT JOIN "cuentas" cuentas  ON soportesresoluciones."fksoportecuenta" = cuentas."soporte"
+	LEFT JOIN "soportescuentas" soportescuentas  ON cuentas."soporte" = soportescuentas."fkcuenta"
+WHERE
+	soportesresoluciones."fkresolucion" = $P{fkresolucion}
+	AND soportesresoluciones."ano" = $P{ano}
+GROUP BY soportescuentas."fkcuenta", soportescuentas."cuentainterna", soportescuentas."valor")]]>
 	</queryString>
 	<field name="soportescuentas_fkcuenta" class="java.lang.String"/>
 	<field name="soportescuentas_cuentainterna" class="java.lang.String"/>

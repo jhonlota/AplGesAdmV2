@@ -13,7 +13,7 @@
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT
+		<![CDATA[(SELECT
 	soportescomprobantes."fkcomprobante" AS soportescomprobantes_fkcomprobantes,
 	soportescomprobantes."cuentainterna" AS soportescomprobantes_cuentainterna,
 	soportescomprobantes."valor" AS soportescomprobantes_valor
@@ -26,7 +26,24 @@ FROM
 WHERE
 	tercerosresolucion."fkresolucion" = $P{fkresolucion}
 	AND tercerosresolucion."ano" = $P{ano}
-GROUP BY soportescomprobantes."fkcomprobante", soportescomprobantes."cuentainterna", soportescomprobantes."valor"]]>
+GROUP BY soportescomprobantes."fkcomprobante", soportescomprobantes."cuentainterna", soportescomprobantes."valor")
+
+UNION
+
+(SELECT
+	soportescomprobantes."fkcomprobante" AS soportescomprobantes_fkcomprobantes,
+	soportescomprobantes."cuentainterna" AS soportescomprobantes_cuentainterna,
+	soportescomprobantes."valor" AS soportescomprobantes_valor
+FROM
+	"soportesresoluciones" soportesresoluciones LEFT JOIN "comprobantes" comprobantes
+	ON soportesresoluciones."fksoportecomprobante" = comprobantes."id"
+	AND comprobantes."ano" = soportesresoluciones."ano"
+	LEFT JOIN "soportescomprobantes" soportescomprobantes ON comprobantes."id" = soportescomprobantes."fkcomprobante"
+	AND comprobantes."ano" = soportescomprobantes."ano"
+WHERE
+	soportesresoluciones."fkresolucion" = $P{fkresolucion}
+	AND soportesresoluciones."ano" = $P{ano}
+GROUP BY soportescomprobantes."fkcomprobante", soportescomprobantes."cuentainterna", soportescomprobantes."valor")]]>
 	</queryString>
 	<field name="soportescomprobantes_fkcomprobantes" class="java.lang.Integer"/>
 	<field name="soportescomprobantes_cuentainterna" class="java.lang.String"/>
