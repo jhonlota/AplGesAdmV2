@@ -83,7 +83,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         botonAyuda1 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
         jTabbedPane = new javax.swing.JTabbedPane();
-        panelTercero = new javax.swing.JPanel();
+        panelTercerosresoluciones = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         botonAyuda2 = new javax.swing.JButton();
@@ -115,6 +115,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         botonSeleccionarImputacion = new javax.swing.JButton();
         jLabel75 = new javax.swing.JLabel();
         jSeparator17 = new javax.swing.JSeparator();
+        botonEliminarImputacion = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -213,21 +214,21 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jTabbedPane.setOpaque(true);
         jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 600));
 
-        panelTercero.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelTercero.setPreferredSize(new java.awt.Dimension(800, 99));
-        panelTercero.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        panelTercerosresoluciones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelTercerosresoluciones.setPreferredSize(new java.awt.Dimension(800, 99));
+        panelTercerosresoluciones.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("TERCERO");
         jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel5.setPreferredSize(new java.awt.Dimension(620, 25));
-        panelTercero.add(jLabel5);
+        panelTercerosresoluciones.add(jLabel5);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("VALOR");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel6.setPreferredSize(new java.awt.Dimension(130, 25));
-        panelTercero.add(jLabel6);
+        panelTercerosresoluciones.add(jLabel6);
 
         botonAyuda2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
         botonAyuda2.setFocusable(false);
@@ -237,14 +238,14 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 botonAyuda2ActionPerformed(evt);
             }
         });
-        panelTercero.add(botonAyuda2);
+        panelTercerosresoluciones.add(botonAyuda2);
 
         fktercero.setBackground(ClaseGeneral.campo);
         fktercero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fktercero.setFocusable(false);
         fktercero.setMargin(new java.awt.Insets(2, 4, 2, 4));
         fktercero.setPreferredSize(new java.awt.Dimension(590, 25));
-        panelTercero.add(fktercero);
+        panelTercerosresoluciones.add(fktercero);
 
         botonBuscarFktercero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
         botonBuscarFktercero.setFocusable(false);
@@ -255,7 +256,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 botonBuscarFkterceroActionPerformed(evt);
             }
         });
-        panelTercero.add(botonBuscarFktercero);
+        panelTercerosresoluciones.add(botonBuscarFktercero);
 
         valor.setBackground(ClaseGeneral.campo);
         valor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -272,7 +273,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 TextFieldKeyReleased(evt);
             }
         });
-        panelTercero.add(valor);
+        panelTercerosresoluciones.add(valor);
 
         botonCALCValor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/process.png"))); // NOI18N
         botonCALCValor.setFocusable(false);
@@ -282,7 +283,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 botonCALCValorActionPerformed(evt);
             }
         });
-        panelTercero.add(botonCALCValor);
+        panelTercerosresoluciones.add(botonCALCValor);
 
         textInformacionTercero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         textInformacionTercero.setForeground(new java.awt.Color(0, 102, 51));
@@ -290,7 +291,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         textInformacionTercero.setMargin(new java.awt.Insets(2, 4, 2, 4));
         textInformacionTercero.setOpaque(false);
         textInformacionTercero.setPreferredSize(new java.awt.Dimension(455, 25));
-        panelTercero.add(textInformacionTercero);
+        panelTercerosresoluciones.add(textInformacionTercero);
 
         botonCambiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/process.png"))); // NOI18N
         botonCambiar.setText("Cambiar Salario");
@@ -302,7 +303,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 botonCambiarActionPerformed(evt);
             }
         });
-        panelTercero.add(botonCambiar);
+        panelTercerosresoluciones.add(botonCambiar);
 
         valorTotal.setBackground(ClaseGeneral.verde);
         valorTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -310,10 +311,10 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         valorTotal.setText("0");
         valorTotal.setMargin(new java.awt.Insets(2, 4, 2, 4));
         valorTotal.setPreferredSize(new java.awt.Dimension(160, 25));
-        panelTercero.add(valorTotal);
+        panelTercerosresoluciones.add(valorTotal);
 
         jLabel19.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel19);
+        panelTercerosresoluciones.add(jLabel19);
 
         jPanelOtraFormaPago.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OTRA FORMA DE PAGO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanelOtraFormaPago.setPreferredSize(new java.awt.Dimension(790, 75));
@@ -333,11 +334,11 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 
         jPanelOtraFormaPago.add(jScrollPaneDestino1, java.awt.BorderLayout.CENTER);
 
-        panelTercero.add(jPanelOtraFormaPago);
+        panelTercerosresoluciones.add(jPanelOtraFormaPago);
         jPanelOtraFormaPago.getAccessibleContext().setAccessibleName("");
 
         jLabel20.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel20);
+        panelTercerosresoluciones.add(jLabel20);
 
         jPanelDestino.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESTINO (RUTA)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanelDestino.setPreferredSize(new java.awt.Dimension(790, 75));
@@ -357,10 +358,10 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 
         jPanelDestino.add(jScrollPaneDestino, java.awt.BorderLayout.CENTER);
 
-        panelTercero.add(jPanelDestino);
+        panelTercerosresoluciones.add(jPanelDestino);
 
         jLabel13.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel13);
+        panelTercerosresoluciones.add(jLabel13);
 
         jPanelObjetivo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBJETIVO (PERIODO, COMISION, VALOR GASTOS, VALOR TRANSPORTE)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanelObjetivo.setPreferredSize(new java.awt.Dimension(790, 75));
@@ -379,10 +380,10 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 
         jPanelObjetivo.add(jScrollPaneObjetivo, java.awt.BorderLayout.CENTER);
 
-        panelTercero.add(jPanelObjetivo);
+        panelTercerosresoluciones.add(jPanelObjetivo);
 
         jLabel10.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel10);
+        panelTercerosresoluciones.add(jLabel10);
 
         jScrollPane.setPreferredSize(new java.awt.Dimension(790, 125));
 
@@ -500,12 +501,12 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jTable.setSelectionBackground(ClaseGeneral.campo);
         jScrollPane.setViewportView(jTable);
 
-        panelTercero.add(jScrollPane);
+        panelTercerosresoluciones.add(jScrollPane);
 
         jLabel18.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel18);
+        panelTercerosresoluciones.add(jLabel18);
 
-        jTabbedPane.addTab("TERCERO", panelTercero);
+        jTabbedPane.addTab("TERCERO", panelTercerosresoluciones);
 
         panelSoportesresoluciones.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
@@ -517,8 +518,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         botonSeleccionarImputacion.setFocusable(false);
         botonSeleccionarImputacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         botonSeleccionarImputacion.setName("botonSeleccionarImputacion"); // NOI18N
-        botonSeleccionarImputacion.setPreferredSize(new java.awt.Dimension(200, 24));
-        //botonSeleccionarImputacion.setEnabled(false);
+        botonSeleccionarImputacion.setPreferredSize(new java.awt.Dimension(180, 24));
         botonSeleccionarImputacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSeleccionarImputacionActionPerformed(evt);
@@ -526,19 +526,32 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         });
         panelSoportesresoluciones.add(botonSeleccionarImputacion);
 
-        jLabel75.setPreferredSize(new java.awt.Dimension(20, 25));
+        jLabel75.setPreferredSize(new java.awt.Dimension(15, 25));
         panelSoportesresoluciones.add(jLabel75);
 
         jSeparator17.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator17.setPreferredSize(new java.awt.Dimension(20, 25));
         panelSoportesresoluciones.add(jSeparator17);
 
+        botonEliminarImputacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/delete.png"))); // NOI18N
+        botonEliminarImputacion.setText("Eliminar Imputación");
+        botonEliminarImputacion.setFocusable(false);
+        botonEliminarImputacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        botonEliminarImputacion.setName("botonSeleccionarImputacion"); // NOI18N
+        botonEliminarImputacion.setPreferredSize(new java.awt.Dimension(180, 24));
+        botonEliminarImputacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarImputacionActionPerformed(evt);
+            }
+        });
+        panelSoportesresoluciones.add(botonEliminarImputacion);
+
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField4.setEnabled(false);
         jTextField4.setFocusable(false);
         jTextField4.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField4.setOpaque(false);
-        jTextField4.setPreferredSize(new java.awt.Dimension(535, 25));
+        jTextField4.setPreferredSize(new java.awt.Dimension(375, 25));
         panelSoportesresoluciones.add(jTextField4);
 
         jLabel72.setPreferredSize(new java.awt.Dimension(790, 15));
@@ -758,11 +771,24 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR", "ACCION"
+                "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR", "..."
             }
-        ));
-        jTableImputacion.setEnabled(false);
-        jTableImputacion.setFocusable(false);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTableImputacion.setIntercellSpacing(new java.awt.Dimension(2, 2));
         jTableImputacion.setRowHeight(20);
         jTableImputacion.setSelectionBackground(ClaseGeneral.campo);
@@ -908,6 +934,10 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_botonSeleccionarImputacionActionPerformed
 
+    private void botonEliminarImputacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarImputacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonEliminarImputacionActionPerformed
+
     public void metodoInsertar() {
         ClaseGeneral.tercerosresoluciones = new Tercerosresoluciones();
         ClaseGeneral.tercerosresoluciones.setId(0);
@@ -949,15 +979,15 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
-            try {
-                ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
-                ClaseGeneral.controlSoportesresoluciones.create(ClaseGeneral.soportesresoluciones);
-            } catch (Exception ex) {
-                Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+//BORRAR por que no es necesario que la persona ingrese soportes cuando cree el articulo.
+//        if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
+//            try {
+//                ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
+//                ClaseGeneral.controlSoportesresoluciones.create(ClaseGeneral.soportesresoluciones);
+//            } catch (Exception ex) {
+//                Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
     }
 
     public void metodoConsultar() {
@@ -1059,7 +1089,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
             jTableImputacion.setValueAt("", i, 4);
             jTableImputacion.setValueAt("", i, 5);
             jTableImputacion.setValueAt("", i, 6);
-            jTableImputacion.setValueAt("BORRAR", i, 7);
+            jTableImputacion.setValueAt(false, i, 7);
         }
 
         int i = 0;
@@ -1072,6 +1102,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
             jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCinfo(), i, 4);
             jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCuentainterna(), i, 5);
             jTableImputacion.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.soportesresoluciones.getValor()), i, 6);
+            jTableImputacion.setValueAt(false, i, 7);
             valTotal = valTotal.add(ClaseGeneral.soportesresoluciones.getValor());
             i++;
         }
@@ -1082,23 +1113,22 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jTableImputacion.getColumnModel().getColumn(2).setPreferredWidth(100);
         jTableImputacion.getColumnModel().getColumn(3).setPreferredWidth(100);
         jTableImputacion.getColumnModel().getColumn(4).setPreferredWidth(100);
-        jTableImputacion.getColumnModel().getColumn(5).setPreferredWidth(110);
-        jTableImputacion.getColumnModel().getColumn(6).setPreferredWidth(100);
-        jTableImputacion.getColumnModel().getColumn(7).setPreferredWidth(100);
+        jTableImputacion.getColumnModel().getColumn(5).setPreferredWidth(140);
+        jTableImputacion.getColumnModel().getColumn(6).setPreferredWidth(120);
+        jTableImputacion.getColumnModel().getColumn(7).setPreferredWidth(50);
 
-        jTableImputacion.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) {
-                    JTable target = (JTable) e.getSource();
-                    int row = target.getSelectedRow();
-                    int column = target.getSelectedColumn();
-                    System.out.println("row " + row + " column " + column);
-//                    if()
-                    // do some stuff
-                }
-            }
-        });
+//        jTableImputacion.addMouseListener(new MouseAdapter() {
+//            public void mouseClicked(MouseEvent e) {
+//                if (e.getClickCount() == 2) {
+//                    JTable target = (JTable) e.getSource();
+//                    int row = target.getSelectedRow();
+//                    int column = target.getSelectedColumn();
+//                    System.out.println("row " + row + " column " + column);
+//                }
+//            }
+//        });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextField actividad;
@@ -1107,6 +1137,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
     private javax.swing.JButton botonBuscarFktercero;
     private javax.swing.JButton botonCALCValor;
     public javax.swing.JButton botonCambiar;
+    public javax.swing.JButton botonEliminarImputacion;
     public javax.swing.JButton botonSeleccionarImputacion;
     public javax.swing.JTextField ccostos;
     public javax.swing.JComboBox cinfo;
@@ -1157,7 +1188,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextArea objetivo;
     private javax.swing.JPanel panelSoportesresoluciones;
-    private javax.swing.JPanel panelTercero;
+    private javax.swing.JPanel panelTercerosresoluciones;
     private javax.swing.JTextArea soporte;
     public javax.swing.JComboBox subgrupo;
     private javax.swing.JComboBox tarifa;

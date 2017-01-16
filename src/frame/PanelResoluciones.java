@@ -540,13 +540,15 @@ public class PanelResoluciones extends javax.swing.JPanel {
         }
     }
 
-    public void metodoEliminar() {
-        Resoluciones resolucionId = ClaseGeneral.resoluciones;
-        resolucionId.setResolucionPK(ClaseGeneral.resoluciones.getResolucionPK());
-        ClaseGeneral.resoluciones = new Resoluciones();
-        ClaseGeneral.resolucionesPK = new ResolucionesPK();
+    public void metodoAnular() {
         try {
-            ClaseGeneral.controlResoluciones.destroy(resolucionId);
+            observacion.setText("ANULADO");
+            
+            ClaseGeneral.controlResoluciones.destroy(ClaseGeneral.resoluciones);
+            ClaseGeneral.controlTercerosresoluciones.destroyFkresolucionAno(ClaseGeneral.resoluciones);
+            ClaseGeneral.controlSoportesresoluciones.destroyFkresolucionAno(ClaseGeneral.resoluciones);
+            
+            metodoActualizar();
         } catch (Exception ex) {
             Logger.getLogger(PanelResoluciones.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -1678,12 +1678,10 @@ public class PanelComprobantes extends javax.swing.JPanel {
         }
     }
 
-    public void metodoEliminar() {
+    public void metodoAnular() {
         try {
-            ClaseGeneral.controlComprobantes.destroy(ClaseGeneral.comprobantes);
-            ClaseGeneral.controlCumplidoscomprobantes.destroyFkcomprobanteAno(ClaseGeneral.comprobantes);
-            ClaseGeneral.controlFacturascomprobantes.destroyFkcomprobanteAno(ClaseGeneral.comprobantes);
-            ClaseGeneral.controlSoportescomprobantes.destroyFkcomprobanteAno(ClaseGeneral.comprobantes);
+            tipopago.setSelectedItem("Anulado");
+            metodoActualizar();
         } catch (Exception ex) {
             Logger.getLogger(PanelComprobantes.class.getName()).log(Level.SEVERE, null, ex);
         }

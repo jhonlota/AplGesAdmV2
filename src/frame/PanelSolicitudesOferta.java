@@ -331,11 +331,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         valorcertificado.setText("0");
         valorcertificado.setMargin(new java.awt.Insets(2, 4, 2, 4));
         valorcertificado.setPreferredSize(new java.awt.Dimension(150, 25));
-        valorcertificado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valorcertificadoActionPerformed(evt);
-            }
-        });
         valorcertificado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TexyFieldKeyReleased(evt);
@@ -2489,10 +2484,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_botonBuscarFkterceroActionPerformed
 
-    private void valorcertificadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorcertificadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valorcertificadoActionPerformed
-
     public void metodoInsertar() {
         ClaseGeneral.solicitudesoferta = new Solicitudesoferta();
         ClaseGeneral.solicitudesoferta.setId(Integer.parseInt("" + id.getText()));
@@ -2556,22 +2547,20 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         if (ClaseGeneral.controlSolicitudesoferta.verify(ClaseGeneral.solicitudesoferta, "update")) {
             try {
                 ClaseGeneral.controlSolicitudesoferta.edit(ClaseGeneral.solicitudesoferta, solicitudesOfertaId);
-
-//                /**/if (tipopago.getSelectedItem().equals("Anulado")) {
-//                    ClaseGeneral.controlCumplidoscomprobantes.destroyFkcomprobanteAno(ClaseGeneral.comprobantes);
-//                    ClaseGeneral.controlFacturascomprobantes.destroyFkcomprobanteAno(ClaseGeneral.comprobantes);
-//                    ClaseGeneral.controlSoportescomprobantes.destroyFkcomprobanteAno(ClaseGeneral.comprobantes);
-//                }
             } catch (Exception ex) {
                 Logger.getLogger(PanelComprobantes.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
 
-    public void metodoEliminar() {
+    public void metodoAnular() {
         try {
+            informacionservicio.setText("ANULADO");
+            
             ClaseGeneral.controlSolicitudesoferta.destroy(ClaseGeneral.solicitudesoferta);
             ClaseGeneral.controlBienessolicitudesoferta.destroyFksolicitudofertaAno(ClaseGeneral.solicitudesoferta);
+            
+            metodoActualizar();
         } catch (Exception ex) {
             Logger.getLogger(PanelSolicitudesOferta.class.getName()).log(Level.SEVERE, null, ex);
         }
