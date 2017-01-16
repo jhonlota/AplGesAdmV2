@@ -19,11 +19,6 @@ if($opcion == "documentoindividual"){
 }elseif ($opcion == "documentogeneral") {
     $archivo = "archivogeneral";
 }
-//$htmlError .= "[ OPCION = $opcion - ";
-//$htmlError .= "TERCERO = $fktercero - ";
-//$htmlError .= "DOCUMENTO = $documento - ";
-//$htmlError .= "FECHA = $fecha - ";
-//$htmlError .= "ARCHIVO = $file ]";
 
 if (!empty($_FILES[''.$archivo]['name'])) {
     try {

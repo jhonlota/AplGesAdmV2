@@ -1,8 +1,6 @@
 <?php
-
 header("Content-Type: text/html;charset=ISO-8859-1");
 include("./ConexionConsulta.php");
-include_once("../clases/config.con");
 
 $fktercero = $_POST['fktercero'];
 $persona = $_POST['persona'];
@@ -14,6 +12,8 @@ unset($tabla3);
 unset($sVer);
 unset($sDias);
 unset($isConsulta);
+
+$hoy = date("d-m-Y");
 
 if (empty($fktercero) || empty($persona)) {
     $divtercero = "<script type=\"text/javascript\">
@@ -104,7 +104,7 @@ if (empty($fktercero) || empty($persona)) {
                             <tr>
                                 <td>
                                     <div class=\"input-group date datepicker\">
-                                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"></i></span><input id=\"fecha\" name=\"fecha\" type=\"text\" class=\"form-control\" value=\"\">
+                                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"></i></span><input id=\"fechadoc$i\" name=\"fechadoc$i\" type=\"text\" class=\"form-control\" value=\"$hoy\">
                                     </div>
                                 </td>
                                 <td>
@@ -124,45 +124,53 @@ if (empty($fktercero) || empty($persona)) {
             $tabla2 .= " <script type=\"text/javascript\">
                             $('#form$i').submit(function(event) {
                                 event.preventDefault();
-                                var opcion = 'documentoindividual';
-                                var fktercero = $('#tercero').val();
-                                var documento = '" . $row["verifica"] . "';
-                                var formElement = document.getElementById('form$i');
-                                var formData = new FormData(formElement); 
-                                formData.append(\"opcion\", opcion);
-                                formData.append(\"fktercero\", fktercero);
-                                formData.append(\"documento\", documento);
-                                jQuery.ajax({
-                                    url: 'AdjuntarDocumento.php',
-                                    type: 'POST',
-                                    data: formData,
-                                    mimeType: \"multipart/form-data\",
-                                    contentType: false,
-                                    dataType: 'html',
-                                    cache: false,
-                                    processData: false, 
-                                    beforeSend: function() {
-                                        $('#informacion').hide();
-                                        $('#informacion').html('');
-                                        $('#error').hide();
-                                        $('#error').html('');
-                                        console.log('enviando...');
-                                    },
-                                    success: function(response) {
-                                        var json_obj = $.parseJSON(response);
-                                        var error = json_obj.htmlError;
-                                        var ok = json_obj.htmlOk;
-                                        if(error === ''){
-                                            $('#informacion').append(\"Documento subido con &Eacute;xito\").show().fadeOut(5000);
-                                            $('#ver$i').attr(\"onClick\", \"window.open('http:$servidor/UmVbZxut/archivos/\"+ok+\"')\");
-                                            $('#fecha$i').html('<span class=\"label label-primary\">EN PROCESO</span>');
-                                            $('#dias$i').html('<span class=\"badge badge-primary\"> - </span>');
-                                        }else{
-                                            $('#error').html(''+error).show().fadeOut(5000);
-                                        }
+                                var fechadoc = $('#fechadoc$i').val();
+                                if(fechadoc === ''){
+                                    funMensaje('Debe Seleccionar una Fecha de Expedición Válida para el Documento: ".$row["verifica"]."');
+                                }else{
+                                    var opcion = 'documentoindividual';
+                                    var fktercero = $('#tercero').val();
+                                    var documento = '" . $row["verifica"] . "';
+                                    var fecha = fechadoc;
+                                    var formElement = document.getElementById('form$i');
+                                    var formData = new FormData(formElement); 
+                                    formData.append(\"opcion\", opcion);
+                                    formData.append(\"fktercero\", fktercero);
+                                    formData.append(\"documento\", documento);
+                                    formData.append(\"fecha\", fecha);
+                                    jQuery.ajax({
+                                        url: 'AdjuntarDocumento.php',
+                                        type: 'POST',
+                                        data: formData,
+                                        mimeType: \"multipart/form-data\",
+                                        contentType: false,
+                                        dataType: 'html',
+                                        cache: false,
+                                        processData: false, 
+                                        beforeSend: function() {
+                                            $('#informacion').hide();
+                                            $('#informacion').html('');
+                                            $('#error').hide();
+                                            $('#error').html('');
+                                            console.log('enviando...');
+                                        },
+                                        success: function(response) {
+                                            var json_obj = $.parseJSON(response);
+                                            var error = json_obj.htmlError;
+                                            var ok = json_obj.htmlOk;
+                                            if(error === ''){
+                                                $('#informacion').append(\"Documento subido con &Eacute;xito\").show().fadeOut(5000);
+                                                $('#ver$i').attr(\"onClick\", \"window.open('http:$servidor/UmVbZxut/archivos/Nuevo\"+ok+\"')\");
+                                                $('#fecha$i').html('<span class=\"label label-primary\">EN PROCESO</span>');
+                                                $('#dias$i').html('<span class=\"badge badge-primary\"> - </span>');
+                                            }else{
+                                                $('#error').html(''+error).show().fadeOut(5000);
+                                            }
 
-                                    }
-                                });
+                                        }
+                                    });
+                                }
+                                
                             });
                             </script>";
 
@@ -180,7 +188,7 @@ if (empty($fktercero) || empty($persona)) {
                 </td>
                 <td>
                     <div class=\"input-group date datepicker\">
-                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"></i></span><input id=\"fechadocumento$i\" name=\"fechadocumento$i\" type=\"text\" class=\"form-control\" value=\"\">
+                        <span class=\"input-group-addon\"><i class=\"fa fa-calendar\"></i></span><input id=\"fechadocumento$i\" name=\"fechadocumento$i\" type=\"text\" class=\"form-control\" value=\"$hoy\">
                     </div>
                 </td>
             </tr>
