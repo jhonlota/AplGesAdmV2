@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8552899-8bad-4330-a5ef-1b330a03ac37">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="DATASET1" uuid="ab3c9348-6771-45ab-ba18-87dfa3ea956c">
+		<parameter name="FKCONTRATO_TABLE" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT
+     CUBS.CANTIDAD AS "CUBS_CANTIDAD",
+     CUBS.DESCRIPCION AS "CUBS_DESCRIPCION",
+     CUBS.FKCONTRATO AS "CUBS_FKCONTRATO",
+     CUBS.CERTIFICADO AS "CUBS_CERTIFICADO",
+     CUBS.CODIGO AS "CUBS_CODIGO",
+     CUBS.VALOR AS "CUBS_VALOR",
+     CUBS.VALORSINIVA AS "CUBS_VALORSINIVA",
+     CUBS.VALORTOTAL AS "CUBS_VALORTOTAL",
+     CUBS.VALORTOTALSINIVA AS "CUBS_VALORTOTALSINIVA"
+FROM
+     CUBS
+WHERE CUBS.FKCONTRATO = $P{FKCONTRATO_TABLE}]]>
+		</queryString>
+		<field name="CUBS_CANTIDAD" class="java.lang.Long"/>
+		<field name="CUBS_DESCRIPCION" class="java.lang.String"/>
+		<field name="CUBS_FKCONTRATO" class="java.lang.String"/>
+		<field name="CUBS_CERTIFICADO" class="java.lang.String"/>
+		<field name="CUBS_CODIGO" class="java.lang.String"/>
+		<field name="CUBS_VALOR" class="java.lang.Long"/>
+		<field name="CUBS_VALORSINIVA" class="java.lang.Long"/>
+		<field name="CUBS_VALORTOTAL" class="java.lang.Long"/>
+		<field name="CUBS_VALORTOTALSINIVA" class="java.lang.Long"/>
+	</subDataset>
+	<parameter name="FKCONTRATO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     CONTRATOS.CONTRATO AS "CONTRATOS_CONTRATO",
+     CONTRATOS.ANTICIPIO AS "CONTRATOS_ANTICIPIO",
+     CONTRATOS.CANTIDADESPRECIOSVARIABLES AS "CONTRATOS_CANTIDADESPRECIOSVAR",
+     CONTRATOS.CAUSAL AS "CONTRATOS_CAUSAL",
+     CONTRATOS.CODIGOACTIVIDAD AS "CONTRATOS_CODIGOACTIVIDAD",
+     CONTRATOS.CODIGODEPARTAMENTO AS "CONTRATOS_CODIGODEPARTAMENTO",
+     CONTRATOS.CODIGOMODALIDAD AS "CONTRATOS_CODIGOMODALIDAD",
+     CONTRATOS.CODIGOMUNICIPIO AS "CONTRATOS_CODIGOMUNICIPIO",
+     CONTRATOS.CODIGOPROYECTO AS "CONTRATOS_CODIGOPROYECTO",
+     CONTRATOS.CODIGOTIPO AS "CONTRATOS_CODIGOTIPO",
+     CONTRATOS.DOCUMENTOTERMINACION AS "CONTRATOS_DOCUMENTOTERMINACION",
+     CONTRATOS.FECHAACTAAVANCE AS "CONTRATOS_FECHAACTAAVANCE",
+     CONTRATOS.FECHAADJUDICACION AS "CONTRATOS_FECHAADJUDICACION",
+     CONTRATOS.FECHACIERRE AS "CONTRATOS_FECHACIERRE",
+     CONTRATOS.FECHAFINALACTIVIDAD AS "CONTRATOS_FECHAFINALACTIVIDAD",
+     CONTRATOS.FECHAINICIALACTIVIDAD AS "CONTRATOS_FECHAINICIALACTIVIDA",
+     CONTRATOS.FECHAINICIO AS "CONTRATOS_FECHAINICIO",
+     CONTRATOS.FECHALEGALIZACION AS "CONTRATOS_FECHALEGALIZACION",
+     CONTRATOS.FECHAPERFECCIONAMIENTO AS "CONTRATOS_FECHAPERFECCIONAMIEN",
+     CONTRATOS.FECHASUSCRIPCION AS "CONTRATOS_FECHASUSCRIPCION",
+     CONTRATOS.FECHATERMINACION AS "CONTRATOS_FECHATERMINACION",
+     CONTRATOS.FKTERCERO AS "CONTRATOS_FKTERCERO",
+     CONTRATOS.FKTERCEROINTERSUPER AS "CONTRATOS_FKTERCEROINTERSUPER",
+     CONTRATOS.FKTERCEROORDENADORGASTO AS "CONTRATOS_FKTERCEROORDENADORGA",
+     CONTRATOS.INVERSION AS "CONTRATOS_INVERSION",
+     CONTRATOS.LEY80 AS "CONTRATOS_LEY80",
+     CONTRATOS.MODALIDAD AS "CONTRATOS_MODALIDAD",
+     CONTRATOS.MONEDAPAGO AS "CONTRATOS_MONEDAPAGO",
+     CONTRATOS.OBERVACIONES AS "CONTRATOS_OBERVACIONES",
+     CONTRATOS.OBJETO AS "CONTRATOS_OBJETO",
+     CONTRATOS.PLAZO AS "CONTRATOS_PLAZO",
+     CONTRATOS.PORCENTAJEACTIVIDAD AS "CONTRATOS_PORCENTAJEACTIVIDAD",
+     CONTRATOS.PORCENTAJEAVANCE AS "CONTRATOS_PORCENTAJEAVANCE",
+     CONTRATOS.RESOLUCIONADJUDICACION AS "CONTRATOS_RESOLUCIONADJUDICACI",
+     CONTRATOS.TASACAMBIO AS "CONTRATOS_TASACAMBIO",
+     CONTRATOS.TIPOACTAAVANCE AS "CONTRATOS_TIPOACTAAVANCE",
+     CONTRATOS.TIPOCONTRATO AS "CONTRATOS_TIPOCONTRATO",
+     CONTRATOS.TIPOINTERVENTORIA AS "CONTRATOS_TIPOINTERVENTORIA",
+     CONTRATOS.TIPOTERMINACION AS "CONTRATOS_TIPOTERMINACION",
+     CONTRATOS.TIPOVINCULACIONINTERSUPER AS "CONTRATOS_TIPOVINCULACIONINTER",
+     CONTRATOS.UNIDADDURACION AS "CONTRATOS_UNIDADDURACION",
+     CONTRATOS.VALOR AS "CONTRATOS_VALOR",
+     CONTRATOS.VALORADMINISTRACION AS "CONTRATOS_VALORADMINISTRACION",
+     CONTRATOS.VALORIMPREVISTO AS "CONTRATOS_VALORIMPREVISTO",
+     CONTRATOS.VALORIVAOBRA AS "CONTRATOS_VALORIVAOBRA",
+     CONTRATOS.VALORMONEDAEXTRANJERA AS "CONTRATOS_VALORMONEDAEXTRANJER",
+     CONTRATOS.VALORSALDO AS "CONTRATOS_VALORSALDO",
+     CONTRATOS.VALORUTILIDAD AS "CONTRATOS_VALORUTILIDAD",
+     CONTRATOS.NOMBREPROYECTO AS "CONTRATOS_NOMBREPROYECTO",
+     CONTRATOS.FORMAPAGO AS "CONTRATOS_FORMAPAGO",
+     CONTRATOS.TIEMPOGARANTIA AS "CONTRATOS_TIEMPOGARANTIA",
+     CONTRATOS.CONTRATOVIGENTE AS "CONTRATOS_CONTRATOVIGENTE",
+     CONTRATOS.FECHATERMINACIONVIGENTE AS "CONTRATOS_FECHATERMINACIONVIGE",
+     CONTRATOS.FKTERCEROFUNCIONARIO AS "CONTRATOS_FKTERCEROFUNCIONARIO",
+     CONTRATOS.VALORSINIVA AS "CONTRATOS_VALORSINIVA",
+     f_formadepagocontratos(CONTRATOS.CONTRATO) AS "FORMADEPAGOCONTRATOS",
+
+     CUBS.DESCRIPCION AS "CUBS_DESCRIPCION",
+     CUBS.FKCONTRATO AS "CUBS_FKCONTRATO",
+     CUBS.CANTIDAD AS "CUBS_CANTIDAD",
+     CUBS.CERTIFICADO AS "CUBS_CERTIFICADO",
+     CUBS.CODIGO AS "CUBS_CODIGO",
+     CUBS.VALOR AS "CUBS_VALOR",
+     CUBS.VALORSINIVA AS "CUBS_VALORSINIVA",
+     CUBS.VALORTOTAL AS "CUBS_VALORTOTAL",
+     CUBS.VALORTOTALSINIVA AS "CUBS_VALORTOTALSINIVA"
+FROM
+     CONTRATOS
+JOIN CUBS
+ON   CONTRATOS.CONTRATO = CUBS.FKCONTRATO
+WHERE
+     CONTRATOS.CONTRATO = $P{FKCONTRATO}]]>
+	</queryString>
+	<field name="CONTRATOS_CONTRATO" class="java.lang.String"/>
+	<field name="CONTRATOS_ANTICIPIO" class="java.lang.String"/>
+	<field name="CONTRATOS_CANTIDADESPRECIOSVAR" class="java.lang.Long"/>
+	<field name="CONTRATOS_CAUSAL" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOACTIVIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGODEPARTAMENTO" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOMODALIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOMUNICIPIO" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOPROYECTO" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOTIPO" class="java.lang.String"/>
+	<field name="CONTRATOS_DOCUMENTOTERMINACION" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHAACTAAVANCE" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAADJUDICACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHACIERRE" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAFINALACTIVIDAD" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAINICIALACTIVIDA" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAINICIO" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHALEGALIZACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAPERFECCIONAMIEN" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHASUSCRIPCION" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHATERMINACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_FKTERCERO" class="java.lang.String"/>
+	<field name="CONTRATOS_FKTERCEROINTERSUPER" class="java.lang.String"/>
+	<field name="CONTRATOS_FKTERCEROORDENADORGA" class="java.lang.String"/>
+	<field name="CONTRATOS_INVERSION" class="java.lang.String"/>
+	<field name="CONTRATOS_LEY80" class="java.lang.Long"/>
+	<field name="CONTRATOS_MODALIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_MONEDAPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_OBERVACIONES" class="java.lang.String"/>
+	<field name="CONTRATOS_OBJETO" class="java.lang.String"/>
+	<field name="CONTRATOS_PLAZO" class="java.lang.String"/>
+	<field name="CONTRATOS_PORCENTAJEACTIVIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_PORCENTAJEAVANCE" class="java.lang.String"/>
+	<field name="CONTRATOS_RESOLUCIONADJUDICACI" class="java.lang.String"/>
+	<field name="CONTRATOS_TASACAMBIO" class="java.lang.Long"/>
+	<field name="CONTRATOS_TIPOACTAAVANCE" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOCONTRATO" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOINTERVENTORIA" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOTERMINACION" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOVINCULACIONINTER" class="java.lang.String"/>
+	<field name="CONTRATOS_UNIDADDURACION" class="java.lang.String"/>
+	<field name="CONTRATOS_VALOR" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORADMINISTRACION" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORIMPREVISTO" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORIVAOBRA" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORMONEDAEXTRANJER" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORSALDO" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORUTILIDAD" class="java.lang.Long"/>
+	<field name="CONTRATOS_NOMBREPROYECTO" class="java.lang.String"/>
+	<field name="CONTRATOS_FORMAPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_TIEMPOGARANTIA" class="java.lang.String"/>
+	<field name="CONTRATOS_CONTRATOVIGENTE" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHATERMINACIONVIGE" class="java.sql.Date"/>
+	<field name="CONTRATOS_FKTERCEROFUNCIONARIO" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORSINIVA" class="java.lang.Long"/>
+	<field name="FORMADEPAGOCONTRATOS" class="java.lang.String"/>
+	<field name="CUBS_DESCRIPCION" class="java.lang.String"/>
+	<field name="CUBS_FKCONTRATO" class="java.lang.String"/>
+	<field name="CUBS_CANTIDAD" class="java.lang.Long"/>
+	<field name="CUBS_CERTIFICADO" class="java.lang.String"/>
+	<field name="CUBS_CODIGO" class="java.lang.String"/>
+	<field name="CUBS_VALOR" class="java.lang.Long"/>
+	<field name="CUBS_VALORSINIVA" class="java.lang.Long"/>
+	<field name="CUBS_VALORTOTAL" class="java.lang.Long"/>
+	<field name="CUBS_VALORTOTALSINIVA" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="f606066e-3c71-4133-8b22-043d1d6121e8" key="table 2" style="table 2" x="0" y="0" width="555" height="50"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DATASET1" uuid="b7b6dfe0-3024-47fd-88b5-c74276e66a30">
+						<datasetParameter name="FKCONTRATO_TABLE">
+							<datasetParameterExpression><![CDATA[$P{FKCONTRATO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column uuid="737ecf41-68e4-4705-a50a-f5ab545564fb" width="90">
+						<jr:columnHeader style="table 2_CH" height="36" rowSpan="1">
+							<staticText>
+								<reportElement uuid="785ad3a9-1eef-41aa-9d83-cd8c236ca5fa" x="0" y="0" width="90" height="35"/>
+								<textElement/>
+								<text><![CDATA[CUBS_CANTIDAD]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement uuid="36756e3b-a6c6-4c12-9a25-484fe4350cac" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CUBS_CANTIDAD}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="cc38a5dd-41f8-4541-8090-9205f78bccdd" width="90">
+						<jr:columnHeader style="table 2_CH" height="36" rowSpan="1">
+							<staticText>
+								<reportElement uuid="3150dcb4-ba64-483e-9778-6fa07a2c2b64" x="0" y="0" width="90" height="35"/>
+								<textElement/>
+								<text><![CDATA[CUBS_DESCRIPCION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement uuid="48b5a0a2-4cb0-44c7-8381-612ffad14215" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CUBS_DESCRIPCION}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="697e0749-e2b7-4fb0-af36-00450a05be9b" width="90">
+						<jr:columnHeader style="table 2_CH" height="36" rowSpan="1">
+							<staticText>
+								<reportElement uuid="7d8a4bf4-55b5-4865-9ea3-a1490d4e8fb9" x="0" y="0" width="90" height="35"/>
+								<textElement/>
+								<text><![CDATA[CUBS_VALOR]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 2_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement uuid="74d623f9-6784-4eb2-95d8-9138bc4281a3" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{CUBS_VALOR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="2d7969f3-701f-4c4e-8e8c-9745d0832f5b" width="90">
+						<jr:columnHeader height="36" rowSpan="1">
+							<staticText>
+								<reportElement uuid="62b2227e-c987-4c0f-9fce-39243058b1de" x="0" y="0" width="90" height="36"/>
+								<textElement/>
+								<text><![CDATA[ITEM]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField>
+								<reportElement uuid="41e3dcd0-05e7-4596-812d-bd923ff1d4e3" x="0" y="0" width="90" height="30"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -115,7 +115,7 @@ if (empty($fktercero) || empty($persona)) {
                                         <a href=\"#\" class=\"close fileinput-exists input-sm\" data-dismiss=\"fileinput\" style=\"float: none\">&#215;</a>
                                     </div>
                                 </td>
-                                <td><button id=\"subir\" class=\"btn btn-primary btn-xs\" type=\"submit\" style=\"max-width:40px\">Subir</button></td>
+                                <td><button id=\"subir$i\" class=\"btn btn-primary btn-xs\" type=\"submit\" style=\"max-width:40px\">Subir</button></td>
                             </tr>
                        </table>";
             $tabla2 .= "</form>";
@@ -152,6 +152,7 @@ if (empty($fktercero) || empty($persona)) {
                                             $('#informacion').html('');
                                             $('#error').hide();
                                             $('#error').html('');
+                                            $('#subir$i').hide();
                                             console.log('enviando...');
                                         },
                                         success: function(response) {
@@ -159,8 +160,9 @@ if (empty($fktercero) || empty($persona)) {
                                             var error = json_obj.htmlError;
                                             var ok = json_obj.htmlOk;
                                             if(error === ''){
+                                                $('#subir$i').show();
                                                 $('#informacion').append(\"Documento subido con &Eacute;xito\").show().fadeOut(5000);
-                                                $('#ver$i').attr(\"onClick\", \"window.open('http:$servidor/UmVbZxut/archivos/Nuevo\"+ok+\"')\");
+                                                $('#ver$i').attr(\"onClick\", \"window.open('http:$servidor/UmVbZxut/archivos/\"+ok+\"')\");
                                                 $('#fecha$i').html('<span class=\"label label-primary\">EN PROCESO</span>');
                                                 $('#dias$i').html('<span class=\"badge badge-primary\"> - </span>');
                                             }else{
@@ -215,7 +217,7 @@ if (empty($fktercero) || empty($persona)) {
                                     <span class=\"fileinput-filename input-sm\"></span>
                                     <a href=\"#\" class=\"close fileinput-exists input-sm\" data-dismiss=\"fileinput\" style=\"float: none\">&#215;</a>
                                 </div>
-                                <button class=\"btn btn-primary btn-sm\" type=\"submit\">Subir</button>
+                                <button id=\"subirdocumentogeneral\" class=\"btn btn-primary btn-sm\" type=\"submit\">Subir</button>
                             </div>
                         </div>
                         <input id=\"cantidad\" name=\"cantidad\" type=\"hidden\" value=\"$i\">
@@ -272,6 +274,7 @@ if (empty($fktercero) || empty($persona)) {
                                             cache: false,
                                             processData: false, 
                                             beforeSend: function() {
+                                                $('#subirdocumentogeneral').hide();
                                                 console.log('enviando...');
                                             },
                                             success: function(response) {
@@ -279,7 +282,9 @@ if (empty($fktercero) || empty($persona)) {
                                                 var error = json_obj.htmlError;
                                                 var ok = json_obj.htmlOk;
                                                 var indice = json_obj.indice;
+                                                console.log('INDICE= '+indice);
                                                 if(error === ''){
+                                                    $('#subirdocumentogeneral').show();
                                                     $('#informaciondocumentogeneral').html(\"Documento subido con &Eacute;xito\").show().fadeOut(5000);
                                                     $('#ver'+indice).attr(\"onClick\", \"window.open('http:$servidor/UmVbZxut/archivos/\"+ok+\"')\");
                                                     $('#fecha'+indice).html('<span class=\"label label-primary\">EN PROCESO</span>');

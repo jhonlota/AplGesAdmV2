@@ -23,7 +23,7 @@ class Upload {
         $this->isupload = false;
     }
 
-    function setFile($field, $fktercero, $fecha) {
+    function setFile($field, $cedulaTercero, $nombreDocumento, $fechaDocumento) {
         $this->filesize = $_FILES[$field]['size'];
 
         $this->filename = $_FILES[$field]['name'];
@@ -33,10 +33,8 @@ class Upload {
         $this->filetype = $_FILES[$field]['type'];
 
         $this->fileexte = substr($this->filename, strrpos($this->filename, '.') + 1);
-
 //		$this->newfile = substr(md5(uniqid(rand())),0,8).".".$this->fileexte;
-
-        $this->newfile = $fktercero . "_" . $fecha . "." . $this->fileexte;
+        $this->newfile = $cedulaTercero."_".$nombreDocumento."_".$fechaDocumento.".".$this->fileexte;
     }
     
 
