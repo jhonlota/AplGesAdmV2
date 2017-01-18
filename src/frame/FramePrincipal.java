@@ -60,6 +60,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
     private IFrameModificaciones modificaciones;
     private IFrameObservacionescontratos observacionescontratos;
     private IFrameObservacionescuentas observacionescuentas;
+    private IFramePlanestrategicocontratos planestrategicocontratos;
     private IFramePolizas polizas;
     private IFrameReportes reportes;
     private IFrameResoluciones resoluciones;
@@ -210,6 +211,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         modificaciones.setResizable(false);
         observacionescontratos.setResizable(false);
         observacionescuentas.setResizable(false);
+        planestrategicocontratos.setResizable(false);
         polizas.setResizable(false);
         resoluciones.setResizable(false);
         solicitudesoferta.setResizable(false);
@@ -235,6 +237,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         jDesktopPane.add(modificaciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(observacionescontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(observacionescuentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(planestrategicocontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(polizas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(reportes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(resoluciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -276,6 +279,8 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Modificaciones");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Observaciones");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Plan Estrategico");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Pólizas");
         treeNode2.add(treeNode3);
@@ -458,6 +463,12 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     observacionescontratos.setVisible(true);
                     observacionescontratos.metodoEstado("reiniciar");
                     observacionescontratos.metodoLimpiar();
+                } else if (hijo.equals("Plan Estrategico")
+                        && !ClaseGeneral.contratos.getContrato().equals("")) {
+                    planestrategicocontratos.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    planestrategicocontratos.setVisible(true);
+                    planestrategicocontratos.metodoEstado("reiniciar");
+                    planestrategicocontratos.metodoLimpiar();
                 } else if (hijo.equals("Pólizas")
                         && !ClaseGeneral.contratos.getContrato().equals("")) {
                     polizas.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
@@ -928,6 +939,10 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                 tercerosresoluciones = new IFrameTercerosresoluciones();
                 System.out.println("*** IFrameTercerosresoluciones()");
                 break;
+            case 25:
+                planestrategicocontratos = new IFramePlanestrategicocontratos();
+                System.out.println("*** IFramePlaestrategicocontratos()");
+                break;   
         }
     }
 
@@ -947,6 +962,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         modificaciones.setVisible(false);
         observacionescontratos.setVisible(false);
         observacionescuentas.setVisible(false);
+        planestrategicocontratos.setVisible(false);
         polizas.setVisible(false);
         reportes.setVisible(false);
         resoluciones.setVisible(false);
@@ -973,6 +989,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
             } else if (padre.equals("Orden Contractual")
                     && (hijo.equals("Contratos *")
                     || hijo.equals("Modificaciones")
+                    || hijo.equals("Plan Estrategico")
                     || hijo.equals("Pólizas")
                     || hijo.equals("Soportes")
                     || hijo.equals("Anexos")
@@ -1076,7 +1093,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         @Override
         public void run() {
             int min = 1;
-            int max = 24;//**// IMPORTANTE
+            int max = 25;//**// IMPORTANTE
 
             FrameInicio.jProgressBar.setValue(min);
             FrameInicio.jProgressBar.setMinimum(min);

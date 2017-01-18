@@ -78,15 +78,15 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         fechaelaboracion = new org.jdesktop.swingx.JXDatePicker();
         jLabel2 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        jLabelHora = new javax.swing.JLabel();
         horaelaboracion = new javax.swing.JFormattedTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabelAño = new javax.swing.JLabel();
-        ano = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        jTextField6 = new javax.swing.JTextField();
+        jLabelFechaEntrega = new javax.swing.JLabel();
+        fechaentrega = new org.jdesktop.swingx.JXDatePicker();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        ano = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabelFktercero = new javax.swing.JLabel();
         fktercero = new javax.swing.JTextField();
@@ -105,9 +105,15 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         valorcertificado = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jLabelFechaEntrega = new javax.swing.JLabel();
-        fechaentrega = new org.jdesktop.swingx.JXDatePicker();
-        jTextField4 = new javax.swing.JTextField();
+        jLabel89 = new javax.swing.JLabel();
+        secopnumeroproceso = new javax.swing.JTextField();
+        jLabel90 = new javax.swing.JLabel();
+        secopnumeroconstancia = new javax.swing.JTextField();
+        jLabel91 = new javax.swing.JLabel();
+        jSeparator23 = new javax.swing.JSeparator();
+        jLabel92 = new javax.swing.JLabel();
+        secopfechapublicacion = new org.jdesktop.swingx.JXDatePicker();
+        jTextField51 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jPanelInformacionServicio = new javax.swing.JPanel();
         jScrollInformacionServicio = new javax.swing.JScrollPane();
@@ -176,33 +182,43 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         fechaelaboracion.setPreferredSize(new java.awt.Dimension(130, 25));
         add(fechaelaboracion);
 
-        jLabel2.setPreferredSize(new java.awt.Dimension(20, 25));
+        jLabel2.setPreferredSize(new java.awt.Dimension(10, 25));
         add(jLabel2);
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator4.setPreferredSize(new java.awt.Dimension(20, 25));
+        jSeparator4.setPreferredSize(new java.awt.Dimension(15, 25));
         add(jSeparator4);
 
-        jLabelHora.setText("HORA :");
-        jLabelHora.setPreferredSize(new java.awt.Dimension(55, 25));
-        add(jLabelHora);
-
         horaelaboracion.setEditable(false);
+        horaelaboracion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         horaelaboracion.setText("00:00:00");
         horaelaboracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         horaelaboracion.setPreferredSize(new java.awt.Dimension(80, 25));
         add(horaelaboracion);
 
-        jLabel3.setPreferredSize(new java.awt.Dimension(20, 25));
+        jLabel4.setPreferredSize(new java.awt.Dimension(10, 25));
+        add(jLabel4);
+
+        jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator8.setPreferredSize(new java.awt.Dimension(15, 25));
+        add(jSeparator8);
+
+        jLabelFechaEntrega.setText("FECHA DE ENTREGA:");
+        jLabelFechaEntrega.setPreferredSize(new java.awt.Dimension(120, 25));
+        add(jLabelFechaEntrega);
+
+        fechaentrega.setFocusable(false);
+        fechaentrega.setMaximumSize(new java.awt.Dimension(120, 25));
+        fechaentrega.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechaentrega.setPreferredSize(new java.awt.Dimension(120, 25));
+        add(fechaentrega);
+
+        jLabel3.setPreferredSize(new java.awt.Dimension(10, 25));
         add(jLabel3);
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator5.setPreferredSize(new java.awt.Dimension(20, 25));
+        jSeparator5.setPreferredSize(new java.awt.Dimension(15, 25));
         add(jSeparator5);
-
-        jLabelAño.setText("AÑO : ");
-        jLabelAño.setPreferredSize(new java.awt.Dimension(50, 25));
-        add(jLabelAño);
 
         ano.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ano.setText("0");
@@ -215,22 +231,15 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         });
         add(ano);
 
-        jLabel4.setPreferredSize(new java.awt.Dimension(20, 25));
-        add(jLabel4);
+        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField10.setEnabled(false);
+        jTextField10.setFocusable(false);
+        jTextField10.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField10.setOpaque(false);
+        jTextField10.setPreferredSize(new java.awt.Dimension(30, 25));
+        add(jTextField10);
 
-        jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator8.setPreferredSize(new java.awt.Dimension(20, 25));
-        add(jSeparator8);
-
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField6.setEnabled(false);
-        jTextField6.setFocusable(false);
-        jTextField6.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField6.setOpaque(false);
-        jTextField6.setPreferredSize(new java.awt.Dimension(120, 25));
-        add(jTextField6);
-
-        jLabel5.setPreferredSize(new java.awt.Dimension(810, 20));
+        jLabel5.setPreferredSize(new java.awt.Dimension(810, 10));
         add(jLabel5);
 
         jLabelFktercero.setText("CÉDULA DEL PROVEEDOR : ");
@@ -274,7 +283,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         fktercerofuncionario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fktercerofuncionario.setFocusable(false);
         fktercerofuncionario.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        fktercerofuncionario.setPreferredSize(new java.awt.Dimension(585, 25));
+        fktercerofuncionario.setPreferredSize(new java.awt.Dimension(590, 25));
         add(fktercerofuncionario);
 
         botonBuscarFktercerofuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
@@ -293,7 +302,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jTextField9.setFocusable(false);
         jTextField9.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField9.setOpaque(false);
-        jTextField9.setPreferredSize(new java.awt.Dimension(15, 25));
+        jTextField9.setPreferredSize(new java.awt.Dimension(10, 25));
         add(jTextField9);
 
         jLabelNumeroCertificado.setText("NÚMERO DE CERTIFICADO :");
@@ -316,11 +325,11 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         });
         add(numerocertificado);
 
-        jLabel7.setPreferredSize(new java.awt.Dimension(20, 25));
+        jLabel7.setPreferredSize(new java.awt.Dimension(10, 25));
         add(jLabel7);
 
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator7.setPreferredSize(new java.awt.Dimension(20, 25));
+        jSeparator7.setPreferredSize(new java.awt.Dimension(15, 25));
         add(jSeparator7);
 
         jLabelValorCertificado.setText("VALOR DE CERTIFICADO :");
@@ -343,29 +352,56 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jTextField7.setFocusable(false);
         jTextField7.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField7.setOpaque(false);
-        jTextField7.setPreferredSize(new java.awt.Dimension(130, 25));
+        jTextField7.setPreferredSize(new java.awt.Dimension(145, 25));
         add(jTextField7);
 
         jLabel11.setPreferredSize(new java.awt.Dimension(810, 10));
         add(jLabel11);
 
-        jLabelFechaEntrega.setText("FECHA DE ENTREGA:");
-        jLabelFechaEntrega.setPreferredSize(new java.awt.Dimension(120, 25));
-        add(jLabelFechaEntrega);
+        jLabel89.setText("NUMERO DEL PROCESO (SOLICITUD OFERTA) : ");
+        jLabel89.setPreferredSize(new java.awt.Dimension(285, 25));
+        add(jLabel89);
 
-        fechaentrega.setFocusable(false);
-        fechaentrega.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechaentrega.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechaentrega.setPreferredSize(new java.awt.Dimension(120, 25));
-        add(fechaentrega);
+        secopnumeroproceso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        secopnumeroproceso.setText("0");
+        secopnumeroproceso.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        secopnumeroproceso.setPreferredSize(new java.awt.Dimension(520, 25));
+        add(secopnumeroproceso);
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField4.setEnabled(false);
-        jTextField4.setFocusable(false);
-        jTextField4.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField4.setOpaque(false);
-        jTextField4.setPreferredSize(new java.awt.Dimension(560, 25));
-        add(jTextField4);
+        jLabel90.setText("NUMERO EN EL SISTEMA DEL PROCESO : ");
+        jLabel90.setPreferredSize(new java.awt.Dimension(250, 25));
+        add(jLabel90);
+
+        secopnumeroconstancia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        secopnumeroconstancia.setText("0");
+        secopnumeroconstancia.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        secopnumeroconstancia.setPreferredSize(new java.awt.Dimension(150, 25));
+        add(secopnumeroconstancia);
+
+        jLabel91.setPreferredSize(new java.awt.Dimension(20, 25));
+        add(jLabel91);
+
+        jSeparator23.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator23.setPreferredSize(new java.awt.Dimension(25, 25));
+        add(jSeparator23);
+
+        jLabel92.setText("FECHA DE PUBLICACION : ");
+        jLabel92.setPreferredSize(new java.awt.Dimension(160, 25));
+        add(jLabel92);
+
+        secopfechapublicacion.setFocusable(false);
+        secopfechapublicacion.setMaximumSize(new java.awt.Dimension(120, 25));
+        secopfechapublicacion.setMinimumSize(new java.awt.Dimension(120, 25));
+        secopfechapublicacion.setPreferredSize(new java.awt.Dimension(120, 25));
+        add(secopfechapublicacion);
+
+        jTextField51.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField51.setEnabled(false);
+        jTextField51.setFocusable(false);
+        jTextField51.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField51.setOpaque(false);
+        jTextField51.setPreferredSize(new java.awt.Dimension(55, 25));
+        add(jTextField51);
 
         jLabel15.setPreferredSize(new java.awt.Dimension(810, 10));
         add(jLabel15);
@@ -400,7 +436,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
 
         jTabbedPane.setBackground(ClaseGeneral.boton);
         jTabbedPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 205));
+        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 195));
 
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane.setPreferredSize(new java.awt.Dimension(810, 185));
@@ -2496,6 +2532,9 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         ClaseGeneral.solicitudesoferta.setFechaentrega(fechaentrega.getDate());
         ClaseGeneral.solicitudesoferta.setInformacionservicio(informacionservicio.getText().toUpperCase());
         ClaseGeneral.solicitudesoferta.setAno(Integer.parseInt("" + ano.getText()));
+        ClaseGeneral.solicitudesoferta.setSecopnumeroproceso(secopnumeroproceso.getText());
+        ClaseGeneral.solicitudesoferta.setSecopnumeroconstancia(secopnumeroconstancia.getText());
+        ClaseGeneral.solicitudesoferta.setSecopfechapublicacion(secopfechapublicacion.getDate());
 
         if (ClaseGeneral.controlSolicitudesoferta.verify(ClaseGeneral.solicitudesoferta, "create")) {
             try {
@@ -2519,6 +2558,9 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
             fechaentrega.setDate(ClaseGeneral.solicitudesoferta.getFechaentrega());
             informacionservicio.setText(ClaseGeneral.solicitudesoferta.getInformacionservicio());
             ano.setText("" + ClaseGeneral.solicitudesoferta.getAno());
+            secopnumeroproceso.setText(ClaseGeneral.solicitudesoferta.getSecopnumeroproceso());
+            secopnumeroconstancia.setText(ClaseGeneral.solicitudesoferta.getSecopnumeroconstancia());
+            secopfechapublicacion.setDate(ClaseGeneral.solicitudesoferta.getSecopfechapublicacion());
             
             /**/ metodoMostrarBienesSolicitudesOferta();
 
@@ -2543,6 +2585,9 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         ClaseGeneral.solicitudesoferta.setFechaentrega(fechaentrega.getDate());
         ClaseGeneral.solicitudesoferta.setInformacionservicio("" + informacionservicio.getText());
         ClaseGeneral.solicitudesoferta.setAno(Integer.parseInt("" + ano.getText()));
+        ClaseGeneral.solicitudesoferta.setSecopnumeroproceso(secopnumeroproceso.getText());
+        ClaseGeneral.solicitudesoferta.setSecopnumeroconstancia(secopnumeroconstancia.getText());
+        ClaseGeneral.solicitudesoferta.setSecopfechapublicacion(secopfechapublicacion.getDate());
 
         if (ClaseGeneral.controlSolicitudesoferta.verify(ClaseGeneral.solicitudesoferta, "update")) {
             try {
@@ -2671,13 +2716,15 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelAño;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabelFechaEntrega;
     private javax.swing.JLabel jLabelFechaSolicitud;
     private javax.swing.JLabel jLabelFktercero;
     private javax.swing.JLabel jLabelFktercerofuncionario;
-    private javax.swing.JLabel jLabelHora;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelNumeroCertificado;
     private javax.swing.JLabel jLabelValorCertificado;
@@ -2686,6 +2733,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     public javax.swing.JScrollPane jScrollPane;
     public javax.swing.JScrollPane jScrollPaneBienesSolicitudOferta;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator23;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator7;
@@ -2693,15 +2741,18 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     public javax.swing.JTabbedPane jTabbedPane;
     public javax.swing.JTable jTable;
     public javax.swing.JTable jTableBienesSolicitudoferta;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField51;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     public javax.swing.JTextField numerocertificado;
     private javax.swing.JPanel panelBalanceSoportes;
     private javax.swing.JScrollPane scrollPaneBalanceSoportes;
+    private org.jdesktop.swingx.JXDatePicker secopfechapublicacion;
+    private javax.swing.JTextField secopnumeroconstancia;
+    private javax.swing.JTextField secopnumeroproceso;
     private javax.swing.JTextArea textAreaBalanceSoportes;
     public javax.swing.JTextField valorcertificado;
     // End of variables declaration//GEN-END:variables

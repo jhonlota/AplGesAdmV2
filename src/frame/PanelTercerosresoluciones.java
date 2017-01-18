@@ -384,7 +384,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jLabel10.setPreferredSize(new java.awt.Dimension(790, 5));
         panelTercerosresoluciones.add(jLabel10);
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(790, 125));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(790, 135));
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -674,7 +674,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jLabel74.setPreferredSize(new java.awt.Dimension(790, 15));
         panelSoportesresoluciones.add(jLabel74);
 
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(790, 300));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(790, 340));
 
         jTableImputacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -963,6 +963,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                             ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK().getId(),
                             ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK().getAno());
                 }
+                i++;
             }
             metodoMostrarImputacion();
         }
@@ -1145,7 +1146,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
         lista = ClaseGeneral.controlSoportesresoluciones.findAllInSoportesresolucionesByFkresolucionAnoFktercerosresolucion(Integer.parseInt(fkresolucion.getText()), ClaseGeneral.resoluciones.getResolucionPK().getAno(), Integer.parseInt(id.getText()));
 
-        jTableImputacion.getColumnModel().getColumn(6).setCellRenderer(informacion.modeloDerecha);
+        jTableImputacion.getColumnModel().getColumn(7).setCellRenderer(informacion.modeloDerecha);
 
         for (int i = 0; i < 100; i++) {
             jTableImputacion.setValueAt("", i, 0);
@@ -1181,8 +1182,8 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         }
 
         jTableImputacion.clearSelection();
-        jTableImputacion.getColumnModel().getColumn(0).setPreferredWidth(70);
-        jTableImputacion.getColumnModel().getColumn(1).setPreferredWidth(90);
+        jTableImputacion.getColumnModel().getColumn(0).setPreferredWidth(90);
+        jTableImputacion.getColumnModel().getColumn(1).setPreferredWidth(70);
         jTableImputacion.getColumnModel().getColumn(2).setPreferredWidth(90);
         jTableImputacion.getColumnModel().getColumn(3).setPreferredWidth(90);
         jTableImputacion.getColumnModel().getColumn(4).setPreferredWidth(90);

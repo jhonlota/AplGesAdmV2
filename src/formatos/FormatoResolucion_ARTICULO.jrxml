@@ -10,7 +10,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
@@ -26,10 +26,17 @@
      cuentasA."soporte" AS cuentas_a_soporte,
      cuentasB."fktercero" AS cuentas_b_fktercero,
      cuentasB."soporte" AS cuentas_b_soporte,
-     tercerosresolucion."soporte" AS tercerosresolucion_soporte
+     tercerosresolucion."soporte" AS tercerosresolucion_soporte,
+     resolucion."tipo" AS resolucion_tipo,
+     terceros."nombre" AS terceros_nombre,
+     terceros."tipoid" AS terceros_tipoid,
+     terceros."id" AS terceros_id,
+     terceros."cargo" AS terceros_cargo,
+     terceros."dependencia" AS terceros_dependencia
 FROM
      "resolucion" resolucion INNER JOIN "tercerosresolucion" tercerosresolucion ON resolucion."id" = tercerosresolucion."fkresolucion"
      AND resolucion."ano" = tercerosresolucion."ano"
+     INNER JOIN "public"."terceros" terceros ON tercerosresolucion."fktercero" = (terceros."id" || ' - ' || terceros."nombre")
      LEFT JOIN "public"."soportesresoluciones" soportesresoluciones ON tercerosresolucion."id" = soportesresoluciones."fktercerosresolucion"
      AND resolucion."ano" = soportesresoluciones."ano"
      LEFT JOIN "public"."cuentas" cuentasA ON tercerosresolucion."fkcuenta" = cuentasA."soporte"
@@ -42,8 +49,7 @@ WHERE
      tercerosresolucion."id" = $P{id}
      AND resolucion."ano" = $P{ano}
 ORDER BY
-     soportesresoluciones.id
-     ]]>
+     soportesresoluciones.id]]>
 	</queryString>
 	<field name="comprobantes_a_id" class="java.lang.Integer"/>
 	<field name="comprobantes_a_fktercero" class="java.lang.String"/>
@@ -58,23 +64,36 @@ ORDER BY
 	<field name="cuentas_b_fktercero" class="java.lang.String"/>
 	<field name="cuentas_b_soporte" class="java.lang.String"/>
 	<field name="tercerosresolucion_soporte" class="java.lang.String"/>
+	<field name="resolucion_tipo" class="java.lang.String"/>
+	<field name="terceros_nombre" class="java.lang.String"/>
+	<field name="terceros_tipoid" class="java.lang.String"/>
+	<field name="terceros_id" class="java.lang.String"/>
+	<field name="terceros_cargo" class="java.lang.String"/>
+	<field name="terceros_dependencia" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
 		<band height="15" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="0" y="0" width="360" height="15"/>
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" isPrintRepeatedValues="false" x="0" y="0" width="360" height="15"/>
 				<textElement>
 					<font fontName="SansSerif" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{comprobantes_a_id} == null ? "" : $F{comprobantes_a_tipopago} + " - " + $F{comprobantes_a_id} + ". " )
-+ "" +
-($F{cuentas_a_soporte} == null ? "" : "Solicitud de Pago - " + $F{cuentas_a_soporte} + ". " )
-+ "" +
-($F{comprobantes_b_id} == null ? "" : $F{comprobantes_b_tipopago} + " - " + $F{comprobantes_b_id} + ". " )
-+ "" +
-($F{cuentas_b_soporte} == null ? "" : "Solicitud de Pago - " + $F{cuentas_b_soporte} + ". " )]]></textFieldExpression>
+				<textFieldExpression><![CDATA[( $F{resolucion_tipo}.equals("TIQUETES AÉREOS") ? "Pagar tiquetes aéreos a la empresa " +
+    ( $F{comprobantes_a_fktercero}.equals( null ) ? "" : $F{comprobantes_a_fktercero}.substring($F{comprobantes_a_fktercero}.indexOf(" - ") + 3, $F{comprobantes_a_fktercero}.length()) ) +
+    ( $F{comprobantes_b_fktercero}.equals( null ) ? "" : $F{comprobantes_b_fktercero}.substring($F{comprobantes_b_fktercero}.indexOf(" - ") + 3, $F{comprobantes_b_fktercero}.length()) ) +
+    ( $F{cuentas_a_fktercero}.equals( null ) ? "" : $F{cuentas_a_fktercero}.substring($F{cuentas_a_fktercero}.indexOf(" - ") + 3, $F{cuentas_a_fktercero}.length()) ) +
+    ( $F{cuentas_b_fktercero}.equals( null ) ? "" : $F{cuentas_b_fktercero}.substring($F{cuentas_b_fktercero}.indexOf(" - ") + 3, $F{cuentas_b_fktercero}.length()) ) +
+    " concedidos a:\n"
+    : "Conceder " + $F{resolucion_tipo}.toLowerCase() + " a la siguiente persona:\n" ) +
+( $F{resolucion_tipo}.equals("AYUDA ECONÓMICA") ? "Estudiante " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." :
+    ( $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + " " + $F{terceros_cargo} + " del " + $F{terceros_dependencia} + "." :
+        ( $F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS") ? "Señor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + " " + $F{terceros_cargo} + " del " + $F{terceros_dependencia} + "." :
+            ( $F{resolucion_tipo}.equals("GASTOS DE VIAJE") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." :
+                ( $F{resolucion_tipo}.equals("GASTOS DE VIAJE Y TIQUETES AÉREOS") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." :
+                    ( $F{resolucion_tipo}.equals("TIQUETES AÉREOS") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." : "\"" + $F{resolucion_tipo} + "\""
+))))))]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

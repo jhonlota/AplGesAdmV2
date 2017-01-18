@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoResolucion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="60" bottomMargin="60" uuid="9c373adb-634e-4127-a7a3-411bd90f48cb">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="259"/>
+	<property name="ireport.y" value="567"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
@@ -38,21 +38,6 @@
      terceros."id" AS terceros_id,
      terceros."cargo" AS terceros_cargo,
      terceros."dependencia" AS terceros_dependencia,
-     comprobantesA."id" AS comprobantes_a_id,
-     comprobantesA."fktercero" AS comprobantes_a_fktercero,
-     comprobantesA."ano" AS comprobantes_a_ano,
-     comprobantesA."tipopago" AS comprobantes_a_tipopago,
-     comprobantesB."id" AS comprobantes_B_id,
-     comprobantesB."fktercero" AS comprobantes_B_fktercero,
-     comprobantesB."ano" AS comprobantes_B_ano,
-     comprobantesB."tipopago" AS comprobantes_B_tipopago,
-     cuentasA."fktercero" AS cuentas_a_fktercero,
-     cuentasA."soporte" AS cuentas_a_soporte,
-     cuentasB."fktercero" AS cuentas_b_fktercero,
-     cuentasB."soporte" AS cuentas_b_soporte,
-     soportesresoluciones."fktercerosresolucion" AS fkterceros_resolucion,
-     soportesresoluciones."fksoportecomprobante" AS soportesresoluciones_fksoportecomprobante,
-     soportesresoluciones."fksoportecuenta" AS soportesresoluciones_fksoportecuenta,
      (fechaterminacion-fechainicio) AS duracion,
      (SELECT SUM(tercerosresolucion."valor")
 	     FROM
@@ -78,14 +63,6 @@ FROM
      "resolucion" resolucion INNER JOIN "tercerosresolucion" tercerosresolucion ON resolucion."id" = tercerosresolucion."fkresolucion"
      AND resolucion."ano" = tercerosresolucion."ano"
      INNER JOIN "public"."terceros" terceros ON tercerosresolucion."fktercero" = (terceros."id" || ' - ' || terceros."nombre")
-     LEFT JOIN "public"."soportesresoluciones" soportesresoluciones ON tercerosresolucion."id" = soportesresoluciones."fktercerosresolucion"
-     AND resolucion."ano" = soportesresoluciones."ano"
-     LEFT JOIN "public"."cuentas" cuentasA ON tercerosresolucion."fkcuenta" = cuentasA."soporte"
-     LEFT JOIN "public"."cuentas" cuentasB ON soportesresoluciones."fksoportecuenta" = cuentasB."soporte"
-     LEFT JOIN "public"."comprobantes" comprobantesA ON tercerosresolucion."fkcomprobante" = CAST(comprobantesA."id" AS TEXT)
-     AND resolucion."ano" = comprobantesA."ano"
-     LEFT JOIN "public"."comprobantes" comprobantesB ON soportesresoluciones."fksoportecomprobante" = comprobantesB."id"
-     AND resolucion."ano" = comprobantesB."ano"
 WHERE
      resolucion."id" = $P{id}
      AND resolucion."ano" = $P{ano}
@@ -119,21 +96,6 @@ ORDER BY
 	<field name="terceros_id" class="java.lang.String"/>
 	<field name="terceros_cargo" class="java.lang.String"/>
 	<field name="terceros_dependencia" class="java.lang.String"/>
-	<field name="comprobantes_a_id" class="java.lang.Integer"/>
-	<field name="comprobantes_a_fktercero" class="java.lang.String"/>
-	<field name="comprobantes_a_ano" class="java.lang.Integer"/>
-	<field name="comprobantes_a_tipopago" class="java.lang.String"/>
-	<field name="comprobantes_b_id" class="java.lang.Integer"/>
-	<field name="comprobantes_b_fktercero" class="java.lang.String"/>
-	<field name="comprobantes_b_ano" class="java.lang.Integer"/>
-	<field name="comprobantes_b_tipopago" class="java.lang.String"/>
-	<field name="cuentas_a_fktercero" class="java.lang.String"/>
-	<field name="cuentas_a_soporte" class="java.lang.String"/>
-	<field name="cuentas_b_fktercero" class="java.lang.String"/>
-	<field name="cuentas_b_soporte" class="java.lang.String"/>
-	<field name="fkterceros_resolucion" class="java.lang.Integer"/>
-	<field name="soportesresoluciones_fksoportecomprobante" class="java.lang.Integer"/>
-	<field name="soportesresoluciones_fksoportecuenta" class="java.lang.String"/>
 	<field name="duracion" class="java.lang.Integer"/>
 	<field name="sum_valor" class="java.math.BigDecimal"/>
 	<field name="count_id" class="java.lang.Long"/>
@@ -254,27 +216,20 @@ ORDER BY
 ($V{REPORT_COUNT} == 10 ? "DECIMO :" : ":"
 ))))))))))]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="20" width="360" height="15"/>
-				<textElement textAlignment="Justified">
-					<font fontName="SansSerif" size="10"/>
-					<paragraph lineSpacing="1_1_2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[( $F{resolucion_tipo}.equals("TIQUETES AÉREOS") ? "Pagar tiquetes aéreos a la empresa " +
-    ( $F{comprobantes_a_fktercero}.equals( null ) ? "" : $F{comprobantes_a_fktercero}.substring($F{comprobantes_a_fktercero}.indexOf(" - ") + 3, $F{comprobantes_a_fktercero}.length()) ) +
-    ( $F{comprobantes_b_fktercero}.equals( null ) ? "" : $F{comprobantes_b_fktercero}.substring($F{comprobantes_b_fktercero}.indexOf(" - ") + 3, $F{comprobantes_b_fktercero}.length()) ) +
-    ( $F{cuentas_a_fktercero}.equals( null ) ? "" : $F{cuentas_a_fktercero}.substring($F{cuentas_a_fktercero}.indexOf(" - ") + 3, $F{cuentas_a_fktercero}.length()) ) +
-    ( $F{cuentas_b_fktercero}.equals( null ) ? "" : $F{cuentas_b_fktercero}.substring($F{cuentas_b_fktercero}.indexOf(" - ") + 3, $F{cuentas_b_fktercero}.length()) ) +
-    " concedidos a:\n"
-    : "Conceder " + $F{resolucion_tipo}.toLowerCase() + " a la siguiente persona:\n" ) +
-( $F{resolucion_tipo}.equals("AYUDA ECONÓMICA") ? "Estudiante " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." :
-    ( $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + " " + $F{terceros_cargo} + " del " + $F{terceros_dependencia} + "." :
-        ( $F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS") ? "Señor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + " " + $F{terceros_cargo} + " del " + $F{terceros_dependencia} + "." :
-            ( $F{resolucion_tipo}.equals("GASTOS DE VIAJE") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." :
-                ( $F{resolucion_tipo}.equals("GASTOS DE VIAJE Y TIQUETES AÉREOS") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." :
-                    ( $F{resolucion_tipo}.equals("TIQUETES AÉREOS") ? "Doctor(a) " + $F{terceros_nombre} + ", con " + $F{terceros_tipoid}.substring(0, $F{terceros_tipoid}.indexOf(":")) + " # " + $F{terceros_id} + "." : "\"" + $F{resolucion_tipo} + "\""
-))))))]]></textFieldExpression>
-			</textField>
+			<subreport>
+				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="20" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ano">
+					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_ano}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoResolucion_ARTICULO.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 		<band height="20">
 			<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("AYUDA ECONÓMICA")]]></printWhenExpression>
@@ -395,7 +350,7 @@ ORDER BY
 				<text><![CDATA[MEDIO DE PAGO :]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="15" width="360" height="15" isRemoveLineWhenBlank="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="360" height="15" isRemoveLineWhenBlank="true">
 					<printWhenExpression><![CDATA[( $F{tercerosresolucion_soporte}.equals( "" ) ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -404,20 +359,18 @@ ORDER BY
 				<textFieldExpression><![CDATA[$F{tercerosresolucion_soporte}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="0" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[($F{comprobantes_a_id} == null && $F{comprobantes_b_id} == null && $F{cuentas_a_soporte} == null && $F{cuentas_b_soporte} == null ? false : true )]]></printWhenExpression>
-				</reportElement>
-				<subreportParameter name="id">
-					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_id}]]></subreportParameterExpression>
-				</subreportParameter>
+				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="15" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
 				<subreportParameter name="SUBREPORT_DIR">
 					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_id}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="ano">
 					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_ano}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoResolucion_Cuentainterna_comprobante.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoResolucion_FORMAPAGO.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 		<band height="20">
@@ -511,9 +464,7 @@ ORDER BY
 				<text><![CDATA[VALOR :]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="30" width="360" height="30" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[($F{comprobantes_a_id} == null && $F{comprobantes_b_id} == null && $F{cuentas_a_soporte} == null && $F{cuentas_b_soporte} == null ? false : true )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="30" width="360" height="30" isRemoveLineWhenBlank="true"/>
 				<textElement textAlignment="Justified">
 					<font fontName="SansSerif" size="10"/>
 				</textElement>
@@ -529,9 +480,7 @@ ORDER BY
 				<textFieldExpression><![CDATA[$F{sum_valor}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="60" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[($F{comprobantes_a_id} == null && $F{comprobantes_b_id} == null && $F{cuentas_a_soporte} == null && $F{cuentas_b_soporte} == null ? false : true )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="60" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
 				<subreportParameter name="SUBREPORT_DIR">
 					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -545,9 +494,7 @@ ORDER BY
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoResolucion_Cuentainterna_comprobante.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
-				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="75" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[($F{comprobantes_a_id} == null && $F{comprobantes_b_id} == null && $F{cuentas_a_soporte} == null && $F{cuentas_b_soporte} == null ? false : true )]]></printWhenExpression>
-				</reportElement>
+				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="75" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
 				<subreportParameter name="SUBREPORT_DIR">
 					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
 				</subreportParameter>

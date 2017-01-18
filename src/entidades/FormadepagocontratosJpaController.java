@@ -95,8 +95,6 @@ public class FormadepagocontratosJpaController {
     public boolean verify(Formadepagocontratos formadepagocontratos) {
         try {
             ClaseGeneral.errorValidacion = "";
-            System.out.println(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechainicio(), formadepagocontratos.getFormadepagocontratosPK().getFecha()));
-            System.out.println(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechaterminacion(), formadepagocontratos.getFormadepagocontratosPK().getFecha()));
             if (ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechainicio(), formadepagocontratos.getFormadepagocontratosPK().getFecha()) >= 0, "FECHA ANTERIOR A LA DE INICIO")
                     && ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechaterminacion(), formadepagocontratos.getFormadepagocontratosPK().getFecha()) <= 0, "FECHA POSTERIOR A LA DE TERMINACION")) {
                 return true;

@@ -39,7 +39,10 @@ public class SolicitudesofertaJpaController {
                     + solicitudesoferta.getValorcertificado()+ ", "
                     + "'"+ ClaseInformacion.ConvertirFecha(solicitudesoferta.getFechaentrega())+"',"
                     + "'" + solicitudesoferta.getInformacionservicio()+ "', "
-                    + solicitudesoferta.getAno() + ")");
+                    + solicitudesoferta.getAno() + ", "
+                    + "'" + solicitudesoferta.getSecopnumeroproceso()+ "', "
+                    + "'" + solicitudesoferta.getSecopnumeroconstancia()+ "', "
+                    + "'" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getSecopfechapublicacion())+ "')");
             if (!datos.isError) {
                 try {
                     datos.query("SELECT * FROM SOLICITUDESOFERTA WHERE "
@@ -77,7 +80,10 @@ public class SolicitudesofertaJpaController {
                     + "NUMEROCERTIFICADO = '" + solicitudesoferta.getNumerocertificado()+ "', "
                     + "VALORCERTIFICADO = '" + solicitudesoferta.getValorcertificado() + "', "
                     + "FECHAENTREGA = '" + solicitudesoferta.getFechaentrega() + "', "
-                    + "INFORMACIONSERVICIO = '" + solicitudesoferta.getInformacionservicio()+ "' "
+                    + "INFORMACIONSERVICIO = '" + solicitudesoferta.getInformacionservicio()+ "', "
+                    + "SECOPNUMEROPROCESO = '" + solicitudesoferta.getSecopnumeroproceso()+ "', "
+                    + "SECOPNUMEROCONSTANCIA = '" + solicitudesoferta.getSecopnumeroconstancia()+ "', "
+                    + "SECOPFECHAPUBLICACION = '" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getSecopfechapublicacion())+ "' "
                     + "WHERE "
                     + "ID = " + id.getId() + " "
                     + "AND ANO = " + id.getAno());
@@ -218,6 +224,9 @@ public class SolicitudesofertaJpaController {
                 solicitudesoferta.setFechaentrega(ClaseBaseDatos.resultado.getDate("FECHAENTREGA"));
                 solicitudesoferta.setInformacionservicio(ClaseBaseDatos.resultado.getString("INFORMACIONSERVICIO"));
                 solicitudesoferta.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
+                solicitudesoferta.setSecopnumeroproceso(ClaseBaseDatos.resultado.getString("SECOPNUMEROPROCESO"));
+                solicitudesoferta.setSecopnumeroconstancia(ClaseBaseDatos.resultado.getString("SECOPNUMEROCONSTANCIA"));
+                solicitudesoferta.setSecopfechapublicacion(ClaseBaseDatos.resultado.getDate("SECOPFECHAPUBLICACION"));
 
                 listSolicitudesoferta.add(solicitudesoferta);
             }
@@ -286,6 +295,9 @@ public class SolicitudesofertaJpaController {
                 solicitudesoferta.setFechaentrega(ClaseBaseDatos.resultado.getDate("FECHAENTREGA"));
                 solicitudesoferta.setInformacionservicio(ClaseBaseDatos.resultado.getString("INFORMACIONSERVICIO"));
                 solicitudesoferta.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
+                solicitudesoferta.setSecopnumeroproceso(ClaseBaseDatos.resultado.getString("SECOPNUMEROPROCESO"));
+                solicitudesoferta.setSecopnumeroconstancia(ClaseBaseDatos.resultado.getString("SECOPNUMEROCONSTANCIA"));
+                solicitudesoferta.setSecopfechapublicacion(ClaseBaseDatos.resultado.getDate("SECOPFECHAPUBLICACION"));
 
                 listSolicitudesoferta.add(solicitudesoferta);
             }
@@ -320,6 +332,9 @@ public class SolicitudesofertaJpaController {
                 solicitudesoferta.setFechaentrega(ClaseBaseDatos.resultado.getDate("FECHAENTREGA"));
                 solicitudesoferta.setInformacionservicio(ClaseBaseDatos.resultado.getString("INFORMACIONSERVICIO"));
                 solicitudesoferta.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
+                solicitudesoferta.setSecopnumeroproceso(ClaseBaseDatos.resultado.getString("SECOPNUMEROPROCESO"));
+                solicitudesoferta.setSecopnumeroconstancia(ClaseBaseDatos.resultado.getString("SECOPNUMEROCONSTANCIA"));
+                solicitudesoferta.setSecopfechapublicacion(ClaseBaseDatos.resultado.getDate("SECOPFECHAPUBLICACION"));
 
                 listSolicitudesoferta.add(solicitudesoferta);
             }
@@ -351,6 +366,9 @@ public class SolicitudesofertaJpaController {
                 solicitudesoferta.setFechaentrega(ClaseBaseDatos.resultado.getDate("FECHAENTREGA"));
                 solicitudesoferta.setInformacionservicio(ClaseBaseDatos.resultado.getString("INFORMACIONSERVICIO"));
                 solicitudesoferta.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
+                solicitudesoferta.setSecopnumeroproceso(ClaseBaseDatos.resultado.getString("SECOPNUMEROPROCESO"));
+                solicitudesoferta.setSecopnumeroconstancia(ClaseBaseDatos.resultado.getString("SECOPNUMEROCONSTANCIA"));
+                solicitudesoferta.setSecopfechapublicacion(ClaseBaseDatos.resultado.getDate("SECOPFECHAPUBLICACION"));
 
                 listSolicitudesoferta.add(solicitudesoferta);
             }

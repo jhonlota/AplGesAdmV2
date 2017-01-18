@@ -58,6 +58,10 @@ public class ClaseGeneral {
     public static Observacionescuentas observacionescuentas = new Observacionescuentas();
     public static ObservacionescuentasJpaController controlObservacionescuentas = new ObservacionescuentasJpaController();
     public static ObservacionescuentasPK observacionescuentasPK = new ObservacionescuentasPK();
+    public static Planestrategico planestrategico = new Planestrategico();
+    public static PlanestrategicoJpaController controlPlanestrategico = new PlanestrategicoJpaController();
+    public static Planestrategicocontratos planestrategicocontratos = new Planestrategicocontratos();
+    public static PlanestrategicocontratosJpaController controlPlanestrategicocontratos = new PlanestrategicocontratosJpaController();
     public static Polizas polizas = new Polizas();
     public static PolizasJpaController controlPolizas = new PolizasJpaController();
     public static PolizasPK polizasPK = new PolizasPK();

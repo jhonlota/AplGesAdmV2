@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1044" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
 	<property name="ireport.zoom" value="0.8857805000000167"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="367"/>
+	<property name="ireport.y" value="672"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -29,7 +29,7 @@
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="ANO" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
@@ -52,11 +52,9 @@
      BIENESSOLICITUDESOFERTA.CANTIDAD AS "BIENESSOLICITUDESOFERTA_CANTIDAD",
      BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA AS "BIENESSOLICITUDESOFERTA_FKSOLICITUDOFERTA"
 FROM
-     SOLICITUDESOFERTA AS SOLICITUDESOFERTA
-LEFT JOIN
-     BIENESSOLICITUDESOFERTA AS BIENESSOLICITUDESOFERTA
-ON
-     BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA = SOLICITUDESOFERTA.ID
+     SOLICITUDESOFERTA AS SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA AS BIENESSOLICITUDESOFERTA
+     ON BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA = SOLICITUDESOFERTA.ID
+     AND BIENESSOLICITUDESOFERTA.ANO = SOLICITUDESOFERTA.ANO
 WHERE
 
      SOLICITUDESOFERTA.ID = $P{ID}
@@ -208,9 +206,9 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[                  BANCO / CORPORACIÓN                    TIPO DE CUENTA          NÚMERO DE CUENTA                  SEDE / OFICINA]]></text>
 			</staticText>
-			<textField>
-				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="484" y="587" width="249" height="20"/>
-				<textElement verticalAlignment="Middle">
+			<textField pattern="#,##0">
+				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="484" y="587" width="236" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="14"/>
 					<paragraph leftIndent="15"/>
 				</textElement>
@@ -335,8 +333,8 @@ ORDER BY
 				<text><![CDATA[FECHA]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="484" y="567" width="249" height="20"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="484" y="567" width="236" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="14"/>
 					<paragraph leftIndent="15"/>
 				</textElement>
@@ -556,7 +554,7 @@ ORDER BY
 			</rectangle>
 			<image>
 				<reportElement uuid="8487e52a-7310-420c-b5bd-725dee8f0de2" x="19" y="262" width="711" height="873"/>
-				<imageExpression><![CDATA["C:\\Users\\User\\Google Drive\\AGA\\src\\formatos\\Grafico6.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Grafico6.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</summary>

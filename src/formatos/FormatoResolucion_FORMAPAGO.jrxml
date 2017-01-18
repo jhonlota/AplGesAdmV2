@@ -10,7 +10,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
@@ -42,8 +42,7 @@ WHERE
      tercerosresolucion."id" = $P{id}
      AND resolucion."ano" = $P{ano}
 ORDER BY
-     soportesresoluciones.id
-     ]]>
+     soportesresoluciones.id]]>
 	</queryString>
 	<field name="comprobantes_a_id" class="java.lang.Integer"/>
 	<field name="comprobantes_a_fktercero" class="java.lang.String"/>

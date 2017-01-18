@@ -158,7 +158,7 @@ public class PanelFormadepagocontratos extends javax.swing.JPanel {
         jLabel71.setPreferredSize(new java.awt.Dimension(810, 25));
         add(jLabel71);
 
-        jScrollPane.setPreferredSize(new java.awt.Dimension(810, 435));
+        jScrollPane.setPreferredSize(new java.awt.Dimension(810, 445));
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
