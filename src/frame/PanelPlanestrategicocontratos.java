@@ -13,10 +13,7 @@ package frame;
 import clases.ClaseGeneral;
 import clases.ClaseInformacion;
 import entidades.Planestrategicocontratos;
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -90,7 +87,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel7.setPreferredSize(new java.awt.Dimension(90, 25));
 
-        setName("panelSoportescontratos"); // NOI18N
+        setName("panelPlanestrategicocontratos"); // NOI18N
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel1.setText("NÚMERO DEL CONTRATO : ");
@@ -358,50 +355,38 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
     }
 
     public void metodoActualizar() {
-//        Planestrategicocontratos planestrategicocontratosId = ClaseGeneral.planestrategicocontratos;
-//
-//        ClaseGeneral.planestrategicocontratos = new Planestrategicocontratos();
-//        ClaseGeneral.planestrategicocontratosPK = new PlanestrategicocontratosPK();
-//        ClaseGeneral.planestrategicocontratosPK.setFkcontrato(fkcontrato.getText());
-//        //ClaseGeneral.planestrategicocontratosPK.setId();
-//        ClaseGeneral.planestrategicocontratos.setPlanestrategicocontratosPK(ClaseGeneral.planestrategicocontratosPK);
-//        ClaseGeneral.planestrategicocontratos.setTipo("" + tipo.getSelectedItem());
-//        ClaseGeneral.planestrategicocontratos.setNumero(numero.getText());
-//        ClaseGeneral.planestrategicocontratos.setFecha(fecha.getDate());
-//        ClaseGeneral.planestrategicocontratos.setCuenta(cuenta.getText());
-//        ClaseGeneral.planestrategicocontratos.setActividad(actividad.getText());
-//        ClaseGeneral.planestrategicocontratos.setSubgrupo("" + subgrupo.getSelectedItem());
-//        ClaseGeneral.planestrategicocontratos.setCcostos(ccostos.getText());
-//        ClaseGeneral.planestrategicocontratos.setCinfo("" + cinfo.getSelectedItem());
-//        ClaseGeneral.planestrategicocontratos.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
-//
-//        if (ClaseGeneral.controlPlanestrategicocontratos.verify(ClaseGeneral.planestrategicocontratos)) {
-//            try {
-//                ClaseGeneral.controlPlanestrategicocontratos.edit(ClaseGeneral.planestrategicocontratos, planestrategicocontratosId);
-//            } catch (Exception ex) {
-//                Logger.getLogger(PanelPlanestrategicocontratos.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
+        Planestrategicocontratos planestrategicocontratosId = ClaseGeneral.planestrategicocontratos;
+
+        ClaseGeneral.planestrategicocontratos = new Planestrategicocontratos();
+        ClaseGeneral.planestrategicocontratos.setFkcontrato(fkcontrato.getText());
+        //ClaseGeneral.planestrategicocontratos.setId();
+        ClaseGeneral.planestrategicocontratos.setEje("" + eje.getSelectedItem());
+        ClaseGeneral.planestrategicocontratos.setEstrategia("" + estrategia.getSelectedItem());
+        ClaseGeneral.planestrategicocontratos.setPrograma("" + programa.getSelectedItem());
+        ClaseGeneral.planestrategicocontratos.setProyecto(proyecto.getText());
+        ClaseGeneral.planestrategicocontratos.setSubgrupo("" + subgrupo.getSelectedItem());
+        ClaseGeneral.planestrategicocontratos.setCinfo("" + cinfo.getSelectedItem());
+
+            try {
+                ClaseGeneral.controlPlanestrategicocontratos.edit(ClaseGeneral.planestrategicocontratos, planestrategicocontratosId);
+            } catch (Exception ex) {
+                Logger.getLogger(PanelPlanestrategicocontratos.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     public void metodoEliminar() {
         try {
-//            ClaseGeneral.planestrategicocontratosPK = new PlanestrategicocontratosPK();
-//            ClaseGeneral.planestrategicocontratosPK.setFkcontrato(fkcontrato.getText());
-//            ClaseGeneral.planestrategicocontratosPK.setId(ClaseGeneral.planestrategicocontratos.getPlanestrategicocontratosPK().getId());
+            Planestrategicocontratos planestrategicocontratosId = ClaseGeneral.planestrategicocontratos;
 //
-//            ClaseGeneral.controlPlanestrategicocontratos.destroy(ClaseGeneral.planestrategicocontratosPK);
+            ClaseGeneral.controlPlanestrategicocontratos.destroy(planestrategicocontratosId);
         } catch (Exception ex) {
             Logger.getLogger(PanelPlanestrategicocontratos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void metodoMostrar() {
-//        BigDecimal valTotal = BigDecimal.ZERO;
         ClaseGeneral.planestrategicocontratos = new Planestrategicocontratos();
         lista = ClaseGeneral.controlPlanestrategicocontratos.findAllInPlanestrategicocontratosByFkcontrato(fkcontrato.getText());
-
-//        jTable.getColumnModel().getColumn(7).setCellRenderer(informacion.modeloDerecha);
 
         for (int i = 0; i < 100; i++) {
             jTable.setValueAt("", i, 0);
@@ -409,42 +394,24 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
             jTable.setValueAt("", i, 2);
             jTable.setValueAt("", i, 3);
             jTable.setValueAt("", i, 4);
-//            jTable.setValueAt("", i, 5);
-//            jTable.setValueAt("", i, 6);
-//            jTable.setValueAt("", i, 7);
         }
 
-//        int i = 0;
-//        for (Object lista1 : lista) {
-//            ClaseGeneral.planestrategicocontratos = (Planestrategicocontratos) lista1;
-//            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getTipo(), i, 0);
-//            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getNumero(), i, 1);
-//            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getCuenta(), i, 2);
-//            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getActividad(), i, 3);
-//            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getSubgrupo(), i, 4);
-//            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getCcostos(), i, 5);
-//            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getCinfo(), i, 6);
-//            jTable.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.planestrategicocontratos.getValor()), i, 7);
-//
-//            if (ClaseGeneral.planestrategicocontratos.getTipo().equals("Registro")
-//                    || ClaseGeneral.planestrategicocontratos.getTipo().equals("Ajuste Debito")) {
-//                valTotal = valTotal.add(ClaseGeneral.planestrategicocontratos.getValor());
-//            } else if (ClaseGeneral.planestrategicocontratos.getTipo().equals("Ajuste Crédito")) {
-//                valTotal = valTotal.subtract(ClaseGeneral.planestrategicocontratos.getValor());
-//            }
-//            i++;
-//        }
+        int i = 0;
+        for (Object lista1 : lista) {
+            ClaseGeneral.planestrategicocontratos = (Planestrategicocontratos) lista1;
+            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getEje(), i, 0);
+            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getEstrategia(), i, 1);
+            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getPrograma(), i, 2);
+            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getSubgrupo(), i, 3);
+            jTable.setValueAt("" + ClaseGeneral.planestrategicocontratos.getCinfo(), i, 4);
+        }
 
         jTable.clearSelection();
-        jTable.getColumnModel().getColumn(0).setPreferredWidth(150);
-        jTable.getColumnModel().getColumn(1).setPreferredWidth(110);
-        jTable.getColumnModel().getColumn(2).setPreferredWidth(85);
-        jTable.getColumnModel().getColumn(3).setPreferredWidth(85);
-        jTable.getColumnModel().getColumn(4).setPreferredWidth(85);
-//        jTable.getColumnModel().getColumn(5).setPreferredWidth(85);
-//        jTable.getColumnModel().getColumn(6).setPreferredWidth(85);
-//        jTable.getColumnModel().getColumn(7).setPreferredWidth(125);
-//        valorTotal.setText("" + ClaseInformacion.formatoDecimal.format(valTotal));
+        jTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTable.getColumnModel().getColumn(1).setPreferredWidth(100);
+        jTable.getColumnModel().getColumn(2).setPreferredWidth(410);
+        jTable.getColumnModel().getColumn(3).setPreferredWidth(100);
+        jTable.getColumnModel().getColumn(4).setPreferredWidth(100);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox cinfo;
