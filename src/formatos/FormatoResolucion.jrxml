@@ -102,6 +102,12 @@ ORDER BY
 	<variable name="arregloFkterceroordenadorgasto" class="java.lang.String[]">
 		<initialValueExpression><![CDATA[$F{resolucion_fkterceroordenadorgasto}.split( ' ' )]]></initialValueExpression>
 	</variable>
+	<variable name="cantidad_comprobantes" class="java.lang.Integer">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="cantidad_cuentas" class="java.lang.Integer">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
 	<background>
 		<band height="10" splitType="Stretch">
 			<textField>
@@ -441,7 +447,7 @@ ORDER BY
 				<textFieldExpression><![CDATA["Utilizaran para desplazarse en el(los) vehículo(s) de placas : " + $F{resolucion_vehiculo} + "."]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="90">
+		<band height="75">
 			<printWhenExpression><![CDATA[$V{REPORT_COUNT} == $F{count_id}.intValue()]]></printWhenExpression>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="0" width="360" height="15" isRemoveLineWhenBlank="true">
@@ -463,13 +469,6 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[VALOR :]]></text>
 			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="30" width="360" height="30" isRemoveLineWhenBlank="true"/>
-				<textElement textAlignment="Justified">
-					<font fontName="SansSerif" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Los cuales serán pagados por la Facultad de Ciencias Naturales y Exactas, con la siguiente forma de pago:"]]></textFieldExpression>
-			</textField>
 			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
 				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="268" y="15" width="227" height="15" isRemoveLineWhenBlank="true">
 					<printWhenExpression><![CDATA[$F{sum_valor} > 0]]></printWhenExpression>
@@ -480,7 +479,7 @@ ORDER BY
 				<textFieldExpression><![CDATA[$F{sum_valor}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="60" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="45" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
 				<subreportParameter name="SUBREPORT_DIR">
 					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -494,7 +493,7 @@ ORDER BY
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoResolucion_Cuentainterna_comprobante.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
-				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="75" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="60" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
 				<subreportParameter name="SUBREPORT_DIR">
 					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -516,6 +515,20 @@ ORDER BY
 				</textElement>
 				<textFieldExpression><![CDATA[($F{resolucion_tipo}.equals("GASTOS DE VIAJE Y TIQUETES AÉREOS") ? "Gastos de viaje por valor de " : "Pagar el valor total de ")]]></textFieldExpression>
 			</textField>
+			<subreport>
+				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="30" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fkresolucion">
+					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_fkresolucion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ano">
+					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_ano}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoResolucion_Titulo_Cuentainterna.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 		<band height="45">
 			<printWhenExpression><![CDATA[$V{REPORT_COUNT} == $F{count_id}.intValue()]]></printWhenExpression>

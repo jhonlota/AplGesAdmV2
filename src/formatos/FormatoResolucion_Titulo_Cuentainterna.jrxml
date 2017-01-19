@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoResolucion_Cuentainterna" language="groovy" pageWidth="360" pageHeight="90" columnWidth="360" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d81d0f6b-a4b4-4154-92b6-81d92ba957f7">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fkresolucion" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ano" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[(SELECT
+	soportescuentas."cuentainterna" AS soportescuentas_cuentainterna,
+        soportescomprobantes."cuentainterna" AS soportescomprobantes_cuentainterna
+FROM
+	"tercerosresolucion" tercerosresolucion LEFT JOIN "cuentas" cuentas  ON tercerosresolucion."fkcuenta" = cuentas."soporte"
+	LEFT JOIN "soportescuentas" soportescuentas  ON cuentas."soporte" = soportescuentas."fkcuenta"
+	LEFT JOIN "comprobantes" comprobantes
+	ON tercerosresolucion."fkcomprobante" = CAST(comprobantes."id" AS TEXT)
+	AND comprobantes."ano" = tercerosresolucion."ano"
+	LEFT JOIN "soportescomprobantes" soportescomprobantes ON comprobantes."id" = soportescomprobantes."fkcomprobante"
+	AND comprobantes."ano" = soportescomprobantes."ano"
+WHERE
+	tercerosresolucion."fkresolucion" = $P{fkresolucion}
+	AND tercerosresolucion."ano" = $P{ano})
+UNION
+(SELECT
+	soportescuentas."cuentainterna" AS soportescuentas_cuentainterna,
+	soportescomprobantes."cuentainterna" AS soportescomprobantes_cuentainterna
+FROM
+	"soportesresoluciones" soportesresoluciones LEFT JOIN "cuentas" cuentas  ON soportesresoluciones."fksoportecuenta" = cuentas."soporte"
+	LEFT JOIN "soportescuentas" soportescuentas  ON cuentas."soporte" = soportescuentas."fkcuenta"
+	LEFT JOIN "comprobantes" comprobantes
+	ON soportesresoluciones."fksoportecomprobante" = comprobantes."id"
+	AND comprobantes."ano" = soportesresoluciones."ano"
+	LEFT JOIN "soportescomprobantes" soportescomprobantes ON comprobantes."id" = soportescomprobantes."fkcomprobante"
+	AND comprobantes."ano" = soportescomprobantes."ano"
+WHERE
+	soportesresoluciones."fkresolucion" = $P{fkresolucion}
+	AND soportesresoluciones."ano" = $P{ano})	]]>
+	</queryString>
+	<field name="soportescuentas_cuentainterna" class="java.lang.String"/>
+	<field name="soportescomprobantes_cuentainterna" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<printWhenExpression><![CDATA[!$F{soportescomprobantes_cuentainterna}.equals( null ) || !$F{soportescuentas_cuentainterna}.equals( null )]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="0" y="0" width="360" height="30" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Los cuales serán pagados por la Facultad de Ciencias Naturales y Exactas, con la siguiente forma de pago:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

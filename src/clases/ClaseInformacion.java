@@ -552,7 +552,9 @@ public class ClaseInformacion {
             cuentainterna = "459706";
         } else if ("454731".equals(cinfo)) {
             cuentainterna = "003140";
-        } else if ("454732".equals(cinfo)) {
+        } else if ("454732".equals(cinfo)
+                || "454733".equals(cinfo)
+                || "454737".equals(cinfo)) {
             cuentainterna = "454706";
         } else if ("455000".equals(cinfo)
                 || "455001".equals(cinfo)

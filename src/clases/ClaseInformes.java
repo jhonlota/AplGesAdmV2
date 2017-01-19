@@ -739,7 +739,7 @@ public class ClaseInformes {
                     mensaje += "<li>" + ClaseBaseDatos.resultado.getString("DOCUMENTO");
                     mensaje += " : " + ClaseBaseDatos.resultado.getString("CONTRATO");
                     mensaje += " - (" + ClaseBaseDatos.resultado.getString("FECHASUSCRIPCION").substring(0, 10) + ")";
-                    mensaje += "<a href='http://" + ClaseGeneral.servidor + "/UmVbZxut/archivos/" + ClaseBaseDatos.resultado.getString("ARCHIVO") + "'> VER</a></li>";
+                    mensaje += "<a href='http:" + ClaseGeneral.servidor + "/UmVbZxut/archivos/" + ClaseBaseDatos.resultado.getString("ARCHIVO") + "'> VER</a></li>";
                 }
 
                 if (!mensaje.equals("<html><font face='tahoma' size='-1'><p>Los siguientes contratos poseen ANEXOS dentro del periodo a reportar.<br>"

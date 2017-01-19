@@ -41,7 +41,6 @@ FROM
 WHERE
 	soportesresoluciones."fkresolucion" = $P{fkresolucion}
 	AND soportesresoluciones."ano" = $P{ano}
-          AND soportescomprobantes."cuentainterna" <> ''
 GROUP BY soportescomprobantes."cuentainterna", soportescomprobantes."valor")]]>
 	</queryString>
 	<field name="soportescomprobantes_cuentainterna" class="java.lang.String"/>
