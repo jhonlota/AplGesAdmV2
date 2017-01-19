@@ -11,7 +11,9 @@
      TERCEROS.NOMBREREPRESENTANTE AS "TERCEROS_NOMBREREPRESENTANTE",
      TERCEROS.NOMBRE AS "TERCEROS_NOMBRE",
      TERCEROS.TIPOID AS "TERCEROS_TIPOID",
-     TERCEROS.ID AS "TERCEROS_ID"
+     TERCEROS.ID AS "TERCEROS_ID",
+     TERCEROS.TELEFONO AS "TERCEROS_TELEFONO",
+     TERCEROS.DIRECCION AS "TERCEROS_DIRECCION"
 FROM
      TERCEROS
 WHERE
@@ -21,6 +23,8 @@ WHERE
 	<field name="TERCEROS_NOMBRE" class="java.lang.String"/>
 	<field name="TERCEROS_TIPOID" class="java.lang.String"/>
 	<field name="TERCEROS_ID" class="java.lang.String"/>
+	<field name="TERCEROS_TELEFONO" class="java.lang.String"/>
+	<field name="TERCEROS_DIRECCION" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -34,7 +38,7 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="60" splitType="Prevent">
+		<band height="100" splitType="Prevent">
 			<rectangle>
 				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="0" width="185" height="20"/>
 			</rectangle>
@@ -122,6 +126,50 @@ WHERE
 					<paragraph leftIndent="15"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="60" width="185" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="80" width="185" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="60" width="185" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Teléfono - Celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="80" width="185" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<rectangle radius="0">
+				<reportElement uuid="7879f6fe-91b1-4405-907e-71f8d05f3745" x="185" y="60" width="526" height="20"/>
+			</rectangle>
+			<rectangle radius="0">
+				<reportElement uuid="7879f6fe-91b1-4405-907e-71f8d05f3745" x="185" y="80" width="526" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="60" width="527" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+					<paragraph leftIndent="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="80" width="527" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+					<paragraph leftIndent="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_DIRECCION}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
