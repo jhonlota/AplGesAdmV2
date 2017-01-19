@@ -13,6 +13,8 @@ import java.awt.Color;
  */
 public class ClaseGeneral {
 
+    public static Actividad actividad = new Actividad();
+    public static ActividadJpaController controlActividad = new ActividadJpaController();
     public static Anexoscontratos anexoscontratos = new Anexoscontratos();
     public static AnexoscontratosJpaController controlAnexoscontratos = new AnexoscontratosJpaController();
     public static AnexoscontratosPK anexoscontratosPK = new AnexoscontratosPK();
@@ -43,6 +45,8 @@ public class ClaseGeneral {
     public static Cumplidoscomprobantes cumplidoscomprobantes = new Cumplidoscomprobantes();
     public static CumplidoscomprobantesJpaController controlCumplidoscomprobantes = new CumplidoscomprobantesJpaController();
     public static CumplidoscomprobantesPK cumplidoscomprobantesPK = new CumplidoscomprobantesPK();
+//    public static Dependencia dependencia = new Dependencia();
+    public static DependenciaJpaController controlDependencia = new DependenciaJpaController();
     public static Facturascomprobantes facturascomprobantes = new Facturascomprobantes();
     public static FacturascomprobantesJpaController controlFacturascomprobantes = new FacturascomprobantesJpaController();
     public static FacturascomprobantesPK facturascomprobantesPK = new FacturascomprobantesPK();
@@ -88,6 +92,8 @@ public class ClaseGeneral {
     public static TercerosJpaController controlTerceros = new TercerosJpaController();
     public static Tercerosresoluciones tercerosresoluciones = new Tercerosresoluciones();
     public static TercerosresolucionesJpaController controlTercerosresoluciones = new TercerosresolucionesJpaController();
+    public static Tipocontrato tipocontrato = new Tipocontrato();
+    public static TipocontratoJpaController controlTipocontrato = new TipocontratoJpaController();
     public static UtilidadesJpaController controlUtilidades = new UtilidadesJpaController();
     public static ClaseEscribir escribir = new ClaseEscribir();
     public static ClaseLeer leer = new ClaseLeer();

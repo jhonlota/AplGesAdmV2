@@ -88,6 +88,7 @@ public class PanelContratos extends javax.swing.JPanel {
         panelHoja1 = new javax.swing.JPanel();
         jLabelContrato = new javax.swing.JLabel();
         contrato = new javax.swing.JTextField();
+        botonBuscarContrato = new javax.swing.JButton();
         jTextField15 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         modalidad = new javax.swing.JComboBox();
@@ -339,7 +340,7 @@ public class PanelContratos extends javax.swing.JPanel {
         contrato.setBackground(ClaseGeneral.campo);
         contrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         contrato.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        contrato.setPreferredSize(new java.awt.Dimension(300, 25));
+        contrato.setPreferredSize(new java.awt.Dimension(270, 25));
         contrato.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 TextFieldFocusGained(evt);
@@ -351,6 +352,16 @@ public class PanelContratos extends javax.swing.JPanel {
             }
         });
         panelHoja1.add(contrato);
+
+        botonBuscarContrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
+        botonBuscarContrato.setFocusable(false);
+        botonBuscarContrato.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonBuscarContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarContratoActionPerformed(evt);
+            }
+        });
+        panelHoja1.add(botonBuscarContrato);
 
         jTextField15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField15.setForeground(new java.awt.Color(0, 102, 51));
@@ -1909,6 +1920,13 @@ public class PanelContratos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_botonBuscarFkterceroActionPerformed
 
+    private void botonBuscarContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarContratoActionPerformed
+        ExternoPanelBuscarNumeracionContratos panelBuscarNumeracionContratos = new ExternoPanelBuscarNumeracionContratos();
+        ClaseMensaje.panel(panelBuscarNumeracionContratos);
+
+        contrato.setText(panelBuscarNumeracionContratos.contrato);
+    }//GEN-LAST:event_botonBuscarContratoActionPerformed
+
     public void metodoInsertar() {
         ClaseGeneral.contratos = new Contratos();
         ClaseGeneral.contratos.setContrato(contrato.getText());
@@ -2133,6 +2151,7 @@ public class PanelContratos extends javax.swing.JPanel {
                 ClaseGeneral.controlFormadepagocontratos.editFkcontrato(contrato.getText(), contratosId.getContrato());
                 ClaseGeneral.controlModificaciones.editFkcontrato(contrato.getText(), contratosId.getContrato());
                 ClaseGeneral.controlObservacionescontratos.editFkcontrato(contrato.getText(), contratosId.getContrato());
+                ClaseGeneral.controlPlanestrategicocontratos.editFkcontrato(contrato.getText(), contratosId.getContrato());
                 ClaseGeneral.controlPolizas.editFkcontrato(contrato.getText(), contratosId.getContrato());
                 ClaseGeneral.controlSoportescontratos.editFkcontrato(contrato.getText(), contratosId.getContrato());
             } catch (Exception ex) {
@@ -2149,6 +2168,7 @@ public class PanelContratos extends javax.swing.JPanel {
             ClaseGeneral.controlFormadepagocontratos.destroyFkcontrato(contrato.getText());
             ClaseGeneral.controlModificaciones.destroyFkcontrato(contrato.getText());
             ClaseGeneral.controlObservacionescontratos.destroyFkcontrato(contrato.getText());
+            ClaseGeneral.controlPlanestrategicocontratos.destroyFkcontrato(contrato.getText());
             ClaseGeneral.controlPolizas.destroyFkcontrato(contrato.getText());
             ClaseGeneral.controlSoportescontratos.destroyFkcontrato(contrato.getText());
         } catch (Exception ex) {
@@ -2217,6 +2237,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JButton botonAyuda4;
     private javax.swing.JButton botonAyuda5;
     private javax.swing.JButton botonAyuda6;
+    public javax.swing.JButton botonBuscarContrato;
     private javax.swing.JButton botonBuscarFktercero;
     private javax.swing.JButton botonBuscarFktercerofuncionario;
     private javax.swing.JButton botonBuscarFktercerointersuper;

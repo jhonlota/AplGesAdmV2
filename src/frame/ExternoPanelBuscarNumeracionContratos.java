@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * ExternoPanelFktercero.java
  *
  * Created on 16/02/2012, 09:45:23 PM
@@ -31,9 +31,8 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
     /**
      * Creates new form ExternoPanelFktercero
      */
-    public ExternoPanelBuscarNumeracionContratos(PanelContratos panelContratos) {
+    public ExternoPanelBuscarNumeracionContratos() {
         initComponents();
-        this.panelContratos = panelContratos;
     }
 
     /**
@@ -48,19 +47,22 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        parametro = new javax.swing.JComboBox();
+        dependencia = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        tipocontrato = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        ano = new javax.swing.JComboBox();
+        jTextField1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         texto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         scrollLista = new javax.swing.JScrollPane();
         lista = new javax.swing.JList();
-        ano = new javax.swing.JComboBox();
-        jLabel6 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(550, 300));
-        setMinimumSize(new java.awt.Dimension(550, 300));
-        setPreferredSize(new java.awt.Dimension(550, 300));
+        setMaximumSize(new java.awt.Dimension(550, 360));
+        setMinimumSize(new java.awt.Dimension(550, 360));
+        setPreferredSize(new java.awt.Dimension(550, 360));
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel1.setBackground(ClaseGeneral.titulo);
@@ -81,12 +83,59 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         jLabel3.setPreferredSize(new java.awt.Dimension(100, 25));
         add(jLabel3);
 
-        parametro.setBackground(ClaseGeneral.campo);
-        parametro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NÚMERO DEL CONTRATO [contrato]", "CÉDULA / NIT DEL CONTRATISTA [fktercero]", "OBJETO DEL CONTRATO [objeto]" }));
-        parametro.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
-        parametro.setPreferredSize(new java.awt.Dimension(435, 25));
-        add(parametro);
+        dependencia.setBackground(ClaseGeneral.campo);
+        dependencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        dependencia.setModel(ClaseGeneral.controlDependencia.COMBOCodigoInDependenciaBy());
+        dependencia.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
+        dependencia.setPreferredSize(new java.awt.Dimension(435, 25));
+        dependencia.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ExternoPanelBuscarNumeracionContratos.this.itemStateChanged(evt);
+            }
+        });
+        add(dependencia);
+
+        jLabel7.setText("TIPO : ");
+        jLabel7.setPreferredSize(new java.awt.Dimension(100, 25));
+        add(jLabel7);
+
+        tipocontrato.setBackground(ClaseGeneral.campo);
+        tipocontrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tipocontrato.setModel(ClaseGeneral.controlTipocontrato.COMBOCodigoInTipocontratoBy());
+        tipocontrato.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
+        tipocontrato.setPreferredSize(new java.awt.Dimension(435, 25));
+        tipocontrato.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ExternoPanelBuscarNumeracionContratos.this.itemStateChanged(evt);
+            }
+        });
+        add(tipocontrato);
+
+        jLabel6.setText("AÑO : ");
+        jLabel6.setPreferredSize(new java.awt.Dimension(50, 25));
+        add(jLabel6);
+
+        ano.setBackground(ClaseGeneral.campo);
+        ano.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ano.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2012", "2013", "2014", "2015", "2016", "2017" }));
+        ano.setSelectedItem(ClaseGeneral.controlUtilidades.anoServidor());
+        ano.setMaximumSize(new java.awt.Dimension(70, 24));
+        ano.setMinimumSize(new java.awt.Dimension(70, 24));
+        ano.setPreferredSize(new java.awt.Dimension(70, 24));
+        ano.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ExternoPanelBuscarNumeracionContratos.this.itemStateChanged(evt);
+            }
+        });
+        add(ano);
+
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField1.setEnabled(false);
+        jTextField1.setFocusable(false);
+        jTextField1.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField1.setOpaque(false);
+        jTextField1.setPreferredSize(new java.awt.Dimension(410, 25));
+        add(jTextField1);
 
         jLabel4.setText("TEXTO : ");
         jLabel4.setPreferredSize(new java.awt.Dimension(65, 25));
@@ -96,11 +145,6 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         texto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         texto.setMargin(new java.awt.Insets(2, 4, 2, 4));
         texto.setPreferredSize(new java.awt.Dimension(470, 25));
-        texto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldTerceroKeyReleased(evt);
-            }
-        });
         add(texto);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -116,6 +160,7 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         scrollLista.setMinimumSize(new java.awt.Dimension(540, 150));
         scrollLista.setPreferredSize(new java.awt.Dimension(540, 150));
 
+        lista.setFocusable(false);
         lista.setSelectionBackground(ClaseGeneral.campo);
         lista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -125,80 +170,74 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         scrollLista.setViewportView(lista);
 
         add(scrollLista);
-
-        ano.setBackground(ClaseGeneral.campo);
-        ano.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ano.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2012", "2013", "2014", "2015", "2016", "2017" }));
-        ano.setSelectedItem(ClaseGeneral.controlUtilidades.anoServidor());
-        ano.setMaximumSize(new java.awt.Dimension(70, 24));
-        ano.setMinimumSize(new java.awt.Dimension(70, 24));
-        ano.setPreferredSize(new java.awt.Dimension(70, 24));
-        ano.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                anoItemStateChanged(evt);
-            }
-        });
-        add(ano);
-
-        jLabel6.setText("   AÑO : ");
-        jLabel6.setPreferredSize(new java.awt.Dimension(60, 25));
-        add(jLabel6);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TexyFieldTerceroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldTerceroKeyReleased
-        javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
-        String text = componente.getText();
-        componente.setText(text.toUpperCase());
+    private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
+//        if (evt.getValueIsAdjusting()) {
+//            return;
+//        }
+//
+//        JList laLista = (JList) evt.getSource();
+//        if (laLista.isSelectionEmpty()) {
+//            contrato = "";
+//            posicion = -1;
+//            return;
+//        } else {
+//            contrato = "" + laLista.getSelectedValue();
+//            posicion = laLista.getSelectedIndex();
+//            ClaseGeneral.contratos = (Contratos) listaContrato.get(posicion);
+//            panelContratos.metodoConsultar("");
+//        }
+}//GEN-LAST:event_listaValueChanged
 
-        ClaseGeneral.parametro = parametro.getSelectedItem().toString().substring(parametro.getSelectedItem().toString().indexOf("[") + 1, parametro.getSelectedItem().toString().indexOf("]"));
-        ClaseGeneral.valor = componente.getText();
+    private void itemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_itemStateChanged
+        String dependenciaAux = dependencia.getSelectedItem().toString().substring(dependencia.getSelectedItem().toString().indexOf("[") + 1, dependencia.getSelectedItem().toString().indexOf("]"));
+        String tipocontratoAux = tipocontrato.getSelectedItem().toString().substring(tipocontrato.getSelectedItem().toString().indexOf("[") + 1, tipocontrato.getSelectedItem().toString().indexOf("]"));
+        String anoAux = ano.getSelectedItem().toString().substring(2, 4);
+
+        ClaseGeneral.parametro = "contrato";
+        ClaseGeneral.valor = dependenciaAux + "%-" + anoAux;
         listaContrato = ClaseGeneral.controlContratos.findAllInContratosBy();
 
+        int j = 1;
         DefaultListModel modeloLista = new DefaultListModel();
         for (int i = 0; i < listaContrato.size(); i++) {
             ClaseGeneral.contratos = (Contratos) listaContrato.get(i);
             modeloLista.addElement(ClaseGeneral.contratos.getContrato() + " - " + ClaseGeneral.contratos.getFktercero());
+            j++;
         }
 
         lista.setModel(modeloLista);
-}//GEN-LAST:event_TexyFieldTerceroKeyReleased
 
-    private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
-        if (evt.getValueIsAdjusting()) {
-            return;
-        }
-
-        JList laLista = (JList) evt.getSource();
-        if (laLista.isSelectionEmpty()) {
-            contrato = "";
-            posicion = -1;
-            return;
+        String numContrato = "";
+        if (j < 10) {
+            numContrato = "00" + j;
+        } else if (j < 100) {
+            numContrato = "0" + j;
         } else {
-            contrato = "" + laLista.getSelectedValue();
-            posicion = laLista.getSelectedIndex();
-            ClaseGeneral.contratos = (Contratos) listaContrato.get(posicion);
-            panelContratos.metodoConsultar("");
+            numContrato = "" + j;
         }
-}//GEN-LAST:event_listaValueChanged
 
-    private void anoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_anoItemStateChanged
-        ClaseGeneral.parametro = "CAST(ID AS TEXT)";
-        ClaseGeneral.valor = "%%";
-//        metodoBuscar(Integer.parseInt("" + ano.getSelectedItem()));
-    }//GEN-LAST:event_anoItemStateChanged
+        texto.setText(dependenciaAux + "_018." + tipocontratoAux + "-" + numContrato + "-" + anoAux);
+        contrato = dependenciaAux + "_018." + tipocontratoAux + "-" + numContrato + "-" + anoAux;
+    }//GEN-LAST:event_itemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox ano;
+    private javax.swing.JComboBox dependencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JList lista;
-    private javax.swing.JComboBox parametro;
     private javax.swing.JScrollPane scrollLista;
     private javax.swing.JTextField texto;
+    private javax.swing.JComboBox tipocontrato;
     // End of variables declaration//GEN-END:variables
 }

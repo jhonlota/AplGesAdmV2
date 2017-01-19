@@ -73,4 +73,27 @@ public class UtilidadesJpaController {
         } finally {
         }
     }
+
+    public String verficacionCuentaInterna(String cinfo,
+            String cingreso,
+            String actividad,
+            String ccostos) {
+        try {
+            String cuentainterna = "";
+            datos.query("SELECT CUENTAINTERNA "
+                    + "FROM VERIFICACINFOCUENTAINTERNA "
+                    + "WHERE "
+                    + "CINFO = '" + cinfo + "' AND "
+                    + "(CINGRESO = '" + cingreso + "' OR CINGRESO = '*') AND "
+                    + "(ACTIVIDAD = '" + actividad + "' OR ACTIVIDAD = '*') AND "
+                    + "(CCOSTOS = '" + ccostos + "' OR CCOSTOS = '*')");
+            while (ClaseBaseDatos.resultado.next()) {
+                cuentainterna = ClaseBaseDatos.resultado.getString("CUENTAINTERNA");
+            }
+            return cuentainterna;
+        } catch (Exception ex) {
+            return "-1";
+        } finally {
+        }
+    }
 }

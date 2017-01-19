@@ -534,6 +534,21 @@ public class IFrameContratos extends javax.swing.JInternalFrame {
             if (ClaseGeneral.perfil.equals("usuario")) {
                 panelPrincipal.fechaterminacion.setEnabled(false);
             }
+            
+            if (ClaseGeneral.perfil.equals("usuario")
+                    && estado.equals("nuevo")) {
+                panelPrincipal.fechaterminacion.setEnabled(false);
+            } else if (ClaseGeneral.perfil.equals("usuario")
+                    && estado.equals("consultar")) {
+                panelPrincipal.fechaterminacion.setEnabled(false);
+                panelPrincipal.botonBuscarContrato.setEnabled(false);
+            } else if (ClaseGeneral.perfil.equals("root")
+                    && estado.equals("nuevo")) {
+                //
+            } else if (ClaseGeneral.perfil.equals("root")
+                    && estado.equals("consultar")) {
+                panelPrincipal.botonBuscarContrato.setEnabled(false);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(IFrameContratos.class.getName()).log(Level.SEVERE, null, ex);
         }
