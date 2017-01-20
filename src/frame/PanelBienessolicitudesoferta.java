@@ -335,7 +335,7 @@ public class PanelBienessolicitudesoferta extends javax.swing.JPanel {
         ClaseGeneral.bienessolicitudesoferta = new Bienessolicitudesoferta();
         ClaseGeneral.bienessolicitudesofertaPK = new BienessolicitudesofertaPK();
         
-        ClaseGeneral.bienessolicitudesofertaPK.setFksolicitudoferta(Integer.parseInt("" + fksolicitudoferta.getText()));
+        ClaseGeneral.bienessolicitudesofertaPK.setFksolicitudoferta("" + fksolicitudoferta.getText());
         ClaseGeneral.bienessolicitudesofertaPK.setId(0);
         ClaseGeneral.bienessolicitudesofertaPK.setAno(ClaseGeneral.solicitudesoferta.getAno());
         
@@ -374,7 +374,7 @@ public class PanelBienessolicitudesoferta extends javax.swing.JPanel {
 
         ClaseGeneral.bienessolicitudesoferta = new Bienessolicitudesoferta();
         ClaseGeneral.bienessolicitudesofertaPK = new BienessolicitudesofertaPK();
-        ClaseGeneral.bienessolicitudesofertaPK.setFksolicitudoferta(Integer.parseInt(fksolicitudoferta.getText()));
+        ClaseGeneral.bienessolicitudesofertaPK.setFksolicitudoferta(fksolicitudoferta.getText());
         //ClaseGeneral.soportescomprobantesPK.setId();
         ClaseGeneral.bienessolicitudesofertaPK.setAno(ClaseGeneral.solicitudesoferta.getAno());
         ClaseGeneral.bienessolicitudesoferta.setBienessolicitudesofertaPK(ClaseGeneral.bienessolicitudesofertaPK);
@@ -396,7 +396,7 @@ public class PanelBienessolicitudesoferta extends javax.swing.JPanel {
         try {
             
             ClaseGeneral.bienessolicitudesofertaPK = new BienessolicitudesofertaPK();
-            ClaseGeneral.bienessolicitudesofertaPK.setFksolicitudoferta(Integer.parseInt(fksolicitudoferta.getText()));
+            ClaseGeneral.bienessolicitudesofertaPK.setFksolicitudoferta(fksolicitudoferta.getText());
             ClaseGeneral.bienessolicitudesofertaPK.setId(ClaseGeneral.bienessolicitudesoferta.getBienessolicitudesofertaPK().getId());
             ClaseGeneral.bienessolicitudesofertaPK.setAno(ClaseGeneral.solicitudesoferta.getAno());
 
@@ -409,7 +409,7 @@ public class PanelBienessolicitudesoferta extends javax.swing.JPanel {
     public void metodoMostrar() {
         BigDecimal valTotal = BigDecimal.ZERO;
         ClaseGeneral.bienessolicitudesoferta = new Bienessolicitudesoferta();
-        lista = ClaseGeneral.controlBienessolicitudesoferta.findAllInBienessolicitudesofertaByFksolicitudofertaAno(Integer.parseInt(fksolicitudoferta.getText()), ClaseGeneral.solicitudesoferta.getAno());
+        lista = ClaseGeneral.controlBienessolicitudesoferta.findAllInBienessolicitudesofertaByFksolicitudofertaAno(fksolicitudoferta.getText(), ClaseGeneral.solicitudesoferta.getAno());
 
         jTable.getColumnModel().getColumn(3).setCellRenderer(informacion.modeloDerecha);
 

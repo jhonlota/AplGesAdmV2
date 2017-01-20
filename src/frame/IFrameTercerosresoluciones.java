@@ -336,7 +336,7 @@ public class IFrameTercerosresoluciones extends javax.swing.JInternalFrame {
             ClaseGeneral.tercerosresoluciones = (Tercerosresoluciones) lista.get(posicion);
             panelPrincipal.metodoConsultar();
             Rectangle r = panelPrincipal.jTable.getCellRect(posicion, 0, true);
-            panelPrincipal.jScrollPane.getViewport().scrollRectToVisible(r);
+            panelPrincipal.jScrollPane1.getViewport().scrollRectToVisible(r);
             panelPrincipal.jTable.changeSelection(posicion, 0, false, false);
         } catch (Exception e) {
         }
@@ -355,7 +355,7 @@ public class IFrameTercerosresoluciones extends javax.swing.JInternalFrame {
             ClaseGeneral.tercerosresoluciones = (Tercerosresoluciones) lista.get(posicion);
             panelPrincipal.metodoConsultar();
             Rectangle r = panelPrincipal.jTable.getCellRect(posicion, 0, true);
-            panelPrincipal.jScrollPane.getViewport().scrollRectToVisible(r);
+            panelPrincipal.jScrollPane1.getViewport().scrollRectToVisible(r);
             panelPrincipal.jTable.changeSelection(posicion, 0, false, false);
         } catch (Exception e) {
         }
@@ -406,8 +406,39 @@ public class IFrameTercerosresoluciones extends javax.swing.JInternalFrame {
             
             if (ClaseGeneral.perfil.equals("usuario")
                     && estado.equals("consultar")) {
-                panelPrincipal.botonCambiar.setEnabled(false);
+                
             }
+            
+            if (ClaseGeneral.perfil.equals("usuario")
+                    && estado.equals("nuevo")) {
+                panelPrincipal.botonSeleccionarImputacion.setEnabled(false);
+                panelPrincipal.botonGuardarImputacion.setEnabled(false);
+                panelPrincipal.botonEliminarImputacion.setEnabled(false);
+                panelPrincipal.valorSoporte.setFocusable(false);
+                panelPrincipal.jScrollPane2.setVisible(false);
+            } else if (ClaseGeneral.perfil.equals("usuario")
+                    && estado.equals("consultar")) {
+                panelPrincipal.botonCambiar.setEnabled(false);
+                panelPrincipal.botonSeleccionarImputacion.setEnabled(true);
+                panelPrincipal.botonGuardarImputacion.setEnabled(false);
+                panelPrincipal.botonEliminarImputacion.setEnabled(true);
+                panelPrincipal.valorSoporte.setFocusable(true);
+                panelPrincipal.jScrollPane2.setVisible(true);
+            } else if (ClaseGeneral.perfil.equals("root")
+                    && estado.equals("nuevo")) {
+                panelPrincipal.botonSeleccionarImputacion.setEnabled(false);
+                panelPrincipal.botonGuardarImputacion.setEnabled(false);
+                panelPrincipal.botonEliminarImputacion.setEnabled(false);
+                panelPrincipal.valorSoporte.setFocusable(false);
+                panelPrincipal.jScrollPane2.setVisible(false);
+            } else if (ClaseGeneral.perfil.equals("root")
+                    && estado.equals("consultar")) {
+                panelPrincipal.botonSeleccionarImputacion.setEnabled(true);
+                panelPrincipal.botonGuardarImputacion.setEnabled(false);
+                panelPrincipal.botonEliminarImputacion.setEnabled(true);
+                panelPrincipal.valorSoporte.setFocusable(true);
+                panelPrincipal.jScrollPane2.setVisible(true);
+            } 
             
         } catch (SQLException ex) {
             Logger.getLogger(IFrameTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);

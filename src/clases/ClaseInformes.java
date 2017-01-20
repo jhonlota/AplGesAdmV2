@@ -234,7 +234,31 @@ public class ClaseInformes {
         }
     }
     
-    public void formatoSolicitudOferta(Map parametros) {
+    public void formatoSolicitudOferta(Map parametros) {    
+        try {
+            URL url = clase.getClass().getResource("FormatoSolicitudoferta_atras.jasper");
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            long aleatorio = ClaseInformacion.LongAletario();
+            JasperExportManager.exportReportToPdfFile(imprimir, "solicitudofertaatras_" + aleatorio + ".pdf");
+
+            File file = new File("solicitudofertaatras_" + aleatorio + ".pdf");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
+        } catch (JRException ex) {
+            //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+            ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
+        }
+        
+        
         try {
             URL url = clase.getClass().getResource("FormatoSolicitudoferta.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
@@ -739,7 +763,7 @@ public class ClaseInformes {
                     mensaje += "<li>" + ClaseBaseDatos.resultado.getString("DOCUMENTO");
                     mensaje += " : " + ClaseBaseDatos.resultado.getString("CONTRATO");
                     mensaje += " - (" + ClaseBaseDatos.resultado.getString("FECHASUSCRIPCION").substring(0, 10) + ")";
-                    mensaje += "<a href='http://" + ClaseGeneral.servidor + "/UmVbZxut/archivos/" + ClaseBaseDatos.resultado.getString("ARCHIVO") + "'> VER</a></li>";
+                    mensaje += "<a href='http:" + ClaseGeneral.servidor + "/UmVbZxut/archivos/" + ClaseBaseDatos.resultado.getString("ARCHIVO") + "'> VER</a></li>";
                 }
 
                 if (!mensaje.equals("<html><font face='tahoma' size='-1'><p>Los siguientes contratos poseen ANEXOS dentro del periodo a reportar.<br>"

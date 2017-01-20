@@ -59,8 +59,11 @@ public class PanelCubs extends javax.swing.JPanel {
         jLabel48 = new javax.swing.JLabel();
         codigo = new javax.swing.JTextField();
         botonBuscarCodigo = new javax.swing.JButton();
-        jLabel49 = new javax.swing.JLabel();
-        descripcion = new javax.swing.JTextField();
+        jTextField20 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descripcion = new javax.swing.JTextArea();
+        jTextField19 = new javax.swing.JTextField();
         jLabel54 = new javax.swing.JLabel();
         valorsiniva = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
@@ -157,15 +160,43 @@ public class PanelCubs extends javax.swing.JPanel {
         });
         add(botonBuscarCodigo);
 
-        jLabel49.setText("DESCRIPCION ELEMENTO : ");
-        jLabel49.setPreferredSize(new java.awt.Dimension(165, 25));
-        add(jLabel49);
+        jTextField20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField20.setBorder(null);
+        jTextField20.setEnabled(false);
+        jTextField20.setFocusable(false);
+        jTextField20.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField20.setOpaque(false);
+        jTextField20.setPreferredSize(new java.awt.Dimension(810, 10));
+        add(jTextField20);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCRIPCION ELEMENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel3.setPreferredSize(new java.awt.Dimension(810, 80));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(430, 70));
 
         descripcion.setBackground(ClaseGeneral.campo);
+        descripcion.setColumns(20);
         descripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        descripcion.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        descripcion.setPreferredSize(new java.awt.Dimension(640, 25));
-        add(descripcion);
+        descripcion.setLineWrap(true);
+        descripcion.setRows(5);
+        descripcion.setWrapStyleWord(true);
+        descripcion.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        descripcion.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane1.setViewportView(descripcion);
+
+        jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        add(jPanel3);
+
+        jTextField19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField19.setBorder(null);
+        jTextField19.setEnabled(false);
+        jTextField19.setFocusable(false);
+        jTextField19.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField19.setOpaque(false);
+        jTextField19.setPreferredSize(new java.awt.Dimension(810, 10));
+        add(jTextField19);
 
         jLabel54.setText("VALOR UNITARIO SIN IVA : ");
         jLabel54.setPreferredSize(new java.awt.Dimension(175, 25));
@@ -225,11 +256,12 @@ public class PanelCubs extends javax.swing.JPanel {
         add(jTextField16);
 
         jTextField18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField18.setBorder(null);
         jTextField18.setEnabled(false);
         jTextField18.setFocusable(false);
         jTextField18.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField18.setOpaque(false);
-        jTextField18.setPreferredSize(new java.awt.Dimension(810, 25));
+        jTextField18.setPreferredSize(new java.awt.Dimension(810, 10));
         add(jTextField18);
 
         jLabel55.setText("VALOR TOTAL SIN IVA : ");
@@ -312,7 +344,7 @@ public class PanelCubs extends javax.swing.JPanel {
         jLabel71.setPreferredSize(new java.awt.Dimension(810, 25));
         add(jLabel71);
 
-        jScrollPane.setPreferredSize(new java.awt.Dimension(810, 295));
+        jScrollPane.setPreferredSize(new java.awt.Dimension(810, 225));
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -584,11 +616,10 @@ public class PanelCubs extends javax.swing.JPanel {
     private javax.swing.JTextField cantidad;
     private javax.swing.JTextField certificado;
     private javax.swing.JTextField codigo;
-    private javax.swing.JTextField descripcion;
+    private javax.swing.JTextArea descripcion;
     private javax.swing.JTextField fkcontrato;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
@@ -598,7 +629,9 @@ public class PanelCubs extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
+    private javax.swing.JPanel jPanel3;
     public javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
     public javax.swing.JTable jTable;
@@ -608,6 +641,8 @@ public class PanelCubs extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
+    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField valor;
     private javax.swing.JTextField valorsiniva;
     private javax.swing.JTextField valortotal;

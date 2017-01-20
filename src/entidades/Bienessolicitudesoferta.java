@@ -28,7 +28,7 @@ public class Bienessolicitudesoferta {
         this.bienessolicitudesofertaPK = bienessolicitudesofertaPK;
     }
 
-    public Bienessolicitudesoferta(int fksolicitudoferta, int id, int ano) {
+    public Bienessolicitudesoferta(String fksolicitudoferta, int id, int ano) {
         this.bienessolicitudesofertaPK = new BienessolicitudesofertaPK(fksolicitudoferta, id, ano);
     }
 

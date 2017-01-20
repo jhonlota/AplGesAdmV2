@@ -35,10 +35,10 @@ public class ThreadAutomatico extends Thread {
 
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).toString().contains("DOCUMENTO DIGITALIZADO")) {
-                        modeloLista.addElement("<html><p><img src=\"http://" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/aceptado.png\"/>"
+                        modeloLista.addElement("<html><p><img src=\"http:" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/aceptado.png\"/>"
                                 + " " + list.get(i).toString().substring(0, list.get(i).toString().indexOf("*-*")) + "</p></html>");
                     } else {
-                        modeloLista.addElement("<html><p><img src=\"http://" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/alerta.png\"/>"
+                        modeloLista.addElement("<html><p><img src=\"http:" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/alerta.png\"/>"
                                 + " " + list.get(i).toString().substring(0, list.get(i).toString().indexOf("*-*")) + "</p></html>");
                     }
                 }
@@ -52,10 +52,10 @@ public class ThreadAutomatico extends Thread {
 
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).toString().contains("ENTREGA PRESUPUESTO")) {
-                        modeloLista.addElement("<html><p><img src=\"http://" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/aceptado.png\"/>"
+                        modeloLista.addElement("<html><p><img src=\"http:" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/aceptado.png\"/>"
                                 + " " + list.get(i).toString().substring(0, list.get(i).toString().indexOf("*-*")) + "</p></html>");
                     } else {
-                        modeloLista.addElement("<html><p><img src=\"http://" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/alerta.png\"/>"
+                        modeloLista.addElement("<html><p><img src=\"http:" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/alerta.png\"/>"
                                 + " " + list.get(i).toString().substring(0, list.get(i).toString().indexOf("*-*")) + "</p></html>");
                     }
                 }
@@ -69,17 +69,17 @@ public class ThreadAutomatico extends Thread {
 
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).toString().contains("SECOP")) {
-                        modeloLista.addElement("<html><p><img src=\"http://" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/aceptado.png\"/>"
+                        modeloLista.addElement("<html><p><img src=\"http:" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/aceptado.png\"/>"
                                 + " " + list.get(i).toString().substring(0, list.get(i).toString().indexOf("//")) + "</p></html>");
                     } else if (Integer.parseInt(list.get(i).toString().substring(2, list.get(i).toString().indexOf(")"))) < 0) {
-                        modeloLista.addElement("<html><p><img src=\"http://" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/reloj.png\"/>"
+                        modeloLista.addElement("<html><p><img src=\"http:" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/reloj.png\"/>"
                                 + " " + list.get(i).toString().substring(0, list.get(i).toString().indexOf("//")) + "</p></html>");
                     } else if (Integer.parseInt(list.get(i).toString().substring(2, list.get(i).toString().indexOf(")"))) >= 0
                             && Integer.parseInt(list.get(i).toString().substring(2, list.get(i).toString().indexOf(")"))) <= 3) {
-                        modeloLista.addElement("<html><p><img src=\"http://" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/alerta.png\"/>"
+                        modeloLista.addElement("<html><p><img src=\"http:" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/alerta.png\"/>"
                                 + " " + list.get(i).toString().substring(0, list.get(i).toString().indexOf("//")) + "</p></html>");
                     } else {
-                        modeloLista.addElement("<html><p><img src=\"http://" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/exclamacion.png\"/>"
+                        modeloLista.addElement("<html><p><img src=\"http:" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/exclamacion.png\"/>"
                                 + " " + list.get(i).toString().substring(0, list.get(i).toString().indexOf("//")) + "</p></html>");
                     }
                 }
@@ -92,7 +92,7 @@ public class ThreadAutomatico extends Thread {
                 list = ClaseGeneral.controlObservacionescuentas.findTiempoFkcuentaObservacionInObservacionescuentasByCalificacion();
 
                 for (int i = 0; i < list.size(); i++) {
-                    modeloLista.addElement("<html><p><img src=\"http://" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/alerta.png\"/>"
+                    modeloLista.addElement("<html><p><img src=\"http:" + ClaseGeneral.servidor + "/AGA/src/frame/imagenes/alerta.png\"/>"
                             + " " + list.get(i).toString().substring(0, list.get(i).toString().indexOf("*-*")) + "</p></html>");
                 }
 

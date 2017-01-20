@@ -20,7 +20,9 @@ public class TercerosresolucionesJpaController {
 
     public void create(Tercerosresoluciones tercerosresoluciones) {
         try {
-            datos.query("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("
+            datos.update("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("// IMPOTANTE
+//            Se utiliza query, debido a que se debe retornar el id con el que se hace la insercion, para utilizarla en soportesresolucion
+//            datos.query("INSERT INTO " + tercerosresoluciones.tabla + " VALUES ("
                     //                    + tercerosresoluciones.getId() + ", "
                     + tercerosresoluciones.getAno() + ", "
                     + tercerosresoluciones.getFkresolucion() + ", "
@@ -33,11 +35,11 @@ public class TercerosresolucionesJpaController {
                     + tercerosresoluciones.getSalario() + ", "
                     + tercerosresoluciones.getDiario() + ", "
                     + "'" + tercerosresoluciones.getFkcomprobante() + "', "
-                    + "'" + tercerosresoluciones.getFkcuenta() + "')  RETURNING id");
+                    + "'" + tercerosresoluciones.getFkcuenta() + "')");
 
-            while (ClaseBaseDatos.resultado.next()) {
-                ClaseGeneral.idTercerosresolucion = ClaseBaseDatos.resultado.getInt("ID");
-            }
+//            while (ClaseBaseDatos.resultado.next()) {
+//                ClaseGeneral.idTercerosresolucion = ClaseBaseDatos.resultado.getInt("ID");
+//            }
 
             if (!datos.isError) {
                 ClaseMensaje.informacionGuardarBD("Articulos - Resolucion");
@@ -236,18 +238,18 @@ public class TercerosresolucionesJpaController {
         }
     }
 
-    public DefaultComboBoxModel COMBOIdNombreInTercerosresolucionesBy() {
-        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
-        try {
-            modeloCombo.addElement("Seleccione - ");
-            datos.query("SELECT DISTINCT(ID), FKRESOLUCION FROM TERCEROSRESOLUCION");// ORDER BY id
-            while (ClaseBaseDatos.resultado.next()) {
-                modeloCombo.addElement(ClaseBaseDatos.resultado.getInt("ID") + " - " + ClaseBaseDatos.resultado.getInt("FKRESOLUCION"));
-            }
-            return modeloCombo;
-        } catch (SQLException ex) {
-            ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return modeloCombo;
-        }
-    }
+//    public DefaultComboBoxModel COMBOIdNombreInTercerosresolucionesBy() {
+//        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
+//        try {
+//            modeloCombo.addElement("Seleccione - ");
+//            datos.query("SELECT DISTINCT(ID), FKRESOLUCION FROM TERCEROSRESOLUCION");// ORDER BY id
+//            while (ClaseBaseDatos.resultado.next()) {
+//                modeloCombo.addElement(ClaseBaseDatos.resultado.getInt("ID") + " - " + ClaseBaseDatos.resultado.getInt("FKRESOLUCION"));
+//            }
+//            return modeloCombo;
+//        } catch (SQLException ex) {
+//            ClaseMensaje.errorFind(this.toString(), ex.toString());
+//            return modeloCombo;
+//        }
+//    }
 }

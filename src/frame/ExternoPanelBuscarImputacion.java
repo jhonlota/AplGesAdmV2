@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * ExternoPanelFktercero.java
  *
  * Created on 16/02/2012, 09:45:23 PM
@@ -13,7 +13,6 @@ package frame;
 import clases.ClaseGeneral;
 import entidades.Soportescomprobantes;
 import entidades.Soportescuentas;
-import entidades.Terceros;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -27,13 +26,12 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
 
     private List listaSoportesComprobante = new ArrayList();
     private List listaSoportesCuenta = new ArrayList();
-    public String soporte = "Seleccione - ";
+    public String soporte = "Seleccione";
     public String fksoportecuenta;
     public int fksoportecuentaid;
     public int fksoportecomprobante;
     public int fksoportecomprobanteid;
     public int fksoportecomprobanteano;
-    public String mediopago;
 
     /**
      * Creates new form ExternoPanelFktercero
@@ -67,7 +65,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(550, 300));
         setMinimumSize(new java.awt.Dimension(550, 300));
         setPreferredSize(new java.awt.Dimension(550, 300));
-        setLayout(new java.awt.FlowLayout(0));
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel1.setBackground(ClaseGeneral.titulo);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -89,7 +87,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
 
         parametro.setBackground(ClaseGeneral.campo);
         parametro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECCIONE", "FONDO RENOVABLE Y/O CAJA MENOR", "ORDEN DE GASTO" }));
+        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Fondo Renovable y/o Caja Menor", "Solicitud de Pago" }));
         parametro.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
         parametro.setPreferredSize(new java.awt.Dimension(435, 25));
         parametro.addItemListener(new java.awt.event.ItemListener() {
@@ -168,9 +166,8 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         ClaseGeneral.valor = componente.getText();
 
         String seleccion = "" + parametro.getSelectedItem();
-        System.out.println("SELECCION --> " + seleccion);
-        
-        if (seleccion.equals("FONDO RENOVABLE Y/O CAJA MENOR")) {
+
+        if (seleccion.equals("Fondo Renovable y/o Caja Menor")) {
             listaSoportesComprobante = ClaseGeneral.controlSoportescomprobantes.findAllInSoportescomprobantesByFkcomprobanteAno(Integer.parseInt(ClaseGeneral.valor), ClaseGeneral.resoluciones.getResolucionPK().getAno());
             DefaultListModel modeloLista = new DefaultListModel();
             for (int i = 0; i < listaSoportesComprobante.size(); i++) {
@@ -179,29 +176,27 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
                 fksoportecomprobante = ClaseGeneral.soportescomprobantes.getSoportescomprobantesPK().getFkcomprobante();
                 fksoportecomprobanteid = ClaseGeneral.soportescomprobantes.getSoportescomprobantesPK().getId();
                 fksoportecomprobanteano = ClaseGeneral.soportescomprobantes.getSoportescomprobantesPK().getAno();
-//                fksoportecuenta = "-";
-//                fksoportecuentaid = 0;
-                mediopago = ""+seleccion;
+                fksoportecuenta = "-";
+                fksoportecuentaid = -1;
             }
             lista.setModel(modeloLista);
-            System.out.println("SOPORTECOMPROBANTE --> FKSOPORTE = " + fksoportecomprobante + "ID =" + fksoportecomprobanteid + "ANO = " +fksoportecomprobanteano);
+//            System.out.println("SOPORTECOMPROBANTE --> FKSOPORTE = " + fksoportecomprobante + ", ID =" + fksoportecomprobanteid + "ANO = " + fksoportecomprobanteano);
         }
 
-        if (seleccion.equals("ORDEN DE GASTO")) {
-            listaSoportesCuenta = ClaseGeneral.controlSoportescuentas.findAllInSoportescuentasByFkcuenta(ClaseGeneral.valor);
+        if (seleccion.equals("Solicitud de Pago")) {
+            listaSoportesCuenta = ClaseGeneral.controlSoportescuentas.findAllInSoportescuentasLIKEFkcuenta(ClaseGeneral.valor);
             DefaultListModel modeloLista = new DefaultListModel();
             for (int i = 0; i < listaSoportesCuenta.size(); i++) {
                 ClaseGeneral.soportescuentas = (Soportescuentas) listaSoportesCuenta.get(i);
                 modeloLista.addElement(ClaseGeneral.soportescuentas.getCuenta() + " - " + ClaseGeneral.soportescuentas.getActividad() + " - " + ClaseGeneral.soportescuentas.getSubgrupo() + " - " + ClaseGeneral.soportescuentas.getCcostos() + " - " + ClaseGeneral.soportescuentas.getCinfo() + " - " + ClaseGeneral.soportescuentas.getCuentainterna() + " - " + ClaseGeneral.soportescuentas.getValor());
                 fksoportecuenta = ClaseGeneral.soportescuentas.getSoportescuentasPK().getFkcuenta();
                 fksoportecuentaid = ClaseGeneral.soportescuentas.getSoportescuentasPK().getId();
-//                fksoportecomprobante = 0;
-//                fksoportecomprobanteid = 0;
-//                fksoportecomprobanteano = 0;
-                mediopago = ""+seleccion;
+                fksoportecomprobante = -1;
+                fksoportecomprobanteid = -1;
+                fksoportecomprobanteano = -1;
             }
             lista.setModel(modeloLista);
-            System.out.println("SOPORTECUENTA --> FKSOPORTE = " + fksoportecuenta + "ID =" + fksoportecuentaid);
+//            System.out.println("SOPORTECUENTA --> FKSOPORTE = " + fksoportecuenta + ", ID =" + fksoportecuentaid);
         }
 }//GEN-LAST:event_TexyFieldKeyReleased
 
@@ -212,7 +207,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
 
         JList laLista = (JList) evt.getSource();
         if (laLista.isSelectionEmpty()) {
-            soporte = "Seleccione - ";
+            soporte = "Seleccione";
             return;
         } else {
             soporte = "" + laLista.getSelectedValue();
@@ -222,11 +217,11 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
     private void parametroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_parametroItemStateChanged
         // TODO add your handling code here:
         String seleccion = (String) parametro.getSelectedItem();
-        if(!seleccion.equals("SELECCIONE")){
+        if (!seleccion.equals("Seleccione")) {
             jLabelNumero.setVisible(true);
             fkcomprobante.setVisible(true);
             fkcomprobante.setText("");
-        }else{
+        } else {
             jLabelNumero.setVisible(false);
             fkcomprobante.setVisible(false);
             fkcomprobante.setText("");

@@ -242,18 +242,18 @@ public class ResolucionesJpaController {
 //        }
 //    }
 
-    public DefaultComboBoxModel COMBOIdNombreInResolucionBy() {
-        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
-        try {
-            modeloCombo.addElement("Seleccione - ");
-            datos.query("SELECT DISTINCT(ID), AÑO FROM RESOLUCION");// ORDER BY id
-            while (ClaseBaseDatos.resultado.next()) {
-                modeloCombo.addElement(ClaseBaseDatos.resultado.getInt("ID") + " - " + ClaseBaseDatos.resultado.getInt("AÑO"));
-            }
-            return modeloCombo;
-        } catch (SQLException ex) {
-            ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return modeloCombo;
-        }
-    }
+//    public DefaultComboBoxModel COMBOIdNombreInResolucionBy() {
+//        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
+//        try {
+//            modeloCombo.addElement("Seleccione - ");
+//            datos.query("SELECT DISTINCT(ID), AÑO FROM RESOLUCION");// ORDER BY id
+//            while (ClaseBaseDatos.resultado.next()) {
+//                modeloCombo.addElement(ClaseBaseDatos.resultado.getInt("ID") + " - " + ClaseBaseDatos.resultado.getInt("AÑO"));
+//            }
+//            return modeloCombo;
+//        } catch (SQLException ex) {
+//            ClaseMensaje.errorFind(this.toString(), ex.toString());
+//            return modeloCombo;
+//        }
+//    }
 }

@@ -187,7 +187,18 @@ public class ClaseImportar {
             /**/
             soporte = documento;
 
-            metodoCuentaInterna();
+            cuentainterna = ClaseInformacion.ValidarIngresoCUENTAINTERNA(cinfo, cingreso, actividad, ccostos);
+
+            if (cuentainterna.equals("-1")) {
+                ExternoPanelCuentainterna panelCuentainterna = new ExternoPanelCuentainterna();
+                panelCuentainterna.labeltexto.setText("<html><p align = center><strong>SOPORTE : </strong>" + soporte + "<br/>"
+                        + "<strong>DESCRIPCION: </strong>" + descripcion + "<br/>"
+                        + "<strong>IMPUTACION: </strong>" + cuenta + " | " + actividad + " | " + subgrupo + " | " + cingreso + " | " + ccostos + " | " + cinfo + "<br/>"
+                        + "<strong>INGRESO: </strong>" + ingreso + "<br/>"
+                        + "<strong>EGRESO: </strong>" + egreso + "</p></html>");
+                ClaseMensaje.panel(panelCuentainterna);
+                cuentainterna = "" + panelCuentainterna.cuentainterna.getSelectedItem();
+            }
 
             if (cuentainterna.length() == 4) {
                 cuentainterna = "00" + cuentainterna;
@@ -242,7 +253,6 @@ public class ClaseImportar {
 //                        + "'" + fktercero + "', "
 //                        + ingreso + ", "
 //                        + "'" + soporte + "')");
-
                 String sql = "SELECT SOPORTE FROM CUENTAS "
                         + "WHERE DOCUMENTO = '" + documento + "';";
 
@@ -431,205 +441,6 @@ public class ClaseImportar {
             return true;
         } else {
             return false;
-        }
-    }
-
-    public void metodoCuentaInterna() {
-        if ("002131".equals(cinfo)) {
-            if (cingreso.equals("021")) {
-                cuentainterna = "459706";
-            } else {
-                cuentainterna = "003148";
-            }
-        } else if ("002132".equals(cinfo)) {
-            if (cingreso.equals("021")) {
-                cuentainterna = "459706";
-            } else {
-                cuentainterna = "003148";
-            }
-        } else if ("003140".equals(cinfo)
-                || "003141".equals(cinfo)
-                || "003142".equals(cinfo)
-                || "003143".equals(cinfo)
-                || "003144".equals(cinfo)
-                || "003145".equals(cinfo)) {
-            if (cingreso.equals("021")) {
-                cuentainterna = "459706";
-            } else {
-                cuentainterna = "003140";
-            }
-        } else if ("003146".equals(cinfo)) {
-            if (cingreso.equals("021")) {
-                cuentainterna = "459706";
-            } else {
-                cuentainterna = cinfo;
-            }
-        } else if ("003147".equals(cinfo)) {
-            if (cingreso.equals("021")) {
-                cuentainterna = "459706";
-            } else {
-                cuentainterna = cinfo;
-            }
-        } else if ("003148".equals(cinfo)) {
-            if (cingreso.equals("021")) {
-                cuentainterna = "459706";
-            } else {
-                cuentainterna = cinfo;
-            }
-        } else if ("003149".equals(cinfo)) {
-            cuentainterna = "003148";
-        } else if ("007173".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("007178".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("007179".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("007180".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("009190".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("009193".equals(cinfo)) {
-            cuentainterna = "007173";
-        } else if ("009194".equals(cinfo)) {
-            cuentainterna = "007180";
-        } else if ("009195".equals(cinfo)) {
-            cuentainterna = "007178";
-        } else if ("009196".equals(cinfo)) {
-            cuentainterna = "007179";
-        } else if ("009197".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("453002".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("453003".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("453004".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("453005".equals(cinfo)) {
-            cuentainterna = "003148";
-        } else if ("454701".equals(cinfo)) {
-            cuentainterna = "003148";
-        } else if ("454702".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("454703".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("454704".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("454705".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("454706".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("454707".equals(cinfo)) {
-            cuentainterna = "003140";
-        } else if ("454708".equals(cinfo)) {
-            cuentainterna = "003146";
-        } else if ("454709".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("454710".equals(cinfo)) {
-            cuentainterna = "459706";
-        } else if ("454711".equals(cinfo)) {
-            cuentainterna = "003148";
-        } else if ("454712".equals(cinfo)
-                || "454713".equals(cinfo)
-                || "454714".equals(cinfo)) {
-            cuentainterna = "454706";
-        } else if ("454715".equals(cinfo)) {
-            cuentainterna = "003140";
-        } else if ("454716".equals(cinfo)
-                || "454717".equals(cinfo)
-                || "454718".equals(cinfo)
-                || "454719".equals(cinfo)
-                || "454720".equals(cinfo)
-                || "454721".equals(cinfo)
-                || "454722".equals(cinfo)) {
-            cuentainterna = "454706";
-        } else if ("454723".equals(cinfo)) {
-            cuentainterna = "003140";
-        } else if ("454724".equals(cinfo)) {
-            cuentainterna = "454706";
-        } else if ("454725".equals(cinfo)) {
-            cuentainterna = "003146";
-        } else if ("454726".equals(cinfo)
-                || "454727".equals(cinfo)
-                || "454728".equals(cinfo)) {
-            cuentainterna = "454706";
-        } else if ("454729".equals(cinfo)) {
-            cuentainterna = "003147";
-        } else if ("454730".equals(cinfo)) {
-            cuentainterna = "459706";
-        } else if ("454732".equals(cinfo)) {
-            cuentainterna = "454706";
-        } else if ("455000".equals(cinfo)
-                || "455001".equals(cinfo)
-                || "455002".equals(cinfo)
-                || "455003".equals(cinfo)
-                || "455004".equals(cinfo)
-                || "455005".equals(cinfo)) {
-            if (actividad.equals("001")
-                    || actividad.equals("003")) {
-                if (ccostos.equals("47011")) {
-                    cuentainterna = "459706";
-                } else if (ccostos.equals("47021")) {
-                    cuentainterna = "003146";
-                } else if (ccostos.equals("47031")) {
-                    cuentainterna = "003148";
-                } else if (ccostos.equals("47041")) {
-                    cuentainterna = "003140";
-                } else if (ccostos.equals("47051")) {
-                    cuentainterna = "003147";
-                } else {
-                    cuentainterna = "459706";
-                }
-            } else if (actividad.equals("004")) {
-                if (ccostos.equals("47021")) {
-                    cuentainterna = "007178";
-                } else if (ccostos.equals("47031")) {
-                    cuentainterna = "007173";
-                } else if (ccostos.equals("47041")) {
-                    cuentainterna = "007180";
-                } else if (ccostos.equals("47051")) {
-                    cuentainterna = "007179";
-                } else {
-                    cuentainterna = "459706";
-                }
-            } else if (actividad.equals("024")) {
-                if (ccostos.equals("47012")) {
-                    cuentainterna = "454703";
-                } else if (ccostos.equals("47015")) {
-                    cuentainterna = "454706";
-                } else {
-                    cuentainterna = "459706";
-                }
-            } else {
-                cuentainterna = "459706";
-            }
-        } else if ("459000".equals(cinfo)) {
-            cuentainterna = cinfo;
-        } else if ("459700".equals(cinfo)
-                || "459701".equals(cinfo)
-                || "459702".equals(cinfo)
-                || "459703".equals(cinfo)
-                || "459704".equals(cinfo)
-                || "459705".equals(cinfo)
-                || "459706".equals(cinfo)
-                || "459707".equals(cinfo)
-                || "459708".equals(cinfo)
-                || "459709".equals(cinfo)
-                || "459710".equals(cinfo)
-                || "459713".equals(cinfo)
-                || "459714".equals(cinfo)) {
-            cuentainterna = "459706";
-        } else if ("809009".equals(cinfo)) {
-            cuentainterna = "459706";
-        } else {
-            ExternoPanelCuentainterna panelCuentainterna = new ExternoPanelCuentainterna();
-            panelCuentainterna.labeltexto.setText("<html><p align = center><strong>SOPORTE : </strong>" + soporte + "<br/>"
-                    + "<strong>DESCRIPCION: </strong>" + descripcion + "<br/>"
-                    + "<strong>IMPUTACION: </strong>" + cuenta + " | " + actividad + " | " + subgrupo + " | " + cingreso + " | " + ccostos + " | " + cinfo + "<br/>"
-                    + "<strong>INGRESO: </strong>" + ingreso + "<br/>"
-                    + "<strong>EGRESO: </strong>" + egreso + "</p></html>");
-            ClaseMensaje.panel(panelCuentainterna);
-            cuentainterna = "" + panelCuentainterna.cuentainterna.getSelectedItem();
-//            cuentainterna = cinfo;
         }
     }
 }

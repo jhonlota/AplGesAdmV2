@@ -12,24 +12,24 @@ package entidades;
  */
 public class BienessolicitudesofertaPK {
     
-    private int fksolicitudoferta;
+    private String fksolicitudoferta;
     private int id;
     private int ano;
 
     public BienessolicitudesofertaPK() {
     }
 
-    public BienessolicitudesofertaPK(int fksolicitudoferta, int id, int ano) {
+    public BienessolicitudesofertaPK(String fksolicitudoferta, int id, int ano) {
         this.fksolicitudoferta = fksolicitudoferta;
         this.id = id;
         this.ano = ano;
     }
 
-    public int getFksolicitudoferta() {
+    public String getFksolicitudoferta() {
         return fksolicitudoferta;
     }
 
-    public void setFksolicitudoferta(int fksolicitudoferta) {
+    public void setFksolicitudoferta(String fksolicitudoferta) {
         this.fksolicitudoferta = fksolicitudoferta;
     }
 

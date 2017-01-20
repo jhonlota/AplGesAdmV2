@@ -4,7 +4,7 @@
  */
 
 /*
- * IFrameResoluciones.java
+ * IFrameContrato.java
  *
  * Created on 4/01/2012, 09:52:57 AM
  */
@@ -14,7 +14,7 @@ import clases.ClaseBaseDatos;
 import clases.ClaseGeneral;
 import clases.ClaseInformacion;
 import clases.ClaseMensaje;
-import entidades.Soportesresoluciones;
+import entidades.Planestrategicocontratos;
 import java.awt.Rectangle;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -27,17 +27,17 @@ import javax.swing.JOptionPane;
  *
  * @author Jhon Lopez
  */
-public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
+public class IFramePlanestrategicocontratos extends javax.swing.JInternalFrame {
 
     private List lista = new ArrayList();
     private int posicion;
-    private PanelSoportesresoluciones panelPrincipal = new PanelSoportesresoluciones();
+    private PanelPlanestrategicocontratos panelPrincipal = new PanelPlanestrategicocontratos();
     private ClaseBaseDatos datos = new ClaseBaseDatos();
 
     /**
      * Creates new form IFrameContrato
      */
-    public IFrameSoportesresoluciones() {
+    public IFramePlanestrategicocontratos() {
         initComponents();
         //datos.conectar();
     }
@@ -68,7 +68,7 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
         botonSiguiente = new javax.swing.JButton();
         jPanel = new javax.swing.JPanel();
 
-        setTitle("Soportes");
+        setTitle("Plan Estrategico");
 
         jToolBar.setFloatable(false);
 
@@ -245,8 +245,7 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
     private void botonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevoActionPerformed
         metodoLimpiar();
 
-        panelPrincipal = new PanelSoportesresoluciones();
-        panelPrincipal.botonSeleccionarImputacion.setEnabled(true);
+        panelPrincipal = new PanelPlanestrategicocontratos();
         jPanel.add(panelPrincipal, java.awt.BorderLayout.CENTER);
         jPanel.setVisible(false);
         jPanel.setVisible(true);
@@ -254,42 +253,26 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
 }//GEN-LAST:event_botonNuevoActionPerformed
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
-        if (ClaseInformacion.ValidarCUENTA("" + panelPrincipal.cuenta.getText())
-                && ClaseInformacion.ValidarACTIVIDAD("" + panelPrincipal.actividad.getText())
-                && ClaseInformacion.ValidarSUBGRUPO("" + panelPrincipal.subgrupo.getSelectedItem())
-                && ClaseInformacion.ValidarCCOSTOS("" + panelPrincipal.ccostos.getText())
-                && ClaseInformacion.ValidarCINFO("" + panelPrincipal.cinfo.getSelectedItem())
-                && ClaseInformacion.ValidarCUENTAINTERNA("" + panelPrincipal.cuentainterna.getSelectedItem())
-                && (panelPrincipal.cuentainterna.getSelectedItem().equals(ClaseInformacion.ValidarIngresoCUENTAINTERNA("" + panelPrincipal.cinfo.getSelectedItem(),
-                                "000",
-                                "" + panelPrincipal.actividad.getText(),
-                                "" + panelPrincipal.ccostos.getText())))) {
-            panelPrincipal.metodoInsertar();
-            if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
-                metodoLimpiar();
-                metodoEstado("guardar");
-            } else {
-                ClaseMensaje.error("Error - Falta completar información.\n\n" + ClaseGeneral.errorValidacion);
-            }
-        } else {
-            ClaseMensaje.error("Error en la imputacion.");
-        }
+        panelPrincipal.metodoInsertar();
+        
+            metodoLimpiar();
+            metodoEstado("guardar");
 }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
         metodoLimpiar();
 
-        panelPrincipal = new PanelSoportesresoluciones();
+        panelPrincipal = new PanelPlanestrategicocontratos();
         jPanel.add(panelPrincipal, java.awt.BorderLayout.CENTER);
         jPanel.setVisible(false);
         jPanel.setVisible(true);
         jToolBarConsultar.setVisible(true);
 
-        lista = ClaseGeneral.controlSoportesresoluciones.findAllInSoportesresolucionesByFkresolucionAno(ClaseGeneral.resoluciones.getResolucionPK().getId(), ClaseGeneral.resoluciones.getResolucionPK().getAno());
+        lista = ClaseGeneral.controlPlanestrategicocontratos.findAllInPlanestrategicocontratosByFkcontrato(ClaseGeneral.contratos.getContrato());
 
         if (!lista.isEmpty()) {
             posicion = 0;
-            ClaseGeneral.soportesresoluciones = (Soportesresoluciones) lista.get(posicion);
+            ClaseGeneral.planestrategicocontratos = (Planestrategicocontratos) lista.get(posicion);
             panelPrincipal.metodoConsultar();
         } else {
             posicion = -1;
@@ -301,28 +284,11 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
 }//GEN-LAST:event_botonConsultarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-//        if (ClaseInformacion.ValidarCUENTA("" + panelPrincipal.cuenta.getText())
-//                && ClaseInformacion.ValidarACTIVIDAD("" + panelPrincipal.actividad.getText())
-//                && ClaseInformacion.ValidarSUBGRUPO("" + panelPrincipal.subgrupo.getSelectedItem())
-//                && ClaseInformacion.ValidarCCOSTOS("" + panelPrincipal.ccostos.getText())
-//                && ClaseInformacion.ValidarCINFO("" + panelPrincipal.cinfo.getSelectedItem())
-//                && ClaseInformacion.ValidarCUENTAINTERNA("" + panelPrincipal.cuentainterna.getSelectedItem())
-//                && (panelPrincipal.cuentainterna.getSelectedItem().equals(ClaseInformacion.ValidarIngresoCUENTAINTERNA("" + panelPrincipal.cinfo.getSelectedItem(),
-//                                "000",
-//                                "" + panelPrincipal.actividad.getText(),
-//                                "" + panelPrincipal.ccostos.getText())))) {
-//            if (!lista.isEmpty()) {
-//                panelPrincipal.metodoActualizar();
-//            }
-//            if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
-//                metodoLimpiar();
-//                metodoEstado("actualizar");
-//            } else {
-//                ClaseMensaje.error("Error - Falta completar información.\n\n" + ClaseGeneral.errorValidacion);
-//            }
-//        } else {
-//            ClaseMensaje.error("Error en la imputacion.");
-//        }
+        if (!lista.isEmpty()) {
+            panelPrincipal.metodoActualizar();
+        }
+            metodoLimpiar();
+            metodoEstado("actualizar");
 }//GEN-LAST:event_botonActualizarActionPerformed
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
@@ -349,7 +315,7 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
                 posicion = lista.size() - 1;
             }
             textoPosicionBuscar.setText((posicion + 1) + " / " + lista.size());
-            ClaseGeneral.soportesresoluciones = (Soportesresoluciones) lista.get(posicion);
+            ClaseGeneral.planestrategicocontratos = (Planestrategicocontratos) lista.get(posicion);
             panelPrincipal.metodoConsultar();
             Rectangle r = panelPrincipal.jTable.getCellRect(posicion, 0, true);
             panelPrincipal.jScrollPane.getViewport().scrollRectToVisible(r);
@@ -368,7 +334,7 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
                 posicion = -1;
             }
             textoPosicionBuscar.setText((posicion + 1) + " / " + lista.size());
-            ClaseGeneral.soportesresoluciones = (Soportesresoluciones) lista.get(posicion);
+            ClaseGeneral.planestrategicocontratos = (Planestrategicocontratos) lista.get(posicion);
             panelPrincipal.metodoConsultar();
             Rectangle r = panelPrincipal.jTable.getCellRect(posicion, 0, true);
             panelPrincipal.jScrollPane.getViewport().scrollRectToVisible(r);
@@ -419,9 +385,8 @@ public class IFrameSoportesresoluciones extends javax.swing.JInternalFrame {
             } else {
                 botonReiniciar.setBackground(ClaseGeneral.gris);
             }
-            
         } catch (SQLException ex) {
-            Logger.getLogger(IFrameSoportesresoluciones.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IFramePlanestrategicocontratos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

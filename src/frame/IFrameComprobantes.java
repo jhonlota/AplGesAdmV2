@@ -66,7 +66,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
         botonConsultar = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
         botonActualizar = new javax.swing.JButton();
-        botonEliminar = new javax.swing.JButton();
+        botonAnular = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JToolBar.Separator();
         botonReiniciar = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JToolBar.Separator();
@@ -157,23 +157,23 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
         });
         jToolBar.add(botonActualizar);
 
-        botonEliminar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos48/delete.png"))); // NOI18N
-        botonEliminar.setText("Eliminar");
-        botonEliminar.setFocusable(false);
-        botonEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        botonEliminar.setIconTextGap(1);
-        botonEliminar.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        botonEliminar.setMaximumSize(new java.awt.Dimension(75, 65));
-        botonEliminar.setMinimumSize(new java.awt.Dimension(75, 65));
-        botonEliminar.setPreferredSize(new java.awt.Dimension(75, 65));
-        botonEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
+        botonAnular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botonAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos48/block.png"))); // NOI18N
+        botonAnular.setText("Anular");
+        botonAnular.setFocusable(false);
+        botonAnular.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonAnular.setIconTextGap(1);
+        botonAnular.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        botonAnular.setMaximumSize(new java.awt.Dimension(75, 65));
+        botonAnular.setMinimumSize(new java.awt.Dimension(75, 65));
+        botonAnular.setPreferredSize(new java.awt.Dimension(75, 65));
+        botonAnular.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        botonAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEliminarActionPerformed(evt);
+                botonAnularActionPerformed(evt);
             }
         });
-        jToolBar.add(botonEliminar);
+        jToolBar.add(botonAnular);
         jToolBar.add(jSeparator7);
 
         botonReiniciar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -234,7 +234,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
 
         ano.setBackground(ClaseGeneral.campo);
         ano.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ano.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2012", "2013", "2014", "2015", "2016" }));
+        ano.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2011", "2012", "2013", "2014", "2015", "2016", "2017" }));
         ano.setSelectedItem(ClaseGeneral.controlUtilidades.anoServidor());
         ano.setMaximumSize(new java.awt.Dimension(70, 24));
         ano.setMinimumSize(new java.awt.Dimension(70, 24));
@@ -352,17 +352,17 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
         }
 }//GEN-LAST:event_botonActualizarActionPerformed
 
-    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+    private void botonAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnularActionPerformed
         int opcion = -1;
         opcion = ClaseMensaje.preguntar();
         if (opcion == JOptionPane.YES_OPTION) {
             if (!lista.isEmpty()) {
-                panelPrincipal.metodoEliminar();
+                panelPrincipal.metodoAnular();
             }
             metodoLimpiar();
             metodoEstado("eliminar");
         }
-}//GEN-LAST:event_botonEliminarActionPerformed
+}//GEN-LAST:event_botonAnularActionPerformed
 
     private void botonReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReiniciarActionPerformed
         metodoLimpiar();
@@ -497,7 +497,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
                 botonGuardar.setEnabled(Boolean.parseBoolean(ClaseBaseDatos.resultado.getString("GUARDAR")));
                 botonConsultar.setEnabled(Boolean.parseBoolean(ClaseBaseDatos.resultado.getString("CONSULTAR")));
                 botonActualizar.setEnabled(Boolean.parseBoolean(ClaseBaseDatos.resultado.getString("ACTUALIZAR")));
-                botonEliminar.setEnabled(Boolean.parseBoolean(ClaseBaseDatos.resultado.getString("ELIMINAR")));
+                botonAnular.setEnabled(Boolean.parseBoolean(ClaseBaseDatos.resultado.getString("ELIMINAR")));
                 botonReiniciar.setEnabled(Boolean.parseBoolean(ClaseBaseDatos.resultado.getString("REINICIAR")));
                 botonVer.setEnabled(Boolean.parseBoolean(ClaseBaseDatos.resultado.getString("VER")));
             }
@@ -522,10 +522,10 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
             } else {
                 botonActualizar.setBackground(ClaseGeneral.gris);
             }
-            if (botonEliminar.isEnabled()) {
-                botonEliminar.setBackground(ClaseGeneral.boton);
+            if (botonAnular.isEnabled()) {
+                botonAnular.setBackground(ClaseGeneral.boton);
             } else {
-                botonEliminar.setBackground(ClaseGeneral.gris);
+                botonAnular.setBackground(ClaseGeneral.gris);
             }
             if (botonReiniciar.isEnabled()) {
                 botonReiniciar.setBackground(ClaseGeneral.boton);
@@ -614,9 +614,9 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
     public javax.swing.JComboBox ano;
     private javax.swing.JButton botonActualizar;
     private javax.swing.JButton botonAnterior;
+    private javax.swing.JButton botonAnular;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonConsultar;
-    private javax.swing.JButton botonEliminar;
     private javax.swing.JButton botonGuardar;
     private javax.swing.JButton botonNuevo;
     private javax.swing.JButton botonReiniciar;

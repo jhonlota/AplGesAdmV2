@@ -10,13 +10,12 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT
-	soportescomprobantes."fkcomprobante" AS soportescomprobantes_fkcomprobantes,
+		<![CDATA[(SELECT
 	soportescomprobantes."cuentainterna" AS soportescomprobantes_cuentainterna,
-	soportescomprobantes."valor" AS soportescomprobantes_valor
+	SUM(soportescomprobantes."valor") AS soportescomprobantes_valor
 FROM
 	"tercerosresolucion" tercerosresolucion LEFT JOIN "comprobantes" comprobantes
 	ON tercerosresolucion."fkcomprobante" = CAST(comprobantes."id" AS TEXT)
@@ -26,11 +25,26 @@ FROM
 WHERE
 	tercerosresolucion."fkresolucion" = $P{fkresolucion}
 	AND tercerosresolucion."ano" = $P{ano}
-GROUP BY soportescomprobantes."fkcomprobante", soportescomprobantes."cuentainterna", soportescomprobantes."valor"]]>
+GROUP BY soportescomprobantes."cuentainterna", soportescomprobantes."valor")
+
+UNION
+
+(SELECT
+	soportescomprobantes."cuentainterna" AS soportescomprobantes_cuentainterna,
+	SUM(soportesresoluciones."valor") AS soportesresoluciones_valor
+FROM
+	"soportesresoluciones" soportesresoluciones LEFT JOIN "comprobantes" comprobantes
+	ON soportesresoluciones."fksoportecomprobante" = comprobantes."id"
+	AND comprobantes."ano" = soportesresoluciones."ano"
+	LEFT JOIN "soportescomprobantes" soportescomprobantes ON comprobantes."id" = soportescomprobantes."fkcomprobante"
+	AND comprobantes."ano" = soportescomprobantes."ano"
+WHERE
+	soportesresoluciones."fkresolucion" = $P{fkresolucion}
+	AND soportesresoluciones."ano" = $P{ano}
+GROUP BY soportescomprobantes."cuentainterna", soportescomprobantes."valor")]]>
 	</queryString>
-	<field name="soportescomprobantes_fkcomprobantes" class="java.lang.Integer"/>
 	<field name="soportescomprobantes_cuentainterna" class="java.lang.String"/>
-	<field name="soportescomprobantes_valor" class="java.lang.Long"/>
+	<field name="soportescomprobantes_valor" class="java.math.BigDecimal"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>

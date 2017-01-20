@@ -221,7 +221,7 @@ public class PanelResoluciones extends javax.swing.JPanel {
 
         acuerdo.setBackground(ClaseGeneral.campo);
         acuerdo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        acuerdo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Acuerdo No. 004 de 1996", "Acuerdo No. 004 de 1996 y Resolucion No. 2252", "Acuerdo No. 004 de 1996 y Resolucion No. 2253", "Acuerdo No. 004 de 1996 y Resolucion No. 2784", "Acuerdo No. 004 de 1996 y Resolucion No. 3478", "Acuerdo No. 025 de 2014", "Acuerdo No. 025 de 2014 y Resolucion No. 2252", "Acuerdo No. 025 de 2014 y Resolucion No. 2253", "Acuerdo No. 025 de 2014 y Resolucion No. 2784", "Acuerdo No. 025 de 2014 y Resolucion No. 3478", "Resolucion No. 013", "No Aplica" }));
+        acuerdo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Acuerdo No. 025 de 2014", "Acuerdo No. 025 de 2014 y Resolucion No. 2252", "Acuerdo No. 025 de 2014 y Resolucion No. 2253", "Acuerdo No. 025 de 2014 y Resolucion No. 2784", "Acuerdo No. 025 de 2014 y Resolucion No. 3478", "Acuerdo No. 004 de 1996", "Acuerdo No. 004 de 1996 y Resolucion No. 2252", "Acuerdo No. 004 de 1996 y Resolucion No. 2253", "Acuerdo No. 004 de 1996 y Resolucion No. 2784", "Acuerdo No. 004 de 1996 y Resolucion No. 3478", "Resolucion No. 013", "No Aplica" }));
         acuerdo.setPreferredSize(new java.awt.Dimension(430, 25));
         add(acuerdo);
 
@@ -433,16 +433,16 @@ public class PanelResoluciones extends javax.swing.JPanel {
         ClaseMensaje.informacion("<html><body>"
                 + "Elija su opción según el tipo de Personal<br/>"
                 + "<ul>"
-                + "  <li>Acuerdo No. 004 de 1996 <b>\"Ayudas Económicas - Estudiantes\"</b></li>"
-                + "  <li>Acuerdo No. 004 de 1996 y Resolución No. 2252 <b>\"Personal Docente y Motoristas (Año 2013)\"</b></li>"
-                + "  <li>Acuerdo No. 004 de 1996 y Resolución No. 2253 <b>\"Personal No Nombrado y No Docente\"</b></li>"
-                + "  <li>Acuerdo No. 004 de 1996 y Resolución No. 2784 <b>\"Personal Docente y Motoristas (Año 2014)\"</b></li>"
-                + "  <li>Acuerdo No. 004 de 1996 y Resolución No. 3478 <b>\"Personal Docente y Motoristas (Año 2015)\"</b></li>"
                 + "  <li>Acuerdo No. 025 de 2014 <b>\"Ayudas Económicas - Estudiantes\"</b></li>"
                 + "  <li>Acuerdo No. 025 de 2014 y Resolución No. 2252 <b>\"Personal Docente y Motoristas (Año 2013)\"</b></li>"
                 + "  <li>Acuerdo No. 025 de 2014 y Resolución No. 2253 <b>\"Personal No Nombrado y No Docente\"</b></li>"
                 + "  <li>Acuerdo No. 025 de 2014 y Resolución No. 2784 <b>\"Personal Docente y Motoristas (Año 2014)\"</b></li>"
                 + "  <li>Acuerdo No. 025 de 2014 y Resolución No. 3478 <b>\"Personal Docente y Motoristas (Año 2015)\"</b></li>"
+                + "  <li>Acuerdo No. 004 de 1996 <b>\"Ayudas Económicas - Estudiantes\"</b></li>"
+                + "  <li>Acuerdo No. 004 de 1996 y Resolución No. 2252 <b>\"Personal Docente y Motoristas (Año 2013)\"</b></li>"
+                + "  <li>Acuerdo No. 004 de 1996 y Resolución No. 2253 <b>\"Personal No Nombrado y No Docente\"</b></li>"
+                + "  <li>Acuerdo No. 004 de 1996 y Resolución No. 2784 <b>\"Personal Docente y Motoristas (Año 2014)\"</b></li>"
+                + "  <li>Acuerdo No. 004 de 1996 y Resolución No. 3478 <b>\"Personal Docente y Motoristas (Año 2015)\"</b></li>"
                 + "  <li>Resolución No. 013 <b>\"Docentes Ocasionales\"</b></li></ul>"
                 + "</body></html>");
     }//GEN-LAST:event_botonAyuda1ActionPerformed
@@ -540,13 +540,15 @@ public class PanelResoluciones extends javax.swing.JPanel {
         }
     }
 
-    public void metodoEliminar() {
-        Resoluciones resolucionId = ClaseGeneral.resoluciones;
-        resolucionId.setResolucionPK(ClaseGeneral.resoluciones.getResolucionPK());
-        ClaseGeneral.resoluciones = new Resoluciones();
-        ClaseGeneral.resolucionesPK = new ResolucionesPK();
+    public void metodoAnular() {
         try {
-            ClaseGeneral.controlResoluciones.destroy(resolucionId);
+            observacion.setText("ANULADO");
+            
+            ClaseGeneral.controlResoluciones.destroy(ClaseGeneral.resoluciones);
+            ClaseGeneral.controlTercerosresoluciones.destroyFkresolucionAno(ClaseGeneral.resoluciones);
+            ClaseGeneral.controlSoportesresoluciones.destroyFkresolucionAno(ClaseGeneral.resoluciones);
+            
+            metodoActualizar();
         } catch (Exception ex) {
             Logger.getLogger(PanelResoluciones.class.getName()).log(Level.SEVERE, null, ex);
         }

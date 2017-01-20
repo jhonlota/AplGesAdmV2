@@ -44,14 +44,10 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
      * AL AGREGAR UN IFRAME NUEVOS SE DEBE INCLUIR TAMBIEN EN Limpiar() y en
      * ClaseInfomacion LimpiarPrincipales o LimpiarSecundarios*
      */
-    private IFrameSolicitudesoferta solicitudesoferta;
-    private IFrameBienessolicitudesoferta bienessolicitudesoferta;
-    
-//    private IFrameSoportesresoluciones soportesresoluciones;
 
     private IFrameAnexoscontratos anexoscontratos;
     private IFrameAnexosterceros anexosterceros;
-    private IFrameTercerosresoluciones tercerosresoluciones;
+    private IFrameBienessolicitudesoferta bienessolicitudesoferta;
     private IFrameComprobantes comprobantes;
     private IFrameComprobantesnoreembolsados comprobantesnoreembolsados;
     private IFrameComprobantespendientes comprobantespendientes;
@@ -61,16 +57,21 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
     private IFrameCumplidoscomprobantes cumplidoscomprobantes;
     private IFrameFacturascomprobantes facturascomprobantes;
     private IFrameFormadepagocontratos formadepagocontratos;
+    private IFrameFormadepagosolicitudesoferta formadepagosolicitudesoferta;
     private IFrameModificaciones modificaciones;
     private IFrameObservacionescontratos observacionescontratos;
     private IFrameObservacionescuentas observacionescuentas;
+    private IFramePlanestrategicocontratos planestrategicocontratos;
     private IFramePolizas polizas;
-    private IFrameResoluciones resolucion;
+    private IFrameReportes reportes;
+    private IFrameResoluciones resoluciones;
+    private IFrameServiciossolicitudesoferta serviciossolicitudesoferta;
+    private IFrameSolicitudesoferta solicitudesoferta;
     private IFrameSoportescomprobantes soportescomprobantes;
     private IFrameSoportescontratos soportescontratos;
     private IFrameSoportescuentas soportescuentas;
     private IFrameTerceros terceros;
-    private IFrameReportes reportes;
+    private IFrameTercerosresoluciones tercerosresoluciones;
     public static ExternoPanelEntrega panelEntrega;
     private ClaseImportar importar;
     private ClaseInformes informes = new ClaseInformes();
@@ -123,7 +124,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         labelEntidad = new javax.swing.JLabel();
         botonPantallazo = new javax.swing.JButton();
 
-        jFileChooser.setCurrentDirectory(new java.io.File("C:\\Program Files\\NetBeans 8.1"));
+        jFileChooser.setCurrentDirectory(new java.io.File("C:\\Program Files\\NetBeans 8.2"));
         jFileChooser.setFileFilter(filter);
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -199,6 +200,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
 
         anexoscontratos.setResizable(false);
         anexosterceros.setResizable(false);
+        bienessolicitudesoferta.setResizable(false);
         comprobantes.setResizable(false);
         comprobantesnoreembolsados.setResizable(false);
         comprobantespendientes.setResizable(false);
@@ -208,11 +210,15 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         cumplidoscomprobantes.setResizable(false);
         facturascomprobantes.setResizable(false);
         formadepagocontratos.setResizable(false);
+        formadepagosolicitudesoferta.setResizable(false);
         modificaciones.setResizable(false);
         observacionescontratos.setResizable(false);
         observacionescuentas.setResizable(false);
+        planestrategicocontratos.setResizable(false);
         polizas.setResizable(false);
-        resolucion.setResizable(false);
+        resoluciones.setResizable(false);
+        serviciossolicitudesoferta.setResizable(false);
+        solicitudesoferta.setResizable(false);
         soportescomprobantes.setResizable(false);
         soportescontratos.setResizable(false);
         soportescuentas.setResizable(false);
@@ -220,14 +226,9 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         tercerosresoluciones.setResizable(false);
         reportes.setResizable(false);
 
-        /**********/
-        //solicitudesoferta.setResizable(false);
-        //bienessolicitudesoferta.setResizable(false);
-        //soportesresoluciones.setResizable(false);
-        /*********/
-
         jDesktopPane.add(anexoscontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(anexosterceros, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(bienessolicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(comprobantes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(comprobantesnoreembolsados, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(comprobantespendientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -237,23 +238,21 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         jDesktopPane.add(cumplidoscomprobantes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(facturascomprobantes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(formadepagocontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(formadepagosolicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(modificaciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(observacionescontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(observacionescuentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(planestrategicocontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(polizas, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane.add(resolucion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(reportes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(resoluciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(serviciossolicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(solicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(soportescomprobantes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(soportescontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(soportescuentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(terceros, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(tercerosresoluciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane.add(reportes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        /*********/
-        //jDesktopPane.add(solicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        //jDesktopPane.add(bienessolicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        //jDesktopPane.add(soportesresoluciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        /********/
         getContentPane().add(jDesktopPane, java.awt.BorderLayout.CENTER);
 
         jPanel.setMaximumSize(new java.awt.Dimension(205, 785));
@@ -269,9 +268,13 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("AGA");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Solicitud de Oferta");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Solicitudes *");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Bienes");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Bienes");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Forma de Pago");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Servicios");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Solicitudes *");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Orden Contractual");
@@ -286,6 +289,8 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Modificaciones");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Observaciones");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Plan Estrategico");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Pólizas");
         treeNode2.add(treeNode3);
@@ -312,8 +317,6 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Articulos");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Resolucion *");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Soportes");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gastos Facultad");
@@ -428,11 +431,23 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     solicitudesoferta.metodoLimpiar();
                 }
                 else if (hijo.equals("Bienes")
-                        && ClaseGeneral.solicitudesoferta.getId() > 0) {
+                        && !ClaseGeneral.solicitudesoferta.getId().equals("")) {
                     bienessolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     bienessolicitudesoferta.setVisible(true);
                     bienessolicitudesoferta.metodoEstado("reiniciar");
                     bienessolicitudesoferta.metodoLimpiar();
+                }else if(hijo.equals("Forma de Pago")
+                        && !ClaseGeneral.solicitudesoferta.getId().equals("")){
+                    formadepagosolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    formadepagosolicitudesoferta.setVisible(true);
+                    formadepagosolicitudesoferta.metodoEstado("reiniciar");
+                    formadepagosolicitudesoferta.metodoLimpiar();
+                }else if(hijo.equals("Servicios")
+                        && !ClaseGeneral.solicitudesoferta.getId().equals("")){
+                    serviciossolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    serviciossolicitudesoferta.setVisible(true);
+                    serviciossolicitudesoferta.metodoEstado("reiniciar");
+                    serviciossolicitudesoferta.metodoLimpiar();
                 }
             } else if (padre.equals("Orden Contractual")) {
                 if (hijo.equals("Anexos")
@@ -470,6 +485,12 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     observacionescontratos.setVisible(true);
                     observacionescontratos.metodoEstado("reiniciar");
                     observacionescontratos.metodoLimpiar();
+                } else if (hijo.equals("Plan Estrategico")
+                        && !ClaseGeneral.contratos.getContrato().equals("")) {
+                    planestrategicocontratos.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    planestrategicocontratos.setVisible(true);
+                    planestrategicocontratos.metodoEstado("reiniciar");
+                    planestrategicocontratos.metodoLimpiar();
                 } else if (hijo.equals("Pólizas")
                         && !ClaseGeneral.contratos.getContrato().equals("")) {
                     polizas.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
@@ -542,17 +563,10 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     tercerosresoluciones.metodoEstado("reiniciar");
                     tercerosresoluciones.metodoLimpiar();
                 } else if (hijo.equals("Resolucion *")) {
-                    resolucion.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-                    resolucion.setVisible(true);
-                    resolucion.metodoEstado("reiniciar");
-                    resolucion.metodoLimpiar();
-                } else if (hijo.equals("Soportes")
-                        && ClaseGeneral.resoluciones.getResolucionPK().getId() > 0) {
-                    System.out.println("ClaseGeneral.resoluciones.getResolucionPK().getId() = "+ClaseGeneral.resoluciones.getResolucionPK().getId());
-//                    soportesresoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-//                    soportesresoluciones.setVisible(true);
-//                    soportesresoluciones.metodoEstado("reiniciar");
-//                    soportesresoluciones.metodoLimpiar();
+                    resoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    resoluciones.setVisible(true);
+                    resoluciones.metodoEstado("reiniciar");
+                    resoluciones.metodoLimpiar();
                 }
             } else if (padre.equals("Gastos Facultad")) {
                 if (hijo.equals("Cuentas *")) {
@@ -724,7 +738,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
     private void labelEntidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelEntidadMouseClicked
         try {
             if (labelEntidad.getText().contains("Solicitud de Oferta:")
-                    && ClaseGeneral.solicitudesoferta.getId() > 0) {
+                    && ClaseGeneral.solicitudesoferta.getId() != null) {
                 solicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                 solicitudesoferta.setVisible(true);
                 ClaseGeneral.parametro = "CAST(ID AS TEXT)";
@@ -746,11 +760,11 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                 terceros.metodoBuscar();
             } else if (labelEntidad.getText().contains("Resolucion:")
                     && ClaseGeneral.resoluciones.getResolucionPK().getId() > 0) {
-                resolucion.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-                resolucion.setVisible(true);
+                resoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                resoluciones.setVisible(true);
                 ClaseGeneral.parametro = "CAST(ID AS TEXT)";
                 ClaseGeneral.valor = "" + ClaseGeneral.resoluciones.getResolucionPK().getId();
-                resolucion.metodoBuscar(ClaseGeneral.resoluciones.getResolucionPK().getAno());
+                resoluciones.metodoBuscar(ClaseGeneral.resoluciones.getResolucionPK().getAno());
             } else if (labelEntidad.getText().contains("Comprobante:")
                     && ClaseGeneral.comprobantes.getId() > 0) {
                 comprobantes.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
@@ -860,103 +874,112 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                 System.out.println("*** IFrameAnexosterceros()");
                 break;
             case 3:
-                comprobantes = new IFrameComprobantes();
-                System.out.println("*** IFrameComprobantes()");
-                break;
-            case 4:
-                comprobantesnoreembolsados = new IFrameComprobantesnoreembolsados();
-                System.out.println("*** IFrameComprobantesnoreembolsados()");
-                break;
-            case 5:
-                comprobantespendientes = new IFrameComprobantespendientes();
-                System.out.println("*** IFrameComprobantespendientes()");
-                break;
-            case 6:
-                contratos = new IFrameContratos();
-                System.out.println("*** IFrameContratos()");
-                break;
-            case 7:
-                cubs = new IFrameCubs();
-                System.out.println("*** IFrameCubs()");
-                break;
-            case 8:
-                cuentas = new IFrameCuentas();
-                System.out.println("*** IFrameCuentas()");
-                break;
-            case 9:
-                cumplidoscomprobantes = new IFrameCumplidoscomprobantes();
-                System.out.println("*** IFrameCumplidoscomprobantes()");
-                break;
-            case 10:
-                facturascomprobantes = new IFrameFacturascomprobantes();
-                System.out.println("*** IFrameFacturascomprobantes()");
-                break;
-            case 11:
-                formadepagocontratos = new IFrameFormadepagocontratos();
-                System.out.println("*** IFrameFormadepagocontratos()");
-                break;
-            case 12:
-                modificaciones = new IFrameModificaciones();
-                System.out.println("*** IFrameModificaciones()");
-                break;
-            case 13:
-                observacionescontratos = new IFrameObservacionescontratos();
-                System.out.println("*** IFrameObservacionescontratos()");
-                break;
-            case 14:
-                observacionescuentas = new IFrameObservacionescuentas();
-                System.out.println("*** IFrameObservacionescuentas()");
-                break;
-            case 15:
-                polizas = new IFramePolizas();
-                System.out.println("*** IFramePolizas()");
-                break;
-            case 16:
-                resolucion = new IFrameResoluciones();
-                System.out.println("*** IFrameResolucion()");
-                break;
-            case 17:
-                soportescomprobantes = new IFrameSoportescomprobantes();
-                System.out.println("*** IFrameSoportescomprobantes()");
-                break;
-            case 18:
-                soportescontratos = new IFrameSoportescontratos();
-                System.out.println("*** IFrameSoportescontratos()");
-                break;
-            case 19:
-                soportescuentas = new IFrameSoportescuentas();
-                System.out.println("*** IFrameSoportescuentas()");
-                break;
-            case 20:
-                terceros = new IFrameTerceros();
-                System.out.println("*** IFrameTerceros()");
-                break;
-            case 21:
-                tercerosresoluciones = new IFrameTercerosresoluciones();
-                System.out.println("*** IFrameTercerosresoluciones()");
-                break;
-            case 22:
-                reportes = new IFrameReportes();
-                System.out.println("*** IFrameInformes()");
-                break;
-            case 23:
-                solicitudesoferta = new IFrameSolicitudesoferta();
-                System.out.println("*** IFrameSolicitudesoferta()");
-                break;
-            case 24:
                 bienessolicitudesoferta = new IFrameBienessolicitudesoferta();
                 System.out.println("*** IFrameBienessolicitudesoferta()");
                 break;
-            case 25:
-//                soportesresoluciones = new IFrameSoportesresoluciones();
-//                System.out.println("*** IFrameSoportesresoluciones()");
+            case 4:
+                comprobantes = new IFrameComprobantes();
+                System.out.println("*** IFrameComprobantes()");
                 break;
+            case 5:
+                comprobantesnoreembolsados = new IFrameComprobantesnoreembolsados();
+                System.out.println("*** IFrameComprobantesnoreembolsados()");
+                break;
+            case 6:
+                comprobantespendientes = new IFrameComprobantespendientes();
+                System.out.println("*** IFrameComprobantespendientes()");
+                break;
+            case 7:
+                contratos = new IFrameContratos();
+                System.out.println("*** IFrameContratos()");
+                break;
+            case 8:
+                cubs = new IFrameCubs();
+                System.out.println("*** IFrameCubs()");
+                break;
+            case 9:
+                cuentas = new IFrameCuentas();
+                System.out.println("*** IFrameCuentas()");
+                break;
+            case 10:
+                cumplidoscomprobantes = new IFrameCumplidoscomprobantes();
+                System.out.println("*** IFrameCumplidoscomprobantes()");
+                break;
+            case 11:
+                facturascomprobantes = new IFrameFacturascomprobantes();
+                System.out.println("*** IFrameFacturascomprobantes()");
+                break;
+            case 12:
+                formadepagocontratos = new IFrameFormadepagocontratos();
+                System.out.println("*** IFrameFormadepagocontratos()");
+                break;
+            case 13:
+                formadepagosolicitudesoferta = new IFrameFormadepagosolicitudesoferta();
+                System.out.println("*** IFrameFormadepagosolicitudesoferta()");
+                break;
+            case 14:
+                modificaciones = new IFrameModificaciones();
+                System.out.println("*** IFrameModificaciones()");
+                break;
+            case 15:
+                observacionescontratos = new IFrameObservacionescontratos();
+                System.out.println("*** IFrameObservacionescontratos()");
+                break;
+            case 16:
+                observacionescuentas = new IFrameObservacionescuentas();
+                System.out.println("*** IFrameObservacionescuentas()");
+                break;
+            case 17:
+                polizas = new IFramePolizas();
+                System.out.println("*** IFramePolizas()");
+                break;
+            case 18:
+                reportes = new IFrameReportes();
+                System.out.println("*** IFrameInformes()");
+                break;
+            case 19:
+                resoluciones = new IFrameResoluciones();
+                System.out.println("*** IFrameResolucion()");
+                break;
+            case 20:
+                serviciossolicitudesoferta = new IFrameServiciossolicitudesoferta();
+                System.out.println("*** IFrameServiciossolicitudesoferta()");
+                break;
+            case 21:
+                solicitudesoferta = new IFrameSolicitudesoferta();
+                System.out.println("*** IFrameSolicitudesoferta()");
+                break;
+            case 22:
+                soportescomprobantes = new IFrameSoportescomprobantes();
+                System.out.println("*** IFrameSoportescomprobantes()");
+                break;
+            case 23:
+                soportescontratos = new IFrameSoportescontratos();
+                System.out.println("*** IFrameSoportescontratos()");
+                break;
+            case 24:
+                soportescuentas = new IFrameSoportescuentas();
+                System.out.println("*** IFrameSoportescuentas()");
+                break;
+            case 25:
+                terceros = new IFrameTerceros();
+                System.out.println("*** IFrameTerceros()");
+                break;
+            case 26:
+                tercerosresoluciones = new IFrameTercerosresoluciones();
+                System.out.println("*** IFrameTercerosresoluciones()");
+                break;
+            case 27:
+                planestrategicocontratos = new IFramePlanestrategicocontratos();
+                System.out.println("*** IFramePlaestrategicocontratos()");
+                break;   
         }
     }
 
     public void metodoLimpiar() {
         anexoscontratos.setVisible(false);
         anexosterceros.setVisible(false);
+        bienessolicitudesoferta.setVisible(false);
         comprobantes.setVisible(false);
         comprobantesnoreembolsados.setVisible(false);
         comprobantespendientes.setVisible(false);
@@ -966,26 +989,21 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         cumplidoscomprobantes.setVisible(false);
         facturascomprobantes.setVisible(false);
         formadepagocontratos.setVisible(false);
+        formadepagosolicitudesoferta.setVisible(false);
         modificaciones.setVisible(false);
         observacionescontratos.setVisible(false);
         observacionescuentas.setVisible(false);
+        planestrategicocontratos.setVisible(false);
         polizas.setVisible(false);
         reportes.setVisible(false);
-        resolucion.setVisible(false);
+        resoluciones.setVisible(false);
+        serviciossolicitudesoferta.setVisible(false);
+        solicitudesoferta.setVisible(false);
         soportescomprobantes.setVisible(false);
         soportescontratos.setVisible(false);
         soportescuentas.setVisible(false);
         terceros.setVisible(false);
         tercerosresoluciones.setVisible(false);
-        /**
-         * **********
-         */
-        solicitudesoferta.setVisible(false);
-        bienessolicitudesoferta.setVisible(false);
-//        soportesresoluciones.setVisible(false);
-        /**
-         * *********
-         */
 
         jPanelSur.setVisible(false);
     }
@@ -994,15 +1012,22 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         try {
             if (padre.equals("Solicitud de Oferta")
                     && (hijo.equals("Solicitudes *")
-                    || hijo.equals("Bienes"))
-                    && ClaseGeneral.solicitudesoferta.getId() > 0) {
-                labelEntidad.setText("<html><p>"
-                        + "<font color=\"#0E4986\"> Solicitud de Oferta: </font><br/>   " + ClaseGeneral.solicitudesoferta.getId() + "</p></html>");
+                    || hijo.equals("Bienes")
+                    || hijo.equals("Forma de Pago")
+                    ||hijo.equals("Servicios"))
+                    && ClaseGeneral.solicitudesoferta.getId() != null) {
+                if (ClaseGeneral.solicitudesoferta.getId().length() > 18) {//0090.0090_0001.0001
+                    labelEntidad.setText("<html><p>"
+                            + "<font color=\"#0E4986\"> Solicitud de Oferta: </font><br/>   <font size=\"-2\">" + ClaseGeneral.solicitudesoferta.getId() + "</font></p></html>");
+                } else {
+                    labelEntidad.setText("<html><p>"
+                            + "<font color=\"#0E4986\"> Solicitud de Oferta: </font><br/>   " + ClaseGeneral.solicitudesoferta.getId()+ "</p></html>");
+                }
                 jPanelSur.setVisible(true);
-
             } else if (padre.equals("Orden Contractual")
                     && (hijo.equals("Contratos *")
                     || hijo.equals("Modificaciones")
+                    || hijo.equals("Plan Estrategico")
                     || hijo.equals("Pólizas")
                     || hijo.equals("Soportes")
                     || hijo.equals("Anexos")
@@ -1036,8 +1061,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                 jPanelSur.setVisible(true);
             } else if (padre.equals("Resoluciones")
                     && (hijo.equals("Articulos")
-                    || hijo.equals("Resolucion *")
-                    || hijo.equals("Soportes"))
+                    || hijo.equals("Resolucion *"))
                     && ClaseGeneral.resoluciones.getResolucionPK().getId() > 0) {
                 labelEntidad.setText("<html><p>"
                         + "<font color=\"#0E4986\"> Resolucion: </font><br/>   " + ClaseGeneral.resoluciones.getResolucionPK().getId() + "</p></html>");
@@ -1107,7 +1131,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         @Override
         public void run() {
             int min = 1;
-            int max = 25;//**// IMPORTANTE
+            int max = 27;//**// IMPORTANTE
 
             FrameInicio.jProgressBar.setValue(min);
             FrameInicio.jProgressBar.setMinimum(min);

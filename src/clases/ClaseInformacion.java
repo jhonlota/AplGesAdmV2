@@ -28,21 +28,21 @@ public class ClaseInformacion {
     public static DecimalFormat formatoEntero = new DecimalFormat("#######");
     public DefaultTableCellRenderer modeloDerecha = new DefaultTableCellRenderer();
     public static Calendar calendario;
-    
+
     public static SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
-    
+
     public ClaseInformacion() {
         calendario = Calendar.getInstance();
         modeloDerecha.setHorizontalAlignment(SwingConstants.RIGHT);
     }
-    
+
     public static String ConvertirHora(Date hora) {
         String cadena = formatoHora.format(hora);
         return cadena;
     }
-    
+
     public static Date ConvertirHora(String cadena) {
-        
+
         try {
             Date hora = (Date) formatoHora.parse(cadena);
             return hora;
@@ -50,7 +50,7 @@ public class ClaseInformacion {
             return null;
         }
     }
-    
+
     public static String ConvertirFecha(Date fecha) {
         String cadena = formatoFecha.format(fecha);
         return cadena;
@@ -418,7 +418,7 @@ public class ClaseInformacion {
 
         return is;
     }
-    
+
     public static boolean ValidarCALIFICACION(String tramite) {
         return ClaseGeneral.controlCalificacion.findSoporteInCalificacionByTramite(tramite);
     }
@@ -523,7 +523,12 @@ public class ClaseInformacion {
         } else if ("454711".equals(cinfo)) {
             cuentainterna = "003148";
         } else if ("454712".equals(cinfo)
-                || "454716".equals(cinfo)
+                || "454713".equals(cinfo)
+                || "454714".equals(cinfo)) {
+            cuentainterna = "454706";
+        } else if ("454715".equals(cinfo)) {
+            cuentainterna = "003140";
+        } else if ("454716".equals(cinfo)
                 || "454717".equals(cinfo)
                 || "454718".equals(cinfo)
                 || "454719".equals(cinfo)
@@ -531,23 +536,15 @@ public class ClaseInformacion {
                 || "454721".equals(cinfo)
                 || "454722".equals(cinfo)) {
             cuentainterna = "454706";
-        } else if ("454713".equals(cinfo)) {
-            cuentainterna = "454706";
-        } else if ("454714".equals(cinfo)) {
-            cuentainterna = "454706";
-        } else if ("454715".equals(cinfo)) {
-            cuentainterna = "003140";
         } else if ("454723".equals(cinfo)) {
             cuentainterna = "003140";
         } else if ("454724".equals(cinfo)) {
             cuentainterna = "454706";
         } else if ("454725".equals(cinfo)) {
             cuentainterna = "003146";
-        } else if ("454726".equals(cinfo)) {
-            cuentainterna = "454706";
-        } else if ("454727".equals(cinfo)) {
-            cuentainterna = "454706";
-        } else if ("454728".equals(cinfo)) {
+        } else if ("454726".equals(cinfo)
+                || "454727".equals(cinfo)
+                || "454728".equals(cinfo)) {
             cuentainterna = "454706";
         } else if ("454729".equals(cinfo)) {
             cuentainterna = "003147";
@@ -555,13 +552,16 @@ public class ClaseInformacion {
             cuentainterna = "459706";
         } else if ("454731".equals(cinfo)) {
             cuentainterna = "003140";
-        } else if ("454732".equals(cinfo)) {
+        } else if ("454732".equals(cinfo)
+                || "454733".equals(cinfo)
+                || "454737".equals(cinfo)) {
             cuentainterna = "454706";
         } else if ("455000".equals(cinfo)
                 || "455001".equals(cinfo)
                 || "455002".equals(cinfo)
                 || "455003".equals(cinfo)
-                || "455004".equals(cinfo)) {
+                || "455004".equals(cinfo)
+                || "455005".equals(cinfo)) {
             if (actividad.equals("001")
                     || actividad.equals("003")) {
                 if (ccostos.equals("47011")) {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1044" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
-	<property name="ireport.zoom" value="0.8052550000000226"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="2.0886240847078863"/>
+	<property name="ireport.x" value="61"/>
+	<property name="ireport.y" value="40"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -29,7 +29,8 @@
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\User\\Desktop\\ULTIMOS MODIFICADS\\"
+]]></defaultValueExpression>
 	</parameter>
 	<parameter name="ANO" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
@@ -186,7 +187,7 @@ ORDER BY
 					<subreportParameterExpression><![CDATA[$F{SOLICITUDESOFERTA_FKTERCERO}.substring( 0, $F{SOLICITUDESOFERTA_FKTERCERO}.indexOf( " - " ) )]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoSolicitudoferta_subreport4.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoSolicitudoferta_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<textField isBlankWhenNull="true">
 				<reportElement uuid="00b856b9-71e5-48bc-b5f6-b17f7feb869e" style="table" x="594" y="107" width="45" height="15"/>
@@ -210,10 +211,6 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Bienes]]></text>
 			</staticText>
-			<image>
-				<reportElement uuid="62ff49af-27bf-4b3d-864a-c9b73f5acc18" x="45" y="9" width="42" height="60"/>
-				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Univalle.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement uuid="65506536-f464-4c18-8227-a4c952934346" x="20" y="356" width="710" height="20"/>
 				<textElement>
@@ -260,6 +257,10 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Año]]></text>
 			</staticText>
+			<image>
+				<reportElement uuid="24f55654-858f-436b-8e13-c147c1d66142" x="49" y="8" width="48" height="60"/>
+				<imageExpression><![CDATA["C:\\Users\\User\\Desktop\\ULTIMOS MODIFICADS\\Univalle.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<columnHeader>

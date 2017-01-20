@@ -95,8 +95,6 @@ public class FormadepagocontratosJpaController {
     public boolean verify(Formadepagocontratos formadepagocontratos) {
         try {
             ClaseGeneral.errorValidacion = "";
-            System.out.println(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechainicio(), formadepagocontratos.getFormadepagocontratosPK().getFecha()));
-            System.out.println(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechaterminacion(), formadepagocontratos.getFormadepagocontratosPK().getFecha()));
             if (ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechainicio(), formadepagocontratos.getFormadepagocontratosPK().getFecha()) >= 0, "FECHA ANTERIOR A LA DE INICIO")
                     && ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechaterminacion(), formadepagocontratos.getFormadepagocontratosPK().getFecha()) <= 0, "FECHA POSTERIOR A LA DE TERMINACION")) {
                 return true;
@@ -157,18 +155,18 @@ public class FormadepagocontratosJpaController {
         }
     }
 
-    public DefaultComboBoxModel COMBOIdNombreInFormadepagocontratosBy() {
-        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
-        try {
-            modeloCombo.addElement("Seleccione - ");
-            datos.query("SELECT DISTINCT(ID), NOMBRE FROM FORMADEPAGOCONTRATOS");// ORDER BY id
-            while (ClaseBaseDatos.resultado.next()) {
-                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("ID") + " - " + ClaseBaseDatos.resultado.getString("NOMBRE"));
-            }
-            return modeloCombo;
-        } catch (SQLException ex) {
-            ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return modeloCombo;
-        }
-    }
+//    public DefaultComboBoxModel COMBOIdNombreInFormadepagocontratosBy() {
+//        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
+//        try {
+//            modeloCombo.addElement("Seleccione - ");
+//            datos.query("SELECT DISTINCT(ID), NOMBRE FROM FORMADEPAGOCONTRATOS");// ORDER BY id
+//            while (ClaseBaseDatos.resultado.next()) {
+//                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("ID") + " - " + ClaseBaseDatos.resultado.getString("NOMBRE"));
+//            }
+//            return modeloCombo;
+//        } catch (SQLException ex) {
+//            ClaseMensaje.errorFind(this.toString(), ex.toString());
+//            return modeloCombo;
+//        }
+//    }
 }

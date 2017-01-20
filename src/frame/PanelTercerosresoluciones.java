@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * PanelSoportescomprobantesContratos.java
  *
  * Created on 16/01/2012, 05:14:48 PM
@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,7 +35,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
     private ClaseInformacion informacion = new ClaseInformacion();
     private BigDecimal salario = BigDecimal.ZERO;
     private double diario = 0.0;
-    private List listaSoporte = new ArrayList();
+    private List listaSoporte;
     private String fksoportecuenta;
     private int fksoportecuentaid;
     private int fksoportecomprobante;
@@ -46,6 +47,13 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
      */
     public PanelTercerosresoluciones() {
         initComponents();
+
+        cuenta.setFocusable(false);
+        actividad.setFocusable(false);
+        subgrupo.setFocusable(false);
+        ccostos.setFocusable(false);
+        cinfo.setFocusable(false);
+        cuentainterna.setFocusable(false);
 
         fkresolucion.setText("" + ClaseGeneral.resoluciones.getResolucionPK().getId());
         objetivo.setText(ClaseGeneral.resoluciones.getObservacion());
@@ -73,10 +81,10 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         botonAyuda1 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
         jTabbedPane = new javax.swing.JTabbedPane();
-        panelTercero = new javax.swing.JPanel();
+        panelTercerosresoluciones = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        botonAyuda3 = new javax.swing.JButton();
+        botonAyuda2 = new javax.swing.JButton();
         fktercero = new javax.swing.JTextField();
         botonBuscarFktercero = new javax.swing.JButton();
         valor = new javax.swing.JTextField();
@@ -97,14 +105,16 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jScrollPaneObjetivo = new javax.swing.JScrollPane();
         objetivo = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
-        jScrollPane = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        panelSoportesresoluciones = new javax.swing.JPanel();
         jLabel73 = new javax.swing.JLabel();
         botonSeleccionarImputacion = new javax.swing.JButton();
         jLabel75 = new javax.swing.JLabel();
         jSeparator17 = new javax.swing.JSeparator();
+        botonGuardarImputacion = new javax.swing.JButton();
+        botonEliminarImputacion = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -117,13 +127,13 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
         cuenta = new javax.swing.JTextField();
         actividad = new javax.swing.JTextField();
-        subgrupo = new javax.swing.JComboBox();
+        subgrupo = new javax.swing.JTextField();
         ccostos = new javax.swing.JTextField();
-        cinfo = new javax.swing.JComboBox();
-        cuentainterna = new javax.swing.JComboBox();
+        cinfo = new javax.swing.JTextField();
+        cuentainterna = new javax.swing.JTextField();
         valorSoporte = new javax.swing.JTextField();
         jLabel74 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jTableImputacion = new javax.swing.JTable();
 
         fkcuenta.setBackground(ClaseGeneral.campo);
@@ -131,48 +141,18 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         fkcuenta.setText("-");
         fkcuenta.setMargin(new java.awt.Insets(2, 4, 2, 4));
         fkcuenta.setPreferredSize(new java.awt.Dimension(210, 25));
-        fkcuenta.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                fkcuentaTextFieldFocusGained(evt);
-            }
-        });
-        fkcuenta.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                fkcuentaTextFieldKeyReleased(evt);
-            }
-        });
 
         fkcomprobante.setBackground(ClaseGeneral.campo);
         fkcomprobante.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fkcomprobante.setText("-");
         fkcomprobante.setMargin(new java.awt.Insets(2, 4, 2, 4));
         fkcomprobante.setPreferredSize(new java.awt.Dimension(210, 25));
-        fkcomprobante.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                fkcomprobanteTextFieldFocusGained(evt);
-            }
-        });
-        fkcomprobante.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                fkcomprobanteTextFieldKeyReleased(evt);
-            }
-        });
 
         id.setBackground(ClaseGeneral.campo);
         id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         id.setText("-");
         id.setMargin(new java.awt.Insets(2, 4, 2, 4));
         id.setPreferredSize(new java.awt.Dimension(210, 25));
-        id.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                idTextFieldFocusGained(evt);
-            }
-        });
-        id.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                idTextFieldKeyReleased(evt);
-            }
-        });
 
         setName("panelTercerosresolucion"); // NOI18N
 
@@ -233,38 +213,38 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jTabbedPane.setOpaque(true);
         jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 600));
 
-        panelTercero.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelTercero.setPreferredSize(new java.awt.Dimension(800, 99));
-        panelTercero.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        panelTercerosresoluciones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelTercerosresoluciones.setPreferredSize(new java.awt.Dimension(800, 99));
+        panelTercerosresoluciones.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("TERCERO");
         jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel5.setPreferredSize(new java.awt.Dimension(620, 25));
-        panelTercero.add(jLabel5);
+        panelTercerosresoluciones.add(jLabel5);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("VALOR");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel6.setPreferredSize(new java.awt.Dimension(130, 25));
-        panelTercero.add(jLabel6);
+        panelTercerosresoluciones.add(jLabel6);
 
-        botonAyuda3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda3.setFocusable(false);
-        botonAyuda3.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda3.addActionListener(new java.awt.event.ActionListener() {
+        botonAyuda2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda2.setFocusable(false);
+        botonAyuda2.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyuda3ActionPerformed(evt);
+                botonAyuda2ActionPerformed(evt);
             }
         });
-        panelTercero.add(botonAyuda3);
+        panelTercerosresoluciones.add(botonAyuda2);
 
         fktercero.setBackground(ClaseGeneral.campo);
         fktercero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fktercero.setFocusable(false);
         fktercero.setMargin(new java.awt.Insets(2, 4, 2, 4));
         fktercero.setPreferredSize(new java.awt.Dimension(590, 25));
-        panelTercero.add(fktercero);
+        panelTercerosresoluciones.add(fktercero);
 
         botonBuscarFktercero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
         botonBuscarFktercero.setFocusable(false);
@@ -275,7 +255,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 botonBuscarFkterceroActionPerformed(evt);
             }
         });
-        panelTercero.add(botonBuscarFktercero);
+        panelTercerosresoluciones.add(botonBuscarFktercero);
 
         valor.setBackground(ClaseGeneral.campo);
         valor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -292,18 +272,17 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 TextFieldKeyReleased(evt);
             }
         });
-        panelTercero.add(valor);
+        panelTercerosresoluciones.add(valor);
 
         botonCALCValor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/process.png"))); // NOI18N
         botonCALCValor.setFocusable(false);
-        botonCALCValor.setName("botonBuscarFktercero"); // NOI18N
         botonCALCValor.setPreferredSize(new java.awt.Dimension(25, 24));
         botonCALCValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCALCValorActionPerformed(evt);
             }
         });
-        panelTercero.add(botonCALCValor);
+        panelTercerosresoluciones.add(botonCALCValor);
 
         textInformacionTercero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         textInformacionTercero.setForeground(new java.awt.Color(0, 102, 51));
@@ -311,7 +290,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         textInformacionTercero.setMargin(new java.awt.Insets(2, 4, 2, 4));
         textInformacionTercero.setOpaque(false);
         textInformacionTercero.setPreferredSize(new java.awt.Dimension(455, 25));
-        panelTercero.add(textInformacionTercero);
+        panelTercerosresoluciones.add(textInformacionTercero);
 
         botonCambiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/process.png"))); // NOI18N
         botonCambiar.setText("Cambiar Salario");
@@ -323,7 +302,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 botonCambiarActionPerformed(evt);
             }
         });
-        panelTercero.add(botonCambiar);
+        panelTercerosresoluciones.add(botonCambiar);
 
         valorTotal.setBackground(ClaseGeneral.verde);
         valorTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -331,10 +310,10 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         valorTotal.setText("0");
         valorTotal.setMargin(new java.awt.Insets(2, 4, 2, 4));
         valorTotal.setPreferredSize(new java.awt.Dimension(160, 25));
-        panelTercero.add(valorTotal);
+        panelTercerosresoluciones.add(valorTotal);
 
         jLabel19.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel19);
+        panelTercerosresoluciones.add(jLabel19);
 
         jPanelOtraFormaPago.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OTRA FORMA DE PAGO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanelOtraFormaPago.setPreferredSize(new java.awt.Dimension(790, 75));
@@ -354,11 +333,11 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 
         jPanelOtraFormaPago.add(jScrollPaneDestino1, java.awt.BorderLayout.CENTER);
 
-        panelTercero.add(jPanelOtraFormaPago);
+        panelTercerosresoluciones.add(jPanelOtraFormaPago);
         jPanelOtraFormaPago.getAccessibleContext().setAccessibleName("");
 
         jLabel20.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel20);
+        panelTercerosresoluciones.add(jLabel20);
 
         jPanelDestino.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESTINO (RUTA)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanelDestino.setPreferredSize(new java.awt.Dimension(790, 75));
@@ -378,10 +357,10 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 
         jPanelDestino.add(jScrollPaneDestino, java.awt.BorderLayout.CENTER);
 
-        panelTercero.add(jPanelDestino);
+        panelTercerosresoluciones.add(jPanelDestino);
 
         jLabel13.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel13);
+        panelTercerosresoluciones.add(jLabel13);
 
         jPanelObjetivo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBJETIVO (PERIODO, COMISION, VALOR GASTOS, VALOR TRANSPORTE)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanelObjetivo.setPreferredSize(new java.awt.Dimension(790, 75));
@@ -400,12 +379,12 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 
         jPanelObjetivo.add(jScrollPaneObjetivo, java.awt.BorderLayout.CENTER);
 
-        panelTercero.add(jPanelObjetivo);
+        panelTercerosresoluciones.add(jPanelObjetivo);
 
         jLabel10.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel10);
+        panelTercerosresoluciones.add(jLabel10);
 
-        jScrollPane.setPreferredSize(new java.awt.Dimension(790, 125));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(790, 135));
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -519,20 +498,19 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jTable.setIntercellSpacing(new java.awt.Dimension(2, 2));
         jTable.setRowHeight(20);
         jTable.setSelectionBackground(ClaseGeneral.campo);
-        jScrollPane.setViewportView(jTable);
+        jScrollPane1.setViewportView(jTable);
 
-        panelTercero.add(jScrollPane);
+        panelTercerosresoluciones.add(jScrollPane1);
 
         jLabel18.setPreferredSize(new java.awt.Dimension(790, 5));
-        panelTercero.add(jLabel18);
+        panelTercerosresoluciones.add(jLabel18);
 
-        jTabbedPane.addTab("TERCERO", panelTercero);
+        jTabbedPane.addTab("TERCERO", panelTercerosresoluciones);
 
-        jPanel1.setName("panelSoportesresoluciones"); // NOI18N
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        panelSoportesresoluciones.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel73.setPreferredSize(new java.awt.Dimension(810, 25));
-        jPanel1.add(jLabel73);
+        jLabel73.setPreferredSize(new java.awt.Dimension(790, 15));
+        panelSoportesresoluciones.add(jLabel73);
 
         botonSeleccionarImputacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
         botonSeleccionarImputacion.setText("Seleccionar Imputación");
@@ -540,31 +518,56 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         botonSeleccionarImputacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         botonSeleccionarImputacion.setName("botonSeleccionarImputacion"); // NOI18N
         botonSeleccionarImputacion.setPreferredSize(new java.awt.Dimension(200, 24));
-        //botonSeleccionarImputacion.setEnabled(false);
         botonSeleccionarImputacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSeleccionarImputacionActionPerformed(evt);
             }
         });
-        jPanel1.add(botonSeleccionarImputacion);
+        panelSoportesresoluciones.add(botonSeleccionarImputacion);
 
-        jLabel75.setPreferredSize(new java.awt.Dimension(20, 25));
-        jPanel1.add(jLabel75);
+        jLabel75.setPreferredSize(new java.awt.Dimension(15, 25));
+        panelSoportesresoluciones.add(jLabel75);
 
         jSeparator17.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator17.setPreferredSize(new java.awt.Dimension(20, 25));
-        jPanel1.add(jSeparator17);
+        panelSoportesresoluciones.add(jSeparator17);
+
+        botonGuardarImputacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/save.png"))); // NOI18N
+        botonGuardarImputacion.setText("Guardar");
+        botonGuardarImputacion.setFocusable(false);
+        botonGuardarImputacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        botonGuardarImputacion.setName("botonSeleccionarImputacion"); // NOI18N
+        botonGuardarImputacion.setPreferredSize(new java.awt.Dimension(120, 24));
+        botonGuardarImputacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGuardarImputacionActionPerformed(evt);
+            }
+        });
+        panelSoportesresoluciones.add(botonGuardarImputacion);
+
+        botonEliminarImputacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/delete.png"))); // NOI18N
+        botonEliminarImputacion.setText("Eliminar");
+        botonEliminarImputacion.setFocusable(false);
+        botonEliminarImputacion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        botonEliminarImputacion.setName("botonSeleccionarImputacion"); // NOI18N
+        botonEliminarImputacion.setPreferredSize(new java.awt.Dimension(120, 24));
+        botonEliminarImputacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarImputacionActionPerformed(evt);
+            }
+        });
+        panelSoportesresoluciones.add(botonEliminarImputacion);
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField4.setEnabled(false);
         jTextField4.setFocusable(false);
         jTextField4.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField4.setOpaque(false);
-        jTextField4.setPreferredSize(new java.awt.Dimension(535, 25));
-        jPanel1.add(jTextField4);
+        jTextField4.setPreferredSize(new java.awt.Dimension(290, 25));
+        panelSoportesresoluciones.add(jTextField4);
 
-        jLabel72.setPreferredSize(new java.awt.Dimension(810, 25));
-        jPanel1.add(jLabel72);
+        jLabel72.setPreferredSize(new java.awt.Dimension(790, 15));
+        panelSoportesresoluciones.add(jLabel72);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setPreferredSize(new java.awt.Dimension(790, 70));
@@ -617,11 +620,6 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         cuenta.setText("0");
         cuenta.setMargin(new java.awt.Insets(2, 4, 2, 4));
         cuenta.setPreferredSize(new java.awt.Dimension(90, 25));
-        cuenta.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                cuentaTextFieldFocusGained(evt);
-            }
-        });
         jPanel2.add(cuenta);
 
         actividad.setBackground(ClaseGeneral.campo);
@@ -629,18 +627,12 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         actividad.setText("0");
         actividad.setMargin(new java.awt.Insets(2, 4, 2, 4));
         actividad.setPreferredSize(new java.awt.Dimension(90, 25));
-        actividad.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                actividadTextFieldFocusGained(evt);
-            }
-        });
         jPanel2.add(actividad);
 
         subgrupo.setBackground(ClaseGeneral.campo);
         subgrupo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        subgrupo.setModel(ClaseGeneral.controlSubgrupo.COMBOCodigoInSubgrupoBy());
-        subgrupo.setSelectedItem("0");
-        subgrupo.setOpaque(false);
+        subgrupo.setText("0");
+        subgrupo.setMargin(new java.awt.Insets(2, 4, 2, 4));
         subgrupo.setPreferredSize(new java.awt.Dimension(90, 25));
         jPanel2.add(subgrupo);
 
@@ -649,26 +641,19 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         ccostos.setText("0");
         ccostos.setMargin(new java.awt.Insets(2, 4, 2, 4));
         ccostos.setPreferredSize(new java.awt.Dimension(95, 25));
-        ccostos.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                ccostosTextFieldFocusGained(evt);
-            }
-        });
         jPanel2.add(ccostos);
 
         cinfo.setBackground(ClaseGeneral.campo);
         cinfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cinfo.setModel(ClaseGeneral.controlCinfo.COMBOCodigoInCinfoBy());
-        cinfo.setSelectedItem("0");
-        cinfo.setOpaque(false);
+        cinfo.setText("0");
+        cinfo.setMargin(new java.awt.Insets(2, 4, 2, 4));
         cinfo.setPreferredSize(new java.awt.Dimension(95, 25));
         jPanel2.add(cinfo);
 
         cuentainterna.setBackground(ClaseGeneral.campo);
         cuentainterna.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cuentainterna.setModel(ClaseGeneral.controlCuentainterna.COMBOCodigoInCuentainternaBy());
-        cuentainterna.setSelectedItem("0");
-        cuentainterna.setOpaque(false);
+        cuentainterna.setText("0");
+        cuentainterna.setMargin(new java.awt.Insets(2, 4, 2, 4));
         cuentainterna.setPreferredSize(new java.awt.Dimension(125, 25));
         jPanel2.add(cuentainterna);
 
@@ -677,142 +662,150 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         valorSoporte.setText("0");
         valorSoporte.setMargin(new java.awt.Insets(2, 4, 2, 4));
         valorSoporte.setPreferredSize(new java.awt.Dimension(160, 25));
-        valorSoporte.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                valorSoporteTextFieldFocusGained(evt);
-            }
-        });
         valorSoporte.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                valorSoporteTextFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         jPanel2.add(valorSoporte);
 
-        jPanel1.add(jPanel2);
+        panelSoportesresoluciones.add(jPanel2);
 
-        jLabel74.setPreferredSize(new java.awt.Dimension(810, 25));
-        jPanel1.add(jLabel74);
+        jLabel74.setPreferredSize(new java.awt.Dimension(790, 15));
+        panelSoportesresoluciones.add(jLabel74);
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(790, 300));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(790, 340));
 
         jTableImputacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR"
+                "SOPORTE", "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR", "..."
             }
-        ));
-        jTableImputacion.setEnabled(false);
-        jTableImputacion.setFocusable(false);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTableImputacion.setIntercellSpacing(new java.awt.Dimension(2, 2));
         jTableImputacion.setRowHeight(20);
         jTableImputacion.setSelectionBackground(ClaseGeneral.campo);
-        jScrollPane1.setViewportView(jTableImputacion);
+        jScrollPane2.setViewportView(jTableImputacion);
 
-        jPanel1.add(jScrollPane1);
+        panelSoportesresoluciones.add(jScrollPane2);
 
-        jTabbedPane.addTab("FORMA DE PAGO", jPanel1);
+        jTabbedPane.addTab("FORMA DE PAGO", panelSoportesresoluciones);
 
         add(jTabbedPane);
         jTabbedPane.getAccessibleContext().setAccessibleName("");
@@ -828,7 +821,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         try {
             try {
                 valor.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valor.getText().trim().replace(".", ""))));
-                soporte.setText(ClaseInformacion.formatoEntero.format(Long.parseLong(soporte.getText().trim().replace(".", ""))));
+                valorSoporte.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valorSoporte.getText().trim().replace(".", ""))));
             } catch (Exception ex) {
                 Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -884,14 +877,14 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 + "</body></html>");
     }//GEN-LAST:event_botonAyuda1ActionPerformed
 
-    private void botonAyuda3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAyuda3ActionPerformed
+    private void botonAyuda2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAyuda2ActionPerformed
         ClaseMensaje.informacion("<html><body>"
                 + "Si está utilizando algún tipo de tarifa, y desea calcular el valor<br/>"
                 + "dependiendo la Fecha de Inicio y la Fecha de Finalización, y teniendo<br/>"
                 + "en cuenta el salario que se encuentra en la base de datos, puede dar<br/>"
                 + "clic en el botón Ejecutar, que se encuentra al lado del campo valor."
                 + "</body></html>");
-    }//GEN-LAST:event_botonAyuda3ActionPerformed
+    }//GEN-LAST:event_botonAyuda2ActionPerformed
 
     private void botonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarActionPerformed
         try {
@@ -920,90 +913,69 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_botonCambiarActionPerformed
 
-    private void fkcuentaTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fkcuentaTextFieldFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fkcuentaTextFieldFocusGained
-
-    private void fkcuentaTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fkcuentaTextFieldKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fkcuentaTextFieldKeyReleased
-
-    private void fkcomprobanteTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fkcomprobanteTextFieldFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fkcomprobanteTextFieldFocusGained
-
-    private void fkcomprobanteTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fkcomprobanteTextFieldKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fkcomprobanteTextFieldKeyReleased
-
     private void botonSeleccionarImputacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarImputacionActionPerformed
         javax.swing.JButton componente = (javax.swing.JButton) evt.getSource();
         String evento = componente.getName();
         ExternoPanelBuscarImputacion panelBuscarImputacion = new ExternoPanelBuscarImputacion();
         ClaseMensaje.panel(panelBuscarImputacion);
-
-        if (evento.equals("botonSeleccionarImputacion")) {
-            if (!panelBuscarImputacion.soporte.equals("Seleccione - ")) {
-                StringTokenizer st = new StringTokenizer(panelBuscarImputacion.soporte.trim(), "-");
-                while (st.hasMoreTokens()) {
-                    listaSoporte.add(st.nextToken().trim());
-                }
-                cuenta.setText("" + listaSoporte.get(0));
-                actividad.setText("" + listaSoporte.get(1));
-                subgrupo.setSelectedItem("" + listaSoporte.get(2));
-                ccostos.setText("" + listaSoporte.get(3));
-                cinfo.setSelectedItem("" + listaSoporte.get(4));
-                cuentainterna.setSelectedItem("" + listaSoporte.get(5));
-                valorSoporte.setText("" + listaSoporte.get(6));
-                fksoportecuenta = panelBuscarImputacion.fksoportecuenta;
-                fksoportecuentaid = panelBuscarImputacion.fksoportecuentaid;
-                fksoportecomprobante = panelBuscarImputacion.fksoportecomprobante;
-                fksoportecomprobanteid = panelBuscarImputacion.fksoportecomprobanteid;
-                fksoportecomprobanteano = panelBuscarImputacion.fksoportecomprobanteano;
-
+        
+        listaSoporte = new ArrayList();
+        if (!panelBuscarImputacion.soporte.equals("Seleccione")) {
+            StringTokenizer st = new StringTokenizer(panelBuscarImputacion.soporte.trim(), "-");
+            while (st.hasMoreTokens()) {
+                listaSoporte.add(st.nextToken().trim());
             }
+            
+            fksoportecuenta = panelBuscarImputacion.fksoportecuenta;
+            fksoportecuentaid = panelBuscarImputacion.fksoportecuentaid;
+            fksoportecomprobante = panelBuscarImputacion.fksoportecomprobante;
+            fksoportecomprobanteid = panelBuscarImputacion.fksoportecomprobanteid;
+            fksoportecomprobanteano = panelBuscarImputacion.fksoportecomprobanteano;
+
+            actividad.setText("" + listaSoporte.get(1));
+            ccostos.setText("" + listaSoporte.get(3));
+            cinfo.setText("" + listaSoporte.get(4));
+            cuenta.setText("" + listaSoporte.get(0));
+            cuentainterna.setText("" + listaSoporte.get(5));
+            valorSoporte.setText("" + listaSoporte.get(6));
+            
+            botonSeleccionarImputacion.setEnabled(false);
+            botonGuardarImputacion.setEnabled(true);
         }
     }//GEN-LAST:event_botonSeleccionarImputacionActionPerformed
 
-    private void cuentaTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cuentaTextFieldFocusGained
-        javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
-        componente.selectAll();
-        componente.requestFocus();
-    }//GEN-LAST:event_cuentaTextFieldFocusGained
+    private void botonEliminarImputacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarImputacionActionPerformed
+        int opcion = -1;
+        opcion = ClaseMensaje.preguntar();
+        if (opcion == JOptionPane.YES_OPTION) {
+//            for (int i = 0; i < 100; i++) {
+//                if ((new Boolean((boolean) jTableImputacion.getValueAt(i, 7)))) {
+//                    ClaseGeneral.controlSoportesresoluciones.destroy(Integer.parseInt("" + jTableImputacion.getValueAt(i, 8)), Integer.parseInt("" + jTableImputacion.getValueAt(i, 9)), Integer.parseInt("" + jTableImputacion.getValueAt(i, 10)));
+//                };
+//            }
 
-    private void actividadTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_actividadTextFieldFocusGained
-        javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
-        componente.selectAll();
-        componente.requestFocus();
-    }//GEN-LAST:event_actividadTextFieldFocusGained
-
-    private void ccostosTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ccostosTextFieldFocusGained
-        javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
-        componente.selectAll();
-        componente.requestFocus();
-    }//GEN-LAST:event_ccostosTextFieldFocusGained
-
-    private void valorSoporteTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_valorSoporteTextFieldFocusGained
-        javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
-        componente.selectAll();
-        componente.requestFocus();
-    }//GEN-LAST:event_valorSoporteTextFieldFocusGained
-
-    private void valorSoporteTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_valorSoporteTextFieldKeyReleased
-        try {
-            valor.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valor.getText().trim().replace(".", ""))));
-        } catch (Exception ex) {
-            Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
+            lista = ClaseGeneral.controlSoportesresoluciones.findAllInSoportesresolucionesByFkresolucionAnoFktercerosresolucion(Integer.parseInt(fkresolucion.getText()), ClaseGeneral.resoluciones.getResolucionPK().getAno(), Integer.parseInt(id.getText()));
+            int i = 0;
+            for (Object lista1 : lista) {
+                ClaseGeneral.soportesresoluciones = (Soportesresoluciones) lista1;
+                if ((new Boolean((boolean) jTableImputacion.getValueAt(i, 8)))) {
+                    ClaseGeneral.controlSoportesresoluciones.destroy(ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK().getFkresolucion(),
+                            ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK().getId(),
+                            ClaseGeneral.soportesresoluciones.getSoportesresolucionesPK().getAno());
+                }
+                i++;
+            }
+            metodoMostrarImputacion();
         }
-    }//GEN-LAST:event_valorSoporteTextFieldKeyReleased
+    }//GEN-LAST:event_botonEliminarImputacionActionPerformed
 
-    private void idTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idTextFieldFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idTextFieldFocusGained
+    private void botonGuardarImputacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarImputacionActionPerformed
+        metodoInsertarSoportesresoluciones();
+        metodoMostrarImputacion();
 
-    private void idTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTextFieldKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idTextFieldKeyReleased
+        botonSeleccionarImputacion.setEnabled(true);
+        botonGuardarImputacion.setEnabled(false);
+    }//GEN-LAST:event_botonGuardarImputacionActionPerformed
 
     public void metodoInsertar() {
         ClaseGeneral.tercerosresoluciones = new Tercerosresoluciones();
@@ -1018,10 +990,45 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         ClaseGeneral.tercerosresoluciones.setTarifa("" + tarifa.getSelectedItem());
         ClaseGeneral.tercerosresoluciones.setSalario(salario);
         ClaseGeneral.tercerosresoluciones.setDiario(diario);
-        ClaseGeneral.tercerosresoluciones.setFkcomprobante("" + soporte.getText());
+        ClaseGeneral.tercerosresoluciones.setFkcomprobante("" + fkcomprobante.getText());
         ClaseGeneral.tercerosresoluciones.setFkcuenta("" + fkcuenta.getText());
-        
-        
+
+//        ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
+//        ClaseGeneral.soportesresolucionesPK = new SoportesresolucionesPK();
+//        ClaseGeneral.soportesresolucionesPK.setFkresolucion(Integer.parseInt("" + fkresolucion.getText()));
+//        ClaseGeneral.soportesresolucionesPK.setId(0);
+//        ClaseGeneral.soportesresolucionesPK.setAno(ClaseGeneral.resoluciones.getResolucionPK().getAno());
+//        ClaseGeneral.soportesresoluciones.setSoportesresolucionesPK(ClaseGeneral.soportesresolucionesPK);
+//        ClaseGeneral.soportesresoluciones.setFksoportecuenta(fksoportecuenta);
+//        ClaseGeneral.soportesresoluciones.setFksoportecuentaid(fksoportecuentaid);
+//        ClaseGeneral.soportesresoluciones.setFksoportecomprobante(fksoportecomprobante);
+//        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteid(fksoportecomprobanteid);
+//        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteano(fksoportecomprobanteano);
+////        ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
+//        ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
+//        ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
+//        ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getSelectedItem());
+//        ClaseGeneral.soportesresoluciones.setCcostos(ccostos.getText());
+//        ClaseGeneral.soportesresoluciones.setCinfo("" + cinfo.getSelectedItem());
+//        ClaseGeneral.soportesresoluciones.setCuentainterna("" + cuentainterna.getSelectedItem());
+//        ClaseGeneral.soportesresoluciones.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
+        try {
+            ClaseGeneral.controlTercerosresoluciones.create(ClaseGeneral.tercerosresoluciones);
+        } catch (Exception ex) {
+            Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//BORRAR por que no es necesario que la persona ingrese soportes cuando cree el articulo.
+//        if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
+//            try {
+//                ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
+//                ClaseGeneral.controlSoportesresoluciones.create(ClaseGeneral.soportesresoluciones);
+//            } catch (Exception ex) {
+//                Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+    }
+
+    public void metodoInsertarSoportesresoluciones() {
         ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
         ClaseGeneral.soportesresolucionesPK = new SoportesresolucionesPK();
         ClaseGeneral.soportesresolucionesPK.setFkresolucion(Integer.parseInt("" + fkresolucion.getText()));
@@ -1033,28 +1040,19 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         ClaseGeneral.soportesresoluciones.setFksoportecomprobante(fksoportecomprobante);
         ClaseGeneral.soportesresoluciones.setFksoportecomprobanteid(fksoportecomprobanteid);
         ClaseGeneral.soportesresoluciones.setFksoportecomprobanteano(fksoportecomprobanteano);
-//        ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
+        ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.tercerosresoluciones.getId());
         ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
         ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
-        ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getSelectedItem());
+        ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getText());
         ClaseGeneral.soportesresoluciones.setCcostos(ccostos.getText());
-        ClaseGeneral.soportesresoluciones.setCinfo("" + cinfo.getSelectedItem());
-        ClaseGeneral.soportesresoluciones.setCuentainterna("" + cuentainterna.getSelectedItem());
-        ClaseGeneral.soportesresoluciones.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
+        ClaseGeneral.soportesresoluciones.setCinfo("" + cinfo.getText());
+        ClaseGeneral.soportesresoluciones.setCuentainterna("" + cuentainterna.getText());
+        ClaseGeneral.soportesresoluciones.setValor(BigDecimal.valueOf(Long.parseLong("" + valorSoporte.getText().trim().replace(".", ""))));
 
         try {
-            ClaseGeneral.controlTercerosresoluciones.create(ClaseGeneral.tercerosresoluciones);
+            ClaseGeneral.controlSoportesresoluciones.create(ClaseGeneral.soportesresoluciones);
         } catch (Exception ex) {
             Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        if (ClaseGeneral.controlSoportesresoluciones.verify(ClaseGeneral.soportesresoluciones)) {
-            try {
-                ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
-                ClaseGeneral.controlSoportesresoluciones.create(ClaseGeneral.soportesresoluciones);
-            } catch (Exception ex) {
-                Logger.getLogger(PanelSoportesresoluciones.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
 
@@ -1071,9 +1069,9 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
             tarifa.setSelectedItem("" + ClaseGeneral.tercerosresoluciones.getTarifa());
             salario = ClaseGeneral.tercerosresoluciones.getSalario();
             diario = ClaseGeneral.tercerosresoluciones.getDiario();
-            soporte.setText(ClaseGeneral.tercerosresoluciones.getFkcomprobante());
-            fkcuenta.setText(ClaseGeneral.tercerosresoluciones.getFkcuenta());            
-            
+            fkcomprobante.setText(ClaseGeneral.tercerosresoluciones.getFkcomprobante());
+            fkcuenta.setText(ClaseGeneral.tercerosresoluciones.getFkcuenta());
+
             /**/ metodoMostrarImputacion();
 
             try {
@@ -1099,7 +1097,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         ClaseGeneral.tercerosresoluciones.setTarifa("" + tarifa.getSelectedItem());
         ClaseGeneral.tercerosresoluciones.setSalario(salario);
         ClaseGeneral.tercerosresoluciones.setDiario(diario);
-        ClaseGeneral.tercerosresoluciones.setFkcomprobante("" + soporte.getText());
+        ClaseGeneral.tercerosresoluciones.setFkcomprobante("" + fkcomprobante.getText());
         ClaseGeneral.tercerosresoluciones.setFkcuenta("" + fkcuenta.getText());
 
         try {
@@ -1114,6 +1112,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         ClaseGeneral.tercerosresoluciones = new Tercerosresoluciones();
         try {
             ClaseGeneral.controlTercerosresoluciones.destroy(tercerosresolucionId);
+            ClaseGeneral.controlSoportesresoluciones.destroyFktercerosresolucion(tercerosresolucionId);
         } catch (Exception ex) {
             Logger.getLogger(PanelTercerosresoluciones.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1141,13 +1140,13 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jTable.getColumnModel().getColumn(1).setPreferredWidth(100);
         valorTotal.setText("" + ClaseInformacion.formatoDecimal.format(valTotal));
     }
-    
+
     public void metodoMostrarImputacion() {
         BigDecimal valTotal = BigDecimal.ZERO;
         ClaseGeneral.soportesresoluciones = new Soportesresoluciones();
-        lista = ClaseGeneral.controlSoportesresoluciones.findAllInSoportesresolucionesByFkresolucionAnoFktercerosresolucion(Integer.parseInt(fkresolucion.getText()), ClaseGeneral.resoluciones.getResolucionPK().getAno(),Integer.parseInt(id.getText()) );
+        lista = ClaseGeneral.controlSoportesresoluciones.findAllInSoportesresolucionesByFkresolucionAnoFktercerosresolucion(Integer.parseInt(fkresolucion.getText()), ClaseGeneral.resoluciones.getResolucionPK().getAno(), Integer.parseInt(id.getText()));
 
-        jTableImputacion.getColumnModel().getColumn(6).setCellRenderer(informacion.modeloDerecha);
+        jTableImputacion.getColumnModel().getColumn(7).setCellRenderer(informacion.modeloDerecha);
 
         for (int i = 0; i < 100; i++) {
             jTableImputacion.setValueAt("", i, 0);
@@ -1157,44 +1156,58 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
             jTableImputacion.setValueAt("", i, 4);
             jTableImputacion.setValueAt("", i, 5);
             jTableImputacion.setValueAt("", i, 6);
+            jTableImputacion.setValueAt("", i, 7);
+            jTableImputacion.setValueAt(false, i, 8);
         }
 
         int i = 0;
         for (Object lista1 : lista) {
             ClaseGeneral.soportesresoluciones = (Soportesresoluciones) lista1;
-            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCuenta(), i, 0);
-            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getActividad(), i, 1);
-            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getSubgrupo(), i, 2);
-            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCcostos(), i, 3);
-            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCinfo(), i, 4);
-            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCuentainterna(), i, 5);
-            jTableImputacion.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.soportesresoluciones.getValor()), i, 6);
+            
+            if (ClaseGeneral.soportesresoluciones.getFksoportecomprobante() != -1) {
+                jTableImputacion.setValueAt("Nro. " + ClaseGeneral.soportesresoluciones.getFksoportecomprobante(), i, 0);
+            } else {
+                jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getFksoportecuenta(), i, 0);
+            }
+            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCuenta(), i, 1);
+            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getActividad(), i, 2);
+            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getSubgrupo(), i, 3);
+            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCcostos(), i, 4);
+            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCinfo(), i, 5);
+            jTableImputacion.setValueAt("" + ClaseGeneral.soportesresoluciones.getCuentainterna(), i, 6);
+            jTableImputacion.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.soportesresoluciones.getValor()), i, 7);
+            jTableImputacion.setValueAt(false, i, 8);
             valTotal = valTotal.add(ClaseGeneral.soportesresoluciones.getValor());
             i++;
         }
 
         jTableImputacion.clearSelection();
-        jTableImputacion.getColumnModel().getColumn(0).setPreferredWidth(110);
-        jTableImputacion.getColumnModel().getColumn(1).setPreferredWidth(110);
-        jTableImputacion.getColumnModel().getColumn(2).setPreferredWidth(110);
-        jTableImputacion.getColumnModel().getColumn(3).setPreferredWidth(110);
-        jTableImputacion.getColumnModel().getColumn(4).setPreferredWidth(110);
-        jTableImputacion.getColumnModel().getColumn(5).setPreferredWidth(110);
-        jTableImputacion.getColumnModel().getColumn(6).setPreferredWidth(150);
+        jTableImputacion.getColumnModel().getColumn(0).setPreferredWidth(90);
+        jTableImputacion.getColumnModel().getColumn(1).setPreferredWidth(70);
+        jTableImputacion.getColumnModel().getColumn(2).setPreferredWidth(90);
+        jTableImputacion.getColumnModel().getColumn(3).setPreferredWidth(90);
+        jTableImputacion.getColumnModel().getColumn(4).setPreferredWidth(90);
+        jTableImputacion.getColumnModel().getColumn(5).setPreferredWidth(90);
+        jTableImputacion.getColumnModel().getColumn(6).setPreferredWidth(120);
+        jTableImputacion.getColumnModel().getColumn(7).setPreferredWidth(120);
+        jTableImputacion.getColumnModel().getColumn(8).setPreferredWidth(50);
     }
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextField actividad;
     private javax.swing.JButton botonAyuda1;
-    private javax.swing.JButton botonAyuda3;
+    private javax.swing.JButton botonAyuda2;
     private javax.swing.JButton botonBuscarFktercero;
     private javax.swing.JButton botonCALCValor;
     public javax.swing.JButton botonCambiar;
+    public javax.swing.JButton botonEliminarImputacion;
+    public javax.swing.JButton botonGuardarImputacion;
     public javax.swing.JButton botonSeleccionarImputacion;
     public javax.swing.JTextField ccostos;
-    public javax.swing.JComboBox cinfo;
+    public javax.swing.JTextField cinfo;
     public javax.swing.JTextField cuenta;
-    public javax.swing.JComboBox cuentainterna;
+    public javax.swing.JTextField cuentainterna;
     private javax.swing.JTextArea destino;
     private javax.swing.JTextField fkcomprobante;
     private javax.swing.JTextField fkcuenta;
@@ -1222,13 +1235,12 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelTarifa;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelDestino;
     private javax.swing.JPanel jPanelObjetivo;
     private javax.swing.JPanel jPanelOtraFormaPago;
-    public javax.swing.JScrollPane jScrollPane;
     public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPaneDestino;
     private javax.swing.JScrollPane jScrollPaneDestino1;
     private javax.swing.JScrollPane jScrollPaneObjetivo;
@@ -1240,13 +1252,14 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextArea objetivo;
-    private javax.swing.JPanel panelTercero;
+    public javax.swing.JPanel panelSoportesresoluciones;
+    private javax.swing.JPanel panelTercerosresoluciones;
     private javax.swing.JTextArea soporte;
-    public javax.swing.JComboBox subgrupo;
+    public javax.swing.JTextField subgrupo;
     private javax.swing.JComboBox tarifa;
     private javax.swing.JTextField textInformacionTercero;
     private javax.swing.JTextField valor;
-    private javax.swing.JTextField valorSoporte;
+    public javax.swing.JTextField valorSoporte;
     private javax.swing.JTextField valorTotal;
     // End of variables declaration//GEN-END:variables
 }

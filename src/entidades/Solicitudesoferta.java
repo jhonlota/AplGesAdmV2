@@ -14,7 +14,7 @@ import java.util.Date;
  * @author andres
  */
 public class Solicitudesoferta {
-    private int id;
+    private String id;
     private Date fechaelaboracion;
     private Date horaelaboracion;
     private String fktercero;
@@ -22,22 +22,26 @@ public class Solicitudesoferta {
     private int numerocertificado;
     private BigDecimal valorcertificado;
     private Date fechaentrega;
-    private String informacionservicio;
+    private String objeto;
     private int ano;
+    private String secopnumeroproceso;
+    private String secopnumeroconstancia;
+    private Date secopfechapublicacion;
     public String tabla = "solicitudesoferta(fechaelaboracion, horaelaboracion, "
             + "fktercero, fktercerofuncionario, numerocertificado, valorcertificado, "
-            + "fechaentrega, informacionservicio, ano)";
+            + "fechaentrega, objeto, ano, secopnumeroproceso, "
+            + "secopnumeroconstancia, secopfechapublicacion)";
 
     public Solicitudesoferta() {
     }
 
-    public int getId() {
+    public String getId() {
         return id;
-    }
+    }    
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
-    }
+    }    
 
     public Date getFechaelaboracion() {
         return fechaelaboracion;
@@ -95,13 +99,13 @@ public class Solicitudesoferta {
         this.fechaentrega = fechaentrega;
     }
 
-    public String getInformacionservicio() {
-        return informacionservicio;
+    public String getObjeto() {
+        return objeto;
     }
 
-    public void setInformacionservicio(String informacionservicio) {
-        this.informacionservicio = informacionservicio;
-    }
+    public void setObjeto(String objeto) {
+        this.objeto = objeto;
+    }    
 
     public int getAno() {
         return ano;
@@ -118,7 +122,28 @@ public class Solicitudesoferta {
     public void setTabla(String tabla) {
         this.tabla = tabla;
     }
-    
-    
-    
+
+    public String getSecopnumeroproceso() {
+        return secopnumeroproceso;
+    }
+
+    public void setSecopnumeroproceso(String secopnumeroproceso) {
+        this.secopnumeroproceso = secopnumeroproceso;
+    }
+
+    public String getSecopnumeroconstancia() {
+        return secopnumeroconstancia;
+    }
+
+    public void setSecopnumeroconstancia(String secopnumeroconstancia) {
+        this.secopnumeroconstancia = secopnumeroconstancia;
+    }
+
+    public Date getSecopfechapublicacion() {
+        return secopfechapublicacion;
+    }
+
+    public void setSecopfechapublicacion(Date secopfechapublicacion) {
+        this.secopfechapublicacion = secopfechapublicacion;
+    }
 }

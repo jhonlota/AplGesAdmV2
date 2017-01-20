@@ -114,7 +114,7 @@ public class BienessolicitudesofertaJpaController {
         }
     }
 
-    public List<Bienessolicitudesoferta> findAllInBienessolicitudesofertaByFksolicitudofertaAno(int fksolicitudoferta, int ano) {
+    public List<Bienessolicitudesoferta> findAllInBienessolicitudesofertaByFksolicitudofertaAno(String fksolicitudoferta, int ano) {
         List<Bienessolicitudesoferta> listBienessolicitudesoferta = new ArrayList<Bienessolicitudesoferta>();
         Bienessolicitudesoferta bienessolicitudesoferta;
         BienessolicitudesofertaPK bienessolicitudesofertaPK;
@@ -124,7 +124,7 @@ public class BienessolicitudesofertaJpaController {
             while (ClaseBaseDatos.resultado.next()) {
                 bienessolicitudesoferta = new Bienessolicitudesoferta();
                 bienessolicitudesofertaPK = new BienessolicitudesofertaPK();
-                bienessolicitudesofertaPK.setFksolicitudoferta(ClaseBaseDatos.resultado.getInt("FKSOLICITUDOFERTA"));
+                bienessolicitudesofertaPK.setFksolicitudoferta(ClaseBaseDatos.resultado.getString("FKSOLICITUDOFERTA"));
                 bienessolicitudesofertaPK.setId(ClaseBaseDatos.resultado.getInt("ID"));
                 bienessolicitudesofertaPK.setAno(ClaseBaseDatos.resultado.getInt("ANO"));
                 bienessolicitudesoferta.setBienessolicitudesofertaPK(bienessolicitudesofertaPK);

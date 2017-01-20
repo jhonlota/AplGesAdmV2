@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoResolucion_Cuentainterna" language="groovy" pageWidth="360" pageHeight="90" columnWidth="360" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d81d0f6b-a4b4-4154-92b6-81d92ba957f7">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ano" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     comprobantesA."id" AS comprobantes_a_id,
+     comprobantesA."fktercero" AS comprobantes_a_fktercero,
+     comprobantesA."ano" AS comprobantes_a_ano,
+     comprobantesA."tipopago" AS comprobantes_a_tipopago,
+     comprobantesB."id" AS comprobantes_B_id,
+     comprobantesB."fktercero" AS comprobantes_B_fktercero,
+     comprobantesB."ano" AS comprobantes_B_ano,
+     comprobantesB."tipopago" AS comprobantes_B_tipopago,
+     cuentasA."fktercero" AS cuentas_a_fktercero,
+     cuentasA."soporte" AS cuentas_a_soporte,
+     cuentasB."fktercero" AS cuentas_b_fktercero,
+     cuentasB."soporte" AS cuentas_b_soporte,
+     tercerosresolucion."soporte" AS tercerosresolucion_soporte
+FROM
+     "resolucion" resolucion INNER JOIN "tercerosresolucion" tercerosresolucion ON resolucion."id" = tercerosresolucion."fkresolucion"
+     AND resolucion."ano" = tercerosresolucion."ano"
+     LEFT JOIN "public"."soportesresoluciones" soportesresoluciones ON tercerosresolucion."id" = soportesresoluciones."fktercerosresolucion"
+     AND resolucion."ano" = soportesresoluciones."ano"
+     LEFT JOIN "public"."cuentas" cuentasA ON tercerosresolucion."fkcuenta" = cuentasA."soporte"
+     LEFT JOIN "public"."cuentas" cuentasB ON soportesresoluciones."fksoportecuenta" = cuentasB."soporte"
+     LEFT JOIN "public"."comprobantes" comprobantesA ON tercerosresolucion."fkcomprobante" = CAST(comprobantesA."id" AS TEXT)
+     AND resolucion."ano" = comprobantesA."ano"
+     LEFT JOIN "public"."comprobantes" comprobantesB ON soportesresoluciones."fksoportecomprobante" = comprobantesB."id"
+     AND resolucion."ano" = comprobantesB."ano"
+WHERE
+     tercerosresolucion."id" = $P{id}
+     AND resolucion."ano" = $P{ano}
+ORDER BY
+     soportesresoluciones.id]]>
+	</queryString>
+	<field name="comprobantes_a_id" class="java.lang.Integer"/>
+	<field name="comprobantes_a_fktercero" class="java.lang.String"/>
+	<field name="comprobantes_a_ano" class="java.lang.Integer"/>
+	<field name="comprobantes_a_tipopago" class="java.lang.String"/>
+	<field name="comprobantes_b_id" class="java.lang.Integer"/>
+	<field name="comprobantes_b_fktercero" class="java.lang.String"/>
+	<field name="comprobantes_b_ano" class="java.lang.Integer"/>
+	<field name="comprobantes_b_tipopago" class="java.lang.String"/>
+	<field name="cuentas_a_fktercero" class="java.lang.String"/>
+	<field name="cuentas_a_soporte" class="java.lang.String"/>
+	<field name="cuentas_b_fktercero" class="java.lang.String"/>
+	<field name="cuentas_b_soporte" class="java.lang.String"/>
+	<field name="tercerosresolucion_soporte" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="0" y="0" width="360" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{comprobantes_a_id} == null ? "" : $F{comprobantes_a_tipopago} + " - " + $F{comprobantes_a_id} + ". " )
++ "" +
+($F{cuentas_a_soporte} == null ? "" : "Solicitud de Pago - " + $F{cuentas_a_soporte} + ". " )
++ "" +
+($F{comprobantes_b_id} == null ? "" : $F{comprobantes_b_tipopago} + " - " + $F{comprobantes_b_id} + ". " )
++ "" +
+($F{cuentas_b_soporte} == null ? "" : "Solicitud de Pago - " + $F{cuentas_b_soporte} + ". " )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
