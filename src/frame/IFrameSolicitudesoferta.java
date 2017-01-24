@@ -572,10 +572,10 @@ public class IFrameSolicitudesoferta extends javax.swing.JInternalFrame {
             /**
              *
              */
-            try {                
-                Map<String, String> parametros = new HashMap<String, String>();
-//                parametros.put("ID", ClaseGeneral.solicitudesoferta.getId());
-//                parametros.put("ANO", ClaseGeneral.solicitudesoferta.getAno());
+            try {   
+                Map parametros = new HashMap();
+                parametros.put("ID", ClaseGeneral.solicitudesoferta.getId());
+                parametros.put("ANO", ClaseGeneral.solicitudesoferta.getAno());
 
                 ClaseInformes informes = new ClaseInformes();
                 informes.formatoSolicitudOferta(parametros);

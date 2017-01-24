@@ -85,7 +85,7 @@ public class SolicitudesofertaJpaController {
                     + "SECOPNUMEROCONSTANCIA = '" + solicitudesoferta.getSecopnumeroconstancia()+ "', "
                     + "SECOPFECHAPUBLICACION = '" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getSecopfechapublicacion())+ "' "
                     + "WHERE "
-                    + "ID = " + id.getId() + " "
+                    + "ID = '" + id.getId() + "' "
                     + "AND ANO = " + id.getAno());
             if (!datos.isError) {
                 ClaseMensaje.informacionActualizarBD("Solicitud de Oferta (" + id.getId() + ")");
@@ -121,7 +121,7 @@ public class SolicitudesofertaJpaController {
         }
     }
     
-    public void editFechaaplicacion() {//EN ESTE CASO SE PUEDE IMPLEMENTAR EDIT FECHA ENTREGA EN CASO DE QUE SE REQUIERA MODIFICAR LA FECHA DE ENTRAGA
+    public void editFechaaplicacion() {
         
     }
     
@@ -129,10 +129,10 @@ public class SolicitudesofertaJpaController {
         try {
             datos.update("DELETE FROM SOLICITUDESOFERTA "
                     + "WHERE "
-                    + "ID = " + id.getId() + " "
+                    + "ID = '" + id.getId() + "' "
                     + "AND ANO = " + id.getAno());
             if (!datos.isError) {
-                ClaseMensaje.informacionEliminarBD("Solicitud de Oferta (" + id + ")");
+                ClaseMensaje.informacionEliminarBD("Solicitud de Oferta (" + id.getId() + ")");
             }
         } catch (Exception ex) {
             ClaseMensaje.errorEliminarBD();
@@ -244,7 +244,7 @@ public class SolicitudesofertaJpaController {
         try {
             if (ClaseGeneral.perfil.equals("usuario")) {                
                 if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")) {
-                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO "
+                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO,SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION "
                             + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
                             + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA "
                             + "WHERE " + ClaseGeneral.parametro + " LIKE '" + ClaseGeneral.valor + "' "
@@ -255,7 +255,7 @@ public class SolicitudesofertaJpaController {
                             + ") AS TABLA "
                             + "WHERE FILA BETWEEN 1 AND 1000");
                 } else {
-                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO "
+                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO, SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION "
                             + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
                             + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA "
                             + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
@@ -268,14 +268,14 @@ public class SolicitudesofertaJpaController {
                 }
             } else {
                 if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")) {
-                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO "
+                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO, SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION"
                             + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
                             + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA "
                             + "WHERE " + ClaseGeneral.parametro + " LIKE '" + ClaseGeneral.valor + "' "
                             + ") AS TABLA "
                             + "WHERE FILA BETWEEN 1 AND 1000");
                 } else {
-                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO "
+                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO, SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION "
                             + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
                             + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA "
                             + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "

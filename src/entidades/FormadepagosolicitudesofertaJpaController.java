@@ -36,11 +36,10 @@ public class FormadepagosolicitudesofertaJpaController {
     public void edit(Formadepagosolicitudesoferta formadepagosolicitudesoferta, Formadepagosolicitudesoferta id) {
         try {
             datos.update("UPDATE FORMADEPAGOSOLICITUDESOFERTA SET "
-                    //+ "FKCONTRATO = '" + formadepagocontratos.getFormadepagocontratosPK().getFkcontrato() + "', "
                     + "FECHA = '" + ClaseInformacion.ConvertirFecha(formadepagosolicitudesoferta.getFormadepagosolicitudesofertaPK().getFecha()) + "', "
                     + "VALOR = " + formadepagosolicitudesoferta.getValor() + " "
                     + "WHERE "
-                    + "FKCONTRATO = '" + id.getFormadepagosolicitudesofertaPK().getFksolicitudoferta() + "' AND "
+                    + "FKSOLICITUDOFERTA = '" + id.getFormadepagosolicitudesofertaPK().getFksolicitudoferta() + "' AND "
                     + "FECHA = '" + ClaseInformacion.ConvertirFecha(id.getFormadepagosolicitudesofertaPK().getFecha()) + "'");
             if (!datos.isError) {
                 ClaseMensaje.informacionActualizarBD("Forma de Pago");
@@ -92,19 +91,8 @@ public class FormadepagosolicitudesofertaJpaController {
         }
     }
 
-    public boolean verify(Formadepagosolicitudesoferta formadepagosolicitudesoferta) {
-        try {
-            ClaseGeneral.errorValidacion = "";
-            if (ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechainicio(), formadepagosolicitudesoferta.getFormadepagosolicitudesofertaPK().getFecha()) >= 0, "FECHA ANTERIOR A LA DE INICIO")
-                    && ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.contratos.getFechaterminacion(), formadepagosolicitudesoferta.getFormadepagosolicitudesofertaPK().getFecha()) <= 0, "FECHA POSTERIOR A LA DE TERMINACION")) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception ex) {
-            return false;
-        } finally {
-        }
+    public boolean verify(Formadepagosolicitudesoferta formadepagosolicitudesoferta) {   
+        return true;
     }
 
     public List<Formadepagosolicitudesoferta> findAllInFormadepagosolicitudesofertaBy() {
@@ -154,19 +142,4 @@ public class FormadepagosolicitudesofertaJpaController {
             return null;
         }
     }
-
-//    public DefaultComboBoxModel COMBOIdNombreInFormadepagocontratosBy() {
-//        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
-//        try {
-//            modeloCombo.addElement("Seleccione - ");
-//            datos.query("SELECT DISTINCT(ID), NOMBRE FROM FORMADEPAGOCONTRATOS");// ORDER BY id
-//            while (ClaseBaseDatos.resultado.next()) {
-//                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("ID") + " - " + ClaseBaseDatos.resultado.getString("NOMBRE"));
-//            }
-//            return modeloCombo;
-//        } catch (SQLException ex) {
-//            ClaseMensaje.errorFind(this.toString(), ex.toString());
-//            return modeloCombo;
-//        }
-//    }
 }

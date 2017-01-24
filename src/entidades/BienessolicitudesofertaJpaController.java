@@ -55,7 +55,7 @@ public class BienessolicitudesofertaJpaController {
                     + "CARACTERISTICAS = '" + bienessolicitudesoferta.getCaracteristicas() + "', "
                     + "CANTIDAD = " + bienessolicitudesoferta.getCantidad() + " "
                     + "WHERE "
-                    + "FKSOLICITUDOFERTA = " + id.getBienessolicitudesofertaPK().getFksolicitudoferta() + " AND "
+                    + "FKSOLICITUDOFERTA = '" + id.getBienessolicitudesofertaPK().getFksolicitudoferta() + "' AND "
                     + "ID = " + id.getBienessolicitudesofertaPK().getId() + " AND "
                     + "ANO = " + id.getBienessolicitudesofertaPK().getAno());
             if (!datos.isError) {
@@ -71,7 +71,7 @@ public class BienessolicitudesofertaJpaController {
         try {
             datos.update("DELETE FROM BIENESSOLICITUDESOFERTA "
                     + "WHERE "
-                    + "FKSOLICITUDOFERTA = " + id.getFksolicitudoferta() + " AND "
+                    + "FKSOLICITUDOFERTA = '" + id.getFksolicitudoferta() + "' AND "
                     + "ID = " + id.getId() + " AND "
                     + "ANO = " + id.getAno());
             if (!datos.isError) {
@@ -87,7 +87,7 @@ public class BienessolicitudesofertaJpaController {
         try {
             datos.update("DELETE FROM BIENESSOLICITUDESOFERTA "
                     + "WHERE "
-                    + "FKSOLICITUDOFERTA = " + id.getId() + " AND "
+                    + "FKSOLICITUDOFERTA = '" + id.getId() + "' AND "
                     + "ANO = " + id.getAno());
             if (!datos.isError) {
                 ClaseMensaje.informacionEliminarBD("Bienes");
@@ -113,14 +113,14 @@ public class BienessolicitudesofertaJpaController {
         } finally {
         }
     }
-
+    
     public List<Bienessolicitudesoferta> findAllInBienessolicitudesofertaByFksolicitudofertaAno(String fksolicitudoferta, int ano) {
         List<Bienessolicitudesoferta> listBienessolicitudesoferta = new ArrayList<Bienessolicitudesoferta>();
         Bienessolicitudesoferta bienessolicitudesoferta;
         BienessolicitudesofertaPK bienessolicitudesofertaPK;
 
         try {
-            datos.query("SELECT * FROM BIENESSOLICITUDESOFERTA WHERE FKSOLICITUDOFERTA = " + fksolicitudoferta + " AND ANO = " + ano + " ORDER BY ID");
+            datos.query("SELECT * FROM BIENESSOLICITUDESOFERTA WHERE FKSOLICITUDOFERTA = '" + fksolicitudoferta + "' AND ANO = " + ano + " ORDER BY ID");
             while (ClaseBaseDatos.resultado.next()) {
                 bienessolicitudesoferta = new Bienessolicitudesoferta();
                 bienessolicitudesofertaPK = new BienessolicitudesofertaPK();

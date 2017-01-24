@@ -55,7 +55,7 @@ public class ServiciossolicitudesofertaJpaController {
                     + "CARACTERISTICAS = '" + serviciossolicitudesoferta.getCaracteristicas() + "', "
                     + "CANTIDAD = " + serviciossolicitudesoferta.getCantidad() + " "
                     + "WHERE "
-                    + "FKSOLICITUDOFERTA = " + id.getServiciossolicitudesofertaPK().getFksolicitudoferta() + " AND "
+                    + "FKSOLICITUDOFERTA = '" + id.getServiciossolicitudesofertaPK().getFksolicitudoferta() + "' AND "
                     + "ID = " + id.getServiciossolicitudesofertaPK().getId() + " AND "
                     + "ANO = " + id.getServiciossolicitudesofertaPK().getAno());
             if (!datos.isError) {
@@ -71,7 +71,7 @@ public class ServiciossolicitudesofertaJpaController {
         try {
             datos.update("DELETE FROM SERVICIOSSOLICITUDESOFERTA "
                     + "WHERE "
-                    + "FKSOLICITUDOFERTA = " + id.getFksolicitudoferta() + " AND "
+                    + "FKSOLICITUDOFERTA = '" + id.getFksolicitudoferta() + "' AND "
                     + "ID = " + id.getId() + " AND "
                     + "ANO = " + id.getAno());
             if (!datos.isError) {
@@ -87,7 +87,7 @@ public class ServiciossolicitudesofertaJpaController {
         try {
             datos.update("DELETE FROM SERVICIOSSOLICITUDESOFERTA "
                     + "WHERE "
-                    + "FKSOLICITUDOFERTA = " + id.getId() + " AND "
+                    + "FKSOLICITUDOFERTA = '" + id.getId() + "' AND "
                     + "ANO = " + id.getAno());
             if (!datos.isError) {
                 ClaseMensaje.informacionEliminarBD("Servicios");
@@ -120,7 +120,7 @@ public class ServiciossolicitudesofertaJpaController {
         ServiciossolicitudesofertaPK serviciossolicitudesofertaPK;
 
         try {
-            datos.query("SELECT * FROM SERVICIOSSOLICITUDESOFERTA WHERE FKSOLICITUDOFERTA = " + fksolicitudoferta + " AND ANO = " + ano + " ORDER BY ID");
+            datos.query("SELECT * FROM SERVICIOSSOLICITUDESOFERTA WHERE FKSOLICITUDOFERTA = '" + fksolicitudoferta + "' AND ANO = " + ano + " ORDER BY ID");
             while (ClaseBaseDatos.resultado.next()) {
                 serviciossolicitudesoferta = new Serviciossolicitudesoferta();
                 serviciossolicitudesofertaPK = new ServiciossolicitudesofertaPK();

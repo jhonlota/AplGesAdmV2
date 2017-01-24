@@ -630,13 +630,14 @@ public class ClaseInformacion {
         ClaseGeneral.contratos = null;
         ClaseGeneral.cuentas = null;
         ClaseGeneral.resoluciones = null;
-        ClaseGeneral.terceros = null;
         ClaseGeneral.solicitudesoferta = null;
+        ClaseGeneral.terceros = null;        
     }
 
     public static void LimpiarSecundarios() {
         ClaseGeneral.anexoscontratos = null;
         ClaseGeneral.anexosterceros = null;
+        ClaseGeneral.bienessolicitudesoferta = null;
         ClaseGeneral.comprobantesnoreembolsados = null;
         ClaseGeneral.comprobantespendientes = null;
         ClaseGeneral.cubs = null;
@@ -647,13 +648,13 @@ public class ClaseInformacion {
         ClaseGeneral.observacionescontratos = null;
         ClaseGeneral.observacionescuentas = null;
         ClaseGeneral.polizas = null;
-//        ClaseGeneral.reportes = null;
+        ClaseGeneral.serviciossolicitudesoferta = null;
         ClaseGeneral.soportescomprobantes = null;
         ClaseGeneral.soportescontratos = null;
         ClaseGeneral.soportescuentas = null;
-        ClaseGeneral.tercerosresoluciones = null;
-        ClaseGeneral.bienessolicitudesoferta = null;
         ClaseGeneral.soportesresoluciones = null;
+        ClaseGeneral.tercerosresoluciones = null;        
+        
     }
 
     public static String ConvertirNombre(String texto) {

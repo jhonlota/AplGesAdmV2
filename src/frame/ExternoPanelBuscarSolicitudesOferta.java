@@ -81,8 +81,7 @@ public class ExternoPanelBuscarSolicitudesOferta extends javax.swing.JPanel {
 
         parametro.setBackground(ClaseGeneral.campo);
         parametro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NÚMERO DE SOLICITUD [CAST(solicitudesoferta.id AS TEXT)]", "CÉDULA DEL PROVEEDOR [fktercero]", "NÚMERO DE CERTIFICADO [CAST(solicitudesoferta.numerocertificado AS TEXT)]", "INFORMACIÓN SERVICIO [informacionservicio]" }));
-        parametro.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
+        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NÚMERO DE SOLICITUD [CAST(solicitudesoferta.id AS TEXT)]", "CÉDULA DEL PROVEEDOR [fktercero]", "NÚMERO DE CERTIFICADO [CAST(solicitudesoferta.numerocertificado AS TEXT)]", "OBJETO CONTRACTUAL [objeto]" }));
         parametro.setPreferredSize(new java.awt.Dimension(445, 25));
         parametro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +142,7 @@ public class ExternoPanelBuscarSolicitudesOferta extends javax.swing.JPanel {
         for (int i = 0; i < listaSolicitudesOferta.size(); i++) {
             ClaseGeneral.solicitudesoferta = (Solicitudesoferta) listaSolicitudesOferta.get(i);
             modeloLista.addElement(ClaseGeneral.solicitudesoferta.getId() + " - " + ClaseGeneral.solicitudesoferta.getAno());
+            System.out.println("modeloLista.addElement("+ClaseGeneral.solicitudesoferta.getId() + " - " + ClaseGeneral.solicitudesoferta.getAno()+")");
         }
 
         lista.setModel(modeloLista);

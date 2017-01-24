@@ -736,6 +736,11 @@ public class PanelContratos extends javax.swing.JPanel {
                 TextFieldFocusGained(evt);
             }
         });
+        valorsiniva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valorsinivaActionPerformed(evt);
+            }
+        });
         valorsiniva.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TexyFieldKeyReleased(evt);
@@ -1908,6 +1913,10 @@ public class PanelContratos extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_botonBuscarFkterceroActionPerformed
+
+    private void valorsinivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorsinivaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valorsinivaActionPerformed
 
     public void metodoInsertar() {
         ClaseGeneral.contratos = new Contratos();

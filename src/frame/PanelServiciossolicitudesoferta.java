@@ -86,7 +86,7 @@ public class PanelServiciossolicitudesoferta extends javax.swing.JPanel {
         setName("panelServiciossolicitudesoferta"); // NOI18N
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel1.setText("NÚMERO DE LA INVITACIÓN : ");
+        jLabel1.setText("NÚMERO INVITACIÓN : ");
         jLabel1.setPreferredSize(new java.awt.Dimension(160, 25));
         add(jLabel1);
 

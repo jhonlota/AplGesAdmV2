@@ -287,7 +287,7 @@ public class IFrameBienessolicitudesoferta extends javax.swing.JInternalFrame {
         jToolBarConsultar.setVisible(true);
 
         lista = ClaseGeneral.controlBienessolicitudesoferta.findAllInBienessolicitudesofertaByFksolicitudofertaAno(ClaseGeneral.solicitudesoferta.getId(), ClaseGeneral.solicitudesoferta.getAno());
-
+        
         if (!lista.isEmpty()) {
             posicion = 0;
             ClaseGeneral.bienessolicitudesoferta = (Bienessolicitudesoferta) lista.get(posicion);

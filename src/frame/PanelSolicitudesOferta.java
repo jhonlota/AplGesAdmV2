@@ -3108,7 +3108,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
             
             /**/ metodoMostrarBienesSolicitudesOferta();
             /**/ metodoMostrarServiciosSolicitudesOferta();
-//            /**/ metodoMostrarFormaDePago();
+            /**/ metodoMostrarFormaDePago();
 
             /**/ FramePrincipal.metodoEntidadSeleccionada("Solicitud de Oferta", "Solicitudes *");
 
@@ -3288,7 +3288,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         for (Object lista1 : lista) {
             ClaseGeneral.formadepagosolicitudesoferta = (Formadepagosolicitudesoferta) lista1;
             jTableFormadepago.setValueAt("" + ClaseGeneral.formadepagosolicitudesoferta.getFormadepagosolicitudesofertaPK().getFecha(), i, 0);
-            jTableFormadepago.setValueAt("" + ClaseGeneral.formadepagosolicitudesoferta.getValor(), i, 1);
+            jTableFormadepago.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.formadepagosolicitudesoferta.getValor()), i, 1);
             i++;
         }
 

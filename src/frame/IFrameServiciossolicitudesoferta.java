@@ -69,7 +69,7 @@ public class IFrameServiciossolicitudesoferta extends javax.swing.JInternalFrame
         botonSiguiente = new javax.swing.JButton();
         jPanel = new javax.swing.JPanel();
 
-        setTitle("Bienes");
+        setTitle("Servicios");
 
         jToolBar.setFloatable(false);
 
@@ -287,6 +287,7 @@ public class IFrameServiciossolicitudesoferta extends javax.swing.JInternalFrame
         jToolBarConsultar.setVisible(true);
 
         lista = ClaseGeneral.controlServiciossolicitudesoferta.findAllInServiciossolicitudesofertaByFksolicitudofertaAno(ClaseGeneral.solicitudesoferta.getId(), ClaseGeneral.solicitudesoferta.getAno());
+        
 
         if (!lista.isEmpty()) {
             posicion = 0;

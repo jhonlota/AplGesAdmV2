@@ -296,7 +296,7 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
     public void metodoInsertar() {
         ClaseGeneral.formadepagosolicitudesoferta = new Formadepagosolicitudesoferta();
         ClaseGeneral.formadepagosolicitudesofertaPK = new FormadepagosolicitudesofertaPK();
-        ClaseGeneral.formadepagosolicitudesofertaPK.setFksolicitudoferta("" + fksolicitudoferta.getText());
+        ClaseGeneral.formadepagosolicitudesofertaPK.setFksolicitudoferta(fksolicitudoferta.getText());
         ClaseGeneral.formadepagosolicitudesofertaPK.setFecha(fecha.getDate());
         ClaseGeneral.formadepagosolicitudesoferta.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
         ClaseGeneral.formadepagosolicitudesoferta.setFormadepagosolicitudesofertaPK(ClaseGeneral.formadepagosolicitudesofertaPK);
