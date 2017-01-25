@@ -18,7 +18,7 @@ class Upload {
 
     function Upload() {
         $this->allowed = array("image/bmp", "image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "application/pdf");
-        $this->blocked = array("php", "phtml", "php3", "php4", "js", "shtml", "pl", "py", "yml");
+        $this->blocked = array("php", "phtml", "php3", "php4", "js", "shtml", "pl", "py", "yml", "sh", "bat", "exe", "html");
         $this->message = "";
         $this->isupload = false;
     }

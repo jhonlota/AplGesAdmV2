@@ -153,7 +153,6 @@ if (empty($fktercero) || empty($persona)) {
                                             $('#error').hide();
                                             $('#error').html('');
                                             $('#subir$i').hide();
-                                            console.log('enviando...');
                                         },
                                         success: function(response) {
                                             var json_obj = $.parseJSON(response);
@@ -167,6 +166,7 @@ if (empty($fktercero) || empty($persona)) {
                                                 $('#dias$i').html('<span class=\"badge badge-primary\"> - </span>');
                                             }else{
                                                 $('#error').html(''+error).show().fadeOut(5000);
+                                                $('#subir$i').show();
                                             }
 
                                         }
@@ -181,7 +181,7 @@ if (empty($fktercero) || empty($persona)) {
                     <div class=\"i-checks\">
                         <label>
                             <div class=\"icheckbox_square-green\" style=\"position: relative;\">
-                                <input id=\"checkdocumento$i\" name=\"checkdocumento$i\" type=\"checkbox\" value=\"" . $row["verifica"] . " \" style=\"position: absolute; opacity: 0;\">
+                                <input id=\"checkdocumento$i\" name=\"checkdocumento$i\" type=\"checkbox\" value=\"" . $row["verifica"] . "\" style=\"position: absolute; opacity: 0;\">
                                 <ins class=\"iCheck-helper\" style=\"position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;\"></ins>
                             </div> 
                             <i></i>" . $row["verifica"] . "
@@ -275,14 +275,12 @@ if (empty($fktercero) || empty($persona)) {
                                             processData: false, 
                                             beforeSend: function() {
                                                 $('#subirdocumentogeneral').hide();
-                                                console.log('enviando...');
                                             },
                                             success: function(response) {
                                                 var json_obj = $.parseJSON(response);
                                                 var error = json_obj.htmlError;
                                                 var ok = json_obj.htmlOk;
                                                 var indice = json_obj.indice;
-                                                console.log('INDICE= '+indice);
                                                 if(error === ''){
                                                     $('#subirdocumentogeneral').show();
                                                     $('#informaciondocumentogeneral').html(\"Documento subido con &Eacute;xito\").show().fadeOut(5000);
@@ -291,6 +289,7 @@ if (empty($fktercero) || empty($persona)) {
                                                     $('#dias'+indice).html('<span class=\"badge badge-primary\"> - </span>');
                                                 }else{
                                                     $('#errordocumentogeneral').html(''+error).show().fadeOut(5000);
+                                                    $('#subirdocumentogeneral').show();
                                                 }
                                             }
                                         });
