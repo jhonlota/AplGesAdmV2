@@ -17,8 +17,9 @@ class Upload {
     var $isupload;
 
     function Upload() {
-        $this->allowed = array("image/bmp", "image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "application/pdf");
+        $this->allowed = array("image/bmp", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/tiff", "application/pdf");
         $this->blocked = array("php", "phtml", "php3", "php4", "js", "shtml", "pl", "py", "yml", "sh", "bat", "exe", "html");
+        
         $this->message = "";
         $this->isupload = false;
     }
@@ -33,10 +34,9 @@ class Upload {
         $this->filetype = $_FILES[$field]['type'];
 
         $this->fileexte = substr($this->filename, strrpos($this->filename, '.') + 1);
-//		$this->newfile = substr(md5(uniqid(rand())),0,8).".".$this->fileexte;
+        
         $this->newfile = $cedulaTercero."_".$nombreDocumento."_".$fechaDocumento.".".$this->fileexte;
-    }
-    
+    }    
 
     function setPath($value) {
         $this->newpath = $value;
@@ -45,70 +45,43 @@ class Upload {
     function setMaxSize($value) {
         $this->maxsize = $value;
     }
-
+    
     function isImage($value) {
         $this->isimage = $value;
     }
-
+    
+    function getNewFile() {
+        return $this->newfile;
+    }
+    
     function save() {
-
-        if (is_uploaded_file($this->filetemp)) {
-            //    $this->message = "Entro al IF";
-            // check if file valid
+        if (is_uploaded_file($this->filetemp)){
+            //Si el Archivo no es válido
             if ($this->filename == "") {
-                $this->message = "No file upload";
+                $this->message = "No se Subió Archivo";
+                $this->isupload = false;
+                return false;
+            }   
+            
+            //Verificar si el tipo de archivo es permitido
+            if (in_array($this->filetype, $this->allowed)) {
+                //Sube el archivo al servidor
+                if (move_uploaded_file($this->filetemp, $this->newpath . "/" . $this->newfile)) {
+                    $this->message .= "Archivo Subido Exitosamente!";
+                    $this->isupload = true;
+                    return true;
+                }
+            }else{
+                $this->message .= "Archivo No Permitido - " . $this->fileexte;
                 $this->isupload = false;
                 return false;
             }
-            // check max size
-            if ($this->maxsize != 0) {
-                if ($this->filesize > $this->maxsize * 1024) {
-                    $this->message = "Large File Size";
-                    $this->isupload = false;
-                    return false;
-                }
-            }
-            // check if image
-            if ($this->isimage) {
-                // check dimensions
-                if (!getimagesize($this->filetemp)) {
-                    $this->message = "Invalid Image File";
-                    $this->isupload = false;
-                    return false;
-                }
-                // check content type
-                if (!in_array($this->filetype, $this->allowed)) {
-                    $this->message = "Invalid Content Type";
-                    $this->isupload = false;
-                    return false;
-                }
-            }
-            // check if file is allowed
-            if (in_array($this->fileexte, $this->blocked)) {
-                $this->message = "File Not Allowed - " . $this->fileexte;
-                $this->isupload = false;
-                return false;
-            }
-            if (move_uploaded_file($this->filetemp, $this->newpath . "/" . $this->newfile)) {
-                $this->message = "File succesfully uploaded!";
-                $this->isupload = true;
-                return true;
-            } else {
-                $this->message = "File was not uploaded please try again 2 ";
-                $this->isupload = false;
-                return false;
-            }
-        } else {
-            $this->message = "File was not uploaded please try again 1 ";
+            
+        }else{
+            $this->message .= "El Archivo no pudo ser subido. Por favor intente de nuevo";
             $this->isupload = false;
             return false;
         }
     }
-
-    function getNewFile() {
-        return $this->newfile;
-    }
-
 }
-
 ?>

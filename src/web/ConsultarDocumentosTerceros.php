@@ -183,7 +183,8 @@
                             <div class="col-lg-12">
                                 <div class="ibox collapsed">
                                     <div class="ibox-title">
-                                        <h5>Adjuntar Documentos del Tercero</h5>
+                                        <h5>Adjuntar Documentos del Tercero </h5>
+                                        <span class="label label-info">Permitidos: PNG, JPG, TIFF, PDF</span>
                                         <div class="ibox-tools">
                                             <a class="collapse-link">
                                                 <i class="fa fa-chevron-up"></i>
@@ -204,6 +205,7 @@
                                 <div class="ibox collapsed">
                                     <div class="ibox-title">
                                         <h5>Adjuntar Documento General (Usar esta opci&oacute;n si el Tercero tiene todos los Documentos en un s&oacute;lo Archivo)</h5>
+                                        <span class="label label-info">Permitidos: PNG, JPG, TIFF, PDF</span>
                                         <div class="ibox-tools">
                                             <a class="collapse-link">
                                                 <i class="fa fa-chevron-up"></i>

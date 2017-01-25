@@ -1,5 +1,4 @@
 <?php
-
 header("Content-Type: text/html;charset=ISO-8859-1");
 include("./ConexionConsulta.php");
 
@@ -117,7 +116,7 @@ if ($fktercero == "") {
 
         $i = 0;
         $resultComprobantes = pg_query($gbd, "SELECT * FROM COMPROBANTES WHERE FKTERCERO LIKE '$fktercero%' ORDER BY ANO DESC, COMPROBANTE DESC");
-        if (pg_num_rows($resultCuentas) === 0) {
+        if (pg_num_rows($resultComprobantes) === 0) {
             $tabla3 = "<div class=\"alert alert-info alert-dismissable\">
                             <button aria-hidden=\"true\" data-dismiss=\"alert\" class=\"close\" type=\"button\">&#215;</button>
                             El Tercero <strong>$fktercero</strong>, NO tiene Comprobantes Registrados.

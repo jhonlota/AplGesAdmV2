@@ -26,7 +26,6 @@ if (!empty($_FILES['' . $archivo]['name'])) {
         $upload = new Upload();
         $upload->setPath("../../../UmVbZxut/archivos");
         $upload->setFile("$archivo", $cedulaTercero, $nombreDocumento, $fechaDocumento);
-        $upload->isImage(false);
         $upload->save();
         $status = $upload->message;
 //        $htmlError .= "[STATUS = ->$status ]\n";
@@ -73,6 +72,8 @@ if (!empty($_FILES['' . $archivo]['name'])) {
                 $gbd->rollBack();
                 $htmlError .= "Error -> $ex -> Cod =" . $ex->getCode();
             }
+        }else{
+            $htmlError .= "$status";
         }
     } catch (Exception $ex) {
         $htmlError .= "Error Subiendo Archivo: " . $ex->getCode() . " - " . $ex->getMessage();
