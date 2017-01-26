@@ -19,11 +19,11 @@ try {
                         </thead>
                         <tbody>";
 
-    $i = 0;
     $result = pg_query($gbd, "SELECT verificacinfocuentainterna.*, cinfo.nombre AS cinfo_nombre, cuentainterna.nombre AS cuentainterna_nombre "
-            . " FROM verificacinfocuentainterna "
+            . "FROM verificacinfocuentainterna "
             . "LEFT JOIN cinfo ON verificacinfocuentainterna.cinfo = cinfo.codigo "
-            . "LEFT JOIN cuentainterna ON verificacinfocuentainterna.cuentainterna = cuentainterna.codigo");
+            . "LEFT JOIN cuentainterna ON verificacinfocuentainterna.cuentainterna = cuentainterna.codigo "
+            . "ORDER BY verificacinfocuentainterna.cinfo");
     if (pg_num_rows($result) === 0) {
         $tabla = "<div class=\"alert alert-info alert-dismissable\">
                             <button aria-hidden=\"true\" data-dismiss=\"alert\" class=\"close\" type=\"button\">&#215;</button>
@@ -31,16 +31,34 @@ try {
                         </div>";
     }
 
+//    $cinfoAuxInicial = "";
     while ($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)) {
-        $i++;
+//        $cinfoAux = $row["cinfo"];
+//
+//        $result2 = pg_query($gbd, "SELECT COUNT(cinfo) AS cinfo "
+//                . "FROM verificacinfocuentainterna "
+//                . "WHERE cinfo = '$cinfoAux'");
+//
+//        while ($row2 = pg_fetch_array($result2, NULL, PGSQL_ASSOC)) {
+//            $rowspan = $row2["cinfo"];
+//        }
 
-        $tabla .= "<tr class=\"gradeA odd\" role=\"row\">";
-        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cinfo"] . "</strong> - " . $row["cinfo_nombre"] . "</td>";
-        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["cingreso"] . "</td>";
-        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["actividad"] . "</td>";
-        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["ccostos"] . "</td>";
-//        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["cuentainterna"] . " <a href=\"#\" data-toggle=\"tooltip\" title=\"" . $row["cuentainterna_nombre"] . "\"><i class=\"fa fa-info-circle\"></i></a></td>";
-        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cuentainterna"] . "</strong> <br/><small>" . $row["cuentainterna_nombre"] . "</small></td>";
+//        if ($cinfoAuxInicial == $cinfoAux) {
+//            $tabla .= "<tr class=\"gradeA odd\" role=\"row\">";
+//            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["cingreso"] . "</td>";
+//            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["actividad"] . "</td>";
+//            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["ccostos"] . "</td>";
+//            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cuentainterna"] . "</strong> <br/><small>" . $row["cuentainterna_nombre"] . "</small></td>";
+//        } else {
+            $tabla .= "<tr class=\"gradeA odd\" role=\"row\">";
+            $tabla .= "<td rowspan=\"$rowspan\" class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cinfo"] . "</strong> - " . $row["cinfo_nombre"] . "</td>";
+            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["cingreso"] . "</td>";
+            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["actividad"] . "</td>";
+            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["ccostos"] . "</td>";
+            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cuentainterna"] . "</strong> <br/><small>" . $row["cuentainterna_nombre"] . "</small></td>";
+
+//            $cinfoAuxInicial = $cinfoAux;
+//        }
     }
 
     $tabla .= "</tbody>

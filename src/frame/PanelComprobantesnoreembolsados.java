@@ -75,7 +75,7 @@ public class PanelComprobantesnoreembolsados extends javax.swing.JPanel {
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel48.setText("FORMA DE PAGO (ESTADO) : ");
-        jLabel48.setPreferredSize(new java.awt.Dimension(155, 25));
+        jLabel48.setPreferredSize(new java.awt.Dimension(165, 25));
         add(jLabel48);
 
         tipopago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -88,11 +88,11 @@ public class PanelComprobantesnoreembolsados extends javax.swing.JPanel {
         jTextField17.setFocusable(false);
         jTextField17.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField17.setOpaque(false);
-        jTextField17.setPreferredSize(new java.awt.Dimension(495, 25));
+        jTextField17.setPreferredSize(new java.awt.Dimension(485, 25));
         add(jTextField17);
 
         jLabel54.setText("FECHA DEL PAGO (REMBOLSO) : ");
-        jLabel54.setPreferredSize(new java.awt.Dimension(170, 25));
+        jLabel54.setPreferredSize(new java.awt.Dimension(180, 25));
         add(jLabel54);
 
         fechaaplicacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -127,7 +127,7 @@ public class PanelComprobantesnoreembolsados extends javax.swing.JPanel {
         jTextField16.setFocusable(false);
         jTextField16.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField16.setOpaque(false);
-        jTextField16.setPreferredSize(new java.awt.Dimension(75, 25));
+        jTextField16.setPreferredSize(new java.awt.Dimension(65, 25));
         add(jTextField16);
 
         botonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/save.png"))); // NOI18N

@@ -21,11 +21,11 @@ public class SubgrupoJpaController {
     public SubgrupoJpaController() {
     }
 
-    public void create(Subgrupo cuentainterna) {
+    public void create(Subgrupo subgrupo) {
         try {
             datos.update("INSERT INTO SUBGRUPO VALUES ("
-                    + "'" + cuentainterna.getCodigo() + "', "
-                    + "'" + cuentainterna.getNombre() + "')");
+                    + "'" + subgrupo.getCodigo() + "', "
+                    + "'" + subgrupo.getNombre() + "')");
             if (!datos.isError) {
                 ClaseMensaje.informacionGuardarBD("Subgrupo");
             }
@@ -35,10 +35,10 @@ public class SubgrupoJpaController {
         }
     }
 
-    public void edit(Subgrupo cuentainterna, Subgrupo id) {
+    public void edit(Subgrupo subgrupo, Subgrupo id) {
         try {
             datos.update("UPDATE SUBGRUPO SET "
-                    + "NOMBRE = '" + cuentainterna.getNombre() + "' "
+                    + "NOMBRE = '" + subgrupo.getNombre() + "' "
                     + "WHERE "
                     + "CODIGO = '" + id.getCodigo() + "'");
             if (!datos.isError) {

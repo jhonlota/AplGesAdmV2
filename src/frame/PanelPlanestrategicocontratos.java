@@ -126,13 +126,13 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ESTRATEGIA");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel2.setPreferredSize(new java.awt.Dimension(90, 25));
+        jLabel2.setPreferredSize(new java.awt.Dimension(120, 25));
         jPanel1.add(jLabel2);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("PROGRAMA");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel3.setPreferredSize(new java.awt.Dimension(465, 25));
+        jLabel3.setPreferredSize(new java.awt.Dimension(435, 25));
         jPanel1.add(jLabel3);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -160,7 +160,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         estrategia.setModel(ClaseGeneral.controlPlanestrategico.COMBOEstrategiaInPlanestrategicoBy());
         estrategia.setSelectedItem("0");
         estrategia.setOpaque(false);
-        estrategia.setPreferredSize(new java.awt.Dimension(90, 25));
+        estrategia.setPreferredSize(new java.awt.Dimension(120, 25));
         jPanel1.add(estrategia);
 
         programa.setBackground(ClaseGeneral.campo);
@@ -168,7 +168,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         programa.setModel(ClaseGeneral.controlPlanestrategico.COMBOProgramaInPlanestrategicoBy());
         programa.setSelectedItem("0");
         programa.setOpaque(false);
-        programa.setPreferredSize(new java.awt.Dimension(465, 25));
+        programa.setPreferredSize(new java.awt.Dimension(435, 25));
         jPanel1.add(programa);
 
         subgrupo.setBackground(ClaseGeneral.campo);
@@ -189,13 +189,13 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
 
         add(jPanel1);
 
-        jLabel32.setText("NOMBRE DEL PROYECTO : ");
-        jLabel32.setPreferredSize(new java.awt.Dimension(160, 25));
+        jLabel32.setText("PROYECTO : ");
+        jLabel32.setPreferredSize(new java.awt.Dimension(90, 25));
         add(jLabel32);
 
         proyecto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         proyecto.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        proyecto.setPreferredSize(new java.awt.Dimension(645, 25));
+        proyecto.setPreferredSize(new java.awt.Dimension(715, 25));
         add(proyecto);
 
         jLabel74.setPreferredSize(new java.awt.Dimension(810, 25));

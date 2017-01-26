@@ -2,12 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1032" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8f60c28-7f80-4e3c-8260-65452542a335">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="672"/>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
@@ -145,17 +145,17 @@ WHERE
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Grafico4.jpg"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement uuid="43fc2a97-50a0-4077-bbf0-efc204a0b33c" x="402" y="745" width="35" height="15"/>
+				<reportElement uuid="43fc2a97-50a0-4077-bbf0-efc204a0b33c" x="402" y="728" width="35" height="15"/>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAINICIO}.getDate()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="80b876ee-0529-4880-87d3-c862955903d5" x="681" y="745" width="57" height="15"/>
+				<reportElement uuid="80b876ee-0529-4880-87d3-c862955903d5" x="681" y="728" width="57" height="15"/>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAINICIO}.getYear() + 1900]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="238558d4-d893-4891-863b-1ade78c2d426" x="525" y="745" width="98" height="15"/>
+				<reportElement uuid="238558d4-d893-4891-863b-1ade78c2d426" x="525" y="728" width="98" height="15"/>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAINICIO}.getMonth() + 1]]></textFieldExpression>
 			</textField>
@@ -167,7 +167,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement uuid="ae6469f8-a8bc-4bf4-83e3-3a4ad37ca1d4" x="75" y="802" width="240" height="50"/>
+				<reportElement uuid="ae6469f8-a8bc-4bf4-83e3-3a4ad37ca1d4" x="75" y="786" width="240" height="50"/>
 				<subreportParameter name="ID">
 					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROORDENADORGA}.substring( 0, $F{CONTRATOS_FKTERCEROORDENADORGA}.indexOf( " - " ) )]]></subreportParameterExpression>
 				</subreportParameter>
@@ -175,7 +175,7 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServiciosAtras_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
-				<reportElement uuid="c9ab96c1-5de0-414d-9360-f7c5e367dc68" x="303" y="887" width="240" height="50"/>
+				<reportElement uuid="c9ab96c1-5de0-414d-9360-f7c5e367dc68" x="301" y="876" width="240" height="50"/>
 				<subreportParameter name="ID">
 					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROINTERSUPER}.substring( 0, $F{CONTRATOS_FKTERCEROINTERSUPER}.indexOf( " - " ) )]]></subreportParameterExpression>
 				</subreportParameter>
@@ -183,7 +183,7 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServiciosAtras_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
-				<reportElement uuid="c02e24db-216e-4011-a9a1-a71944139784" x="473" y="802" width="240" height="50"/>
+				<reportElement uuid="c02e24db-216e-4011-a9a1-a71944139784" x="473" y="786" width="240" height="50"/>
 				<subreportParameter name="ID">
 					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCERO}.substring( 0, $F{CONTRATOS_FKTERCERO}.indexOf( " - " ) )]]></subreportParameterExpression>
 				</subreportParameter>
@@ -191,7 +191,7 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServiciosAtras_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="90ea6e2d-8c9a-4769-b286-b1ec62a1dedd" x="230" y="710" width="120" height="20"/>
+				<reportElement uuid="90ea6e2d-8c9a-4769-b286-b1ec62a1dedd" x="230" y="694" width="120" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_CONTRATOVIGENTE}]]></textFieldExpression>
 			</textField>

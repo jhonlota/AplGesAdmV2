@@ -81,7 +81,6 @@
                     setDate: new Date()
                 });
             }
-
         </script>
     </head>
     <body class="top-navigation">
@@ -123,8 +122,8 @@
 
                                         </div>
                                         <script type="text/javascript">
-                                            $(document).ready(function() {
-                                                $('#form').submit(function(event) {
+                                            $(document).ready(function () {
+                                                $('#form').submit(function (event) {
                                                     event.preventDefault();
                                                     var fktercero = $('#fktercero').val();
                                                     var persona = $('#persona').val();
@@ -142,7 +141,7 @@
                                                             $('#tabla2').html('');
                                                             $('#tabla3').html('');
                                                         },
-                                                        success: function(response) {
+                                                        success: function (response) {
                                                             var json_obj = $.parseJSON(response);
                                                             $('#divtercero').html(json_obj.divtercero);
                                                             $('#tabla1').html(json_obj.tabla1);

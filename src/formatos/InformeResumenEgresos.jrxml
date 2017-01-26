@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InformeResumenEgresos" language="groovy" pageWidth="595" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="efb57a10-0f46-4cf4-a6e3-e4c6ddc321ea">
-	<property name="ireport.zoom" value="1.5026296018031553"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="60"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
@@ -9,10 +9,13 @@
 	<parameter name="ano" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="fechaaplicacion" class="java.util.Date">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
 	<parameter name="tipopago" class="java.lang.String"/>
+	<parameter name="FECHAAPLICACION_FINAL" class="java.util.Date">
+		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAAPLICACION_INICIAL" class="java.util.Date">
+		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT SOPORTESCOMPROBANTES.ACTIVIDAD,
 SOPORTESCOMPROBANTES.SUBGRUPO,
@@ -20,7 +23,7 @@ SOPORTESCOMPROBANTES.CCOSTOS,
 SOPORTESCOMPROBANTES.CINFO,
 SUM(SOPORTESCOMPROBANTES.VALOR)
 FROM COMPROBANTES, SOPORTESCOMPROBANTES
-WHERE COMPROBANTES.FECHAAPLICACION = $P{fechaaplicacion}
+WHERE COMPROBANTES.FECHAAPLICACION BETWEEN ($P{FECHAAPLICACION_INICIAL}::DATE) AND ($P{FECHAAPLICACION_FINAL}::DATE)
 AND COMPROBANTES.ID = SOPORTESCOMPROBANTES.FKCOMPROBANTE
 AND COMPROBANTES.ANO = $P{ano}
 AND COMPROBANTES.TIPOPAGO = $P{tipopago}
@@ -54,13 +57,6 @@ SOPORTESCOMPROBANTES.CINFO]]>
 				</textElement>
 				<text><![CDATA[RESUMEN DE EGRESOS POR IMPUTACION DE REEMBOLSO]]></text>
 			</staticText>
-			<textField pattern="yyyy-MM-dd">
-				<reportElement uuid="296b9a18-c2c3-43c7-a78a-e8ce296800ca" x="465" y="0" width="90" height="20"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{fechaaplicacion}]]></textFieldExpression>
-			</textField>
 		</band>
 	</title>
 	<columnHeader>
@@ -136,6 +132,9 @@ SOPORTESCOMPROBANTES.CINFO]]>
 			</line>
 			<subreport>
 				<reportElement uuid="25b314a2-02e0-4098-8727-f1dfdb278d9b" x="0" y="0" width="285" height="15"/>
+				<subreportParameter name="FECHAAPLICACION_INICIAL">
+					<subreportParameterExpression><![CDATA[$P{FECHAAPLICACION_INICIAL}]]></subreportParameterExpression>
+				</subreportParameter>
 				<subreportParameter name="subgrupo">
 					<subreportParameterExpression><![CDATA[$F{subgrupo}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -151,8 +150,8 @@ SOPORTESCOMPROBANTES.CINFO]]>
 				<subreportParameter name="ano">
 					<subreportParameterExpression><![CDATA[$P{ano}]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="fechaaplicacion">
-					<subreportParameterExpression><![CDATA[$P{fechaaplicacion}]]></subreportParameterExpression>
+				<subreportParameter name="FECHAAPLICACION_FINAL">
+					<subreportParameterExpression><![CDATA[$P{FECHAAPLICACION_FINAL}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "InformeResumenEgresos_subreport.jasper"]]></subreportExpression>

@@ -25,7 +25,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="FORMA DE PAGO (ESTADO) : "/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[155, 25]"/>
+          <Dimension value="[165, 25]"/>
         </Property>
       </Properties>
     </Component>
@@ -62,7 +62,7 @@
         </Property>
         <Property name="opaque" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[495, 25]"/>
+          <Dimension value="[485, 25]"/>
         </Property>
       </Properties>
     </Component>
@@ -70,7 +70,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="FECHA DEL PAGO (REMBOLSO) : "/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[170, 25]"/>
+          <Dimension value="[180, 25]"/>
         </Property>
       </Properties>
     </Component>
@@ -145,7 +145,7 @@
         </Property>
         <Property name="opaque" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[75, 25]"/>
+          <Dimension value="[65, 25]"/>
         </Property>
       </Properties>
     </Component>

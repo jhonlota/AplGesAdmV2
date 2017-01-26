@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport5" language="groovy" pageWidth="326" pageHeight="35" columnWidth="306" leftMargin="20" rightMargin="0" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport5" language="groovy" pageWidth="320" pageHeight="35" columnWidth="320" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="524f57ec-e3c3-43d4-9d3c-e18767b00a5e">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -35,24 +35,26 @@ ORDER BY SOPORTESCONTRATOS.NUMERO ASC]]>
 		<band height="35" splitType="Stretch">
 			<printWhenExpression><![CDATA[( $V{COLUMN_COUNT} <= 1 ? true : false )]]></printWhenExpression>
 			<textField isBlankWhenNull="true">
-				<reportElement x="5" y="15" width="180" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{F_SOPORTESCONTRATOS}]]></textFieldExpression>
+				<reportElement uuid="69c2fa1b-de13-4f59-bda5-01c2606c5951" x="0" y="10" width="209" height="25"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $F{F_SOPORTESCONTRATOS}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="190" y="10" width="28" height="15"/>
+				<reportElement uuid="55c3b198-9cc1-4448-993a-4dbc1fdb410d" x="209" y="10" width="30" height="15"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{SOPORTESCONTRATOS_FECHA}.getDate()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{SOPORTESCONTRATOS_FECHA}.getDate()]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="218" y="10" width="28" height="15"/>
+				<reportElement uuid="59ee9ed0-2a91-4758-be4d-0503920bc9ce" x="239" y="10" width="28" height="15"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{SOPORTESCONTRATOS_FECHA}.getMonth() + 1]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{SOPORTESCONTRATOS_FECHA}.getMonth() + 1]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="246" y="10" width="50" height="15"/>
+				<reportElement uuid="bb9ce5af-dde0-4ae3-aa29-b05f37a10cca" x="267" y="10" width="53" height="15"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{SOPORTESCONTRATOS_FECHA}.getYear() + 1900]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{SOPORTESCONTRATOS_FECHA}.getYear() + 1900]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

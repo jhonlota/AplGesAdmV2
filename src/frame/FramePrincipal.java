@@ -16,6 +16,7 @@ import clases.ClaseImportar;
 import clases.ClaseInformacion;
 import clases.ClaseInformes;
 import clases.ClaseMensaje;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -24,6 +25,7 @@ import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.File;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -332,8 +334,16 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Informes");
         treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Web");
+        javax.swing.tree.DefaultMutableTreeNode treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Doc. Terceros");
+        treeNode3.add(treeNode4);
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Consul. Pagos");
+        treeNode3.add(treeNode4);
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("C.Info - C.Interna");
+        treeNode3.add(treeNode4);
+        treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Orden Contractual *");
-        javax.swing.tree.DefaultMutableTreeNode treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Devoluciones");
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Devoluciones");
         treeNode3.add(treeNode4);
         treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Formato F20");
         treeNode3.add(treeNode4);
@@ -615,6 +625,24 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                         reportes.setVisible(true);
                         reportes.metodoLimpiar();
                         reportes.metodoBuscar();
+                    } catch (Exception ex) {
+                        Logger.getLogger(PanelAnexoscontratos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else if (hijo.equals("Doc. Terceros")) {
+                    try {
+                        Desktop.getDesktop().browse(new URI("http://192.168.131.52/datos/AGA/src/web/ConsultarDocumentosTerceros.php"));
+                    } catch (Exception ex) {
+                        Logger.getLogger(PanelAnexoscontratos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else if (hijo.equals("Consul. Pagos")) {
+                    try {
+                        Desktop.getDesktop().browse(new URI("http://192.168.131.52/datos/AGA/src/web/ConsultarPagosRealizados.php"));
+                    } catch (Exception ex) {
+                        Logger.getLogger(PanelAnexoscontratos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else if (hijo.equals("C.Info - C.Interna")) {
+                    try {
+                        Desktop.getDesktop().browse(new URI("http://192.168.131.52/datos/AGA/src/web/ConsultarVerificacinfocuentainterna.php"));
                     } catch (Exception ex) {
                         Logger.getLogger(PanelAnexoscontratos.class.getName()).log(Level.SEVERE, null, ex);
                     }

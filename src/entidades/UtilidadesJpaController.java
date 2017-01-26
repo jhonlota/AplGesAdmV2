@@ -5,6 +5,7 @@
 package entidades;
 
 import clases.ClaseBaseDatos;
+import clases.ClaseGeneral;
 import java.util.Date;
 
 /**
@@ -70,6 +71,35 @@ public class UtilidadesJpaController {
             return fecha;
         } catch (Exception ex) {
             return null;
+        } finally {
+        }
+    }
+
+    public String verficacionCuentaInterna(String cinfo,
+            String cingreso,
+            String actividad,
+            String ccostos,
+            String cuentainterna) {
+        try {
+            String cuentainternaAux = "-1";
+            datos.query("SELECT CUENTAINTERNA "
+                    + "FROM VERIFICACINFOCUENTAINTERNA "
+                    + "WHERE "
+                    + "CINFO = '" + cinfo + "' AND "
+                    + "(CINGRESO = '%" + cingreso + "%' OR CINGRESO = '*') AND "
+                    + "(ACTIVIDAD = '%" + actividad + "%' OR ACTIVIDAD = '*') AND "
+                    + "(CCOSTOS = '%" + ccostos + "%' OR CCOSTOS = '*')");
+            while (ClaseBaseDatos.resultado.next()) {
+                cuentainternaAux = ClaseBaseDatos.resultado.getString("CUENTAINTERNA");
+            }
+
+            if (!cuentainternaAux.equals(cuentainterna)) {
+                ClaseGeneral.errorValidarIngresoCUENTAINTERNA = "Error (CINFO) : " + cinfo + "\n   NO empareja con\n   C. INTERNA : " + cuentainterna + "\n";
+            }
+
+            return cuentainternaAux;
+        } catch (Exception ex) {
+            return "-1";
         } finally {
         }
     }

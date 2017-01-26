@@ -1,7 +1,5 @@
 <?php
-
 class Upload {
-
     var $maxsize = 0;
     var $message = "";
     var $newfile = "";
@@ -15,7 +13,6 @@ class Upload {
     var $blocked;
     var $isimage;
     var $isupload;
-
     function Upload() {
         $this->allowed = array("image/bmp", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/tiff", "application/pdf");
         $this->blocked = array("php", "phtml", "php3", "php4", "js", "shtml", "pl", "py", "yml", "sh", "bat", "exe", "html");
@@ -26,13 +23,9 @@ class Upload {
 
     function setFile($field, $cedulaTercero, $nombreDocumento, $fechaDocumento) {
         $this->filesize = $_FILES[$field]['size'];
-
         $this->filename = $_FILES[$field]['name'];
-
         $this->filetemp = $_FILES[$field]['tmp_name'];
-
         $this->filetype = $_FILES[$field]['type'];
-
         $this->fileexte = substr($this->filename, strrpos($this->filename, '.') + 1);
         
         $this->newfile = $cedulaTercero."_".$nombreDocumento."_".$fechaDocumento.".".$this->fileexte;
@@ -41,7 +34,6 @@ class Upload {
     function setPath($value) {
         $this->newpath = $value;
     }
-
     function setMaxSize($value) {
         $this->maxsize = $value;
     }

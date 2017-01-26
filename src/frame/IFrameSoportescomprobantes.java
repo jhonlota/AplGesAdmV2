@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * IFrameContrato.java
  *
  * Created on 4/01/2012, 09:52:57 AM
@@ -253,6 +253,13 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
 }//GEN-LAST:event_botonNuevoActionPerformed
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
+        ClaseGeneral.errorCUENTA = "";
+        ClaseGeneral.errorACTIVIDAD = "";
+        ClaseGeneral.errorSUBGRUPO = "";
+        ClaseGeneral.errorCCOSTOS = "";
+        ClaseGeneral.errorCINFO = "";
+        ClaseGeneral.errorCUENTAINTERNA = "";
+        ClaseGeneral.errorValidarIngresoCUENTAINTERNA = "";
         if (ClaseInformacion.ValidarCUENTA("" + panelPrincipal.cuenta.getText())
                 && ClaseInformacion.ValidarACTIVIDAD("" + panelPrincipal.actividad.getText())
                 && ClaseInformacion.ValidarSUBGRUPO("" + panelPrincipal.subgrupo.getSelectedItem())
@@ -260,9 +267,10 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
                 && ClaseInformacion.ValidarCINFO("" + panelPrincipal.cinfo.getSelectedItem())
                 && ClaseInformacion.ValidarCUENTAINTERNA("" + panelPrincipal.cuentainterna.getSelectedItem())
                 && (panelPrincipal.cuentainterna.getSelectedItem().equals(ClaseInformacion.ValidarIngresoCUENTAINTERNA("" + panelPrincipal.cinfo.getSelectedItem(),
-                                "000",
-                                "" + panelPrincipal.actividad.getText(),
-                                "" + panelPrincipal.ccostos.getText())))) {
+                        "000",
+                        "" + panelPrincipal.actividad.getText(),
+                        "" + panelPrincipal.ccostos.getText(),
+                        "" + panelPrincipal.cuentainterna.getSelectedItem())))) {
             panelPrincipal.metodoInsertar();
             if (ClaseGeneral.controlSoportescomprobantes.verify(ClaseGeneral.soportescomprobantes)) {
                 metodoLimpiar();
@@ -271,7 +279,14 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
                 ClaseMensaje.error("Error - Falta completar información.\n\n" + ClaseGeneral.errorValidacion);
             }
         } else {
-            ClaseMensaje.error("Error en la imputacion.");
+            ClaseMensaje.error("Error en la imputacion.\n"
+                    + ClaseGeneral.errorCUENTA
+                    + ClaseGeneral.errorACTIVIDAD
+                    + ClaseGeneral.errorSUBGRUPO
+                    + ClaseGeneral.errorCCOSTOS
+                    + ClaseGeneral.errorCINFO
+                    + ClaseGeneral.errorCUENTAINTERNA
+                    + ClaseGeneral.errorValidarIngresoCUENTAINTERNA);
         }
 }//GEN-LAST:event_botonGuardarActionPerformed
 
@@ -300,6 +315,13 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
 }//GEN-LAST:event_botonConsultarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
+        ClaseGeneral.errorCUENTA = "";
+        ClaseGeneral.errorACTIVIDAD = "";
+        ClaseGeneral.errorSUBGRUPO = "";
+        ClaseGeneral.errorCCOSTOS = "";
+        ClaseGeneral.errorCINFO = "";
+        ClaseGeneral.errorCUENTAINTERNA = "";
+        ClaseGeneral.errorValidarIngresoCUENTAINTERNA = "";
         if (ClaseInformacion.ValidarCUENTA("" + panelPrincipal.cuenta.getText())
                 && ClaseInformacion.ValidarACTIVIDAD("" + panelPrincipal.actividad.getText())
                 && ClaseInformacion.ValidarSUBGRUPO("" + panelPrincipal.subgrupo.getSelectedItem())
@@ -307,9 +329,10 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
                 && ClaseInformacion.ValidarCINFO("" + panelPrincipal.cinfo.getSelectedItem())
                 && ClaseInformacion.ValidarCUENTAINTERNA("" + panelPrincipal.cuentainterna.getSelectedItem())
                 && (panelPrincipal.cuentainterna.getSelectedItem().equals(ClaseInformacion.ValidarIngresoCUENTAINTERNA("" + panelPrincipal.cinfo.getSelectedItem(),
-                                "000",
-                                "" + panelPrincipal.actividad.getText(),
-                                "" + panelPrincipal.ccostos.getText())))) {
+                        "000",
+                        "" + panelPrincipal.actividad.getText(),
+                        "" + panelPrincipal.ccostos.getText(), 
+                        "" + panelPrincipal.cuentainterna.getSelectedItem())))) {
             if (!lista.isEmpty()) {
                 panelPrincipal.metodoActualizar();
             }
@@ -320,7 +343,14 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
                 ClaseMensaje.error("Error - Falta completar información.\n\n" + ClaseGeneral.errorValidacion);
             }
         } else {
-            ClaseMensaje.error("Error en la imputacion.");
+            ClaseMensaje.error("Error en la imputacion.\n"
+                    + ClaseGeneral.errorCUENTA
+                    + ClaseGeneral.errorACTIVIDAD
+                    + ClaseGeneral.errorSUBGRUPO
+                    + ClaseGeneral.errorCCOSTOS
+                    + ClaseGeneral.errorCINFO
+                    + ClaseGeneral.errorCUENTAINTERNA
+                    + ClaseGeneral.errorValidarIngresoCUENTAINTERNA);
         }
 }//GEN-LAST:event_botonActualizarActionPerformed
 
