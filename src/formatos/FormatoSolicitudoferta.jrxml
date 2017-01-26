@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudOferta" language="groovy" pageWidth="793" pageHeight="1044" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
-	<property name="ireport.zoom" value="0.8857805000000303"/>
+	<property name="ireport.zoom" value="0.45454545454546985"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="29"/>
+	<property name="ireport.y" value="102"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -390,9 +390,9 @@ WHERE
 	<detail>
 		<band height="50" splitType="Prevent">
 			<componentElement>
-				<reportElement uuid="cde91dfd-baec-40fb-965c-e2216ed5c6b0" key="table 8" x="20" y="0" width="710" height="50" forecolor="#FFFFFF"/>
+				<reportElement uuid="775db2c9-64ca-4ed3-8dba-8a66c78635c0" key="table 8" x="22" y="0" width="710" height="50"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="DATASETBIENES" uuid="fa2c961a-4a75-4f7a-bca5-706479129354">
+					<datasetRun subDataset="DATASETBIENES" uuid="9c705f1a-985c-4a00-9923-572ff6918588">
 						<datasetParameter name="IDSOLICITUDOFERTA_TABLE">
 							<datasetParameterExpression><![CDATA[$P{ID}]]></datasetParameterExpression>
 						</datasetParameter>
@@ -401,10 +401,10 @@ WHERE
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column uuid="c702c5f8-9200-4890-90c0-f235622b95ed" width="34">
+					<jr:column uuid="0a659818-eae4-44ab-971d-596f6fb62f67" width="34">
 						<jr:columnHeader height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="31711c0e-16d5-4a1c-9ac0-41be5495440d" style="table" x="0" y="0" width="34" height="30"/>
+								<reportElement uuid="9a1370ec-9604-4f0f-83fb-675fb08dee37" style="table" x="0" y="0" width="34" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10" isBold="true"/>
 								</textElement>
@@ -412,82 +412,84 @@ WHERE
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell height="20" rowSpan="1">
-							<textField>
-								<reportElement uuid="86a27f4c-679d-4850-b646-351cc9cb4060" style="table" x="0" y="0" width="34" height="20"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="fa2c6f4e-1e00-4d09-a0f4-b15c9c472925" style="table" stretchType="RelativeToTallestObject" x="0" y="0" width="34" height="20"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="56db264b-6114-41bd-978f-0ac5bcde8bf4" width="184">
+					<jr:column uuid="a5e86382-49ab-42f1-af4a-3db1fc1a3088" width="184">
 						<jr:columnHeader height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="31711c0e-16d5-4a1c-9ac0-41be5495440d" style="table" mode="Transparent" x="0" y="0" width="184" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
-									<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-									<paragraph lineSpacing="Single"/>
+								<reportElement uuid="9a1370ec-9604-4f0f-83fb-675fb08dee37" style="table" x="0" y="0" width="184" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Nombre]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+						<jr:detailCell height="20" rowSpan="1">
 							<textField isStretchWithOverflow="true">
-								<reportElement uuid="3a7da0aa-2923-4ad3-b650-de7827c1552a" stretchType="RelativeToTallestObject" x="0" y="0" width="184" height="20"/>
+								<reportElement uuid="c8016e24-896c-40e7-9452-27778fd0e825" style="table" stretchType="RelativeToTallestObject" x="0" y="0" width="184" height="20"/>
 								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[" "+$F{nombre}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="cda6bc06-03e6-4172-bc85-00bcb2a1faef" width="223">
+					<jr:column uuid="6dc119c6-35e6-452f-bc59-aff256feb23e" width="223">
 						<jr:columnHeader height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="317d1e2d-e939-4d8e-90b2-572877beb7ad" style="table" x="0" y="0" width="223" height="30"/>
+								<reportElement uuid="42cc2d8f-960e-42e2-8b0f-4dd100f4929e" style="table" x="0" y="0" width="223" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10" isBold="true"/>
 								</textElement>
-								<text><![CDATA[Descripción]]></text>
+								<text><![CDATA[Descripcion]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+						<jr:detailCell height="20" rowSpan="1">
 							<textField isStretchWithOverflow="true">
-								<reportElement uuid="87f00a5d-1615-4122-a0bc-116a441015aa" stretchType="RelativeToTallestObject" x="0" y="0" width="223" height="20"/>
+								<reportElement uuid="5bc12c5c-e89a-4e67-a994-3df1d51f6c8b" style="table" stretchType="RelativeToTallestObject" x="0" y="0" width="223" height="20"/>
 								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[" "+$F{descripcion}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="6961d79a-b610-4add-bb1e-c6a53c2ac4da" width="226">
+					<jr:column uuid="1cb18a23-10cd-4498-a0c9-af852e63b117" width="226">
 						<jr:columnHeader height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="81be5185-abcd-4816-98a1-e0940e813096" style="table" x="0" y="0" width="226" height="30"/>
+								<reportElement uuid="fb217162-05b0-4251-98ca-6756f8a6e25b" style="table" x="0" y="0" width="226" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10" isBold="true"/>
 								</textElement>
-								<text><![CDATA[Características específicas mínimas]]></text>
+								<text><![CDATA[Caracteristicas]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+						<jr:detailCell height="20" rowSpan="1">
 							<textField isStretchWithOverflow="true">
-								<reportElement uuid="5b5d5d74-bffe-47be-8d50-a829dc8ac5ea" stretchType="RelativeToTallestObject" x="0" y="0" width="226" height="20"/>
+								<reportElement uuid="98baaaa7-855b-4f21-b0a1-e29500934afe" style="table" stretchType="RelativeToTallestObject" x="0" y="0" width="226" height="20"/>
 								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[" "+$F{caracteristicas}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="72a3fcfc-ddb9-4db7-83bc-a6b449a2cf2d" width="41">
+					<jr:column uuid="56226437-7d3c-4c5b-ae0d-91ceff21f1ed" width="43">
 						<jr:columnHeader height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="5820e59d-a4b1-48fb-9c49-ddfce7a24acc" style="table" x="0" y="0" width="41" height="30"/>
+								<reportElement uuid="21e1147f-8f11-4672-825b-cd56b10ba0f8" style="table" x="0" y="0" width="43" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Cant.]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
-							<textField isStretchWithOverflow="true">
-								<reportElement uuid="4bf77fb6-5259-4f03-abd6-6ee59fa932da" stretchType="RelativeToTallestObject" x="0" y="0" width="41" height="20"/>
-								<textElement verticalAlignment="Middle"/>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
+								<reportElement uuid="c045a43b-c7fb-4b70-8634-2d21aac9fcf8" style="table" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="43" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
 								<textFieldExpression><![CDATA[" "+$F{cantidad}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -497,13 +499,6 @@ WHERE
 		</band>
 		<band height="116">
 			<staticText>
-				<reportElement uuid="65506536-f464-4c18-8227-a4c952934346" x="20" y="30" width="710" height="20"/>
-				<textElement verticalAlignment="Bottom">
-					<font size="10" isItalic="false"/>
-				</textElement>
-				<text><![CDATA[Objeto del Contrato de Servicios :]]></text>
-			</staticText>
-			<staticText>
 				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="20" y="5" width="710" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
@@ -512,9 +507,9 @@ WHERE
 				<text><![CDATA[Servicios]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="cc903ff9-6356-4193-9d57-1de89798b449" style="table" x="20" y="50" width="710" height="43"/>
+				<reportElement uuid="cc903ff9-6356-4193-9d57-1de89798b449" style="table" x="20" y="25" width="710" height="70"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{SOLICITUDESOFERTA_OBJETO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Objeto del Contrato de Servicios: "+$F{SOLICITUDESOFERTA_OBJETO}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="20" y="95" width="710" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -549,8 +544,8 @@ WHERE
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell height="20" rowSpan="1">
-							<textField>
-								<reportElement uuid="fa2c6f4e-1e00-4d09-a0f4-b15c9c472925" style="table" x="0" y="0" width="34" height="20"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="fa2c6f4e-1e00-4d09-a0f4-b15c9c472925" style="table" stretchType="RelativeToTallestObject" x="0" y="0" width="34" height="20"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 							</textField>
@@ -567,8 +562,8 @@ WHERE
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell height="20" rowSpan="1">
-							<textField>
-								<reportElement uuid="c8016e24-896c-40e7-9452-27778fd0e825" style="table" x="0" y="0" width="184" height="20"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="c8016e24-896c-40e7-9452-27778fd0e825" style="table" stretchType="RelativeToTallestObject" x="0" y="0" width="184" height="20"/>
 								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[" "+$F{nombre}]]></textFieldExpression>
 							</textField>
@@ -585,8 +580,8 @@ WHERE
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell height="20" rowSpan="1">
-							<textField>
-								<reportElement uuid="5bc12c5c-e89a-4e67-a994-3df1d51f6c8b" style="table" x="0" y="0" width="223" height="20"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="5bc12c5c-e89a-4e67-a994-3df1d51f6c8b" style="table" stretchType="RelativeToTallestObject" x="0" y="0" width="223" height="20"/>
 								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[" "+$F{descripcion}]]></textFieldExpression>
 							</textField>
@@ -603,17 +598,17 @@ WHERE
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell height="20" rowSpan="1">
-							<textField>
-								<reportElement uuid="98baaaa7-855b-4f21-b0a1-e29500934afe" style="table" x="0" y="0" width="226" height="20"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement uuid="98baaaa7-855b-4f21-b0a1-e29500934afe" style="table" stretchType="RelativeToTallestObject" x="0" y="0" width="226" height="20"/>
 								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[" "+$F{caracteristicas}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="56226437-7d3c-4c5b-ae0d-91ceff21f1ed" width="42">
+					<jr:column uuid="56226437-7d3c-4c5b-ae0d-91ceff21f1ed" width="43">
 						<jr:columnHeader height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="21e1147f-8f11-4672-825b-cd56b10ba0f8" style="table" x="0" y="0" width="41" height="30"/>
+								<reportElement uuid="21e1147f-8f11-4672-825b-cd56b10ba0f8" style="table" x="0" y="0" width="43" height="30"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font size="10" isBold="true"/>
 								</textElement>
@@ -621,9 +616,12 @@ WHERE
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell height="20" rowSpan="1">
-							<textField>
-								<reportElement uuid="c045a43b-c7fb-4b70-8634-2d21aac9fcf8" style="table" x="0" y="0" width="41" height="20"/>
-								<textElement verticalAlignment="Middle"/>
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
+								<reportElement uuid="c045a43b-c7fb-4b70-8634-2d21aac9fcf8" style="table" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="43" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
 								<textFieldExpression><![CDATA[" "+$F{cantidad}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>

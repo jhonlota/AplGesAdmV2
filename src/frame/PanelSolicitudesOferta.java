@@ -3151,6 +3151,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
             ClaseGeneral.controlSolicitudesoferta.destroy(ClaseGeneral.solicitudesoferta);
             ClaseGeneral.controlBienessolicitudesoferta.destroyFksolicitudofertaAno(ClaseGeneral.solicitudesoferta);
             ClaseGeneral.controlServiciossolicitudesoferta.destroyFksolicitudofertaAno(ClaseGeneral.solicitudesoferta);
+            ClaseGeneral.controlFormadepagosolicitudesoferta.destroyFksolicitudofertaAno(ClaseGeneral.solicitudesoferta);
             
             metodoActualizar();
         } catch (Exception ex) {

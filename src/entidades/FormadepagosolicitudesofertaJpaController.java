@@ -49,7 +49,7 @@ public class FormadepagosolicitudesofertaJpaController {
         } finally {
         }
     }
-    
+
     public void editFksolicitudoferta(String fksolicitudoferta, String id) {
         try {
             datos.update("UPDATE FORMADEPAGOSOLICITUDESOFERTA SET "
@@ -76,12 +76,13 @@ public class FormadepagosolicitudesofertaJpaController {
         } finally {
         }
     }
-    
-    public void destroyFksolicitudoferta(String id) {
+
+    public void destroyFksolicitudofertaAno(Solicitudesoferta id) {
         try {
             datos.update("DELETE FROM FORMADEPAGOSOLICITUDESOFERTA "
                     + "WHERE "
-                    + "FKSOLICITUDOFERTA = '" + id + "'");
+                    + "FKSOLICITUDOFERTA = '" + id.getId() + "' AND "
+                    + "ANO = " + id.getAno());
             if (!datos.isError) {
                 ClaseMensaje.informacionEliminarBD("Forma de Pago");
             }
@@ -91,7 +92,7 @@ public class FormadepagosolicitudesofertaJpaController {
         }
     }
 
-    public boolean verify(Formadepagosolicitudesoferta formadepagosolicitudesoferta) {   
+    public boolean verify(Formadepagosolicitudesoferta formadepagosolicitudesoferta) {
         return true;
     }
 
