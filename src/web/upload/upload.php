@@ -1,7 +1,5 @@
 <?php
-
 class Upload {
-
     var $maxsize = 0;
     var $message = "";
     var $newfile = "";
@@ -15,45 +13,32 @@ class Upload {
     var $blocked;
     var $isimage;
     var $isupload;
-
     function Upload() {
         $this->allowed = array("image/bmp", "image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "application/pdf");
         $this->blocked = array("php", "phtml", "php3", "php4", "js", "shtml", "pl", "py", "yml");
         $this->message = "";
         $this->isupload = false;
     }
-
-    function setFile($field, $fktercero, $fecha) {
+    function setFile($field, $cedulaTercero, $nombreDocumento, $fechaDocumento) {
         $this->filesize = $_FILES[$field]['size'];
-
         $this->filename = $_FILES[$field]['name'];
-
         $this->filetemp = $_FILES[$field]['tmp_name'];
-
         $this->filetype = $_FILES[$field]['type'];
-
         $this->fileexte = substr($this->filename, strrpos($this->filename, '.') + 1);
-
 //		$this->newfile = substr(md5(uniqid(rand())),0,8).".".$this->fileexte;
-
-        $this->newfile = $fktercero . "_" . $fecha . "." . $this->fileexte;
+        $this->newfile = $cedulaTercero."_".$nombreDocumento."_".$fechaDocumento.".".$this->fileexte;
     }
     
-
     function setPath($value) {
         $this->newpath = $value;
     }
-
     function setMaxSize($value) {
         $this->maxsize = $value;
     }
-
     function isImage($value) {
         $this->isimage = $value;
     }
-
     function save() {
-
         if (is_uploaded_file($this->filetemp)) {
             //    $this->message = "Entro al IF";
             // check if file valid
@@ -106,11 +91,8 @@ class Upload {
             return false;
         }
     }
-
     function getNewFile() {
         return $this->newfile;
     }
-
 }
-
 ?>

@@ -101,13 +101,13 @@ public class PanelReportes extends javax.swing.JPanel {
         ano_4.setText(ClaseGeneral.controlUtilidades.anoServidor());
         ano_5.setText(ClaseGeneral.controlUtilidades.anoServidor());
         ano_6.setText(ClaseGeneral.controlUtilidades.anoServidor());
+        ano_7.setText(ClaseGeneral.controlUtilidades.anoServidor());
 
         tipopago_4.setEditable(true);
         fechaaplicacion_4.setEditable(true);
         tipopago_5.setEditable(true);
         tipopago_6.setEditable(true);
         fechaaplicacion_6.setEditable(true);
-        fechaaplicacion_7.setEditable(true);
         AutoCompleteDecorator.decorate(tipopago_4);
         AutoCompleteDecorator.decorate(fechaaplicacion_4);
         AutoCompleteDecorator.decorate(tipopago_5);
@@ -284,7 +284,7 @@ public class PanelReportes extends javax.swing.JPanel {
         botonVerResumenegresosreembolso = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel_86 = new javax.swing.JLabel();
-        fechaaplicacion_7 = new javax.swing.JComboBox();
+        fechaaplicacion_7 = new javax.swing.JTextField();
         jTextField_38 = new javax.swing.JTextField();
         jLabel_87 = new javax.swing.JLabel();
         ano_7 = new javax.swing.JTextField();
@@ -936,7 +936,7 @@ public class PanelReportes extends javax.swing.JPanel {
 
         fechaaplicacion_4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fechaaplicacion_4.setModel(ClaseGeneral.controlComprobantes.COMBOFechaaplicacionInComprobantesBy());
-        fechaaplicacion_4.setPreferredSize(new java.awt.Dimension(180, 25));
+        fechaaplicacion_4.setPreferredSize(new java.awt.Dimension(220, 25));
         jPanel4.add(fechaaplicacion_4);
 
         jTextField_18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -944,7 +944,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jTextField_18.setFocusable(false);
         jTextField_18.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField_18.setOpaque(false);
-        jTextField_18.setPreferredSize(new java.awt.Dimension(490, 25));
+        jTextField_18.setPreferredSize(new java.awt.Dimension(450, 25));
         jPanel4.add(jTextField_18);
 
         jLabel_76.setText("AÑO : ");
@@ -1342,7 +1342,9 @@ public class PanelReportes extends javax.swing.JPanel {
         jPanel7.add(jLabel_86);
 
         fechaaplicacion_7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fechaaplicacion_7.setModel(ClaseGeneral.controlComprobantes.COMBOFechaaplicacionInComprobantesBy());
+        fechaaplicacion_7.setText("2000-01-01");
+        fechaaplicacion_7.setFocusable(false);
+        fechaaplicacion_7.setMargin(new java.awt.Insets(2, 4, 2, 4));
         fechaaplicacion_7.setPreferredSize(new java.awt.Dimension(180, 25));
         jPanel7.add(fechaaplicacion_7);
 
@@ -1708,7 +1710,13 @@ public class PanelReportes extends javax.swing.JPanel {
             try {
                 Map parametros = new HashMap();
                 parametros.put("ano", Integer.parseInt(ano_6.getText()));
-                parametros.put("fechaaplicacion", ClaseInformacion.ConvertirFecha("" + fechaaplicacion_6.getSelectedItem()));
+                if (fechaaplicacion_6.getSelectedItem().equals("Todo el AÑO - Reembolsados")) {
+                    parametros.put("FECHAAPLICACION_INICIAL", ClaseInformacion.ConvertirFecha(ano_6.getText() + "-01-01"));
+                    parametros.put("FECHAAPLICACION_FINAL", ClaseInformacion.ConvertirFecha(ano_6.getText() + "-12-31"));
+                } else {
+                    parametros.put("FECHAAPLICACION_INICIAL", ClaseInformacion.ConvertirFecha("" + fechaaplicacion_6.getSelectedItem()));
+                    parametros.put("FECHAAPLICACION_FINAL", ClaseInformacion.ConvertirFecha("" + fechaaplicacion_6.getSelectedItem()));
+                }
                 parametros.put("tipopago", "" + tipopago_6.getSelectedItem());
                 informes.formatoInformeResumenEgresosReembolso(parametros);
             } catch (Exception ex) {
@@ -1735,7 +1743,7 @@ public class PanelReportes extends javax.swing.JPanel {
              */
             try {
                 Map parametros = new HashMap();
-                parametros.put("FECHAAPLICACION", ClaseInformacion.ConvertirFecha("" + fechaaplicacion_7.getSelectedItem()));
+                parametros.put("FECHAAPLICACION", ClaseInformacion.ConvertirFecha("" + fechaaplicacion_7.getText()));
                 parametros.put("ANO", Integer.parseInt(ano_7.getText()));
                 ClaseInformes informes = new ClaseInformes();
                 informes.formatoInformeComprobantesNOREEMBOLSADOS(parametros);
@@ -1785,7 +1793,7 @@ public class PanelReportes extends javax.swing.JPanel {
     public static javax.swing.JTextField documento_4;
     public javax.swing.JComboBox fechaaplicacion_4;
     public javax.swing.JComboBox fechaaplicacion_6;
-    public javax.swing.JComboBox fechaaplicacion_7;
+    public static javax.swing.JTextField fechaaplicacion_7;
     public org.jdesktop.swingx.JXDatePicker fechafinal_1;
     public org.jdesktop.swingx.JXDatePicker fechafinal_2;
     public org.jdesktop.swingx.JXDatePicker fechafinal_3;

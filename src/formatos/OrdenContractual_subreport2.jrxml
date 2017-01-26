@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport2" language="groovy" pageWidth="330" pageHeight="80" columnWidth="310" leftMargin="10" rightMargin="10" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport2" language="groovy" pageWidth="330" pageHeight="75" columnWidth="330" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="480307c2-2b9e-4daa-83ca-582d0ed19954">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -56,26 +56,26 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="80" splitType="Stretch">
+		<band height="75" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement x="4" y="10" width="306" height="20"/>
+				<reportElement uuid="9b8ec878-f48f-4cfc-82c1-8d46e94081cf" x="0" y="0" width="330" height="25"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="4" y="35" width="306" height="20"/>
+				<reportElement uuid="93b16a2f-bb95-4ae5-adab-d95837e3fd7a" x="0" y="25" width="330" height="25"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_CARGO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TERCEROS_CARGO}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="4" y="60" width="196" height="20"/>
+				<reportElement uuid="dd4d4630-b638-4b88-a29a-c9f7eab99917" x="0" y="50" width="220" height="25"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_DEPENDENCIA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TERCEROS_DEPENDENCIA}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="200" y="60" width="110" height="20"/>
+				<reportElement uuid="454625fb-a486-4867-a629-7a3f982e9fc8" x="220" y="50" width="110" height="25"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

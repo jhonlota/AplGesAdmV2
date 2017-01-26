@@ -9,16 +9,19 @@
 	<parameter name="ano" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="fechaaplicacion" class="java.util.Date">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
 	<parameter name="tipopago" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAAPLICACION_FINAL" class="java.util.Date">
+		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAAPLICACION_INICIAL" class="java.util.Date">
+		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT COMPROBANTE, COMPROBANTES.ANO
 FROM COMPROBANTES, SOPORTESCOMPROBANTES
-WHERE COMPROBANTES.FECHAAPLICACION = $P{fechaaplicacion}
+WHERE COMPROBANTES.FECHAAPLICACION BETWEEN ($P{FECHAAPLICACION_INICIAL}::DATE) AND ($P{FECHAAPLICACION_FINAL}::DATE)
 AND COMPROBANTES.ID = SOPORTESCOMPROBANTES.FKCOMPROBANTE
 AND COMPROBANTES.ANO = $P{ano}
 AND COMPROBANTES.TIPOPAGO = $P{tipopago}

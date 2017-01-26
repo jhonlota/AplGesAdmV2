@@ -52,19 +52,35 @@
                     radioClass: 'iradio_square-green',
                 });
             }
-        </script>
+        </script>       
 
         <script type="text/javascript">
+            $.fn.datepicker.dates['es'] = {
+                days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+                daysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+                daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+                today: "Hoy",
+                clear: "Limpiar",
+                format: "mm/dd/yyyy",
+                titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+                weekStart: 0
+            };
+
             function datepicker() {
                 $('.datepicker').datepicker({
                     format: "dd-mm-yyyy",
                     startDate: "01-01-2000",
+                    firstDay: 1,
+                    todayBtn: "linked",
                     clearBtn: true,
                     autoclose: true,
-                    todayHighlight: true
+                    todayHighlight: true,
+                    language: "es",
+                    setDate: new Date()
                 });
             }
-
         </script>
     </head>
     <body class="top-navigation">
@@ -106,8 +122,8 @@
 
                                         </div>
                                         <script type="text/javascript">
-                                            $(document).ready(function() {
-                                                $('#form').submit(function(event) {
+                                            $(document).ready(function () {
+                                                $('#form').submit(function (event) {
                                                     event.preventDefault();
                                                     var fktercero = $('#fktercero').val();
                                                     var persona = $('#persona').val();
@@ -120,11 +136,12 @@
                                                         url: 'ResultadosConsultarDocumentosTerceros.php',
                                                         type: 'POST',
                                                         dataType: 'html',
-                                                        beforeSend: function() {
-                                                            $('#tabla').html('');
+                                                        beforeSend: function () {
+                                                            $('#tabla1').html('');
                                                             $('#tabla2').html('');
+                                                            $('#tabla3').html('');
                                                         },
-                                                        success: function(response) {
+                                                        success: function (response) {
                                                             var json_obj = $.parseJSON(response);
                                                             $('#divtercero').html(json_obj.divtercero);
                                                             $('#tabla1').html(json_obj.tabla1);

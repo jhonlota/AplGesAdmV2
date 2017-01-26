@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * PanelContratos.java
  *
  * Created on 12/01/2012, 05:56:51 PM
@@ -169,12 +169,15 @@ public class PanelContratos extends javax.swing.JPanel {
         jTextField34 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         anticipio = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel79 = new javax.swing.JLabel();
-        formapago = new javax.swing.JTextField();
+        jLabel87 = new javax.swing.JLabel();
+        jSeparator22 = new javax.swing.JSeparator();
         jLabel80 = new javax.swing.JLabel();
         tiempogarantia = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel79 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        formapago = new javax.swing.JTextArea();
         jLabel75 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -872,7 +875,7 @@ public class PanelContratos extends javax.swing.JPanel {
         panelHoja2.add(jTextField34);
 
         jLabel18.setText("SE PACTÓ ANTICIPO AL CONTRATO : ");
-        jLabel18.setPreferredSize(new java.awt.Dimension(220, 25));
+        jLabel18.setPreferredSize(new java.awt.Dimension(210, 25));
         panelHoja2.add(jLabel18);
 
         anticipio.setBackground(ClaseGeneral.campo);
@@ -882,26 +885,15 @@ public class PanelContratos extends javax.swing.JPanel {
         anticipio.setPreferredSize(new java.awt.Dimension(120, 25));
         panelHoja2.add(anticipio);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.setEnabled(false);
-        jTextField1.setFocusable(false);
-        jTextField1.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField1.setOpaque(false);
-        jTextField1.setPreferredSize(new java.awt.Dimension(450, 25));
-        panelHoja2.add(jTextField1);
+        jLabel87.setPreferredSize(new java.awt.Dimension(10, 25));
+        panelHoja2.add(jLabel87);
 
-        jLabel79.setText("FORMA DE PAGO DEL CONTRATO : ");
-        jLabel79.setPreferredSize(new java.awt.Dimension(220, 25));
-        panelHoja2.add(jLabel79);
-
-        formapago.setBackground(ClaseGeneral.campo);
-        formapago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        formapago.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        formapago.setPreferredSize(new java.awt.Dimension(575, 25));
-        panelHoja2.add(formapago);
+        jSeparator22.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator22.setPreferredSize(new java.awt.Dimension(15, 25));
+        panelHoja2.add(jSeparator22);
 
         jLabel80.setText("TIEMPO DE GARANTIA DEL CONTRATO : ");
-        jLabel80.setPreferredSize(new java.awt.Dimension(250, 25));
+        jLabel80.setPreferredSize(new java.awt.Dimension(230, 25));
         panelHoja2.add(jLabel80);
 
         tiempogarantia.setBackground(ClaseGeneral.campo);
@@ -910,19 +902,42 @@ public class PanelContratos extends javax.swing.JPanel {
         tiempogarantia.setPreferredSize(new java.awt.Dimension(150, 25));
         panelHoja2.add(tiempogarantia);
 
-        jTextField18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField18.setEnabled(false);
-        jTextField18.setFocusable(false);
-        jTextField18.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField18.setOpaque(false);
-        jTextField18.setPreferredSize(new java.awt.Dimension(390, 25));
-        panelHoja2.add(jTextField18);
+        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField6.setEnabled(false);
+        jTextField6.setFocusable(false);
+        jTextField6.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField6.setOpaque(false);
+        jTextField6.setPreferredSize(new java.awt.Dimension(35, 25));
+        panelHoja2.add(jTextField6);
+
+        jLabel79.setPreferredSize(new java.awt.Dimension(800, 10));
+        panelHoja2.add(jLabel79);
+
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FORMA DE PAGO DEL CONTRATO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel14.setPreferredSize(new java.awt.Dimension(800, 70));
+        jPanel14.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane3.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        formapago.setBackground(ClaseGeneral.campo);
+        formapago.setColumns(20);
+        formapago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        formapago.setLineWrap(true);
+        formapago.setRows(5);
+        formapago.setWrapStyleWord(true);
+        formapago.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        formapago.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane3.setViewportView(formapago);
+
+        jPanel14.add(jScrollPane3, java.awt.BorderLayout.CENTER);
+
+        panelHoja2.add(jPanel14);
 
         jLabel75.setPreferredSize(new java.awt.Dimension(800, 10));
         panelHoja2.add(jLabel75);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBSERVACIÓN AL CONTRATO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel5.setPreferredSize(new java.awt.Dimension(800, 120));
+        jPanel5.setPreferredSize(new java.awt.Dimension(800, 100));
         jPanel5.setLayout(new java.awt.BorderLayout());
 
         jScrollPane2.setPreferredSize(new java.awt.Dimension(430, 70));
@@ -1840,8 +1855,12 @@ public class PanelContratos extends javax.swing.JPanel {
     private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
 
-        if (componente.getName().equals("PLAZO")) {
-            metodoCalcularFechaTerminacion();
+        try {
+            if (componente.getName().equals("PLAZO")) {
+                metodoCalcularFechaTerminacion();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         try {
@@ -2269,7 +2288,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JTextField fktercerofuncionario;
     private javax.swing.JTextField fktercerointersuper;
     private javax.swing.JTextField fkterceroordenadorgasto;
-    private javax.swing.JTextField formapago;
+    private javax.swing.JTextArea formapago;
     private javax.swing.JComboBox inversion;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2354,6 +2373,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
@@ -2366,6 +2386,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2376,6 +2397,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
@@ -2388,19 +2410,18 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator20;
     private javax.swing.JSeparator jSeparator21;
+    private javax.swing.JSeparator jSeparator22;
     private javax.swing.JSeparator jSeparator23;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTabbedPane jTabbedPane;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
@@ -2427,6 +2448,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField49;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField51;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField ley80;
     private javax.swing.JComboBox modalidad;

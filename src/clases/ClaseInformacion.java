@@ -332,6 +332,10 @@ public class ClaseInformacion {
                     + "10";
             Pattern p = Pattern.compile(patron);
             Matcher matcher = p.matcher(cuenta);
+            
+            if(!matcher.matches()) {
+                ClaseGeneral.errorCUENTA = "Error (CUENTA) : " + cuenta + "\n";
+            }
             return matcher.matches();
         } else {
             return false;
@@ -346,6 +350,10 @@ public class ClaseInformacion {
             }
         }
 
+        if(!is) {
+            ClaseGeneral.errorACTIVIDAD = "Error (ACTIVIDAD) : " + actividad + "\n";
+        }
+        
         return is;
     }
 
@@ -356,16 +364,24 @@ public class ClaseInformacion {
                 is = true;
             }
         }
+        
+        if(!is) {
+            ClaseGeneral.errorSUBGRUPO = "Error (SUBGRUPO) : " + subgrupo + "\n";
+        }
 
         return is;
     }
 
-    public static boolean ValidarCCOSTOS(String subgrupo) {
-        if (subgrupo.length() > 0) {
+    public static boolean ValidarCCOSTOS(String ccostos) {
+        if (ccostos.length() > 0) {
             String patron = "470+\\d{2}||"
                     + "\\S";
             Pattern p = Pattern.compile(patron);
-            Matcher matcher = p.matcher(subgrupo);
+            Matcher matcher = p.matcher(ccostos);
+            
+             if(!matcher.matches()) {
+                ClaseGeneral.errorCCOSTOS = "Error (CCOSTOS) : " + ccostos + "\n";
+            }
             return matcher.matches();
         } else {
             return false;
@@ -379,6 +395,10 @@ public class ClaseInformacion {
                 is = true;
             }
         }
+        
+        if(!is) {
+            ClaseGeneral.errorCINFO = "Error (CINFO) : " + cinfo + "\n";
+        }        
 
         return is;
     }
@@ -390,6 +410,10 @@ public class ClaseInformacion {
                 is = true;
             }
         }
+        
+        if(!is) {
+            ClaseGeneral.errorCUENTAINTERNA = "Error (CUENTAINTERNA) : " + cuentainterna + "\n";
+        }  
 
         return is;
     }
@@ -401,7 +425,8 @@ public class ClaseInformacion {
     public static String ValidarIngresoCUENTAINTERNA(String cinfo,
             String cingreso,
             String actividad,
-            String ccostos) {
+            String ccostos,
+            String cuentainterna) {
 
 //        String cuentainterna = "";
 //
@@ -599,7 +624,7 @@ public class ClaseInformacion {
 //        }
 //
 //        return cuentainterna;
-        return ClaseGeneral.controlUtilidades.verficacionCuentaInterna(cinfo, cingreso, actividad, ccostos);
+        return ClaseGeneral.controlUtilidades.verficacionCuentaInterna(cinfo, cingreso, actividad, ccostos, cuentainterna);
     }
 
     public static void LimpiarPrincipales() {

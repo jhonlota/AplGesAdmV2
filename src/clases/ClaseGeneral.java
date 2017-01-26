@@ -111,6 +111,13 @@ public class ClaseGeneral {
     public static String dependencia;
     public static String errorValidacion;
     public static String servidor;
+    public static String errorCUENTA;
+    public static String errorACTIVIDAD;
+    public static String errorSUBGRUPO;
+    public static String errorCCOSTOS;
+    public static String errorCINFO;
+    public static String errorCUENTAINTERNA;
+    public static String errorValidarIngresoCUENTAINTERNA;
     public static boolean cargando;
     public static Color boton = new Color(255, 205, 70);
     public static Color campo = new Color(255, 255, 204);

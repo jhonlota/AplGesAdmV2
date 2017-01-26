@@ -5,6 +5,7 @@
 package entidades;
 
 import clases.ClaseBaseDatos;
+import clases.ClaseGeneral;
 import java.util.Date;
 
 /**
@@ -77,20 +78,26 @@ public class UtilidadesJpaController {
     public String verficacionCuentaInterna(String cinfo,
             String cingreso,
             String actividad,
-            String ccostos) {
+            String ccostos,
+            String cuentainterna) {
         try {
-            String cuentainterna = "";
+            String cuentainternaAux = "-1";
             datos.query("SELECT CUENTAINTERNA "
                     + "FROM VERIFICACINFOCUENTAINTERNA "
                     + "WHERE "
                     + "CINFO = '" + cinfo + "' AND "
-                    + "(CINGRESO = '" + cingreso + "' OR CINGRESO = '*') AND "
-                    + "(ACTIVIDAD = '" + actividad + "' OR ACTIVIDAD = '*') AND "
-                    + "(CCOSTOS = '" + ccostos + "' OR CCOSTOS = '*')");
+                    + "(CINGRESO = '%" + cingreso + "%' OR CINGRESO = '*') AND "
+                    + "(ACTIVIDAD = '%" + actividad + "%' OR ACTIVIDAD = '*') AND "
+                    + "(CCOSTOS = '%" + ccostos + "%' OR CCOSTOS = '*')");
             while (ClaseBaseDatos.resultado.next()) {
-                cuentainterna = ClaseBaseDatos.resultado.getString("CUENTAINTERNA");
+                cuentainternaAux = ClaseBaseDatos.resultado.getString("CUENTAINTERNA");
             }
-            return cuentainterna;
+
+            if (!cuentainternaAux.equals(cuentainterna)) {
+                ClaseGeneral.errorValidarIngresoCUENTAINTERNA = "Error (CINFO) : " + cinfo + "\n   NO empareja con\n   C. INTERNA : " + cuentainterna + "\n";
+            }
+
+            return cuentainternaAux;
         } catch (Exception ex) {
             return "-1";
         } finally {

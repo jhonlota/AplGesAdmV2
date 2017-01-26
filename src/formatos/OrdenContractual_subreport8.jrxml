@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport5" language="groovy" pageWidth="717" pageHeight="54" columnWidth="717" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7fe60d27-5753-44f6-a97e-23cf892cd294">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKCONTRATO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     *
+FROM
+     PLANESTRATEGICOCONTRATOS
+WHERE
+     FKCONTRATO = $P{FKCONTRATO}]]>
+	</queryString>
+	<field name="fkcontrato" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="eje" class="java.lang.String"/>
+	<field name="estrategia" class="java.lang.String"/>
+	<field name="programa" class="java.lang.String"/>
+	<field name="proyecto" class="java.lang.String"/>
+	<field name="subgrupo" class="java.lang.String"/>
+	<field name="cinfo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="2" y="0" width="56" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eje}.substring( 4, $F{eje}.indexOf( ":" ))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="58" y="0" width="48" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estrategia}.substring( 11, $F{estrategia}.indexOf( ":" ))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="106" y="0" width="41" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programa}.substring( 9, $F{programa}.indexOf( ":" ))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="147" y="0" width="460" height="18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{proyecto}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="607" y="0" width="58" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subgrupo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="665" y="0" width="52" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cinfo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -187,7 +187,7 @@ public class ClaseImportar {
             /**/
             soporte = documento;
 
-            cuentainterna = ClaseInformacion.ValidarIngresoCUENTAINTERNA(cinfo, cingreso, actividad, ccostos);
+            cuentainterna = ClaseInformacion.ValidarIngresoCUENTAINTERNA(cinfo, cingreso, actividad, ccostos, "");
 
             if (cuentainterna.equals("-1")) {
                 ExternoPanelCuentainterna panelCuentainterna = new ExternoPanelCuentainterna();

@@ -19,7 +19,7 @@
 	<parameter name="CUENTAINTERNA" class="java.lang.String">
 		<defaultValueExpression><![CDATA["%%"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="FECHAAPLICACION" class="java.util.Date">
+	<parameter name="FECHAAPLICACION_INICIAL" class="java.util.Date">
 		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="DOCUMENTO" class="java.lang.String">
@@ -36,6 +36,9 @@
 	</parameter>
 	<parameter name="SUBGRUPO" class="java.lang.String">
 		<defaultValueExpression><![CDATA["%%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAAPLICACION_FINAL" class="java.util.Date">
+		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
@@ -60,7 +63,7 @@ WHERE
      SOPORTESCOMPROBANTES.CINFO LIKE $P{CINFO}
  AND SOPORTESCOMPROBANTES.CUENTAINTERNA LIKE $P{CUENTAINTERNA}
  AND SOPORTESCOMPROBANTES.SUBGRUPO LIKE $P{SUBGRUPO}
- AND COMPROBANTES.FECHAAPLICACION = ($P{FECHAAPLICACION}::DATE)
+ AND COMPROBANTES.FECHAAPLICACION BETWEEN ($P{FECHAAPLICACION_INICIAL}::DATE) AND ($P{FECHAAPLICACION_FINAL}::DATE)
  AND COMPROBANTES.TIPOPAGO = $P{TIPOPAGO}
  AND COMPROBANTES.ANO = $P{ANO}
  AND COMPROBANTES.ANO = SOPORTESCOMPROBANTES.ANO
