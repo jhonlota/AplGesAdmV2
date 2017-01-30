@@ -574,7 +574,7 @@ public class ContratosJpaController {
                                 + "// SECOP");
                     }
                 } catch (Exception ex) {
-                    System.out.println("Contratos - " + ex);
+//                    System.out.println("Contratos - " + ex);
                 }
             }
             return lista;

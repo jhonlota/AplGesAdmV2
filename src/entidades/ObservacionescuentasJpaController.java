@@ -188,7 +188,7 @@ public class ObservacionescuentasJpaController {
                                     + "*-*" + observacion);
                         }
                     } catch (Exception ex) {
-                        System.out.println("Observacionescuentas - " + ex);
+//                        System.out.println("Observacionescuentas - " + ex);
                     }
                 }
             }
@@ -228,7 +228,7 @@ public class ObservacionescuentasJpaController {
                                     + "*-*" + observacion);
                         }
                     } catch (Exception ex) {
-                        System.out.println("Observacionescuentas - " + ex);
+//                        System.out.println("Observacionescuentas - " + ex);
                     }
                 }
             }

@@ -82,15 +82,61 @@ public class UtilidadesJpaController {
             String cuentainterna) {
         try {
             String cuentainternaAux = "-1";
-            datos.query("SELECT CUENTAINTERNA "
+            boolean isPrimero = true;
+
+            datos.query("SELECT * FROM " 
+                    + "(SELECT CUENTAINTERNA, 60 AS PESO "
                     + "FROM VERIFICACINFOCUENTAINTERNA "
                     + "WHERE "
                     + "CINFO = '" + cinfo + "' AND "
-                    + "(CINGRESO = '%" + cingreso + "%' OR CINGRESO = '*') AND "
-                    + "(ACTIVIDAD = '%" + actividad + "%' OR ACTIVIDAD = '*') AND "
-                    + "(CCOSTOS = '%" + ccostos + "%' OR CCOSTOS = '*')");
-            while (ClaseBaseDatos.resultado.next()) {
+                    + "CINGRESO LIKE '%" + cingreso + "%' AND ACTIVIDAD LIKE '%" + actividad + "%' AND CCOSTOS LIKE '%" + ccostos + "%' "
+                    + "UNION "
+                    + "SELECT CUENTAINTERNA, 51 AS PESO "
+                    + "FROM VERIFICACINFOCUENTAINTERNA "
+                    + "WHERE "
+                    + "CINFO = '" + cinfo + "' AND "
+                    + "CINGRESO LIKE '%" + cingreso + "%' AND ACTIVIDAD LIKE '%" + actividad + "%' AND CCOSTOS = '*' "
+                    + "UNION "
+                    + "SELECT CUENTAINTERNA, 41 AS PESO "
+                    + "FROM VERIFICACINFOCUENTAINTERNA "
+                    + "WHERE "
+                    + "CINFO = '" + cinfo + "' AND "
+                    + "CINGRESO LIKE '%" + cingreso + "%' AND ACTIVIDAD = '*' AND CCOSTOS LIKE '%" + ccostos + "%' "
+                    + "UNION "
+                    + "SELECT CUENTAINTERNA, 32 AS PESO "
+                    + "FROM VERIFICACINFOCUENTAINTERNA "
+                    + "WHERE "
+                    + "CINFO = '" + cinfo + "' AND "
+                    + "CINGRESO LIKE '%" + cingreso + "%' AND ACTIVIDAD = '*' AND CCOSTOS = '*' "
+                    + "UNION "
+                    + "SELECT CUENTAINTERNA, 31 AS PESO "
+                    + "FROM VERIFICACINFOCUENTAINTERNA "
+                    + "WHERE "
+                    + "CINFO = '" + cinfo + "' AND "
+                    + "CINGRESO = '*' AND ACTIVIDAD LIKE '%" + actividad + "%' AND CCOSTOS LIKE '%" + ccostos + "%' "
+                    + "UNION "
+                    + "SELECT CUENTAINTERNA, 22 AS PESO "
+                    + "FROM VERIFICACINFOCUENTAINTERNA "
+                    + "WHERE "
+                    + "CINFO = '" + cinfo + "' AND "
+                    + "CINGRESO = '*' AND ACTIVIDAD LIKE '%" + actividad + "%' AND CCOSTOS = '*' "
+                    + "UNION "
+                    + "SELECT CUENTAINTERNA, 12 AS PESO "
+                    + "FROM VERIFICACINFOCUENTAINTERNA "
+                    + "WHERE "
+                    + "CINFO = '" + cinfo + "' AND "
+                    + "CINGRESO = '*' AND ACTIVIDAD = '*' AND CCOSTOS LIKE '%" + ccostos + "%' "
+                    + "UNION "
+                    + "SELECT CUENTAINTERNA, 3 AS PESO "
+                    + "FROM VERIFICACINFOCUENTAINTERNA "
+                    + "WHERE "
+                    + "CINFO = '" + cinfo + "' AND "
+                    + "CINGRESO = '*' AND ACTIVIDAD = '*' AND CCOSTOS = '*') AS TABLA " 
+                    + "ORDER BY PESO DESC");
+            
+            while (ClaseBaseDatos.resultado.next() && isPrimero) {
                 cuentainternaAux = ClaseBaseDatos.resultado.getString("CUENTAINTERNA");
+                isPrimero = false;
             }
 
             if (!cuentainternaAux.equals(cuentainterna)) {

@@ -250,7 +250,9 @@ public class ClaseInformacion {
             String patron = "[A-Z]{4}-[A-Z]{1,3}-\\d{3}-\\d{2}||"
                     + "ADICION-[A-Z]{4}-[A-Z]{1,3}-\\d{3}-\\d{2}||"
                     + "\\d{4}.\\d{4}_\\d{3}.\\d{3}-\\d{3}-\\d{2}||"
+                    + "\\d{4}.\\d{4}.\\d{1}_\\d{3}.\\d{3}-\\d{3}-\\d{2}||"
                     + "ADICION-\\d{4}.\\d{4}_\\d{3}.\\d{3}-\\d{3}-\\d{2}||"
+                    + "ADICION-\\d{4}.\\d{4}.\\d{1}_\\d{3}.\\d{3}-\\d{3}-\\d{2}||"
                     + "\\d{3}-\\d{4}||"//CORPORATIVO ABIERTO
                     + "033-2012||"//PISTATOURS LTDA
                     + "034-2012||"//AVIATUR S.A

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1032" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8f60c28-7f80-4e3c-8260-65452542a335">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="672"/>
+	<property name="ireport.y" value="720"/>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
@@ -175,14 +175,6 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServiciosAtras_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
-				<reportElement uuid="c9ab96c1-5de0-414d-9360-f7c5e367dc68" x="301" y="876" width="240" height="50"/>
-				<subreportParameter name="ID">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROINTERSUPER}.substring( 0, $F{CONTRATOS_FKTERCEROINTERSUPER}.indexOf( " - " ) )]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServiciosAtras_subreport1.jasper"]]></subreportExpression>
-			</subreport>
-			<subreport>
 				<reportElement uuid="c02e24db-216e-4011-a9a1-a71944139784" x="473" y="786" width="240" height="50"/>
 				<subreportParameter name="ID">
 					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCERO}.substring( 0, $F{CONTRATOS_FKTERCERO}.indexOf( " - " ) )]]></subreportParameterExpression>
@@ -191,26 +183,26 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServiciosAtras_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="90ea6e2d-8c9a-4769-b286-b1ec62a1dedd" x="230" y="694" width="120" height="20"/>
+				<reportElement uuid="90ea6e2d-8c9a-4769-b286-b1ec62a1dedd" x="230" y="679" width="120" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_CONTRATOVIGENTE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="11d89348-8778-4b44-bb76-b33f96df1fb3" x="432" y="700" width="35" height="15">
+				<reportElement uuid="11d89348-8778-4b44-bb76-b33f96df1fb3" x="432" y="685" width="35" height="15">
 					<printWhenExpression><![CDATA[( $F{CONTRATOS_CONTRATOVIGENTE}.equals("") ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACIONVIGE}.getDate()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="b5956052-5034-4fa8-8c28-8fa2cd3da811" x="507" y="700" width="55" height="15">
+				<reportElement uuid="b5956052-5034-4fa8-8c28-8fa2cd3da811" x="507" y="685" width="55" height="15">
 					<printWhenExpression><![CDATA[( $F{CONTRATOS_CONTRATOVIGENTE}.equals("") ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACIONVIGE}.getYear() + 1900]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="79b5b62c-9b03-40a0-b965-05ef8f47eb5d" x="470" y="700" width="35" height="15">
+				<reportElement uuid="79b5b62c-9b03-40a0-b965-05ef8f47eb5d" x="470" y="685" width="35" height="15">
 					<printWhenExpression><![CDATA[( $F{CONTRATOS_CONTRATOVIGENTE}.equals("") ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
