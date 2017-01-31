@@ -11,27 +11,26 @@
 package frame;
 
 import clases.ClaseGeneral;
-import entidades.Contratos;
+import entidades.Solicitudesoferta;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
 
 /**
  *
  * @author Jhon Lopez
  */
-public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
+public class ExternoPanelBuscarNumeracionSolicitudesOferta extends javax.swing.JPanel {
 
-    public List listaContrato = new ArrayList();
-    public String contrato = "";
+    public List listaId = new ArrayList();
+    public String id = "";
     public int posicion;
-    private PanelContratos panelContratos = new PanelContratos();
+    private PanelSolicitudesOferta panelSolicitudesoferta = new PanelSolicitudesOferta();
 
     /**
      * Creates new form ExternoPanelFktercero
      */
-    public ExternoPanelBuscarNumeracionContratos() {
+    public ExternoPanelBuscarNumeracionSolicitudesOferta() {
         initComponents();
     }
 
@@ -48,8 +47,6 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         dependencia = new javax.swing.JComboBox();
-        jLabel7 = new javax.swing.JLabel();
-        tipocontrato = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
         ano = new javax.swing.JComboBox();
         jTextField1 = new javax.swing.JTextField();
@@ -90,26 +87,10 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         dependencia.setPreferredSize(new java.awt.Dimension(435, 25));
         dependencia.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ExternoPanelBuscarNumeracionContratos.this.itemStateChanged(evt);
+                ExternoPanelBuscarNumeracionSolicitudesOferta.this.itemStateChanged(evt);
             }
         });
         add(dependencia);
-
-        jLabel7.setText("TIPO : ");
-        jLabel7.setPreferredSize(new java.awt.Dimension(100, 25));
-        add(jLabel7);
-
-        tipocontrato.setBackground(ClaseGeneral.campo);
-        tipocontrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipocontrato.setModel(ClaseGeneral.controlTipocontrato.COMBOCodigoInTipocontratoBy());
-        tipocontrato.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
-        tipocontrato.setPreferredSize(new java.awt.Dimension(435, 25));
-        tipocontrato.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ExternoPanelBuscarNumeracionContratos.this.itemStateChanged(evt);
-            }
-        });
-        add(tipocontrato);
 
         jLabel6.setText("AÑO : ");
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 25));
@@ -124,7 +105,7 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         ano.setPreferredSize(new java.awt.Dimension(70, 24));
         ano.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ExternoPanelBuscarNumeracionContratos.this.itemStateChanged(evt);
+                ExternoPanelBuscarNumeracionSolicitudesOferta.this.itemStateChanged(evt);
             }
         });
         add(ano);
@@ -137,7 +118,7 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         jTextField1.setPreferredSize(new java.awt.Dimension(410, 25));
         add(jTextField1);
 
-        jLabel4.setText("NUMERACION : ");
+        jLabel4.setText("NUMERACION  : ");
         jLabel4.setPreferredSize(new java.awt.Dimension(100, 25));
         add(jLabel4);
 
@@ -162,64 +143,40 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
 
         lista.setFocusable(false);
         lista.setSelectionBackground(ClaseGeneral.campo);
-        lista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                listaValueChanged(evt);
-            }
-        });
         scrollLista.setViewportView(lista);
 
         add(scrollLista);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
-//        if (evt.getValueIsAdjusting()) {
-//            return;
-//        }
-//
-//        JList laLista = (JList) evt.getSource();
-//        if (laLista.isSelectionEmpty()) {
-//            contrato = "";
-//            posicion = -1;
-//            return;
-//        } else {
-//            contrato = "" + laLista.getSelectedValue();
-//            posicion = laLista.getSelectedIndex();
-//            ClaseGeneral.contratos = (Contratos) listaContrato.get(posicion);
-//            panelContratos.metodoConsultar("");
-//        }
-}//GEN-LAST:event_listaValueChanged
-
     private void itemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_itemStateChanged
         String dependenciaAux = dependencia.getSelectedItem().toString().substring(dependencia.getSelectedItem().toString().indexOf("[") + 1, dependencia.getSelectedItem().toString().indexOf("]"));
-        String tipocontratoAux = tipocontrato.getSelectedItem().toString().substring(tipocontrato.getSelectedItem().toString().indexOf("[") + 1, tipocontrato.getSelectedItem().toString().indexOf("]"));
         String anoAux = ano.getSelectedItem().toString().substring(2, 4);
 
-        ClaseGeneral.parametro = "contrato";
+        ClaseGeneral.parametro = "solicitudesoferta.id";
         ClaseGeneral.valor = dependenciaAux + "%-" + anoAux;
-        listaContrato = ClaseGeneral.controlContratos.findAllInContratosBy();
+        listaId = ClaseGeneral.controlSolicitudesoferta.findAllInSolicitudesofertaAndBienessolicitudofertaBy();
 
         int j = 1;
         DefaultListModel modeloLista = new DefaultListModel();
-        for (int i = 0; i < listaContrato.size(); i++) {
-            ClaseGeneral.contratos = (Contratos) listaContrato.get(i);
-            modeloLista.addElement(ClaseGeneral.contratos.getContrato() + " - " + ClaseGeneral.contratos.getFktercero());
+        for (int i = 0; i < listaId.size(); i++) {
+            ClaseGeneral.solicitudesoferta = (Solicitudesoferta) listaId.get(i);
+            modeloLista.addElement(ClaseGeneral.solicitudesoferta.getId() + " - " + ClaseGeneral.solicitudesoferta.getFktercero());
             j++;
         }
 
         lista.setModel(modeloLista);
 
-        String numContrato = "";
+        String numId = "";
         if (j < 10) {
-            numContrato = "00" + j;
+            numId = "00" + j;
         } else if (j < 100) {
-            numContrato = "0" + j;
+            numId = "0" + j;
         } else {
-            numContrato = "" + j;
+            numId = "" + j;
         }
 
-        texto.setText(dependenciaAux + "_018." + tipocontratoAux + "-" + numContrato + "-" + anoAux);
-        contrato = dependenciaAux + "_018." + tipocontratoAux + "-" + numContrato + "-" + anoAux;
+        texto.setText(dependenciaAux + "." + numId + "-" + anoAux);
+        id = dependenciaAux + "." + numId + "-" + anoAux;
     }//GEN-LAST:event_itemStateChanged
 
 
@@ -232,12 +189,10 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JList lista;
     private javax.swing.JScrollPane scrollLista;
     private javax.swing.JTextField texto;
-    private javax.swing.JComboBox tipocontrato;
     // End of variables declaration//GEN-END:variables
 }

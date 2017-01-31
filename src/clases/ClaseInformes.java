@@ -233,8 +233,8 @@ public class ClaseInformes {
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
     }
-    
-    public void formatoSolicitudOferta(Map parametros) {    
+
+    public void formatoSolicitudOferta(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoSolicitudoferta_atras.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
@@ -257,8 +257,7 @@ public class ClaseInformes {
             //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
-        
-        
+
         try {
             URL url = clase.getClass().getResource("FormatoSolicitudoferta.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
@@ -286,6 +285,13 @@ public class ClaseInformes {
     public void formatoContrato(Map parametros) {
         try {
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+            parametros.put("isAnexoOrdenContractual", "-");
+
+            //BORRAR
+            List<String> keys = new ArrayList<String>(parametros.keySet());
+            for (String key : keys) {
+                System.out.println(key + ": " + parametros.get(key));
+            }
 
             URL url;
             if (ClaseGeneral.contratos.getTipocontrato().equals("1: C1 Prestación de Servicios")
@@ -294,6 +300,8 @@ public class ClaseInformes {
             } else {
                 url = clase.getClass().getResource("OrdenContractual.jasper");
             }
+
+            System.out.println("PASA");
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -718,7 +726,7 @@ public class ClaseInformes {
                     texto += "999999" + ";";
                     texto += "999999" + ";";
                     texto += "999999" + ";";
-                     texto += ClaseBaseDatos.resultado.getString("TIPOACTAAVANCE") + ";";
+                    texto += ClaseBaseDatos.resultado.getString("TIPOACTAAVANCE") + ";";
                     texto += "" + ClaseBaseDatos.resultado.getDate("FECHAACTAAVANCE") + ";";
                     texto += ClaseBaseDatos.resultado.getString("PORCENTAJEAVANCE") + ";";
                     texto += "999999" + ";";

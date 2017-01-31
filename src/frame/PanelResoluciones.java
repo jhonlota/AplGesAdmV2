@@ -418,7 +418,7 @@ public class PanelResoluciones extends javax.swing.JPanel {
     private void botonBuscarFkterceroordenadorgastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarFkterceroordenadorgastoActionPerformed
         javax.swing.JButton componente = (javax.swing.JButton) evt.getSource();
         String eventoFktercero = componente.getName();
-        System.out.println("EVENTO = "+eventoFktercero);
+//        System.out.println("EVENTO = "+eventoFktercero);
         ExternoPanelFktercero panelFktercero = new ExternoPanelFktercero();
         ClaseMensaje.panel(panelFktercero);
 
@@ -542,13 +542,11 @@ public class PanelResoluciones extends javax.swing.JPanel {
 
     public void metodoAnular() {
         try {
-            observacion.setText("ANULADO");
+            observacion.append("\n[ANULADO]");
+            metodoActualizar();
             
-            ClaseGeneral.controlResoluciones.destroy(ClaseGeneral.resoluciones);
             ClaseGeneral.controlTercerosresoluciones.destroyFkresolucionAno(ClaseGeneral.resoluciones);
             ClaseGeneral.controlSoportesresoluciones.destroyFkresolucionAno(ClaseGeneral.resoluciones);
-            
-            metodoActualizar();
         } catch (Exception ex) {
             Logger.getLogger(PanelResoluciones.class.getName()).log(Level.SEVERE, null, ex);
         }

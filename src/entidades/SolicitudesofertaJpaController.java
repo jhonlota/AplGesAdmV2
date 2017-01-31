@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package entidades;
 
 import clases.ClaseBaseDatos;
@@ -20,40 +19,39 @@ import java.util.List;
  * @author andres
  */
 public class SolicitudesofertaJpaController {
-    
-    
+
     private ClaseBaseDatos datos = new ClaseBaseDatos();
 
     public SolicitudesofertaJpaController() {
     }
-    
+
     public void create(Solicitudesoferta solicitudesoferta) {
         try {
             datos.update("INSERT INTO " + solicitudesoferta.tabla + " VALUES ("
                     //+ solicitudesoferta.getId() + ", "
                     + "'" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getFechaelaboracion()) + "', "
                     + "'" + ClaseInformacion.ConvertirHora(solicitudesoferta.getHoraelaboracion()) + "', "
-                    + "'" + solicitudesoferta.getFktercero()+ "', "
+                    + "'" + solicitudesoferta.getFktercero() + "', "
                     + "'" + solicitudesoferta.getFktercerofuncionario() + "', "
-                    + "'" + solicitudesoferta.getNumerocertificado()+ "', "
-                    + solicitudesoferta.getValorcertificado()+ ", "
-                    + "'"+ ClaseInformacion.ConvertirFecha(solicitudesoferta.getFechaentrega())+"',"
-                    + "'" + solicitudesoferta.getObjeto()+ "', "
+                    + "'" + solicitudesoferta.getNumerocertificado() + "', "
+                    + solicitudesoferta.getValorcertificado() + ", "
+                    + "'" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getFechaentrega()) + "',"
+                    + "'" + solicitudesoferta.getObjeto() + "', "
                     + solicitudesoferta.getAno() + ", "
-                    + "'" + solicitudesoferta.getSecopnumeroproceso()+ "', "
-                    + "'" + solicitudesoferta.getSecopnumeroconstancia()+ "', "
-                    + "'" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getSecopfechapublicacion())+ "')");
+                    + "'" + solicitudesoferta.getSecopnumeroproceso() + "', "
+                    + "'" + solicitudesoferta.getSecopnumeroconstancia() + "', "
+                    + "'" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getSecopfechapublicacion()) + "')");
             if (!datos.isError) {
                 try {
                     datos.query("SELECT * FROM SOLICITUDESOFERTA WHERE "
                             + "FECHAELABORACION = '" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getFechaelaboracion()) + "' AND "
                             + "HORAELABORACION = '" + ClaseInformacion.ConvertirHora(solicitudesoferta.getHoraelaboracion()) + "' AND "
-                            + "FKTERCERO = '" + solicitudesoferta.getFktercero()+ "' AND "
+                            + "FKTERCERO = '" + solicitudesoferta.getFktercero() + "' AND "
                             + "FKTERCEROFUNCIONARIO = '" + solicitudesoferta.getFktercerofuncionario() + "' AND "
-                            + "NUMEROCERTIFICADO = " + solicitudesoferta.getNumerocertificado()+ " AND "
+                            + "NUMEROCERTIFICADO = " + solicitudesoferta.getNumerocertificado() + " AND "
                             + "FECHAENTREGA = '" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getFechaentrega()) + "' AND "
                             + "ANO = " + solicitudesoferta.getAno() + " ORDER BY ID DESC");
-                    
+
                     while (ClaseBaseDatos.resultado.next()) {
                         solicitudesoferta = new Solicitudesoferta();
                         solicitudesoferta.setId(ClaseBaseDatos.resultado.getString("ID"));
@@ -69,21 +67,21 @@ public class SolicitudesofertaJpaController {
         } finally {
         }
     }
-    
+
     public void edit(Solicitudesoferta solicitudesoferta, Solicitudesoferta id) {
         try {
             datos.update("UPDATE SOLICITUDESOFERTA SET "
                     + "FECHAELABORACION = '" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getFechaelaboracion()) + "', "
                     + "HORAELABORACION = '" + ClaseInformacion.ConvertirHora(solicitudesoferta.getHoraelaboracion()) + "', "
-                    + "FKTERCERO = '" + solicitudesoferta.getFktercero()+ "', "
-                    + "FKTERCEROFUNCIONARIO = '" + solicitudesoferta.getFktercerofuncionario()+ "', "
-                    + "NUMEROCERTIFICADO = '" + solicitudesoferta.getNumerocertificado()+ "', "
+                    + "FKTERCERO = '" + solicitudesoferta.getFktercero() + "', "
+                    + "FKTERCEROFUNCIONARIO = '" + solicitudesoferta.getFktercerofuncionario() + "', "
+                    + "NUMEROCERTIFICADO = '" + solicitudesoferta.getNumerocertificado() + "', "
                     + "VALORCERTIFICADO = '" + solicitudesoferta.getValorcertificado() + "', "
                     + "FECHAENTREGA = '" + solicitudesoferta.getFechaentrega() + "', "
-                    + "OBJETO = '" + solicitudesoferta.getObjeto()+ "', "
-                    + "SECOPNUMEROPROCESO = '" + solicitudesoferta.getSecopnumeroproceso()+ "', "
-                    + "SECOPNUMEROCONSTANCIA = '" + solicitudesoferta.getSecopnumeroconstancia()+ "', "
-                    + "SECOPFECHAPUBLICACION = '" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getSecopfechapublicacion())+ "' "
+                    + "OBJETO = '" + solicitudesoferta.getObjeto() + "', "
+                    + "SECOPNUMEROPROCESO = '" + solicitudesoferta.getSecopnumeroproceso() + "', "
+                    + "SECOPNUMEROCONSTANCIA = '" + solicitudesoferta.getSecopnumeroconstancia() + "', "
+                    + "SECOPFECHAPUBLICACION = '" + ClaseInformacion.ConvertirFecha(solicitudesoferta.getSecopfechapublicacion()) + "' "
                     + "WHERE "
                     + "ID = '" + id.getId() + "' "
                     + "AND ANO = " + id.getAno());
@@ -91,9 +89,9 @@ public class SolicitudesofertaJpaController {
                 ClaseMensaje.informacionActualizarBD("Solicitud de Oferta (" + id.getId() + ")");
             }
         } catch (Exception ex) {
-            System.out.println("Exepcion = "+ex);
-            System.out.println("solicitudesoferta.getFechaelaboracion()"+solicitudesoferta.getFechaelaboracion());
-            System.out.println("id.getId()"+id.getId());
+//            System.out.println("Exepcion = "+ex);
+//            System.out.println("solicitudesoferta.getFechaelaboracion()"+solicitudesoferta.getFechaelaboracion());
+//            System.out.println("id.getId()"+id.getId());
             ClaseMensaje.errorActualizarBD();
         } finally {
         }
@@ -120,11 +118,11 @@ public class SolicitudesofertaJpaController {
         } finally {
         }
     }
-    
+
     public void editFechaaplicacion() {
-        
+
     }
-    
+
     public void destroy(Solicitudesoferta id) {
         try {
             datos.update("DELETE FROM SOLICITUDESOFERTA "
@@ -145,12 +143,11 @@ public class SolicitudesofertaJpaController {
             ClaseGeneral.errorValidacion = "";
             if (ClaseInformacion.ValidarSeleccione(solicitudesoferta.getFktercero(), "CÉDULA DEL PROVEEDOR")
                     && ClaseInformacion.ValidarSeleccione(solicitudesoferta.getFktercerofuncionario(), "CEDULA DE QUIEN SOLICITA")
-                    && (ClaseGeneral.perfil.equals("root") ? 
-                        true 
-                        : (estado.equals("create") ? 
-                            ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), solicitudesoferta.getFechaelaboracion()) >= 0 && ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), solicitudesoferta.getFechaelaboracion()) <= 8, "ERROR EN LA FECHA DE ELABORACION")
-                            : true)
-                    )) {
+                    && (ClaseGeneral.perfil.equals("root")
+                    ? true
+                    : (estado.equals("create")
+                    ? ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), solicitudesoferta.getFechaelaboracion()) >= 0 && ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), solicitudesoferta.getFechaelaboracion()) <= 8, "ERROR EN LA FECHA DE ELABORACION")
+                    : true))) {
                 return true;
             } else {
                 return false;
@@ -160,57 +157,57 @@ public class SolicitudesofertaJpaController {
         } finally {
         }
     }
-        
+
     public List<Solicitudesoferta> findAllInSolicitudesofertaByORDERBYAno(int ano) {
         List<Solicitudesoferta> listSolicitudesoferta = new ArrayList<Solicitudesoferta>();
         Solicitudesoferta solicitudesoferta;
 
         try {
             if (ClaseGeneral.perfil.equals("usuario")) {
-                if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")) {
-                    datos.query("SELECT * "
-                            + "FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID D"
-                            + "ESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
-                            + "FROM SOLICITUDESOFERTA "
-                            + "WHERE " + ClaseGeneral.parametro + " LIKE '" + ClaseGeneral.valor + "' "
-                            + "AND ANO = " + ano + " "
-                            + "AND FKTERCEROFUNCIONARIO IN ("
-                            + "SELECT ID || ' - ' || NOMBRE "
-                            + "FROM TERCEROS "
-                            + "WHERE DEPENDENCIA = '" + ClaseGeneral.dependencia + "')"
-                            + ") AS TABLA "
-                            + "WHERE FILA BETWEEN 1 AND 1000");
-                } else {
-                    datos.query("SELECT * "
-                            + "FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
-                            + "FROM SOLICITUDESOFERTA "
-                            + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
-                            + "AND ANO = " + ano + " "
-                            + "AND FKTERCEROFUNCIONARIO IN ("
-                            + "SELECT ID || ' - ' || NOMBRE "
-                            + "FROM TERCEROS "
-                            + "WHERE DEPENDENCIA = '" + ClaseGeneral.dependencia + "')"
-                            + ") AS TABLA "
-                            + "WHERE FILA BETWEEN 1 AND 1000");
-                }
+//                if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")) {
+//                    datos.query("SELECT * "
+//                            + "FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID D"
+//                            + "ESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
+//                            + "FROM SOLICITUDESOFERTA "
+//                            + "WHERE " + ClaseGeneral.parametro + " LIKE '" + ClaseGeneral.valor + "' "
+//                            + "AND ANO = " + ano + " "
+//                            + "AND FKTERCEROFUNCIONARIO IN ("
+//                            + "SELECT ID || ' - ' || NOMBRE "
+//                            + "FROM TERCEROS "
+//                            + "WHERE DEPENDENCIA = '" + ClaseGeneral.dependencia + "')"
+//                            + ") AS TABLA "
+//                            + "WHERE FILA BETWEEN 1 AND 1000");
+//                } else {
+                datos.query("SELECT * "
+                        + "FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
+                        + "FROM SOLICITUDESOFERTA "
+                        + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
+                        + "AND ANO = " + ano + " "
+                        + "AND FKTERCEROFUNCIONARIO IN ("
+                        + "SELECT ID || ' - ' || NOMBRE "
+                        + "FROM TERCEROS "
+                        + "WHERE DEPENDENCIA = '" + ClaseGeneral.dependencia + "')"
+                        + ") AS TABLA "
+                        + "WHERE FILA BETWEEN 1 AND 1000");
+//                }
             } else {
-                if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")) {
-                    datos.query("SELECT * "
-                            + "FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
-                            + "FROM SOLICITUDESOFERTA "
-                            + "WHERE " + ClaseGeneral.parametro + " LIKE '" + ClaseGeneral.valor + "' "
-                            + "AND ANO = " + ano + ""
-                            + ") AS TABLA "
-                            + "WHERE FILA BETWEEN 1 AND 1000");
-                } else {
-                    datos.query("SELECT * "
-                            + "FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
-                            + "FROM SOLICITUDESOFERTA "
-                            + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
-                            + "AND ANO = " + ano + ""
-                            + ") AS TABLA "
-                            + "WHERE FILA BETWEEN 1 AND 1000");
-                }
+//                if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")) {
+//                    datos.query("SELECT * "
+//                            + "FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
+//                            + "FROM SOLICITUDESOFERTA "
+//                            + "WHERE " + ClaseGeneral.parametro + " LIKE '" + ClaseGeneral.valor + "' "
+//                            + "AND ANO = " + ano + ""
+//                            + ") AS TABLA "
+//                            + "WHERE FILA BETWEEN 1 AND 1000");
+//                } else {
+                datos.query("SELECT * "
+                        + "FROM (SELECT *, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
+                        + "FROM SOLICITUDESOFERTA "
+                        + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
+                        + "AND ANO = " + ano + ""
+                        + ") AS TABLA "
+                        + "WHERE FILA BETWEEN 1 AND 1000");
+//                }
             }
             while (ClaseBaseDatos.resultado.next()) {
                 solicitudesoferta = new Solicitudesoferta();
@@ -242,46 +239,24 @@ public class SolicitudesofertaJpaController {
         Solicitudesoferta solicitudesoferta;
 
         try {
-            if (ClaseGeneral.perfil.equals("usuario")) {                
-                if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")) {
-                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO,SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION "
-                            + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
-                            + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA "
-                            + "WHERE " + ClaseGeneral.parametro + " LIKE '" + ClaseGeneral.valor + "' "
-                            + "AND FKTERCEROFUNCIONARIO IN ("
-                            + "SELECT ID || ' - ' || NOMBRE "
-                            + "FROM TERCEROS "
-                            + "WHERE DEPENDENCIA = '" + ClaseGeneral.dependencia + "')"
-                            + ") AS TABLA "
-                            + "WHERE FILA BETWEEN 1 AND 1000");
-                } else {
-                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO, SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION "
-                            + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
-                            + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA "
-                            + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
-                            + "AND FKTERCEROFUNCIONARIO IN ("
-                            + "SELECT ID || ' - ' || NOMBRE "
-                            + "FROM TERCEROS "
-                            + "WHERE DEPENDENCIA = '" + ClaseGeneral.dependencia + "')"
-                            + ") AS TABLA "
-                            + "WHERE FILA BETWEEN 1 AND 1000");
-                }
+            if (ClaseGeneral.perfil.equals("usuario")) {
+                datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO, SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION "
+                        + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
+                        + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA AND SOLICITUDESOFERTA.ANO = BIENESSOLICITUDESOFERTA.ANO "
+                        + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
+                        + "AND FKTERCEROFUNCIONARIO IN ("
+                        + "SELECT ID || ' - ' || NOMBRE "
+                        + "FROM TERCEROS "
+                        + "WHERE DEPENDENCIA = '" + ClaseGeneral.dependencia + "')"
+                        + ") AS TABLA "
+                        + "WHERE FILA BETWEEN 1 AND 1000");
             } else {
-                if (ClaseGeneral.parametro.equals("CAST(id AS TEXT)")) {
-                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO, SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION"
-                            + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
-                            + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA "
-                            + "WHERE " + ClaseGeneral.parametro + " LIKE '" + ClaseGeneral.valor + "' "
-                            + ") AS TABLA "
-                            + "WHERE FILA BETWEEN 1 AND 1000");
-                } else {
-                    datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO, SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION "
-                            + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
-                            + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA "
-                            + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
-                            + ") AS TABLA "
-                            + "WHERE FILA BETWEEN 1 AND 1000");
-                }
+                datos.query("SELECT DISTINCT(TABLA.ID), FECHAELABORACION, HORAELABORACION, FKTERCERO, FKTERCEROFUNCIONARIO, NUMEROCERTIFICADO, VALORCERTIFICADO, FECHAENTREGA, OBJETO, ANO, SECOPNUMEROPROCESO, SECOPNUMEROCONSTANCIA, SECOPFECHAPUBLICACION "
+                        + "FROM (SELECT SOLICITUDESOFERTA.*, ROW_NUMBER() OVER(ORDER BY SOLICITUDESOFERTA.ID DESC, SOLICITUDESOFERTA.ANO DESC) AS FILA "
+                        + "FROM SOLICITUDESOFERTA LEFT JOIN BIENESSOLICITUDESOFERTA ON SOLICITUDESOFERTA.ID = BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA AND SOLICITUDESOFERTA.ANO = BIENESSOLICITUDESOFERTA.ANO "
+                        + "WHERE " + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
+                        + ") AS TABLA "
+                        + "WHERE FILA BETWEEN 1 AND 1000");
             }
             while (ClaseBaseDatos.resultado.next()) {
                 solicitudesoferta = new Solicitudesoferta();
@@ -344,8 +319,7 @@ public class SolicitudesofertaJpaController {
             return null;
         }
     }
-   
-    
+
     public List<Solicitudesoferta> findAllInSolicitudesofertaByFktercero(String fktercero) {
         List<Solicitudesoferta> listSolicitudesoferta = new ArrayList<Solicitudesoferta>();
         Solicitudesoferta solicitudesoferta;

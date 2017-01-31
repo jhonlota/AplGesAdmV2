@@ -188,7 +188,7 @@ public class ObservacionescontratosJpaController {
                                     + "*-*" + observacion);
                         }
                     } catch (Exception ex) {
-                        System.out.println("Observacionescontratos - " + ex);
+//                        System.out.println("Observacionescontratos - " + ex);
                     }
                 }
             }

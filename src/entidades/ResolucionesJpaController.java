@@ -180,9 +180,9 @@ public class ResolucionesJpaController {
         ResolucionesPK resolucionesPK = new ResolucionesPK();
         try {
             datos.query("SELECT DISTINCT(RESOLUCION.ID), RESOLUCION.ACUERDO, RESOLUCION.ANO, RESOLUCION.FECHA, RESOLUCION.FECHAINICIO, RESOLUCION.FECHATERMINACION, RESOLUCION.FKTERCEROORDENADORGASTO, RESOLUCION.OBSERVACION, RESOLUCION.TIPO, RESOLUCION.VEHICULO, RESOLUCION.ISFINDESEMANA "
-                    + "FROM RESOLUCION LEFT JOIN TERCEROSRESOLUCION ON RESOLUCION.ID = TERCEROSRESOLUCION.FKRESOLUCION "
+                    + "FROM RESOLUCION LEFT JOIN TERCEROSRESOLUCION ON RESOLUCION.ID = TERCEROSRESOLUCION.FKRESOLUCION AND RESOLUCION.ANO = TERCEROSRESOLUCION.ANO "
                     + "WHERE "
-                    + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' AND RESOLUCION.ANO = TERCEROSRESOLUCION.ANO ORDER BY RESOLUCION.ID DESC, RESOLUCION.ANO DESC");//ORDER BY
+                    + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' ORDER BY RESOLUCION.ID DESC, RESOLUCION.ANO DESC");//ORDER BY
             while (ClaseBaseDatos.resultado.next()) {
                 resoluciones = new Resoluciones();
                 resolucionesPK = new ResolucionesPK();

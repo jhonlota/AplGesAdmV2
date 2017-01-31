@@ -83,11 +83,6 @@ public class ExternoPanelBuscarSolicitudesOferta extends javax.swing.JPanel {
         parametro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NÚMERO DE SOLICITUD [CAST(solicitudesoferta.id AS TEXT)]", "CÉDULA DEL PROVEEDOR [fktercero]", "NÚMERO DE CERTIFICADO [CAST(solicitudesoferta.numerocertificado AS TEXT)]", "OBJETO CONTRACTUAL [objeto]" }));
         parametro.setPreferredSize(new java.awt.Dimension(445, 25));
-        parametro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                parametroActionPerformed(evt);
-            }
-        });
         add(parametro);
 
         jLabel4.setText("TEXTO : ");
@@ -142,7 +137,7 @@ public class ExternoPanelBuscarSolicitudesOferta extends javax.swing.JPanel {
         for (int i = 0; i < listaSolicitudesOferta.size(); i++) {
             ClaseGeneral.solicitudesoferta = (Solicitudesoferta) listaSolicitudesOferta.get(i);
             modeloLista.addElement(ClaseGeneral.solicitudesoferta.getId() + " - " + ClaseGeneral.solicitudesoferta.getAno());
-            System.out.println("modeloLista.addElement("+ClaseGeneral.solicitudesoferta.getId() + " - " + ClaseGeneral.solicitudesoferta.getAno()+")");
+//            System.out.println("modeloLista.addElement("+ClaseGeneral.solicitudesoferta.getId() + " - " + ClaseGeneral.solicitudesoferta.getAno()+")");
         }
 
         lista.setModel(modeloLista);
@@ -165,10 +160,6 @@ public class ExternoPanelBuscarSolicitudesOferta extends javax.swing.JPanel {
             panelSolicitudesOferta.metodoConsultar();
         }
 }//GEN-LAST:event_listaValueChanged
-
-    private void parametroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parametroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_parametroActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

@@ -427,9 +427,9 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
             String padre = "" + jTree.getSelectionPath().getPathComponent(1);
             String padreDos = "" + jTree.getSelectionPath().getPathComponent(2);
             String hijo = "" + jTree.getSelectionPath().getLastPathComponent();
-            System.err.println(padre);
-            System.err.println("*" + padreDos);
-            System.err.println("+++" + hijo);
+//            System.err.println(padre);
+//            System.err.println("*" + padreDos);
+//            System.err.println("+++" + hijo);
 
             metodoEntidadSeleccionada(padre, hijo);
 
@@ -441,19 +441,22 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     solicitudesoferta.metodoLimpiar();
                 }
                 else if (hijo.equals("Bienes")
-                        && !ClaseGeneral.solicitudesoferta.getId().equals("")) {
+                        && !ClaseGeneral.solicitudesoferta.getId().equals("")
+                        && !ClaseGeneral.solicitudesoferta.getObjeto().contains("[ANULADO]")) {
                     bienessolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     bienessolicitudesoferta.setVisible(true);
                     bienessolicitudesoferta.metodoEstado("reiniciar");
                     bienessolicitudesoferta.metodoLimpiar();
                 }else if(hijo.equals("Forma de Pago")
-                        && !ClaseGeneral.solicitudesoferta.getId().equals("")){
+                        && !ClaseGeneral.solicitudesoferta.getId().equals("")
+                        && !ClaseGeneral.solicitudesoferta.getObjeto().contains("[ANULADO]")){
                     formadepagosolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     formadepagosolicitudesoferta.setVisible(true);
                     formadepagosolicitudesoferta.metodoEstado("reiniciar");
                     formadepagosolicitudesoferta.metodoLimpiar();
                 }else if(hijo.equals("Servicios")
-                        && !ClaseGeneral.solicitudesoferta.getId().equals("")){
+                        && !ClaseGeneral.solicitudesoferta.getId().equals("")
+                        && !ClaseGeneral.solicitudesoferta.getObjeto().contains("[ANULADO]")){
                     serviciossolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     serviciossolicitudesoferta.setVisible(true);
                     serviciossolicitudesoferta.metodoEstado("reiniciar");
@@ -545,6 +548,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     comprobantes.metodoLimpiar();
                 } else if (hijo.equals("Cumplidos")
                         && ClaseGeneral.comprobantes != null
+                        && !ClaseGeneral.comprobantes.getTipopago().equals("Aprobacion")
                         && !ClaseGeneral.comprobantes.getTipopago().equals("Anulado")) {
                     cumplidoscomprobantes.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     cumplidoscomprobantes.setVisible(true);
@@ -552,6 +556,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     cumplidoscomprobantes.metodoLimpiar();
                 } else if (hijo.equals("Facturas")
                         && ClaseGeneral.comprobantes != null
+                        && !ClaseGeneral.comprobantes.getTipopago().equals("Aprobacion")
                         && !ClaseGeneral.comprobantes.getTipopago().equals("Anulado")) {
                     facturascomprobantes.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     facturascomprobantes.setVisible(true);
@@ -559,6 +564,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     facturascomprobantes.metodoLimpiar();
                 } else if (hijo.equals("Soportes")
                         && ClaseGeneral.comprobantes != null
+                        && !ClaseGeneral.comprobantes.getTipopago().equals("Aprobacion")
                         && !ClaseGeneral.comprobantes.getTipopago().equals("Anulado")) {
                     soportescomprobantes.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     soportescomprobantes.setVisible(true);
@@ -567,7 +573,8 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                 }
             } else if (padre.equals("Resoluciones")) {
                 if (hijo.equals("Articulos")
-                        && ClaseGeneral.resoluciones.getResolucionPK().getId() > 0) {
+                        && ClaseGeneral.resoluciones.getResolucionPK().getId() > 0
+                        && !ClaseGeneral.resoluciones.getObservacion().contains("[ANULADO]")) {
                     tercerosresoluciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     tercerosresoluciones.setVisible(true);
                     tercerosresoluciones.metodoEstado("reiniciar");

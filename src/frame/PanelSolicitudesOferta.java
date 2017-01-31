@@ -49,11 +49,13 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
             fechaentrega.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
             fechaelaboracion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
             horaelaboracion.setFormatterFactory(new DefaultFormatterFactory(new MaskFormatter("##:##:##")));
+            secopfechapublicacion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
 
             fechaentrega.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
             fechaelaboracion.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
             horaelaboracion.setText(ClaseGeneral.controlUtilidades.timeServidor());
             ano.setText(ClaseGeneral.controlUtilidades.anoServidor());
+            secopfechapublicacion.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         } catch (ParseException ex) {
             Logger.getLogger(PanelSolicitudesOferta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -73,8 +75,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         textAreaBalanceSoportes = new javax.swing.JTextArea();
         jLabelId = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        botonBuscarSolicitudesoferta = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
         jLabelFechaSolicitud = new javax.swing.JLabel();
         fechaelaboracion = new org.jdesktop.swingx.JXDatePicker();
@@ -160,22 +161,25 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         id.setText("0");
         id.setFocusable(false);
         id.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        id.setPreferredSize(new java.awt.Dimension(100, 25));
+        id.setPreferredSize(new java.awt.Dimension(200, 25));
         add(id);
 
-        jLabel1.setPreferredSize(new java.awt.Dimension(20, 25));
-        add(jLabel1);
-
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator1.setPreferredSize(new java.awt.Dimension(20, 25));
-        add(jSeparator1);
+        botonBuscarSolicitudesoferta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
+        botonBuscarSolicitudesoferta.setFocusable(false);
+        botonBuscarSolicitudesoferta.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonBuscarSolicitudesoferta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarSolicitudesofertaActionPerformed(evt);
+            }
+        });
+        add(botonBuscarSolicitudesoferta);
 
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField5.setEnabled(false);
         jTextField5.setFocusable(false);
         jTextField5.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField5.setOpaque(false);
-        jTextField5.setPreferredSize(new java.awt.Dimension(495, 25));
+        jTextField5.setPreferredSize(new java.awt.Dimension(415, 25));
         add(jTextField5);
 
         jLabelFechaSolicitud.setText("FECHA INVITACIÓN : ");
@@ -3064,6 +3068,13 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_botonBuscarFkterceroActionPerformed
 
+    private void botonBuscarSolicitudesofertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarSolicitudesofertaActionPerformed
+        ExternoPanelBuscarNumeracionSolicitudesOferta panelBuscarNumeracionSolicitudesOferta = new ExternoPanelBuscarNumeracionSolicitudesOferta();
+        ClaseMensaje.panel(panelBuscarNumeracionSolicitudesOferta);
+
+        id.setText(panelBuscarNumeracionSolicitudesOferta.id);
+    }//GEN-LAST:event_botonBuscarSolicitudesofertaActionPerformed
+
     public void metodoInsertar() {
         ClaseGeneral.solicitudesoferta = new Solicitudesoferta();
         ClaseGeneral.solicitudesoferta.setId(id.getText());
@@ -3146,14 +3157,12 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
 
     public void metodoAnular() {
         try {
-            objeto.setText("ANULADO");
+            objeto.append("\n[ANULADO]");
+            metodoActualizar();
             
-            ClaseGeneral.controlSolicitudesoferta.destroy(ClaseGeneral.solicitudesoferta);
+//            ClaseGeneral.controlSolicitudesoferta.destroy(ClaseGeneral.solicitudesoferta);
             ClaseGeneral.controlBienessolicitudesoferta.destroyFksolicitudofertaAno(ClaseGeneral.solicitudesoferta);
             ClaseGeneral.controlServiciossolicitudesoferta.destroyFksolicitudofertaAno(ClaseGeneral.solicitudesoferta);
-            ClaseGeneral.controlFormadepagosolicitudesoferta.destroyFksolicitudofertaAno(ClaseGeneral.solicitudesoferta);
-            
-            metodoActualizar();
         } catch (Exception ex) {
             Logger.getLogger(PanelSolicitudesOferta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3301,6 +3310,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     public javax.swing.JTextField ano;
     private javax.swing.JButton botonBuscarFktercero;
     private javax.swing.JButton botonBuscarFktercerofuncionario;
+    public javax.swing.JButton botonBuscarSolicitudesoferta;
     public org.jdesktop.swingx.JXDatePicker fechaelaboracion;
     public org.jdesktop.swingx.JXDatePicker fechaentrega;
     private javax.swing.JTextField fktercero;
@@ -3308,7 +3318,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField horaelaboracion;
     private javax.swing.JTextField id;
     private javax.swing.JLabel jLabeL16;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -3334,7 +3343,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     public javax.swing.JScrollPane jScrollPaneBienesSolicitudOferta;
     public javax.swing.JScrollPane jScrollPaneFormadepago;
     public javax.swing.JScrollPane jScrollPaneServiciosSolicitudOferta;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator23;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
