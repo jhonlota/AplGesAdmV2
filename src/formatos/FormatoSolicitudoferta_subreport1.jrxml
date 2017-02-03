@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudCuenta_subreport1" language="groovy" pageWidth="710" pageHeight="100" columnWidth="710" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
-	<property name="ireport.zoom" value="1.331000000000004"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudCuenta_subreport1" language="groovy" pageWidth="532" pageHeight="80" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
+	<property name="ireport.zoom" value="1.4641000000000082"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="ID" class="java.lang.String">
@@ -8,23 +8,25 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     TERCEROS.NOMBREREPRESENTANTE AS "TERCEROS_NOMBREREPRESENTANTE",
-     TERCEROS.NOMBRE AS "TERCEROS_NOMBRE",
-     TERCEROS.TIPOID AS "TERCEROS_TIPOID",
-     TERCEROS.ID AS "TERCEROS_ID",
+     TERCEROS.DEPENDENCIA AS "TERCEROS_DEPENDENCIA",
+     TERCEROS.SEDEDEPENDENCIA AS "TERCEROS_SEDEDEPENDENCIA",
+     TERCEROS.EDIFICIO AS "TERCEROS_EDIFICIO",
+     TERCEROS.OFICINA AS "TERCEROS_OFICINA",
      TERCEROS.TELEFONO AS "TERCEROS_TELEFONO",
-     TERCEROS.DIRECCION AS "TERCEROS_DIRECCION"
+     TERCEROS.EMAIL AS "TERCEROS_EMAIL",
+     TERCEROS.NOMBRE AS "TERCEROS_NOMBRE"
 FROM
      TERCEROS
 WHERE
      TERCEROS.ID = $P{ID}]]>
 	</queryString>
-	<field name="TERCEROS_NOMBREREPRESENTANTE" class="java.lang.String"/>
-	<field name="TERCEROS_NOMBRE" class="java.lang.String"/>
-	<field name="TERCEROS_TIPOID" class="java.lang.String"/>
-	<field name="TERCEROS_ID" class="java.lang.String"/>
+	<field name="TERCEROS_DEPENDENCIA" class="java.lang.String"/>
+	<field name="TERCEROS_SEDEDEPENDENCIA" class="java.lang.String"/>
+	<field name="TERCEROS_EDIFICIO" class="java.lang.String"/>
+	<field name="TERCEROS_OFICINA" class="java.lang.String"/>
 	<field name="TERCEROS_TELEFONO" class="java.lang.String"/>
-	<field name="TERCEROS_DIRECCION" class="java.lang.String"/>
+	<field name="TERCEROS_EMAIL" class="java.lang.String"/>
+	<field name="TERCEROS_NOMBRE" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -38,138 +40,138 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="100" splitType="Prevent">
+		<band height="80" splitType="Prevent">
 			<rectangle>
-				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="0" width="185" height="20"/>
+				<reportElement uuid="a44bd3c7-1cd4-4193-b738-1d3b3c6295b8" x="0" y="0" width="187" height="16"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="20" width="185" height="20"/>
+				<reportElement uuid="95c13dc5-5520-4002-a762-77b0407d3212" x="0" y="16" width="187" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="9a4284ef-6b6b-419a-ad14-dc9559b3a688" x="0" y="32" width="187" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1e3e886e-663b-4b42-b3c5-219456043a3d" x="0" y="48" width="187" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="70154059-94b2-4d3b-8f4e-4e9184bcf49c" x="0" y="64" width="187" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="49713696-96ec-4b3e-b406-b612603f9be5" x="187" y="0" width="345" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="efcbf1f3-beda-4ad5-be29-988348772b1f" x="187" y="16" width="345" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="8fdf9abf-85fa-4160-9387-dfb434c591c8" x="187" y="32" width="226" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="8acb467e-1f09-443d-b51b-25eab1910bfe" x="413" y="32" width="54" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="eb0d9c59-4deb-43b7-bf20-5c703c76fae1" x="467" y="32" width="65" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="7d4a16f1-f347-4a35-b150-1b8ffa1fd44b" x="187" y="48" width="345" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="8b5bd424-bbc4-42e0-8c09-bf7d7e1eea84" x="187" y="64" width="345" height="16"/>
 			</rectangle>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="0" width="185" height="20"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="413" y="32" width="54" height="16"/>
 				<textElement verticalAlignment="Middle">
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<text><![CDATA[Representante Legal]]></text>
+				<text><![CDATA[Edificio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="20" width="185" height="20"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="64" width="187" height="16"/>
 				<textElement verticalAlignment="Middle">
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<text><![CDATA[Nombre Sociedad]]></text>
+				<text><![CDATA[Teléfono	]]></text>
 			</staticText>
-			<rectangle radius="0">
-				<reportElement uuid="7879f6fe-91b1-4405-907e-71f8d05f3745" x="185" y="0" width="526" height="20"/>
-			</rectangle>
-			<rectangle radius="0">
-				<reportElement uuid="7879f6fe-91b1-4405-907e-71f8d05f3745" x="185" y="20" width="526" height="20"/>
-			</rectangle>
-			<rectangle>
-				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="40" width="185" height="20"/>
-			</rectangle>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="40" width="185" height="20"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="0" width="187" height="16"/>
 				<textElement verticalAlignment="Middle">
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<text><![CDATA[Tipo de Identificación]]></text>
+				<text><![CDATA[Nombre Unidad Ejecutora]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="185" y="40" width="125" height="20"/>
-			</rectangle>
-			<rectangle>
-				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="310" y="40" width="39" height="20"/>
-			</rectangle>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="310" y="40" width="39" height="20"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="16" width="187" height="16"/>
 				<textElement verticalAlignment="Middle">
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<text><![CDATA[Nro.]]></text>
+				<text><![CDATA[Responsable Unidad Ejecutora]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="349" y="40" width="362" height="20"/>
-			</rectangle>
 			<textField>
-				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="0" width="527" height="20"/>
-				<textElement verticalAlignment="Middle">
-					<font size="14"/>
-					<paragraph leftIndent="15"/>
+				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" x="187" y="0" width="345" height="16"/>
+				<textElement>
+					<font size="12"/>
+					<paragraph leftIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TERCEROS_NOMBREREPRESENTANTE}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{TERCEROS_DEPENDENCIA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="20" width="527" height="20"/>
-				<textElement verticalAlignment="Middle">
-					<font size="14"/>
-					<paragraph leftIndent="15"/>
+				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" x="187" y="16" width="345" height="16"/>
+				<textElement>
+					<font size="12"/>
+					<paragraph leftIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="40" width="125" height="20"/>
-				<textElement verticalAlignment="Middle">
-					<font size="14"/>
-					<paragraph leftIndent="15"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TERCEROS_TIPOID}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="349" y="40" width="361" height="20"/>
-				<textElement verticalAlignment="Middle">
-					<font size="14"/>
-					<paragraph leftIndent="15"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
-			</textField>
-			<rectangle>
-				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="60" width="185" height="20"/>
-			</rectangle>
-			<rectangle>
-				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="80" width="185" height="20"/>
-			</rectangle>
-			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="60" width="185" height="20"/>
-				<textElement verticalAlignment="Middle">
-					<font size="14" isBold="true"/>
+				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" x="467" y="32" width="65" height="16"/>
+				<textElement>
+					<font size="12"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<text><![CDATA[Teléfono - Celular]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$F{TERCEROS_EDIFICIO}]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="80" width="185" height="20"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="48" width="187" height="16"/>
 				<textElement verticalAlignment="Middle">
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<text><![CDATA[Dirección]]></text>
+				<text><![CDATA[Correo Electrónico]]></text>
 			</staticText>
-			<rectangle radius="0">
-				<reportElement uuid="7879f6fe-91b1-4405-907e-71f8d05f3745" x="185" y="60" width="526" height="20"/>
-			</rectangle>
-			<rectangle radius="0">
-				<reportElement uuid="7879f6fe-91b1-4405-907e-71f8d05f3745" x="185" y="80" width="526" height="20"/>
-			</rectangle>
-			<textField>
-				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="60" width="527" height="20"/>
-				<textElement verticalAlignment="Middle">
-					<font size="14"/>
-					<paragraph leftIndent="15"/>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement uuid="a9f067ac-6b44-400d-ad49-0b6f7796c59d" mode="Transparent" x="187" y="48" width="345" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement uuid="a9f067ac-6b44-400d-ad49-0b6f7796c59d" mode="Transparent" x="187" y="64" width="345" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="185" y="80" width="527" height="20"/>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" x="0" y="32" width="187" height="16"/>
 				<textElement verticalAlignment="Middle">
-					<font size="14"/>
-					<paragraph leftIndent="15"/>
+					<font size="12" isBold="true"/>
+					<paragraph leftIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TERCEROS_DIRECCION}]]></textFieldExpression>
+				<text><![CDATA[Sede]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" x="187" y="32" width="226" height="16"/>
+				<textElement>
+					<font size="12"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_SEDEDEPENDENCIA}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

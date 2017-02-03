@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudOferta_subreport8" language="groovy" pageWidth="532" pageHeight="700" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
+	<property name="ireport.zoom" value="0.9743585500000027"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="e4fc37bd-d936-4d07-ac54-d80a9e2c8207"/>
+	<parameter name="ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[$P{ANO}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     SOLICITUDESOFERTA.ID AS "SOLICITUDESOFERTA_ID",
+     SOLICITUDESOFERTA.FECHAELABORACION AS "SOLICITUDESOFERTA_FECHAELABORACION",
+     SOLICITUDESOFERTA.HORAELABORACION AS "SOLICITUDESOFERTA_HORAELABORACION",
+     SOLICITUDESOFERTA.FKTERCERO AS "SOLICITUDESOFERTA_FKTERCERO",
+     SOLICITUDESOFERTA.FKTERCEROFUNCIONARIO AS "SOLICITUDESOFERTA_FKTERCEROFUNCIONA",
+     SOLICITUDESOFERTA.NUMEROCERTIFICADO AS "SOLICITUDESOFERTA_NUMEROCERTIFICADO",
+     SOLICITUDESOFERTA.VALORCERTIFICADO AS "SOLICITUDESOFERTA_VALORCERTIFICADO",
+     SOLICITUDESOFERTA.FECHAENTREGA AS "SOLICITUDESOFERTA_FECHAENTREGA",
+     SOLICITUDESOFERTA.OBJETO AS "SOLICITUDESOFERTA_OBJETO"
+
+FROM SOLICITUDESOFERTA
+
+WHERE
+     SOLICITUDESOFERTA.ID = $P{ID}
+     AND SOLICITUDESOFERTA.ANO = $P{ANO}]]>
+	</queryString>
+	<field name="SOLICITUDESOFERTA_ID" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_FECHAELABORACION" class="java.sql.Date"/>
+	<field name="SOLICITUDESOFERTA_HORAELABORACION" class="java.sql.Time"/>
+	<field name="SOLICITUDESOFERTA_FKTERCERO" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_FKTERCEROFUNCIONA" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_NUMEROCERTIFICADO" class="java.lang.Long"/>
+	<field name="SOLICITUDESOFERTA_VALORCERTIFICADO" class="java.lang.Long"/>
+	<field name="SOLICITUDESOFERTA_FECHAENTREGA" class="java.sql.Date"/>
+	<field name="SOLICITUDESOFERTA_OBJETO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="460" splitType="Prevent">
+			<rectangle>
+				<reportElement uuid="47bbae02-326d-491c-8dc7-966ceacca382" x="0" y="0" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="287c9d0e-318a-463b-80f6-e9103a0d74a0" x="0" y="16" width="532" height="66"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="a8e16126-d894-4c14-a687-65040a6eb628" x="0" y="87" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1722edce-2a3e-4641-9664-f0453f8dbc13" x="0" y="103" width="532" height="33"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="20924738-3947-421e-9db0-7c9f79ee4716" x="0" y="148" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="66f34e4a-8d6b-42e8-9fcd-66d931d8ac0e" x="0" y="160" width="532" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="8d9fef2e-9281-4e3d-bdc6-939a2dc01ec7" x="0" y="188" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="9972182d-021c-47b6-a716-5bfd8c55954e" x="0" y="204" width="532" height="24"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="e3870799-5145-454a-b27d-45ad7e8118dd" x="0" y="232" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="ec45a432-baf7-4926-9e27-c14904dded8d" x="0" y="248" width="532" height="212"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="733ffd98-cb4a-49df-a085-1d4bee2f9e22" x="0" y="248" width="532" height="21"/>
+				<textElement textAlignment="Justified">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Si, perfeccionando el contenido, EL CONTRATISTA no ejecuta el contrato dentro de los términos pactados o incumple con alguna o algunas de las obligaciones contenidas en el presente contrato, LA UNIVERSIDAD, previo el adelantamiento del debido proceso, podrá tramitar: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="733ffd98-cb4a-49df-a085-1d4bee2f9e22" x="0" y="318" width="532" height="14"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[B) MULTAS POR MORA EN EL CUMPLIMIENTO DEL TÉRMINO DEL CONTRATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="148" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[17. PROHIBICIÓN DE CESIÓN DEL CONTRATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="164" width="532" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Celebrado el Contrato, sus derechos y obligaciones no podrán cederse a ninguna persona natural o jurídica, nacional o extranjera.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="204" width="532" height="24" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Por circunstancias de fuerza mayor o caso fortuito se podrá, de común acuerdo entre las partes, suspender la ejecución del Contrato mediante la suscripción de un acta en la que conste y se justifique tal evento. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="733ffd98-cb4a-49df-a085-1d4bee2f9e22" x="0" y="429" width="532" height="31"/>
+				<textElement textAlignment="Justified">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[EL CONTRATISTA acepta que, en el evento de incumplimiento del contrato, LA UNIVERSIDAD haga efectiva en su contra una pena pecuniaria que se estipula en un diez por ciento (10%) del valor del contrato, suma que se considera pago parcial pero no definitivo de los perjuicios causados a LA UNIVERSIDAD, sin perjuicio de la aplicación de las multas establecida en la condición general: Octava - Multas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="733ffd98-cb4a-49df-a085-1d4bee2f9e22" x="0" y="269" width="532" height="14"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A) MULTAS POR INCUMPLIMIENTO PARCIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="103" width="532" height="33" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[La Supervisión del Contrato será asignada a un funcionario de la Universidad del Valle. El Contrato será  ejecutados bajo la revisión general del supervisor, quien ejercerá el controls, de la manera que él o ella juzgue técnicamente convenientemente y correcto para proteger los intereses de la Universidad del Valle.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="232" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[19. MULTAS Y CADUCIDAD DE LA ORDEN CONTRACTUAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="87" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[16. SUPERVISIÓN / INTERVENTORÍA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="733ffd98-cb4a-49df-a085-1d4bee2f9e22" x="0" y="332" width="532" height="83"/>
+				<textElement textAlignment="Justified">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Si EL CONTRATISTA no ejecuta el contrato dentro de los términos previstos para tal efecto, deberá pagar a LA UNIVERSIDAD, por cada día calendario de atraso, el cero punto cinco por ciento (0,5%) del valor total del contrato, sin sobrepasar el diez por ciento (10%) de ese valor. PARÁGRAFO: Las multas serán tramitadas, previo el adelantamiento del debido proceso y de audiencia donde EL CONTRATISTA podrá ejercer su derecho a la defensa, exponiendo las razones que considere justificadoras del incumpliendo. Dicho acto se notificará personalmente AL CONTRATISTA y si ello no fuere posible se notificara por edicto, de conformidad con el Código de Procedimiento Administrativo y de lo Contencioso Administrativo. Contra dicha decisión procederá el recurso de reposición que podrá ser interpuesto por EL CONTRATISTA dentro de los cinco (05) días hábiles siguientes a su notificación. Terminado el proceso anterior, la Universidad remitirá lo actuado a la jurisdicción contencioso administrativa, para efectos de que un juez sea el que finalmente determine la imposición de las multas. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="0" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[15. INDEMNIZACIÓN POR NO SUSCRIPCIÓN DEL CONTRATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="188" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[18. SUSPENSIÓN DEL CONTRATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="733ffd98-cb4a-49df-a085-1d4bee2f9e22" x="0" y="283" width="532" height="35"/>
+				<textElement textAlignment="Justified">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Si, durante la ejecución del contrato, EL CONTRATISTA incumple con alguna o algunas de las obligaciones contenida en el presente contrato, LA UNIVERSIDAD podrá tramitar multas proporcionales al valor del contrato y a los perjuicios que sufra, hasta que EL CONTRATISTA cumpla con las obligaciones, sin sobrepasar el diez por ciento (10%) del valor del contrato. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="733ffd98-cb4a-49df-a085-1d4bee2f9e22" x="0" y="415" width="532" height="14"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PENAL PECUNIARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="17" width="532" height="66" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Salvo fuerza mayor o caso fortuito debidamente comprobado, si el adjudicatario no suscribe o legaliza el contrato dentro de los dos (2) días hábiles, siguientes a la fecha de entrega del mismo por parte de la Universidad, se iniciarán las acciones legales conducentes al reconocimiento de perjuicios causados y no cubiertos y a las sanciones establecidas en el artículo 46 del Estatuto de Contratación, que establece que “La Universidad solicitará la declaratoria de inhabilidad para participar en procesos de Invitación Privada e Invitación Pública hasta por cinco (5) años a los proponentes y contratistas que, sin justa causa o convenio previo con la Universidad, se abstuviere de suscribir los contratos o incumplan reiteradamente las condiciones u obligaciones pactadas en ellos”]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

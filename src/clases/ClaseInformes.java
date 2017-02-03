@@ -4,11 +4,22 @@
  */
 package clases;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfImportedPage;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfWriter;
 import formatos.Clase;
 import java.util.Map;
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -234,30 +245,7 @@ public class ClaseInformes {
         }
     }
 
-    public void formatoSolicitudOferta(Map parametros) {
-        try {
-            URL url = clase.getClass().getResource("FormatoSolicitudoferta_atras.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
-
-            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
-            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
-            long aleatorio = ClaseInformacion.LongAletario();
-            JasperExportManager.exportReportToPdfFile(imprimir, "solicitudofertaatras_" + aleatorio + ".pdf");
-
-            File file = new File("solicitudofertaatras_" + aleatorio + ".pdf");
-            if (file.getAbsoluteFile().exists()) {
-                try {
-                    Desktop.getDesktop().open(file);
-                } catch (IOException ex) {
-                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            } else {
-            }
-        } catch (JRException ex) {
-            //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
-            ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
-        }
-
+    public void formatoSolicitudOferta(Map parametros) throws FileNotFoundException, DocumentException, IOException {
         try {
             URL url = clase.getClass().getResource("FormatoSolicitudoferta.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));

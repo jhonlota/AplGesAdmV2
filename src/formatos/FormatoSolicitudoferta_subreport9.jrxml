@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudOferta_subreport9" language="groovy" pageWidth="532" pageHeight="700" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
+	<property name="ireport.zoom" value="1.4265583530550043"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="209"/>
+	<subDataset name="dataset1" uuid="e4fc37bd-d936-4d07-ac54-d80a9e2c8207"/>
+	<parameter name="ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[$P{ANO}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     SOLICITUDESOFERTA.ID AS "SOLICITUDESOFERTA_ID",
+     SOLICITUDESOFERTA.FECHAELABORACION AS "SOLICITUDESOFERTA_FECHAELABORACION",
+     SOLICITUDESOFERTA.HORAELABORACION AS "SOLICITUDESOFERTA_HORAELABORACION",
+     SOLICITUDESOFERTA.FKTERCERO AS "SOLICITUDESOFERTA_FKTERCERO",
+     SOLICITUDESOFERTA.FKTERCEROFUNCIONARIO AS "SOLICITUDESOFERTA_FKTERCEROFUNCIONA",
+     SOLICITUDESOFERTA.NUMEROCERTIFICADO AS "SOLICITUDESOFERTA_NUMEROCERTIFICADO",
+     SOLICITUDESOFERTA.VALORCERTIFICADO AS "SOLICITUDESOFERTA_VALORCERTIFICADO",
+     SOLICITUDESOFERTA.FECHAENTREGA AS "SOLICITUDESOFERTA_FECHAENTREGA",
+     SOLICITUDESOFERTA.OBJETO AS "SOLICITUDESOFERTA_OBJETO"
+
+FROM SOLICITUDESOFERTA
+
+WHERE
+     SOLICITUDESOFERTA.ID = $P{ID}
+     AND SOLICITUDESOFERTA.ANO = $P{ANO}]]>
+	</queryString>
+	<field name="SOLICITUDESOFERTA_ID" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_FECHAELABORACION" class="java.sql.Date"/>
+	<field name="SOLICITUDESOFERTA_HORAELABORACION" class="java.sql.Time"/>
+	<field name="SOLICITUDESOFERTA_FKTERCERO" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_FKTERCEROFUNCIONA" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_NUMEROCERTIFICADO" class="java.lang.Long"/>
+	<field name="SOLICITUDESOFERTA_VALORCERTIFICADO" class="java.lang.Long"/>
+	<field name="SOLICITUDESOFERTA_FECHAENTREGA" class="java.sql.Date"/>
+	<field name="SOLICITUDESOFERTA_OBJETO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="516" splitType="Prevent">
+			<rectangle>
+				<reportElement uuid="fb5aec91-f3b0-4f49-bc2e-26168f4a61ca" x="0" y="362" width="532" height="154"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2472c830-d8e8-4a94-a067-a2cef3759c8f" x="0" y="345" width="532" height="17"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="fec3e1c2-3c26-4534-b053-eaae02e87e87" x="0" y="74" width="179" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1861e85b-f353-4c79-b608-10244bed26ef" x="179" y="74" width="166" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="53a82de5-b911-4e21-8a6f-fd47d97ffb83" x="345" y="74" width="187" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="3ad493cc-7094-4ae1-9da7-d9fdbfa3a21f" x="0" y="104" width="179" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="e371e9d8-cd74-4082-87bf-98d96ddfb48d" x="179" y="104" width="166" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="468f74bb-e3b8-4849-8dee-989f73e173a2" x="345" y="104" width="187" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="bec194ca-a334-4e1f-9081-db52d073ddac" x="0" y="134" width="179" height="65"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="ff84b141-d91f-409c-a0df-65befdd2c60d" x="179" y="134" width="166" height="65"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="c930ad2b-f749-4407-8b23-69c20c1c7568" x="345" y="134" width="187" height="65"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="7911560c-de60-42a9-8952-4e61842f579f" x="0" y="199" width="179" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="5ec29623-a463-44d3-a25b-cf4a9f303292" x="179" y="199" width="166" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="da0d6877-aa82-43e3-81d8-6f47a25ddf35" x="345" y="199" width="187" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="75431c4c-5946-49e6-ba90-8d8bb0840234" x="0" y="229" width="179" height="57"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="9145aee8-2721-4f3e-9466-afa39e3ad2d6" x="179" y="229" width="166" height="57"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="be929ba2-fd74-4e90-bb00-e7df3e5d57a8" x="345" y="229" width="187" height="57"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="86f31c82-907a-4f53-87e3-f679df7fc7fc" x="0" y="286" width="179" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="72f2cfd1-141f-45dc-b3d4-af08a92e4189" x="179" y="286" width="166" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="cf3cd347-3d0c-43e5-8614-7b90dd50c6f8" x="345" y="286" width="187" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1117b56d-34bd-4daa-abad-861a10f893ca" x="0" y="316" width="179" height="29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="b7c199f7-5895-4318-b237-cd600673cbba" x="179" y="316" width="166" height="29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="4c97c77a-d860-42f7-8ac1-bd127daebd09" x="345" y="316" width="187" height="29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="134661bd-4c20-42fc-89c8-157228fe57c2" x="0" y="55" width="179" height="19"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="9aeef5ff-bce1-441d-b815-7cb0c07c8393" x="179" y="55" width="166" height="19"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="c6b38384-0c69-4a2f-995d-0f82c344935d" x="345" y="55" width="187" height="19"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="6cf7c142-cfe9-4b7f-ae77-7af84e815615" x="0" y="39" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1ed6f31b-634a-4e39-b91f-6446156d15bd" x="0" y="16" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="4d333fc9-4624-4d54-a4bb-de2d0400d899" x="0" y="0" width="532" height="16"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="345" y="199" width="187" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Igual al plazo del contrato y cuatro (4) meses más.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="366" width="532" height="115" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Por un valor asegurado equivalente al 10% del valor del contrato, y con vigencia igual al término de ejecución del contrato; que debe contemplar como mínimo los siguientes amparos:
+
+a) Predios, labores y operaciones.
+b) Contratistas y Subcontratistas independientes.
+c) Patronal 300 SMMLV persona y 300 SMMLV evento.
+d) Gastos Médicos por 300 SMMLV persona y 300 SMMLV evento, sin aplicación de deducible, ni requerimiento de fallo judicial.
+e) R.C.E. Cruzada 100 SMMLV. Como asegurado debe figurar el Contratista y/o Universidad del Valle.
+
+Se deja constancia que esta póliza cubre los perjuicios patrimoniales causados a terceros, incluyendo los perjuicios morales, fisiológicos, de calidad de vida y lucro cesante, derivados de la ejecución de la obra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="104" width="179" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Cumplimiento del contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="179" y="104" width="166" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[20% del valor total del contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="0" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[20. DISTRIBUCIÓN DE RIESGOS PREVISIBLES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="179" y="199" width="166" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[15% del valor total del contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="179" y="316" width="166" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[15% del valor total del contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="345" y="229" width="187" height="57" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[igual al tiempo que se exija del suministro de repuestos para el bien contratado, contado desde la entrega, instalación o inicio del montaje.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="345" y="104" width="187" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Igual al plazo del contrato y cuatro (4) meses más.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="481" width="532" height="35" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[En el evento en que el contratista no constituya o se niegue a prorrogar o a adicionar las garantías del contrato cuando a ello hubiere lugar, la Universidad del Valle podrá ampliarlas o prorrogarlas a su favor y descontará el valor de las primas de las sumas que adeude el contratista o podrá proceder a cobrarlas por cobro ejecutivo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="345" y="74" width="187" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Igual al plazo del contrato y cuatro (4) meses más]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="39" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[21. GARANTÍAS DEL CONTRATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="199" width="179" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Calidad del servicio.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="346" width="532" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[RESPONSABILIDAD CIVIL EXTRACONTRACTUAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="179" y="134" width="166" height="65" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[15% del valor total del contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="286" width="179" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Salarios, Prestaciones Sociales e Indemnizaciones.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="74" width="179" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Buen manejo, correcta inversión y reintegro del anticipo ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="179" y="74" width="166" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[100% del valor del Anticipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a5239cfa-f0c1-493a-bf95-84d2bd08e76b" x="0" y="16" width="532" height="16"/>
+				<textElement>
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NO APLICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="345" y="286" width="187" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Igual al plazo del contrato y tres (3) años más.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="179" y="229" width="166" height="57" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[15% del valor total del contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="229" width="179" height="57" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Provisión de repuestos y accesorios.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="345" y="134" width="187" height="65" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[ un (1) año contado a partir de la entrega de los bienes. En casos de bienes o equipos cuyo montaje o funcionamiento no sea de ejecución instantánea, la vigencia de esta garantía deberá comenzar desde el inicio del montaje o instalación. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="179" y="286" width="166" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[5% del valor total del contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="134" width="179" height="65" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Calidad y correcto funcionamiento de los equipos suministrados.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="179" y="57" width="166" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[VALOR ASEGURADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="345" y="316" width="187" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Igual al plazo del contrato y tres (3) años más.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="57" width="179" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[AMPARO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="316" width="179" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Estabilidad y calidad de la obra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="345" y="57" width="187" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[VIGENCIA]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

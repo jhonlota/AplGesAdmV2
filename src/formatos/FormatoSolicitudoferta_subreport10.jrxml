@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudOferta_subreport10" language="groovy" pageWidth="532" pageHeight="16" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
+	<property name="ireport.zoom" value="1.4265583530550043"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="e4fc37bd-d936-4d07-ac54-d80a9e2c8207"/>
+	<parameter name="ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[$P{ANO}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     SOLICITUDESOFERTA.ID AS "SOLICITUDESOFERTA_ID",
+     SOLICITUDESOFERTA.FECHAELABORACION AS "SOLICITUDESOFERTA_FECHAELABORACION",
+     SOLICITUDESOFERTA.HORAELABORACION AS "SOLICITUDESOFERTA_HORAELABORACION",
+     SOLICITUDESOFERTA.FKTERCERO AS "SOLICITUDESOFERTA_FKTERCERO",
+     SOLICITUDESOFERTA.FKTERCEROFUNCIONARIO AS "SOLICITUDESOFERTA_FKTERCEROFUNCIONA",
+     SOLICITUDESOFERTA.NUMEROCERTIFICADO AS "SOLICITUDESOFERTA_NUMEROCERTIFICADO",
+     SOLICITUDESOFERTA.VALORCERTIFICADO AS "SOLICITUDESOFERTA_VALORCERTIFICADO",
+     SOLICITUDESOFERTA.FECHAENTREGA AS "SOLICITUDESOFERTA_FECHAENTREGA",
+     SOLICITUDESOFERTA.OBJETO AS "SOLICITUDESOFERTA_OBJETO"
+
+FROM SOLICITUDESOFERTA
+
+WHERE
+     SOLICITUDESOFERTA.ID = $P{ID}
+     AND SOLICITUDESOFERTA.ANO = $P{ANO}]]>
+	</queryString>
+	<field name="SOLICITUDESOFERTA_ID" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_FECHAELABORACION" class="java.sql.Date"/>
+	<field name="SOLICITUDESOFERTA_HORAELABORACION" class="java.sql.Time"/>
+	<field name="SOLICITUDESOFERTA_FKTERCERO" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_FKTERCEROFUNCIONA" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_NUMEROCERTIFICADO" class="java.lang.Long"/>
+	<field name="SOLICITUDESOFERTA_VALORCERTIFICADO" class="java.lang.Long"/>
+	<field name="SOLICITUDESOFERTA_FECHAENTREGA" class="java.sql.Date"/>
+	<field name="SOLICITUDESOFERTA_OBJETO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Prevent">
+			<textField>
+				<reportElement uuid="2e5c2865-7733-4d0a-95e2-4aac8c98b5cc" x="0" y="0" width="532" height="16" isPrintWhenDetailOverflows="true"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOLICITUDESOFERTA_OBJETO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

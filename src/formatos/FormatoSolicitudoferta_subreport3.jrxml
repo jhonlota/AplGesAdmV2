@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudOferta_subreport3" language="groovy" pageWidth="292" pageHeight="80" columnWidth="292" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
-	<property name="ireport.zoom" value="1.0000000000000004"/>
-	<property name="ireport.x" value="2"/>
-	<property name="ireport.y" value="0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudCuenta_subreport1" language="groovy" pageWidth="532" pageHeight="610" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
+	<property name="ireport.zoom" value="1.464100000000011"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="118"/>
 	<parameter name="ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
+	<parameter name="ANO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[$P{ANO}]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[SELECT
-     TERCEROS.DEPENDENCIA AS "TERCEROS_DEPENDENCIA",
-     TERCEROS.SEDEDEPENDENCIA AS "TERCEROS_SEDEDEPENDENCIA",
-     TERCEROS.EDIFICIO AS "TERCEROS_EDIFICIO",
-     TERCEROS.OFICINA AS "TERCEROS_OFICINA",
-     TERCEROS.TELEFONO AS "TERCEROS_TELEFONO",
-     TERCEROS.EMAIL AS "TERCEROS_EMAIL"
-FROM
-     TERCEROS
+		<![CDATA[SELECT DISTINCT
+     SOLICITUDESOFERTA.ID AS "SOLICITUDESOFERTA_ID",
+     SOLICITUDESOFERTA.FECHAELABORACION AS "SOLICITUDESOFERTA_FECHAELABORACION",
+     SOLICITUDESOFERTA.HORAELABORACION AS "SOLICITUDESOFERTA_HORAELABORACION",
+     SOLICITUDESOFERTA.FKTERCERO AS "SOLICITUDESOFERTA_FKTERCERO",
+     SOLICITUDESOFERTA.FKTERCEROFUNCIONARIO AS "SOLICITUDESOFERTA_FKTERCEROFUNCIONA",
+     SOLICITUDESOFERTA.NUMEROCERTIFICADO AS "SOLICITUDESOFERTA_NUMEROCERTIFICADO",
+     SOLICITUDESOFERTA.VALORCERTIFICADO AS "SOLICITUDESOFERTA_VALORCERTIFICADO",
+     SOLICITUDESOFERTA.FECHAENTREGA AS "SOLICITUDESOFERTA_FECHAENTREGA",
+     SOLICITUDESOFERTA.OBJETO AS "SOLICITUDESOFERTA_OBJETO"
+
+FROM SOLICITUDESOFERTA
+
 WHERE
-     TERCEROS.ID = $P{ID}]]>
+     SOLICITUDESOFERTA.ID = $P{ID}
+     AND SOLICITUDESOFERTA.ANO = $P{ANO}]]>
 	</queryString>
-	<field name="TERCEROS_DEPENDENCIA" class="java.lang.String"/>
-	<field name="TERCEROS_SEDEDEPENDENCIA" class="java.lang.String"/>
-	<field name="TERCEROS_EDIFICIO" class="java.lang.String"/>
-	<field name="TERCEROS_OFICINA" class="java.lang.String"/>
-	<field name="TERCEROS_TELEFONO" class="java.lang.String"/>
-	<field name="TERCEROS_EMAIL" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_ID" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_FECHAELABORACION" class="java.sql.Date"/>
+	<field name="SOLICITUDESOFERTA_HORAELABORACION" class="java.sql.Time"/>
+	<field name="SOLICITUDESOFERTA_FKTERCERO" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_FKTERCEROFUNCIONA" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_NUMEROCERTIFICADO" class="java.lang.Long"/>
+	<field name="SOLICITUDESOFERTA_VALORCERTIFICADO" class="java.lang.Long"/>
+	<field name="SOLICITUDESOFERTA_FECHAENTREGA" class="java.sql.Date"/>
+	<field name="SOLICITUDESOFERTA_OBJETO" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -38,18 +49,194 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="15" splitType="Prevent">
+		<band height="49" splitType="Prevent">
 			<rectangle>
-				<reportElement uuid="6f450d8d-6bc3-4c75-909b-ad37f1136566" x="0" y="0" width="292" height="15"/>
+				<reportElement uuid="24ce0105-7e52-4be2-a89b-fc9873f8f511" x="0" y="1" width="318" height="16"/>
 			</rectangle>
-			<textField>
-				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" x="0" y="0" width="292" height="15"/>
-				<textElement>
-					<font size="10"/>
-					<paragraph leftIndent="5"/>
+			<rectangle>
+				<reportElement uuid="24ce0105-7e52-4be2-a89b-fc9873f8f511" x="318" y="1" width="214" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="24ce0105-7e52-4be2-a89b-fc9873f8f511" x="0" y="17" width="318" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="24ce0105-7e52-4be2-a89b-fc9873f8f511" x="318" y="17" width="214" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="24ce0105-7e52-4be2-a89b-fc9873f8f511" x="0" y="33" width="318" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="24ce0105-7e52-4be2-a89b-fc9873f8f511" x="318" y="33" width="214" height="16"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="b8d572e8-2853-4c35-aca6-c93636eccaf4" mode="Transparent" x="0" y="33" width="318" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{TERCEROS_EMAIL}]]></textFieldExpression>
+				<text><![CDATA[ Número de Certificado de Disponibilidad Presupuestal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b8d572e8-2853-4c35-aca6-c93636eccaf4" mode="Transparent" x="318" y="1" width="214" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[ Y ESTO DE DONDE?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b8d572e8-2853-4c35-aca6-c93636eccaf4" mode="Transparent" x="0" y="1" width="318" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[ Plazo de Ejecución]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="#,##0;-#,##0" isBlankWhenNull="false">
+				<reportElement uuid="f52f9619-12d7-45ed-9c72-190f4c350522" mode="Transparent" x="318" y="17" width="214" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOLICITUDESOFERTA_VALORCERTIFICADO}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement uuid="b8d572e8-2853-4c35-aca6-c93636eccaf4" mode="Transparent" x="0" y="17" width="318" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[ Presupuesto estimado Incluído IVA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
+				<reportElement uuid="f52f9619-12d7-45ed-9c72-190f4c350522" mode="Transparent" x="318" y="33" width="214" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOLICITUDESOFERTA_NUMEROCERTIFICADO}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="392">
+			<rectangle>
+				<reportElement uuid="0cdb9292-3174-42e1-abc2-05bc3a909072" x="0" y="132" width="532" height="64"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="513b9233-6e25-4468-8cd8-d4eca2695d93" x="0" y="307" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="274fe461-c364-47f2-bd61-50e80c813c8b" x="0" y="116" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="5aae22f8-f8ca-45de-8684-fde8bb6894e5" x="0" y="220" width="532" height="83"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="513b9233-6e25-4468-8cd8-d4eca2695d93" x="0" y="323" width="532" height="30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="f4036a31-b4f5-45a9-a273-23b0918acfab" x="0" y="376" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="c72e342f-9630-48b3-9e27-63e0bf149908" x="0" y="0" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="829a8671-537a-440f-91fa-d6d42262bc06" x="0" y="357" width="532" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="c72e342f-9630-48b3-9e27-63e0bf149908" x="0" y="16" width="532" height="96"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="5aae22f8-f8ca-45de-8684-fde8bb6894e5" x="0" y="204" width="532" height="16"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="116" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[5. REGIMEN LABORAL DEL PROPONENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="323" width="532" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[De acuerdo con lo establecido en la Ley 850 de 2003, las veedurías ciudadanas y la ciudadanía en general podrán realizar el control social al presente proceso de contratación, para lo cual la Universidad y el Contratista suministrarán la información y documentación que sea requerida en su momento.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="307" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[7. VEEDURÍAS CIUDADANAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="132" width="532" height="64" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[La relación contractual que surja del presente proceso no genera relación laboral entre la Universidad y el proponente.
+
+Es entendido que el proponente favorecido con la adjudicación del contrato, en su carácter de verdadero y único empleador del personal que utilice en la ejecución del respectivo contrato, asumirá todas las obligaciones resultantes de tal vinculación laboral. El proponente, como empleador de sus trabajadores, será responsable de cubrir oportunamente los aportes y atender todas las obligaciones de carácter laboral que corresponden por Ley (Salud, Pensión, ARL, ICBF, SENA, Caja de Compensación, etc.). ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="16" width="532" height="96" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA["El presente proceso se rige por el derecho privado, de acuerdo con lo previsto en la Ley 30 de 1992, el Acuerdo No. 004 del 8 de Julio del 2016 del Consejo Superior de la Universidad del Valle, por el cual se expide el Estatuto de Contratación Administrativa de la Universidad del Valle, la Resolución de Rectoría 2.898 de Septiembre 02 de 2016, la cual reglamenta el Estatuto de Contratación y en lo que no esté particularmente regulado en ellas, por el Código de Comercio y el Código Civil.
+
+De acuerdo con lo establecido en el artículo 22º. del Estatuto de Contratación: CONTRATACIÓN DE MÍNIMA CUANTÍA:
+
+“Esta modalidad se utilizará cuando la cuantía por contratar sea hasta por doscientos (200) S.M.M.LV. Por medio de esta modalidad la Universidad del Valle adjudicará el contrato con una sola oferta, obtenida a través de los medios de comunicación usuales en el sector comercial”.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="0" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[4. REGIMEN APLICABLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="376" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[ COMPRA DE BIENES O SUMINISTRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="357" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[8. INFORMACIÓN TÉCNICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="204" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[6. COMPROMISO ANTICORRUPCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="220" width="532" height="83" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[En todas las actuaciones derivadas de lo regulado en el presente proceso contractual y lo estipulado en el contrato que se celebre, el proponente obrará con la transparencia y buena fe que la Constitución Política y las leyes consagran.
+
+En caso que la Universidad advierta hechos constitutivos de corrupción de parte de un proponente durante el proceso de selección, sin perjuicio de las acciones legales a que hubiere lugar, podrá rechazar la respectiva oferta. Así mismo, la Universidad advierte que en el evento de conocerse casos especiales de corrupción en las Entidades del Estado, se debe reportar el hecho al Programa Presidencial Lucha contra la Corrupción. También reportar el hecho a la Vicerrectoría Administrativa - División de Contratación de la Universidad del Valle a través del número telefónico 3212100 Ext. 2517.+
+]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
