@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudOferta" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
-	<property name="ireport.zoom" value="3.0"/>
-	<property name="ireport.x" value="74"/>
-	<property name="ireport.y" value="15"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="381"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -167,35 +167,31 @@
 		<parameter name="IDSOLICITUDOFERTA_TABLE" class="java.lang.String"/>
 		<parameter name="ANOSOLICITUDOFERTA_TABLE" class="java.lang.Integer"/>
 		<queryString>
-			<![CDATA[SELECT *
-FROM BIENESSOLICITUDESOFERTA
+			<![CDATA[SELECT BIENESSOLICITUDESOFERTA.NOMBRE, BIENESSOLICITUDESOFERTA.DESCRIPCION, BIENESSOLICITUDESOFERTA.CARACTERISTICAS, BIENESSOLICITUDESOFERTA.CANTIDAD, SOLICITUDESOFERTA.PLAZOEJECUCION
+FROM BIENESSOLICITUDESOFERTA, SOLICITUDESOFERTA
 WHERE BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA = $P{IDSOLICITUDOFERTA_TABLE}
 AND BIENESSOLICITUDESOFERTA.ANO = $P{ANOSOLICITUDOFERTA_TABLE}]]>
 		</queryString>
-		<field name="fksolicitudoferta" class="java.lang.String"/>
-		<field name="id" class="java.lang.Integer"/>
 		<field name="nombre" class="java.lang.String"/>
 		<field name="descripcion" class="java.lang.String"/>
 		<field name="caracteristicas" class="java.lang.String"/>
 		<field name="cantidad" class="java.lang.Integer"/>
-		<field name="ano" class="java.lang.Integer"/>
+		<field name="plazoejecucion" class="java.lang.String"/>
 	</subDataset>
 	<subDataset name="DATASETSERVICIOS" uuid="9f5ae301-c60c-4c8e-b52f-782328d267e2">
 		<parameter name="IDSOLICITUDOFERTA_TABLE2" class="java.lang.String"/>
 		<parameter name="ANOSOLICITUDOFERTA_TABLE2" class="java.lang.Integer"/>
 		<queryString>
-			<![CDATA[SELECT *
-FROM SERVICIOSSOLICITUDESOFERTA
+			<![CDATA[SELECT SERVICIOSSOLICITUDESOFERTA.NOMBRE, SERVICIOSSOLICITUDESOFERTA.DESCRIPCION, SERVICIOSSOLICITUDESOFERTA.CARACTERISTICAS, SERVICIOSSOLICITUDESOFERTA.CANTIDAD, SOLICITUDESOFERTA.PLAZOEJECUCION
+FROM SERVICIOSSOLICITUDESOFERTA, SOLICITUDESOFERTA
 WHERE SERVICIOSSOLICITUDESOFERTA.FKSOLICITUDOFERTA = $P{IDSOLICITUDOFERTA_TABLE2}
 AND SERVICIOSSOLICITUDESOFERTA.ANO = $P{ANOSOLICITUDOFERTA_TABLE2}]]>
 		</queryString>
-		<field name="fksolicitudoferta" class="java.lang.String"/>
-		<field name="id" class="java.lang.Integer"/>
 		<field name="nombre" class="java.lang.String"/>
 		<field name="descripcion" class="java.lang.String"/>
 		<field name="caracteristicas" class="java.lang.String"/>
 		<field name="cantidad" class="java.lang.Integer"/>
-		<field name="ano" class="java.lang.Integer"/>
+		<field name="plazoejecucion" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
@@ -216,15 +212,17 @@ AND SERVICIOSSOLICITUDESOFERTA.ANO = $P{ANOSOLICITUDOFERTA_TABLE2}]]>
      SOLICITUDESOFERTA.NUMEROCERTIFICADO AS "SOLICITUDESOFERTA_NUMEROCERTIFICADO",
      SOLICITUDESOFERTA.VALORCERTIFICADO AS "SOLICITUDESOFERTA_VALORCERTIFICADO",
      SOLICITUDESOFERTA.FECHAENTREGA AS "SOLICITUDESOFERTA_FECHAENTREGA",
-     SOLICITUDESOFERTA.OBJETO AS "SOLICITUDESOFERTA_OBJETO"
+     SOLICITUDESOFERTA.OBJETO AS "SOLICITUDESOFERTA_OBJETO",
+     SOLICITUDESOFERTA.PLAZOEJECUCION AS "SOLICITUDESOFERTA_PLAZOEJECUCION",
+     SOLICITUDESOFERTA.PERFILREQUERIDO AS "SOLICITUDESOFERTA_PERFILREQUERIDO"
 
 FROM SOLICITUDESOFERTA
 
 WHERE
      SOLICITUDESOFERTA.ID = $P{ID}
-     AND SOLICITUDESOFERTA.ANO = $P{ANO}]]>
+AND    SOLICITUDESOFERTA.ANO = $P{ANO}]]>
 	</queryString>
-	<field name="SOLICITUDESOFERTA_ID" class="java.lang.Integer"/>
+	<field name="SOLICITUDESOFERTA_ID" class="java.lang.String"/>
 	<field name="SOLICITUDESOFERTA_FECHAELABORACION" class="java.sql.Date"/>
 	<field name="SOLICITUDESOFERTA_HORAELABORACION" class="java.sql.Time"/>
 	<field name="SOLICITUDESOFERTA_FKTERCERO" class="java.lang.String"/>
@@ -233,6 +231,8 @@ WHERE
 	<field name="SOLICITUDESOFERTA_VALORCERTIFICADO" class="java.lang.Long"/>
 	<field name="SOLICITUDESOFERTA_FECHAENTREGA" class="java.sql.Date"/>
 	<field name="SOLICITUDESOFERTA_OBJETO" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_PLAZOEJECUCION" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_PERFILREQUERIDO" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -570,7 +570,7 @@ WHERE
 										<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 										<paragraph lineSpacing="Single"/>
 									</textElement>
-									<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$F{plazoejecucion}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -611,12 +611,10 @@ WHERE
 				</textElement>
 				<text><![CDATA[PERFIL REQUERIDO]]></text>
 			</staticText>
-			<textField isStretchWithOverflow="true" pattern="#,##0;-#,##0" isBlankWhenNull="false">
-				<reportElement uuid="f52f9619-12d7-45ed-9c72-190f4c350522" style="table" stretchType="RelativeToTallestObject" mode="Transparent" x="20" y="62" width="532" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
-				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="SansSerif" size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
+			<textField>
+				<reportElement uuid="4a30d88b-cb76-46ce-ba97-ebe9073b1ea0" style="table" x="20" y="62" width="532" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{SOLICITUDESOFERTA_PERFILREQUERIDO}]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="32">
@@ -654,10 +652,10 @@ WHERE
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="a5e86382-49ab-42f1-af4a-3db1fc1a3088" width="135">
+					<jr:column uuid="a5e86382-49ab-42f1-af4a-3db1fc1a3088" width="255">
 						<jr:columnHeader height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="9a1370ec-9604-4f0f-83fb-675fb08dee37" style="table" mode="Transparent" x="0" y="0" width="135" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+								<reportElement uuid="9a1370ec-9604-4f0f-83fb-675fb08dee37" style="table" mode="Transparent" x="0" y="0" width="255" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
 									<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Single"/>
@@ -667,7 +665,7 @@ WHERE
 						</jr:columnHeader>
 						<jr:detailCell height="16" rowSpan="1">
 							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
-								<reportElement uuid="c8016e24-896c-40e7-9452-27778fd0e825" style="table" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="135" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+								<reportElement uuid="c8016e24-896c-40e7-9452-27778fd0e825" style="table" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="255" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
 									<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Single"/>
@@ -676,72 +674,25 @@ WHERE
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="6dc119c6-35e6-452f-bc59-aff256feb23e" width="280">
+					<jr:column uuid="6dc119c6-35e6-452f-bc59-aff256feb23e" width="255">
 						<jr:columnHeader height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="42cc2d8f-960e-42e2-8b0f-4dd100f4929e" style="table" mode="Transparent" x="0" y="0" width="280" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+								<reportElement uuid="42cc2d8f-960e-42e2-8b0f-4dd100f4929e" style="table" mode="Transparent" x="0" y="0" width="255" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
 									<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Single"/>
 								</textElement>
-								<text><![CDATA[Características Técnicas]]></text>
+								<text><![CDATA[Descripción]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell height="16" rowSpan="1">
 							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
-								<reportElement uuid="5bc12c5c-e89a-4e67-a994-3df1d51f6c8b" style="table" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="280" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+								<reportElement uuid="5bc12c5c-e89a-4e67-a994-3df1d51f6c8b" style="table" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="255" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
 									<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Single"/>
 								</textElement>
 								<textFieldExpression><![CDATA[" "+$F{descripcion}+" . "+$F{caracteristicas}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column uuid="1cb18a23-10cd-4498-a0c9-af852e63b117" width="0">
-						<jr:columnHeader height="16" rowSpan="1"/>
-						<jr:detailCell height="16" rowSpan="1"/>
-					</jr:column>
-					<jr:column uuid="56226437-7d3c-4c5b-ae0d-91ceff21f1ed" width="32">
-						<jr:columnHeader height="16" rowSpan="1">
-							<staticText>
-								<reportElement uuid="21e1147f-8f11-4672-825b-cd56b10ba0f8" style="table" mode="Transparent" x="0" y="0" width="32" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
-									<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-									<paragraph lineSpacing="Single"/>
-								</textElement>
-								<text><![CDATA[Cant.]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell height="16" rowSpan="1">
-							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
-								<reportElement uuid="c045a43b-c7fb-4b70-8634-2d21aac9fcf8" style="table" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="32" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
-									<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-									<paragraph lineSpacing="Single"/>
-								</textElement>
-								<textFieldExpression><![CDATA[" "+$F{cantidad}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column uuid="adee02fb-cf33-4ae2-8913-bbdea9f21144" width="63">
-						<jr:columnHeader height="16" rowSpan="1">
-							<staticText>
-								<reportElement uuid="21e1147f-8f11-4672-825b-cd56b10ba0f8" style="table" x="0" y="0" width="63" height="16"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font size="8" isBold="true"/>
-								</textElement>
-								<text><![CDATA[Tiempo Entrega]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell height="16" rowSpan="1">
-							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
-								<reportElement uuid="c045a43b-c7fb-4b70-8634-2d21aac9fcf8" style="table" stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="63" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
-									<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-									<paragraph lineSpacing="Single"/>
-								</textElement>
-								<textFieldExpression><![CDATA[" "]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

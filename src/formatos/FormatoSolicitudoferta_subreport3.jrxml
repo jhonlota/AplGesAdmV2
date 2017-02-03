@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudCuenta_subreport1" language="groovy" pageWidth="532" pageHeight="610" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
 	<property name="ireport.zoom" value="1.464100000000011"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="118"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
@@ -19,13 +19,15 @@
      SOLICITUDESOFERTA.NUMEROCERTIFICADO AS "SOLICITUDESOFERTA_NUMEROCERTIFICADO",
      SOLICITUDESOFERTA.VALORCERTIFICADO AS "SOLICITUDESOFERTA_VALORCERTIFICADO",
      SOLICITUDESOFERTA.FECHAENTREGA AS "SOLICITUDESOFERTA_FECHAENTREGA",
-     SOLICITUDESOFERTA.OBJETO AS "SOLICITUDESOFERTA_OBJETO"
+     SOLICITUDESOFERTA.OBJETO AS "SOLICITUDESOFERTA_OBJETO",
+     SOLICITUDESOFERTA.PLAZOEJECUCION AS "SOLICITUDESOFERTA_PLAZOEJECUCION",
+     SOLICITUDESOFERTA.PERFILREQUERIDO AS "SOLICITUDESOFERTA_PERFILREQUERIDO"
 
 FROM SOLICITUDESOFERTA
 
 WHERE
      SOLICITUDESOFERTA.ID = $P{ID}
-     AND SOLICITUDESOFERTA.ANO = $P{ANO}]]>
+AND    SOLICITUDESOFERTA.ANO = $P{ANO}]]>
 	</queryString>
 	<field name="SOLICITUDESOFERTA_ID" class="java.lang.String"/>
 	<field name="SOLICITUDESOFERTA_FECHAELABORACION" class="java.sql.Date"/>
@@ -36,6 +38,8 @@ WHERE
 	<field name="SOLICITUDESOFERTA_VALORCERTIFICADO" class="java.lang.Long"/>
 	<field name="SOLICITUDESOFERTA_FECHAENTREGA" class="java.sql.Date"/>
 	<field name="SOLICITUDESOFERTA_OBJETO" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_PLAZOEJECUCION" class="java.lang.String"/>
+	<field name="SOLICITUDESOFERTA_PERFILREQUERIDO" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -77,14 +81,6 @@ WHERE
 				<text><![CDATA[ Número de Certificado de Disponibilidad Presupuestal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b8d572e8-2853-4c35-aca6-c93636eccaf4" mode="Transparent" x="318" y="1" width="214" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
-					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[ Y ESTO DE DONDE?]]></text>
-			</staticText>
-			<staticText>
 				<reportElement uuid="b8d572e8-2853-4c35-aca6-c93636eccaf4" mode="Transparent" x="0" y="1" width="318" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
 					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
@@ -115,6 +111,11 @@ WHERE
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{SOLICITUDESOFERTA_NUMEROCERTIFICADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="89efd263-0549-4be2-ac98-a40881f58c05" x="318" y="1" width="214" height="16"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{SOLICITUDESOFERTA_PLAZOEJECUCION}]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="392">

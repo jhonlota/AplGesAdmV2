@@ -90,12 +90,10 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jSeparator5 = new javax.swing.JSeparator();
         ano = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         jLabelFktercero = new javax.swing.JLabel();
         fktercero = new javax.swing.JTextField();
         botonBuscarFktercero = new javax.swing.JButton();
         jTextField8 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jLabelFktercerofuncionario = new javax.swing.JLabel();
         fktercerofuncionario = new javax.swing.JTextField();
         botonBuscarFktercerofuncionario = new javax.swing.JButton();
@@ -106,8 +104,13 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jSeparator7 = new javax.swing.JSeparator();
         jLabelValorCertificado = new javax.swing.JLabel();
         valorcertificado = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        jTextField52 = new javax.swing.JTextField();
+        jLabelNumeroCertificado1 = new javax.swing.JLabel();
+        plazoejecucion = new javax.swing.JTextField();
+        botonAyuda1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
+        jTextField11 = new javax.swing.JTextField();
         jLabel89 = new javax.swing.JLabel();
         secopnumeroproceso = new javax.swing.JTextField();
         jLabel90 = new javax.swing.JLabel();
@@ -117,7 +120,9 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jLabel92 = new javax.swing.JLabel();
         secopfechapublicacion = new org.jdesktop.swingx.JXDatePicker();
         jTextField51 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
+        jPanelObjetoContractual1 = new javax.swing.JPanel();
+        jScrollObjetoContractual1 = new javax.swing.JScrollPane();
+        perfilrequerido = new javax.swing.JTextArea();
         jPanelObjetoContractual = new javax.swing.JPanel();
         jScrollObjetoContractual = new javax.swing.JScrollPane();
         objeto = new javax.swing.JTextArea();
@@ -249,9 +254,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jTextField10.setPreferredSize(new java.awt.Dimension(30, 25));
         add(jTextField10);
 
-        jLabel5.setPreferredSize(new java.awt.Dimension(810, 10));
-        add(jLabel5);
-
         jLabelFktercero.setText("CÉDULA DEL PROVEEDOR : ");
         jLabelFktercero.setPreferredSize(new java.awt.Dimension(155, 25));
         add(jLabelFktercero);
@@ -281,9 +283,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jTextField8.setOpaque(false);
         jTextField8.setPreferredSize(new java.awt.Dimension(10, 25));
         add(jTextField8);
-
-        jLabel9.setPreferredSize(new java.awt.Dimension(810, 10));
-        add(jLabel9);
 
         jLabelFktercerofuncionario.setText("CÉDULA DE QUIEN SOLICITA : ");
         jLabelFktercerofuncionario.setPreferredSize(new java.awt.Dimension(170, 25));
@@ -322,7 +321,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         numerocertificado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         numerocertificado.setText("0");
         numerocertificado.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        numerocertificado.setPreferredSize(new java.awt.Dimension(150, 25));
+        numerocertificado.setPreferredSize(new java.awt.Dimension(130, 25));
         numerocertificado.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 TextFieldFocusGained(evt);
@@ -349,7 +348,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         valorcertificado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valorcertificado.setText("0");
         valorcertificado.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        valorcertificado.setPreferredSize(new java.awt.Dimension(150, 25));
+        valorcertificado.setPreferredSize(new java.awt.Dimension(130, 25));
         valorcertificado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TexyFieldKeyReleased(evt);
@@ -357,16 +356,57 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         });
         add(valorcertificado);
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField7.setEnabled(false);
-        jTextField7.setFocusable(false);
-        jTextField7.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField7.setOpaque(false);
-        jTextField7.setPreferredSize(new java.awt.Dimension(145, 25));
-        add(jTextField7);
+        jTextField52.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField52.setEnabled(false);
+        jTextField52.setFocusable(false);
+        jTextField52.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField52.setOpaque(false);
+        jTextField52.setPreferredSize(new java.awt.Dimension(185, 25));
+        add(jTextField52);
 
-        jLabel11.setPreferredSize(new java.awt.Dimension(810, 10));
-        add(jLabel11);
+        jLabelNumeroCertificado1.setText("PLAZO DE EJECUCIÓN :");
+        jLabelNumeroCertificado1.setPreferredSize(new java.awt.Dimension(150, 25));
+        add(jLabelNumeroCertificado1);
+
+        plazoejecucion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        plazoejecucion.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        plazoejecucion.setPreferredSize(new java.awt.Dimension(130, 25));
+        plazoejecucion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                plazoejecucionTextFieldFocusGained(evt);
+            }
+        });
+        plazoejecucion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                plazoejecucionTexyFieldKeyReleased(evt);
+            }
+        });
+        add(plazoejecucion);
+
+        botonAyuda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda1.setFocusable(false);
+        botonAyuda1.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyuda1ActionPerformed(evt);
+            }
+        });
+        add(botonAyuda1);
+
+        jLabel8.setPreferredSize(new java.awt.Dimension(10, 25));
+        add(jLabel8);
+
+        jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator9.setPreferredSize(new java.awt.Dimension(15, 25));
+        add(jSeparator9);
+
+        jTextField11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField11.setEnabled(false);
+        jTextField11.setFocusable(false);
+        jTextField11.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField11.setOpaque(false);
+        jTextField11.setPreferredSize(new java.awt.Dimension(455, 25));
+        add(jTextField11);
 
         jLabel89.setText("NUMERO DEL PROCESO (SOLICITUD OFERTA) : ");
         jLabel89.setPreferredSize(new java.awt.Dimension(285, 25));
@@ -413,11 +453,33 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         jTextField51.setPreferredSize(new java.awt.Dimension(55, 25));
         add(jTextField51);
 
-        jLabel15.setPreferredSize(new java.awt.Dimension(810, 10));
-        add(jLabel15);
+        jPanelObjetoContractual1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PERFIL REQUERIDO (Diligenciar si se van a incluir servicios en la Invitación)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanelObjetoContractual1.setPreferredSize(new java.awt.Dimension(810, 70));
+        jPanelObjetoContractual1.setLayout(new java.awt.BorderLayout());
+
+        jScrollObjetoContractual1.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        perfilrequerido.setBackground(ClaseGeneral.campo);
+        perfilrequerido.setColumns(20);
+        perfilrequerido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        perfilrequerido.setLineWrap(true);
+        perfilrequerido.setRows(5);
+        perfilrequerido.setWrapStyleWord(true);
+        perfilrequerido.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        perfilrequerido.setPreferredSize(new java.awt.Dimension(430, 70));
+        perfilrequerido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                perfilrequeridoTextAreaFocusGained(evt);
+            }
+        });
+        jScrollObjetoContractual1.setViewportView(perfilrequerido);
+
+        jPanelObjetoContractual1.add(jScrollObjetoContractual1, java.awt.BorderLayout.CENTER);
+
+        add(jPanelObjetoContractual1);
 
         jPanelObjetoContractual.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBJETO CONTRACTUAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanelObjetoContractual.setPreferredSize(new java.awt.Dimension(810, 90));
+        jPanelObjetoContractual.setPreferredSize(new java.awt.Dimension(810, 80));
         jPanelObjetoContractual.setLayout(new java.awt.BorderLayout());
 
         jScrollObjetoContractual.setPreferredSize(new java.awt.Dimension(430, 70));
@@ -446,7 +508,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
 
         jTabbedPane.setBackground(ClaseGeneral.boton);
         jTabbedPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 195));
+        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 150));
 
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane.setPreferredSize(new java.awt.Dimension(810, 185));
@@ -3075,6 +3137,29 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         id.setText(panelBuscarNumeracionSolicitudesOferta.id);
     }//GEN-LAST:event_botonBuscarSolicitudesofertaActionPerformed
 
+    private void perfilrequeridoTextAreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_perfilrequeridoTextAreaFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_perfilrequeridoTextAreaFocusGained
+
+    private void plazoejecucionTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_plazoejecucionTextFieldFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_plazoejecucionTextFieldFocusGained
+
+    private void plazoejecucionTexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_plazoejecucionTexyFieldKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_plazoejecucionTexyFieldKeyReleased
+
+    private void botonAyuda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAyuda1ActionPerformed
+        ClaseMensaje.informacion("<html><body>"
+            + "El plazo de ejecución sebe ser dado en días o meses<br/>"
+            + "POR EJEMPLO:<br/>"
+            + "Si el contrato dura 3 Meses, se podría especificar como plazo de ejecución, algunas de las siguientes opciones:<br/>"
+            + "<ul>"
+            + "  <li>3 Meses</li>"
+            + "  <li>90 Días</li>"
+            + "</body></html>");
+    }//GEN-LAST:event_botonAyuda1ActionPerformed
+
     public void metodoInsertar() {
         ClaseGeneral.solicitudesoferta = new Solicitudesoferta();
         ClaseGeneral.solicitudesoferta.setId(id.getText());
@@ -3090,6 +3175,8 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         ClaseGeneral.solicitudesoferta.setSecopnumeroproceso(secopnumeroproceso.getText());
         ClaseGeneral.solicitudesoferta.setSecopnumeroconstancia(secopnumeroconstancia.getText());
         ClaseGeneral.solicitudesoferta.setSecopfechapublicacion(secopfechapublicacion.getDate());
+        ClaseGeneral.solicitudesoferta.setPlazoejecucion(plazoejecucion.getText().toUpperCase());
+        ClaseGeneral.solicitudesoferta.setPerfilrequerido(perfilrequerido.getText().toUpperCase());
 
         if (ClaseGeneral.controlSolicitudesoferta.verify(ClaseGeneral.solicitudesoferta, "create")) {
             try {
@@ -3116,6 +3203,8 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
             secopnumeroproceso.setText(ClaseGeneral.solicitudesoferta.getSecopnumeroproceso());
             secopnumeroconstancia.setText(ClaseGeneral.solicitudesoferta.getSecopnumeroconstancia());
             secopfechapublicacion.setDate(ClaseGeneral.solicitudesoferta.getSecopfechapublicacion());
+            plazoejecucion.setText(ClaseGeneral.solicitudesoferta.getPlazoejecucion());
+            perfilrequerido.setText(ClaseGeneral.solicitudesoferta.getPerfilrequerido());
             
             /**/ metodoMostrarBienesSolicitudesOferta();
             /**/ metodoMostrarServiciosSolicitudesOferta();
@@ -3145,6 +3234,8 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         ClaseGeneral.solicitudesoferta.setSecopnumeroproceso(secopnumeroproceso.getText());
         ClaseGeneral.solicitudesoferta.setSecopnumeroconstancia(secopnumeroconstancia.getText());
         ClaseGeneral.solicitudesoferta.setSecopfechapublicacion(secopfechapublicacion.getDate());
+        ClaseGeneral.solicitudesoferta.setPlazoejecucion("" + plazoejecucion.getText());
+        ClaseGeneral.solicitudesoferta.setPerfilrequerido("" + perfilrequerido.getText());
 
         if (ClaseGeneral.controlSolicitudesoferta.verify(ClaseGeneral.solicitudesoferta, "update")) {
             try {
@@ -3190,8 +3281,8 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         }
 
         jTable.clearSelection();
-        jTable.getColumnModel().getColumn(0).setPreferredWidth(100);
-        jTable.getColumnModel().getColumn(1).setPreferredWidth(710);
+        jTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        jTable.getColumnModel().getColumn(1).setPreferredWidth(660);
 //        jTable.getColumnModel().getColumn(2).setPreferredWidth(150);
     }
 
@@ -3218,8 +3309,8 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         }
 
         jTable.clearSelection();
-        jTable.getColumnModel().getColumn(0).setPreferredWidth(100);
-        jTable.getColumnModel().getColumn(1).setPreferredWidth(710);
+        jTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        jTable.getColumnModel().getColumn(1).setPreferredWidth(660);
 //        jTable.getColumnModel().getColumn(2).setPreferredWidth(150);
     }
 
@@ -3308,6 +3399,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextField ano;
+    private javax.swing.JButton botonAyuda1;
     private javax.swing.JButton botonBuscarFktercero;
     private javax.swing.JButton botonBuscarFktercerofuncionario;
     public javax.swing.JButton botonBuscarSolicitudesoferta;
@@ -3318,15 +3410,12 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField horaelaboracion;
     private javax.swing.JTextField id;
     private javax.swing.JLabel jLabeL16;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel89;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
@@ -3336,9 +3425,12 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelFktercerofuncionario;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelNumeroCertificado;
+    private javax.swing.JLabel jLabelNumeroCertificado1;
     private javax.swing.JLabel jLabelValorCertificado;
     private javax.swing.JPanel jPanelObjetoContractual;
+    private javax.swing.JPanel jPanelObjetoContractual1;
     private javax.swing.JScrollPane jScrollObjetoContractual;
+    private javax.swing.JScrollPane jScrollObjetoContractual1;
     public javax.swing.JScrollPane jScrollPane;
     public javax.swing.JScrollPane jScrollPaneBienesSolicitudOferta;
     public javax.swing.JScrollPane jScrollPaneFormadepago;
@@ -3348,20 +3440,24 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     public javax.swing.JTabbedPane jTabbedPane;
     public javax.swing.JTable jTable;
     public javax.swing.JTable jTableBienesSolicitudoferta;
     public javax.swing.JTable jTableFormadepago;
     public javax.swing.JTable jTableServiciosSolicitudoferta;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField51;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField52;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     public javax.swing.JTextField numerocertificado;
     public javax.swing.JTextArea objeto;
     private javax.swing.JPanel panelBalanceSoportes;
+    public javax.swing.JTextArea perfilrequerido;
+    public javax.swing.JTextField plazoejecucion;
     private javax.swing.JScrollPane scrollPaneBalanceSoportes;
     private org.jdesktop.swingx.JXDatePicker secopfechapublicacion;
     private javax.swing.JTextField secopnumeroconstancia;

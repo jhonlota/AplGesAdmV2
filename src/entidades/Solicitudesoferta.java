@@ -27,10 +27,12 @@ public class Solicitudesoferta {
     private String secopnumeroproceso;
     private String secopnumeroconstancia;
     private Date secopfechapublicacion;
-    public String tabla = "solicitudesoferta(fechaelaboracion, horaelaboracion, "
+    private String plazoejecucion;
+    private String perfilrequerido;
+    public String tabla = "solicitudesoferta(id, fechaelaboracion, horaelaboracion, "
             + "fktercero, fktercerofuncionario, numerocertificado, valorcertificado, "
             + "fechaentrega, objeto, ano, secopnumeroproceso, "
-            + "secopnumeroconstancia, secopfechapublicacion)";
+            + "secopnumeroconstancia, secopfechapublicacion, plazoejecucion, perfilrequerido)";
 
     public Solicitudesoferta() {
     }
@@ -146,4 +148,22 @@ public class Solicitudesoferta {
     public void setSecopfechapublicacion(Date secopfechapublicacion) {
         this.secopfechapublicacion = secopfechapublicacion;
     }
+
+    public String getPlazoejecucion() {
+        return plazoejecucion;
+    }
+
+    public void setPlazoejecucion(String plazoejecucion) {
+        this.plazoejecucion = plazoejecucion;
+    }
+
+    public String getPerfilrequerido() {
+        return perfilrequerido;
+    }
+
+    public void setPerfilrequerido(String perfilrequerido) {
+        this.perfilrequerido = perfilrequerido;
+    }
+    
+    
 }
