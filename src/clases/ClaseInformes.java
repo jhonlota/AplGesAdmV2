@@ -245,7 +245,7 @@ public class ClaseInformes {
         }
     }
 
-    public void formatoSolicitudOferta(Map parametros) throws FileNotFoundException, DocumentException, IOException {
+    public void formatoSolicitudOferta(Map parametros){
         try {
             URL url = clase.getClass().getResource("FormatoSolicitudoferta.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));

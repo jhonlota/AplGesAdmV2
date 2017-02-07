@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SolicitudOferta" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="381"/>
+	<property name="ireport.zoom" value="2.5937424601000028"/>
+	<property name="ireport.x" value="143"/>
+	<property name="ireport.y" value="48"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -202,6 +202,9 @@ AND SERVICIOSSOLICITUDESOFERTA.ANO = $P{ANOSOLICITUDOFERTA_TABLE2}]]>
 	<parameter name="ANO" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
+	<parameter name="DEPENDENCIA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT DISTINCT
      SOLICITUDESOFERTA.ID AS "SOLICITUDESOFERTA_ID",
@@ -238,43 +241,39 @@ AND    SOLICITUDESOFERTA.ANO = $P{ANO}]]>
 	</background>
 	<pageHeader>
 		<band height="58">
-			<image>
-				<reportElement uuid="24f55654-858f-436b-8e13-c147c1d66142" x="39" y="5" width="39" height="48"/>
-				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Univalle.jpg"]]></imageExpression>
-			</image>
 			<rectangle radius="10">
-				<reportElement uuid="b5cb7370-fde8-4854-af01-df0c13424ed4" x="20" y="0" width="532" height="53"/>
+				<reportElement uuid="b5cb7370-fde8-4854-af01-df0c13424ed4" x="20" y="2" width="532" height="53"/>
 			</rectangle>
 			<staticText>
-				<reportElement uuid="8c65405a-b413-44a7-b13a-eec9946a344e" x="78" y="13" width="208" height="16"/>
+				<reportElement uuid="8c65405a-b413-44a7-b13a-eec9946a344e" x="77" y="8" width="208" height="16"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[VICERRECTORÍA ADMINISTRATIVA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c22532a3-630d-44a1-abfb-161de7f64e3d" x="336" y="13" width="200" height="16"/>
+				<reportElement uuid="c22532a3-630d-44a1-abfb-161de7f64e3d" x="346" y="9" width="200" height="16"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[INVITACIÓN DE MÍNIMA CUANTÍA]]></text>
 			</staticText>
-			<staticText>
-				<reportElement uuid="8c65405a-b413-44a7-b13a-eec9946a344e" x="78" y="28" width="208" height="16"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[División de Contratación]]></text>
-			</staticText>
 			<textField>
-				<reportElement uuid="d15161f9-4510-4bc1-9155-a28454ccab58" x="336" y="28" width="200" height="16"/>
+				<reportElement uuid="d15161f9-4510-4bc1-9155-a28454ccab58" x="346" y="24" width="200" height="16"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{SOLICITUDESOFERTA_ID}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement uuid="8c65405a-b413-44a7-b13a-eec9946a344e" x="77" y="27" width="208" height="16"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[División de Contratación]]></text>
+			</staticText>
 			<image>
-				<reportElement uuid="3571519b-1040-4f3c-ad08-1740f13745f1" x="36" y="8" width="42" height="41"/>
+				<reportElement uuid="6d9ac7ee-25bd-4612-b10f-f49a43de8628" x="34" y="8" width="43" height="35"/>
 				<imageExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\Univalle.jpg"]]></imageExpression>
 			</image>
 		</band>
