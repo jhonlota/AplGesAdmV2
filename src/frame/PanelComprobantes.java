@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * PanelComprobantes.java
  *
  * Created on 16/01/2012, 05:14:48 PM
@@ -34,6 +34,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
     private List listaCALC = new ArrayList();
     private ClaseInformacion informacion = new ClaseInformacion();
     private String estado = "";
+    private String email = "";
 
     /**
      * Creates new form PanelComprobantes
@@ -84,6 +85,8 @@ public class PanelComprobantes extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         jLabelValor = new javax.swing.JLabel();
         valor = new javax.swing.JTextField();
+        textInformacionTercero = new javax.swing.JTextField();
+        botonCambiar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabelFktercerofuncionario = new javax.swing.JLabel();
         fktercerofuncionario = new javax.swing.JTextField();
@@ -98,6 +101,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         jTextField2 = new javax.swing.JTextField();
         jLabelComprobante = new javax.swing.JLabel();
         comprobante = new javax.swing.JTextField();
+        botonEnviarEmailFktercero = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
@@ -257,6 +261,27 @@ public class PanelComprobantes extends javax.swing.JPanel {
         });
         add(valor);
 
+        textInformacionTercero.setBackground(new java.awt.Color(240, 240, 240));
+        textInformacionTercero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textInformacionTercero.setForeground(new java.awt.Color(0, 102, 51));
+        textInformacionTercero.setFocusable(false);
+        textInformacionTercero.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        textInformacionTercero.setOpaque(false);
+        textInformacionTercero.setPreferredSize(new java.awt.Dimension(635, 25));
+        add(textInformacionTercero);
+
+        botonCambiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/process.png"))); // NOI18N
+        botonCambiar.setText("Cambiar Correo");
+        botonCambiar.setFocusable(false);
+        botonCambiar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        botonCambiar.setPreferredSize(new java.awt.Dimension(170, 24));
+        botonCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCambiarActionPerformed(evt);
+            }
+        });
+        add(botonCambiar);
+
         jLabel9.setPreferredSize(new java.awt.Dimension(810, 10));
         add(jLabel9);
 
@@ -286,12 +311,12 @@ public class PanelComprobantes extends javax.swing.JPanel {
         add(jLabel10);
 
         jLabelTipopago.setText("FORMA DE PAGO (ESTADO) : ");
-        jLabelTipopago.setPreferredSize(new java.awt.Dimension(175, 25));
+        jLabelTipopago.setPreferredSize(new java.awt.Dimension(165, 25));
         add(jLabelTipopago);
 
         tipopago.setBackground(ClaseGeneral.campo);
         tipopago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipopago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Fondo Renovable", "Caja Menor", "Anulado" }));
+        tipopago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Aprobacion", "Fondo Renovable", "Caja Menor", "Anulado" }));
         tipopago.setPreferredSize(new java.awt.Dimension(180, 25));
         add(tipopago);
 
@@ -303,7 +328,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         add(jSeparator5);
 
         jLabel12.setText("FECHA ESTIMADA DE PAGO : ");
-        jLabel12.setPreferredSize(new java.awt.Dimension(175, 25));
+        jLabel12.setPreferredSize(new java.awt.Dimension(165, 25));
         add(jLabel12);
 
         fechapago.setFocusable(false);
@@ -317,11 +342,11 @@ public class PanelComprobantes extends javax.swing.JPanel {
         jTextField2.setFocusable(false);
         jTextField2.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField2.setOpaque(false);
-        jTextField2.setPreferredSize(new java.awt.Dimension(90, 25));
+        jTextField2.setPreferredSize(new java.awt.Dimension(110, 25));
         add(jTextField2);
 
         jLabelComprobante.setText("NÚMERO DE COMPROBANTE : ");
-        jLabelComprobante.setPreferredSize(new java.awt.Dimension(185, 25));
+        jLabelComprobante.setPreferredSize(new java.awt.Dimension(170, 25));
         add(jLabelComprobante);
 
         comprobante.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -340,6 +365,17 @@ public class PanelComprobantes extends javax.swing.JPanel {
         });
         add(comprobante);
 
+        botonEnviarEmailFktercero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/mail.png"))); // NOI18N
+        botonEnviarEmailFktercero.setFocusable(false);
+        botonEnviarEmailFktercero.setName("botonBuscarFktercerofuncionario"); // NOI18N
+        botonEnviarEmailFktercero.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonEnviarEmailFktercero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEnviarEmailFktercerobotonBuscarFkterceroActionPerformed(evt);
+            }
+        });
+        add(botonEnviarEmailFktercero);
+
         jLabel13.setPreferredSize(new java.awt.Dimension(20, 25));
         add(jLabel13);
 
@@ -348,7 +384,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         add(jSeparator6);
 
         jLabel14.setText("FECHA DEL PAGO (REMBOLSO) : ");
-        jLabel14.setPreferredSize(new java.awt.Dimension(195, 25));
+        jLabel14.setPreferredSize(new java.awt.Dimension(190, 25));
         add(jLabel14);
 
         fechaaplicacion.setFocusable(false);
@@ -362,14 +398,14 @@ public class PanelComprobantes extends javax.swing.JPanel {
         jTextField3.setFocusable(false);
         jTextField3.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField3.setOpaque(false);
-        jTextField3.setPreferredSize(new java.awt.Dimension(90, 25));
+        jTextField3.setPreferredSize(new java.awt.Dimension(80, 25));
         add(jTextField3);
 
         jLabel15.setPreferredSize(new java.awt.Dimension(810, 10));
         add(jLabel15);
 
         jPanelObservacion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBSERVACIÓN AL PAGO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanelObservacion.setPreferredSize(new java.awt.Dimension(810, 90));
+        jPanelObservacion.setPreferredSize(new java.awt.Dimension(810, 80));
         jPanelObservacion.setLayout(new java.awt.BorderLayout());
 
         jScrollObservacion.setPreferredSize(new java.awt.Dimension(430, 70));
@@ -397,7 +433,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         add(jLabeL16);
 
         jTabbedPane.setBackground(ClaseGeneral.boton);
-        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 185));
+        jTabbedPane.setPreferredSize(new java.awt.Dimension(810, 165));
 
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane.setPreferredSize(new java.awt.Dimension(810, 185));
@@ -1590,6 +1626,12 @@ public class PanelComprobantes extends javax.swing.JPanel {
         if (eventoFktercero.equals("botonBuscarFktercero")) {
             if (!panelFktercero.fktercero.equals("Seleccione - ")) {
                 fktercero.setText(panelFktercero.fktercero);
+
+                try {
+                    email = ClaseGeneral.controlTerceros.findEmailInTercerosById("" + fktercero.getText());
+                    textInformacionTercero.setText("CORREO ELECTRONICO : " + email);
+                } catch (Exception e) {
+                }
             }
         } else if (eventoFktercero.equals("botonBuscarFktercerofuncionario")) {
             if (!panelFktercero.fktercero.equals("Seleccione - ")) {
@@ -1597,6 +1639,28 @@ public class PanelComprobantes extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_botonBuscarFkterceroActionPerformed
+
+    private void botonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarActionPerformed
+        try {
+            if (!fktercero.getText().equals("")) {
+                email = ClaseMensaje.ingresar("<html><body>"
+                        + "Ingrese el CORREO ELECTRONICO<br/>"
+                        + "</body></html>");
+                ClaseGeneral.controlTerceros.editEmail("" + fktercero.getText(), email);
+
+                try {
+                    email = ClaseGeneral.controlTerceros.findEmailInTercerosById("" + fktercero.getText());
+                    textInformacionTercero.setText("CORREO ELECTRONICO : " + email);
+                } catch (Exception e) {
+                }
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_botonCambiarActionPerformed
+
+    private void botonEnviarEmailFktercerobotonBuscarFkterceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarEmailFktercerobotonBuscarFkterceroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonEnviarEmailFktercerobotonBuscarFkterceroActionPerformed
 
     public void metodoInsertar() {
         ClaseGeneral.comprobantes = new Comprobantes();
@@ -1631,6 +1695,13 @@ public class PanelComprobantes extends javax.swing.JPanel {
             fechaelaboracion.setDate(ClaseGeneral.comprobantes.getFechaelaboracion());
             fechapago.setDate(ClaseGeneral.comprobantes.getFechapago());
             fktercero.setText(ClaseGeneral.comprobantes.getFktercero());
+
+            try {
+                email = ClaseGeneral.controlTerceros.findEmailInTercerosById("" + fktercero.getText());
+                textInformacionTercero.setText("CORREO ELECTRONICO : " + email);
+            } catch (Exception e) {
+            }
+
             fktercerofuncionario.setText(ClaseGeneral.comprobantes.getFktercerofuncionario());
             observacion.setText(ClaseGeneral.comprobantes.getObservacion());
             tipopago.setSelectedItem(ClaseGeneral.comprobantes.getTipopago());
@@ -1666,7 +1737,8 @@ public class PanelComprobantes extends javax.swing.JPanel {
             try {
                 ClaseGeneral.controlComprobantes.edit(ClaseGeneral.comprobantes, comprobantesId);
 
-                /**/if (tipopago.getSelectedItem().equals("Anulado")) {
+                /**/
+                if (tipopago.getSelectedItem().equals("Anulado")) {
                     ClaseGeneral.controlCumplidoscomprobantes.destroyFkcomprobanteAno(ClaseGeneral.comprobantes);
                     ClaseGeneral.controlFacturascomprobantes.destroyFkcomprobanteAno(ClaseGeneral.comprobantes);
                     ClaseGeneral.controlSoportescomprobantes.destroyFkcomprobanteAno(ClaseGeneral.comprobantes);
@@ -1717,7 +1789,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         jTable.getColumnModel().getColumn(1).setPreferredWidth(510);
         jTable.getColumnModel().getColumn(2).setPreferredWidth(150);
     }
-    
+
     public void metodoMostrar(int ano) {
         ClaseGeneral.comprobantes = new Comprobantes();
         lista = ClaseGeneral.controlComprobantes.findAllInComprobantesByORDERBYAno(ano);
@@ -1792,6 +1864,8 @@ public class PanelComprobantes extends javax.swing.JPanel {
     public javax.swing.JTextField ano;
     private javax.swing.JButton botonBuscarFktercero;
     private javax.swing.JButton botonBuscarFktercerofuncionario;
+    public javax.swing.JButton botonCambiar;
+    private javax.swing.JButton botonEnviarEmailFktercero;
     public javax.swing.JTextField comprobante;
     public org.jdesktop.swingx.JXDatePicker fechaaplicacion;
     public org.jdesktop.swingx.JXDatePicker fechaelaboracion;
@@ -1841,7 +1915,8 @@ public class PanelComprobantes extends javax.swing.JPanel {
     private javax.swing.JPanel panelBalanceSoportes;
     private javax.swing.JScrollPane scrollPaneBalanceSoportes;
     private javax.swing.JTextArea textAreaBalanceSoportes;
-    private javax.swing.JComboBox tipopago;
+    private javax.swing.JTextField textInformacionTercero;
+    public javax.swing.JComboBox tipopago;
     public javax.swing.JTextField valor;
     public javax.swing.JTextField valorTotal;
     // End of variables declaration//GEN-END:variables

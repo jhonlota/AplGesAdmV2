@@ -263,13 +263,13 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
         if (ClaseInformacion.ValidarCUENTA("" + panelPrincipal.cuenta.getText())
                 && ClaseInformacion.ValidarACTIVIDAD("" + panelPrincipal.actividad.getText())
                 && ClaseInformacion.ValidarSUBGRUPO("" + panelPrincipal.subgrupo.getSelectedItem())
-                && ClaseInformacion.ValidarCCOSTOS("" + panelPrincipal.ccostos.getText())
+                && ClaseInformacion.ValidarCCOSTOS("" + panelPrincipal.ccosto.getSelectedItem())
                 && ClaseInformacion.ValidarCINFO("" + panelPrincipal.cinfo.getSelectedItem())
                 && ClaseInformacion.ValidarCUENTAINTERNA("" + panelPrincipal.cuentainterna.getSelectedItem())
                 && (panelPrincipal.cuentainterna.getSelectedItem().equals(ClaseInformacion.ValidarIngresoCUENTAINTERNA("" + panelPrincipal.cinfo.getSelectedItem(),
                         "000",
                         "" + panelPrincipal.actividad.getText(),
-                        "" + panelPrincipal.ccostos.getText(),
+                        "" + panelPrincipal.ccosto.getSelectedItem(),
                         "" + panelPrincipal.cuentainterna.getSelectedItem())))) {
             panelPrincipal.metodoInsertar();
             if (ClaseGeneral.controlSoportescomprobantes.verify(ClaseGeneral.soportescomprobantes)) {
@@ -325,13 +325,13 @@ public class IFrameSoportescomprobantes extends javax.swing.JInternalFrame {
         if (ClaseInformacion.ValidarCUENTA("" + panelPrincipal.cuenta.getText())
                 && ClaseInformacion.ValidarACTIVIDAD("" + panelPrincipal.actividad.getText())
                 && ClaseInformacion.ValidarSUBGRUPO("" + panelPrincipal.subgrupo.getSelectedItem())
-                && ClaseInformacion.ValidarCCOSTOS("" + panelPrincipal.ccostos.getText())
+                && ClaseInformacion.ValidarCCOSTOS("" + panelPrincipal.ccosto.getSelectedItem())
                 && ClaseInformacion.ValidarCINFO("" + panelPrincipal.cinfo.getSelectedItem())
                 && ClaseInformacion.ValidarCUENTAINTERNA("" + panelPrincipal.cuentainterna.getSelectedItem())
                 && (panelPrincipal.cuentainterna.getSelectedItem().equals(ClaseInformacion.ValidarIngresoCUENTAINTERNA("" + panelPrincipal.cinfo.getSelectedItem(),
                         "000",
                         "" + panelPrincipal.actividad.getText(),
-                        "" + panelPrincipal.ccostos.getText(), 
+                        "" + panelPrincipal.ccosto.getSelectedItem(), 
                         "" + panelPrincipal.cuentainterna.getSelectedItem())))) {
             if (!lista.isEmpty()) {
                 panelPrincipal.metodoActualizar();

@@ -62,6 +62,9 @@ WHERE
 	<parameter name="isAnexoOrdenContractual" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
+	<parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      CONTRATOS.CONTRATO AS "CONTRATOS_CONTRATO",
@@ -243,13 +246,6 @@ WHERE
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport6.jasper"]]></subreportExpression>
 			</subreport>
-			<staticText>
-				<reportElement uuid="fc80ac6a-7de8-4876-a6b4-5111fc0ca3fa" x="0" y="240" width="753" height="20"/>
-				<textElement textAlignment="Center">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS]]></text>
-			</staticText>
 			<subreport>
 				<reportElement uuid="5e8208ac-6190-45a9-94bc-738089799dbc" x="25" y="290" width="380" height="75">
 					<printWhenExpression><![CDATA[( $F{CONTRATOS_NOMBREPROYECTO}.equals( null ) ? false : true )]]></printWhenExpression>
@@ -400,6 +396,13 @@ WHERE
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport8.jasper"]]></subreportExpression>
 			</subreport>
+			<textField>
+				<reportElement uuid="cb5631e5-beba-4f1d-88d9-49300c5a9568" x="0" y="235" width="753" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FACULTAD}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

@@ -12,6 +12,9 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\xampp\\htdocs\\AGA\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -23,13 +26,6 @@
 					<font fontName="Times New Roman" size="20" isBold="true" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[UNIVERSIDAD DEL VALLE]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="b73f0997-3a89-4aae-9f6b-f0a98a7fad31" x="55" y="40" width="380" height="20"/>
-				<textElement textAlignment="Left">
-					<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
-				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="eb85abd8-f421-41e7-9188-588059aa19fd" x="0" y="100" width="435" height="20"/>
@@ -48,6 +44,13 @@
 			<line>
 				<reportElement uuid="9a7abbe6-91a4-49b7-a149-0b5862a0a36d" x="55" y="60" width="380" height="1"/>
 			</line>
+			<textField>
+				<reportElement uuid="6ba98b0a-2e72-4649-baf8-0366adc0c75d" x="55" y="41" width="380" height="20"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FACULTAD}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>

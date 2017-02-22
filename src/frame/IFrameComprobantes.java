@@ -543,6 +543,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
                 panelPrincipal.fechaelaboracion.setEnabled(false);
                 panelPrincipal.ano.setFocusable(false);
                 panelPrincipal.fechapago.setEnabled(false);
+                panelPrincipal.tipopago.setEnabled(false);
                 panelPrincipal.comprobante.setEnabled(false);
                 panelPrincipal.fechaaplicacion.setEnabled(false);
                 panelPrincipal.observacion.setFocusable(true);
@@ -552,6 +553,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
                 panelPrincipal.fechaelaboracion.setEnabled(false);
                 panelPrincipal.ano.setFocusable(false);
                 panelPrincipal.fechapago.setEnabled(false);
+                panelPrincipal.tipopago.setEnabled(false);
                 panelPrincipal.comprobante.setEnabled(false);
                 panelPrincipal.fechaaplicacion.setEnabled(false);
                 panelPrincipal.observacion.setFocusable(false);

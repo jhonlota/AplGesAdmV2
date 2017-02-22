@@ -2,13 +2,16 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoResolucion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="60" bottomMargin="60" uuid="9c373adb-634e-4127-a7a3-411bd90f48cb">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="396"/>
+	<property name="ireport.y" value="432"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="id" class="java.lang.Integer"/>
 	<parameter name="ano" class="java.lang.Integer"/>
 	<parameter name="fkterceroordenadorgasto" class="java.lang.String"/>
+	<parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      tercerosresolucion."id" AS tercerosresolucion_id,
@@ -149,7 +152,7 @@ ORDER BY
 					<font fontName="SansSerif" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["UNIVERSIDAD DEL VALLE\n" +
-"FACULTAD DE CIENCIAS NATURALES Y EXACTAS\n" +
+$P{FACULTAD} + "\n" +
 "Resolución Nro. " +
 ($F{resolucion_id} < 10 ? "00" + $F{resolucion_id} :
     ($F{resolucion_id} < 100 ? "0" + $F{resolucion_id} : $F{resolucion_id} ))
@@ -186,7 +189,7 @@ ORDER BY
 					<font fontName="SansSerif" size="11"/>
 					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
-				<textFieldExpression><![CDATA["EL DECANO DE LA FACULTAD DE CIENCIAS NATURALES Y EXACTAS DE LA UNIVERSIDAD DEL VALLE, en uso de sus facultades conferidas por el estatuto General, " +
+				<textFieldExpression><![CDATA["EL DECANO DE LA " + $P{FACULTAD} + " DE LA UNIVERSIDAD DEL VALLE, en uso de sus facultades conferidas por el estatuto General, " +
 ( $F{resolucion_acuerdo}.equals("Acuerdo No. 004 de 1996") ? "Acuerdo 004 de 1996, literal (j) del Consejo Superior" :
     ( $F{resolucion_acuerdo}.equals("Acuerdo No. 004 de 1996 y Resolución No. 2252") ? "Acuerdo 004 de 1996, literal (j) del Consejo Superior y de la Resolución No. 2252 de Julio 24 de 2013 de la Rectoría" :
         ( $F{resolucion_acuerdo}.equals("Acuerdo No. 004 de 1996 y Resolución No. 2784") ? "Acuerdo 004 de 1996, literal (j) del Consejo Superior y de la Resolución No. 2784 de Julio 24 de 2014 de la Rectoría" :
@@ -307,7 +310,7 @@ ORDER BY
 "1 dia (Sin pernoctar)"]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="40">
+		<band height="60">
 			<printWhenExpression><![CDATA[$F{resolucion_tipo}.equals("COMISIÓN DE SERVICIOS Y VIÁTICOS")
 || $F{resolucion_tipo}.equals("COMISIÓN ACADÉMICA Y VIÁTICOS")]]></printWhenExpression>
 			<staticText>
@@ -328,6 +331,15 @@ ORDER BY
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tercerosresolucion_salario}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="20" width="135" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{tercerosresolucion_diario} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIARIO :]]></text>
+			</staticText>
 			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
 				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="20" width="360" height="15" isRemoveLineWhenBlank="true">
 					<printWhenExpression><![CDATA[$F{tercerosresolucion_diario} > 0]]></printWhenExpression>
@@ -338,14 +350,23 @@ ORDER BY
 				<textFieldExpression><![CDATA[$F{tercerosresolucion_diario}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="20" width="135" height="15" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{tercerosresolucion_diario} > 0]]></printWhenExpression>
+				<reportElement uuid="dc1ef414-507e-4c18-8d8f-d6560e8a5236" x="0" y="40" width="135" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{tercerosresolucion_valor} > 0]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Left">
 					<font fontName="SansSerif" size="11" isBold="true"/>
 				</textElement>
-				<text><![CDATA[DIARIO :]]></text>
+				<text><![CDATA[VALOR PAGADO :]]></text>
 			</staticText>
+			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
+				<reportElement uuid="cfc71cf5-57ad-4569-b19c-9636e8e6eef4" x="135" y="40" width="360" height="15" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{tercerosresolucion_valor} > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tercerosresolucion_valor}]]></textFieldExpression>
+			</textField>
 		</band>
 		<band height="35">
 			<staticText>
@@ -362,7 +383,7 @@ ORDER BY
 				<textElement>
 					<font fontName="SansSerif" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tercerosresolucion_soporte}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tercerosresolucion_soporte} + "."]]></textFieldExpression>
 			</textField>
 			<subreport>
 				<reportElement uuid="4a06d904-008b-49b6-9b6e-977689308d85" positionType="Float" x="135" y="15" width="360" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true"/>
@@ -522,6 +543,9 @@ ORDER BY
 				</subreportParameter>
 				<subreportParameter name="fkresolucion">
 					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_fkresolucion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FACULTAD">
+					<subreportParameterExpression><![CDATA[$P{FACULTAD}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="ano">
 					<subreportParameterExpression><![CDATA[$F{tercerosresolucion_ano}]]></subreportParameterExpression>

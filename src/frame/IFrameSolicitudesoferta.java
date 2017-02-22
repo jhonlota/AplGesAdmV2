@@ -576,7 +576,6 @@ public class IFrameSolicitudesoferta extends javax.swing.JInternalFrame {
                 Map parametros = new HashMap();
                 parametros.put("ID", ClaseGeneral.solicitudesoferta.getId());
                 parametros.put("ANO", ClaseGeneral.solicitudesoferta.getAno());
-                parametros.put("DEPENDENCIA", ClaseGeneral.dependencia);
 
                 ClaseInformes informes = new ClaseInformes();
                 informes.formatoSolicitudOferta(parametros);

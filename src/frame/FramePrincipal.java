@@ -126,7 +126,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         labelEntidad = new javax.swing.JLabel();
         botonPantallazo = new javax.swing.JButton();
 
-        jFileChooser.setCurrentDirectory(new java.io.File("C:\\Program Files\\NetBeans 8.2"));
+        jFileChooser.setCurrentDirectory(new java.io.File("C:\\Program Files\\NetBeans 8.1"));
         jFileChooser.setFileFilter(filter);
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -341,6 +341,8 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         treeNode3.add(treeNode4);
         treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("C.Info - C.Interna");
         treeNode3.add(treeNode4);
+        treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Aprob. Pagos");
+        treeNode3.add(treeNode4);
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Orden Contractual *");
         treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Devoluciones");
@@ -528,7 +530,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
 //                        && !ClaseGeneral.terceros.getId().equals("")) {
 //                    documentosterceros.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
 //                    documentosterceros.setVisible(true);
-//                    documentosterceros.loadURL("http://" + ClaseGeneral.servidor + "/Formularios/ResultadosGET.php?fktercero=" + ClaseGeneral.terceros.getId() + "&persona=" + ClaseGeneral.terceros.getRegimen());
+//                    documentosterceros.loadURL(ClaseGeneral.servidor + "/Formularios/ResultadosGET.php?fktercero=" + ClaseGeneral.terceros.getId() + "&persona=" + ClaseGeneral.terceros.getRegimen());
                 } else if (hijo.equals("Terceros *")) {
                     terceros.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
                     terceros.setVisible(true);
@@ -538,7 +540,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
 //                        && !ClaseGeneral.terceros.getId().equals("")) {
 //                    tramitesterceros.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
 //                    tramitesterceros.setVisible(true);
-//                    tramitesterceros.loadURL("http://" + ClaseGeneral.servidor + "/Formularios/ResultadosTramitesGET.php?fktercero=" + ClaseGeneral.terceros.getId());
+//                    tramitesterceros.loadURL(ClaseGeneral.servidor + "/Formularios/ResultadosTramitesGET.php?fktercero=" + ClaseGeneral.terceros.getId());
                 }
             } else if (padre.equals("Pagos Facultad")) {
                 if (hijo.equals("Comprobantes *")) {
@@ -637,19 +639,26 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
                     }
                 } else if (hijo.equals("Doc. Terceros")) {
                     try {
-                        Desktop.getDesktop().browse(new URI("http://192.168.131.52/datos/AGA/src/web/ConsultarDocumentosTerceros.php"));
+                        Desktop.getDesktop().browse(new URI(ClaseGeneral.servidor + "/AGA/build/classes/web/ConsultarDocumentosTerceros.php"));
                     } catch (Exception ex) {
                         Logger.getLogger(PanelAnexoscontratos.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else if (hijo.equals("Consul. Pagos")) {
                     try {
-                        Desktop.getDesktop().browse(new URI("http://192.168.131.52/datos/AGA/src/web/ConsultarPagosRealizados.php"));
+                        Desktop.getDesktop().browse(new URI(ClaseGeneral.servidor + "/AGA/build/classes/web/ConsultarPagosRealizados.php"));
                     } catch (Exception ex) {
                         Logger.getLogger(PanelAnexoscontratos.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else if (hijo.equals("C.Info - C.Interna")) {
                     try {
-                        Desktop.getDesktop().browse(new URI("http://192.168.131.52/datos/AGA/src/web/ConsultarVerificacinfocuentainterna.php"));
+                        Desktop.getDesktop().browse(new URI(ClaseGeneral.servidor + "/AGA/build/classes/web/ConsultarVerificacinfocuentainterna.php"));
+                    } catch (Exception ex) {
+                        Logger.getLogger(PanelAnexoscontratos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else if (hijo.equals("Aprob. Pagos")
+                        && ClaseGeneral.perfil.equals("root")) {
+                    try {
+                        Desktop.getDesktop().browse(new URI(ClaseGeneral.servidor + "/AGA/build/classes/web/ConsultarAprobacionPagosFacultad.php"));
                     } catch (Exception ex) {
                         Logger.getLogger(PanelAnexoscontratos.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -1166,7 +1175,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         @Override
         public void run() {
             int min = 1;
-            int max = 27;//**// IMPORTANTE
+            int max = 27;//**// a
 
             FrameInicio.jProgressBar.setValue(min);
             FrameInicio.jProgressBar.setMinimum(min);

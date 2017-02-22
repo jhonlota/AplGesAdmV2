@@ -342,7 +342,7 @@ public class PanelAnexoscontratos extends javax.swing.JPanel {
             if (file != null) {
                 Desktop.getDesktop().open(this.file);
             } else {
-                URL url = new URL("http:" + ClaseGeneral.servidor + "/UmVbZxut/archivos/" + archivo.getText());
+                URL url = new URL(ClaseGeneral.servidor + "/UmVbZxut/archivos/" + archivo.getText());
                 String extension = archivo.getText().substring(archivo.getText().lastIndexOf("."));
                 URLConnection urlCon = url.openConnection();
                 InputStream is = urlCon.getInputStream();

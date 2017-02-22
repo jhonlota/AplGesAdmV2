@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -100,6 +99,21 @@ public class TercerosJpaController {
         try {
             datos.update("UPDATE TERCEROS SET "
                     + "SALARIO = " + salario + " "
+                    + "WHERE "
+                    + "ID = '" + id.substring(0, id.indexOf(" - ")) + "'");
+            if (!datos.isError) {
+                ClaseMensaje.informacionActualizarBD("El Tercero " + id.substring(0, id.indexOf(" - ")));
+            }
+        } catch (Exception ex) {
+            ClaseMensaje.errorActualizarBD();
+        } finally {
+        }
+    }
+    
+    public void editEmail(String id, String email) {
+        try {
+            datos.update("UPDATE TERCEROS SET "
+                    + "EMAIL = '" + email + "' "
                     + "WHERE "
                     + "ID = '" + id.substring(0, id.indexOf(" - ")) + "'");
             if (!datos.isError) {
@@ -270,6 +284,20 @@ public class TercerosJpaController {
         } catch (SQLException ex) {
             ClaseMensaje.errorFind(this.toString(), ex.toString());
             return salario;
+        }
+    }
+    
+    public String findEmailInTercerosById(String id) {
+        String email = "";
+        try {
+            datos.query("SELECT EMAIL FROM TERCEROS WHERE ID = '" + id.substring(0, id.indexOf(" - ")) + "'");
+            while (ClaseBaseDatos.resultado.next()) {
+                email = ClaseBaseDatos.resultado.getString("EMAIL");
+            }
+            return email;
+        } catch (SQLException ex) {
+            ClaseMensaje.errorFind(this.toString(), ex.toString());
+            return email;
         }
     }
 

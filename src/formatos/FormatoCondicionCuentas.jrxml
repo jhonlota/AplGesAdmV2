@@ -20,6 +20,9 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      verificacuentas."verifica" AS verificacuentas_verifica
@@ -43,13 +46,6 @@ ORDER BY
 					<font fontName="Arial Black" size="20" isBold="true" pdfFontName="Helvetica"/>
 				</textElement>
 				<text><![CDATA[UNIVERSIDAD DEL VALLE]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="fdb468fa-fe53-47a9-8d78-b15f6b6d2611" x="0" y="35" width="555" height="20"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial Black" size="14" isBold="true" pdfFontName="Helvetica"/>
-				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="b4b63864-2443-4e5b-a579-e009b011e143" x="0" y="50" width="555" height="20"/>
@@ -87,6 +83,13 @@ ORDER BY
 					<font size="24" isBold="true" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{DEPENDENCIA}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="59993c99-9903-465a-9c27-65e2a0411022" x="0" y="35" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial Black" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FACULTAD}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

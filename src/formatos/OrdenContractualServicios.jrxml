@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1032" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0f6891eb-3340-4278-bb54-ee32989b585c">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="432"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
@@ -10,6 +10,9 @@
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="isAnexoOrdenContractual" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FACULTAD" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -213,13 +216,6 @@ WHERE
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport6.jasper"]]></subreportExpression>
 			</subreport>
-			<staticText>
-				<reportElement uuid="cbdb1e3d-a558-4740-84fd-9ad4a18f80fd" x="25" y="311" width="345" height="20"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS]]></text>
-			</staticText>
 			<textField isBlankWhenNull="true">
 				<reportElement uuid="2079a04a-b14d-4ed7-b9b5-b1135dfb1c0e" x="25" y="490" width="705" height="36"/>
 				<textElement>
@@ -304,6 +300,13 @@ WHERE
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{isAnexoOrdenContractual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cb5631e5-beba-4f1d-88d9-49300c5a9568" x="0" y="311" width="753" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FACULTAD}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

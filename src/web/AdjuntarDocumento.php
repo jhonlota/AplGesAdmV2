@@ -1,4 +1,5 @@
 <?php
+
 header("Content-Type: text/html;charset=utf-8");
 include("./ConexionConsulta.php");
 require_once('./upload/upload.php');
@@ -24,7 +25,7 @@ if (!empty($_FILES['' . $archivo]['name'])) {
 
         $status = "";
         $upload = new Upload();
-        $upload->setPath("../../../UmVbZxut/archivos");
+        $upload->setPath("../../../../UmVbZxut/archivos");
         $upload->setFile("$archivo", $cedulaTercero, $nombreDocumento, $fechaDocumento);
         $upload->save();
         $status = $upload->message;
@@ -72,7 +73,7 @@ if (!empty($_FILES['' . $archivo]['name'])) {
                 $gbd->rollBack();
                 $htmlError .= "Error -> $ex -> Cod =" . $ex->getCode();
             }
-        }else{
+        } else {
             $htmlError .= "$status";
         }
     } catch (Exception $ex) {
@@ -90,34 +91,22 @@ function sanear_string($string) {
             array("á", "é", "í", "ó", "ú", "ñ", " ", "(", ")", "-"), array("a", "e", "i", "o", "u", "n", "", "", "", ""), $string
     );
     $string = str_replace(
-        array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
-        array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
-        $string
-    ); 
+            array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'), array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'), $string
+    );
     $string = str_replace(
-        array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
-        array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
-        $string
-    ); 
+            array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'), array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'), $string
+    );
     $string = str_replace(
-        array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
-        array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
-        $string
-    ); 
+            array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'), array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'), $string
+    );
     $string = str_replace(
-        array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
-        array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
-        $string
-    ); 
+            array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'), array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'), $string
+    );
     $string = str_replace(
-        array('ñ', 'Ñ', 'ç', 'Ç'),
-        array('n', 'N', 'c', 'C',),
-        $string
-    );    
+            array('ñ', 'Ñ', 'ç', 'Ç'), array('n', 'N', 'c', 'C',), $string
+    );
     $string = str_replace(
-        array(' ','(', ')'),
-        array('','',''),
-        $string
-    ); 
+            array(' ', '(', ')'), array('', '', ''), $string
+    );
     return $string;
 }

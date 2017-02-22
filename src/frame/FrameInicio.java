@@ -155,6 +155,13 @@ public class FrameInicio extends javax.swing.JFrame {
                 ClaseGeneral.perfil = ClaseBaseDatos.resultado.getString("PERFIL");
                 ClaseGeneral.dependencia = ClaseBaseDatos.resultado.getString("DEPENDENCIA");
             }
+            
+            datos.query("SELECT FACULTAD FROM DEPENDENCIA "
+                        + "WHERE CODIGO = '" + ClaseGeneral.dependencia + "'");
+
+            while (ClaseBaseDatos.resultado.next()) {
+                ClaseGeneral.facultad = ClaseBaseDatos.resultado.getString("FACULTAD");
+            }
 
             if (ClaseGeneral.cargando) {
                 botonIngresar.setEnabled(false);
