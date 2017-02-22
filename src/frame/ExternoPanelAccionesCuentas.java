@@ -114,7 +114,7 @@ public class ExternoPanelAccionesCuentas extends javax.swing.JPanel {
 
         dependencia.setBackground(ClaseGeneral.campo);
         dependencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        dependencia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "ARTES GRAFICAS", "DECANATO", "DEPARTAMENTO DE BIOLOGIA", "DEPARTAMENTO DE FISICA", "DEPARTAMENTO DE MATEMATICAS", "DEPARTAMENTO DE QUIMICA" }));
+        dependencia.setModel(ClaseGeneral.controlDependencia.COMBONombreInDependenciaBy());
         dependencia.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
         dependencia.setPreferredSize(new java.awt.Dimension(300, 25));
         //dependencia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "COORDINACIÓN DE ÁREA ADMINISTRATIVA", "VICE-DECANATURA DE INVESTIGACIONES", "ESCUELA DE INGENIERIA INDUSTRIAL" }));

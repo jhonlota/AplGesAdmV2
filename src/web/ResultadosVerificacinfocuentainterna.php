@@ -67,7 +67,7 @@ try {
 } catch (Exception $ex) {
     pg_query("ROLLBACK");
     $tabla = "<script type=\"text/javascript\">
-                    funMensaje(\"Error al visualizar la infromaci&oacute;n : " . $e->getCode() . "</strong> " . $e->getMessage() . "\");
+                    funMensaje(\"Error al visualizar la informaci&oacute;n : " . $e->getCode() . "</strong> " . $e->getMessage() . "\");
             </script>";
     $arr = array("tabla" => utf8_encode($tabla));
     echo json_encode($arr);

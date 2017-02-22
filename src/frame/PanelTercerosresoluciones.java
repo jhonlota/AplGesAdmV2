@@ -284,6 +284,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         });
         panelTercerosresoluciones.add(botonCALCValor);
 
+        textInformacionTercero.setBackground(new java.awt.Color(240, 240, 240));
         textInformacionTercero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         textInformacionTercero.setForeground(new java.awt.Color(0, 102, 51));
         textInformacionTercero.setFocusable(false);

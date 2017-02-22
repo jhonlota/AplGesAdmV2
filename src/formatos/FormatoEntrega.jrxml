@@ -6,6 +6,9 @@
 	<parameter name="FECHA" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      OBSERVACIONESCUENTAS.FKCUENTA AS "OBSERVACIONESCUENTAS_FKCUENTA",
@@ -63,13 +66,6 @@ GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
 				<text><![CDATA[UNIVERSIDAD DEL VALLE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b54e67ab-4124-4b8a-af54-7d87bebd40d4" x="0" y="35" width="555" height="20"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial Black" size="14" isBold="true" pdfFontName="Helvetica"/>
-				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS]]></text>
-			</staticText>
-			<staticText>
 				<reportElement uuid="9e74d12b-9f32-4346-b5bc-d7ec15383f0c" x="0" y="50" width="555" height="20"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial Black" size="14" isBold="true" pdfFontName="Helvetica"/>
@@ -92,6 +88,13 @@ GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
 			<line>
 				<reportElement uuid="014e583d-78a3-4778-8783-14f9557b75db" positionType="FixRelativeToBottom" x="0" y="95" width="555" height="1"/>
 			</line>
+			<textField>
+				<reportElement uuid="59993c99-9903-465a-9c27-65e2a0411022" x="0" y="35" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial Black" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FACULTAD}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>

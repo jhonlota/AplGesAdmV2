@@ -67,13 +67,13 @@ ORDER BY
 				<textElement>
 					<font fontName="SansSerif" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{comprobantes_a_id} == null ? "" : $F{comprobantes_a_tipopago} + " - " + $F{comprobantes_a_id} + ". " )
+				<textFieldExpression><![CDATA[($F{comprobantes_a_id} == null ? "" : $F{comprobantes_a_tipopago} + " - " + $F{comprobantes_a_id} + "." )
 + "" +
-($F{cuentas_a_soporte} == null ? "" : "Solicitud de Pago - " + $F{cuentas_a_soporte} + ". " )
+($F{cuentas_a_soporte} == null ? "" : "Solicitud de Pago - " + $F{cuentas_a_soporte} + "." )
 + "" +
-($F{comprobantes_b_id} == null ? "" : $F{comprobantes_b_tipopago} + " - " + $F{comprobantes_b_id} + ". " )
+($F{comprobantes_b_id} == null ? "" : $F{comprobantes_b_tipopago} + " - " + $F{comprobantes_b_id} + "." )
 + "" +
-($F{cuentas_b_soporte} == null ? "" : "Solicitud de Pago - " + $F{cuentas_b_soporte} + ". " )]]></textFieldExpression>
+($F{cuentas_b_soporte} == null ? "" : "Solicitud de Pago - " + $F{cuentas_b_soporte} + "." )]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

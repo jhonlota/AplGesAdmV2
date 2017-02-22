@@ -12,6 +12,9 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[(SELECT
 	soportescuentas."cuentainterna" AS soportescuentas_cuentainterna,
@@ -41,7 +44,7 @@ FROM
 	AND comprobantes."ano" = soportescomprobantes."ano"
 WHERE
 	soportesresoluciones."fkresolucion" = $P{fkresolucion}
-	AND soportesresoluciones."ano" = $P{ano})	]]>
+	AND soportesresoluciones."ano" = $P{ano})]]>
 	</queryString>
 	<field name="soportescuentas_cuentainterna" class="java.lang.String"/>
 	<field name="soportescomprobantes_cuentainterna" class="java.lang.String"/>
@@ -56,7 +59,7 @@ WHERE
 				<textElement textAlignment="Justified">
 					<font fontName="SansSerif" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Los cuales serán pagados por la Facultad de Ciencias Naturales y Exactas, con la siguiente forma de pago:"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Los cuales serán pagados por la " + $P{FACULTAD} + ", con la siguiente forma de pago:"]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

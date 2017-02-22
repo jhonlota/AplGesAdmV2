@@ -37,10 +37,12 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
         initComponents();
 
         subgrupo.setEditable(true);
+        ccosto.setEditable(true);
         cinfo.setEditable(true);
         cuentainterna.setEditable(true);
 
         AutoCompleteDecorator.decorate(subgrupo);
+        AutoCompleteDecorator.decorate(ccosto);
         AutoCompleteDecorator.decorate(cinfo);
         AutoCompleteDecorator.decorate(cuentainterna);
 
@@ -75,7 +77,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
         cuenta = new javax.swing.JTextField();
         actividad = new javax.swing.JTextField();
         subgrupo = new javax.swing.JComboBox();
-        ccostos = new javax.swing.JTextField();
+        ccosto = new javax.swing.JComboBox();
         cinfo = new javax.swing.JComboBox();
         cuentainterna = new javax.swing.JComboBox();
         valor = new javax.swing.JTextField();
@@ -201,17 +203,13 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
         subgrupo.setPreferredSize(new java.awt.Dimension(95, 25));
         jPanel1.add(subgrupo);
 
-        ccostos.setBackground(ClaseGeneral.campo);
-        ccostos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ccostos.setText("0");
-        ccostos.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        ccostos.setPreferredSize(new java.awt.Dimension(95, 25));
-        ccostos.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                TextFieldFocusGained(evt);
-            }
-        });
-        jPanel1.add(ccostos);
+        ccosto.setBackground(ClaseGeneral.campo);
+        ccosto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ccosto.setModel(ClaseGeneral.controlCcosto.COMBOCodigoInCcostoBy());
+        ccosto.setSelectedItem("0");
+        ccosto.setOpaque(false);
+        ccosto.setPreferredSize(new java.awt.Dimension(95, 25));
+        jPanel1.add(ccosto);
 
         cinfo.setBackground(ClaseGeneral.campo);
         cinfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -411,7 +409,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
         ClaseGeneral.soportescomprobantes.setCuenta(cuenta.getText());
         ClaseGeneral.soportescomprobantes.setActividad(actividad.getText());
         ClaseGeneral.soportescomprobantes.setSubgrupo("" + subgrupo.getSelectedItem());
-        ClaseGeneral.soportescomprobantes.setCcostos(ccostos.getText());
+        ClaseGeneral.soportescomprobantes.setCcostos("" + ccosto.getSelectedItem());
         ClaseGeneral.soportescomprobantes.setCinfo("" + cinfo.getSelectedItem());
         ClaseGeneral.soportescomprobantes.setCuentainterna("" + cuentainterna.getSelectedItem());
         ClaseGeneral.soportescomprobantes.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
@@ -431,7 +429,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
             cuenta.setText(ClaseGeneral.soportescomprobantes.getCuenta());
             actividad.setText(ClaseGeneral.soportescomprobantes.getActividad());
             subgrupo.setSelectedItem(ClaseGeneral.soportescomprobantes.getSubgrupo());
-            ccostos.setText(ClaseGeneral.soportescomprobantes.getCcostos());
+            ccosto.setSelectedItem(ClaseGeneral.soportescomprobantes.getCcostos());
             cinfo.setSelectedItem(ClaseGeneral.soportescomprobantes.getCinfo());
             cuentainterna.setSelectedItem(ClaseGeneral.soportescomprobantes.getCuentainterna());
             valor.setText("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.soportescomprobantes.getValor()));
@@ -453,7 +451,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
         ClaseGeneral.soportescomprobantes.setCuenta(cuenta.getText());
         ClaseGeneral.soportescomprobantes.setActividad(actividad.getText());
         ClaseGeneral.soportescomprobantes.setSubgrupo("" + subgrupo.getSelectedItem());
-        ClaseGeneral.soportescomprobantes.setCcostos(ccostos.getText());
+        ClaseGeneral.soportescomprobantes.setCcostos("" + ccosto.getSelectedItem());
         ClaseGeneral.soportescomprobantes.setCinfo("" + cinfo.getSelectedItem());
         ClaseGeneral.soportescomprobantes.setCuentainterna("" + cuentainterna.getSelectedItem());
         ClaseGeneral.soportescomprobantes.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
@@ -525,7 +523,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextField actividad;
-    public javax.swing.JTextField ccostos;
+    public javax.swing.JComboBox ccosto;
     public javax.swing.JComboBox cinfo;
     public javax.swing.JTextField cuenta;
     public javax.swing.JComboBox cuentainterna;

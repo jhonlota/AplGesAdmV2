@@ -576,8 +576,16 @@ public class IFrameContratos extends javax.swing.JInternalFrame {
             try {
                 Map<String, String> parametros = new HashMap<String, String>();
                 parametros.put("CONTRATO", ClaseGeneral.contratos.getContrato());
-
+                
                 ClaseInformes informes = new ClaseInformes();
+                
+                if(ClaseGeneral.controlCubs.findCALCInCubsByFkcontrato(ClaseGeneral.contratos.getContrato()) > 8) {
+                    parametros.put("isAnexoOrdenContractual", "ANEXO ORDEN CONTRACTUAL");
+                    informes.formatoAnexoContrato(parametros);
+                } else {
+                    parametros.put("isAnexoOrdenContractual", "-");
+                }
+
                 informes.formatoContrato(parametros);
             } catch (Exception e) {
                 ClaseMensaje.error("Error al mostrar el archivo.\n" + e);

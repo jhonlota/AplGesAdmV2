@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1044" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
-	<property name="ireport.zoom" value="0.7513148009015777"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="6"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -141,6 +141,9 @@ AND FACTURASCOMPROBANTES.ANO = $P{ANOTABLE2}]]>
 	<parameter name="ANO" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
+	<parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      COMPROBANTES.ID AS "COMPROBANTES_ID",
@@ -190,10 +193,17 @@ WHERE
 				</textElement>
 				<textFieldExpression><![CDATA[$F{COMPROBANTES_FECHAELABORACION}.getMonth() + 1]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement uuid="59993c99-9903-465a-9c27-65e2a0411022" x="80" y="20" width="350" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FACULTAD}]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement uuid="8ff0e825-f716-4cd4-8c1d-689268334c50" x="100" y="55" width="290" height="18"/>
+				<reportElement uuid="8ff0e825-f716-4cd4-8c1d-689268334c50" x="80" y="40" width="350" height="18"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Coordinación de Área Administrativa]]></text>
 			</staticText>
@@ -247,13 +257,6 @@ WHERE
 				<text><![CDATA[FECHA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="50bfffce-5941-4f1c-a8c4-5e32083fc54c" x="20" y="209" width="710" height="60"/>
-				<textElement textAlignment="Justified">
-					<font size="14" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[Estoy haciendo entrega de las facturas en original y con sus respectivas copias para ser canceladas mediante Caja Menor y/o Fondo Renovable de la Facultad de Ciencias Naturales y Exactas con cargo a la cuenta autorizada. Igualmente encontrará los demás soportes requeridos para su pago.]]></text>
-			</staticText>
-			<staticText>
 				<reportElement uuid="1442b3ad-20e6-4449-b323-c4c0c012e5c6" x="440" y="19" width="280" height="21"/>
 				<textElement>
 					<font size="16" isBold="true"/>
@@ -285,16 +288,9 @@ WHERE
 				<textFieldExpression><![CDATA[$F{COMPROBANTES_FECHAELABORACION}.getYear() + 1900]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement uuid="62ff49af-27bf-4b3d-864a-c9b73f5acc18" x="37" y="19" width="42" height="60"/>
+				<reportElement uuid="62ff49af-27bf-4b3d-864a-c9b73f5acc18" x="27" y="19" width="42" height="60"/>
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Univalle.jpg"]]></imageExpression>
 			</image>
-			<staticText>
-				<reportElement uuid="30a477a4-67e8-4094-b2e0-13fe15b4149f" x="100" y="19" width="290" height="18"/>
-				<textElement>
-					<font size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y]]></text>
-			</staticText>
 			<textField>
 				<reportElement uuid="b1a99557-f1c7-49bc-90c9-eed9a80cfad2" x="175" y="174" width="231" height="25"/>
 				<textElement verticalAlignment="Middle">
@@ -313,19 +309,19 @@ WHERE
 				<reportElement uuid="b1c7633e-3ef1-4651-87e6-8599d31ec422" mode="Transparent" x="20" y="10" width="710" height="80"/>
 			</rectangle>
 			<staticText>
-				<reportElement uuid="8c65405a-b413-44a7-b13a-eec9946a344e" x="100" y="37" width="290" height="18"/>
-				<textElement>
-					<font size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[EXACTAS]]></text>
-			</staticText>
-			<staticText>
 				<reportElement uuid="ba516944-0e20-48b6-9b2e-71b68bde9333" mode="Opaque" x="596" y="144" width="134" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[   DIA        MES      AÑO]]></text>
 			</staticText>
+			<textField>
+				<reportElement uuid="683e3cf8-9320-47b2-91d2-7201d6646d9c" x="20" y="209" width="711" height="60"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Estoy haciendo entrega de las facturas en original y con sus respectivas copias para ser canceladas mediante Caja Menor y/o Fondo Renovable de la " + $P{FACULTAD} + " con cargo a la cuenta autorizada. Igualmente encontrará los demás soportes requeridos para su pago."]]></textFieldExpression>
+			</textField>
 		</band>
 		<band height="80">
 			<componentElement>
@@ -690,7 +686,7 @@ WHERE
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[                         SOLICITADO POR                                       RECIBIDO COORDINACION ADMIN.]]></text>
+				<text><![CDATA[ SOLICITADO POR                                                            RECIBIDO COORDINACION ADMIN.]]></text>
 			</staticText>
 		</band>
 	</summary>
