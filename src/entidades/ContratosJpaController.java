@@ -55,7 +55,7 @@ public class ContratosJpaController {
                     + contratos.getLey80() + ", "
                     + "'" + contratos.getModalidad() + "', "
                     + "'" + contratos.getMonedapago() + "', "
-                    + "'" + contratos.getObervaciones() + "', "
+                    + "'" + contratos.getObservaciones() + "', "
                     + "'" + contratos.getObjeto() + "', "
                     + "'" + contratos.getPlazo() + "', "
                     + "'" + contratos.getPorcentajeactividad() + "', "
@@ -126,7 +126,7 @@ public class ContratosJpaController {
                     + "LEY80 = " + contratos.getLey80() + ", "
                     + "MODALIDAD = '" + contratos.getModalidad() + "', "
                     + "MONEDAPAGO = '" + contratos.getMonedapago() + "', "
-                    + "OBERVACIONES = '" + contratos.getObervaciones() + "', "
+                    + "OBSERVACIONES = '" + contratos.getObservaciones() + "', "
                     + "OBJETO = '" + contratos.getObjeto() + "', "
                     + "PLAZO = '" + contratos.getPlazo() + "', "
                     + "PORCENTAJEACTIVIDAD = '" + contratos.getPorcentajeactividad() + "', "
@@ -242,7 +242,7 @@ public class ContratosJpaController {
                     && ClaseInformacion.ValidarSeleccione(contratos.getInversion(), "ES INVERSION")
                     && ClaseInformacion.ValidarSeleccione(contratos.getModalidad(), "MODALIDAD DE CONTRATACIÓN")
                     && ClaseInformacion.ValidarSeleccione(contratos.getMonedapago(), "MONEDA DE PAGO")
-                    && ClaseInformacion.ValidarSeleccione(contratos.getObervaciones(), "OBSERVACIÓN AL CONTRATO")
+                    && ClaseInformacion.ValidarSeleccione(contratos.getObservaciones(), "OBSERVACIÓN AL CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getObjeto(), "OBJETO DEL CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getPlazo(), "PLAZO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getTiempogarantia(), "TIEMPO DE GARANTIA DE CONTRATO")
@@ -319,7 +319,7 @@ public class ContratosJpaController {
                 contratos.setLey80(BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("LEY80"))));
                 contratos.setModalidad(ClaseBaseDatos.resultado.getString("MODALIDAD"));
                 contratos.setMonedapago(ClaseBaseDatos.resultado.getString("MONEDAPAGO"));
-                contratos.setObervaciones(ClaseBaseDatos.resultado.getString("OBERVACIONES"));
+                contratos.setObservaciones(ClaseBaseDatos.resultado.getString("OBSERVACIONES"));
                 contratos.setObjeto(ClaseBaseDatos.resultado.getString("OBJETO"));
                 contratos.setPlazo(ClaseBaseDatos.resultado.getString("PLAZO"));
                 contratos.setPorcentajeactividad(ClaseBaseDatos.resultado.getString("PORCENTAJEACTIVIDAD"));
@@ -411,7 +411,7 @@ public class ContratosJpaController {
                 contratos.setLey80(BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("LEY80"))));
                 contratos.setModalidad(ClaseBaseDatos.resultado.getString("MODALIDAD"));
                 contratos.setMonedapago(ClaseBaseDatos.resultado.getString("MONEDAPAGO"));
-                contratos.setObervaciones(ClaseBaseDatos.resultado.getString("OBERVACIONES"));
+                contratos.setObservaciones(ClaseBaseDatos.resultado.getString("OBSERVACIONES"));
                 contratos.setObjeto(ClaseBaseDatos.resultado.getString("OBJETO"));
                 contratos.setPlazo(ClaseBaseDatos.resultado.getString("PLAZO"));
                 contratos.setPorcentajeactividad(ClaseBaseDatos.resultado.getString("PORCENTAJEACTIVIDAD"));
@@ -490,7 +490,7 @@ public class ContratosJpaController {
                 contratos.setLey80(BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("LEY80"))));
                 contratos.setModalidad(ClaseBaseDatos.resultado.getString("MODALIDAD"));
                 contratos.setMonedapago(ClaseBaseDatos.resultado.getString("MONEDAPAGO"));
-                contratos.setObervaciones(ClaseBaseDatos.resultado.getString("OBERVACIONES"));
+                contratos.setObservaciones(ClaseBaseDatos.resultado.getString("OBSERVACIONES"));
                 contratos.setObjeto(ClaseBaseDatos.resultado.getString("OBJETO"));
                 contratos.setPlazo(ClaseBaseDatos.resultado.getString("PLAZO"));
                 contratos.setPorcentajeactividad(ClaseBaseDatos.resultado.getString("PORCENTAJEACTIVIDAD"));

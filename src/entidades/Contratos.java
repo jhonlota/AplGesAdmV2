@@ -42,7 +42,7 @@ public class Contratos {
     private BigDecimal ley80;
     private String modalidad;
     private String monedapago;
-    private String obervaciones;
+    private String observaciones;
     private String objeto;
     private String plazo;
     private String porcentajeactividad;
@@ -78,7 +78,7 @@ public class Contratos {
             + "fechacierre, fechafinalactividad, fechainicialactividad, fechainicio, "
             + "fechalegalizacion, fechaperfeccionamiento, fechasuscripcion, "
             + "fechaterminacion, fktercero, fktercerointersuper, fkterceroordenadorgasto, "
-            + "inversion, ley80, modalidad, monedapago, obervaciones, objeto, "
+            + "inversion, ley80, modalidad, monedapago, observaciones, objeto, "
             + "plazo, porcentajeactividad, porcentajeavance, resolucionadjudicacion, "
             + "tasacambio, tipoactaavance, tipocontrato, tipointerventoria, "
             + "tipoterminacion, tipovinculacionintersuper, unidadduracion, valor, "
@@ -359,12 +359,12 @@ public class Contratos {
         this.nombreproyecto = nombreproyecto;
     }
 
-    public String getObervaciones() {
-        return obervaciones;
+    public String getObservaciones() {
+        return observaciones;
     }
 
-    public void setObervaciones(String obervaciones) {
-        this.obervaciones = obervaciones;
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 
     public String getObjeto() {

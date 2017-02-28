@@ -78,6 +78,10 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         cinfo = new javax.swing.JComboBox();
         jLabel32 = new javax.swing.JLabel();
         proyecto = new javax.swing.JTextField();
+        jLabel78 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        verificacionestrategia = new javax.swing.JTextArea();
         jLabel74 = new javax.swing.JLabel();
         jScrollPane = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
@@ -198,10 +202,33 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         proyecto.setPreferredSize(new java.awt.Dimension(715, 25));
         add(proyecto);
 
+        jLabel78.setPreferredSize(new java.awt.Dimension(800, 10));
+        add(jLabel78);
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCRIPCION DE LA ESTRATEGIA (ESTUDIOS PREVIOS)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel8.setPreferredSize(new java.awt.Dimension(800, 70));
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane4.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        verificacionestrategia.setBackground(ClaseGeneral.campo);
+        verificacionestrategia.setColumns(20);
+        verificacionestrategia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        verificacionestrategia.setLineWrap(true);
+        verificacionestrategia.setRows(5);
+        verificacionestrategia.setWrapStyleWord(true);
+        verificacionestrategia.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        verificacionestrategia.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane4.setViewportView(verificacionestrategia);
+
+        jPanel8.add(jScrollPane4, java.awt.BorderLayout.CENTER);
+
+        add(jPanel8);
+
         jLabel74.setPreferredSize(new java.awt.Dimension(810, 25));
         add(jLabel74);
 
-        jScrollPane.setPreferredSize(new java.awt.Dimension(810, 370));
+        jScrollPane.setPreferredSize(new java.awt.Dimension(810, 280));
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -427,13 +454,17 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel8;
     public javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollPane4;
     public javax.swing.JTable jTable;
     private javax.swing.JTextField jTextField15;
     public javax.swing.JComboBox programa;
     private javax.swing.JTextField proyecto;
     public javax.swing.JComboBox subgrupo;
+    private javax.swing.JTextArea verificacionestrategia;
     // End of variables declaration//GEN-END:variables
 }
