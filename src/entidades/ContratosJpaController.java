@@ -85,7 +85,32 @@ public class ContratosJpaController {
                     + "'" + contratos.getSecopcodigoproceso() + "', "
                     + "'" + contratos.getSecopnumeroproceso() + "', "
                     + "'" + contratos.getSecopnumeroconstancia() + "', "
-                    + "'" + ClaseInformacion.ConvertirFecha(contratos.getSecopfechapublicacion()) + "')");
+                    + "'" + ClaseInformacion.ConvertirFecha(contratos.getSecopfechapublicacion()) + "', "
+                    + "'" + contratos.getAlcance() + "', "
+                    + "'" + contratos.getAnalisisriesgos() + "', "
+                    + "'" + contratos.getCondicionesentrega() + "', "
+                    + "'" + contratos.getDiastiempopago() + "', "
+                    + "'" + contratos.getEstimacion() + "', "
+                    + "'" + contratos.getFacultad() + "', "
+                    + "'" + ClaseInformacion.ConvertirFecha(contratos.getFechaactainicio()) + "', "
+                    + "'" + ClaseInformacion.ConvertirFecha(contratos.getFechaentrega()) + "', "
+                    + "'" + ClaseInformacion.ConvertirFecha(contratos.getFechafichatecnica()) + "', "
+                    + "'" + ClaseInformacion.ConvertirFecha(contratos.getFechainvitacion()) + "', "
+                    + "'" + contratos.getLugarejecucion() + "', "
+                    + "'" + contratos.getModalidadarticulo() + "', "
+                    + "'" + contratos.getModalidadfundamento() + "', "
+                    + "'" + contratos.getNecesidad() + "', "
+                    + "'" + contratos.getObjetoespecifico() + "', "
+                    + "'" + contratos.getObligacionescontratista() + "', "
+                    + "'" + contratos.getObligacionesuniversidad() + "', "
+                    + "'" + contratos.getObservacionesactainicio() + "', "
+                    + "'" + contratos.getPerfilrequerido() + "', "
+                    + "'" + contratos.getPlanadquisicion() + "', "
+                    + "'" + contratos.getRequerimientostecnicos() + "', "
+                    + "'" + contratos.getTipotiempopago() + "', "
+                    + "'" + contratos.getTipoestimacion() + "', "
+                    + "'" + contratos.getTipofinanciacion() + "', "
+                    + "'" + contratos.getValorletras() + "')");
             if (!datos.isError) {
                 ClaseMensaje.informacionGuardarBD("Contrato " + contratos.getContrato());
             }
@@ -156,7 +181,32 @@ public class ContratosJpaController {
                     + "SECOPCODIGOPROCESO = '" + contratos.getSecopcodigoproceso() + "', "
                     + "SECOPNUMEROPROCESO = '" + contratos.getSecopnumeroproceso() + "', "
                     + "SECOPNUMEROCONSTANCIA = '" + contratos.getSecopnumeroconstancia() + "', "
-                    + "SECOPFECHAPUBLICACION = '" + ClaseInformacion.ConvertirFecha(contratos.getSecopfechapublicacion()) + "' "
+                    + "SECOPFECHAPUBLICACION = '" + ClaseInformacion.ConvertirFecha(contratos.getSecopfechapublicacion()) + "', "
+                    + "ALCANCE = '" + contratos.getAlcance() + "', "
+                    + "ANALISISRIESGOS = '" + contratos.getAnalisisriesgos() + "', "
+                    + "CONDICIONESENTREGA = '" + contratos.getCondicionesentrega() + "', "
+                    + "DIASTIEMPOPAGO = '" + contratos.getDiastiempopago() + "', "
+                    + "ESTIMACION = '" + contratos.getEstimacion() + "', "
+                    + "FACULTAD = '" + contratos.getFacultad() + "', "
+                    + "FECHAACTAINICIO = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaactainicio()) + "', "
+                    + "FECHAENTREGA = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaentrega()) + "', "
+                    + "FECHAFICHATECNICA = '" + ClaseInformacion.ConvertirFecha(contratos.getFechafichatecnica()) + "', "
+                    + "FECHAINVITACION = '" + ClaseInformacion.ConvertirFecha(contratos.getFechainvitacion()) + "', "
+                    + "LUGAREJECUCION = '" + contratos.getLugarejecucion() + "', "
+                    + "MODALIDADARTICULO = '" + contratos.getModalidadarticulo() + "', "
+                    + "MODALIDADFUNDAMENTO = '" + contratos.getModalidadfundamento() + "', "
+                    + "NECESIDAD = '" + contratos.getNecesidad() + "', "
+                    + "OBJETOESPECIFICO = '" + contratos.getObjetoespecifico() + "', "
+                    + "OBLIGACIONESCONTRATISTA = '" + contratos.getObligacionescontratista() + "', "
+                    + "OBLIGACIONESUNIVERSIDAD = '" + contratos.getObligacionesuniversidad() + "', "
+                    + "OBSERVACIONESACTAINICIO = '" + contratos.getObservacionesactainicio() + "', "
+                    + "PERFILREQUERIDO = '" + contratos.getPerfilrequerido() + "', "
+                    + "PLANADQUISICION = '" + contratos.getPlanadquisicion() + "', "
+                    + "REQUERIMIENTOSTECNICOS = '" + contratos.getRequerimientostecnicos() + "', "
+                    + "TIPOTIEMPOPAGO = '" + contratos.getTipotiempopago() + "', "
+                    + "TIPOESTIMACION = '" + contratos.getTipoestimacion() + "', "
+                    + "TIPOFINANCIACION = '" + contratos.getTipofinanciacion() + "', "
+                    + "VALORLETRAS = '" + contratos.getValorletras() + "' "
                     + "WHERE "
                     + "CONTRATO = '" + id.getContrato() + "'");
             if (!datos.isError) {
@@ -252,12 +302,11 @@ public class ContratosJpaController {
                     && ClaseInformacion.ValidarSeleccione(contratos.getUnidadduracion(), "UNIDAD DE DURACIÓN")
                     && ClaseInformacion.ValidarSeleccione("" + contratos.getValor(), "VALOR INICIAL DEL CONTRATO")
                     && ClaseInformacion.ValidarSeleccione("" + contratos.getValorsiniva(), "VALOR SIN IVA")
-                    && (ClaseGeneral.perfil.equals("root") ? 
-                        true 
-                        : (estado.equals("create") ? 
-                            ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), contratos.getFechasuscripcion()) >= 0 && ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), contratos.getFechasuscripcion()) <= 8, "ERROR EN LA FECHA DE ELABORACION")
-                            : true)
-                    )
+                    && (ClaseGeneral.perfil.equals("root")
+                    ? true
+                    : (estado.equals("create")
+                    ? ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), contratos.getFechasuscripcion()) >= 0 && ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), contratos.getFechasuscripcion()) <= 8, "ERROR EN LA FECHA DE ELABORACION")
+                    : true))
                     && (ClaseGeneral.perfil.equals("root") ? true : (estado.equals("create") ? ClaseInformacion.ValidarCondicion(ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), contratos.getFechainicio()) >= 0 && ClaseInformacion.calcularDiasEntreFechas(ClaseGeneral.controlUtilidades.fechaServidor(), contratos.getFechainicio()) <= 8, "ERROR EN LA FECHA DE INICIO") : true))
                     && (ClaseGeneral.perfil.equals("root") ? true : (estado.equals("create") ? ClaseInformacion.ValidarContiene(ClaseGeneral.controlAnexosterceros.findDocumentoDiasTotalInAnexostercerosByFkterceroPersonaFecha(contratos.getFktercero(), ClaseGeneral.controlTerceros.findPersonaInTercerosById(contratos.getFktercero()), ClaseGeneral.contratos.getFechasuscripcion()), "NO ADJUNTO", "FALTAN DOCUMENTOS DEL TERCERO") : true))
                     && (ClaseGeneral.perfil.equals("root") ? true : (estado.equals("create") ? ClaseInformacion.ValidarContiene(ClaseGeneral.controlAnexosterceros.findDocumentoDiasTotalInAnexostercerosByFkterceroPersonaFecha(contratos.getFktercero(), ClaseGeneral.controlTerceros.findPersonaInTercerosById(contratos.getFktercero()), ClaseGeneral.contratos.getFechasuscripcion()), "VENCIDO", "EL TERCERO TIENE DOCUMENTOS VENCIDOS") : true))) {
@@ -350,6 +399,31 @@ public class ContratosJpaController {
                 contratos.setSecopnumeroproceso(ClaseBaseDatos.resultado.getString("SECOPNUMEROPROCESO"));
                 contratos.setSecopnumeroconstancia(ClaseBaseDatos.resultado.getString("SECOPNUMEROCONSTANCIA"));
                 contratos.setSecopfechapublicacion(ClaseBaseDatos.resultado.getDate("SECOPFECHAPUBLICACION"));
+                contratos.setAlcance(ClaseBaseDatos.resultado.getString("ALCANCE"));
+                contratos.setAnalisisriesgos(ClaseBaseDatos.resultado.getString("ANALISISRIESGOS"));
+                contratos.setCondicionesentrega(ClaseBaseDatos.resultado.getString("CONDICIONESENTREGA"));
+                contratos.setDiastiempopago(ClaseBaseDatos.resultado.getString("DIASTIEMPOPAGO"));
+                contratos.setEstimacion(ClaseBaseDatos.resultado.getString("ESTIMACION"));
+                contratos.setFacultad(ClaseBaseDatos.resultado.getString("FACULTAD"));
+                contratos.setFechaactainicio(ClaseBaseDatos.resultado.getDate("FECHAACTAINICIO"));
+                contratos.setFechaentrega(ClaseBaseDatos.resultado.getDate("FECHAENTREGA"));
+                contratos.setFechafichatecnica(ClaseBaseDatos.resultado.getDate("FECHAFICHATECNICA"));
+                contratos.setFechainvitacion(ClaseBaseDatos.resultado.getDate("FECHAINVITACION"));
+                contratos.setLugarejecucion(ClaseBaseDatos.resultado.getString("LUGAREJECUCION"));
+                contratos.setModalidadarticulo(ClaseBaseDatos.resultado.getString("MODALIDADARTICULO"));
+                contratos.setModalidadfundamento(ClaseBaseDatos.resultado.getString("MODALIDADFUNDAMENTO"));
+                contratos.setNecesidad(ClaseBaseDatos.resultado.getString("NECESIDAD"));
+                contratos.setObjetoespecifico(ClaseBaseDatos.resultado.getString("OBJETOESPECIFICO"));
+                contratos.setObligacionescontratista(ClaseBaseDatos.resultado.getString("OBLIGACIONESCONTRATISTA"));
+                contratos.setObligacionesuniversidad(ClaseBaseDatos.resultado.getString("OBLIGACIONESUNIVERSIDAD"));
+                contratos.setObservacionesactainicio(ClaseBaseDatos.resultado.getString("OBSERVACIONESACTAINICIO"));
+                contratos.setPerfilrequerido(ClaseBaseDatos.resultado.getString("PERFILREQUERIDO"));
+                contratos.setPlanadquisicion(ClaseBaseDatos.resultado.getString("PLANADQUISICION"));
+                contratos.setRequerimientostecnicos(ClaseBaseDatos.resultado.getString("REQUERIMIENTOSTECNICOS"));
+                contratos.setTipotiempopago(ClaseBaseDatos.resultado.getString("TIPOTIEMPOPAGO"));
+                contratos.setTipoestimacion(ClaseBaseDatos.resultado.getString("TIPOESTIMACION"));
+                contratos.setTipofinanciacion(ClaseBaseDatos.resultado.getString("TIPOFINANCIACION"));
+                contratos.setValorletras(ClaseBaseDatos.resultado.getString("VALORLETRAS"));
 
                 listContratos.add(contratos);
             }
@@ -442,6 +516,31 @@ public class ContratosJpaController {
                 contratos.setSecopnumeroproceso(ClaseBaseDatos.resultado.getString("SECOPNUMEROPROCESO"));
                 contratos.setSecopnumeroconstancia(ClaseBaseDatos.resultado.getString("SECOPNUMEROCONSTANCIA"));
                 contratos.setSecopfechapublicacion(ClaseBaseDatos.resultado.getDate("SECOPFECHAPUBLICACION"));
+                contratos.setAlcance(ClaseBaseDatos.resultado.getString("ALCANCE"));
+                contratos.setAnalisisriesgos(ClaseBaseDatos.resultado.getString("ANALISISRIESGOS"));
+                contratos.setCondicionesentrega(ClaseBaseDatos.resultado.getString("CONDICIONESENTREGA"));
+                contratos.setDiastiempopago(ClaseBaseDatos.resultado.getString("DIASTIEMPOPAGO"));
+                contratos.setEstimacion(ClaseBaseDatos.resultado.getString("ESTIMACION"));
+                contratos.setFacultad(ClaseBaseDatos.resultado.getString("FACULTAD"));
+                contratos.setFechaactainicio(ClaseBaseDatos.resultado.getDate("FECHAACTAINICIO"));
+                contratos.setFechaentrega(ClaseBaseDatos.resultado.getDate("FECHAENTREGA"));
+                contratos.setFechafichatecnica(ClaseBaseDatos.resultado.getDate("FECHAFICHATECNICA"));
+                contratos.setFechainvitacion(ClaseBaseDatos.resultado.getDate("FECHAINVITACION"));
+                contratos.setLugarejecucion(ClaseBaseDatos.resultado.getString("LUGAREJECUCION"));
+                contratos.setModalidadarticulo(ClaseBaseDatos.resultado.getString("MODALIDADARTICULO"));
+                contratos.setModalidadfundamento(ClaseBaseDatos.resultado.getString("MODALIDADFUNDAMENTO"));
+                contratos.setNecesidad(ClaseBaseDatos.resultado.getString("NECESIDAD"));
+                contratos.setObjetoespecifico(ClaseBaseDatos.resultado.getString("OBJETOESPECIFICO"));
+                contratos.setObligacionescontratista(ClaseBaseDatos.resultado.getString("OBLIGACIONESCONTRATISTA"));
+                contratos.setObligacionesuniversidad(ClaseBaseDatos.resultado.getString("OBLIGACIONESUNIVERSIDAD"));
+                contratos.setObservacionesactainicio(ClaseBaseDatos.resultado.getString("OBSERVACIONESACTAINICIO"));
+                contratos.setPerfilrequerido(ClaseBaseDatos.resultado.getString("PERFILREQUERIDO"));
+                contratos.setPlanadquisicion(ClaseBaseDatos.resultado.getString("PLANADQUISICION"));
+                contratos.setRequerimientostecnicos(ClaseBaseDatos.resultado.getString("REQUERIMIENTOSTECNICOS"));
+                contratos.setTipotiempopago(ClaseBaseDatos.resultado.getString("TIPOTIEMPOPAGO"));
+                contratos.setTipoestimacion(ClaseBaseDatos.resultado.getString("TIPOESTIMACION"));
+                contratos.setTipofinanciacion(ClaseBaseDatos.resultado.getString("TIPOFINANCIACION"));
+                contratos.setValorletras(ClaseBaseDatos.resultado.getString("VALORLETRAS"));
 
                 listContratos.add(contratos);
             }
@@ -521,6 +620,31 @@ public class ContratosJpaController {
                 contratos.setSecopnumeroproceso(ClaseBaseDatos.resultado.getString("SECOPNUMEROPROCESO"));
                 contratos.setSecopnumeroconstancia(ClaseBaseDatos.resultado.getString("SECOPNUMEROCONSTANCIA"));
                 contratos.setSecopfechapublicacion(ClaseBaseDatos.resultado.getDate("SECOPFECHAPUBLICACION"));
+                contratos.setAlcance(ClaseBaseDatos.resultado.getString("ALCANCE"));
+                contratos.setAnalisisriesgos(ClaseBaseDatos.resultado.getString("ANALISISRIESGOS"));
+                contratos.setCondicionesentrega(ClaseBaseDatos.resultado.getString("CONDICIONESENTREGA"));
+                contratos.setDiastiempopago(ClaseBaseDatos.resultado.getString("DIASTIEMPOPAGO"));
+                contratos.setEstimacion(ClaseBaseDatos.resultado.getString("ESTIMACION"));
+                contratos.setFacultad(ClaseBaseDatos.resultado.getString("FACULTAD"));
+                contratos.setFechaactainicio(ClaseBaseDatos.resultado.getDate("FECHAACTAINICIO"));
+                contratos.setFechaentrega(ClaseBaseDatos.resultado.getDate("FECHAENTREGA"));
+                contratos.setFechafichatecnica(ClaseBaseDatos.resultado.getDate("FECHAFICHATECNICA"));
+                contratos.setFechainvitacion(ClaseBaseDatos.resultado.getDate("FECHAINVITACION"));
+                contratos.setLugarejecucion(ClaseBaseDatos.resultado.getString("LUGAREJECUCION"));
+                contratos.setModalidadarticulo(ClaseBaseDatos.resultado.getString("MODALIDADARTICULO"));
+                contratos.setModalidadfundamento(ClaseBaseDatos.resultado.getString("MODALIDADFUNDAMENTO"));
+                contratos.setNecesidad(ClaseBaseDatos.resultado.getString("NECESIDAD"));
+                contratos.setObjetoespecifico(ClaseBaseDatos.resultado.getString("OBJETOESPECIFICO"));
+                contratos.setObligacionescontratista(ClaseBaseDatos.resultado.getString("OBLIGACIONESCONTRATISTA"));
+                contratos.setObligacionesuniversidad(ClaseBaseDatos.resultado.getString("OBLIGACIONESUNIVERSIDAD"));
+                contratos.setObservacionesactainicio(ClaseBaseDatos.resultado.getString("OBSERVACIONESACTAINICIO"));
+                contratos.setPerfilrequerido(ClaseBaseDatos.resultado.getString("PERFILREQUERIDO"));
+                contratos.setPlanadquisicion(ClaseBaseDatos.resultado.getString("PLANADQUISICION"));
+                contratos.setRequerimientostecnicos(ClaseBaseDatos.resultado.getString("REQUERIMIENTOSTECNICOS"));
+                contratos.setTipotiempopago(ClaseBaseDatos.resultado.getString("TIPOTIEMPOPAGO"));
+                contratos.setTipoestimacion(ClaseBaseDatos.resultado.getString("TIPOESTIMACION"));
+                contratos.setTipofinanciacion(ClaseBaseDatos.resultado.getString("TIPOFINANCIACION"));
+                contratos.setValorletras(ClaseBaseDatos.resultado.getString("VALORLETRAS"));
 
                 listContratos.add(contratos);
             }
