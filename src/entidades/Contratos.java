@@ -72,6 +72,31 @@ public class Contratos {
     private String secopnumeroproceso;
     private String secopnumeroconstancia;
     private Date secopfechapublicacion;
+    private String alcance;
+    private String analisisriesgos;
+    private String condicionesentrega;
+    private String diastiempopago;
+    private String estimacion;
+    private String facultad;
+    private Date fechaactainicio;
+    private Date fechaentrega;
+    private Date fechafichatecnica;
+    private Date fechainvitacion;
+    private String lugarejecucion;
+    private String modalidadarticulo;
+    private String modalidadfundamento;
+    private String necesidad;
+    private String objetoespecifico;
+    private String obligacionescontratista;
+    private String obligacionesuniversidad;
+    private String observacionesactainicio;
+    private String perfilrequerido;
+    private String planadquisicion;
+    private String requerimientostecnicos;
+    private String tipotiempopago;
+    private String tipoestimacion;
+    private String tipofinanciacion;
+    private String valorletras;
     public String tabla = "contratos(contrato, anticipio, cantidadespreciosvariables, causal, codigoactividad, "
             + "codigodepartamento, codigomodalidad, codigomunicipio, codigoproyecto, "
             + "codigotipo, documentoterminacion, fechaactaavance, fechaadjudicacion, "
@@ -86,12 +111,41 @@ public class Contratos {
             + "valorsaldo, valorutilidad, nombreproyecto, formapago, tiempogarantia, "
             + "contratovigente, fechaterminacionvigente, fktercerofuncionario, "
             + "valorsiniva, secopcodigoproceso, secopnumeroproceso,  secopnumeroconstancia, "
-            + "secopfechapublicacion)";
+            + "secopfechapublicacion, "
+            + "alcance, "
+            + "analisisriesgos, "
+            + "condicionesentrega, "
+            + "diastiempopago, "
+            + "estimacion, "
+            + "facultad, "
+            + "fechaactainicio, "
+            + "fechaentrega, "
+            + "fechafichatecnica, "
+            + "fechainvitacion, "
+            + "lugarejecucion, "
+            + "modalidadarticulo, "
+            + "modalidadfundamento, "
+            + "necesidad, "
+            + "objetoespecifico, "
+            + "obligacionescontratista, "
+            + "obligacionesuniversidad, "
+            + "observacionesactainicio, "
+            + "perfilrequerido, "
+            + "planadquisicion, "
+            + "requerimientostecnicos, "
+            + "tipotiempopago, "
+            + "tipoestimacion, "
+            + "tipofinanciacion, "
+            + "valorletras)";
 
     public Contratos() {
     }
 
-    public Contratos(String contrato) {
+    public String getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(String contrato) {
         this.contrato = contrato;
     }
 
@@ -165,22 +219,6 @@ public class Contratos {
 
     public void setCodigotipo(String codigotipo) {
         this.codigotipo = codigotipo;
-    }
-
-    public String getContrato() {
-        return contrato;
-    }
-
-    public void setContrato(String contrato) {
-        this.contrato = contrato;
-    }
-
-    public String getContratovigente() {
-        return contratovigente;
-    }
-
-    public void setContratovigente(String contratovigente) {
-        this.contratovigente = contratovigente;
     }
 
     public String getDocumentoterminacion() {
@@ -271,14 +309,6 @@ public class Contratos {
         this.fechaterminacion = fechaterminacion;
     }
 
-    public Date getFechaterminacionvigente() {
-        return fechaterminacionvigente;
-    }
-
-    public void setFechaterminacionvigente(Date fechaterminacionvigente) {
-        this.fechaterminacionvigente = fechaterminacionvigente;
-    }
-
     public String getFktercero() {
         return fktercero;
     }
@@ -311,14 +341,6 @@ public class Contratos {
         this.fkterceroordenadorgasto = fkterceroordenadorgasto;
     }
 
-    public String getFormapago() {
-        return formapago;
-    }
-
-    public void setFormapago(String formapago) {
-        this.formapago = formapago;
-    }
-
     public String getInversion() {
         return inversion;
     }
@@ -349,14 +371,6 @@ public class Contratos {
 
     public void setMonedapago(String monedapago) {
         this.monedapago = monedapago;
-    }
-
-    public String getNombreproyecto() {
-        return nombreproyecto;
-    }
-
-    public void setNombreproyecto(String nombreproyecto) {
-        this.nombreproyecto = nombreproyecto;
     }
 
     public String getObervaciones() {
@@ -413,14 +427,6 @@ public class Contratos {
 
     public void setTasacambio(BigDecimal tasacambio) {
         this.tasacambio = tasacambio;
-    }
-
-    public String getTiempogarantia() {
-        return tiempogarantia;
-    }
-
-    public void setTiempogarantia(String tiempogarantia) {
-        this.tiempogarantia = tiempogarantia;
     }
 
     public String getTipoactaavance() {
@@ -519,20 +525,60 @@ public class Contratos {
         this.valorsaldo = valorsaldo;
     }
 
-    public BigDecimal getValorsiniva() {
-        return valorsiniva;
-    }
-
-    public void setValorsiniva(BigDecimal valorsiniva) {
-        this.valorsiniva = valorsiniva;
-    }
-
     public BigDecimal getValorutilidad() {
         return valorutilidad;
     }
 
     public void setValorutilidad(BigDecimal valorutilidad) {
         this.valorutilidad = valorutilidad;
+    }
+
+    public String getNombreproyecto() {
+        return nombreproyecto;
+    }
+
+    public void setNombreproyecto(String nombreproyecto) {
+        this.nombreproyecto = nombreproyecto;
+    }
+
+    public String getFormapago() {
+        return formapago;
+    }
+
+    public void setFormapago(String formapago) {
+        this.formapago = formapago;
+    }
+
+    public String getTiempogarantia() {
+        return tiempogarantia;
+    }
+
+    public void setTiempogarantia(String tiempogarantia) {
+        this.tiempogarantia = tiempogarantia;
+    }
+
+    public String getContratovigente() {
+        return contratovigente;
+    }
+
+    public void setContratovigente(String contratovigente) {
+        this.contratovigente = contratovigente;
+    }
+
+    public Date getFechaterminacionvigente() {
+        return fechaterminacionvigente;
+    }
+
+    public void setFechaterminacionvigente(Date fechaterminacionvigente) {
+        this.fechaterminacionvigente = fechaterminacionvigente;
+    }
+
+    public BigDecimal getValorsiniva() {
+        return valorsiniva;
+    }
+
+    public void setValorsiniva(BigDecimal valorsiniva) {
+        this.valorsiniva = valorsiniva;
     }
 
     public String getSecopcodigoproceso() {
@@ -566,4 +612,206 @@ public class Contratos {
     public void setSecopfechapublicacion(Date secopfechapublicacion) {
         this.secopfechapublicacion = secopfechapublicacion;
     }
+
+    public String getAlcance() {
+        return alcance;
+    }
+
+    public void setAlcance(String alcance) {
+        this.alcance = alcance;
+    }
+
+    public String getAnalisisriesgos() {
+        return analisisriesgos;
+    }
+
+    public void setAnalisisriesgos(String analisisriesgos) {
+        this.analisisriesgos = analisisriesgos;
+    }
+
+    public String getCondicionesentrega() {
+        return condicionesentrega;
+    }
+
+    public void setCondicionesentrega(String condicionesentrega) {
+        this.condicionesentrega = condicionesentrega;
+    }
+
+    public String getDiastiempopago() {
+        return diastiempopago;
+    }
+
+    public void setDiastiempopago(String diastiempopago) {
+        this.diastiempopago = diastiempopago;
+    }
+
+    public String getEstimacion() {
+        return estimacion;
+    }
+
+    public void setEstimacion(String estimacion) {
+        this.estimacion = estimacion;
+    }
+
+    public String getFacultad() {
+        return facultad;
+    }
+
+    public void setFacultad(String facultad) {
+        this.facultad = facultad;
+    }
+
+    public Date getFechaactainicio() {
+        return fechaactainicio;
+    }
+
+    public void setFechaactainicio(Date fechaactainicio) {
+        this.fechaactainicio = fechaactainicio;
+    }
+
+    public Date getFechaentrega() {
+        return fechaentrega;
+    }
+
+    public void setFechaentrega(Date fechaentrega) {
+        this.fechaentrega = fechaentrega;
+    }
+
+    public Date getFechafichatecnica() {
+        return fechafichatecnica;
+    }
+
+    public void setFechafichatecnica(Date fechafichatecnica) {
+        this.fechafichatecnica = fechafichatecnica;
+    }
+
+    public Date getFechainvitacion() {
+        return fechainvitacion;
+    }
+
+    public void setFechainvitacion(Date fechainvitacion) {
+        this.fechainvitacion = fechainvitacion;
+    }
+
+    public String getLugarejecucion() {
+        return lugarejecucion;
+    }
+
+    public void setLugarejecucion(String lugarejecucion) {
+        this.lugarejecucion = lugarejecucion;
+    }
+
+    public String getModalidadarticulo() {
+        return modalidadarticulo;
+    }
+
+    public void setModalidadarticulo(String modalidadarticulo) {
+        this.modalidadarticulo = modalidadarticulo;
+    }
+
+    public String getModalidadfundamento() {
+        return modalidadfundamento;
+    }
+
+    public void setModalidadfundamento(String modalidadfundamento) {
+        this.modalidadfundamento = modalidadfundamento;
+    }
+
+    public String getNecesidad() {
+        return necesidad;
+    }
+
+    public void setNecesidad(String necesidad) {
+        this.necesidad = necesidad;
+    }
+
+    public String getObjetoespecifico() {
+        return objetoespecifico;
+    }
+
+    public void setObjetoespecifico(String objetoespecifico) {
+        this.objetoespecifico = objetoespecifico;
+    }
+
+    public String getObligacionescontratista() {
+        return obligacionescontratista;
+    }
+
+    public void setObligacionescontratista(String obligacionescontratista) {
+        this.obligacionescontratista = obligacionescontratista;
+    }
+
+    public String getObligacionesuniversidad() {
+        return obligacionesuniversidad;
+    }
+
+    public void setObligacionesuniversidad(String obligacionesuniversidad) {
+        this.obligacionesuniversidad = obligacionesuniversidad;
+    }
+
+    public String getObservacionesactainicio() {
+        return observacionesactainicio;
+    }
+
+    public void setObservacionesactainicio(String observacionesactainicio) {
+        this.observacionesactainicio = observacionesactainicio;
+    }
+
+    public String getPerfilrequerido() {
+        return perfilrequerido;
+    }
+
+    public void setPerfilrequerido(String perfilrequerido) {
+        this.perfilrequerido = perfilrequerido;
+    }
+
+    public String getPlanadquisicion() {
+        return planadquisicion;
+    }
+
+    public void setPlanadquisicion(String planadquisicion) {
+        this.planadquisicion = planadquisicion;
+    }
+
+    public String getRequerimientostecnicos() {
+        return requerimientostecnicos;
+    }
+
+    public void setRequerimientostecnicos(String requerimientostecnicos) {
+        this.requerimientostecnicos = requerimientostecnicos;
+    }
+
+    public String getTipotiempopago() {
+        return tipotiempopago;
+    }
+
+    public void setTipotiempopago(String tipotiempopago) {
+        this.tipotiempopago = tipotiempopago;
+    }
+
+    public String getTipoestimacion() {
+        return tipoestimacion;
+    }
+
+    public void setTipoestimacion(String tipoestimacion) {
+        this.tipoestimacion = tipoestimacion;
+    }
+
+    public String getTipofinanciacion() {
+        return tipofinanciacion;
+    }
+
+    public void setTipofinanciacion(String tipofinanciacion) {
+        this.tipofinanciacion = tipofinanciacion;
+    }
+
+    public String getValorletras() {
+        return valorletras;
+    }
+
+    public void setValorletras(String valorletras) {
+        this.valorletras = valorletras;
+    }
+    
+    
 }
