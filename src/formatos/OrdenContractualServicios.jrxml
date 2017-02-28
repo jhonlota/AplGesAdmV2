@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1032" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0f6891eb-3340-4278-bb54-ee32989b585c">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="240"/>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
@@ -45,7 +45,7 @@
      CONTRATOS.LEY80 AS "CONTRATOS_LEY80",
      CONTRATOS.MODALIDAD AS "CONTRATOS_MODALIDAD",
      CONTRATOS.MONEDAPAGO AS "CONTRATOS_MONEDAPAGO",
-     CONTRATOS.OBERVACIONES AS "CONTRATOS_OBERVACIONES",
+     CONTRATOS.OBSERVACIONES AS "CONTRATOS_OBSERVACIONES",
      CONTRATOS.OBJETO AS "CONTRATOS_OBJETO",
      CONTRATOS.PLAZO AS "CONTRATOS_PLAZO",
      CONTRATOS.PORCENTAJEACTIVIDAD AS "CONTRATOS_PORCENTAJEACTIVIDAD",
@@ -106,7 +106,7 @@ WHERE
 	<field name="CONTRATOS_LEY80" class="java.lang.Long"/>
 	<field name="CONTRATOS_MODALIDAD" class="java.lang.String"/>
 	<field name="CONTRATOS_MONEDAPAGO" class="java.lang.String"/>
-	<field name="CONTRATOS_OBERVACIONES" class="java.lang.String"/>
+	<field name="CONTRATOS_OBSERVACIONES" class="java.lang.String"/>
 	<field name="CONTRATOS_OBJETO" class="java.lang.String"/>
 	<field name="CONTRATOS_PLAZO" class="java.lang.String"/>
 	<field name="CONTRATOS_PORCENTAJEACTIVIDAD" class="java.lang.String"/>
@@ -275,7 +275,7 @@ WHERE
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_OBERVACIONES}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_OBSERVACIONES}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMMM yyyy">
 				<reportElement uuid="b61551a3-8769-4334-ad84-de3b115736f8" x="562" y="269" width="176" height="15"/>

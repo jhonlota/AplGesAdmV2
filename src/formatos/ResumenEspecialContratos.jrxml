@@ -8,7 +8,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT contrato, codigotipo, tipocontrato, plazo, fechainicio, fechaterminacion, fechalegalizacion, fechaperfeccionamiento,
-fechasuscripcion, contratos.fktercero, objeto, obervaciones, formapago, valor, valorsiniva,
+fechasuscripcion, contratos.fktercero, objeto, observaciones, formapago, valor, valorsiniva,
 anexoscontratos.documento AS documento1,
 anexoscontratos.archivo AS archivo1,
 anexoscontratos.fecha AS fecha1,
@@ -33,7 +33,7 @@ ORDER BY CONTRATOS.contrato]]>
 	<field name="fechasuscripcion" class="java.sql.Date"/>
 	<field name="fktercero" class="java.lang.String"/>
 	<field name="objeto" class="java.lang.String"/>
-	<field name="obervaciones" class="java.lang.String"/>
+	<field name="observaciones" class="java.lang.String"/>
 	<field name="formapago" class="java.lang.String"/>
 	<field name="valor" class="java.lang.Long"/>
 	<field name="valorsiniva" class="java.lang.Long"/>
@@ -101,7 +101,7 @@ ORDER BY CONTRATOS.contrato]]>
 			<staticText>
 				<reportElement uuid="0de32276-af03-48d5-8861-de9112363156" x="440" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
 				<textElement/>
-				<text><![CDATA[obervaciones]]></text>
+				<text><![CDATA[observaciones]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="5581b4df-f64b-413a-804c-22be7174d094" x="480" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
@@ -210,7 +210,7 @@ ORDER BY CONTRATOS.contrato]]>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="0d4a9750-0b7c-4784-ad3f-38cdc9010b40" isPrintRepeatedValues="false" x="440" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{obervaciones}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="4ad22a38-fdc8-42df-a51d-948786576d18" isPrintRepeatedValues="false" x="480" y="0" width="40" height="20" isPrintWhenDetailOverflows="true"/>
