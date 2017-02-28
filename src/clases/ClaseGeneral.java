@@ -49,6 +49,8 @@ public class ClaseGeneral {
     public static CumplidoscomprobantesPK cumplidoscomprobantesPK = new CumplidoscomprobantesPK();
 //    public static Dependencia dependencia = new Dependencia();
     public static DependenciaJpaController controlDependencia = new DependenciaJpaController();
+    public static Estandar estandar = new Estandar();
+    public static EstandarJpaController controlEstandar = new EstandarJpaController();
     public static Facturascomprobantes facturascomprobantes = new Facturascomprobantes();
     public static FacturascomprobantesJpaController controlFacturascomprobantes = new FacturascomprobantesJpaController();
     public static FacturascomprobantesPK facturascomprobantesPK = new FacturascomprobantesPK();

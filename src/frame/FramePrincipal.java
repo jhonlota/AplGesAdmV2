@@ -269,18 +269,8 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         jPanelSur.setVisible(false);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("AGA");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Solicitud de Oferta");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Bienes");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Forma de Pago");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Servicios");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Solicitudes *");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Orden Contractual");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Anexos");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Orden Contractual");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Anexos");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Contratos *");
         treeNode2.add(treeNode3);
@@ -436,34 +426,43 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
             metodoEntidadSeleccionada(padre, hijo);
 
             if (padre.equals("Solicitud de Oferta")) {
-                if (hijo.equals("Solicitudes *")) {
-                    solicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-                    solicitudesoferta.setVisible(true);
-                    solicitudesoferta.metodoEstado("reiniciar");
-                    solicitudesoferta.metodoLimpiar();
-                }
-                else if (hijo.equals("Bienes")
-                        && !ClaseGeneral.solicitudesoferta.getId().equals("")
-                        && !ClaseGeneral.solicitudesoferta.getObjeto().contains("[ANULADO]")) {
-                    bienessolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-                    bienessolicitudesoferta.setVisible(true);
-                    bienessolicitudesoferta.metodoEstado("reiniciar");
-                    bienessolicitudesoferta.metodoLimpiar();
-                }else if(hijo.equals("Forma de Pago")
-                        && !ClaseGeneral.solicitudesoferta.getId().equals("")
-                        && !ClaseGeneral.solicitudesoferta.getObjeto().contains("[ANULADO]")){
-                    formadepagosolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-                    formadepagosolicitudesoferta.setVisible(true);
-                    formadepagosolicitudesoferta.metodoEstado("reiniciar");
-                    formadepagosolicitudesoferta.metodoLimpiar();
-                }else if(hijo.equals("Servicios")
-                        && !ClaseGeneral.solicitudesoferta.getId().equals("")
-                        && !ClaseGeneral.solicitudesoferta.getObjeto().contains("[ANULADO]")){
-                    serviciossolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-                    serviciossolicitudesoferta.setVisible(true);
-                    serviciossolicitudesoferta.metodoEstado("reiniciar");
-                    serviciossolicitudesoferta.metodoLimpiar();
-                }
+                /*
+                
+Solicitud de Oferta
+>  Bienes
+>  Forma de Pago
+>  Servicios        
+>  Solicitudes *
+                
+                */
+//                if (hijo.equals("Solicitudes *")) {
+//                    solicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+//                    solicitudesoferta.setVisible(true);
+//                    solicitudesoferta.metodoEstado("reiniciar");
+//                    solicitudesoferta.metodoLimpiar();
+//                }
+//                else if (hijo.equals("Bienes")
+//                        && !ClaseGeneral.solicitudesoferta.getId().equals("")
+//                        && !ClaseGeneral.solicitudesoferta.getObjeto().contains("[ANULADO]")) {
+//                    bienessolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+//                    bienessolicitudesoferta.setVisible(true);
+//                    bienessolicitudesoferta.metodoEstado("reiniciar");
+//                    bienessolicitudesoferta.metodoLimpiar();
+//                }else if(hijo.equals("Forma de Pago")
+//                        && !ClaseGeneral.solicitudesoferta.getId().equals("")
+//                        && !ClaseGeneral.solicitudesoferta.getObjeto().contains("[ANULADO]")){
+//                    formadepagosolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+//                    formadepagosolicitudesoferta.setVisible(true);
+//                    formadepagosolicitudesoferta.metodoEstado("reiniciar");
+//                    formadepagosolicitudesoferta.metodoLimpiar();
+//                }else if(hijo.equals("Servicios")
+//                        && !ClaseGeneral.solicitudesoferta.getId().equals("")
+//                        && !ClaseGeneral.solicitudesoferta.getObjeto().contains("[ANULADO]")){
+//                    serviciossolicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+//                    serviciossolicitudesoferta.setVisible(true);
+//                    serviciossolicitudesoferta.metodoEstado("reiniciar");
+//                    serviciossolicitudesoferta.metodoLimpiar();
+//                }
             } else if (padre.equals("Orden Contractual")) {
                 if (hijo.equals("Anexos")
                         && !ClaseGeneral.contratos.getContrato().equals("")) {

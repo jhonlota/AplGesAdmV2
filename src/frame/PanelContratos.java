@@ -56,6 +56,9 @@ public class PanelContratos extends javax.swing.JPanel {
         fechaterminacion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechaterminacionvigente.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         secopfechapublicacion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
+        fechafichatecnica.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
+        fechainvitacion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
+        fechaentrega.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
 
         fechaactaavance.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechaadjudicacion.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
@@ -68,6 +71,9 @@ public class PanelContratos extends javax.swing.JPanel {
         fechasuscripcion.setDate(ClaseGeneral.controlUtilidades.fechaServidor());
         fechaterminacionvigente.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         secopfechapublicacion.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
+        fechafichatecnica.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
+        fechainvitacion.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
+        fechaentrega.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(fechainicio.getDate());
@@ -141,6 +147,69 @@ public class PanelContratos extends javax.swing.JPanel {
         jLabel27 = new javax.swing.JLabel();
         botonAyuda2 = new javax.swing.JButton();
         jTabbedPane = new javax.swing.JTabbedPane();
+        panelProyectos = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        codigoproyecto = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        nombreproyecto = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        panelActividades = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        codigoactividad = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        fechainicialactividad = new org.jdesktop.swingx.JXDatePicker();
+        jLabel74 = new javax.swing.JLabel();
+        jSeparator17 = new javax.swing.JSeparator();
+        jLabel24 = new javax.swing.JLabel();
+        fechafinalactividad = new org.jdesktop.swingx.JXDatePicker();
+        jTextField20 = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        porcentajeactividad = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
+        panelInterventoria = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        tipointerventoria = new javax.swing.JComboBox();
+        jTextField28 = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        tipovinculacionintersuper = new javax.swing.JComboBox();
+        jTextField44 = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        fktercerointersuper = new javax.swing.JTextField();
+        botonBuscarFktercerointersuper = new javax.swing.JButton();
+        jTextField32 = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        fkterceroordenadorgasto = new javax.swing.JTextField();
+        botonBuscarFkterceroordenadorgasto = new javax.swing.JButton();
+        jLabel38 = new javax.swing.JLabel();
+        fktercerofuncionario = new javax.swing.JTextField();
+        botonBuscarFktercerofuncionario = new javax.swing.JButton();
+        jTextField31 = new javax.swing.JTextField();
+        panelAvances = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        tipoactaavance = new javax.swing.JComboBox();
+        jLabel46 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
+        jLabel45 = new javax.swing.JLabel();
+        fechaactaavance = new org.jdesktop.swingx.JXDatePicker();
+        jTextField22 = new javax.swing.JTextField();
+        jLabel47 = new javax.swing.JLabel();
+        porcentajeavance = new javax.swing.JTextField();
+        jTextField21 = new javax.swing.JTextField();
+        panelSECOP = new javax.swing.JPanel();
+        jLabel89 = new javax.swing.JLabel();
+        secopnumeroproceso = new javax.swing.JTextField();
+        jLabel90 = new javax.swing.JLabel();
+        secopnumeroconstancia = new javax.swing.JTextField();
+        jLabel91 = new javax.swing.JLabel();
+        jSeparator23 = new javax.swing.JSeparator();
+        jLabel92 = new javax.swing.JLabel();
+        secopfechapublicacion = new org.jdesktop.swingx.JXDatePicker();
+        jTextField51 = new javax.swing.JTextField();
+        jLabel86 = new javax.swing.JLabel();
+        secopcodigoproceso = new javax.swing.JTextField();
+        jTextField49 = new javax.swing.JTextField();
         panelPlaneacion = new javax.swing.JPanel();
         jLabelContrato = new javax.swing.JLabel();
         contrato = new javax.swing.JTextField();
@@ -158,20 +227,20 @@ public class PanelContratos extends javax.swing.JPanel {
         jScrollPane5 = new javax.swing.JScrollPane();
         alcance = new javax.swing.JTextArea();
         jLabel107 = new javax.swing.JLabel();
+        jPanel26 = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        requerimientostecnicos = new javax.swing.JTextArea();
+        jLabel120 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        requerimientostecnicos = new javax.swing.JTextArea();
+        perfilrequerido = new javax.swing.JTextArea();
         jLabel106 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        objetoespecifico = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         objeto = new javax.swing.JTextArea();
-        jLabel39 = new javax.swing.JLabel();
-        objetoespecifico = new javax.swing.JTextField();
         panelPrecontractual = new javax.swing.JPanel();
-        jLabel111 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        analisisriesgos = new javax.swing.JTextArea();
         jLabel76 = new javax.swing.JLabel();
         jPanel21 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -184,6 +253,10 @@ public class PanelContratos extends javax.swing.JPanel {
         jPanel23 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         condicionesentrega = new javax.swing.JTextArea();
+        jLabel111 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        analisisriesgos = new javax.swing.JTextArea();
         panelPrecontractual2 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         valorsiniva = new javax.swing.JTextField();
@@ -242,22 +315,23 @@ public class PanelContratos extends javax.swing.JPanel {
         jTextField43 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         inversion = new javax.swing.JComboBox();
-        jLabel108 = new javax.swing.JLabel();
-        jSeparator7 = new javax.swing.JSeparator();
-        jLabel88 = new javax.swing.JLabel();
-        codigodepartamento = new javax.swing.JComboBox();
-        jLabel100 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jLabel93 = new javax.swing.JLabel();
-        codigomunicipio = new javax.swing.JComboBox();
-        jLabel54 = new javax.swing.JLabel();
-        lugarejecucion = new javax.swing.JTextField();
+        jTextField57 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         anticipio = new javax.swing.JComboBox();
         jLabel87 = new javax.swing.JLabel();
         jSeparator22 = new javax.swing.JSeparator();
         jLabel80 = new javax.swing.JLabel();
         tiempogarantia = new javax.swing.JTextField();
+        jLabel118 = new javax.swing.JLabel();
+        jLabel88 = new javax.swing.JLabel();
+        codigodepartamento = new javax.swing.JComboBox();
+        jLabel100 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel93 = new javax.swing.JLabel();
+        codigomunicipio = new javax.swing.JComboBox();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        lugarejecucion = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
         jLabel101 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
@@ -301,56 +375,12 @@ public class PanelContratos extends javax.swing.JPanel {
         jLabel99 = new javax.swing.JLabel();
         botonAyuda8 = new javax.swing.JButton();
         jTextField53 = new javax.swing.JTextField();
-        panelProyectos = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        codigoproyecto = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        nombreproyecto = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        panelActividades = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        codigoactividad = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        fechainicialactividad = new org.jdesktop.swingx.JXDatePicker();
-        jLabel74 = new javax.swing.JLabel();
-        jSeparator17 = new javax.swing.JSeparator();
-        jLabel24 = new javax.swing.JLabel();
-        fechafinalactividad = new org.jdesktop.swingx.JXDatePicker();
-        jTextField20 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        porcentajeactividad = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        panelInterventoria = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        tipointerventoria = new javax.swing.JComboBox();
-        jTextField28 = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        tipovinculacionintersuper = new javax.swing.JComboBox();
-        jTextField44 = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
-        fktercerointersuper = new javax.swing.JTextField();
-        botonBuscarFktercerointersuper = new javax.swing.JButton();
-        jTextField32 = new javax.swing.JTextField();
-        jLabel37 = new javax.swing.JLabel();
-        fkterceroordenadorgasto = new javax.swing.JTextField();
-        botonBuscarFkterceroordenadorgasto = new javax.swing.JButton();
-        jLabel38 = new javax.swing.JLabel();
-        fktercerofuncionario = new javax.swing.JTextField();
-        botonBuscarFktercerofuncionario = new javax.swing.JButton();
-        jTextField31 = new javax.swing.JTextField();
-        panelAvances = new javax.swing.JPanel();
-        jLabel44 = new javax.swing.JLabel();
-        tipoactaavance = new javax.swing.JComboBox();
-        jLabel46 = new javax.swing.JLabel();
-        jSeparator10 = new javax.swing.JSeparator();
-        jLabel45 = new javax.swing.JLabel();
-        fechaactaavance = new org.jdesktop.swingx.JXDatePicker();
-        jTextField22 = new javax.swing.JTextField();
-        jLabel47 = new javax.swing.JLabel();
-        porcentajeavance = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
+        jLabel108 = new javax.swing.JLabel();
+        jPanel25 = new javax.swing.JPanel();
+        fechaentrega = new org.jdesktop.swingx.JXDatePicker();
+        jLabel119 = new javax.swing.JLabel();
+        botonAyuda9 = new javax.swing.JButton();
+        jTextField54 = new javax.swing.JTextField();
         panelAdicional = new javax.swing.JPanel();
         jLabel117 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
@@ -379,19 +409,6 @@ public class PanelContratos extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         observaciones = new javax.swing.JTextArea();
-        panelSECOP = new javax.swing.JPanel();
-        jLabel89 = new javax.swing.JLabel();
-        secopnumeroproceso = new javax.swing.JTextField();
-        jLabel90 = new javax.swing.JLabel();
-        secopnumeroconstancia = new javax.swing.JTextField();
-        jLabel91 = new javax.swing.JLabel();
-        jSeparator23 = new javax.swing.JSeparator();
-        jLabel92 = new javax.swing.JLabel();
-        secopfechapublicacion = new org.jdesktop.swingx.JXDatePicker();
-        jTextField51 = new javax.swing.JTextField();
-        jLabel86 = new javax.swing.JLabel();
-        secopcodigoproceso = new javax.swing.JTextField();
-        jTextField49 = new javax.swing.JTextField();
 
         jLabel10.setText("RESOLUCIÓN DE ADJUDICACIÓN : ");
         jLabel10.setPreferredSize(new java.awt.Dimension(200, 25));
@@ -720,1020 +737,6 @@ public class PanelContratos extends javax.swing.JPanel {
         jTabbedPane.setBackground(ClaseGeneral.campo);
         jTabbedPane.setOpaque(true);
 
-        panelPlaneacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelPlaneacion.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        jLabelContrato.setText("NÚMERO DEL CONTRATO : ");
-        jLabelContrato.setPreferredSize(new java.awt.Dimension(165, 25));
-        panelPlaneacion.add(jLabelContrato);
-
-        contrato.setBackground(ClaseGeneral.campo);
-        contrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        contrato.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        contrato.setPreferredSize(new java.awt.Dimension(270, 25));
-        contrato.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                TextFieldFocusGained(evt);
-            }
-        });
-        contrato.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
-            }
-        });
-        panelPlaneacion.add(contrato);
-
-        botonBuscarContrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
-        botonBuscarContrato.setFocusable(false);
-        botonBuscarContrato.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonBuscarContrato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonBuscarContratoActionPerformed(evt);
-            }
-        });
-        panelPlaneacion.add(botonBuscarContrato);
-
-        jTextField15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField15.setForeground(new java.awt.Color(0, 102, 51));
-        jTextField15.setFocusable(false);
-        jTextField15.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField15.setOpaque(false);
-        jTextField15.setPreferredSize(new java.awt.Dimension(325, 25));
-        panelPlaneacion.add(jTextField15);
-
-        jLabelFktercero.setText("CÉDULA / NIT DEL CONTRATISTA : ");
-        jLabelFktercero.setPreferredSize(new java.awt.Dimension(220, 25));
-        panelPlaneacion.add(jLabelFktercero);
-
-        fktercero.setBackground(ClaseGeneral.campo);
-        fktercero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fktercero.setFocusable(false);
-        fktercero.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        fktercero.setPreferredSize(new java.awt.Dimension(545, 25));
-        panelPlaneacion.add(fktercero);
-
-        botonBuscarFktercero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
-        botonBuscarFktercero.setFocusable(false);
-        botonBuscarFktercero.setName("botonBuscarFktercero"); // NOI18N
-        botonBuscarFktercero.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonBuscarFktercero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonBuscarFkterceroActionPerformed(evt);
-            }
-        });
-        panelPlaneacion.add(botonBuscarFktercero);
-
-        jLabel72.setPreferredSize(new java.awt.Dimension(800, 20));
-        panelPlaneacion.add(jLabel72);
-
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "NECESIDAD", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel8.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel8.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane4.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        necesidad.setBackground(ClaseGeneral.campo);
-        necesidad.setColumns(20);
-        necesidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        necesidad.setLineWrap(true);
-        necesidad.setRows(5);
-        necesidad.setWrapStyleWord(true);
-        necesidad.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        necesidad.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane4.setViewportView(necesidad);
-
-        jPanel8.add(jScrollPane4, java.awt.BorderLayout.CENTER);
-
-        panelPlaneacion.add(jPanel8);
-        jPanel8.getAccessibleContext().setAccessibleDescription("");
-
-        jLabel78.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPlaneacion.add(jLabel78);
-
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ALCANCE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel9.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel9.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane5.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        alcance.setBackground(ClaseGeneral.campo);
-        alcance.setColumns(20);
-        alcance.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        alcance.setLineWrap(true);
-        alcance.setRows(5);
-        alcance.setWrapStyleWord(true);
-        alcance.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        alcance.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane5.setViewportView(alcance);
-
-        jPanel9.add(jScrollPane5, java.awt.BorderLayout.CENTER);
-
-        panelPlaneacion.add(jPanel9);
-
-        jLabel107.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPlaneacion.add(jLabel107);
-
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REQUERIMIENTOS TECNICOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel10.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel10.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane6.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        requerimientostecnicos.setBackground(ClaseGeneral.campo);
-        requerimientostecnicos.setColumns(20);
-        requerimientostecnicos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        requerimientostecnicos.setLineWrap(true);
-        requerimientostecnicos.setRows(5);
-        requerimientostecnicos.setWrapStyleWord(true);
-        requerimientostecnicos.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        requerimientostecnicos.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane6.setViewportView(requerimientostecnicos);
-
-        jPanel10.add(jScrollPane6, java.awt.BorderLayout.CENTER);
-
-        panelPlaneacion.add(jPanel10);
-
-        jLabel106.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPlaneacion.add(jLabel106);
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBJETO DEL CONTRATO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel3.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel3.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        objeto.setBackground(ClaseGeneral.campo);
-        objeto.setColumns(20);
-        objeto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        objeto.setLineWrap(true);
-        objeto.setRows(5);
-        objeto.setWrapStyleWord(true);
-        objeto.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        objeto.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane1.setViewportView(objeto);
-
-        jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
-
-        panelPlaneacion.add(jPanel3);
-
-        jLabel39.setText("OBJETO ESPECIFICO : ");
-        jLabel39.setPreferredSize(new java.awt.Dimension(135, 25));
-        panelPlaneacion.add(jLabel39);
-
-        objetoespecifico.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        objetoespecifico.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        objetoespecifico.setPreferredSize(new java.awt.Dimension(660, 25));
-        panelPlaneacion.add(objetoespecifico);
-
-        jTabbedPane.addTab("Planeacion", panelPlaneacion);
-
-        panelPrecontractual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelPrecontractual.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        jLabel111.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPrecontractual.add(jLabel111);
-
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANALISIS DE RIESGOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel11.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel11.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane7.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        analisisriesgos.setBackground(ClaseGeneral.campo);
-        analisisriesgos.setColumns(20);
-        analisisriesgos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        analisisriesgos.setLineWrap(true);
-        analisisriesgos.setRows(5);
-        analisisriesgos.setWrapStyleWord(true);
-        analisisriesgos.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        analisisriesgos.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane7.setViewportView(analisisriesgos);
-
-        jPanel11.add(jScrollPane7, java.awt.BorderLayout.CENTER);
-
-        panelPrecontractual.add(jPanel11);
-
-        jLabel76.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPrecontractual.add(jLabel76);
-
-        jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBLIGACIONES DE LA UNIVERSIDAD", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel21.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel21.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane8.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        obligacionesuniversidad.setBackground(ClaseGeneral.campo);
-        obligacionesuniversidad.setColumns(20);
-        obligacionesuniversidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        obligacionesuniversidad.setLineWrap(true);
-        obligacionesuniversidad.setRows(5);
-        obligacionesuniversidad.setWrapStyleWord(true);
-        obligacionesuniversidad.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        obligacionesuniversidad.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane8.setViewportView(obligacionesuniversidad);
-
-        jPanel21.add(jScrollPane8, java.awt.BorderLayout.CENTER);
-
-        panelPrecontractual.add(jPanel21);
-
-        jLabel110.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPrecontractual.add(jLabel110);
-
-        jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBLIGACIONES DEL CONTRATISTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel22.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel22.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane9.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        obligacionescontratista.setBackground(ClaseGeneral.campo);
-        obligacionescontratista.setColumns(20);
-        obligacionescontratista.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        obligacionescontratista.setLineWrap(true);
-        obligacionescontratista.setRows(5);
-        obligacionescontratista.setWrapStyleWord(true);
-        obligacionescontratista.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        obligacionescontratista.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane9.setViewportView(obligacionescontratista);
-
-        jPanel22.add(jScrollPane9, java.awt.BorderLayout.CENTER);
-
-        panelPrecontractual.add(jPanel22);
-
-        jLabel75.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPrecontractual.add(jLabel75);
-
-        jPanel23.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONDICIONES DE ENTREGA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel23.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel23.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane10.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        condicionesentrega.setBackground(ClaseGeneral.campo);
-        condicionesentrega.setColumns(20);
-        condicionesentrega.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        condicionesentrega.setLineWrap(true);
-        condicionesentrega.setRows(5);
-        condicionesentrega.setWrapStyleWord(true);
-        condicionesentrega.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        condicionesentrega.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane10.setViewportView(condicionesentrega);
-
-        jPanel23.add(jScrollPane10, java.awt.BorderLayout.CENTER);
-
-        panelPrecontractual.add(jPanel23);
-
-        jTabbedPane.addTab("Pre-Contractual", panelPrecontractual);
-
-        panelPrecontractual2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        jLabel19.setText("VALOR SIN IVA DEL CONTRATO : ");
-        jLabel19.setPreferredSize(new java.awt.Dimension(200, 25));
-        panelPrecontractual2.add(jLabel19);
-
-        valorsiniva.setBackground(ClaseGeneral.campo);
-        valorsiniva.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        valorsiniva.setText("0");
-        valorsiniva.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        valorsiniva.setPreferredSize(new java.awt.Dimension(120, 25));
-        valorsiniva.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                TextFieldFocusGained(evt);
-            }
-        });
-        valorsiniva.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
-            }
-        });
-        panelPrecontractual2.add(valorsiniva);
-
-        jLabel82.setPreferredSize(new java.awt.Dimension(10, 25));
-        panelPrecontractual2.add(jLabel82);
-
-        jSeparator19.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator19.setPreferredSize(new java.awt.Dimension(15, 25));
-        panelPrecontractual2.add(jSeparator19);
-
-        jLabel48.setText("VALOR CON IVA DEL CONTRATO : ");
-        jLabel48.setPreferredSize(new java.awt.Dimension(205, 25));
-        panelPrecontractual2.add(jLabel48);
-
-        valor.setBackground(ClaseGeneral.campo);
-        valor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        valor.setText("0");
-        valor.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        valor.setPreferredSize(new java.awt.Dimension(120, 25));
-        valor.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                TextFieldFocusGained(evt);
-            }
-        });
-        valor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
-            }
-        });
-        panelPrecontractual2.add(valor);
-
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField5.setEnabled(false);
-        jTextField5.setFocusable(false);
-        jTextField5.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField5.setOpaque(false);
-        jTextField5.setPreferredSize(new java.awt.Dimension(100, 25));
-        panelPrecontractual2.add(jTextField5);
-
-        jLabel49.setText("Σ REGISTROS : ");
-        jLabel49.setPreferredSize(new java.awt.Dimension(105, 25));
-        panelPrecontractual2.add(jLabel49);
-
-        valorsoportescontratos.setBackground(ClaseGeneral.verde);
-        valorsoportescontratos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        valorsoportescontratos.setForeground(ClaseGeneral.rojo);
-        valorsoportescontratos.setText("0");
-        valorsoportescontratos.setFocusable(false);
-        valorsoportescontratos.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        valorsoportescontratos.setPreferredSize(new java.awt.Dimension(120, 25));
-        panelPrecontractual2.add(valorsoportescontratos);
-
-        jLabel84.setPreferredSize(new java.awt.Dimension(10, 25));
-        panelPrecontractual2.add(jLabel84);
-
-        jSeparator20.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator20.setPreferredSize(new java.awt.Dimension(15, 25));
-        panelPrecontractual2.add(jSeparator20);
-
-        jLabel50.setText("Σ CUBS - SIN IVA : ");
-        jLabel50.setPreferredSize(new java.awt.Dimension(120, 25));
-        panelPrecontractual2.add(jLabel50);
-
-        valortotalsinivaCUBS.setBackground(ClaseGeneral.verde);
-        valortotalsinivaCUBS.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        valortotalsinivaCUBS.setForeground(ClaseGeneral.rojo);
-        valortotalsinivaCUBS.setText("0");
-        valortotalsinivaCUBS.setFocusable(false);
-        valortotalsinivaCUBS.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        valortotalsinivaCUBS.setPreferredSize(new java.awt.Dimension(120, 25));
-        panelPrecontractual2.add(valortotalsinivaCUBS);
-
-        jLabel85.setPreferredSize(new java.awt.Dimension(10, 25));
-        panelPrecontractual2.add(jLabel85);
-
-        jSeparator21.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator21.setPreferredSize(new java.awt.Dimension(15, 25));
-        panelPrecontractual2.add(jSeparator21);
-
-        jLabel83.setText("Σ CUBS - CON IVA : ");
-        jLabel83.setPreferredSize(new java.awt.Dimension(120, 25));
-        panelPrecontractual2.add(jLabel83);
-
-        valortotalconivaCUBS.setBackground(ClaseGeneral.verde);
-        valortotalconivaCUBS.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        valortotalconivaCUBS.setForeground(ClaseGeneral.rojo);
-        valortotalconivaCUBS.setText("0");
-        valortotalconivaCUBS.setFocusable(false);
-        valortotalconivaCUBS.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        valortotalconivaCUBS.setPreferredSize(new java.awt.Dimension(120, 25));
-        panelPrecontractual2.add(valortotalconivaCUBS);
-
-        jLabel52.setText("VALOR EN LETRAS : ");
-        jLabel52.setPreferredSize(new java.awt.Dimension(125, 25));
-        panelPrecontractual2.add(jLabel52);
-
-        valorletras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        valorletras.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        valorletras.setPreferredSize(new java.awt.Dimension(670, 25));
-        panelPrecontractual2.add(valorletras);
-
-        jLabel51.setText("VALOR DEL CONTRATO MONEDA EXTRANJERA : ");
-        jLabel51.setPreferredSize(new java.awt.Dimension(280, 25));
-        panelPrecontractual2.add(jLabel51);
-
-        valormonedaextranjera.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        valormonedaextranjera.setText("0");
-        valormonedaextranjera.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        valormonedaextranjera.setPreferredSize(new java.awt.Dimension(150, 25));
-        valormonedaextranjera.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                TextFieldFocusGained(evt);
-            }
-        });
-        valormonedaextranjera.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
-            }
-        });
-        panelPrecontractual2.add(valormonedaextranjera);
-
-        jTextField34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField34.setEnabled(false);
-        jTextField34.setFocusable(false);
-        jTextField34.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField34.setOpaque(false);
-        jTextField34.setPreferredSize(new java.awt.Dimension(360, 25));
-        panelPrecontractual2.add(jTextField34);
-
-        jLabel113.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPrecontractual2.add(jLabel113);
-
-        jLabel28.setText("TIPO DE FINANCIACIÓN : ");
-        jLabel28.setPreferredSize(new java.awt.Dimension(160, 25));
-        panelPrecontractual2.add(jLabel28);
-
-        tipofinanciacion.setBackground(ClaseGeneral.campo);
-        tipofinanciacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipofinanciacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Fondo Especial", "Fondo Común", "Estampila ProUNIVALLE", "CREE", "Regalías", "Estampillas ProUNAL" }));
-        tipofinanciacion.setPreferredSize(new java.awt.Dimension(170, 25));
-        panelPrecontractual2.add(tipofinanciacion);
-
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField7.setEnabled(false);
-        jTextField7.setFocusable(false);
-        jTextField7.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField7.setOpaque(false);
-        jTextField7.setPreferredSize(new java.awt.Dimension(460, 25));
-        panelPrecontractual2.add(jTextField7);
-
-        jLabel115.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPrecontractual2.add(jLabel115);
-
-        jLabel29.setText("TIPO ESTIMACIÓN : ");
-        jLabel29.setPreferredSize(new java.awt.Dimension(125, 25));
-        panelPrecontractual2.add(jLabel29);
-
-        tipoestimacion.setBackground(ClaseGeneral.campo);
-        tipoestimacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipoestimacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Opción a) determinar el valor de los bienes y/o servicios mediante cotizaciones a proveedores locales", "Opción b) determinar el valor de los bienes y/o servicios según el valor histórico anual pagado por la universidad", "Opción c) determinar el valor de los bienes y/o servicios con base en la información de publicaciones especializadas", "Opción d) determinar el valor de los bienes y/o servicios con base en la información de procesos en SECOP", "Opción e) determinar el valor de los bienes y/o servicios con base en la información de páginas web de distribuidores (en este caso se deben calcular valores por concepto de impuestos)", "Opción f) determinar el valor de los bienes y/o servicios con base en la información suministrada en la MGA" }));
-        tipoestimacion.setPreferredSize(new java.awt.Dimension(670, 25));
-        panelPrecontractual2.add(tipoestimacion);
-
-        jLabel116.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPrecontractual2.add(jLabel116);
-
-        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCRIPCION PROCESO DE ESTIMACIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel24.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel24.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane11.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        estimacion.setBackground(ClaseGeneral.campo);
-        estimacion.setColumns(20);
-        estimacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        estimacion.setLineWrap(true);
-        estimacion.setRows(5);
-        estimacion.setWrapStyleWord(true);
-        estimacion.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        estimacion.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane11.setViewportView(estimacion);
-
-        jPanel24.add(jScrollPane11, java.awt.BorderLayout.CENTER);
-
-        panelPrecontractual2.add(jPanel24);
-
-        jLabel114.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPrecontractual2.add(jLabel114);
-
-        jLabel11.setText("TIEMPO DE PAGO CUENTAS : ");
-        jLabel11.setPreferredSize(new java.awt.Dimension(170, 25));
-        panelPrecontractual2.add(jLabel11);
-
-        tipotiempopago.setBackground(ClaseGeneral.campo);
-        tipotiempopago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipotiempopago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Mensual", "Bimensual", "Semestral" }));
-        tipotiempopago.setPreferredSize(new java.awt.Dimension(170, 25));
-        panelPrecontractual2.add(tipotiempopago);
-
-        jLabel112.setPreferredSize(new java.awt.Dimension(15, 25));
-        panelPrecontractual2.add(jLabel112);
-
-        jSeparator24.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator24.setPreferredSize(new java.awt.Dimension(20, 25));
-        panelPrecontractual2.add(jSeparator24);
-
-        jLabel53.setText("DIAS PARA EFECTUAR PAGO : ");
-        jLabel53.setPreferredSize(new java.awt.Dimension(180, 25));
-        panelPrecontractual2.add(jLabel53);
-
-        diastiempopago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        diastiempopago.setText("0");
-        diastiempopago.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        diastiempopago.setPreferredSize(new java.awt.Dimension(150, 25));
-        diastiempopago.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                diastiempopagoTextFieldFocusGained(evt);
-            }
-        });
-        diastiempopago.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                diastiempopagoTexyFieldKeyReleased(evt);
-            }
-        });
-        panelPrecontractual2.add(diastiempopago);
-
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField6.setEnabled(false);
-        jTextField6.setFocusable(false);
-        jTextField6.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField6.setOpaque(false);
-        jTextField6.setPreferredSize(new java.awt.Dimension(65, 25));
-        panelPrecontractual2.add(jTextField6);
-
-        jLabel79.setPreferredSize(new java.awt.Dimension(800, 10));
-        panelPrecontractual2.add(jLabel79);
-
-        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FORMA DE PAGO DEL CONTRATO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel14.setPreferredSize(new java.awt.Dimension(800, 70));
-        jPanel14.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane3.setPreferredSize(new java.awt.Dimension(430, 70));
-
-        formapago.setBackground(ClaseGeneral.campo);
-        formapago.setColumns(20);
-        formapago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        formapago.setLineWrap(true);
-        formapago.setRows(5);
-        formapago.setWrapStyleWord(true);
-        formapago.setMargin(new java.awt.Insets(2, 5, 2, 5));
-        formapago.setPreferredSize(new java.awt.Dimension(430, 70));
-        jScrollPane3.setViewportView(formapago);
-
-        jPanel14.add(jScrollPane3, java.awt.BorderLayout.CENTER);
-
-        panelPrecontractual2.add(jPanel14);
-
-        jTabbedPane.addTab("Pre-Contractual (continuacion)", panelPrecontractual2);
-
-        panelContractual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelContractual.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        jLabel2.setText("MODALIDAD DE CONTRATACIÓN : ");
-        jLabel2.setPreferredSize(new java.awt.Dimension(200, 25));
-        panelContractual.add(jLabel2);
-
-        modalidad.setBackground(ClaseGeneral.campo);
-        modalidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        modalidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "2_16: Contratación Directa", "2_17: Invitación Publica", "2_18: Invitación Privada", "2_16: Menor Cuantía", "2_16: Mínima Cuantía", "005" }));
-        modalidad.setSelectedItem("2_16: Mínima Cuantía");
-        modalidad.setPreferredSize(new java.awt.Dimension(550, 25));
-        panelContractual.add(modalidad);
-
-        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField9.setEnabled(false);
-        jTextField9.setFocusable(false);
-        jTextField9.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField9.setOpaque(false);
-        jTextField9.setPreferredSize(new java.awt.Dimension(40, 25));
-        panelContractual.add(jTextField9);
-
-        jLabel3.setText("CAUSAL : ");
-        jLabel3.setToolTipText("<html>\n<p><strong>Modalidad de Selección:</strong> De acuerdo con el artículo 2° de la Ley 1150 de 2007 </p>\n<ul>\n  <li>    Concurso de Méritos </li>\n  <li>    Contratación Directa </li>\n  <li>    Licitación Pública </li>\n  <li>    Selección Abreviada </li>\n</ul>\n</html>");
-        jLabel3.setPreferredSize(new java.awt.Dimension(60, 25));
-        panelContractual.add(jLabel3);
-
-        causal.setBackground(ClaseGeneral.campo);
-        causal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        causal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "CD001: Licitación Pública", "CD002: Adquisición de bienes y servicios de características técnicas uniformes", "CD003: Contratación de menor cuantía", "CD004: Prestación de servicios de salud", "CD005: Licitación declarada desierta", "CD006: Enajenación de bienes del estado", "CD007: Productos de origen o Destinación agropecuarios", "CD008: Actividades industriales y comerciales de la EICE y las sociedades de economía mixta", "CD009: Programas de protección, desmovilización, reinserción, protección, etc.", "CD010: Bienes y servicios para la defensa de la seguridad nacional.", "CD011: Concurso de méritos", "CD012: Urgencia manifiesta", "CD013: Contratación de empréstitos", "CD014: Contratos interadministrativos", "CD015: Contratación de bienes y servicios en el sector defensa y en el DAS", "CD016: Contratos para el desarrollo de actividades científicas y tecnológicas", "CD017: Contratos de encargo fiduciario", "CD018: Cuando no existe pluralidad de oferentes en el mercado.", "CD019: Prestación de servicios profesionales y de apoyo a la gestión.", "CD020: Arrendamiento o Adquisición de inmuebles", "EC001: Estatuto de Contratación", "16_1183: Invitación Directa", "16_1184: Invitación Pública", "16_1185: Invitación Cerrada" }));
-        causal.setSelectedItem("16_1183: Invitación Directa");
-        causal.setPreferredSize(new java.awt.Dimension(550, 25));
-        panelContractual.add(causal);
-
-        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField8.setEnabled(false);
-        jTextField8.setFocusable(false);
-        jTextField8.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField8.setOpaque(false);
-        jTextField8.setPreferredSize(new java.awt.Dimension(180, 25));
-        panelContractual.add(jTextField8);
-
-        jLabel4.setText("TIPO DE CONTRATO : ");
-        jLabel4.setToolTipText("<html>\n<p><strong>Modalidad de Selección:</strong> De acuerdo con el artículo 2° de la Ley 1150 de 2007 </p>\n<ul>\n  <li>    Concurso de Méritos </li>\n  <li>    Contratación Directa </li>\n  <li>    Licitación Pública </li>\n  <li>    Selección Abreviada </li>\n</ul>\n</html>");
-        jLabel4.setPreferredSize(new java.awt.Dimension(130, 25));
-        panelContractual.add(jLabel4);
-
-        tipocontrato.setBackground(ClaseGeneral.campo);
-        tipocontrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipocontrato.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "1: C1 Prestación de Servicios", "2: C2 Consultoría", "3: C3 Interventoría", "4: C4 Mantenimiento y/o Reparación", "5: C5 Obra Pública", "6: C6 Compra Venta y/o Suministro", "7: C7 Concesión", "8: C8 Comodato", "9: C9 Arrendamiento y/o Adquisición de inmuebles", "10: C10 Fiducia o Encargo fiduciario", "11: C11 Prestamo o Mutuo", "12: C12 Transporte", "13: C13 Publicidad", "14: C14 Deposito", "15: C15 Seguros", "16: C16 Prestación de los servicios de salud", "17: C17 Contrato interadministrativo", "18: C18 Contratos para el desarrollo de actividades científicas y tecnológicas", "19: C19 Otros" }));
-        tipocontrato.setPreferredSize(new java.awt.Dimension(550, 25));
-        panelContractual.add(tipocontrato);
-
-        jTextField43.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField43.setEnabled(false);
-        jTextField43.setFocusable(false);
-        jTextField43.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField43.setOpaque(false);
-        jTextField43.setPreferredSize(new java.awt.Dimension(110, 25));
-        panelContractual.add(jTextField43);
-
-        jLabel5.setText("ES INVERSION : ");
-        jLabel5.setPreferredSize(new java.awt.Dimension(100, 25));
-        panelContractual.add(jLabel5);
-
-        inversion.setBackground(ClaseGeneral.campo);
-        inversion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        inversion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Si es Inversión", "No es Inversión" }));
-        inversion.setPreferredSize(new java.awt.Dimension(170, 25));
-        panelContractual.add(inversion);
-
-        jLabel108.setPreferredSize(new java.awt.Dimension(10, 25));
-        panelContractual.add(jLabel108);
-
-        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator7.setPreferredSize(new java.awt.Dimension(10, 25));
-        panelContractual.add(jSeparator7);
-
-        jLabel88.setText("DEPARTAMENTO : ");
-        jLabel88.setPreferredSize(new java.awt.Dimension(115, 25));
-        panelContractual.add(jLabel88);
-
-        codigodepartamento.setBackground(ClaseGeneral.campo);
-        codigodepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        codigodepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "76" }));
-        codigodepartamento.setSelectedItem("76");
-        codigodepartamento.setPreferredSize(new java.awt.Dimension(120, 25));
-        panelContractual.add(codigodepartamento);
-
-        jLabel100.setPreferredSize(new java.awt.Dimension(10, 25));
-        panelContractual.add(jLabel100);
-
-        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator6.setPreferredSize(new java.awt.Dimension(10, 25));
-        panelContractual.add(jSeparator6);
-
-        jLabel93.setText("MUNICIPIO : ");
-        jLabel93.setPreferredSize(new java.awt.Dimension(90, 25));
-        panelContractual.add(jLabel93);
-
-        codigomunicipio.setBackground(ClaseGeneral.campo);
-        codigomunicipio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        codigomunicipio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "76001" }));
-        codigomunicipio.setSelectedItem("76001");
-        codigomunicipio.setPreferredSize(new java.awt.Dimension(120, 25));
-        panelContractual.add(codigomunicipio);
-
-        jLabel54.setText("LUGAR DE EJECUCION : ");
-        jLabel54.setPreferredSize(new java.awt.Dimension(150, 25));
-        panelContractual.add(jLabel54);
-
-        lugarejecucion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lugarejecucion.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        lugarejecucion.setPreferredSize(new java.awt.Dimension(645, 25));
-        panelContractual.add(lugarejecucion);
-
-        jLabel18.setText("SE PACTÓ ANTICIPO AL CONTRATO : ");
-        jLabel18.setPreferredSize(new java.awt.Dimension(210, 25));
-        panelContractual.add(jLabel18);
-
-        anticipio.setBackground(ClaseGeneral.campo);
-        anticipio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        anticipio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "SI", "NO" }));
-        anticipio.setSelectedItem("NO");
-        anticipio.setPreferredSize(new java.awt.Dimension(120, 25));
-        panelContractual.add(anticipio);
-
-        jLabel87.setPreferredSize(new java.awt.Dimension(10, 25));
-        panelContractual.add(jLabel87);
-
-        jSeparator22.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator22.setPreferredSize(new java.awt.Dimension(15, 25));
-        panelContractual.add(jSeparator22);
-
-        jLabel80.setText("TIEMPO DE GARANTIA DEL CONTRATO : ");
-        jLabel80.setPreferredSize(new java.awt.Dimension(230, 25));
-        panelContractual.add(jLabel80);
-
-        tiempogarantia.setBackground(ClaseGeneral.campo);
-        tiempogarantia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tiempogarantia.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        tiempogarantia.setPreferredSize(new java.awt.Dimension(190, 25));
-        panelContractual.add(tiempogarantia);
-
-        jLabel71.setPreferredSize(new java.awt.Dimension(800, 20));
-        panelContractual.add(jLabel71);
-
-        jLabel101.setText("FECHA FICHA TECNICA : ");
-        jLabel101.setPreferredSize(new java.awt.Dimension(150, 25));
-        panelContractual.add(jLabel101);
-
-        jPanel18.setBackground(ClaseGeneral.campo);
-        jPanel18.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel18.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel18.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechafichatecnica.setFocusable(false);
-        fechafichatecnica.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechafichatecnica.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechafichatecnica.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel18.add(fechafichatecnica);
-
-        jLabel102.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel102.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel102.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel102.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel102.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel102.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel102.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel18.add(jLabel102);
-
-        panelContractual.add(jPanel18);
-
-        botonAyuda3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda3.setFocusable(false);
-        botonAyuda3.setName("botonAyuda3"); // NOI18N
-        botonAyuda3.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyudaActionPerformed(evt);
-            }
-        });
-        panelContractual.add(botonAyuda3);
-
-        jTextField55.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField55.setEnabled(false);
-        jTextField55.setFocusable(false);
-        jTextField55.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField55.setOpaque(false);
-        jTextField55.setPreferredSize(new java.awt.Dimension(470, 25));
-        panelContractual.add(jTextField55);
-
-        jLabel103.setText("FECHA INVITACION A PROPONENTES : ");
-        jLabel103.setPreferredSize(new java.awt.Dimension(220, 25));
-        panelContractual.add(jLabel103);
-
-        jPanel19.setBackground(ClaseGeneral.campo);
-        jPanel19.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel19.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel19.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechainvitacion.setFocusable(false);
-        fechainvitacion.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechainvitacion.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechainvitacion.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel19.add(fechainvitacion);
-
-        jLabel104.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel104.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel104.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel104.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel104.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel104.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel104.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel19.add(jLabel104);
-
-        panelContractual.add(jPanel19);
-
-        botonAyuda4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda4.setFocusable(false);
-        botonAyuda4.setName("botonAyuda4"); // NOI18N
-        botonAyuda4.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyudaActionPerformed(evt);
-            }
-        });
-        panelContractual.add(botonAyuda4);
-
-        jTextField56.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField56.setEnabled(false);
-        jTextField56.setFocusable(false);
-        jTextField56.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField56.setOpaque(false);
-        jTextField56.setPreferredSize(new java.awt.Dimension(400, 25));
-        panelContractual.add(jTextField56);
-
-        jLabel13.setText("FECHA DE SUSCRIPCION (ELABORACION) DEL CONTRATO : ");
-        jLabel13.setPreferredSize(new java.awt.Dimension(325, 25));
-        panelContractual.add(jLabel13);
-
-        jPanel1.setBackground(ClaseGeneral.campo);
-        jPanel1.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel1.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel1.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechasuscripcion.setFocusable(false);
-        fechasuscripcion.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechasuscripcion.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechasuscripcion.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel1.add(fechasuscripcion);
-
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel25.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel25.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel25.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel1.add(jLabel25);
-
-        panelContractual.add(jPanel1);
-
-        botonAyuda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda1.setFocusable(false);
-        botonAyuda1.setName("botonAyuda1"); // NOI18N
-        botonAyuda1.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyudaActionPerformed(evt);
-            }
-        });
-        panelContractual.add(botonAyuda1);
-
-        jTextField29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField29.setEnabled(false);
-        jTextField29.setFocusable(false);
-        jTextField29.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField29.setOpaque(false);
-        jTextField29.setPreferredSize(new java.awt.Dimension(295, 25));
-        panelContractual.add(jTextField29);
-
-        jLabel94.setText("FECHA DE CIERRE DEL CONTRATO : ");
-        jLabel94.setPreferredSize(new java.awt.Dimension(215, 25));
-        panelContractual.add(jLabel94);
-
-        jPanel15.setBackground(ClaseGeneral.campo);
-        jPanel15.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel15.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel15.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechacierre.setFocusable(false);
-        fechacierre.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechacierre.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechacierre.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel15.add(fechacierre);
-
-        jLabel95.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel95.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel95.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel95.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel95.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel95.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel95.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel15.add(jLabel95);
-
-        panelContractual.add(jPanel15);
-
-        botonAyuda5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda5.setFocusable(false);
-        botonAyuda5.setName("botonAyuda5"); // NOI18N
-        botonAyuda5.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyudaActionPerformed(evt);
-            }
-        });
-        panelContractual.add(botonAyuda5);
-
-        jTextField50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField50.setEnabled(false);
-        jTextField50.setFocusable(false);
-        jTextField50.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField50.setOpaque(false);
-        jTextField50.setPreferredSize(new java.awt.Dimension(405, 25));
-        panelContractual.add(jTextField50);
-
-        jLabel96.setText("FECHA LEGALIZACIÓN DEL CONTRATO : ");
-        jLabel96.setPreferredSize(new java.awt.Dimension(235, 25));
-        panelContractual.add(jLabel96);
-
-        jPanel16.setBackground(ClaseGeneral.campo);
-        jPanel16.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel16.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel16.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechalegalizacion.setFocusable(false);
-        fechalegalizacion.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechalegalizacion.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechalegalizacion.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel16.add(fechalegalizacion);
-
-        jLabel97.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel97.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel97.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel97.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel97.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel97.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel16.add(jLabel97);
-
-        panelContractual.add(jPanel16);
-
-        botonAyuda6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda6.setFocusable(false);
-        botonAyuda6.setName("botonAyuda6"); // NOI18N
-        botonAyuda6.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyudaActionPerformed(evt);
-            }
-        });
-        panelContractual.add(botonAyuda6);
-
-        jTextField52.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField52.setEnabled(false);
-        jTextField52.setFocusable(false);
-        jTextField52.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField52.setOpaque(false);
-        jTextField52.setPreferredSize(new java.awt.Dimension(385, 25));
-        panelContractual.add(jTextField52);
-
-        jLabel12.setText("FECHA DE ADJUDICACIÓN : ");
-        jLabel12.setPreferredSize(new java.awt.Dimension(165, 25));
-        panelContractual.add(jLabel12);
-
-        jPanel20.setBackground(ClaseGeneral.campo);
-        jPanel20.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel20.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel20.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel20.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechaadjudicacion.setFocusable(false);
-        fechaadjudicacion.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechaadjudicacion.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechaadjudicacion.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel20.add(fechaadjudicacion);
-
-        jLabel105.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel105.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel105.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel105.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel105.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel105.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel105.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel20.add(jLabel105);
-
-        panelContractual.add(jPanel20);
-
-        botonAyuda7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda7.setFocusable(false);
-        botonAyuda7.setName("botonAyuda7"); // NOI18N
-        botonAyuda7.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyudaActionPerformed(evt);
-            }
-        });
-        panelContractual.add(botonAyuda7);
-
-        jTextField16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField16.setEnabled(false);
-        jTextField16.setFocusable(false);
-        jTextField16.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField16.setOpaque(false);
-        jTextField16.setPreferredSize(new java.awt.Dimension(455, 25));
-        panelContractual.add(jTextField16);
-
-        jLabel98.setText("FECHA PERFECCIONAMIENTO DEL CONTRATO : ");
-        jLabel98.setPreferredSize(new java.awt.Dimension(280, 25));
-        panelContractual.add(jLabel98);
-
-        jPanel17.setBackground(ClaseGeneral.campo);
-        jPanel17.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel17.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel17.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechaperfeccionamiento.setFocusable(false);
-        fechaperfeccionamiento.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechaperfeccionamiento.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechaperfeccionamiento.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel17.add(fechaperfeccionamiento);
-
-        jLabel99.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel99.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel99.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel99.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel99.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel99.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel17.add(jLabel99);
-
-        panelContractual.add(jPanel17);
-
-        botonAyuda8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda8.setFocusable(false);
-        botonAyuda8.setName("botonAyuda8"); // NOI18N
-        botonAyuda8.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyudaActionPerformed(evt);
-            }
-        });
-        panelContractual.add(botonAyuda8);
-
-        jTextField53.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField53.setEnabled(false);
-        jTextField53.setFocusable(false);
-        jTextField53.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField53.setOpaque(false);
-        jTextField53.setPreferredSize(new java.awt.Dimension(340, 25));
-        panelContractual.add(jTextField53);
-
-        jTabbedPane.addTab("Contractual", panelContractual);
-
         panelProyectos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelProyectos.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
@@ -2032,6 +1035,1172 @@ public class PanelContratos extends javax.swing.JPanel {
 
         jTabbedPane.addTab("Avances", panelAvances);
 
+        panelSECOP.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelSECOP.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel89.setText("NUMERO DEL PROCESO (SOLICITUD OFERTA) : ");
+        jLabel89.setPreferredSize(new java.awt.Dimension(285, 25));
+        panelSECOP.add(jLabel89);
+
+        secopnumeroproceso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        secopnumeroproceso.setText("0");
+        secopnumeroproceso.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        secopnumeroproceso.setPreferredSize(new java.awt.Dimension(510, 25));
+        panelSECOP.add(secopnumeroproceso);
+
+        jLabel90.setText("NUMERO EN EL SISTEMA DEL PROCESO : ");
+        jLabel90.setPreferredSize(new java.awt.Dimension(250, 25));
+        panelSECOP.add(jLabel90);
+
+        secopnumeroconstancia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        secopnumeroconstancia.setText("0");
+        secopnumeroconstancia.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        secopnumeroconstancia.setPreferredSize(new java.awt.Dimension(150, 25));
+        panelSECOP.add(secopnumeroconstancia);
+
+        jLabel91.setPreferredSize(new java.awt.Dimension(20, 25));
+        panelSECOP.add(jLabel91);
+
+        jSeparator23.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator23.setPreferredSize(new java.awt.Dimension(25, 25));
+        panelSECOP.add(jSeparator23);
+
+        jLabel92.setText("FECHA DE PUBLICACION : ");
+        jLabel92.setPreferredSize(new java.awt.Dimension(160, 25));
+        panelSECOP.add(jLabel92);
+
+        secopfechapublicacion.setFocusable(false);
+        secopfechapublicacion.setMaximumSize(new java.awt.Dimension(120, 25));
+        secopfechapublicacion.setMinimumSize(new java.awt.Dimension(120, 25));
+        secopfechapublicacion.setPreferredSize(new java.awt.Dimension(120, 25));
+        panelSECOP.add(secopfechapublicacion);
+
+        jTextField51.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField51.setEnabled(false);
+        jTextField51.setFocusable(false);
+        jTextField51.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField51.setOpaque(false);
+        jTextField51.setPreferredSize(new java.awt.Dimension(45, 25));
+        panelSECOP.add(jTextField51);
+
+        jLabel86.setText("NUMERO EN EL SISTEMA DEL CONTRATO : ");
+        jLabel86.setPreferredSize(new java.awt.Dimension(260, 25));
+        panelSECOP.add(jLabel86);
+
+        secopcodigoproceso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        secopcodigoproceso.setText("0");
+        secopcodigoproceso.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        secopcodigoproceso.setPreferredSize(new java.awt.Dimension(150, 25));
+        panelSECOP.add(secopcodigoproceso);
+
+        jTextField49.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField49.setEnabled(false);
+        jTextField49.setFocusable(false);
+        jTextField49.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField49.setOpaque(false);
+        jTextField49.setPreferredSize(new java.awt.Dimension(380, 25));
+        panelSECOP.add(jTextField49);
+
+        jTabbedPane.addTab("SECOP", panelSECOP);
+
+        panelPlaneacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelPlaneacion.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabelContrato.setText("NÚMERO DEL CONTRATO : ");
+        jLabelContrato.setPreferredSize(new java.awt.Dimension(165, 25));
+        panelPlaneacion.add(jLabelContrato);
+
+        contrato.setBackground(ClaseGeneral.campo);
+        contrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        contrato.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        contrato.setPreferredSize(new java.awt.Dimension(270, 25));
+        contrato.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TextFieldFocusGained(evt);
+            }
+        });
+        contrato.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TexyFieldKeyReleased(evt);
+            }
+        });
+        panelPlaneacion.add(contrato);
+
+        botonBuscarContrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
+        botonBuscarContrato.setFocusable(false);
+        botonBuscarContrato.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonBuscarContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarContratoActionPerformed(evt);
+            }
+        });
+        panelPlaneacion.add(botonBuscarContrato);
+
+        jTextField15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField15.setForeground(new java.awt.Color(0, 102, 51));
+        jTextField15.setFocusable(false);
+        jTextField15.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField15.setOpaque(false);
+        jTextField15.setPreferredSize(new java.awt.Dimension(325, 25));
+        panelPlaneacion.add(jTextField15);
+
+        jLabelFktercero.setText("CÉDULA / NIT DEL CONTRATISTA : ");
+        jLabelFktercero.setPreferredSize(new java.awt.Dimension(220, 25));
+        panelPlaneacion.add(jLabelFktercero);
+
+        fktercero.setBackground(ClaseGeneral.campo);
+        fktercero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fktercero.setFocusable(false);
+        fktercero.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        fktercero.setPreferredSize(new java.awt.Dimension(545, 25));
+        panelPlaneacion.add(fktercero);
+
+        botonBuscarFktercero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N
+        botonBuscarFktercero.setFocusable(false);
+        botonBuscarFktercero.setName("botonBuscarFktercero"); // NOI18N
+        botonBuscarFktercero.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonBuscarFktercero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarFkterceroActionPerformed(evt);
+            }
+        });
+        panelPlaneacion.add(botonBuscarFktercero);
+
+        jLabel72.setPreferredSize(new java.awt.Dimension(800, 10));
+        panelPlaneacion.add(jLabel72);
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "NECESIDAD", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel8.setPreferredSize(new java.awt.Dimension(800, 60));
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane4.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        necesidad.setColumns(20);
+        necesidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        necesidad.setLineWrap(true);
+        necesidad.setRows(5);
+        necesidad.setText(ClaseGeneral.controlEstandar.findValorInEstandarByModuloCampo("contratos", "necesidad")
+        );
+        necesidad.setWrapStyleWord(true);
+        necesidad.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        necesidad.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane4.setViewportView(necesidad);
+
+        jPanel8.add(jScrollPane4, java.awt.BorderLayout.CENTER);
+
+        panelPlaneacion.add(jPanel8);
+        jPanel8.getAccessibleContext().setAccessibleDescription("");
+
+        jLabel78.setPreferredSize(new java.awt.Dimension(800, 5));
+        panelPlaneacion.add(jLabel78);
+
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ALCANCE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel9.setPreferredSize(new java.awt.Dimension(800, 60));
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane5.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        alcance.setBackground(ClaseGeneral.campo);
+        alcance.setColumns(20);
+        alcance.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        alcance.setLineWrap(true);
+        alcance.setRows(5);
+        alcance.setWrapStyleWord(true);
+        alcance.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        alcance.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane5.setViewportView(alcance);
+
+        jPanel9.add(jScrollPane5, java.awt.BorderLayout.CENTER);
+
+        panelPlaneacion.add(jPanel9);
+
+        jLabel107.setPreferredSize(new java.awt.Dimension(800, 5));
+        panelPlaneacion.add(jLabel107);
+
+        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REQUERIMIENTOS TECNICOS (BIENES)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel26.setPreferredSize(new java.awt.Dimension(800, 60));
+        jPanel26.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane12.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        requerimientostecnicos.setBackground(ClaseGeneral.campo);
+        requerimientostecnicos.setColumns(20);
+        requerimientostecnicos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        requerimientostecnicos.setLineWrap(true);
+        requerimientostecnicos.setRows(5);
+        requerimientostecnicos.setWrapStyleWord(true);
+        requerimientostecnicos.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        requerimientostecnicos.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane12.setViewportView(requerimientostecnicos);
+
+        jPanel26.add(jScrollPane12, java.awt.BorderLayout.CENTER);
+
+        panelPlaneacion.add(jPanel26);
+
+        jLabel120.setPreferredSize(new java.awt.Dimension(800, 5));
+        panelPlaneacion.add(jLabel120);
+
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PERFIL REQUERIDO (SERVICIOS)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel10.setPreferredSize(new java.awt.Dimension(800, 60));
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane6.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        perfilrequerido.setBackground(ClaseGeneral.campo);
+        perfilrequerido.setColumns(20);
+        perfilrequerido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        perfilrequerido.setLineWrap(true);
+        perfilrequerido.setRows(5);
+        perfilrequerido.setWrapStyleWord(true);
+        perfilrequerido.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        perfilrequerido.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane6.setViewportView(perfilrequerido);
+
+        jPanel10.add(jScrollPane6, java.awt.BorderLayout.CENTER);
+
+        panelPlaneacion.add(jPanel10);
+
+        jLabel106.setPreferredSize(new java.awt.Dimension(800, 10));
+        panelPlaneacion.add(jLabel106);
+
+        jLabel39.setText("OBJETO ESPECIFICO : ");
+        jLabel39.setPreferredSize(new java.awt.Dimension(135, 25));
+        panelPlaneacion.add(jLabel39);
+
+        objetoespecifico.setBackground(ClaseGeneral.campo);
+        objetoespecifico.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        objetoespecifico.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        objetoespecifico.setPreferredSize(new java.awt.Dimension(660, 25));
+        panelPlaneacion.add(objetoespecifico);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBJETO DETALLADO DEL CONTRATO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel3.setPreferredSize(new java.awt.Dimension(800, 100));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        objeto.setBackground(ClaseGeneral.campo);
+        objeto.setColumns(20);
+        objeto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        objeto.setLineWrap(true);
+        objeto.setRows(5);
+        objeto.setWrapStyleWord(true);
+        objeto.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        objeto.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane1.setViewportView(objeto);
+
+        jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        panelPlaneacion.add(jPanel3);
+
+        jTabbedPane.addTab("Planeacion", panelPlaneacion);
+
+        panelPrecontractual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelPrecontractual.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel76.setPreferredSize(new java.awt.Dimension(800, 10));
+        panelPrecontractual.add(jLabel76);
+
+        jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBLIGACIONES DE LA UNIVERSIDAD", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel21.setPreferredSize(new java.awt.Dimension(800, 110));
+        jPanel21.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane8.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        obligacionesuniversidad.setColumns(20);
+        obligacionesuniversidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        obligacionesuniversidad.setLineWrap(true);
+        obligacionesuniversidad.setRows(5);
+        obligacionesuniversidad.setText(ClaseGeneral.controlEstandar.findValorInEstandarByModuloCampo("contratos", "obligacionesuniversidad"));
+        obligacionesuniversidad.setWrapStyleWord(true);
+        obligacionesuniversidad.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        obligacionesuniversidad.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane8.setViewportView(obligacionesuniversidad);
+
+        jPanel21.add(jScrollPane8, java.awt.BorderLayout.CENTER);
+
+        panelPrecontractual.add(jPanel21);
+
+        jLabel110.setPreferredSize(new java.awt.Dimension(800, 10));
+        panelPrecontractual.add(jLabel110);
+
+        jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBLIGACIONES DEL CONTRATISTA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel22.setPreferredSize(new java.awt.Dimension(800, 110));
+        jPanel22.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane9.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        obligacionescontratista.setColumns(20);
+        obligacionescontratista.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        obligacionescontratista.setLineWrap(true);
+        obligacionescontratista.setRows(5);
+        obligacionescontratista.setText(ClaseGeneral.controlEstandar.findValorInEstandarByModuloCampo("contratos", "obligacionesuniversidad"));
+        obligacionescontratista.setWrapStyleWord(true);
+        obligacionescontratista.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        obligacionescontratista.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane9.setViewportView(obligacionescontratista);
+
+        jPanel22.add(jScrollPane9, java.awt.BorderLayout.CENTER);
+
+        panelPrecontractual.add(jPanel22);
+
+        jLabel75.setPreferredSize(new java.awt.Dimension(800, 10));
+        panelPrecontractual.add(jLabel75);
+
+        jPanel23.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONDICIONES DE ENTREGA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel23.setPreferredSize(new java.awt.Dimension(800, 110));
+        jPanel23.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane10.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        condicionesentrega.setColumns(20);
+        condicionesentrega.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        condicionesentrega.setLineWrap(true);
+        condicionesentrega.setRows(5);
+        condicionesentrega.setWrapStyleWord(true);
+        condicionesentrega.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        condicionesentrega.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane10.setViewportView(condicionesentrega);
+
+        jPanel23.add(jScrollPane10, java.awt.BorderLayout.CENTER);
+
+        panelPrecontractual.add(jPanel23);
+
+        jLabel111.setPreferredSize(new java.awt.Dimension(800, 10));
+        panelPrecontractual.add(jLabel111);
+
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ANALISIS DE RIESGOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel11.setPreferredSize(new java.awt.Dimension(800, 110));
+        jPanel11.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane7.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        analisisriesgos.setColumns(20);
+        analisisriesgos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        analisisriesgos.setLineWrap(true);
+        analisisriesgos.setRows(5);
+        analisisriesgos.setText(ClaseGeneral.controlEstandar.findValorInEstandarByModuloCampo("contratos", "analisisriesgos"));
+        analisisriesgos.setWrapStyleWord(true);
+        analisisriesgos.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        analisisriesgos.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane7.setViewportView(analisisriesgos);
+
+        jPanel11.add(jScrollPane7, java.awt.BorderLayout.CENTER);
+
+        panelPrecontractual.add(jPanel11);
+
+        jTabbedPane.addTab("Pre-Contractual", panelPrecontractual);
+
+        panelPrecontractual2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelPrecontractual2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel19.setText("VALOR SIN IVA DEL CONTRATO : ");
+        jLabel19.setPreferredSize(new java.awt.Dimension(200, 25));
+        panelPrecontractual2.add(jLabel19);
+
+        valorsiniva.setBackground(ClaseGeneral.campo);
+        valorsiniva.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valorsiniva.setText("0");
+        valorsiniva.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        valorsiniva.setPreferredSize(new java.awt.Dimension(120, 25));
+        valorsiniva.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TextFieldFocusGained(evt);
+            }
+        });
+        valorsiniva.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TexyFieldKeyReleased(evt);
+            }
+        });
+        panelPrecontractual2.add(valorsiniva);
+
+        jLabel82.setPreferredSize(new java.awt.Dimension(10, 25));
+        panelPrecontractual2.add(jLabel82);
+
+        jSeparator19.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator19.setPreferredSize(new java.awt.Dimension(15, 25));
+        panelPrecontractual2.add(jSeparator19);
+
+        jLabel48.setText("VALOR CON IVA DEL CONTRATO : ");
+        jLabel48.setPreferredSize(new java.awt.Dimension(205, 25));
+        panelPrecontractual2.add(jLabel48);
+
+        valor.setBackground(ClaseGeneral.campo);
+        valor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valor.setText("0");
+        valor.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        valor.setPreferredSize(new java.awt.Dimension(120, 25));
+        valor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TextFieldFocusGained(evt);
+            }
+        });
+        valor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TexyFieldKeyReleased(evt);
+            }
+        });
+        panelPrecontractual2.add(valor);
+
+        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField5.setEnabled(false);
+        jTextField5.setFocusable(false);
+        jTextField5.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField5.setOpaque(false);
+        jTextField5.setPreferredSize(new java.awt.Dimension(100, 25));
+        panelPrecontractual2.add(jTextField5);
+
+        jLabel49.setText("Σ REGISTROS : ");
+        jLabel49.setPreferredSize(new java.awt.Dimension(105, 25));
+        panelPrecontractual2.add(jLabel49);
+
+        valorsoportescontratos.setBackground(ClaseGeneral.verde);
+        valorsoportescontratos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        valorsoportescontratos.setForeground(ClaseGeneral.rojo);
+        valorsoportescontratos.setText("0");
+        valorsoportescontratos.setFocusable(false);
+        valorsoportescontratos.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        valorsoportescontratos.setPreferredSize(new java.awt.Dimension(120, 25));
+        panelPrecontractual2.add(valorsoportescontratos);
+
+        jLabel84.setPreferredSize(new java.awt.Dimension(10, 25));
+        panelPrecontractual2.add(jLabel84);
+
+        jSeparator20.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator20.setPreferredSize(new java.awt.Dimension(15, 25));
+        panelPrecontractual2.add(jSeparator20);
+
+        jLabel50.setText("Σ CUBS - SIN IVA : ");
+        jLabel50.setPreferredSize(new java.awt.Dimension(120, 25));
+        panelPrecontractual2.add(jLabel50);
+
+        valortotalsinivaCUBS.setBackground(ClaseGeneral.verde);
+        valortotalsinivaCUBS.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        valortotalsinivaCUBS.setForeground(ClaseGeneral.rojo);
+        valortotalsinivaCUBS.setText("0");
+        valortotalsinivaCUBS.setFocusable(false);
+        valortotalsinivaCUBS.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        valortotalsinivaCUBS.setPreferredSize(new java.awt.Dimension(120, 25));
+        panelPrecontractual2.add(valortotalsinivaCUBS);
+
+        jLabel85.setPreferredSize(new java.awt.Dimension(10, 25));
+        panelPrecontractual2.add(jLabel85);
+
+        jSeparator21.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator21.setPreferredSize(new java.awt.Dimension(15, 25));
+        panelPrecontractual2.add(jSeparator21);
+
+        jLabel83.setText("Σ CUBS - CON IVA : ");
+        jLabel83.setPreferredSize(new java.awt.Dimension(120, 25));
+        panelPrecontractual2.add(jLabel83);
+
+        valortotalconivaCUBS.setBackground(ClaseGeneral.verde);
+        valortotalconivaCUBS.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        valortotalconivaCUBS.setForeground(ClaseGeneral.rojo);
+        valortotalconivaCUBS.setText("0");
+        valortotalconivaCUBS.setFocusable(false);
+        valortotalconivaCUBS.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        valortotalconivaCUBS.setPreferredSize(new java.awt.Dimension(120, 25));
+        panelPrecontractual2.add(valortotalconivaCUBS);
+
+        jLabel52.setText("VALOR EN LETRAS : ");
+        jLabel52.setPreferredSize(new java.awt.Dimension(125, 25));
+        panelPrecontractual2.add(jLabel52);
+
+        valorletras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valorletras.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        valorletras.setPreferredSize(new java.awt.Dimension(670, 25));
+        panelPrecontractual2.add(valorletras);
+
+        jLabel51.setText("VALOR DEL CONTRATO MONEDA EXTRANJERA : ");
+        jLabel51.setPreferredSize(new java.awt.Dimension(280, 25));
+        panelPrecontractual2.add(jLabel51);
+
+        valormonedaextranjera.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valormonedaextranjera.setText("0");
+        valormonedaextranjera.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        valormonedaextranjera.setPreferredSize(new java.awt.Dimension(150, 25));
+        valormonedaextranjera.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TextFieldFocusGained(evt);
+            }
+        });
+        valormonedaextranjera.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TexyFieldKeyReleased(evt);
+            }
+        });
+        panelPrecontractual2.add(valormonedaextranjera);
+
+        jTextField34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField34.setEnabled(false);
+        jTextField34.setFocusable(false);
+        jTextField34.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField34.setOpaque(false);
+        jTextField34.setPreferredSize(new java.awt.Dimension(360, 25));
+        panelPrecontractual2.add(jTextField34);
+
+        jLabel113.setPreferredSize(new java.awt.Dimension(800, 20));
+        panelPrecontractual2.add(jLabel113);
+
+        jLabel28.setText("TIPO DE FINANCIACIÓN : ");
+        jLabel28.setPreferredSize(new java.awt.Dimension(160, 25));
+        panelPrecontractual2.add(jLabel28);
+
+        tipofinanciacion.setBackground(ClaseGeneral.campo);
+        tipofinanciacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tipofinanciacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Fondo Especial", "Fondo Común", "Estampila ProUNIVALLE", "CREE", "Regalías", "Estampillas ProUNAL" }));
+        tipofinanciacion.setPreferredSize(new java.awt.Dimension(170, 25));
+        panelPrecontractual2.add(tipofinanciacion);
+
+        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField7.setEnabled(false);
+        jTextField7.setFocusable(false);
+        jTextField7.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField7.setOpaque(false);
+        jTextField7.setPreferredSize(new java.awt.Dimension(460, 25));
+        panelPrecontractual2.add(jTextField7);
+
+        jLabel115.setPreferredSize(new java.awt.Dimension(800, 20));
+        panelPrecontractual2.add(jLabel115);
+
+        jLabel29.setText("TIPO ESTIMACIÓN : ");
+        jLabel29.setPreferredSize(new java.awt.Dimension(125, 25));
+        panelPrecontractual2.add(jLabel29);
+
+        tipoestimacion.setBackground(ClaseGeneral.campo);
+        tipoestimacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tipoestimacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Opción a) determinar el valor de los bienes y/o servicios mediante cotizaciones a proveedores locales", "Opción b) determinar el valor de los bienes y/o servicios según el valor histórico anual pagado por la universidad", "Opción c) determinar el valor de los bienes y/o servicios con base en la información de publicaciones especializadas", "Opción d) determinar el valor de los bienes y/o servicios con base en la información de procesos en SECOP", "Opción e) determinar el valor de los bienes y/o servicios con base en la información de páginas web de distribuidores (en este caso se deben calcular valores por concepto de impuestos)", "Opción f) determinar el valor de los bienes y/o servicios con base en la información suministrada en la MGA" }));
+        tipoestimacion.setPreferredSize(new java.awt.Dimension(670, 25));
+        panelPrecontractual2.add(tipoestimacion);
+
+        jLabel116.setPreferredSize(new java.awt.Dimension(800, 5));
+        panelPrecontractual2.add(jLabel116);
+
+        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCRIPCION PROCESO DE ESTIMACIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel24.setPreferredSize(new java.awt.Dimension(800, 100));
+        jPanel24.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane11.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        estimacion.setBackground(ClaseGeneral.campo);
+        estimacion.setColumns(20);
+        estimacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        estimacion.setLineWrap(true);
+        estimacion.setRows(5);
+        estimacion.setWrapStyleWord(true);
+        estimacion.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        estimacion.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane11.setViewportView(estimacion);
+
+        jPanel24.add(jScrollPane11, java.awt.BorderLayout.CENTER);
+
+        panelPrecontractual2.add(jPanel24);
+
+        jLabel114.setPreferredSize(new java.awt.Dimension(800, 20));
+        panelPrecontractual2.add(jLabel114);
+
+        jLabel11.setText("TIEMPO DE PAGO CUENTAS : ");
+        jLabel11.setPreferredSize(new java.awt.Dimension(170, 25));
+        panelPrecontractual2.add(jLabel11);
+
+        tipotiempopago.setBackground(ClaseGeneral.campo);
+        tipotiempopago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tipotiempopago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Mensual", "Bimensual", "Semestral" }));
+        tipotiempopago.setPreferredSize(new java.awt.Dimension(170, 25));
+        panelPrecontractual2.add(tipotiempopago);
+
+        jLabel112.setPreferredSize(new java.awt.Dimension(15, 25));
+        panelPrecontractual2.add(jLabel112);
+
+        jSeparator24.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator24.setPreferredSize(new java.awt.Dimension(20, 25));
+        panelPrecontractual2.add(jSeparator24);
+
+        jLabel53.setText("DIAS PARA EFECTUAR PAGO : ");
+        jLabel53.setPreferredSize(new java.awt.Dimension(180, 25));
+        panelPrecontractual2.add(jLabel53);
+
+        diastiempopago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        diastiempopago.setText("30");
+        diastiempopago.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        diastiempopago.setPreferredSize(new java.awt.Dimension(150, 25));
+        diastiempopago.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TextFieldFocusGained(evt);
+            }
+        });
+        diastiempopago.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TexyFieldKeyReleased(evt);
+            }
+        });
+        panelPrecontractual2.add(diastiempopago);
+
+        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField6.setEnabled(false);
+        jTextField6.setFocusable(false);
+        jTextField6.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField6.setOpaque(false);
+        jTextField6.setPreferredSize(new java.awt.Dimension(65, 25));
+        panelPrecontractual2.add(jTextField6);
+
+        jLabel79.setPreferredSize(new java.awt.Dimension(800, 5));
+        panelPrecontractual2.add(jLabel79);
+
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FORMA DE PAGO DEL CONTRATO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel14.setPreferredSize(new java.awt.Dimension(800, 100));
+        jPanel14.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane3.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        formapago.setBackground(ClaseGeneral.campo);
+        formapago.setColumns(20);
+        formapago.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        formapago.setLineWrap(true);
+        formapago.setRows(5);
+        formapago.setWrapStyleWord(true);
+        formapago.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        formapago.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane3.setViewportView(formapago);
+
+        jPanel14.add(jScrollPane3, java.awt.BorderLayout.CENTER);
+
+        panelPrecontractual2.add(jPanel14);
+
+        jTabbedPane.addTab("Pre-Contractual (continuacion)", panelPrecontractual2);
+
+        panelContractual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelContractual.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel2.setText("MODALIDAD DE CONTRATACIÓN : ");
+        jLabel2.setPreferredSize(new java.awt.Dimension(200, 25));
+        panelContractual.add(jLabel2);
+
+        modalidad.setBackground(ClaseGeneral.campo);
+        modalidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        modalidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "2_16: Contratación Directa", "2_17: Invitación Publica", "2_18: Invitación Privada", "2_16: Menor Cuantía", "2_16: Mínima Cuantía", "005" }));
+        modalidad.setSelectedItem("2_16: Mínima Cuantía");
+        modalidad.setPreferredSize(new java.awt.Dimension(550, 25));
+        panelContractual.add(modalidad);
+
+        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField9.setEnabled(false);
+        jTextField9.setFocusable(false);
+        jTextField9.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField9.setOpaque(false);
+        jTextField9.setPreferredSize(new java.awt.Dimension(40, 25));
+        panelContractual.add(jTextField9);
+
+        jLabel3.setText("CAUSAL : ");
+        jLabel3.setToolTipText("<html>\n<p><strong>Modalidad de Selección:</strong> De acuerdo con el artículo 2° de la Ley 1150 de 2007 </p>\n<ul>\n  <li>    Concurso de Méritos </li>\n  <li>    Contratación Directa </li>\n  <li>    Licitación Pública </li>\n  <li>    Selección Abreviada </li>\n</ul>\n</html>");
+        jLabel3.setPreferredSize(new java.awt.Dimension(60, 25));
+        panelContractual.add(jLabel3);
+
+        causal.setBackground(ClaseGeneral.campo);
+        causal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        causal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "CD001: Licitación Pública", "CD002: Adquisición de bienes y servicios de características técnicas uniformes", "CD003: Contratación de menor cuantía", "CD004: Prestación de servicios de salud", "CD005: Licitación declarada desierta", "CD006: Enajenación de bienes del estado", "CD007: Productos de origen o Destinación agropecuarios", "CD008: Actividades industriales y comerciales de la EICE y las sociedades de economía mixta", "CD009: Programas de protección, desmovilización, reinserción, protección, etc.", "CD010: Bienes y servicios para la defensa de la seguridad nacional.", "CD011: Concurso de méritos", "CD012: Urgencia manifiesta", "CD013: Contratación de empréstitos", "CD014: Contratos interadministrativos", "CD015: Contratación de bienes y servicios en el sector defensa y en el DAS", "CD016: Contratos para el desarrollo de actividades científicas y tecnológicas", "CD017: Contratos de encargo fiduciario", "CD018: Cuando no existe pluralidad de oferentes en el mercado.", "CD019: Prestación de servicios profesionales y de apoyo a la gestión.", "CD020: Arrendamiento o Adquisición de inmuebles", "EC001: Estatuto de Contratación", "16_1183: Invitación Directa", "16_1184: Invitación Pública", "16_1185: Invitación Cerrada" }));
+        causal.setSelectedItem("16_1183: Invitación Directa");
+        causal.setPreferredSize(new java.awt.Dimension(550, 25));
+        panelContractual.add(causal);
+
+        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField8.setEnabled(false);
+        jTextField8.setFocusable(false);
+        jTextField8.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField8.setOpaque(false);
+        jTextField8.setPreferredSize(new java.awt.Dimension(180, 25));
+        panelContractual.add(jTextField8);
+
+        jLabel4.setText("TIPO DE CONTRATO : ");
+        jLabel4.setToolTipText("<html>\n<p><strong>Modalidad de Selección:</strong> De acuerdo con el artículo 2° de la Ley 1150 de 2007 </p>\n<ul>\n  <li>    Concurso de Méritos </li>\n  <li>    Contratación Directa </li>\n  <li>    Licitación Pública </li>\n  <li>    Selección Abreviada </li>\n</ul>\n</html>");
+        jLabel4.setPreferredSize(new java.awt.Dimension(130, 25));
+        panelContractual.add(jLabel4);
+
+        tipocontrato.setBackground(ClaseGeneral.campo);
+        tipocontrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tipocontrato.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "1: C1 Prestación de Servicios", "2: C2 Consultoría", "3: C3 Interventoría", "4: C4 Mantenimiento y/o Reparación", "5: C5 Obra Pública", "6: C6 Compra Venta y/o Suministro", "7: C7 Concesión", "8: C8 Comodato", "9: C9 Arrendamiento y/o Adquisición de inmuebles", "10: C10 Fiducia o Encargo fiduciario", "11: C11 Prestamo o Mutuo", "12: C12 Transporte", "13: C13 Publicidad", "14: C14 Deposito", "15: C15 Seguros", "16: C16 Prestación de los servicios de salud", "17: C17 Contrato interadministrativo", "18: C18 Contratos para el desarrollo de actividades científicas y tecnológicas", "19: C19 Otros" }));
+        tipocontrato.setPreferredSize(new java.awt.Dimension(550, 25));
+        panelContractual.add(tipocontrato);
+
+        jTextField43.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField43.setEnabled(false);
+        jTextField43.setFocusable(false);
+        jTextField43.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField43.setOpaque(false);
+        jTextField43.setPreferredSize(new java.awt.Dimension(110, 25));
+        panelContractual.add(jTextField43);
+
+        jLabel5.setText("ES INVERSION : ");
+        jLabel5.setPreferredSize(new java.awt.Dimension(100, 25));
+        panelContractual.add(jLabel5);
+
+        inversion.setBackground(ClaseGeneral.campo);
+        inversion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        inversion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Si es Inversión", "No es Inversión" }));
+        inversion.setPreferredSize(new java.awt.Dimension(170, 25));
+        panelContractual.add(inversion);
+
+        jTextField57.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField57.setEnabled(false);
+        jTextField57.setFocusable(false);
+        jTextField57.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField57.setOpaque(false);
+        jTextField57.setPreferredSize(new java.awt.Dimension(520, 25));
+        panelContractual.add(jTextField57);
+
+        jLabel18.setText("SE PACTÓ ANTICIPO AL CONTRATO : ");
+        jLabel18.setPreferredSize(new java.awt.Dimension(210, 25));
+        panelContractual.add(jLabel18);
+
+        anticipio.setBackground(ClaseGeneral.campo);
+        anticipio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        anticipio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "SI", "NO" }));
+        anticipio.setSelectedItem("NO");
+        anticipio.setPreferredSize(new java.awt.Dimension(120, 25));
+        panelContractual.add(anticipio);
+
+        jLabel87.setPreferredSize(new java.awt.Dimension(10, 25));
+        panelContractual.add(jLabel87);
+
+        jSeparator22.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator22.setPreferredSize(new java.awt.Dimension(15, 25));
+        panelContractual.add(jSeparator22);
+
+        jLabel80.setText("TIEMPO DE GARANTIA DEL CONTRATO : ");
+        jLabel80.setPreferredSize(new java.awt.Dimension(230, 25));
+        panelContractual.add(jLabel80);
+
+        tiempogarantia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tiempogarantia.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        tiempogarantia.setPreferredSize(new java.awt.Dimension(190, 25));
+        panelContractual.add(tiempogarantia);
+
+        jLabel118.setPreferredSize(new java.awt.Dimension(800, 20));
+        panelContractual.add(jLabel118);
+
+        jLabel88.setText("CODIGO DEPARTAMENTO : ");
+        jLabel88.setPreferredSize(new java.awt.Dimension(160, 25));
+        panelContractual.add(jLabel88);
+
+        codigodepartamento.setBackground(ClaseGeneral.campo);
+        codigodepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        codigodepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "76" }));
+        codigodepartamento.setSelectedItem("76");
+        codigodepartamento.setPreferredSize(new java.awt.Dimension(120, 25));
+        panelContractual.add(codigodepartamento);
+
+        jLabel100.setPreferredSize(new java.awt.Dimension(10, 25));
+        panelContractual.add(jLabel100);
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator6.setPreferredSize(new java.awt.Dimension(10, 25));
+        panelContractual.add(jSeparator6);
+
+        jLabel93.setText("CODIGO MUNICIPIO : ");
+        jLabel93.setPreferredSize(new java.awt.Dimension(135, 25));
+        panelContractual.add(jLabel93);
+
+        codigomunicipio.setBackground(ClaseGeneral.campo);
+        codigomunicipio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        codigomunicipio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "76001" }));
+        codigomunicipio.setSelectedItem("76001");
+        codigomunicipio.setPreferredSize(new java.awt.Dimension(120, 25));
+        panelContractual.add(codigomunicipio);
+
+        jTextField12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField12.setEnabled(false);
+        jTextField12.setFocusable(false);
+        jTextField12.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField12.setOpaque(false);
+        jTextField12.setPreferredSize(new java.awt.Dimension(215, 25));
+        panelContractual.add(jTextField12);
+
+        jLabel54.setText("LUGAR DE EJECUCION : ");
+        jLabel54.setPreferredSize(new java.awt.Dimension(150, 25));
+        panelContractual.add(jLabel54);
+
+        lugarejecucion.setBackground(ClaseGeneral.campo);
+        lugarejecucion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lugarejecucion.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        lugarejecucion.setPreferredSize(new java.awt.Dimension(645, 25));
+        panelContractual.add(lugarejecucion);
+
+        jLabel71.setPreferredSize(new java.awt.Dimension(800, 20));
+        panelContractual.add(jLabel71);
+
+        jLabel101.setText("FECHA FICHA TECNICA : ");
+        jLabel101.setPreferredSize(new java.awt.Dimension(150, 25));
+        panelContractual.add(jLabel101);
+
+        jPanel18.setBackground(ClaseGeneral.campo);
+        jPanel18.setMaximumSize(new java.awt.Dimension(140, 25));
+        jPanel18.setMinimumSize(new java.awt.Dimension(140, 25));
+        jPanel18.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        fechafichatecnica.setFocusable(false);
+        fechafichatecnica.setMaximumSize(new java.awt.Dimension(120, 25));
+        fechafichatecnica.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechafichatecnica.setPreferredSize(new java.awt.Dimension(120, 25));
+        jPanel18.add(fechafichatecnica);
+
+        jLabel102.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel102.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel102.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel102.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel102.setMaximumSize(new java.awt.Dimension(20, 26));
+        jLabel102.setMinimumSize(new java.awt.Dimension(20, 26));
+        jLabel102.setPreferredSize(new java.awt.Dimension(20, 26));
+        jPanel18.add(jLabel102);
+
+        panelContractual.add(jPanel18);
+
+        botonAyuda3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda3.setFocusable(false);
+        botonAyuda3.setName("botonAyuda3"); // NOI18N
+        botonAyuda3.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        panelContractual.add(botonAyuda3);
+
+        jTextField55.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField55.setEnabled(false);
+        jTextField55.setFocusable(false);
+        jTextField55.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField55.setOpaque(false);
+        jTextField55.setPreferredSize(new java.awt.Dimension(470, 25));
+        panelContractual.add(jTextField55);
+
+        jLabel103.setText("FECHA INVITACION A PROPONENTES : ");
+        jLabel103.setPreferredSize(new java.awt.Dimension(220, 25));
+        panelContractual.add(jLabel103);
+
+        jPanel19.setBackground(ClaseGeneral.campo);
+        jPanel19.setMaximumSize(new java.awt.Dimension(140, 25));
+        jPanel19.setMinimumSize(new java.awt.Dimension(140, 25));
+        jPanel19.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        fechainvitacion.setFocusable(false);
+        fechainvitacion.setMaximumSize(new java.awt.Dimension(120, 25));
+        fechainvitacion.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechainvitacion.setPreferredSize(new java.awt.Dimension(120, 25));
+        jPanel19.add(fechainvitacion);
+
+        jLabel104.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel104.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel104.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel104.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel104.setMaximumSize(new java.awt.Dimension(20, 26));
+        jLabel104.setMinimumSize(new java.awt.Dimension(20, 26));
+        jLabel104.setPreferredSize(new java.awt.Dimension(20, 26));
+        jPanel19.add(jLabel104);
+
+        panelContractual.add(jPanel19);
+
+        botonAyuda4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda4.setFocusable(false);
+        botonAyuda4.setName("botonAyuda4"); // NOI18N
+        botonAyuda4.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        panelContractual.add(botonAyuda4);
+
+        jTextField56.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField56.setEnabled(false);
+        jTextField56.setFocusable(false);
+        jTextField56.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField56.setOpaque(false);
+        jTextField56.setPreferredSize(new java.awt.Dimension(400, 25));
+        panelContractual.add(jTextField56);
+
+        jLabel13.setText("FECHA DE SUSCRIPCION (ELABORACION) DEL CONTRATO : ");
+        jLabel13.setPreferredSize(new java.awt.Dimension(335, 25));
+        panelContractual.add(jLabel13);
+
+        jPanel1.setBackground(ClaseGeneral.campo);
+        jPanel1.setMaximumSize(new java.awt.Dimension(140, 25));
+        jPanel1.setMinimumSize(new java.awt.Dimension(140, 25));
+        jPanel1.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        fechasuscripcion.setFocusable(false);
+        fechasuscripcion.setMaximumSize(new java.awt.Dimension(120, 25));
+        fechasuscripcion.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechasuscripcion.setPreferredSize(new java.awt.Dimension(120, 25));
+        jPanel1.add(fechasuscripcion);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel25.setMaximumSize(new java.awt.Dimension(20, 26));
+        jLabel25.setMinimumSize(new java.awt.Dimension(20, 26));
+        jLabel25.setPreferredSize(new java.awt.Dimension(20, 26));
+        jPanel1.add(jLabel25);
+
+        panelContractual.add(jPanel1);
+
+        botonAyuda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda1.setFocusable(false);
+        botonAyuda1.setName("botonAyuda1"); // NOI18N
+        botonAyuda1.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        panelContractual.add(botonAyuda1);
+
+        jTextField29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField29.setEnabled(false);
+        jTextField29.setFocusable(false);
+        jTextField29.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField29.setOpaque(false);
+        jTextField29.setPreferredSize(new java.awt.Dimension(285, 25));
+        panelContractual.add(jTextField29);
+
+        jLabel94.setText("FECHA DE CIERRE DEL CONTRATO : ");
+        jLabel94.setPreferredSize(new java.awt.Dimension(215, 25));
+        panelContractual.add(jLabel94);
+
+        jPanel15.setBackground(ClaseGeneral.campo);
+        jPanel15.setMaximumSize(new java.awt.Dimension(140, 25));
+        jPanel15.setMinimumSize(new java.awt.Dimension(140, 25));
+        jPanel15.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        fechacierre.setFocusable(false);
+        fechacierre.setMaximumSize(new java.awt.Dimension(120, 25));
+        fechacierre.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechacierre.setPreferredSize(new java.awt.Dimension(120, 25));
+        jPanel15.add(fechacierre);
+
+        jLabel95.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel95.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel95.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel95.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel95.setMaximumSize(new java.awt.Dimension(20, 26));
+        jLabel95.setMinimumSize(new java.awt.Dimension(20, 26));
+        jLabel95.setPreferredSize(new java.awt.Dimension(20, 26));
+        jPanel15.add(jLabel95);
+
+        panelContractual.add(jPanel15);
+
+        botonAyuda5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda5.setFocusable(false);
+        botonAyuda5.setName("botonAyuda5"); // NOI18N
+        botonAyuda5.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        panelContractual.add(botonAyuda5);
+
+        jTextField50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField50.setEnabled(false);
+        jTextField50.setFocusable(false);
+        jTextField50.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField50.setOpaque(false);
+        jTextField50.setPreferredSize(new java.awt.Dimension(405, 25));
+        panelContractual.add(jTextField50);
+
+        jLabel96.setText("FECHA LEGALIZACIÓN DEL CONTRATO : ");
+        jLabel96.setPreferredSize(new java.awt.Dimension(235, 25));
+        panelContractual.add(jLabel96);
+
+        jPanel16.setBackground(ClaseGeneral.campo);
+        jPanel16.setMaximumSize(new java.awt.Dimension(140, 25));
+        jPanel16.setMinimumSize(new java.awt.Dimension(140, 25));
+        jPanel16.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        fechalegalizacion.setFocusable(false);
+        fechalegalizacion.setMaximumSize(new java.awt.Dimension(120, 25));
+        fechalegalizacion.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechalegalizacion.setPreferredSize(new java.awt.Dimension(120, 25));
+        jPanel16.add(fechalegalizacion);
+
+        jLabel97.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel97.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel97.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel97.setMaximumSize(new java.awt.Dimension(20, 26));
+        jLabel97.setMinimumSize(new java.awt.Dimension(20, 26));
+        jLabel97.setPreferredSize(new java.awt.Dimension(20, 26));
+        jPanel16.add(jLabel97);
+
+        panelContractual.add(jPanel16);
+
+        botonAyuda6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda6.setFocusable(false);
+        botonAyuda6.setName("botonAyuda6"); // NOI18N
+        botonAyuda6.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        panelContractual.add(botonAyuda6);
+
+        jTextField52.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField52.setEnabled(false);
+        jTextField52.setFocusable(false);
+        jTextField52.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField52.setOpaque(false);
+        jTextField52.setPreferredSize(new java.awt.Dimension(385, 25));
+        panelContractual.add(jTextField52);
+
+        jLabel12.setText("FECHA DE ADJUDICACIÓN : ");
+        jLabel12.setPreferredSize(new java.awt.Dimension(165, 25));
+        panelContractual.add(jLabel12);
+
+        jPanel20.setBackground(ClaseGeneral.campo);
+        jPanel20.setMaximumSize(new java.awt.Dimension(140, 25));
+        jPanel20.setMinimumSize(new java.awt.Dimension(140, 25));
+        jPanel20.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel20.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        fechaadjudicacion.setFocusable(false);
+        fechaadjudicacion.setMaximumSize(new java.awt.Dimension(120, 25));
+        fechaadjudicacion.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechaadjudicacion.setPreferredSize(new java.awt.Dimension(120, 25));
+        jPanel20.add(fechaadjudicacion);
+
+        jLabel105.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel105.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel105.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel105.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel105.setMaximumSize(new java.awt.Dimension(20, 26));
+        jLabel105.setMinimumSize(new java.awt.Dimension(20, 26));
+        jLabel105.setPreferredSize(new java.awt.Dimension(20, 26));
+        jPanel20.add(jLabel105);
+
+        panelContractual.add(jPanel20);
+
+        botonAyuda7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda7.setFocusable(false);
+        botonAyuda7.setName("botonAyuda7"); // NOI18N
+        botonAyuda7.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        panelContractual.add(botonAyuda7);
+
+        jTextField16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField16.setEnabled(false);
+        jTextField16.setFocusable(false);
+        jTextField16.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField16.setOpaque(false);
+        jTextField16.setPreferredSize(new java.awt.Dimension(455, 25));
+        panelContractual.add(jTextField16);
+
+        jLabel98.setText("FECHA PERFECCIONAMIENTO DEL CONTRATO : ");
+        jLabel98.setPreferredSize(new java.awt.Dimension(280, 25));
+        panelContractual.add(jLabel98);
+
+        jPanel17.setBackground(ClaseGeneral.campo);
+        jPanel17.setMaximumSize(new java.awt.Dimension(140, 25));
+        jPanel17.setMinimumSize(new java.awt.Dimension(140, 25));
+        jPanel17.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        fechaperfeccionamiento.setFocusable(false);
+        fechaperfeccionamiento.setMaximumSize(new java.awt.Dimension(120, 25));
+        fechaperfeccionamiento.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechaperfeccionamiento.setPreferredSize(new java.awt.Dimension(120, 25));
+        jPanel17.add(fechaperfeccionamiento);
+
+        jLabel99.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel99.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel99.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel99.setMaximumSize(new java.awt.Dimension(20, 26));
+        jLabel99.setMinimumSize(new java.awt.Dimension(20, 26));
+        jLabel99.setPreferredSize(new java.awt.Dimension(20, 26));
+        jPanel17.add(jLabel99);
+
+        panelContractual.add(jPanel17);
+
+        botonAyuda8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda8.setFocusable(false);
+        botonAyuda8.setName("botonAyuda8"); // NOI18N
+        botonAyuda8.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        panelContractual.add(botonAyuda8);
+
+        jTextField53.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField53.setEnabled(false);
+        jTextField53.setFocusable(false);
+        jTextField53.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField53.setOpaque(false);
+        jTextField53.setPreferredSize(new java.awt.Dimension(340, 25));
+        panelContractual.add(jTextField53);
+
+        jLabel108.setText("FECHA ENTREGA BIEN / SERVICIO : ");
+        jLabel108.setToolTipText("");
+        jLabel108.setPreferredSize(new java.awt.Dimension(210, 25));
+        panelContractual.add(jLabel108);
+
+        jPanel25.setBackground(ClaseGeneral.campo);
+        jPanel25.setMaximumSize(new java.awt.Dimension(140, 25));
+        jPanel25.setMinimumSize(new java.awt.Dimension(140, 25));
+        jPanel25.setPreferredSize(new java.awt.Dimension(140, 25));
+        jPanel25.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        fechaentrega.setFocusable(false);
+        fechaentrega.setMaximumSize(new java.awt.Dimension(120, 25));
+        fechaentrega.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechaentrega.setPreferredSize(new java.awt.Dimension(120, 25));
+        jPanel25.add(fechaentrega);
+
+        jLabel119.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel119.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel119.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel119.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel119.setMaximumSize(new java.awt.Dimension(20, 26));
+        jLabel119.setMinimumSize(new java.awt.Dimension(20, 26));
+        jLabel119.setPreferredSize(new java.awt.Dimension(20, 26));
+        jPanel25.add(jLabel119);
+
+        panelContractual.add(jPanel25);
+
+        botonAyuda9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda9.setFocusable(false);
+        botonAyuda9.setName("botonAyuda8"); // NOI18N
+        botonAyuda9.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        panelContractual.add(botonAyuda9);
+
+        jTextField54.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField54.setEnabled(false);
+        jTextField54.setFocusable(false);
+        jTextField54.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField54.setOpaque(false);
+        jTextField54.setPreferredSize(new java.awt.Dimension(410, 25));
+        panelContractual.add(jTextField54);
+
+        jTabbedPane.addTab("Contractual", panelContractual);
+
         panelAdicional.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelAdicional.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
@@ -2169,7 +2338,7 @@ public class PanelContratos extends javax.swing.JPanel {
         panelAdicional.add(jLabel109);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OBSERVACIÓN O JUSTIFICACIÓN AL CONTRATO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel5.setPreferredSize(new java.awt.Dimension(800, 100));
+        jPanel5.setPreferredSize(new java.awt.Dimension(800, 120));
         jPanel5.setLayout(new java.awt.BorderLayout());
 
         jScrollPane2.setPreferredSize(new java.awt.Dimension(430, 70));
@@ -2189,74 +2358,6 @@ public class PanelContratos extends javax.swing.JPanel {
         panelAdicional.add(jPanel5);
 
         jTabbedPane.addTab("Informacion Adicional", panelAdicional);
-
-        panelSECOP.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelSECOP.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        jLabel89.setText("NUMERO DEL PROCESO (SOLICITUD OFERTA) : ");
-        jLabel89.setPreferredSize(new java.awt.Dimension(285, 25));
-        panelSECOP.add(jLabel89);
-
-        secopnumeroproceso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        secopnumeroproceso.setText("0");
-        secopnumeroproceso.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        secopnumeroproceso.setPreferredSize(new java.awt.Dimension(510, 25));
-        panelSECOP.add(secopnumeroproceso);
-
-        jLabel90.setText("NUMERO EN EL SISTEMA DEL PROCESO : ");
-        jLabel90.setPreferredSize(new java.awt.Dimension(250, 25));
-        panelSECOP.add(jLabel90);
-
-        secopnumeroconstancia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        secopnumeroconstancia.setText("0");
-        secopnumeroconstancia.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        secopnumeroconstancia.setPreferredSize(new java.awt.Dimension(150, 25));
-        panelSECOP.add(secopnumeroconstancia);
-
-        jLabel91.setPreferredSize(new java.awt.Dimension(20, 25));
-        panelSECOP.add(jLabel91);
-
-        jSeparator23.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator23.setPreferredSize(new java.awt.Dimension(25, 25));
-        panelSECOP.add(jSeparator23);
-
-        jLabel92.setText("FECHA DE PUBLICACION : ");
-        jLabel92.setPreferredSize(new java.awt.Dimension(160, 25));
-        panelSECOP.add(jLabel92);
-
-        secopfechapublicacion.setFocusable(false);
-        secopfechapublicacion.setMaximumSize(new java.awt.Dimension(120, 25));
-        secopfechapublicacion.setMinimumSize(new java.awt.Dimension(120, 25));
-        secopfechapublicacion.setPreferredSize(new java.awt.Dimension(120, 25));
-        panelSECOP.add(secopfechapublicacion);
-
-        jTextField51.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField51.setEnabled(false);
-        jTextField51.setFocusable(false);
-        jTextField51.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField51.setOpaque(false);
-        jTextField51.setPreferredSize(new java.awt.Dimension(45, 25));
-        panelSECOP.add(jTextField51);
-
-        jLabel86.setText("NUMERO EN EL SISTEMA DEL CONTRATO : ");
-        jLabel86.setPreferredSize(new java.awt.Dimension(260, 25));
-        panelSECOP.add(jLabel86);
-
-        secopcodigoproceso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        secopcodigoproceso.setText("0");
-        secopcodigoproceso.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        secopcodigoproceso.setPreferredSize(new java.awt.Dimension(150, 25));
-        panelSECOP.add(secopcodigoproceso);
-
-        jTextField49.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField49.setEnabled(false);
-        jTextField49.setFocusable(false);
-        jTextField49.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField49.setOpaque(false);
-        jTextField49.setPreferredSize(new java.awt.Dimension(380, 25));
-        panelSECOP.add(jTextField49);
-
-        jTabbedPane.addTab("SECOP", panelSECOP);
 
         add(jTabbedPane, java.awt.BorderLayout.CENTER);
         jTabbedPane.getAccessibleContext().setAccessibleName("jTabbedPane");
@@ -2339,6 +2440,8 @@ public class PanelContratos extends javax.swing.JPanel {
             ClaseMensaje.informacion("<html> <p>La fecha del cuadro comparativo o el informe de adjudicación</p> <p>También pueden ser la del RDP</p> </html>");
         } else if (eventoAyuda.equals("botonAyuda8")) {
             ClaseMensaje.informacion("<html> <p>Cuando la firma el ordenador del gasto</p> <p>También pueden ser la fecha en que elaboras la orden contractual</p> </html>");
+        } else if (eventoAyuda.equals("botonAyuda9")) {
+            ClaseMensaje.informacion("...");
         }
     }//GEN-LAST:event_botonAyudaActionPerformed
 
@@ -2361,14 +2464,6 @@ public class PanelContratos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ComboBoxStateChanged
 
-    private void diastiempopagoTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_diastiempopagoTextFieldFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diastiempopagoTextFieldFocusGained
-
-    private void diastiempopagoTexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diastiempopagoTexyFieldKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diastiempopagoTexyFieldKeyReleased
-
     public void metodoInsertar() {
         ClaseGeneral.contratos = new Contratos();
         ClaseGeneral.contratos.setContrato(contrato.getText());
@@ -2383,7 +2478,7 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setObjeto(objeto.getText().toUpperCase());
         ClaseGeneral.contratos.setResolucionadjudicacion(resolucionadjudicacion.getText());
         ClaseGeneral.contratos.setFechaadjudicacion(fechaadjudicacion.getDate());
-        ClaseGeneral.contratos.setFktercero("" + fktercero.getText());
+        ClaseGeneral.contratos.setFktercero(fktercero.getText());
         ClaseGeneral.contratos.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
         ClaseGeneral.contratos.setValormonedaextranjera(BigDecimal.valueOf(Long.parseLong("" + valormonedaextranjera.getText().trim().replace(".", ""))));
         ClaseGeneral.contratos.setAnticipio("" + anticipio.getSelectedItem());
@@ -2399,8 +2494,8 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setPorcentajeactividad(porcentajeactividad.getText());
         ClaseGeneral.contratos.setTipointerventoria("" + tipointerventoria.getSelectedItem());
         ClaseGeneral.contratos.setTipovinculacionintersuper("" + tipovinculacionintersuper.getSelectedItem());
-        ClaseGeneral.contratos.setFktercerointersuper("" + fktercerointersuper.getText());
-        ClaseGeneral.contratos.setFkterceroordenadorgasto("" + fkterceroordenadorgasto.getText());
+        ClaseGeneral.contratos.setFktercerointersuper(fktercerointersuper.getText());
+        ClaseGeneral.contratos.setFkterceroordenadorgasto(fkterceroordenadorgasto.getText());
         ClaseGeneral.contratos.setTipoactaavance("" + tipoactaavance.getSelectedItem());
         ClaseGeneral.contratos.setFechaactaavance(fechaactaavance.getDate());
         ClaseGeneral.contratos.setPorcentajeavance(porcentajeavance.getText());
@@ -2430,6 +2525,31 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setSecopnumeroproceso(secopnumeroproceso.getText());
         ClaseGeneral.contratos.setSecopnumeroconstancia(secopnumeroconstancia.getText());
         ClaseGeneral.contratos.setSecopfechapublicacion(secopfechapublicacion.getDate());
+        ClaseGeneral.contratos.setAlcance(alcance.getText());
+        ClaseGeneral.contratos.setAnalisisriesgos(analisisriesgos.getText());
+        ClaseGeneral.contratos.setCondicionesentrega(condicionesentrega.getText());
+        ClaseGeneral.contratos.setDiastiempopago(diastiempopago.getText());
+        ClaseGeneral.contratos.setEstimacion(estimacion.getText());
+        ClaseGeneral.contratos.setFacultad(ClaseGeneral.facultad);
+//ClaseGeneral.contratos.setFechaactainicio(fechaactainicio.getDate());
+        ClaseGeneral.contratos.setFechaentrega(fechaentrega.getDate());
+        ClaseGeneral.contratos.setFechafichatecnica(fechafichatecnica.getDate());
+        ClaseGeneral.contratos.setFechainvitacion(fechainvitacion.getDate());
+        ClaseGeneral.contratos.setLugarejecucion(lugarejecucion.getText());
+//ClaseGeneral.contratos.setModalidadarticulo(modalidadarticulo.getText());
+//ClaseGeneral.contratos.setModalidadfundamento(modalidadfundamento.getText());
+        ClaseGeneral.contratos.setNecesidad(necesidad.getText());
+        ClaseGeneral.contratos.setObjetoespecifico(objetoespecifico.getText());
+        ClaseGeneral.contratos.setObligacionescontratista(obligacionescontratista.getText());
+        ClaseGeneral.contratos.setObligacionesuniversidad(obligacionesuniversidad.getText());
+//ClaseGeneral.contratos.setObservacionesactainicio(observacionesactainicio.getText());
+        ClaseGeneral.contratos.setPerfilrequerido(perfilrequerido.getText());
+//ClaseGeneral.contratos.setPlanadquisicion(planadquisicion.getText());
+        ClaseGeneral.contratos.setRequerimientostecnicos(requerimientostecnicos.getText());
+        ClaseGeneral.contratos.setTipotiempopago("" + tipotiempopago.getSelectedItem());
+        ClaseGeneral.contratos.setTipoestimacion("" + tipoestimacion.getSelectedItem());
+        ClaseGeneral.contratos.setTipofinanciacion("" + tipofinanciacion.getSelectedItem());
+        ClaseGeneral.contratos.setValorletras(valorletras.getText());
 
         if (ClaseGeneral.controlContratos.verify(ClaseGeneral.contratos, "create")) {
             try {
@@ -2502,6 +2622,31 @@ public class PanelContratos extends javax.swing.JPanel {
         secopnumeroproceso.setText(ClaseGeneral.contratos.getSecopnumeroproceso());
         secopnumeroconstancia.setText(ClaseGeneral.contratos.getSecopnumeroconstancia());
         secopfechapublicacion.setDate(ClaseGeneral.contratos.getSecopfechapublicacion());
+        alcance.setText(ClaseGeneral.contratos.getAlcance());
+        analisisriesgos.setText(ClaseGeneral.contratos.getAnalisisriesgos());
+        condicionesentrega.setText(ClaseGeneral.contratos.getCondicionesentrega());
+        diastiempopago.setText(ClaseGeneral.contratos.getDiastiempopago());
+        estimacion.setText(ClaseGeneral.contratos.getEstimacion());
+//facultad.setText(ClaseGeneral.contratos.getFacultad());
+//fechaactainicio.setDate(ClaseGeneral.contratos.getFechaactainicio());
+        fechaentrega.setDate(ClaseGeneral.contratos.getFechaentrega());
+        fechafichatecnica.setDate(ClaseGeneral.contratos.getFechafichatecnica());
+        fechainvitacion.setDate(ClaseGeneral.contratos.getFechainvitacion());
+        lugarejecucion.setText(ClaseGeneral.contratos.getLugarejecucion());
+//modalidadarticulo.setText(ClaseGeneral.contratos.getModalidadarticulo());
+//modalidadfundamento.setText(ClaseGeneral.contratos.getModalidadfundamento());
+        necesidad.setText(ClaseGeneral.contratos.getNecesidad());
+        objetoespecifico.setText(ClaseGeneral.contratos.getObjetoespecifico());
+        obligacionescontratista.setText(ClaseGeneral.contratos.getObligacionescontratista());
+        obligacionesuniversidad.setText(ClaseGeneral.contratos.getObligacionesuniversidad());
+//observacionesactainicio.setText(ClaseGeneral.contratos.getObservacionesactainicio());
+        perfilrequerido.setText(ClaseGeneral.contratos.getPerfilrequerido());
+//planadquisicion.setText(ClaseGeneral.contratos.getPlanadquisicion());
+        requerimientostecnicos.setText(ClaseGeneral.contratos.getRequerimientostecnicos());
+        tipotiempopago.setSelectedItem(ClaseGeneral.contratos.getTipotiempopago());
+        tipoestimacion.setSelectedItem(ClaseGeneral.contratos.getTipoestimacion());
+        tipofinanciacion.setSelectedItem(ClaseGeneral.contratos.getTipofinanciacion());
+        valorletras.setText(ClaseGeneral.contratos.getValorletras());
 
         metodoSumarSoportescontratos();
         metodoSumarCUBS();
@@ -2583,6 +2728,31 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setSecopnumeroproceso(secopnumeroproceso.getText());
         ClaseGeneral.contratos.setSecopnumeroconstancia(secopnumeroconstancia.getText());
         ClaseGeneral.contratos.setSecopfechapublicacion(secopfechapublicacion.getDate());
+        ClaseGeneral.contratos.setAlcance(alcance.getText());
+        ClaseGeneral.contratos.setAnalisisriesgos(analisisriesgos.getText());
+        ClaseGeneral.contratos.setCondicionesentrega(condicionesentrega.getText());
+        ClaseGeneral.contratos.setDiastiempopago(diastiempopago.getText());
+        ClaseGeneral.contratos.setEstimacion(estimacion.getText());
+        ClaseGeneral.contratos.setFacultad(ClaseGeneral.facultad);
+//ClaseGeneral.contratos.setFechaactainicio(fechaactainicio.getDate());
+        ClaseGeneral.contratos.setFechaentrega(fechaentrega.getDate());
+        ClaseGeneral.contratos.setFechafichatecnica(fechafichatecnica.getDate());
+        ClaseGeneral.contratos.setFechainvitacion(fechainvitacion.getDate());
+        ClaseGeneral.contratos.setLugarejecucion(lugarejecucion.getText());
+//ClaseGeneral.contratos.setModalidadarticulo(modalidadarticulo.getText());
+//ClaseGeneral.contratos.setModalidadfundamento(modalidadfundamento.getText());
+        ClaseGeneral.contratos.setNecesidad(necesidad.getText());
+        ClaseGeneral.contratos.setObjetoespecifico(objetoespecifico.getText());
+        ClaseGeneral.contratos.setObligacionescontratista(obligacionescontratista.getText());
+        ClaseGeneral.contratos.setObligacionesuniversidad(obligacionesuniversidad.getText());
+//ClaseGeneral.contratos.setObservacionesactainicio(observacionesactainicio.getText());
+        ClaseGeneral.contratos.setPerfilrequerido(perfilrequerido.getText());
+//ClaseGeneral.contratos.setPlanadquisicion(planadquisicion.getText());
+        ClaseGeneral.contratos.setRequerimientostecnicos(requerimientostecnicos.getText());
+        ClaseGeneral.contratos.setTipotiempopago("" + tipotiempopago.getSelectedItem());
+        ClaseGeneral.contratos.setTipoestimacion("" + tipoestimacion.getSelectedItem());
+        ClaseGeneral.contratos.setTipofinanciacion("" + tipofinanciacion.getSelectedItem());
+        ClaseGeneral.contratos.setValorletras(valorletras.getText());
 
         if (ClaseGeneral.controlContratos.verify(ClaseGeneral.contratos, "edit")) {
             try {
@@ -2683,6 +2853,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JButton botonAyuda6;
     private javax.swing.JButton botonAyuda7;
     private javax.swing.JButton botonAyuda8;
+    private javax.swing.JButton botonAyuda9;
     public javax.swing.JButton botonBuscarContrato;
     private javax.swing.JButton botonBuscarFktercero;
     private javax.swing.JButton botonBuscarFktercerofuncionario;
@@ -2706,6 +2877,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXDatePicker fechaactaavance;
     private org.jdesktop.swingx.JXDatePicker fechaadjudicacion;
     private org.jdesktop.swingx.JXDatePicker fechacierre;
+    private org.jdesktop.swingx.JXDatePicker fechaentrega;
     private org.jdesktop.swingx.JXDatePicker fechafichatecnica;
     private org.jdesktop.swingx.JXDatePicker fechafinalactividad;
     private org.jdesktop.swingx.JXDatePicker fechainicialactividad;
@@ -2742,7 +2914,10 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -2853,6 +3028,8 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2863,6 +3040,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2889,10 +3067,10 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
@@ -2921,8 +3099,10 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField51;
     private javax.swing.JTextField jTextField52;
     private javax.swing.JTextField jTextField53;
+    private javax.swing.JTextField jTextField54;
     private javax.swing.JTextField jTextField55;
     private javax.swing.JTextField jTextField56;
+    private javax.swing.JTextField jTextField57;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
@@ -2948,6 +3128,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JPanel panelPrecontractual2;
     private javax.swing.JPanel panelProyectos;
     private javax.swing.JPanel panelSECOP;
+    private javax.swing.JTextArea perfilrequerido;
     private javax.swing.JTextField plazo;
     private javax.swing.JTextField porcentajeactividad;
     private javax.swing.JTextField porcentajeavance;

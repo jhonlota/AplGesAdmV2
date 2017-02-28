@@ -157,7 +157,7 @@ public class FrameInicio extends javax.swing.JFrame {
             }
             
             datos.query("SELECT FACULTAD FROM DEPENDENCIA "
-                        + "WHERE CODIGO = '" + ClaseGeneral.dependencia + "'");
+                        + "WHERE NOMBRE = '" + ClaseGeneral.dependencia + "'");
 
             while (ClaseBaseDatos.resultado.next()) {
                 ClaseGeneral.facultad = ClaseBaseDatos.resultado.getString("FACULTAD");
