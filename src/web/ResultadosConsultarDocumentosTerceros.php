@@ -294,7 +294,7 @@ if (empty($fktercero) || empty($persona)) {
     } catch (Exception $ex) {
         pg_query("ROLLBACK");
         $tabla1 .= "<script type=\"text/javascript\">
-                    funMensaje(\"Error al visualizar la infromaci&oacute;n : " . $e->getCode() . "</strong> " . $e->getMessage() . "\");
+                    funMensaje(\"Error al visualizar la infromaci&oacute;n : " . $ex->getCode() . "</strong> " . $ex->getMessage() . "\");
             </script>";
         $arr = array("tabla1" => utf8_encode($tabla1),
             "tabla2" => utf8_encode($tabla2),

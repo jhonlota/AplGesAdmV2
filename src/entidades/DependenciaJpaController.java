@@ -84,7 +84,7 @@ public class DependenciaJpaController {
         try {
             datos.query("SELECT DISTINCT(CODIGO), NOMBRE FROM DEPENDENCIA ORDER BY CODIGO");
             while (ClaseBaseDatos.resultado.next()) {
-                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("CODIGO") + " [" + ClaseBaseDatos.resultado.getString("NOMBRE") + "]");
+                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("NOMBRE") + " [" + ClaseBaseDatos.resultado.getString("CODIGO") + "]");
             }
             return modeloCombo;
         } catch (SQLException ex) {
@@ -97,9 +97,10 @@ public class DependenciaJpaController {
         DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
 
         try {
-            datos.query("SELECT DISTINCT(CODIGO) FROM DEPENDENCIA ORDER BY CODIGO");
+            modeloCombo.addElement("Seleccione");
+            datos.query("SELECT DISTINCT(NOMBRE) FROM DEPENDENCIA ORDER BY NOMBRE");
             while (ClaseBaseDatos.resultado.next()) {
-                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("CODIGO"));
+                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("NOMBRE"));
             }
             return modeloCombo;
         } catch (SQLException ex) {

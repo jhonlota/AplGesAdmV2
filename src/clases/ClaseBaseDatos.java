@@ -38,24 +38,24 @@ public class ClaseBaseDatos {
 //            ClaseGeneral.servidor =  array.get(5).substring(array.get(5).indexOf("='") + 2, array.get(5).indexOf("';"));
 
 /**///IMPORTANTE
-            String url = "192.168.131.52";
-            String dbname = "gest_ciencias";
-            String user = "aga_ciencias";
-            String pass = "AgA_CnS.hmcx36874";
-            ClaseGeneral.servidor = "http://ingenieria.univalle.edu.co/facultadweb2/aga_ciencias/datos";
-            ClaseGeneral.urlFTP = "192.168.131.52";
-            ClaseGeneral.login = "aga_ciencias";
-            ClaseGeneral.pwd = "AgA.hmcx36874";
+//            String url = "192.168.131.52";
+//            String dbname = "gest_ciencias";
+//            String user = "aga_ciencias";
+//            String pass = "AgA_CnS.hmcx36874";
+//            ClaseGeneral.servidor = "http://ingenieria.univalle.edu.co/facultadweb2/aga_ciencias/datos";
+//            ClaseGeneral.urlFTP = "192.168.131.52";
+//            ClaseGeneral.login = "aga_ciencias";
+//            ClaseGeneral.pwd = "AgA.hmcx36874";
             
 /**///IMPORTANTE
-//            String url = "192.168.131.52";
-//            String dbname = "gest_ingenieria";
-//            String user = "aga_ingenieria";
-//            String pass = "AgA_InG.Ktec871";
-//            ClaseGeneral.servidor = "http://ingenieria.univalle.edu.co/facultadweb2/aga_ingenieria/datos";
-//            ClaseGeneral.urlFTP = "192.168.131.52";
-//            ClaseGeneral.login = "aga_ingenieria";
-//            ClaseGeneral.pwd = "AgA_InG.Ktec871";
+            String url = "192.168.131.52";
+            String dbname = "gest_ingenieria";
+            String user = "aga_ingenieria";
+            String pass = "AgA_InG.Ktec871";
+            ClaseGeneral.servidor = "http://ingenieria.univalle.edu.co/facultadweb2/aga_ingenieria/datos";
+            ClaseGeneral.urlFTP = "192.168.131.52";
+            ClaseGeneral.login = "aga_ingenieria";
+            ClaseGeneral.pwd = "AgA_InG.Ktec871";
 
             conexion = DriverManager.getConnection("jdbc:postgresql://" + url + ":5432/" + dbname, user, pass);
 //            System.out.println("jdbc:postgresql://" + url + ":5432/" + dbname + "," + user + "," + pass);
