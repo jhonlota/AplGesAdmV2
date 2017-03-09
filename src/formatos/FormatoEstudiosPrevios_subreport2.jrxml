@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstudiosPrevios_subreport2" language="groovy" pageWidth="532" pageHeight="752" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bd1a4b28-7302-475c-b5b0-c42e14da52a4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKCONTRATO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{FKCONTRATO}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT *
+FROM PLANESTRATEGICOCONTRATOS
+WHERE FKCONTRATO = $P{FKCONTRATO}]]>
+	</queryString>
+	<field name="fkcontrato" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="eje" class="java.lang.String"/>
+	<field name="estrategia" class="java.lang.String"/>
+	<field name="programa" class="java.lang.String"/>
+	<field name="proyecto" class="java.lang.String"/>
+	<field name="subgrupo" class="java.lang.String"/>
+	<field name="cinfo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1b08076b-86b6-4cac-b747-923880b19d3f" stretchType="RelativeToTallestObject" x="0" y="0" width="532" height="16"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{eje}+" "+
+$F{estrategia}+" "+
+$F{programa}+" "]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

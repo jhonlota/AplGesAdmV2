@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstimacionPresupuesto_subreport1" language="groovy" pageWidth="532" pageHeight="752" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="566654f6-d56c-4c1b-84bc-81d187a47452">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKTERCEROFUNCIONARIO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM TERCEROS
+WHERE ID = $P{FKTERCEROFUNCIONARIO}]]>
+	</queryString>
+	<field name="id" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="tipoid" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="dependencia" class="java.lang.String"/>
+	<field name="edificio" class="java.lang.String"/>
+	<field name="nombrebanco" class="java.lang.String"/>
+	<field name="numerocuenta" class="java.lang.String"/>
+	<field name="oficina" class="java.lang.String"/>
+	<field name="profesion" class="java.lang.String"/>
+	<field name="regimen" class="java.lang.String"/>
+	<field name="tipocuenta" class="java.lang.String"/>
+	<field name="perfil" class="java.lang.String"/>
+	<field name="ip" class="java.lang.String"/>
+	<field name="salario" class="java.lang.Long"/>
+	<field name="perfiluag" class="java.lang.String"/>
+	<field name="idrepresentante" class="java.lang.String"/>
+	<field name="tipoidrepresentante" class="java.lang.String"/>
+	<field name="nombrerepresentante" class="java.lang.String"/>
+	<field name="sedebanco" class="java.lang.String"/>
+	<field name="sededependencia" class="java.lang.String"/>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1b08076b-86b6-4cac-b747-923880b19d3f" stretchType="RelativeToTallestObject" x="0" y="0" width="532" height="16"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="html"/>
+				<textFieldExpression><![CDATA["<b>ANÁLISIS QUE SOPORTA EL VALOR ESTIMADO DEL CONTRATO:</b> Para determinar el valor estimado del contrato la Unidad Ejecutora con base en la información aportada por "+
+$F{dependencia}+" y la dependencia usuaria, procedió a:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

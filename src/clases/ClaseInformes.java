@@ -279,6 +279,79 @@ public class ClaseInformes {
     }
 
     public void formatoContrato(Map parametros) {
+               
+        /*****************ESTUDIOS PREVIOS***********************/
+        try {
+            URL url = clase.getClass().getResource("FormatoEstudiosPrevios.jasper");
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            long aleatorio = ClaseInformacion.LongAletario();
+            JasperExportManager.exportReportToPdfFile(imprimir, "estudiosprevios_" + aleatorio + ".pdf");
+
+            File file = new File("estudiosprevios_" + aleatorio + ".pdf");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
+        } catch (JRException ex) {
+            //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+            ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
+        }
+        
+        /*****************FICHA TÉCNICA***********************/
+        try {
+            URL url = clase.getClass().getResource("FormatoFichaTecnica.jasper");
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            long aleatorio = ClaseInformacion.LongAletario();
+            JasperExportManager.exportReportToPdfFile(imprimir, "fichatecnica_" + aleatorio + ".pdf");
+
+            File file = new File("fichatecnica_" + aleatorio + ".pdf");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
+        } catch (JRException ex) {
+            //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+            ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
+        }
+        
+         /*****************ESTIMACIÓN DEL PRESUPUESTO***********************/
+        try {
+            URL url = clase.getClass().getResource("FormatoEstimacionPresupuesto.jasper");
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            long aleatorio = ClaseInformacion.LongAletario();
+            JasperExportManager.exportReportToPdfFile(imprimir, "estimacionpresupuesto_" + aleatorio + ".pdf");
+
+            File file = new File("estimacionpresupuesto_" + aleatorio + ".pdf");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
+        } catch (JRException ex) {
+            //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+            ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
+        }
+        /******************ORDEN CONTRACTUAL***************/
         try {
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoFichaTecnica_subreport4" language="groovy" pageWidth="441" pageHeight="752" columnWidth="441" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ac1bda84-0465-46f0-8b33-0d1312777bbd">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKTERCERO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM TERCEROS
+WHERE ID = $P{FKTERCERO}]]>
+	</queryString>
+	<field name="id" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="tipoid" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="dependencia" class="java.lang.String"/>
+	<field name="edificio" class="java.lang.String"/>
+	<field name="nombrebanco" class="java.lang.String"/>
+	<field name="numerocuenta" class="java.lang.String"/>
+	<field name="oficina" class="java.lang.String"/>
+	<field name="profesion" class="java.lang.String"/>
+	<field name="regimen" class="java.lang.String"/>
+	<field name="tipocuenta" class="java.lang.String"/>
+	<field name="perfil" class="java.lang.String"/>
+	<field name="ip" class="java.lang.String"/>
+	<field name="salario" class="java.lang.Long"/>
+	<field name="perfiluag" class="java.lang.String"/>
+	<field name="idrepresentante" class="java.lang.String"/>
+	<field name="tipoidrepresentante" class="java.lang.String"/>
+	<field name="nombrerepresentante" class="java.lang.String"/>
+	<field name="sedebanco" class="java.lang.String"/>
+	<field name="sededependencia" class="java.lang.String"/>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="2aee6fe0-1ac0-435a-bf78-b4915f4fd190" x="219" y="0" width="222" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2aee6fe0-1ac0-435a-bf78-b4915f4fd190" x="0" y="0" width="219" height="16"/>
+			</rectangle>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" stretchType="RelativeToTallestObject" x="0" y="0" width="219" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{tipoid} == "CC: CEDULA" ? "C.C X    NIT      C.E      " :
+    ($F{tipoid} == "NIT: NIT" ? "C.C      NIT X    C.E      " :
+        ($F{tipoid} == "CE: CEDULA DE EXTRANJERIA" ? "C.C      NIT      C.E X    " : "")))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" stretchType="RelativeToTallestObject" x="219" y="0" width="222" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Número: "+$F{id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
