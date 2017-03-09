@@ -30,6 +30,8 @@ public class ClaseGeneral {
     public static CcostoJpaController controlCcosto = new CcostoJpaController();
     public static Cinfo cinfo = new Cinfo();
     public static CinfoJpaController controlCinfo = new CinfoJpaController();
+    public static Clasificadorunspsc clasificadorunspsc = new Clasificadorunspsc();
+    public static ClasificadorunspscJpaController controlClasificadorunspsc = new ClasificadorunspscJpaController();
     public static Comprobantes comprobantes = new Comprobantes();
     public static Comprobantes comprobantesnoreembolsados = new Comprobantes();
     public static Comprobantes comprobantespendientes = new Comprobantes();

@@ -95,13 +95,13 @@ public class ExternoPanelContrasena extends javax.swing.JPanel {
 
     public String getPassword() {
         char[] arreglo = password.getPassword();
-        String texto = "";
+        String text = "";
 
         for(int i = 0; i < arreglo.length; i++) {
-            texto += arreglo[i];
+            text += arreglo[i];
         }
 
-        return texto;
+        return text;
     }
 
 

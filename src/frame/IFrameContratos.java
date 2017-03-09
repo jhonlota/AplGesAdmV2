@@ -530,21 +530,16 @@ public class IFrameContratos extends javax.swing.JInternalFrame {
             } else {
                 botonAcciones.setBackground(ClaseGeneral.gris);
             }
-
-            if (ClaseGeneral.perfil.equals("usuario")) {
-                panelPrincipal.fechaterminacion.setEnabled(false);
-            }
             
             if (ClaseGeneral.perfil.equals("usuario")
                     && estado.equals("nuevo")) {
-                panelPrincipal.fechaterminacion.setEnabled(false);
+                //TO DO
             } else if (ClaseGeneral.perfil.equals("usuario")
                     && estado.equals("consultar")) {
-                panelPrincipal.fechaterminacion.setEnabled(false);
                 panelPrincipal.botonBuscarContrato.setEnabled(false);
             } else if (ClaseGeneral.perfil.equals("root")
                     && estado.equals("nuevo")) {
-                //
+                //TO DO
             } else if (ClaseGeneral.perfil.equals("root")
                     && estado.equals("consultar")) {
                 panelPrincipal.botonBuscarContrato.setEnabled(false);

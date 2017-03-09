@@ -1643,6 +1643,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
     private void botonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarActionPerformed
         try {
             if (!fktercero.getText().equals("")) {
+                email = "";
                 email = ClaseMensaje.ingresar("<html><body>"
                         + "Ingrese el CORREO ELECTRONICO<br/>"
                         + "</body></html>");

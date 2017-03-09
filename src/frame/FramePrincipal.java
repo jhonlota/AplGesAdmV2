@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * FramePrincipal.java
  *
  * Created on 4/01/2012, 10:06:36 AM
@@ -46,7 +46,6 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
      * AL AGREGAR UN IFRAME NUEVOS SE DEBE INCLUIR TAMBIEN EN Limpiar() y en
      * ClaseInfomacion LimpiarPrincipales o LimpiarSecundarios*
      */
-
     private IFrameAnexoscontratos anexoscontratos;
     private IFrameAnexosterceros anexosterceros;
     private IFrameBienessolicitudesoferta bienessolicitudesoferta;
@@ -60,6 +59,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
     private IFrameFacturascomprobantes facturascomprobantes;
     private IFrameFormadepagocontratos formadepagocontratos;
     private IFrameFormadepagosolicitudesoferta formadepagosolicitudesoferta;
+    private IFrameIniciocontratos iniciocontratos;
     private IFrameModificaciones modificaciones;
     private IFrameObservacionescontratos observacionescontratos;
     private IFrameObservacionescuentas observacionescuentas;
@@ -213,6 +213,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         facturascomprobantes.setResizable(false);
         formadepagocontratos.setResizable(false);
         formadepagosolicitudesoferta.setResizable(false);
+        iniciocontratos.setResizable(false);
         modificaciones.setResizable(false);
         observacionescontratos.setResizable(false);
         observacionescuentas.setResizable(false);
@@ -241,6 +242,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         jDesktopPane.add(facturascomprobantes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(formadepagocontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(formadepagosolicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(iniciocontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(modificaciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(observacionescontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(observacionescuentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -277,6 +279,8 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("CUBS");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Forma de Pago");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Inicio");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Modificaciones");
         treeNode2.add(treeNode3);
@@ -434,7 +438,7 @@ Solicitud de Oferta
 >  Servicios        
 >  Solicitudes *
                 
-                */
+                 */
 //                if (hijo.equals("Solicitudes *")) {
 //                    solicitudesoferta.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
 //                    solicitudesoferta.setVisible(true);
@@ -487,6 +491,12 @@ Solicitud de Oferta
                     formadepagocontratos.setVisible(true);
                     formadepagocontratos.metodoEstado("reiniciar");
                     formadepagocontratos.metodoLimpiar();
+                } else if (hijo.equals("Inicio")
+                        && !ClaseGeneral.contratos.getContrato().equals("")) {
+                    iniciocontratos.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    iniciocontratos.setVisible(true);
+                    iniciocontratos.metodoEstado("reiniciar");
+                    iniciocontratos.metodoLimpiar();
                 } else if (hijo.equals("Modificaciones")
                         && !ClaseGeneral.contratos.getContrato().equals("")) {
                     modificaciones.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
@@ -1015,7 +1025,11 @@ Solicitud de Oferta
             case 27:
                 planestrategicocontratos = new IFramePlanestrategicocontratos();
                 System.out.println("*** IFramePlaestrategicocontratos()");
-                break;   
+                break;
+            case 28:
+                iniciocontratos = new IFrameIniciocontratos();
+                System.out.println("*** IFrameIniciocontratos()");
+                break;
         }
     }
 
@@ -1033,6 +1047,7 @@ Solicitud de Oferta
         facturascomprobantes.setVisible(false);
         formadepagocontratos.setVisible(false);
         formadepagosolicitudesoferta.setVisible(false);
+        iniciocontratos.setVisible(false);
         modificaciones.setVisible(false);
         observacionescontratos.setVisible(false);
         observacionescuentas.setVisible(false);
@@ -1054,29 +1069,30 @@ Solicitud de Oferta
     public static void metodoEntidadSeleccionada(String padre, String hijo) {
         try {
             if (padre.equals("Solicitud de Oferta")
-                    && (hijo.equals("Solicitudes *")
-                    || hijo.equals("Bienes")
+                    && (hijo.equals("Bienes")
                     || hijo.equals("Forma de Pago")
-                    ||hijo.equals("Servicios"))
+                    || hijo.equals("Servicios")
+                    || hijo.equals("Solicitudes *"))
                     && ClaseGeneral.solicitudesoferta.getId() != null) {
                 if (ClaseGeneral.solicitudesoferta.getId().length() > 18) {//0090.0090_0001.0001
                     labelEntidad.setText("<html><p>"
                             + "<font color=\"#0E4986\"> Solicitud de Oferta: </font><br/>   <font size=\"-2\">" + ClaseGeneral.solicitudesoferta.getId() + "</font></p></html>");
                 } else {
                     labelEntidad.setText("<html><p>"
-                            + "<font color=\"#0E4986\"> Solicitud de Oferta: </font><br/>   " + ClaseGeneral.solicitudesoferta.getId()+ "</p></html>");
+                            + "<font color=\"#0E4986\"> Solicitud de Oferta: </font><br/>   " + ClaseGeneral.solicitudesoferta.getId() + "</p></html>");
                 }
                 jPanelSur.setVisible(true);
             } else if (padre.equals("Orden Contractual")
                     && (hijo.equals("Contratos *")
+                    || hijo.equals("Anexos")
+                    || hijo.equals("CUBS")
+                    || hijo.equals("Forma de Pago")
+                    || hijo.equals("Inicio")
                     || hijo.equals("Modificaciones")
+                    || hijo.equals("Observaciones")
                     || hijo.equals("Plan Estrategico")
                     || hijo.equals("Pólizas")
-                    || hijo.equals("Soportes")
-                    || hijo.equals("Anexos")
-                    || hijo.equals("Observaciones")
-                    || hijo.equals("CUBS")
-                    || hijo.equals("Forma de Pago"))
+                    || hijo.equals("Soportes"))
                     && ClaseGeneral.contratos.getContrato() != null) {
                 if (ClaseGeneral.contratos.getContrato().length() > 18) {//0090.0090_0001.0001
                     labelEntidad.setText("<html><p>"
@@ -1174,7 +1190,7 @@ Solicitud de Oferta
         @Override
         public void run() {
             int min = 1;
-            int max = 27;//**// a
+            int max = 28;//**// IMPORTANTE
 
             FrameInicio.jProgressBar.setValue(min);
             FrameInicio.jProgressBar.setMinimum(min);

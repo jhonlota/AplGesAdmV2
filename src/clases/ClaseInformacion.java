@@ -645,7 +645,7 @@ public class ClaseInformacion {
         return ClaseGeneral.controlUtilidades.verficacionCuentaInterna(cinfo, cingreso, actividad, ccostos, cuentainterna);
     }
 
-    public static void LimpiarPrincipales() {
+    public static void LimpiarPrincipales() { //OJO IMPORTANTE
         ClaseGeneral.comprobantes = null;
         ClaseGeneral.contratos = null;
         ClaseGeneral.cuentas = null;
@@ -654,7 +654,7 @@ public class ClaseInformacion {
         ClaseGeneral.terceros = null;        
     }
 
-    public static void LimpiarSecundarios() {
+    public static void LimpiarSecundarios() { //OJO IMPORTANTE
         ClaseGeneral.anexoscontratos = null;
         ClaseGeneral.anexosterceros = null;
         ClaseGeneral.bienessolicitudesoferta = null;

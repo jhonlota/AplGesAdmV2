@@ -139,8 +139,8 @@ public class ExternoPanelFktercero extends javax.swing.JPanel {
 
     private void TexyFieldTerceroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldTerceroKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
-        String texto = componente.getText();
-        componente.setText(texto.toUpperCase());
+        String text = componente.getText();
+        componente.setText(text.toUpperCase());
 
         ClaseGeneral.parametro = componente.getName();
         ClaseGeneral.valor = componente.getText();

@@ -59,7 +59,7 @@ public class ClaseImportar {
             try {
                 metodoImputacion((String) lista.get(i));
             } catch (Exception e) {
-                System.err.println("ERROR -> " + lista.get(i));
+//                System.err.println("ERROR -> " + lista.get(i));
                 Logger.getLogger(ClaseImportar.class.getName()).log(Level.SEVERE, null, e);
             }
         }
@@ -76,7 +76,7 @@ public class ClaseImportar {
         } else {
         }
 
-        System.out.println("************************\nLINEAS DESCARTADAS\n" + lineaDescartada);
+//        System.out.println("************************\nLINEAS DESCARTADAS\n" + lineaDescartada);
     }
 
     public void metodoImputacion(String linea) {
@@ -289,12 +289,12 @@ public class ClaseImportar {
                         return true;
                     } else {
                         erroresCuentas++;
-                        System.out.println(sql + ", ERROR: " + datos.error);
+//                        System.out.println(sql + ", ERROR: " + datos.error);
                         return false;
                     }
                 } else {
                     correctosCuentas++;
-                    System.out.println("Ya ingresado el DOCUMENTO : " + documento + ", SOPORTE : " + soporte);
+//                    System.out.println("Ya ingresado el DOCUMENTO : " + documento + ", SOPORTE : " + soporte);
                     return true;
                 }
 
@@ -361,7 +361,7 @@ public class ClaseImportar {
                     correctosSoportescuentas++;
                     return true;
                 } else {
-                    System.out.println(sql + ", ERROR: " + datos.error);
+//                    System.out.println(sql + ", ERROR: " + datos.error);
                     erroresSoportescuentas++;
                     return false;
                 }
