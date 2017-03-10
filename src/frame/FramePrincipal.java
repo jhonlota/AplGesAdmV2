@@ -59,6 +59,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
     private IFrameFacturascomprobantes facturascomprobantes;
     private IFrameFormadepagocontratos formadepagocontratos;
     private IFrameFormadepagosolicitudesoferta formadepagosolicitudesoferta;
+    private IFrameFormapagopac formapagopac;
     private IFrameIniciocontratos iniciocontratos;
     private IFrameModificaciones modificaciones;
     private IFrameObservacionescontratos observacionescontratos;
@@ -213,6 +214,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         facturascomprobantes.setResizable(false);
         formadepagocontratos.setResizable(false);
         formadepagosolicitudesoferta.setResizable(false);
+        formapagopac.setResizable(false);
         iniciocontratos.setResizable(false);
         modificaciones.setResizable(false);
         observacionescontratos.setResizable(false);
@@ -242,6 +244,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         jDesktopPane.add(facturascomprobantes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(formadepagocontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(formadepagosolicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(formapagopac, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(iniciocontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(modificaciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(observacionescontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -285,6 +288,8 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Modificaciones");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Observaciones");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Pago PAC");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Plan Estrategico");
         treeNode2.add(treeNode3);
@@ -509,6 +514,12 @@ Solicitud de Oferta
                     observacionescontratos.setVisible(true);
                     observacionescontratos.metodoEstado("reiniciar");
                     observacionescontratos.metodoLimpiar();
+                } else if (hijo.equals("Pago PAC")
+                        && !ClaseGeneral.contratos.getContrato().equals("")) {
+                    formapagopac.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    formapagopac.setVisible(true);
+                    formapagopac.metodoEstado("reiniciar");
+                    formapagopac.metodoLimpiar();
                 } else if (hijo.equals("Plan Estrategico")
                         && !ClaseGeneral.contratos.getContrato().equals("")) {
                     planestrategicocontratos.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
@@ -1030,6 +1041,10 @@ Solicitud de Oferta
                 iniciocontratos = new IFrameIniciocontratos();
                 System.out.println("*** IFrameIniciocontratos()");
                 break;
+            case 29:
+                formapagopac = new IFrameFormapagopac();
+                System.out.println("*** IFrameFormapagopac()");
+                break;
         }
     }
 
@@ -1047,6 +1062,7 @@ Solicitud de Oferta
         facturascomprobantes.setVisible(false);
         formadepagocontratos.setVisible(false);
         formadepagosolicitudesoferta.setVisible(false);
+        formapagopac.setVisible(false);
         iniciocontratos.setVisible(false);
         modificaciones.setVisible(false);
         observacionescontratos.setVisible(false);
@@ -1090,6 +1106,7 @@ Solicitud de Oferta
                     || hijo.equals("Inicio")
                     || hijo.equals("Modificaciones")
                     || hijo.equals("Observaciones")
+                    || hijo.equals("Pago PAC")
                     || hijo.equals("Plan Estrategico")
                     || hijo.equals("Pólizas")
                     || hijo.equals("Soportes"))
@@ -1190,7 +1207,7 @@ Solicitud de Oferta
         @Override
         public void run() {
             int min = 1;
-            int max = 28;//**// IMPORTANTE
+            int max = 29;//**// IMPORTANTE
 
             FrameInicio.jProgressBar.setValue(min);
             FrameInicio.jProgressBar.setMinimum(min);

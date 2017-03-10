@@ -117,6 +117,7 @@ public class PanelCubs extends javax.swing.JPanel {
         cantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cantidad.setText("0");
         cantidad.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        cantidad.setName("cantidad"); // NOI18N
         cantidad.setPreferredSize(new java.awt.Dimension(150, 25));
         cantidad.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -125,7 +126,7 @@ public class PanelCubs extends javax.swing.JPanel {
         });
         cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(cantidad);
@@ -206,6 +207,7 @@ public class PanelCubs extends javax.swing.JPanel {
         valorsiniva.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valorsiniva.setText("0");
         valorsiniva.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        valorsiniva.setName("valorsiniva"); // NOI18N
         valorsiniva.setPreferredSize(new java.awt.Dimension(150, 25));
         valorsiniva.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -214,7 +216,7 @@ public class PanelCubs extends javax.swing.JPanel {
         });
         valorsiniva.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(valorsiniva);
@@ -234,6 +236,7 @@ public class PanelCubs extends javax.swing.JPanel {
         valor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valor.setText("0");
         valor.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        valor.setName("valor"); // NOI18N
         valor.setPreferredSize(new java.awt.Dimension(150, 25));
         valor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -242,7 +245,7 @@ public class PanelCubs extends javax.swing.JPanel {
         });
         valor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(valor);
@@ -281,7 +284,7 @@ public class PanelCubs extends javax.swing.JPanel {
         });
         valortotalsiniva.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(valortotalsiniva);
@@ -310,7 +313,7 @@ public class PanelCubs extends javax.swing.JPanel {
         });
         valortotal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(valortotal);
@@ -469,7 +472,7 @@ public class PanelCubs extends javax.swing.JPanel {
         componente.requestFocus();
     }//GEN-LAST:event_TextFieldFocusGained
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         try {
             javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
             long lCantidad = Long.parseLong(cantidad.getText().trim().replace(".", ""));
@@ -492,7 +495,7 @@ public class PanelCubs extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_TexyFieldKeyReleased
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     private void botonBuscarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarCodigoActionPerformed
         javax.swing.JButton componente = (javax.swing.JButton) evt.getSource();

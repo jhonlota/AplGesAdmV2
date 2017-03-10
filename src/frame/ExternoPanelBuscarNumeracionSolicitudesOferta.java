@@ -87,7 +87,7 @@ public class ExternoPanelBuscarNumeracionSolicitudesOferta extends javax.swing.J
         dependencia.setPreferredSize(new java.awt.Dimension(435, 25));
         dependencia.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ExternoPanelBuscarNumeracionSolicitudesOferta.this.itemStateChanged(evt);
+                ItemStateChanged(evt);
             }
         });
         add(dependencia);
@@ -105,7 +105,7 @@ public class ExternoPanelBuscarNumeracionSolicitudesOferta extends javax.swing.J
         ano.setPreferredSize(new java.awt.Dimension(70, 24));
         ano.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ExternoPanelBuscarNumeracionSolicitudesOferta.this.itemStateChanged(evt);
+                ItemStateChanged(evt);
             }
         });
         add(ano);
@@ -148,7 +148,7 @@ public class ExternoPanelBuscarNumeracionSolicitudesOferta extends javax.swing.J
         add(scrollLista);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_itemStateChanged
+    private void ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ItemStateChanged
         String dependenciaAux = dependencia.getSelectedItem().toString().substring(dependencia.getSelectedItem().toString().indexOf("[") + 1, dependencia.getSelectedItem().toString().indexOf("]"));
         String anoAux = ano.getSelectedItem().toString().substring(2, 4);
 
@@ -177,7 +177,7 @@ public class ExternoPanelBuscarNumeracionSolicitudesOferta extends javax.swing.J
 
         texto.setText(dependenciaAux + "." + numId + "-" + anoAux);
         id = dependenciaAux + "." + numId + "-" + anoAux;
-    }//GEN-LAST:event_itemStateChanged
+    }//GEN-LAST:event_ItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

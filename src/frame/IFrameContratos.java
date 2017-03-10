@@ -35,8 +35,6 @@ public class IFrameContratos extends javax.swing.JInternalFrame {
     private int posicion;
     private PanelContratos panelPrincipal = new PanelContratos();
     private ClaseBaseDatos datos = new ClaseBaseDatos();
-    private FrameCarga frameCarga = new FrameCarga();
-    private Thread hilo = new ThreadCarga();
 
     /**
      * Creates new form IFrameContratos
@@ -412,29 +410,8 @@ public class IFrameContratos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     private void botonVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerActionPerformed
-        try {
-            String textoValorSoportesContratos = panelPrincipal.valorsoportescontratos.getText().replace(".", "");
-            String textoValorTotalConIvaCUBS = panelPrincipal.valortotalconivaCUBS.getText().replace(".", "");
-            String textoValorTotalSinIvaCUBS = panelPrincipal.valortotalsinivaCUBS.getText().replace(".", "");
-            String textoValor = "" + ClaseGeneral.contratos.getValor();
-            String textoValorSinIva = "" + ClaseGeneral.contratos.getValorsiniva();
-
-            if (textoValor.equals(textoValorSoportesContratos)
-                    && textoValor.equals(textoValorTotalConIvaCUBS)
-                    && textoValorSinIva.equals(textoValorTotalSinIvaCUBS)) {
-                frameCarga.setVisible(true);
-                frameCarga.pack();
-                frameCarga.setSize(280, 100);
-                frameCarga.setLocationRelativeTo(null);
-                frameCarga.setResizable(false);
-                hilo = new ThreadCarga();
-                hilo.start();
-            } else {
-                ClaseMensaje.error("NO SE PUEDE IMPRIMIR:\n"
-                        + "Los valores del Contrato no concuerdan con los CUBS y Soportes");
-            }
-        } catch (Exception e) {
-        }
+        ExternoPanelImprimirContratos panelImprimirContratos  = new ExternoPanelImprimirContratos (panelPrincipal);
+        ClaseMensaje.panel(panelImprimirContratos );
     }//GEN-LAST:event_botonVerActionPerformed
 
     private void botonAccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAccionesActionPerformed
@@ -557,42 +534,7 @@ public class IFrameContratos extends javax.swing.JInternalFrame {
         textoPosicionBuscar.setText("");
         ClaseInformacion.LimpiarPrincipales();
     }
-
-    class ThreadCarga extends Thread {
-
-        @Override
-        public void run() {
-            frameCarga.jProgressBar.setIndeterminate(true);
-            frameCarga.jProgressBar.setMinimum(1);
-            frameCarga.jProgressBar.setMaximum(100);
-            /**
-             *
-             */
-            try {
-                Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("CONTRATO", ClaseGeneral.contratos.getContrato());
-                
-                ClaseInformes informes = new ClaseInformes();
-                
-                if(ClaseGeneral.controlCubs.findCALCInCubsByFkcontrato(ClaseGeneral.contratos.getContrato()) > 8) {
-                    parametros.put("isAnexoOrdenContractual", "ANEXO ORDEN CONTRACTUAL");
-                    informes.formatoAnexoContrato(parametros);
-                } else {
-                    parametros.put("isAnexoOrdenContractual", "-");
-                }
-
-                informes.formatoContrato(parametros);
-            } catch (Exception e) {
-                ClaseMensaje.error("Error al mostrar el archivo.\n" + e);
-            }
-            /**
-             *
-             */
-            frameCarga.jProgressBar.setIndeterminate(false);
-            frameCarga.dispose();
-            hilo = null;
-        }
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAcciones;
     private javax.swing.JButton botonActualizar;

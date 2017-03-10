@@ -96,7 +96,7 @@ public class ExternoPanelCodigocubs extends javax.swing.JPanel {
         texto.setPreferredSize(new java.awt.Dimension(465, 25));
         texto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textoKeyReleased(evt);
+                TextKeyReleased(evt);
             }
         });
         add(texto);
@@ -125,7 +125,7 @@ public class ExternoPanelCodigocubs extends javax.swing.JPanel {
         add(scrollLista);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoKeyReleased
+    private void TextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
         String text = componente.getText();
         componente.setText(text.toUpperCase());
@@ -141,7 +141,7 @@ public class ExternoPanelCodigocubs extends javax.swing.JPanel {
         }
 
         lista.setModel(modeloLista);
-}//GEN-LAST:event_textoKeyReleased
+}//GEN-LAST:event_TextKeyReleased
 
     private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
         if (evt.getValueIsAdjusting()) {

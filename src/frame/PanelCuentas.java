@@ -115,7 +115,7 @@ public class PanelCuentas extends javax.swing.JPanel {
         valorTotal = new javax.swing.JTextField();
 
         setName("panelCuentas"); // NOI18N
-        setLayout(new java.awt.FlowLayout(0));
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabelDocumento.setText("DOCUMENTO : ");
         jLabelDocumento.setPreferredSize(new java.awt.Dimension(95, 25));
@@ -173,7 +173,7 @@ public class PanelCuentas extends javax.swing.JPanel {
         numeroseguimiento.setPreferredSize(new java.awt.Dimension(140, 25));
         numeroseguimiento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                numeroseguimientoTextFieldFocusGained(evt);
+                TextFieldFocusGained(evt);
             }
         });
         add(numeroseguimiento);
@@ -226,7 +226,7 @@ public class PanelCuentas extends javax.swing.JPanel {
         });
         ingreso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(ingreso);
@@ -254,7 +254,7 @@ public class PanelCuentas extends javax.swing.JPanel {
         });
         egreso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(egreso);
@@ -385,7 +385,7 @@ public class PanelCuentas extends javax.swing.JPanel {
         jLabel85.setPreferredSize(new java.awt.Dimension(810, 15));
         add(jLabel85);
 
-        jPanelDescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCRIPCION DEL PAGO", 0, 0, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanelDescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCRIPCION DEL PAGO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanelDescripcion.setPreferredSize(new java.awt.Dimension(810, 120));
         jPanelDescripcion.setLayout(new java.awt.BorderLayout());
 
@@ -593,18 +593,14 @@ public class PanelCuentas extends javax.swing.JPanel {
                 + "</body></html>");
     }//GEN-LAST:event_botonAyudaActionPerformed
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         try {
             egreso.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(egreso.getText().trim().replace(".", ""))));
             ingreso.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(ingreso.getText().trim().replace(".", ""))));
         } catch (Exception ex) {
             Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_TexyFieldKeyReleased
-
-    private void numeroseguimientoTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numeroseguimientoTextFieldFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numeroseguimientoTextFieldFocusGained
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     public void metodoInsertar() {
         ClaseGeneral.cuentas = new Cuentas();

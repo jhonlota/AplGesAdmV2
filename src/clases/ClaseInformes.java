@@ -278,6 +278,26 @@ public class ClaseInformes {
         }
     }
 
+    public void formatoEstudiosPrevios(Map parametros) {
+        
+    }
+    
+    public void formatoFichaTecnica(Map parametros) {
+        
+    }
+    
+    public void formatoEstimacionPresupuesto(Map parametros) {
+        
+    }
+    
+    public void formatoInvitacionMinimaCuantia(Map parametros) {
+        
+    }
+    
+    public void formatoInformeEvaluacion(Map parametros) {
+        
+    }    
+    
     public void formatoContrato(Map parametros) {
         try {
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
@@ -372,7 +392,23 @@ public class ClaseInformes {
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
     }
-
+    
+    public void formatoActaAprobacionPoliza(Map parametros) {
+        
+    }
+    
+    public void formatoActaInicio(Map parametros) {
+        
+    }
+    
+    public void formatoActaLiquidacion(Map parametros) {
+        
+    }
+    
+    public void formatoActaDesignacionSupervisor(Map parametros) {
+        
+    }
+    
     public void formatoInformeComprobantesNOREEMBOLSADOS(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeComprobantes_NOREEMBOLSADOS.jasper");

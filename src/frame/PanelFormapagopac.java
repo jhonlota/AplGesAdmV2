@@ -4,7 +4,7 @@
  */
 
 /*
- * PanelFormadepagocontratos.java
+ * PanelFormapagopac.java
  *
  * Created on 16/01/2012, 05:14:48 PM
  */
@@ -12,8 +12,8 @@ package frame;
 
 import clases.ClaseGeneral;
 import clases.ClaseInformacion;
-import entidades.Formadepagosolicitudesoferta;
-import entidades.FormadepagosolicitudesofertaPK;
+import entidades.Formapagopac;
+    import entidades.FormapagopacPK;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,21 +26,18 @@ import java.util.logging.Logger;
  *
  * @author Jhon Lopez
  */
-public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
+public class PanelFormapagopac extends javax.swing.JPanel {
 
     private List lista = new ArrayList();
     private ClaseInformacion informacion = new ClaseInformacion();
 
     /**
-     * Creates new form PanelFormadepagocontratos
+     * Creates new form PanelFormapagopac
      */
-    public PanelFormadepagosolicitudesoferta() {
+    public PanelFormapagopac() {
         initComponents();
 
-        fecha.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
-        fecha.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
-
-        fksolicitudoferta.setText(ClaseGeneral.solicitudesoferta.getId());
+        fkcontrato.setText(ClaseGeneral.contratos.getContrato());
         metodoMostrar();
     }
 
@@ -54,34 +51,32 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        fksolicitudoferta = new javax.swing.JTextField();
+        fkcontrato = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        mes = new javax.swing.JComboBox();
+        jTextField26 = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
         valor = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
-        jLabel50 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        fecha = new org.jdesktop.swingx.JXDatePicker();
-        jLabel29 = new javax.swing.JLabel();
-        jTextField26 = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
         jScrollPane = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
 
-        setName("panelFormadepagosolicitudesoferta"); // NOI18N
+        setName("panelFormapagopac"); // NOI18N
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel1.setText("NÚMERO INVITACION : ");
+        jLabel1.setText("NÚMERO DEL CONTRATO : ");
         jLabel1.setPreferredSize(new java.awt.Dimension(160, 25));
         add(jLabel1);
 
-        fksolicitudoferta.setBackground(ClaseGeneral.verde);
-        fksolicitudoferta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        fksolicitudoferta.setForeground(ClaseGeneral.rojo);
-        fksolicitudoferta.setFocusable(false);
-        fksolicitudoferta.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        fksolicitudoferta.setPreferredSize(new java.awt.Dimension(300, 25));
-        add(fksolicitudoferta);
+        fkcontrato.setBackground(ClaseGeneral.verde);
+        fkcontrato.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        fkcontrato.setForeground(ClaseGeneral.rojo);
+        fkcontrato.setFocusable(false);
+        fkcontrato.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        fkcontrato.setPreferredSize(new java.awt.Dimension(300, 25));
+        add(fkcontrato);
 
         jTextField15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField15.setEnabled(false);
@@ -91,8 +86,26 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
         jTextField15.setPreferredSize(new java.awt.Dimension(340, 25));
         add(jTextField15);
 
-        jLabel49.setText("VALOR DEL PAGO PARCIAL : ");
-        jLabel49.setPreferredSize(new java.awt.Dimension(175, 25));
+        jLabel50.setText("FECHAD DE PAGO : ");
+        jLabel50.setPreferredSize(new java.awt.Dimension(115, 25));
+        add(jLabel50);
+
+        mes.setBackground(ClaseGeneral.campo);
+        mes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        mes.setPreferredSize(new java.awt.Dimension(170, 25));
+        add(mes);
+
+        jTextField26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField26.setEnabled(false);
+        jTextField26.setFocusable(false);
+        jTextField26.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField26.setOpaque(false);
+        jTextField26.setPreferredSize(new java.awt.Dimension(515, 25));
+        add(jTextField26);
+
+        jLabel49.setText("VALOR DEL PAGO : ");
+        jLabel49.setPreferredSize(new java.awt.Dimension(125, 25));
         add(jLabel49);
 
         valor.setBackground(ClaseGeneral.campo);
@@ -117,43 +130,8 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
         jTextField11.setFocusable(false);
         jTextField11.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField11.setOpaque(false);
-        jTextField11.setPreferredSize(new java.awt.Dimension(475, 25));
+        jTextField11.setPreferredSize(new java.awt.Dimension(525, 25));
         add(jTextField11);
-
-        jLabel50.setText("FECHAD DE PAGO : ");
-        jLabel50.setPreferredSize(new java.awt.Dimension(115, 25));
-        add(jLabel50);
-
-        jPanel9.setBackground(ClaseGeneral.campo);
-        jPanel9.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel9.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel9.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fecha.setFocusable(false);
-        fecha.setMaximumSize(new java.awt.Dimension(120, 25));
-        fecha.setMinimumSize(new java.awt.Dimension(120, 25));
-        fecha.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel9.add(fecha);
-
-        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel29.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel29.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel29.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel9.add(jLabel29);
-
-        add(jPanel9);
-
-        jTextField26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField26.setEnabled(false);
-        jTextField26.setFocusable(false);
-        jTextField26.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField26.setOpaque(false);
-        jTextField26.setPreferredSize(new java.awt.Dimension(545, 25));
-        add(jTextField26);
 
         jLabel71.setPreferredSize(new java.awt.Dimension(810, 25));
         add(jLabel71);
@@ -264,7 +242,7 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "FECHA ESTIMADA DE PAGO", "VALOR"
+                "MES ESTIMADO DE PAGO", "VALOR"
             }
         ));
         jTable.setEnabled(false);
@@ -292,68 +270,68 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
     }//GEN-LAST:event_TextFieldKeyReleased
 
     public void metodoInsertar() {
-        ClaseGeneral.formadepagosolicitudesoferta = new Formadepagosolicitudesoferta();
-        ClaseGeneral.formadepagosolicitudesofertaPK = new FormadepagosolicitudesofertaPK();
-        ClaseGeneral.formadepagosolicitudesofertaPK.setFksolicitudoferta(fksolicitudoferta.getText());
-        ClaseGeneral.formadepagosolicitudesofertaPK.setFecha(fecha.getDate());
-        ClaseGeneral.formadepagosolicitudesoferta.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
-        ClaseGeneral.formadepagosolicitudesoferta.setFormadepagosolicitudesofertaPK(ClaseGeneral.formadepagosolicitudesofertaPK);
+        ClaseGeneral.formapagopac = new Formapagopac();
+        ClaseGeneral.formapagopacPK = new FormapagopacPK();
+        ClaseGeneral.formapagopacPK.setFkcontrato("" + fkcontrato.getText());
+        ClaseGeneral.formapagopacPK.setMes("" + mes.getSelectedItem());
+        ClaseGeneral.formapagopac.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
+        ClaseGeneral.formapagopac.setFormapagopacPK(ClaseGeneral.formapagopacPK);
 
-        if (ClaseGeneral.controlFormadepagosolicitudesoferta.verify(ClaseGeneral.formadepagosolicitudesoferta)) {
+        if (ClaseGeneral.controlFormapagopac.verify(ClaseGeneral.formapagopac)) {
             try {
-                ClaseGeneral.controlFormadepagosolicitudesoferta.create(ClaseGeneral.formadepagosolicitudesoferta);
+                ClaseGeneral.controlFormapagopac.create(ClaseGeneral.formapagopac);
             } catch (Exception ex) {
-                Logger.getLogger(PanelFormadepagosolicitudesoferta.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PanelFormapagopac.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
 
     public void metodoConsultar() {
         try {
-            fksolicitudoferta.setText("" + ClaseGeneral.formadepagosolicitudesoferta.getFormadepagosolicitudesofertaPK().getFksolicitudoferta());
-            fecha.setDate(ClaseGeneral.formadepagosolicitudesoferta.getFormadepagosolicitudesofertaPK().getFecha());
-            valor.setText("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.formadepagosolicitudesoferta.getValor()));
+            fkcontrato.setText("" + ClaseGeneral.formapagopac.getFormapagopacPK().getFkcontrato());
+            mes.setSelectedItem("" + ClaseGeneral.formapagopac.getFormapagopacPK().getMes());
+            valor.setText("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.formapagopac.getValor()));
 
-            fksolicitudoferta.setFocusable(false);
+            fkcontrato.setFocusable(false);
         } catch (Exception ex) {
-            Logger.getLogger(PanelFormadepagosolicitudesoferta.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelResoluciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void metodoActualizar() {
-        Formadepagosolicitudesoferta formadepagosolicitudesofertaId = ClaseGeneral.formadepagosolicitudesoferta;
-        formadepagosolicitudesofertaId.setFormadepagosolicitudesofertaPK(ClaseGeneral.formadepagosolicitudesoferta.getFormadepagosolicitudesofertaPK());
-        ClaseGeneral.formadepagosolicitudesoferta = new Formadepagosolicitudesoferta();
-        ClaseGeneral.formadepagosolicitudesofertaPK = new FormadepagosolicitudesofertaPK();
-        ClaseGeneral.formadepagosolicitudesofertaPK.setFksolicitudoferta("" + fksolicitudoferta.getText());
-        ClaseGeneral.formadepagosolicitudesofertaPK.setFecha(fecha.getDate());
-        ClaseGeneral.formadepagosolicitudesoferta.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
-        ClaseGeneral.formadepagosolicitudesoferta.setFormadepagosolicitudesofertaPK(ClaseGeneral.formadepagosolicitudesofertaPK);
+        Formapagopac formapagopacId = ClaseGeneral.formapagopac;
+        formapagopacId.setFormapagopacPK(ClaseGeneral.formapagopac.getFormapagopacPK());
+        ClaseGeneral.formapagopac = new Formapagopac();
+        ClaseGeneral.formapagopacPK = new FormapagopacPK();
+        ClaseGeneral.formapagopacPK.setFkcontrato("" + fkcontrato.getText());
+        ClaseGeneral.formapagopacPK.setMes("" + mes.getSelectedItem());
+        ClaseGeneral.formapagopac.setValor(BigDecimal.valueOf(Long.parseLong("" + valor.getText().trim().replace(".", ""))));
+        ClaseGeneral.formapagopac.setFormapagopacPK(ClaseGeneral.formapagopacPK);
 
-        if (ClaseGeneral.controlFormadepagosolicitudesoferta.verify(ClaseGeneral.formadepagosolicitudesoferta)) {
+        if (ClaseGeneral.controlFormapagopac.verify(ClaseGeneral.formapagopac)) {
             try {
-                ClaseGeneral.controlFormadepagosolicitudesoferta.edit(ClaseGeneral.formadepagosolicitudesoferta, formadepagosolicitudesofertaId);
+                ClaseGeneral.controlFormapagopac.edit(ClaseGeneral.formapagopac, formapagopacId);
             } catch (Exception ex) {
-                Logger.getLogger(PanelFormadepagosolicitudesoferta.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PanelFormapagopac.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
 
     public void metodoEliminar() {
-        Formadepagosolicitudesoferta formadepagosolicitudesofertaId = ClaseGeneral.formadepagosolicitudesoferta;
-        formadepagosolicitudesofertaId.setFormadepagosolicitudesofertaPK(ClaseGeneral.formadepagosolicitudesoferta.getFormadepagosolicitudesofertaPK());
-        ClaseGeneral.formadepagosolicitudesoferta = new Formadepagosolicitudesoferta();
-        ClaseGeneral.formadepagosolicitudesofertaPK = new FormadepagosolicitudesofertaPK();
+        Formapagopac formapagopacId = ClaseGeneral.formapagopac;
+        formapagopacId.setFormapagopacPK(ClaseGeneral.formapagopac.getFormapagopacPK());
+        ClaseGeneral.formapagopac = new Formapagopac();
+        ClaseGeneral.formapagopacPK = new FormapagopacPK();
         try {
-            ClaseGeneral.controlFormadepagosolicitudesoferta.destroy(formadepagosolicitudesofertaId);
+            ClaseGeneral.controlFormapagopac.destroy(formapagopacId);
         } catch (Exception ex) {
-            Logger.getLogger(PanelFormadepagosolicitudesoferta.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelFormapagopac.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public final void metodoMostrar() {
-        ClaseGeneral.formadepagosolicitudesoferta = new Formadepagosolicitudesoferta();
-        lista = ClaseGeneral.controlFormadepagosolicitudesoferta.findAllInFormadepagosolicitudesofertaByFksolicitudoferta(fksolicitudoferta.getText());
+        ClaseGeneral.formapagopac = new Formapagopac();
+        lista = ClaseGeneral.controlFormapagopac.findAllInFormapagopacByFkcontrato(fkcontrato.getText());
 
         for (int i = 0; i < 100; i++) {
             jTable.setValueAt("", i, 0);
@@ -362,9 +340,9 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
 
         int i = 0;
         for (Object lista1 : lista) {
-            ClaseGeneral.formadepagosolicitudesoferta = (Formadepagosolicitudesoferta) lista1;
-            jTable.setValueAt("" + ClaseGeneral.formadepagosolicitudesoferta.getFormadepagosolicitudesofertaPK().getFecha(), i, 0);
-            jTable.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.formadepagosolicitudesoferta.getValor()), i, 1);
+            ClaseGeneral.formapagopac = (Formapagopac) lista1;
+            jTable.setValueAt("" + ClaseGeneral.formapagopac.getFormapagopacPK().getMes(), i, 0);
+            jTable.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.formapagopac.getValor()), i, 1);
             i++;
         }
 
@@ -374,19 +352,17 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdesktop.swingx.JXDatePicker fecha;
-    private javax.swing.JTextField fksolicitudoferta;
+    private javax.swing.JTextField fkcontrato;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel71;
-    private javax.swing.JPanel jPanel9;
     public javax.swing.JScrollPane jScrollPane;
     public javax.swing.JTable jTable;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField26;
+    private javax.swing.JComboBox mes;
     private javax.swing.JTextField valor;
     // End of variables declaration//GEN-END:variables
 }

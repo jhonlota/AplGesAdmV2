@@ -329,7 +329,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         });
         numerocertificado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(numerocertificado);
@@ -351,7 +351,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         valorcertificado.setPreferredSize(new java.awt.Dimension(130, 25));
         valorcertificado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(valorcertificado);
@@ -373,12 +373,12 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         plazoejecucion.setPreferredSize(new java.awt.Dimension(130, 25));
         plazoejecucion.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                plazoejecucionTextFieldFocusGained(evt);
+                TextFieldFocusGained(evt);
             }
         });
         plazoejecucion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                plazoejecucionTexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(plazoejecucion);
@@ -467,11 +467,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         perfilrequerido.setWrapStyleWord(true);
         perfilrequerido.setMargin(new java.awt.Insets(2, 5, 2, 5));
         perfilrequerido.setPreferredSize(new java.awt.Dimension(430, 70));
-        perfilrequerido.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                perfilrequeridoTextAreaFocusGained(evt);
-            }
-        });
         jScrollObjetoContractual1.setViewportView(perfilrequerido);
 
         jPanelObjetoContractual1.add(jScrollObjetoContractual1, java.awt.BorderLayout.CENTER);
@@ -3096,7 +3091,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
         componente.requestFocus();
     }//GEN-LAST:event_TextFieldFocusGained
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         try {
             numerocertificado.setText(ClaseInformacion.formatoEntero.format(Long.parseLong(numerocertificado.getText().trim().replace(".", ""))));
             valorcertificado.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valorcertificado.getText().trim().replace(".", ""))));
@@ -3105,7 +3100,7 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
 
             Logger.getLogger(PanelSolicitudesOferta.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_TexyFieldKeyReleased
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     private void TextAreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TextAreaFocusGained
         javax.swing.JTextArea componente = (javax.swing.JTextArea) evt.getSource();
@@ -3136,18 +3131,6 @@ public class PanelSolicitudesOferta extends javax.swing.JPanel {
 
         id.setText(panelBuscarNumeracionSolicitudesOferta.id);
     }//GEN-LAST:event_botonBuscarSolicitudesofertaActionPerformed
-
-    private void perfilrequeridoTextAreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_perfilrequeridoTextAreaFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_perfilrequeridoTextAreaFocusGained
-
-    private void plazoejecucionTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_plazoejecucionTextFieldFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_plazoejecucionTextFieldFocusGained
-
-    private void plazoejecucionTexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_plazoejecucionTexyFieldKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_plazoejecucionTexyFieldKeyReleased
 
     private void botonAyuda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAyuda1ActionPerformed
         ClaseMensaje.informacion("<html><body>"

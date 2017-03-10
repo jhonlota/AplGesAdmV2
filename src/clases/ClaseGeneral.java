@@ -62,6 +62,9 @@ public class ClaseGeneral {
     public static Formadepagosolicitudesoferta formadepagosolicitudesoferta = new Formadepagosolicitudesoferta();
     public static FormadepagosolicitudesofertaJpaController controlFormadepagosolicitudesoferta = new FormadepagosolicitudesofertaJpaController();
     public static FormadepagosolicitudesofertaPK formadepagosolicitudesofertaPK = new FormadepagosolicitudesofertaPK();    
+    public static Formapagopac formapagopac = new Formapagopac();
+    public static FormapagopacJpaController controlFormapagopac = new FormapagopacJpaController();
+    public static FormapagopacPK formapagopacPK = new FormapagopacPK();
     public static Modificaciones modificaciones = new Modificaciones();
     public static ModificacionesJpaController controlModificaciones = new ModificacionesJpaController();
     public static ModificacionesPK modificacionesPK = new ModificacionesPK();

@@ -461,7 +461,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valoradministracion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
 
@@ -484,7 +484,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorimprevisto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
 
@@ -509,7 +509,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorutilidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
 
@@ -532,7 +532,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorivaobra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
 
@@ -595,7 +595,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         contrato.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPlaneacion.add(contrato);
@@ -871,7 +871,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorsiniva.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPrecontractual2.add(valorsiniva);
@@ -899,7 +899,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPrecontractual2.add(valor);
@@ -989,7 +989,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valormonedaextranjera.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPrecontractual2.add(valormonedaextranjera);
@@ -1094,7 +1094,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         diastiempopago.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPrecontractual2.add(diastiempopago);
@@ -1746,7 +1746,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorsaldo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         jPanel4.add(valorsaldo);
@@ -2196,7 +2196,7 @@ public class PanelContratos extends javax.swing.JPanel {
         componente.requestFocus();
     }//GEN-LAST:event_TextFieldFocusGained
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
 
         try {
@@ -2211,7 +2211,7 @@ public class PanelContratos extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_TexyFieldKeyReleased
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     private void botonBuscarFkterceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarFkterceroActionPerformed
         javax.swing.JButton componente = (javax.swing.JButton) evt.getSource();

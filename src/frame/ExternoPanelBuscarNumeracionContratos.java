@@ -90,7 +90,7 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         dependencia.setPreferredSize(new java.awt.Dimension(435, 25));
         dependencia.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ExternoPanelBuscarNumeracionContratos.this.itemStateChanged(evt);
+                ItemStateChanged(evt);
             }
         });
         add(dependencia);
@@ -106,7 +106,7 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         tipocontrato.setPreferredSize(new java.awt.Dimension(435, 25));
         tipocontrato.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ExternoPanelBuscarNumeracionContratos.this.itemStateChanged(evt);
+                ItemStateChanged(evt);
             }
         });
         add(tipocontrato);
@@ -124,7 +124,7 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         ano.setPreferredSize(new java.awt.Dimension(70, 24));
         ano.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ExternoPanelBuscarNumeracionContratos.this.itemStateChanged(evt);
+                ItemStateChanged(evt);
             }
         });
         add(ano);
@@ -190,7 +190,7 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
 //        }
 }//GEN-LAST:event_listaValueChanged
 
-    private void itemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_itemStateChanged
+    private void ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ItemStateChanged
         String dependenciaAux = dependencia.getSelectedItem().toString().substring(dependencia.getSelectedItem().toString().indexOf("[") + 1, dependencia.getSelectedItem().toString().indexOf("]"));
         String tipocontratoAux = tipocontrato.getSelectedItem().toString().substring(tipocontrato.getSelectedItem().toString().indexOf("[") + 1, tipocontrato.getSelectedItem().toString().indexOf("]"));
         String anoAux = ano.getSelectedItem().toString().substring(2, 4);
@@ -220,7 +220,7 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
 
         texto.setText(dependenciaAux + "_018." + tipocontratoAux + "-" + numContrato + "-" + anoAux);
         contrato = dependenciaAux + "_018." + tipocontratoAux + "-" + numContrato + "-" + anoAux;
-    }//GEN-LAST:event_itemStateChanged
+    }//GEN-LAST:event_ItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

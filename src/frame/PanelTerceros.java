@@ -257,7 +257,7 @@ public class PanelTerceros extends javax.swing.JPanel {
         idrepresentante.setPreferredSize(new java.awt.Dimension(150, 25));
         idrepresentante.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                idrepresentanteTextFieldFocusGained(evt);
+                TextFieldFocusGained(evt);
             }
         });
         jPanel6.add(idrepresentante);
@@ -288,7 +288,7 @@ public class PanelTerceros extends javax.swing.JPanel {
         nombrerepresentante.setPreferredSize(new java.awt.Dimension(650, 25));
         nombrerepresentante.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                nombrerepresentanteTextFieldFocusGained(evt);
+                TextFieldFocusGained(evt);
             }
         });
         jPanel6.add(nombrerepresentante);
@@ -326,7 +326,7 @@ public class PanelTerceros extends javax.swing.JPanel {
         });
         salario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         jPanel5.add(salario);
@@ -475,21 +475,13 @@ public class PanelTerceros extends javax.swing.JPanel {
         componente.requestFocus();
     }//GEN-LAST:event_TextFieldFocusGained
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         try {
             salario.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(salario.getText().trim().replace(".", ""))));
         } catch (Exception ex) {
             Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_TexyFieldKeyReleased
-
-    private void idrepresentanteTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idrepresentanteTextFieldFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idrepresentanteTextFieldFocusGained
-
-    private void nombrerepresentanteTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nombrerepresentanteTextFieldFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombrerepresentanteTextFieldFocusGained
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     public void metodoInsertar() {
         ClaseGeneral.terceros = new Terceros();

@@ -68,30 +68,28 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
         jTextField15 = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        unidadduracion = new javax.swing.JComboBox();
-        jLabel17 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel9 = new javax.swing.JLabel();
-        plazo = new javax.swing.JTextField();
-        botonCalcular = new javax.swing.JButton();
-        jTextField17 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         fechainicio = new org.jdesktop.swingx.JXDatePicker();
         jLabel26 = new javax.swing.JLabel();
-        jLabel70 = new javax.swing.JLabel();
-        jSeparator15 = new javax.swing.JSeparator();
+        botonAyuda1 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        plazo = new javax.swing.JTextField();
+        unidadduracion = new javax.swing.JComboBox();
+        botonCalcular = new javax.swing.JButton();
+        jTextField17 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         fechaterminacion = new org.jdesktop.swingx.JXDatePicker();
         jLabel27 = new javax.swing.JLabel();
-        botonAyuda1 = new javax.swing.JButton();
+        jTextField18 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         fechaactainicio = new org.jdesktop.swingx.JXDatePicker();
         jLabel31 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
+        jTextField19 = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -132,70 +130,6 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(810, 120));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel8.setText("UNIDAD DE DURACIÓN : ");
-        jLabel8.setPreferredSize(new java.awt.Dimension(145, 25));
-        jPanel2.add(jLabel8);
-
-        unidadduracion.setBackground(ClaseGeneral.campo);
-        unidadduracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        unidadduracion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "DÍAS", "SEMANAS", "MESES", "AÑOS" }));
-        unidadduracion.setSelectedItem("MESES");
-        unidadduracion.setName("UNIDADDURACION"); // NOI18N
-        unidadduracion.setPreferredSize(new java.awt.Dimension(120, 24));
-        unidadduracion.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                unidadduracionComboBoxStateChanged(evt);
-            }
-        });
-        jPanel2.add(unidadduracion);
-
-        jLabel17.setPreferredSize(new java.awt.Dimension(20, 25));
-        jPanel2.add(jLabel17);
-
-        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator3.setPreferredSize(new java.awt.Dimension(20, 25));
-        jPanel2.add(jSeparator3);
-
-        jLabel9.setText("PLAZO : ");
-        jLabel9.setPreferredSize(new java.awt.Dimension(50, 25));
-        jPanel2.add(jLabel9);
-
-        plazo.setBackground(ClaseGeneral.campo);
-        plazo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        plazo.setText("1");
-        plazo.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        plazo.setName("PLAZO"); // NOI18N
-        plazo.setPreferredSize(new java.awt.Dimension(150, 25));
-        plazo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                plazoTextFieldFocusGained(evt);
-            }
-        });
-        plazo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                texyFieldKeyReleased(evt);
-            }
-        });
-        jPanel2.add(plazo);
-
-        botonCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/process.png"))); // NOI18N
-        botonCalcular.setFocusable(false);
-        botonCalcular.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonCalcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCalcularActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botonCalcular);
-
-        jTextField17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField17.setEnabled(false);
-        jTextField17.setFocusable(false);
-        jTextField17.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField17.setOpaque(false);
-        jTextField17.setPreferredSize(new java.awt.Dimension(220, 25));
-        jPanel2.add(jTextField17);
-
         jLabel11.setText("FECHA INICIO DEL CONTRATO : ");
         jLabel11.setPreferredSize(new java.awt.Dimension(185, 25));
         jPanel2.add(jLabel11);
@@ -223,12 +157,76 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
 
         jPanel2.add(jPanel6);
 
-        jLabel70.setPreferredSize(new java.awt.Dimension(15, 25));
-        jPanel2.add(jLabel70);
+        botonAyuda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
+        botonAyuda1.setFocusable(false);
+        botonAyuda1.setName("botonAyuda1"); // NOI18N
+        botonAyuda1.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonAyuda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAyudaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonAyuda1);
 
-        jSeparator15.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator15.setPreferredSize(new java.awt.Dimension(20, 25));
-        jPanel2.add(jSeparator15);
+        jLabel17.setPreferredSize(new java.awt.Dimension(20, 25));
+        jPanel2.add(jLabel17);
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator3.setPreferredSize(new java.awt.Dimension(20, 25));
+        jPanel2.add(jSeparator3);
+
+        jLabel9.setText("PLAZO : ");
+        jLabel9.setPreferredSize(new java.awt.Dimension(50, 25));
+        jPanel2.add(jLabel9);
+
+        plazo.setBackground(ClaseGeneral.campo);
+        plazo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        plazo.setText("1");
+        plazo.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        plazo.setName("PLAZO"); // NOI18N
+        plazo.setPreferredSize(new java.awt.Dimension(100, 25));
+        plazo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TextFieldFocusGained(evt);
+            }
+        });
+        plazo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldKeyReleased(evt);
+            }
+        });
+        jPanel2.add(plazo);
+
+        unidadduracion.setBackground(ClaseGeneral.campo);
+        unidadduracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        unidadduracion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "DÍAS", "SEMANAS", "MESES", "AÑOS" }));
+        unidadduracion.setSelectedItem("MESES");
+        unidadduracion.setName("UNIDADDURACION"); // NOI18N
+        unidadduracion.setPreferredSize(new java.awt.Dimension(120, 24));
+        unidadduracion.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ComboBoxStateChanged(evt);
+            }
+        });
+        jPanel2.add(unidadduracion);
+
+        botonCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/process.png"))); // NOI18N
+        botonCalcular.setFocusable(false);
+        botonCalcular.setPreferredSize(new java.awt.Dimension(25, 24));
+        botonCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcularActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonCalcular);
+
+        jTextField17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField17.setEnabled(false);
+        jTextField17.setFocusable(false);
+        jTextField17.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField17.setOpaque(false);
+        jTextField17.setPreferredSize(new java.awt.Dimension(55, 25));
+        jPanel2.add(jTextField17);
 
         jLabel15.setText("FECHA TERMINACIÓN DEL CONTRATO : ");
         jLabel15.setPreferredSize(new java.awt.Dimension(230, 25));
@@ -257,16 +255,13 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
 
         jPanel2.add(jPanel7);
 
-        botonAyuda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda1.setFocusable(false);
-        botonAyuda1.setName("botonAyuda1"); // NOI18N
-        botonAyuda1.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyudaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botonAyuda1);
+        jTextField18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField18.setEnabled(false);
+        jTextField18.setFocusable(false);
+        jTextField18.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField18.setOpaque(false);
+        jTextField18.setPreferredSize(new java.awt.Dimension(405, 25));
+        jPanel2.add(jTextField18);
 
         jLabel30.setText("FECHA ACTA DE INICIO : ");
         jLabel30.setPreferredSize(new java.awt.Dimension(190, 25));
@@ -295,13 +290,13 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
 
         jPanel2.add(jPanel27);
 
-        jTextField18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField18.setEnabled(false);
-        jTextField18.setFocusable(false);
-        jTextField18.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        jTextField18.setOpaque(false);
-        jTextField18.setPreferredSize(new java.awt.Dimension(445, 25));
-        jPanel2.add(jTextField18);
+        jTextField19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField19.setEnabled(false);
+        jTextField19.setFocusable(false);
+        jTextField19.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField19.setOpaque(false);
+        jTextField19.setPreferredSize(new java.awt.Dimension(445, 25));
+        jPanel2.add(jTextField19);
 
         add(jPanel2);
 
@@ -330,21 +325,21 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
         jPanel14.getAccessibleContext().setAccessibleName("OBSERVACIONES ACTA DE INICIO");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void unidadduracionComboBoxStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_unidadduracionComboBoxStateChanged
+    private void ComboBoxStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboBoxStateChanged
         javax.swing.JComboBox componente = (javax.swing.JComboBox) evt.getSource();
 
         if (componente.getName().equals("UNIDADDURACION")) {
             metodoCalcularFechaTerminacion();
         }
-    }//GEN-LAST:event_unidadduracionComboBoxStateChanged
+    }//GEN-LAST:event_ComboBoxStateChanged
 
-    private void plazoTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_plazoTextFieldFocusGained
+    private void TextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TextFieldFocusGained
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
         componente.selectAll();
         componente.requestFocus();
-    }//GEN-LAST:event_plazoTextFieldFocusGained
+    }//GEN-LAST:event_TextFieldFocusGained
 
-    private void texyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
 
         try {
@@ -360,7 +355,7 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_texyFieldKeyReleased
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
         metodoCalcularFechaTerminacion();
@@ -386,7 +381,8 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
             plazo.setText(ClaseGeneral.contratos.getPlazo());
             fechaterminacion.setDate(ClaseGeneral.contratos.getFechaterminacion());
             fechaactainicio.setDate(ClaseGeneral.contratos.getFechaactainicio()); // BORRAR
-
+            observacionesactainicio.setText(ClaseGeneral.contratos.getObservacionesactainicio());
+        
             fkcontrato.setFocusable(false);
         } catch (Exception ex) {
             Logger.getLogger(PanelResoluciones.class.getName()).log(Level.SEVERE, null, ex);
@@ -396,7 +392,6 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
     public void metodoActualizar() {
         Contratos contratosId = ClaseGeneral.contratos;
 
-//        ClaseGeneral.contratos = new Contratos(); IMPORTANTE REVISAR
         ClaseGeneral.contratos.setFechainicio(fechainicio.getDate());
         ClaseGeneral.contratos.setUnidadduracion("" + unidadduracion.getSelectedItem());
         ClaseGeneral.contratos.setPlazo(plazo.getText());
@@ -456,10 +451,8 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
@@ -467,11 +460,11 @@ public class PanelIniciocontratos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextArea observacionesactainicio;
     private javax.swing.JTextField plazo;
     private javax.swing.JComboBox unidadduracion;

@@ -54,7 +54,7 @@ public class ClasificadorunspscJpaController {
         try {
             datos.query("SELECT * FROM CLASIFICADORUNSPSC "
                     + "WHERE "
-                    + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
+                    + "TO_ASCII(" + ClaseGeneral.parametro + ") ILIKE TO_ASCII('%" + ClaseGeneral.valor + "%') "
                     + "ORDER BY CODIGOGRUPO, CODIGOSEGMENTO, CODIGOFAMILIA, CODIGOCLASE, CODIGOPRODUCTO");
             while (ClaseBaseDatos.resultado.next()) {
                 clasificadorunspsc = new Clasificadorunspsc();

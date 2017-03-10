@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
- /*
+/*
  * IFrameContrato.java
  *
  * Created on 4/01/2012, 09:52:57 AM
@@ -14,7 +14,8 @@ import clases.ClaseBaseDatos;
 import clases.ClaseGeneral;
 import clases.ClaseInformacion;
 import clases.ClaseMensaje;
-import entidades.Contratos;
+import entidades.Formapagopac;
+import java.awt.Rectangle;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,17 +27,17 @@ import javax.swing.JOptionPane;
  *
  * @author Jhon Lopez
  */
-public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
+public class IFrameFormapagopac extends javax.swing.JInternalFrame {
 
     private List lista = new ArrayList();
     private int posicion;
-    private PanelIniciocontratos panelPrincipal = new PanelIniciocontratos();
+    private PanelFormapagopac panelPrincipal = new PanelFormapagopac();
     private ClaseBaseDatos datos = new ClaseBaseDatos();
 
     /**
      * Creates new form IFrameContrato
      */
-    public IFrameIniciocontratos() {
+    public IFrameFormapagopac() {
         initComponents();
         //datos.conectar();
     }
@@ -67,7 +68,7 @@ public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
         botonSiguiente = new javax.swing.JButton();
         jPanel = new javax.swing.JPanel();
 
-        setTitle("Inicio Contrato");
+        setTitle("Forma de Pago");
 
         jToolBar.setFloatable(false);
 
@@ -197,7 +198,6 @@ public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
         botonBuscar.setPreferredSize(new java.awt.Dimension(100, 25));
         jToolBarConsultar.add(botonBuscar);
 
-        textoPosicionBuscar.setEnabled(false);
         textoPosicionBuscar.setFocusable(false);
         textoPosicionBuscar.setMaximumSize(new java.awt.Dimension(150, 25));
         textoPosicionBuscar.setMinimumSize(new java.awt.Dimension(150, 25));
@@ -207,7 +207,6 @@ public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
         botonAnterior.setBackground(ClaseGeneral.boton);
         botonAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/back.png"))); // NOI18N
         botonAnterior.setText("Anterior");
-        botonAnterior.setEnabled(false);
         botonAnterior.setFocusable(false);
         botonAnterior.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         botonAnterior.setMaximumSize(new java.awt.Dimension(100, 25));
@@ -223,7 +222,6 @@ public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
         botonSiguiente.setBackground(ClaseGeneral.boton);
         botonSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/next.png"))); // NOI18N
         botonSiguiente.setText("Siguiente");
-        botonSiguiente.setEnabled(false);
         botonSiguiente.setFocusable(false);
         botonSiguiente.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         botonSiguiente.setMaximumSize(new java.awt.Dimension(100, 25));
@@ -241,13 +239,15 @@ public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
         jPanel.setLayout(new java.awt.BorderLayout());
         getContentPane().add(jPanel, java.awt.BorderLayout.CENTER);
 
+        getAccessibleContext().setAccessibleName("Forma Pago PAC");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevoActionPerformed
         metodoLimpiar();
 
-        panelPrincipal = new PanelIniciocontratos();
+        panelPrincipal = new PanelFormapagopac();
         jPanel.add(panelPrincipal, java.awt.BorderLayout.CENTER);
         jPanel.setVisible(false);
         jPanel.setVisible(true);
@@ -256,38 +256,43 @@ public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         panelPrincipal.metodoInsertar();
-        metodoLimpiar();
-        metodoEstado("guardar");
+        if (ClaseGeneral.controlFormapagopac.verify(ClaseGeneral.formapagopac)) {
+            metodoLimpiar();
+            metodoEstado("guardar");
+        } else {
+            ClaseMensaje.error("Error - Falta completar información.\n\n" + ClaseGeneral.errorValidacion);
+        }
 }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
         metodoLimpiar();
 
-        panelPrincipal = new PanelIniciocontratos();
+        panelPrincipal = new PanelFormapagopac();
         jPanel.add(panelPrincipal, java.awt.BorderLayout.CENTER);
         jPanel.setVisible(false);
         jPanel.setVisible(true);
         jToolBarConsultar.setVisible(true);
 
-//        lista = ClaseGeneral.controlContratos.findAllInContratosByEntities();
-//
-//        if (!lista.isEmpty()) {
-//            posicion = 0;
-//            ClaseGeneral.contratos = (Contratos) lista.get(posicion);
-            panelPrincipal.metodoConsultar();
-//        } else {
-//            posicion = -1;
-//        }
+        lista = ClaseGeneral.controlFormapagopac.findAllInFormapagopacByFkcontrato(ClaseGeneral.contratos.getContrato());
 
-        textoPosicionBuscar.setText((posicion + 1) + " / " + "1");
+        if (!lista.isEmpty()) {
+            posicion = 0;
+            ClaseGeneral.formapagopac = (Formapagopac) lista.get(posicion);
+            panelPrincipal.metodoConsultar();
+        } else {
+            posicion = -1;
+        }
+
+        textoPosicionBuscar.setText((posicion + 1) + " / " + lista.size());
+        panelPrincipal.jTable.changeSelection(posicion, 0, false, false);
         metodoEstado("consultar");
 }//GEN-LAST:event_botonConsultarActionPerformed
 
     private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-//        if (!lista.isEmpty()) {
+        if (!lista.isEmpty()) {
             panelPrincipal.metodoActualizar();
-//        }
-        if (ClaseGeneral.controlContratos.verify(ClaseGeneral.contratos, "edit")) {
+        }
+        if (ClaseGeneral.controlFormapagopac.verify(ClaseGeneral.formapagopac)) {
             metodoLimpiar();
             metodoEstado("actualizar");
         } else {
@@ -319,8 +324,11 @@ public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
                 posicion = lista.size() - 1;
             }
             textoPosicionBuscar.setText((posicion + 1) + " / " + lista.size());
-            ClaseGeneral.contratos = (Contratos) lista.get(posicion);
+            ClaseGeneral.formapagopac = (Formapagopac) lista.get(posicion);
             panelPrincipal.metodoConsultar();
+            Rectangle r = panelPrincipal.jTable.getCellRect(posicion, 0, true);
+            panelPrincipal.jScrollPane.getViewport().scrollRectToVisible(r);
+            panelPrincipal.jTable.changeSelection(posicion, 0, false, false);
         } catch (Exception e) {
         }
 }//GEN-LAST:event_botonAnteriorActionPerformed
@@ -335,8 +343,11 @@ public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
                 posicion = -1;
             }
             textoPosicionBuscar.setText((posicion + 1) + " / " + lista.size());
-            ClaseGeneral.contratos = (Contratos) lista.get(posicion);
+            ClaseGeneral.formapagopac = (Formapagopac) lista.get(posicion);
             panelPrincipal.metodoConsultar();
+            Rectangle r = panelPrincipal.jTable.getCellRect(posicion, 0, true);
+            panelPrincipal.jScrollPane.getViewport().scrollRectToVisible(r);
+            panelPrincipal.jTable.changeSelection(posicion, 0, false, false);
         } catch (Exception e) {
         }
 }//GEN-LAST:event_botonSiguienteActionPerformed
@@ -383,16 +394,8 @@ public class IFrameIniciocontratos extends javax.swing.JInternalFrame {
             } else {
                 botonReiniciar.setBackground(ClaseGeneral.gris);
             }
-
-            if (ClaseGeneral.perfil.equals("usuario")
-                    && estado.equals("nuevo")) {
-                panelPrincipal.fechaterminacion.setEnabled(false);
-            } else if (ClaseGeneral.perfil.equals("usuario")
-                    && estado.equals("consultar")) {
-                panelPrincipal.fechaterminacion.setEnabled(false);
-            }
         } catch (SQLException ex) {
-            Logger.getLogger(IFrameIniciocontratos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IFrameFormapagopac.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

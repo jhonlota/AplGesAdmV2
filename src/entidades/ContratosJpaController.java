@@ -329,7 +329,7 @@ public class ContratosJpaController {
                     && ClaseInformacion.ValidarSeleccione(contratos.getMonedapago(), "MONEDA DE PAGO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getObservaciones(), "OBSERVACIÓN AL CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getObjeto(), "OBJETO DEL CONTRATO")
-                    && ClaseInformacion.ValidarSeleccione(contratos.getPlazo(), "PLAZO")
+//                    && ClaseInformacion.ValidarSeleccione(contratos.getPlazo(), "PLAZO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getTiempogarantia(), "TIEMPO DE GARANTIA DE CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getTipocontrato(), "TIPO DE CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getTipointerventoria(), "TIPO DE INTERVENTORÍA")
