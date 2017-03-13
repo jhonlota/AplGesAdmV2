@@ -84,7 +84,7 @@ public class ExternoPanelFktercero extends javax.swing.JPanel {
         idFktercero.setPreferredSize(new java.awt.Dimension(150, 25));
         idFktercero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldTerceroKeyReleased(evt);
+                TextFieldTerceroKeyReleased(evt);
             }
         });
         add(idFktercero);
@@ -108,7 +108,7 @@ public class ExternoPanelFktercero extends javax.swing.JPanel {
         nombreFktercero.setPreferredSize(new java.awt.Dimension(400, 25));
         nombreFktercero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldTerceroKeyReleased(evt);
+                TextFieldTerceroKeyReleased(evt);
             }
         });
         add(nombreFktercero);
@@ -137,10 +137,10 @@ public class ExternoPanelFktercero extends javax.swing.JPanel {
         add(scrollLista);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TexyFieldTerceroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldTerceroKeyReleased
+    private void TextFieldTerceroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldTerceroKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
-        String texto = componente.getText();
-        componente.setText(texto.toUpperCase());
+        String text = componente.getText();
+        componente.setText(text.toUpperCase());
 
         ClaseGeneral.parametro = componente.getName();
         ClaseGeneral.valor = componente.getText();
@@ -152,7 +152,7 @@ public class ExternoPanelFktercero extends javax.swing.JPanel {
             modeloLista.addElement(ClaseGeneral.terceros.getId() + " - " + ClaseGeneral.terceros.getNombre());
         }
         lista.setModel(modeloLista);
-}//GEN-LAST:event_TexyFieldTerceroKeyReleased
+}//GEN-LAST:event_TextFieldTerceroKeyReleased
 
     private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
         if (evt.getValueIsAdjusting()) {

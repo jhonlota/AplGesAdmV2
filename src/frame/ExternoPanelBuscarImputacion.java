@@ -92,7 +92,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         parametro.setPreferredSize(new java.awt.Dimension(435, 25));
         parametro.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                parametroItemStateChanged(evt);
+                ItemStateChanged(evt);
             }
         });
         add(parametro);
@@ -110,7 +110,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         fkcomprobante.setVisible(false);
         fkcomprobante.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(fkcomprobante);
@@ -128,7 +128,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         fkcuenta.setVisible(false);
         fkcuenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(fkcuenta);
@@ -157,7 +157,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         add(scrollLista);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
         String texto = componente.getText();
         componente.setText(texto.toUpperCase());
@@ -198,7 +198,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
             lista.setModel(modeloLista);
 //            System.out.println("SOPORTECUENTA --> FKSOPORTE = " + fksoportecuenta + ", ID =" + fksoportecuentaid);
         }
-}//GEN-LAST:event_TexyFieldKeyReleased
+}//GEN-LAST:event_TextFieldKeyReleased
 
     private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
         if (evt.getValueIsAdjusting()) {
@@ -214,7 +214,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
         }
 }//GEN-LAST:event_listaValueChanged
 
-    private void parametroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_parametroItemStateChanged
+    private void ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ItemStateChanged
         // TODO add your handling code here:
         String seleccion = (String) parametro.getSelectedItem();
         if (!seleccion.equals("Seleccione")) {
@@ -226,7 +226,7 @@ public class ExternoPanelBuscarImputacion extends javax.swing.JPanel {
             fkcomprobante.setVisible(false);
             fkcomprobante.setText("");
         }
-    }//GEN-LAST:event_parametroItemStateChanged
+    }//GEN-LAST:event_ItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField fkcomprobante;

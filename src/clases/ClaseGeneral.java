@@ -30,6 +30,8 @@ public class ClaseGeneral {
     public static CcostoJpaController controlCcosto = new CcostoJpaController();
     public static Cinfo cinfo = new Cinfo();
     public static CinfoJpaController controlCinfo = new CinfoJpaController();
+    public static Clasificadorunspsc clasificadorunspsc = new Clasificadorunspsc();
+    public static ClasificadorunspscJpaController controlClasificadorunspsc = new ClasificadorunspscJpaController();
     public static Comprobantes comprobantes = new Comprobantes();
     public static Comprobantes comprobantesnoreembolsados = new Comprobantes();
     public static Comprobantes comprobantespendientes = new Comprobantes();
@@ -60,6 +62,9 @@ public class ClaseGeneral {
     public static Formadepagosolicitudesoferta formadepagosolicitudesoferta = new Formadepagosolicitudesoferta();
     public static FormadepagosolicitudesofertaJpaController controlFormadepagosolicitudesoferta = new FormadepagosolicitudesofertaJpaController();
     public static FormadepagosolicitudesofertaPK formadepagosolicitudesofertaPK = new FormadepagosolicitudesofertaPK();    
+    public static Formapagopac formapagopac = new Formapagopac();
+    public static FormapagopacJpaController controlFormapagopac = new FormapagopacJpaController();
+    public static FormapagopacPK formapagopacPK = new FormapagopacPK();
     public static Modificaciones modificaciones = new Modificaciones();
     public static ModificacionesJpaController controlModificaciones = new ModificacionesJpaController();
     public static ModificacionesPK modificacionesPK = new ModificacionesPK();

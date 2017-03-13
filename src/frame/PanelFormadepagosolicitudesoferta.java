@@ -12,8 +12,6 @@ package frame;
 
 import clases.ClaseGeneral;
 import clases.ClaseInformacion;
-import entidades.Formadepagocontratos;
-import entidades.FormadepagocontratosPK;
 import entidades.Formadepagosolicitudesoferta;
 import entidades.FormadepagosolicitudesofertaPK;
 import java.math.BigDecimal;
@@ -104,12 +102,12 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
         valor.setPreferredSize(new java.awt.Dimension(150, 25));
         valor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                TexyFieldFocusGained(evt);
+                TextFieldFocusGained(evt);
             }
         });
         valor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(valor);
@@ -279,19 +277,19 @@ public class PanelFormadepagosolicitudesoferta extends javax.swing.JPanel {
         add(jScrollPane);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TexyFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TexyFieldFocusGained
+    private void TextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TextFieldFocusGained
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
         componente.selectAll();
         componente.requestFocus();
-    }//GEN-LAST:event_TexyFieldFocusGained
+    }//GEN-LAST:event_TextFieldFocusGained
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         try {
             valor.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valor.getText().trim().replace(".", ""))));
         } catch (Exception ex) {
             Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_TexyFieldKeyReleased
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     public void metodoInsertar() {
         ClaseGeneral.formadepagosolicitudesoferta = new Formadepagosolicitudesoferta();

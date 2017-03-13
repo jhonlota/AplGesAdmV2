@@ -26,7 +26,8 @@ public class PlanestrategicocontratosJpaController {
                     + "'" + planestrategicocontratos.getPrograma() + "', "
                     + "'" + planestrategicocontratos.getProyecto() + "', "
                     + "'" + planestrategicocontratos.getSubgrupo() + "', "
-                    + "'" + planestrategicocontratos.getCinfo() + "')");
+                    + "'" + planestrategicocontratos.getCinfo() + "', "
+                    + "'" + planestrategicocontratos.getVerificacionestrategia() + "')");
             if (!datos.isError) {
                 ClaseMensaje.informacionGuardarBD("Plan Estrategico");
             }
@@ -46,7 +47,8 @@ public class PlanestrategicocontratosJpaController {
                     + "PROGRAMA = '" + planestrategicocontratos.getPrograma() + "', "
                     + "PROYECTO = '" + planestrategicocontratos.getProyecto() + "', "
                     + "SUBGRUPO = '" + planestrategicocontratos.getSubgrupo() + "', "
-                    + "CINFO = '" + planestrategicocontratos.getCinfo() + "' "
+                    + "CINFO = '" + planestrategicocontratos.getCinfo() + "', "
+                    + "VERIFICACIONESTRATEGIA = '" + planestrategicocontratos.getVerificacionestrategia() + "' "
                     + "WHERE "
                     + "FKCONTRATO = '" + id.getFkcontrato() + "' AND "
                     + "ID = " + id.getId() + "");
@@ -116,7 +118,8 @@ public class PlanestrategicocontratosJpaController {
                 planestrategicocontratos.setPrograma(ClaseBaseDatos.resultado.getString("PROGRAMA"));
                 planestrategicocontratos.setProyecto(ClaseBaseDatos.resultado.getString("PROYECTO"));
                 planestrategicocontratos.setSubgrupo(ClaseBaseDatos.resultado.getString("SUBGRUPO"));
-                planestrategicocontratos.setCinfo(ClaseBaseDatos.resultado.getString("CINFO"));                
+                planestrategicocontratos.setCinfo(ClaseBaseDatos.resultado.getString("CINFO"));
+                planestrategicocontratos.setVerificacionestrategia(ClaseBaseDatos.resultado.getString("VERIFICACIONESTRATEGIA"));
                 listPlanestrategicocontratos.add(planestrategicocontratos);
             }
             return listPlanestrategicocontratos;
@@ -142,7 +145,8 @@ public class PlanestrategicocontratosJpaController {
                 planestrategicocontratos.setPrograma(ClaseBaseDatos.resultado.getString("PROGRAMA"));
                 planestrategicocontratos.setProyecto(ClaseBaseDatos.resultado.getString("PROYECTO"));
                 planestrategicocontratos.setSubgrupo(ClaseBaseDatos.resultado.getString("SUBGRUPO"));
-                planestrategicocontratos.setCinfo(ClaseBaseDatos.resultado.getString("CINFO"));    
+                planestrategicocontratos.setCinfo(ClaseBaseDatos.resultado.getString("CINFO"));
+                planestrategicocontratos.setVerificacionestrategia(ClaseBaseDatos.resultado.getString("VERIFICACIONESTRATEGIA"));   
                 listPlanestrategicocontratos.add(planestrategicocontratos);
             }
             return listPlanestrategicocontratos;

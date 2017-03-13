@@ -256,7 +256,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         });
         valor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(valor);
@@ -360,7 +360,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         });
         comprobante.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(comprobante);
@@ -1602,14 +1602,14 @@ public class PanelComprobantes extends javax.swing.JPanel {
         componente.requestFocus();
     }//GEN-LAST:event_TextFieldFocusGained
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         try {
             comprobante.setText(ClaseInformacion.formatoEntero.format(Long.parseLong(comprobante.getText().trim().replace(".", ""))));
             valor.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valor.getText().trim().replace(".", ""))));
         } catch (Exception ex) {
             Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_TexyFieldKeyReleased
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     private void TextAreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TextAreaFocusGained
         javax.swing.JTextArea componente = (javax.swing.JTextArea) evt.getSource();
@@ -1643,6 +1643,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
     private void botonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarActionPerformed
         try {
             if (!fktercero.getText().equals("")) {
+                email = "";
                 email = ClaseMensaje.ingresar("<html><body>"
                         + "Ingrese el CORREO ELECTRONICO<br/>"
                         + "</body></html>");

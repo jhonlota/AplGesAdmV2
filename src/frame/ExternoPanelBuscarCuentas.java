@@ -59,7 +59,7 @@ public class ExternoPanelBuscarCuentas extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(550, 300));
         setMinimumSize(new java.awt.Dimension(550, 300));
         setPreferredSize(new java.awt.Dimension(550, 300));
-        setLayout(new java.awt.FlowLayout(0));
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel1.setBackground(ClaseGeneral.titulo);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -96,7 +96,7 @@ public class ExternoPanelBuscarCuentas extends javax.swing.JPanel {
         texto.setPreferredSize(new java.awt.Dimension(470, 25));
         texto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldTerceroKeyReleased(evt);
+                TextFieldTerceroKeyReleased(evt);
             }
         });
         add(texto);
@@ -125,7 +125,7 @@ public class ExternoPanelBuscarCuentas extends javax.swing.JPanel {
         add(scrollLista);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TexyFieldTerceroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldTerceroKeyReleased
+    private void TextFieldTerceroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldTerceroKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
         String text = componente.getText();
         componente.setText(text.toUpperCase());
@@ -141,7 +141,7 @@ public class ExternoPanelBuscarCuentas extends javax.swing.JPanel {
         }
 
         lista.setModel(modeloLista);
-}//GEN-LAST:event_TexyFieldTerceroKeyReleased
+}//GEN-LAST:event_TextFieldTerceroKeyReleased
 
     private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
         if (evt.getValueIsAdjusting()) {

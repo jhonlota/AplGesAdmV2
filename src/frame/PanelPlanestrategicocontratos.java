@@ -357,6 +357,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         ClaseGeneral.planestrategicocontratos.setProyecto(proyecto.getText());
         ClaseGeneral.planestrategicocontratos.setSubgrupo("" + subgrupo.getSelectedItem());
         ClaseGeneral.planestrategicocontratos.setCinfo("" + cinfo.getSelectedItem());
+        ClaseGeneral.planestrategicocontratos.setVerificacionestrategia("" + verificacionestrategia.getText());
 
             try {
                 ClaseGeneral.controlPlanestrategicocontratos.create(ClaseGeneral.planestrategicocontratos);
@@ -374,6 +375,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
             proyecto.setText(ClaseGeneral.planestrategicocontratos.getProyecto());
             subgrupo.setSelectedItem(ClaseGeneral.planestrategicocontratos.getSubgrupo());
             cinfo.setSelectedItem(ClaseGeneral.planestrategicocontratos.getCinfo());
+            verificacionestrategia.setText(ClaseGeneral.planestrategicocontratos.getVerificacionestrategia());
 
             fkcontrato.setFocusable(false);
         } catch (Exception ex) {
@@ -393,6 +395,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         ClaseGeneral.planestrategicocontratos.setProyecto(proyecto.getText());
         ClaseGeneral.planestrategicocontratos.setSubgrupo("" + subgrupo.getSelectedItem());
         ClaseGeneral.planestrategicocontratos.setCinfo("" + cinfo.getSelectedItem());
+        ClaseGeneral.planestrategicocontratos.setVerificacionestrategia("" + verificacionestrategia.getText());
 
             try {
                 ClaseGeneral.controlPlanestrategicocontratos.edit(ClaseGeneral.planestrategicocontratos, planestrategicocontratosId);
@@ -404,7 +407,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
     public void metodoEliminar() {
         try {
             Planestrategicocontratos planestrategicocontratosId = ClaseGeneral.planestrategicocontratos;
-//
+
             ClaseGeneral.controlPlanestrategicocontratos.destroy(planestrategicocontratosId);
         } catch (Exception ex) {
             Logger.getLogger(PanelPlanestrategicocontratos.class.getName()).log(Level.SEVERE, null, ex);

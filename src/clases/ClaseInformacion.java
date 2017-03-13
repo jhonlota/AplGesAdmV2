@@ -338,8 +338,8 @@ public class ClaseInformacion {
                     + "10";
             Pattern p = Pattern.compile(patron);
             Matcher matcher = p.matcher(cuenta);
-            
-            if(!matcher.matches()) {
+
+            if (!matcher.matches()) {
                 ClaseGeneral.errorCUENTA = "Error (CUENTA) : " + cuenta + "\n";
             }
             return matcher.matches();
@@ -356,10 +356,10 @@ public class ClaseInformacion {
             }
         }
 
-        if(!is) {
+        if (!is) {
             ClaseGeneral.errorACTIVIDAD = "Error (ACTIVIDAD) : " + actividad + "\n";
         }
-        
+
         return is;
     }
 
@@ -370,8 +370,8 @@ public class ClaseInformacion {
                 is = true;
             }
         }
-        
-        if(!is) {
+
+        if (!is) {
             ClaseGeneral.errorSUBGRUPO = "Error (SUBGRUPO) : " + subgrupo + "\n";
         }
 
@@ -413,10 +413,10 @@ public class ClaseInformacion {
                 is = true;
             }
         }
-        
-        if(!is) {
+
+        if (!is) {
             ClaseGeneral.errorCINFO = "Error (CINFO) : " + cinfo + "\n";
-        }        
+        }
 
         return is;
     }
@@ -428,10 +428,10 @@ public class ClaseInformacion {
                 is = true;
             }
         }
-        
-        if(!is) {
+
+        if (!is) {
             ClaseGeneral.errorCUENTAINTERNA = "Error (CUENTAINTERNA) : " + cuentainterna + "\n";
-        }  
+        }
 
         return is;
     }
@@ -645,16 +645,16 @@ public class ClaseInformacion {
         return ClaseGeneral.controlUtilidades.verficacionCuentaInterna(cinfo, cingreso, actividad, ccostos, cuentainterna);
     }
 
-    public static void LimpiarPrincipales() {
+    public static void LimpiarPrincipales() { //OJO IMPORTANTE
         ClaseGeneral.comprobantes = null;
         ClaseGeneral.contratos = null;
         ClaseGeneral.cuentas = null;
         ClaseGeneral.resoluciones = null;
         ClaseGeneral.solicitudesoferta = null;
-        ClaseGeneral.terceros = null;        
+        ClaseGeneral.terceros = null;
     }
 
-    public static void LimpiarSecundarios() {
+    public static void LimpiarSecundarios() { //OJO IMPORTANTE
         ClaseGeneral.anexoscontratos = null;
         ClaseGeneral.anexosterceros = null;
         ClaseGeneral.bienessolicitudesoferta = null;
@@ -664,17 +664,20 @@ public class ClaseInformacion {
         ClaseGeneral.cumplidoscomprobantes = null;
         ClaseGeneral.facturascomprobantes = null;
         ClaseGeneral.formadepagocontratos = null;
+        ClaseGeneral.formadepagosolicitudesoferta = null;
+        ClaseGeneral.formapagopac = null;
         ClaseGeneral.modificaciones = null;
         ClaseGeneral.observacionescontratos = null;
         ClaseGeneral.observacionescuentas = null;
+        ClaseGeneral.planestrategicocontratos = null;
         ClaseGeneral.polizas = null;
         ClaseGeneral.serviciossolicitudesoferta = null;
         ClaseGeneral.soportescomprobantes = null;
         ClaseGeneral.soportescontratos = null;
         ClaseGeneral.soportescuentas = null;
         ClaseGeneral.soportesresoluciones = null;
-        ClaseGeneral.tercerosresoluciones = null;        
-        
+        ClaseGeneral.tercerosresoluciones = null;
+
     }
 
     public static String ConvertirNombre(String texto) {

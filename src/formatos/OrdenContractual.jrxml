@@ -262,7 +262,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{CONTRATOS_CODIGOPROYECTO}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5491690a-8715-4743-ad12-4a80b71660c3" x="25" y="473" width="700" height="53"/>
+				<reportElement uuid="5491690a-8715-4743-ad12-4a80b71660c3" x="376" y="435" width="700" height="53"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_OBJETO}]]></textFieldExpression>
 			</textField>

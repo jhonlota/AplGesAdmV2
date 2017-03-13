@@ -49,24 +49,20 @@ public class PanelContratos extends javax.swing.JPanel {
         fechacierre.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechafinalactividad.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechainicialactividad.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
-        fechainicio.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechalegalizacion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechaperfeccionamiento.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechasuscripcion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
-        fechaterminacion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechaterminacionvigente.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         secopfechapublicacion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechafichatecnica.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechainvitacion.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         fechaentrega.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
-        fechaactainicio.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
 
         fechaactaavance.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechaadjudicacion.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechacierre.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechafinalactividad.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechainicialactividad.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
-        fechainicio.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechalegalizacion.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechaperfeccionamiento.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechasuscripcion.setDate(ClaseGeneral.controlUtilidades.fechaServidor());
@@ -75,12 +71,6 @@ public class PanelContratos extends javax.swing.JPanel {
         fechafichatecnica.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechainvitacion.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
         fechaentrega.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
-        fechaactainicio.setDate(new Date(ClaseInformacion.calendario.getTimeInMillis()));
-
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(fechainicio.getDate());
-        cal.add(Calendar.MONTH, 1);
-        fechaterminacion.setDate(new Date(cal.getTimeInMillis()));
     }
 
     /**
@@ -129,30 +119,6 @@ public class PanelContratos extends javax.swing.JPanel {
         jLabel68 = new javax.swing.JLabel();
         cantidadespreciosvariables = new javax.swing.JTextField();
         jTextField42 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        unidadduracion = new javax.swing.JComboBox();
-        jLabel17 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel9 = new javax.swing.JLabel();
-        plazo = new javax.swing.JTextField();
-        botonCalcular = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        fechainicio = new org.jdesktop.swingx.JXDatePicker();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel70 = new javax.swing.JLabel();
-        jSeparator15 = new javax.swing.JSeparator();
-        jLabel15 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        fechaterminacion = new org.jdesktop.swingx.JXDatePicker();
-        jLabel27 = new javax.swing.JLabel();
-        botonAyuda2 = new javax.swing.JButton();
-        jLabel30 = new javax.swing.JLabel();
-        jPanel27 = new javax.swing.JPanel();
-        fechaactainicio = new org.jdesktop.swingx.JXDatePicker();
-        jLabel31 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
         jTabbedPane = new javax.swing.JTabbedPane();
         panelPlaneacion = new javax.swing.JPanel();
         jLabelContrato = new javax.swing.JLabel();
@@ -495,7 +461,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valoradministracion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
 
@@ -518,7 +484,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorimprevisto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
 
@@ -543,7 +509,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorutilidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
 
@@ -566,7 +532,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorivaobra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
 
@@ -605,164 +571,6 @@ public class PanelContratos extends javax.swing.JPanel {
         jTextField42.setOpaque(false);
         jTextField42.setPreferredSize(new java.awt.Dimension(115, 25));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PLAZO DE EJECUCIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel2.setPreferredSize(new java.awt.Dimension(800, 70));
-
-        jLabel8.setText("UNIDAD DE DURACIÓN : ");
-        jLabel8.setPreferredSize(new java.awt.Dimension(145, 25));
-        jPanel2.add(jLabel8);
-
-        unidadduracion.setBackground(ClaseGeneral.campo);
-        unidadduracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        unidadduracion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "DÍAS", "SEMANAS", "MESES", "AÑOS" }));
-        unidadduracion.setSelectedItem("MESES");
-        unidadduracion.setName("UNIDADDURACION"); // NOI18N
-        unidadduracion.setPreferredSize(new java.awt.Dimension(120, 24));
-        unidadduracion.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ComboBoxStateChanged(evt);
-            }
-        });
-        jPanel2.add(unidadduracion);
-
-        jLabel17.setPreferredSize(new java.awt.Dimension(20, 25));
-        jPanel2.add(jLabel17);
-
-        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator3.setPreferredSize(new java.awt.Dimension(20, 25));
-        jPanel2.add(jSeparator3);
-
-        jLabel9.setText("PLAZO : ");
-        jLabel9.setPreferredSize(new java.awt.Dimension(50, 25));
-        jPanel2.add(jLabel9);
-
-        plazo.setBackground(ClaseGeneral.campo);
-        plazo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        plazo.setText("1");
-        plazo.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        plazo.setName("PLAZO"); // NOI18N
-        plazo.setPreferredSize(new java.awt.Dimension(150, 25));
-        plazo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                TextFieldFocusGained(evt);
-            }
-        });
-        plazo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
-            }
-        });
-        jPanel2.add(plazo);
-
-        botonCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/process.png"))); // NOI18N
-        botonCalcular.setFocusable(false);
-        botonCalcular.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonCalcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCalcularActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botonCalcular);
-
-        jLabel7.setText("FECHA INICIO DEL CONTRATO : ");
-        jLabel7.setPreferredSize(new java.awt.Dimension(190, 25));
-        jPanel2.add(jLabel7);
-
-        jPanel6.setBackground(ClaseGeneral.campo);
-        jPanel6.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel6.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel6.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechainicio.setFocusable(false);
-        fechainicio.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechainicio.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechainicio.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel6.add(fechainicio);
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel26.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel26.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel26.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel6.add(jLabel26);
-
-        jPanel2.add(jPanel6);
-
-        jLabel70.setPreferredSize(new java.awt.Dimension(15, 25));
-        jPanel2.add(jLabel70);
-
-        jSeparator15.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator15.setPreferredSize(new java.awt.Dimension(20, 25));
-        jPanel2.add(jSeparator15);
-
-        jLabel15.setText("FECHA TERMINACIÓN DEL CONTRATO : ");
-        jLabel15.setPreferredSize(new java.awt.Dimension(235, 25));
-        jPanel2.add(jLabel15);
-
-        jPanel7.setBackground(ClaseGeneral.campo);
-        jPanel7.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel7.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel7.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechaterminacion.setFocusable(false);
-        fechaterminacion.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechaterminacion.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechaterminacion.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel7.add(fechaterminacion);
-
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel27.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel27.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel27.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel7.add(jLabel27);
-
-        jPanel2.add(jPanel7);
-
-        botonAyuda2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/info.png"))); // NOI18N
-        botonAyuda2.setFocusable(false);
-        botonAyuda2.setName("botonAyuda2"); // NOI18N
-        botonAyuda2.setPreferredSize(new java.awt.Dimension(25, 24));
-        botonAyuda2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAyudaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botonAyuda2);
-
-        jLabel30.setText("FECHA ACTA DE INICIO : ");
-        jLabel30.setPreferredSize(new java.awt.Dimension(190, 25));
-        jPanel2.add(jLabel30);
-
-        jPanel27.setBackground(ClaseGeneral.campo);
-        jPanel27.setMaximumSize(new java.awt.Dimension(140, 25));
-        jPanel27.setMinimumSize(new java.awt.Dimension(140, 25));
-        jPanel27.setPreferredSize(new java.awt.Dimension(140, 25));
-        jPanel27.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        fechaactainicio.setFocusable(false);
-        fechaactainicio.setMaximumSize(new java.awt.Dimension(120, 25));
-        fechaactainicio.setMinimumSize(new java.awt.Dimension(120, 25));
-        fechaactainicio.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel27.add(fechaactainicio);
-
-        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel31.setMaximumSize(new java.awt.Dimension(20, 26));
-        jLabel31.setMinimumSize(new java.awt.Dimension(20, 26));
-        jLabel31.setPreferredSize(new java.awt.Dimension(20, 26));
-        jPanel27.add(jLabel31);
-
-        jPanel2.add(jPanel27);
-
         setName("panelContratos"); // NOI18N
         setLayout(new java.awt.BorderLayout());
 
@@ -787,7 +595,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         contrato.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPlaneacion.add(contrato);
@@ -836,7 +644,7 @@ public class PanelContratos extends javax.swing.JPanel {
         panelPlaneacion.add(jLabel72);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "NECESIDAD", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel8.setPreferredSize(new java.awt.Dimension(395, 140));
+        jPanel8.setPreferredSize(new java.awt.Dimension(400, 140));
         jPanel8.setLayout(new java.awt.BorderLayout());
 
         jScrollPane4.setPreferredSize(new java.awt.Dimension(430, 70));
@@ -880,7 +688,7 @@ public class PanelContratos extends javax.swing.JPanel {
         panelPlaneacion.add(jLabel107);
 
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REQUERIMIENTOS TECNICOS (BIENES)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel26.setPreferredSize(new java.awt.Dimension(395, 140));
+        jPanel26.setPreferredSize(new java.awt.Dimension(400, 140));
         jPanel26.setLayout(new java.awt.BorderLayout());
 
         jScrollPane12.setPreferredSize(new java.awt.Dimension(430, 70));
@@ -1063,7 +871,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorsiniva.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPrecontractual2.add(valorsiniva);
@@ -1091,7 +899,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPrecontractual2.add(valor);
@@ -1181,7 +989,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valormonedaextranjera.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPrecontractual2.add(valormonedaextranjera);
@@ -1286,7 +1094,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         diastiempopago.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         panelPrecontractual2.add(diastiempopago);
@@ -1938,7 +1746,7 @@ public class PanelContratos extends javax.swing.JPanel {
         });
         valorsaldo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         jPanel4.add(valorsaldo);
@@ -2388,19 +2196,10 @@ public class PanelContratos extends javax.swing.JPanel {
         componente.requestFocus();
     }//GEN-LAST:event_TextFieldFocusGained
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
 
         try {
-            if (componente.getName().equals("PLAZO")) {
-                metodoCalcularFechaTerminacion();
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        try {
-            plazo.setText(ClaseInformacion.formatoEntero.format(Long.parseLong(plazo.getText().trim().replace(".", ""))));
             valor.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valor.getText().trim().replace(".", ""))));
             valoradministracion.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valoradministracion.getText().trim().replace(".", ""))));
             valorimprevisto.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valorimprevisto.getText().trim().replace(".", ""))));
@@ -2412,7 +2211,7 @@ public class PanelContratos extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_TexyFieldKeyReleased
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     private void botonBuscarFkterceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarFkterceroActionPerformed
         javax.swing.JButton componente = (javax.swing.JButton) evt.getSource();
@@ -2471,18 +2270,6 @@ public class PanelContratos extends javax.swing.JPanel {
         contrato.setText(panelBuscarNumeracionContratos.contrato);
     }//GEN-LAST:event_botonBuscarContratoActionPerformed
 
-    private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
-        metodoCalcularFechaTerminacion();
-    }//GEN-LAST:event_botonCalcularActionPerformed
-
-    private void ComboBoxStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboBoxStateChanged
-        javax.swing.JComboBox componente = (javax.swing.JComboBox) evt.getSource();
-
-        if (componente.getName().equals("UNIDADDURACION")) {
-            metodoCalcularFechaTerminacion();
-        }
-    }//GEN-LAST:event_ComboBoxStateChanged
-
     public void metodoInsertar() {
         ClaseGeneral.contratos = new Contratos();
         ClaseGeneral.contratos.setContrato(contrato.getText());
@@ -2491,9 +2278,9 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setTipocontrato("" + tipocontrato.getSelectedItem());
         ClaseGeneral.contratos.setInversion("" + inversion.getSelectedItem());
         ClaseGeneral.contratos.setFechasuscripcion(fechasuscripcion.getDate());
-        ClaseGeneral.contratos.setFechainicio(fechainicio.getDate());
-        ClaseGeneral.contratos.setUnidadduracion("" + unidadduracion.getSelectedItem());
-        ClaseGeneral.contratos.setPlazo(plazo.getText());
+        ClaseGeneral.contratos.setFechainicio(fechaentrega.getDate());//TAMBIEN ES FECHA INICIO TEMPORAL
+        ClaseGeneral.contratos.setUnidadduracion("Seleccion"); // POR DEFECTO
+        ClaseGeneral.contratos.setPlazo("0"); // POR DEFECTO
         ClaseGeneral.contratos.setObjeto(objeto.getText().toUpperCase());
         ClaseGeneral.contratos.setResolucionadjudicacion(resolucionadjudicacion.getText());
         ClaseGeneral.contratos.setFechaadjudicacion(fechaadjudicacion.getDate());
@@ -2505,7 +2292,7 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setValorsaldo(BigDecimal.valueOf(Long.parseLong("" + valorsaldo.getText().trim().replace(".", ""))));
         ClaseGeneral.contratos.setTipoterminacion("" + tipoterminacion.getSelectedItem());
         ClaseGeneral.contratos.setDocumentoterminacion(documentoterminacion.getText());
-        ClaseGeneral.contratos.setFechaterminacion(fechaterminacion.getDate());
+        ClaseGeneral.contratos.setFechaterminacion(fechaentrega.getDate());//TAMBIEN ES FECHA TERMINACION TEMPORAL
         ClaseGeneral.contratos.setCodigoproyecto(codigoproyecto.getText());
         ClaseGeneral.contratos.setCodigoactividad(codigoactividad.getText());
         ClaseGeneral.contratos.setFechainicialactividad(fechainicialactividad.getDate());
@@ -2549,8 +2336,8 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setCondicionesentrega(condicionesentrega.getText());
         ClaseGeneral.contratos.setDiastiempopago(diastiempopago.getText());
         ClaseGeneral.contratos.setEstimacion(estimacion.getText());
-        ClaseGeneral.contratos.setFacultad(ClaseGeneral.facultad);
-        ClaseGeneral.contratos.setFechaactainicio(fechaactainicio.getDate());//SE INGRESA POSTERIORMENTE
+        ClaseGeneral.contratos.setFacultad(ClaseGeneral.facultad); // POR DEFECTO
+        ClaseGeneral.contratos.setFechaactainicio(fechaentrega.getDate());//TAMBIEN ES FECHA ACTA DE INICIO TEMPORAL
         ClaseGeneral.contratos.setFechaentrega(fechaentrega.getDate());
         ClaseGeneral.contratos.setFechafichatecnica(fechafichatecnica.getDate());
         ClaseGeneral.contratos.setFechainvitacion(fechainvitacion.getDate());
@@ -2588,9 +2375,9 @@ public class PanelContratos extends javax.swing.JPanel {
         tipocontrato.setSelectedItem(ClaseGeneral.contratos.getTipocontrato());
         inversion.setSelectedItem(ClaseGeneral.contratos.getInversion());
         fechasuscripcion.setDate(ClaseGeneral.contratos.getFechasuscripcion());
-        fechainicio.setDate(ClaseGeneral.contratos.getFechainicio());
-        unidadduracion.setSelectedItem(ClaseGeneral.contratos.getUnidadduracion());
-        plazo.setText(ClaseGeneral.contratos.getPlazo());
+//        fechainicio.setDate(ClaseGeneral.contratos.getFechainicio()); // BORRAR
+//        unidadduracion.setSelectedItem(ClaseGeneral.contratos.getUnidadduracion()); // BORRAR
+//        plazo.setText(ClaseGeneral.contratos.getPlazo()); // BORRAR
         objeto.setText(ClaseGeneral.contratos.getObjeto());
         resolucionadjudicacion.setText(ClaseGeneral.contratos.getResolucionadjudicacion());
         fechaadjudicacion.setDate(ClaseGeneral.contratos.getFechaadjudicacion());
@@ -2602,7 +2389,7 @@ public class PanelContratos extends javax.swing.JPanel {
         valorsaldo.setText("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.contratos.getValorsaldo()));
         tipoterminacion.setSelectedItem(ClaseGeneral.contratos.getTipoterminacion());
         documentoterminacion.setText(ClaseGeneral.contratos.getDocumentoterminacion());
-        fechaterminacion.setDate(ClaseGeneral.contratos.getFechaterminacion());
+//        fechaterminacion.setDate(ClaseGeneral.contratos.getFechaterminacion()); // BORRAR
         codigoproyecto.setText(ClaseGeneral.contratos.getCodigoproyecto());
         codigoactividad.setText(ClaseGeneral.contratos.getCodigoactividad());
         fechainicialactividad.setDate(ClaseGeneral.contratos.getFechainicialactividad());
@@ -2646,21 +2433,21 @@ public class PanelContratos extends javax.swing.JPanel {
         condicionesentrega.setText(ClaseGeneral.contratos.getCondicionesentrega());
         diastiempopago.setText(ClaseGeneral.contratos.getDiastiempopago());
         estimacion.setText(ClaseGeneral.contratos.getEstimacion());
-//facultad.setText(ClaseGeneral.contratos.getFacultad());
-//fechaactainicio.setDate(ClaseGeneral.contratos.getFechaactainicio());
+//        facultad.setText(ClaseGeneral.contratos.getFacultad()); // POR DEFECTO
+//        fechaactainicio.setDate(ClaseGeneral.contratos.getFechaactainicio()); // BORRAR
         fechaentrega.setDate(ClaseGeneral.contratos.getFechaentrega());
         fechafichatecnica.setDate(ClaseGeneral.contratos.getFechafichatecnica());
         fechainvitacion.setDate(ClaseGeneral.contratos.getFechainvitacion());
         lugarejecucion.setText(ClaseGeneral.contratos.getLugarejecucion());
-//modalidadarticulo.setText(ClaseGeneral.contratos.getModalidadarticulo());
-//modalidadfundamento.setText(ClaseGeneral.contratos.getModalidadfundamento());
+//        modalidadarticulo.setText(ClaseGeneral.contratos.getModalidadarticulo()); // BORRAR HASTA DE LA BD
+//        modalidadfundamento.setText(ClaseGeneral.contratos.getModalidadfundamento()); // BORRAR HASTA DE LA BD
         necesidad.setText(ClaseGeneral.contratos.getNecesidad());
         objetoespecifico.setText(ClaseGeneral.contratos.getObjetoespecifico());
         obligacionescontratista.setText(ClaseGeneral.contratos.getObligacionescontratista());
         obligacionesuniversidad.setText(ClaseGeneral.contratos.getObligacionesuniversidad());
-//observacionesactainicio.setText(ClaseGeneral.contratos.getObservacionesactainicio());
+//        observacionesactainicio.setText(ClaseGeneral.contratos.getObservacionesactainicio()); // BORRAR
         perfilrequerido.setText(ClaseGeneral.contratos.getPerfilrequerido());
-//planadquisicion.setText(ClaseGeneral.contratos.getPlanadquisicion());
+//        planadquisicion.setText(ClaseGeneral.contratos.getPlanadquisicion()); // BORRAR
         requerimientostecnicos.setText(ClaseGeneral.contratos.getRequerimientostecnicos());
         tipotiempopago.setSelectedItem(ClaseGeneral.contratos.getTipotiempopago());
         tipoestimacion.setSelectedItem(ClaseGeneral.contratos.getTipoestimacion());
@@ -2694,9 +2481,9 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setTipocontrato("" + tipocontrato.getSelectedItem());
         ClaseGeneral.contratos.setInversion("" + inversion.getSelectedItem());
         ClaseGeneral.contratos.setFechasuscripcion(fechasuscripcion.getDate());
-        ClaseGeneral.contratos.setFechainicio(fechainicio.getDate());
-        ClaseGeneral.contratos.setUnidadduracion("" + unidadduracion.getSelectedItem());
-        ClaseGeneral.contratos.setPlazo(plazo.getText());
+//        ClaseGeneral.contratos.setFechainicio(fechainicio.getDate()); // BORRAR
+//        ClaseGeneral.contratos.setUnidadduracion("" + unidadduracion.getSelectedItem()); // BORRAR
+//        ClaseGeneral.contratos.setPlazo(plazo.getText()); // BORRAR
         ClaseGeneral.contratos.setObjeto(objeto.getText().toUpperCase());
         ClaseGeneral.contratos.setResolucionadjudicacion(resolucionadjudicacion.getText());
         ClaseGeneral.contratos.setFechaadjudicacion(fechaadjudicacion.getDate());
@@ -2708,7 +2495,7 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setValorsaldo(BigDecimal.valueOf(Long.parseLong("" + valorsaldo.getText().trim().replace(".", ""))));
         ClaseGeneral.contratos.setTipoterminacion("" + tipoterminacion.getSelectedItem());
         ClaseGeneral.contratos.setDocumentoterminacion(documentoterminacion.getText());
-        ClaseGeneral.contratos.setFechaterminacion(fechaterminacion.getDate());
+//        ClaseGeneral.contratos.setFechaterminacion(fechaterminacion.getDate()); // BORRAR
         ClaseGeneral.contratos.setCodigoproyecto(codigoproyecto.getText());
         ClaseGeneral.contratos.setCodigoactividad(codigoactividad.getText());
         ClaseGeneral.contratos.setFechainicialactividad(fechainicialactividad.getDate());
@@ -2752,8 +2539,8 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setCondicionesentrega(condicionesentrega.getText());
         ClaseGeneral.contratos.setDiastiempopago(diastiempopago.getText());
         ClaseGeneral.contratos.setEstimacion(estimacion.getText());
-        ClaseGeneral.contratos.setFacultad(ClaseGeneral.facultad);
-        ClaseGeneral.contratos.setFechaactainicio(fechaactainicio.getDate());//SE INGRESA POSTERIORMENTE
+        ClaseGeneral.contratos.setFacultad(ClaseGeneral.facultad);// POR DEFECTO
+//        ClaseGeneral.contratos.setFechaactainicio(fechaactainicio.getDate()); // BORRAR
         ClaseGeneral.contratos.setFechaentrega(fechaentrega.getDate());
         ClaseGeneral.contratos.setFechafichatecnica(fechafichatecnica.getDate());
         ClaseGeneral.contratos.setFechainvitacion(fechainvitacion.getDate());
@@ -2764,9 +2551,9 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setObjetoespecifico(objetoespecifico.getText());
         ClaseGeneral.contratos.setObligacionescontratista(obligacionescontratista.getText());
         ClaseGeneral.contratos.setObligacionesuniversidad(obligacionesuniversidad.getText());
-        ClaseGeneral.contratos.setObservacionesactainicio("-");//SE INGRESA POSTERIORMENTE
+//        ClaseGeneral.contratos.setObservacionesactainicio("-"); // BORRAR
         ClaseGeneral.contratos.setPerfilrequerido(perfilrequerido.getText());
-        ClaseGeneral.contratos.setPlanadquisicion("-");//SE INGRESA POSTERIORMENTE
+//        ClaseGeneral.contratos.setPlanadquisicion("-"); // BORRAR
         ClaseGeneral.contratos.setRequerimientostecnicos(requerimientostecnicos.getText());
         ClaseGeneral.contratos.setTipotiempopago("" + tipotiempopago.getSelectedItem());
         ClaseGeneral.contratos.setTipoestimacion("" + tipoestimacion.getSelectedItem());
@@ -2837,35 +2624,12 @@ public class PanelContratos extends javax.swing.JPanel {
             Logger.getLogger(PanelContratos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public void metodoCalcularFechaTerminacion() {
-        int intPlazo;
-        try {
-            intPlazo = Integer.parseInt(plazo.getText());
-        } catch (Exception ex) {
-            plazo.setText("0");
-            intPlazo = 0;
-        }
-
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(fechainicio.getDate());
-        if (unidadduracion.getSelectedItem().equals("DÍAS")) {
-            cal.add(Calendar.DATE, intPlazo - 1);
-        } else if (unidadduracion.getSelectedItem().equals("SEMANAS")) {
-            cal.add(Calendar.DATE, 7 * intPlazo);
-        } else if (unidadduracion.getSelectedItem().equals("MESES")) {
-            cal.add(Calendar.MONTH, intPlazo);
-        } else if (unidadduracion.getSelectedItem().equals("AÑOS")) {
-            cal.add(Calendar.YEAR, intPlazo);
-        }
-        fechaterminacion.setDate(new Date(cal.getTimeInMillis()));
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea alcance;
     private javax.swing.JTextArea analisisriesgos;
     private javax.swing.JComboBox anticipio;
     private javax.swing.JButton botonAyuda1;
-    private javax.swing.JButton botonAyuda2;
     private javax.swing.JButton botonAyuda3;
     private javax.swing.JButton botonAyuda4;
     private javax.swing.JButton botonAyuda5;
@@ -2878,7 +2642,6 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JButton botonBuscarFktercerofuncionario;
     private javax.swing.JButton botonBuscarFktercerointersuper;
     private javax.swing.JButton botonBuscarFkterceroordenadorgasto;
-    private javax.swing.JButton botonCalcular;
     private javax.swing.JTextField cantidadespreciosvariables;
     private javax.swing.JComboBox causal;
     private javax.swing.JTextField codigoactividad;
@@ -2894,19 +2657,16 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JTextField documentoterminacion;
     private javax.swing.JTextArea estimacion;
     private org.jdesktop.swingx.JXDatePicker fechaactaavance;
-    private org.jdesktop.swingx.JXDatePicker fechaactainicio;
     private org.jdesktop.swingx.JXDatePicker fechaadjudicacion;
     private org.jdesktop.swingx.JXDatePicker fechacierre;
     private org.jdesktop.swingx.JXDatePicker fechaentrega;
     private org.jdesktop.swingx.JXDatePicker fechafichatecnica;
     private org.jdesktop.swingx.JXDatePicker fechafinalactividad;
     private org.jdesktop.swingx.JXDatePicker fechainicialactividad;
-    private org.jdesktop.swingx.JXDatePicker fechainicio;
     private org.jdesktop.swingx.JXDatePicker fechainvitacion;
     private org.jdesktop.swingx.JXDatePicker fechalegalizacion;
     private org.jdesktop.swingx.JXDatePicker fechaperfeccionamiento;
     private org.jdesktop.swingx.JXDatePicker fechasuscripcion;
-    public org.jdesktop.swingx.JXDatePicker fechaterminacion;
     private org.jdesktop.swingx.JXDatePicker fechaterminacionvigente;
     private javax.swing.JTextField fktercero;
     private javax.swing.JTextField fktercerofuncionario;
@@ -2939,9 +2699,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -2951,13 +2709,9 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -2997,8 +2751,6 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
@@ -3007,7 +2759,6 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel79;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
@@ -3018,7 +2769,6 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
@@ -3042,7 +2792,6 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
@@ -3050,15 +2799,11 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -3075,7 +2820,6 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
-    private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
@@ -3085,7 +2829,6 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator22;
     private javax.swing.JSeparator jSeparator23;
     private javax.swing.JSeparator jSeparator24;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
@@ -3151,7 +2894,6 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JPanel panelProyectos;
     private javax.swing.JPanel panelSECOP;
     private javax.swing.JTextArea perfilrequerido;
-    private javax.swing.JTextField plazo;
     private javax.swing.JTextField porcentajeactividad;
     private javax.swing.JTextField porcentajeavance;
     private javax.swing.JTextArea requerimientostecnicos;
@@ -3170,7 +2912,6 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JComboBox tipoterminacion;
     private javax.swing.JComboBox tipotiempopago;
     private javax.swing.JComboBox tipovinculacionintersuper;
-    private javax.swing.JComboBox unidadduracion;
     private javax.swing.JTextField valor;
     private javax.swing.JTextField valoradministracion;
     private javax.swing.JTextField valorimprevisto;

@@ -139,11 +139,11 @@ public class ContratosJpaController {
                     + "FECHACIERRE = '" + ClaseInformacion.ConvertirFecha(contratos.getFechacierre()) + "', "
                     + "FECHAFINALACTIVIDAD = '" + ClaseInformacion.ConvertirFecha(contratos.getFechafinalactividad()) + "', "
                     + "FECHAINICIALACTIVIDAD = '" + ClaseInformacion.ConvertirFecha(contratos.getFechainicialactividad()) + "', "
-                    + "FECHAINICIO = '" + ClaseInformacion.ConvertirFecha(contratos.getFechainicio()) + "', "
+//                    + "FECHAINICIO = '" + ClaseInformacion.ConvertirFecha(contratos.getFechainicio()) + "', "
                     + "FECHALEGALIZACION = '" + ClaseInformacion.ConvertirFecha(contratos.getFechalegalizacion()) + "', "
                     + "FECHAPERFECCIONAMIENTO = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaperfeccionamiento()) + "', "
                     + "FECHASUSCRIPCION = '" + ClaseInformacion.ConvertirFecha(contratos.getFechasuscripcion()) + "', "
-                    + "FECHATERMINACION = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaterminacion()) + "', "
+//                    + "FECHATERMINACION = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaterminacion()) + "', "
                     + "FKTERCERO = '" + contratos.getFktercero() + "', "
                     + "FKTERCEROINTERSUPER = '" + contratos.getFktercerointersuper() + "', "
                     + "FKTERCEROORDENADORGASTO = '" + contratos.getFkterceroordenadorgasto() + "', "
@@ -153,7 +153,7 @@ public class ContratosJpaController {
                     + "MONEDAPAGO = '" + contratos.getMonedapago() + "', "
                     + "OBSERVACIONES = '" + contratos.getObservaciones() + "', "
                     + "OBJETO = '" + contratos.getObjeto() + "', "
-                    + "PLAZO = '" + contratos.getPlazo() + "', "
+//                    + "PLAZO = '" + contratos.getPlazo() + "', "
                     + "PORCENTAJEACTIVIDAD = '" + contratos.getPorcentajeactividad() + "', "
                     + "PORCENTAJEAVANCE = '" + contratos.getPorcentajeavance() + "', "
                     + "RESOLUCIONADJUDICACION = '" + contratos.getResolucionadjudicacion() + "', "
@@ -163,7 +163,7 @@ public class ContratosJpaController {
                     + "TIPOINTERVENTORIA = '" + contratos.getTipointerventoria() + "', "
                     + "TIPOTERMINACION = '" + contratos.getTipoterminacion() + "', "
                     + "TIPOVINCULACIONINTERSUPER = '" + contratos.getTipovinculacionintersuper() + "', "
-                    + "UNIDADDURACION = '" + contratos.getUnidadduracion() + "', "
+//                    + "UNIDADDURACION = '" + contratos.getUnidadduracion() + "', "
                     + "VALOR = " + contratos.getValor() + ", "
                     + "VALORADMINISTRACION = " + contratos.getValoradministracion() + ", "
                     + "VALORIMPREVISTO = " + contratos.getValorimprevisto() + ", "
@@ -188,7 +188,7 @@ public class ContratosJpaController {
                     + "DIASTIEMPOPAGO = '" + contratos.getDiastiempopago() + "', "
                     + "ESTIMACION = '" + contratos.getEstimacion() + "', "
                     + "FACULTAD = '" + contratos.getFacultad() + "', "
-                    + "FECHAACTAINICIO = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaactainicio()) + "', "
+//                    + "FECHAACTAINICIO = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaactainicio()) + "', "
                     + "FECHAENTREGA = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaentrega()) + "', "
                     + "FECHAFICHATECNICA = '" + ClaseInformacion.ConvertirFecha(contratos.getFechafichatecnica()) + "', "
                     + "FECHAINVITACION = '" + ClaseInformacion.ConvertirFecha(contratos.getFechainvitacion()) + "', "
@@ -199,14 +199,49 @@ public class ContratosJpaController {
                     + "OBJETOESPECIFICO = '" + contratos.getObjetoespecifico() + "', "
                     + "OBLIGACIONESCONTRATISTA = '" + contratos.getObligacionescontratista() + "', "
                     + "OBLIGACIONESUNIVERSIDAD = '" + contratos.getObligacionesuniversidad() + "', "
-                    + "OBSERVACIONESACTAINICIO = '" + contratos.getObservacionesactainicio() + "', "
+//                    + "OBSERVACIONESACTAINICIO = '" + contratos.getObservacionesactainicio() + "', "
                     + "PERFILREQUERIDO = '" + contratos.getPerfilrequerido() + "', "
-                    + "PLANADQUISICION = '" + contratos.getPlanadquisicion() + "', "
+//                    + "PLANADQUISICION = '" + contratos.getPlanadquisicion() + "', "
                     + "REQUERIMIENTOSTECNICOS = '" + contratos.getRequerimientostecnicos() + "', "
                     + "TIPOTIEMPOPAGO = '" + contratos.getTipotiempopago() + "', "
                     + "TIPOESTIMACION = '" + contratos.getTipoestimacion() + "', "
                     + "TIPOFINANCIACION = '" + contratos.getTipofinanciacion() + "', "
                     + "VALORLETRAS = '" + contratos.getValorletras() + "' "
+                    + "WHERE "
+                    + "CONTRATO = '" + id.getContrato() + "'");
+            if (!datos.isError) {
+                ClaseMensaje.informacionActualizarBD("El Contrato " + contratos.getContrato());
+            }
+        } catch (Exception ex) {
+            ClaseMensaje.errorActualizarBD();
+        } finally {
+        }
+    }
+
+    public void editIniciocontratos(Contratos contratos, Contratos id) {
+        try {
+            datos.update("UPDATE CONTRATOS SET "
+                    + "FECHAINICIO = '" + ClaseInformacion.ConvertirFecha(contratos.getFechainicio()) + "', "
+                    + "FECHATERMINACION = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaterminacion()) + "', "
+                    + "PLAZO = '" + contratos.getPlazo() + "', "
+                    + "UNIDADDURACION = '" + contratos.getUnidadduracion() + "', "
+                    + "FECHAACTAINICIO = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaactainicio()) + "', "
+                    + "OBSERVACIONESACTAINICIO = '" + contratos.getObservacionesactainicio() + "' "
+                    + "WHERE "
+                    + "CONTRATO = '" + id.getContrato() + "'");
+            if (!datos.isError) {
+                ClaseMensaje.informacionActualizarBD("El Contrato " + id.getContrato());
+            }
+        } catch (Exception ex) {
+            ClaseMensaje.errorActualizarBD();
+        } finally {
+        }
+    }
+    
+     public void editPlanadquicision(Contratos contratos, Contratos id) {
+        try {
+            datos.update("UPDATE CONTRATOS SET "
+                    + "PLANADQUISICION = '" + contratos.getPlanadquisicion() + "', "
                     + "WHERE "
                     + "CONTRATO = '" + id.getContrato() + "'");
             if (!datos.isError) {
@@ -294,7 +329,7 @@ public class ContratosJpaController {
                     && ClaseInformacion.ValidarSeleccione(contratos.getMonedapago(), "MONEDA DE PAGO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getObservaciones(), "OBSERVACIÓN AL CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getObjeto(), "OBJETO DEL CONTRATO")
-                    && ClaseInformacion.ValidarSeleccione(contratos.getPlazo(), "PLAZO")
+//                    && ClaseInformacion.ValidarSeleccione(contratos.getPlazo(), "PLAZO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getTiempogarantia(), "TIEMPO DE GARANTIA DE CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getTipocontrato(), "TIPO DE CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getTipointerventoria(), "TIPO DE INTERVENTORÍA")

@@ -216,7 +216,7 @@ public class PanelPolizas extends javax.swing.JPanel {
         add(jLabel30);
 
         tipopoliza.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipopoliza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "0: Única", "1: Buen manejo de anticipo", "2: Cumplimiento de contrato", "3: Salarios y prestaciones", "4: Responsabilidad civil Extracontractual", "5: Estabilidad y Calidad", "6: Otra" }));
+        tipopoliza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Buen manejo del anticipo\t\t\t\t\t\t\t\t\t\t\t", "Calidad del servicio\t\t\t\t\t\t\t\t\t\t\t", "Calidad y correcto funcionamiento de los equipos suministrados\t\t\t\t\t\t\t\t\t\t\t", "Cumplimiento\t\t\t\t\t\t\t\t\t\t\t", "Estabilidad de la obra\t\t\t\t\t\t\t\t\t\t\t", "Provisión de repuestos y accesorios\t\t\t\t\t\t\t\t\t\t\t", "Responsabilidad civil extracontractual\t\t\t\t\t\t\t\t\t\t\t", "Salarios, prestaciones sociales e indemnizaciones\t\t\t\t\t\t\t\t\t\t\t", "Seriedad de la oferta\t\t\t\t\t\t\t\t\t\t\t", "\t\t\t\t\t\t\t\t\t", " " }));
         tipopoliza.setPreferredSize(new java.awt.Dimension(260, 25));
         add(tipopoliza);
 
@@ -242,7 +242,7 @@ public class PanelPolizas extends javax.swing.JPanel {
         });
         valorasegurado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TexyFieldKeyReleased(evt);
+                TextFieldKeyReleased(evt);
             }
         });
         add(valorasegurado);
@@ -418,13 +418,13 @@ public class PanelPolizas extends javax.swing.JPanel {
         componente.requestFocus();
     }//GEN-LAST:event_TextFieldFocusGained
 
-    private void TexyFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TexyFieldKeyReleased
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         try {
             valorasegurado.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valorasegurado.getText().trim().replace(".", ""))));
         } catch (Exception ex) {
             Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_TexyFieldKeyReleased
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     public void metodoInsertar() {
         ClaseGeneral.polizas = new Polizas();
