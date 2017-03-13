@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstudiosPrevios" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="501"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -303,6 +303,26 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="table 15">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
 	<subDataset name="DATASETBIENES" uuid="135b8fba-990f-4285-8bc3-8069ca7ddcf6">
 		<parameter name="IDSOLICITUDOFERTA_TABLE" class="java.lang.String"/>
 		<parameter name="ANOSOLICITUDOFERTA_TABLE" class="java.lang.Integer"/>
@@ -367,6 +387,24 @@ WHERE FKCONTRATO = $P{CONTRATOTABLE}]]>
 		<field name="valorsiniva" class="java.lang.Long"/>
 		<field name="valortotal" class="java.lang.Long"/>
 		<field name="valortotalsiniva" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="DATASETPOLIZAS" uuid="e445bafa-3647-4021-b07d-2508816c68a2">
+		<parameter name="FKCONTRATOTABLE" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT *
+FROM POLIZAS
+WHERE FKCONTRATO = $P{FKCONTRATOTABLE}]]>
+		</queryString>
+		<field name="fkcontrato" class="java.lang.String"/>
+		<field name="numeropoliza" class="java.lang.String"/>
+		<field name="aseguradora" class="java.lang.String"/>
+		<field name="fechaaprobacionpoliza" class="java.sql.Date"/>
+		<field name="fechaexpedicionpoliza" class="java.sql.Date"/>
+		<field name="fechafinalamparo" class="java.sql.Date"/>
+		<field name="fechainicialamparo" class="java.sql.Date"/>
+		<field name="resolucionpoliza" class="java.lang.String"/>
+		<field name="tipopoliza" class="java.lang.String"/>
+		<field name="valorasegurado" class="java.lang.Long"/>
 	</subDataset>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
@@ -606,7 +644,7 @@ WHERE
 		<band height="16">
 			<subreport>
 				<reportElement uuid="bb47401e-11fb-4006-a8b3-9204be262f74" x="20" y="0" width="532" height="16"/>
-				<subreportParameter name="CONTRATO">
+				<subreportParameter name="FKCONTRATO">
 					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
@@ -623,9 +661,9 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport3.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="27">
+		<band height="26">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="11" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -738,9 +776,9 @@ WHERE
 				</jr:table>
 			</componentElement>
 		</band>
-		<band height="24">
+		<band height="26">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="8" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -748,7 +786,7 @@ WHERE
 				<text><![CDATA[IV. MODALIDAD DE SELECCIÓN DEL CONTRATISTA]]></text>
 			</staticText>
 		</band>
-		<band height="22">
+		<band height="16">
 			<subreport>
 				<reportElement uuid="665e8fba-2f2d-412c-8119-95b54f95cddf" x="20" y="0" width="532" height="16"/>
 				<subreportParameter name="CONTRATO">
@@ -761,9 +799,9 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport5.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="78">
+		<band height="94">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="0" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -771,14 +809,14 @@ WHERE
 				<text><![CDATA[V. VALOR ESTIMADO DEL CONTRATO Y JUSTIFICACIÓN DEL MISMO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="40" y="38" width="512" height="20"/>
+				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="40" y="52" width="512" height="16"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NO APLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="22" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="36" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -786,7 +824,7 @@ WHERE
 				<text><![CDATA[A. ESTUDIO DEL SECTOR (En caso de que se requiera)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="62" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="78" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -804,9 +842,9 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport6.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="57">
+		<band height="68">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="41" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="52" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -814,7 +852,7 @@ WHERE
 				<text><![CDATA[D. VALOR ESTIMADO DEL CONTRATO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="0" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="10" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -822,9 +860,9 @@ WHERE
 				<text><![CDATA[C. ESTUDIO DE MERCADO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="40" y="16" width="512" height="20"/>
+				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="40" y="26" width="512" height="16"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[VER ANEXO "ESTIMACIÓN DEL PRESUPESTO DEL PROCESO"]]></text>
 			</staticText>
@@ -839,33 +877,9 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport7.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="269">
+		<band height="83">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="253" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
-				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single" leftIndent="5"/>
-				</textElement>
-				<text><![CDATA[1. OBLIGACIONES DE LA UNIVERSIDAD]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="237" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
-				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single" leftIndent="5"/>
-				</textElement>
-				<text><![CDATA[A. OBLIGACIONES DEL CONTRATO:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="217" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
-				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single" leftIndent="5"/>
-				</textElement>
-				<text><![CDATA[IX. CONDICIONES CONTRACTUALES]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="0" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -873,29 +887,149 @@ WHERE
 				<text><![CDATA[VI. ANÁLISIS DE RIESGOS Y LA FORMA DE MITIGARLO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="20" y="16" width="532" height="35"/>
+				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="20" y="26" width="532" height="35"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[De acuerdo a los establecido en el Articulo 27 de la Resolucion de Rectoria 2898 de 216, No es reqeurido el analisis de riesgos para contratos de mínima cuantia.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="57" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="67" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
 				</textElement>
 				<text><![CDATA[VII. LAS GARANTÍAS QUE LA ENTIDAD ESTATAL CONTEMPLA EXIGIR EN EL PROCESO DE CONTRATACIÓN]]></text>
 			</staticText>
+		</band>
+		<band height="32">
+			<subreport>
+				<reportElement uuid="614ef1cd-2471-4f77-ac62-d1ca025e47d8" x="20" y="0" width="532" height="16" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport17.jasper"]]></subreportExpression>
+			</subreport>
+			<componentElement>
+				<reportElement uuid="b8832206-3609-4e5e-974e-7955bba19062" key="table 15" x="20" y="16" width="532" height="16" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DATASETPOLIZAS" uuid="0e64c982-7690-4d7d-b644-c9a6a46838ef">
+						<datasetParameter name="FKCONTRATOTABLE">
+							<datasetParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column uuid="e6ba1334-3ef8-49a3-955c-02534f207e8a" width="267">
+						<jr:columnHeader style="table 15_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="3da05c9e-5f07-4921-ab4c-661fbd42f675" style="table" mode="Opaque" x="0" y="0" width="267" height="30" forecolor="#FFFFFF" backcolor="#666666"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<text><![CDATA[TIPO POLIZA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 15_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="ea407591-1580-4654-af12-3e75753983e5" style="table" x="0" y="0" width="267" height="20"/>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{tipopoliza}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="d4a4ebad-c0ed-4d9a-841a-37274f945c04" width="90">
+						<jr:columnHeader style="table 15_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="be80d4f0-041d-4127-a277-67fe5b0a0641" style="table" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#FFFFFF" backcolor="#666666"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<text><![CDATA[FECHA INICIAL AMPARO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 15_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="05c56033-0c33-496d-abef-fb9a28ec13d8" style="table" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[($F{fechainicialamparo}.getDate())+"/"+
+($F{fechainicialamparo}.getMonth() + 1)+"/"+
+($F{fechainicialamparo}.getYear() + 1900)]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="317fe758-7819-41ee-ace7-a163bf118fe4" width="90">
+						<jr:columnHeader style="table 15_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="20192fef-bda1-4541-9919-fdbf58a6de5c" style="table" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#FFFFFF" backcolor="#666666"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<text><![CDATA[FECHA FINAL AMPARO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 15_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="f32536e4-af55-424a-9926-e517b361f255" style="table" x="0" y="0" width="90" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[($F{fechafinalamparo}.getDate())+"/"+
+($F{fechafinalamparo}.getMonth() + 1)+"/"+
+($F{fechafinalamparo}.getYear() + 1900)]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="8a1bb17f-f820-45d9-bc31-320950ec00aa" width="84">
+						<jr:columnHeader style="table 15_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="5321dcff-b3bf-49ee-9069-d40867c51cc3" style="table" mode="Opaque" x="0" y="0" width="84" height="30" forecolor="#FFFFFF" backcolor="#666666"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<text><![CDATA[VAOR ASEGURADO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 15_TD" height="20" rowSpan="1">
+							<textField pattern="¤ #,##0">
+								<reportElement uuid="9844c6ed-708b-46da-bfec-56764fb2708d" style="table" x="0" y="0" width="84" height="20"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{valorasegurado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="191">
 			<staticText>
-				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="20" y="85" width="532" height="20"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="175" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
 				</textElement>
-				<text><![CDATA[NO APLICA]]></text>
+				<text><![CDATA[1. OBLIGACIONES DE LA UNIVERSIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="110" width="532" height="30" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="149" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[A. OBLIGACIONES DEL CONTRATO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="123" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[IX. CONDICIONES CONTRACTUALES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="30" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -903,14 +1037,14 @@ WHERE
 				<text><![CDATA[VIII.  INDICACIÓN DE SI LA CONTRATACIÓN RESPECTIVA ESTA COBIJADA POR UN ACUERDO INTERNACIONAL O UN TRATADO DE LIBRE COMERCIO ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="20" y="140" width="532" height="73"/>
+				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="20" y="40" width="532" height="73"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[La modalidad de Contracción Directa NO está cobijada por un Acuerdo Comercial vigente para el Estado Colombiano en los términos del Manual para el Manejo  de los Acuerdos Comerciales en Procesos de Contratación, elaborado por Colombia Compra Eficiente, el cual se puede consultar en el Sistema Electrónico para la Contratación Pública www.contratos.gov.co o www.colombiacompra.gov.co.), teniendo en cuenta que este Manual excluye esta modalidad de la aplicación de los Acuerdos Comerciales.]]></text>
 			</staticText>
 		</band>
-		<band height="16">
+		<band height="23">
 			<subreport>
 				<reportElement uuid="fb1f24ec-20cd-4af6-9bf7-3c10fd09ad3d" x="60" y="0" width="492" height="16"/>
 				<subreportParameter name="CONTRATO">
@@ -920,9 +1054,9 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport8.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="16">
+		<band height="26">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="0" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="10" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -930,7 +1064,7 @@ WHERE
 				<text><![CDATA[2. OBLIGACIONES ESPECIFICAS DEL CONTRATISTA]]></text>
 			</staticText>
 		</band>
-		<band height="23">
+		<band height="16">
 			<subreport>
 				<reportElement uuid="82640179-0788-44ab-a0ce-8b2d6ba9b2e5" x="60" y="0" width="492" height="16"/>
 				<subreportParameter name="CONTRATO">
@@ -940,16 +1074,16 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport9.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="39">
+		<band height="49">
 			<staticText>
-				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="60" y="16" width="492" height="23"/>
+				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="60" y="26" width="492" height="23"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[En desarrollo de las anteriores obligaciones, el contratista se obliga a suministrar los siguientes productos: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="0" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="10" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -957,9 +1091,9 @@ WHERE
 				<text><![CDATA[3. PRODUCTOS]]></text>
 			</staticText>
 		</band>
-		<band height="20">
+		<band height="16">
 			<componentElement>
-				<reportElement uuid="336d0d9b-8754-4fec-9cce-e8199c2f6bf2" key="table 14" style="table 14" x="60" y="0" width="492" height="20"/>
+				<reportElement uuid="336d0d9b-8754-4fec-9cce-e8199c2f6bf2" key="table 14" style="table 14" x="60" y="0" width="492" height="16"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="DATASETCUBS" uuid="d4337282-b4e3-4dc4-a510-4178d01c9628">
 						<datasetParameter name="CONTRATOTABLE">
@@ -979,9 +1113,9 @@ WHERE
 				</jr:table>
 			</componentElement>
 		</band>
-		<band height="16">
+		<band height="26">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="0" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="10" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -989,7 +1123,7 @@ WHERE
 				<text><![CDATA[4. FORMA DE PAGO]]></text>
 			</staticText>
 		</band>
-		<band height="23">
+		<band height="16">
 			<subreport>
 				<reportElement uuid="80e64d6f-26a9-4d43-ad6f-55ffb89c610c" x="60" y="0" width="492" height="16"/>
 				<subreportParameter name="FACULTAD">
@@ -1002,9 +1136,9 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport11.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="16">
+		<band height="26">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="0" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="10" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -1012,7 +1146,7 @@ WHERE
 				<text><![CDATA[5. SUPERVISIÓN DEL CONTRATO]]></text>
 			</staticText>
 		</band>
-		<band height="22">
+		<band height="16">
 			<subreport>
 				<reportElement uuid="54488f87-9d7c-40df-bf11-1c78414b8c7a" x="60" y="0" width="492" height="16"/>
 				<subreportParameter name="CONTRATO">
@@ -1022,9 +1156,9 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport12.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="16">
+		<band height="26">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="0" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="10" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -1032,7 +1166,7 @@ WHERE
 				<text><![CDATA[6. PLAZO DE EJECUCIÓN]]></text>
 			</staticText>
 		</band>
-		<band height="23">
+		<band height="16">
 			<subreport>
 				<reportElement uuid="c2af893c-1436-46cf-b1df-eef2347929d4" x="60" y="0" width="492" height="16"/>
 				<subreportParameter name="CONTRATO">
@@ -1042,9 +1176,9 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport13.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="16">
+		<band height="26">
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="0" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="60" y="10" width="492" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -1062,9 +1196,9 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPrevios_subreport14.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="50">
+		<band height="35">
 			<subreport>
-				<reportElement uuid="08a205d9-d0aa-45a2-9cda-c24daf91d308" x="20" y="34" width="532" height="16"/>
+				<reportElement uuid="08a205d9-d0aa-45a2-9cda-c24daf91d308" x="20" y="19" width="532" height="16"/>
 				<subreportParameter name="FKTERCEROFUNCIONARIO">
 					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROFUNCIONARIO}.substring(0,$F{CONTRATOS_FKTERCEROFUNCIONARIO}.indexOf(" - "))]]></subreportParameterExpression>
 				</subreportParameter>

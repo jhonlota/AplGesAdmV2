@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoFichaTecnica_subreport8" language="groovy" pageWidth="532" pageHeight="752" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="04c99b57-88cb-4c0d-aac4-3c11fc4e937c">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKCONTRATO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM FORMAPAGOPAC
+WHERE FKCONTRATO = $P{FKCONTRATO}]]>
+	</queryString>
+	<field name="fkcontrato" class="java.lang.String"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="valor" class="java.lang.Long"/>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField pattern="¤ #,##0">
+				<reportElement uuid="afaf597a-29a3-4609-a5e1-c0b08effb35e" x="20" y="0" width="68" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[($F{mes}.equals( "Enero" ) ? $F{valor} : "-")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="afaf597a-29a3-4609-a5e1-c0b08effb35e" x="108" y="0" width="68" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[($F{mes}.equals( "Marzo" ) ? $F{valor} : "-")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="afaf597a-29a3-4609-a5e1-c0b08effb35e" x="196" y="0" width="68" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[($F{mes}.equals( "Mayo" ) ? $F{valor} : "-")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="afaf597a-29a3-4609-a5e1-c0b08effb35e" x="284" y="0" width="68" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[($F{mes}.equals( "Julio" ) ? $F{valor} : "-")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="afaf597a-29a3-4609-a5e1-c0b08effb35e" x="372" y="0" width="68" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[($F{mes}.equals( "Septiembre" ) ? $F{valor} : "-")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="afaf597a-29a3-4609-a5e1-c0b08effb35e" x="460" y="0" width="72" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[($F{mes}.equals( "Noviembre" ) ? $F{valor} : "-")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="81d32d62-b9cf-4ac2-b2d0-73eac58846ec" x="0" y="0" width="20" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="81d32d62-b9cf-4ac2-b2d0-73eac58846ec" x="88" y="0" width="20" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="81d32d62-b9cf-4ac2-b2d0-73eac58846ec" x="176" y="0" width="20" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="81d32d62-b9cf-4ac2-b2d0-73eac58846ec" x="264" y="0" width="20" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="81d32d62-b9cf-4ac2-b2d0-73eac58846ec" x="352" y="0" width="20" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="81d32d62-b9cf-4ac2-b2d0-73eac58846ec" x="440" y="0" width="20" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[11]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

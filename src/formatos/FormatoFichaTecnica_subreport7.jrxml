@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoFichaTecnica_subreport7" language="groovy" pageWidth="532" pageHeight="752" whenNoDataType="AllSectionsNoDetail" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3add9adb-3f8e-41a2-a9e9-2c983f1ccae3">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKCONTRATO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM POLIZAS
+WHERE FKCONTRATO = $P{FKCONTRATO}]]>
+	</queryString>
+	<field name="fkcontrato" class="java.lang.String"/>
+	<field name="numeropoliza" class="java.lang.String"/>
+	<field name="aseguradora" class="java.lang.String"/>
+	<field name="fechaaprobacionpoliza" class="java.sql.Date"/>
+	<field name="fechaexpedicionpoliza" class="java.sql.Date"/>
+	<field name="fechafinalamparo" class="java.sql.Date"/>
+	<field name="fechainicialamparo" class="java.sql.Date"/>
+	<field name="resolucionpoliza" class="java.lang.String"/>
+	<field name="tipopoliza" class="java.lang.String"/>
+	<field name="valorasegurado" class="java.lang.Long"/>
+	<detail>
+		<band height="16">
+			<rectangle>
+				<reportElement uuid="5ca58d14-97ae-4f3e-9e6d-aa25fa73b31c" x="0" y="0" width="424" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="95771354-4030-45f1-bee6-1fe923bde861" x="424" y="0" width="108" height="16"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="11ced0d9-e8e8-407a-99b5-1a44cbe556b1" x="424" y="0" width="108" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["X"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="11ced0d9-e8e8-407a-99b5-1a44cbe556b1" x="0" y="0" width="424" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tipopoliza}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="16">
+			<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<rectangle>
+				<reportElement uuid="0c5beaf9-203c-4a71-80b5-e2ed90bdd16b" x="0" y="0" width="424" height="16">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="95771354-4030-45f1-bee6-1fe923bde861" x="424" y="0" width="108" height="16">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="9d68a2fb-89a9-4c8e-8dd9-61b8e368bf08" x="0" y="0" width="424" height="16">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ninguno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="75bbee07-f356-4ace-a906-2ddb48186093" x="424" y="0" width="108" height="16">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

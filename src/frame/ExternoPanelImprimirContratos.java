@@ -23,6 +23,9 @@ import java.util.Map;
 public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
 
     private FrameCarga frameCarga = new FrameCarga();
+    private Thread hiloEstudiosPrevios = new ThreadCargaEstudiosPrevios();
+    private Thread hiloFichaTecnica= new ThreadCargaFichaTecnica();
+    private Thread hiloEstimacionPresupuesto = new ThreadCargaEstimacionPresupuesto();
     private Thread hiloContratos = new ThreadCargaContratos();
     private Thread hiloAnexoContrato = new ThreadCargaAnexoContrato();
     private PanelContratos panelContratos = new PanelContratos();
@@ -58,7 +61,7 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         botonActaLiquidacion = new javax.swing.JButton();
         botonActaDesignacionSupervisor = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(410, 270));
+        setPreferredSize(new java.awt.Dimension(410, 400));
 
         jLabel1.setBackground(ClaseGeneral.titulo);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -183,14 +186,44 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
 
     private void botonEstudiosPreviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEstudiosPreviosActionPerformed
         // TODO add your handling code here:
+        try {
+            frameCarga.setVisible(true);
+            frameCarga.pack();
+            frameCarga.setSize(280, 100);
+            frameCarga.setLocationRelativeTo(null);
+            frameCarga.setResizable(false);
+            hiloEstudiosPrevios = new ThreadCargaEstudiosPrevios();
+            hiloEstudiosPrevios.start();
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_botonEstudiosPreviosActionPerformed
 
     private void botonFichaTecnicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFichaTecnicaActionPerformed
         // TODO add your handling code here:
+        try {
+            frameCarga.setVisible(true);
+            frameCarga.pack();
+            frameCarga.setSize(280, 100);
+            frameCarga.setLocationRelativeTo(null);
+            frameCarga.setResizable(false);
+            hiloFichaTecnica = new ThreadCargaFichaTecnica();
+            hiloFichaTecnica.start();
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_botonFichaTecnicaActionPerformed
 
     private void botonEstimacionPresupuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEstimacionPresupuestoActionPerformed
         // TODO add your handling code here:
+        try {
+            frameCarga.setVisible(true);
+            frameCarga.pack();
+            frameCarga.setSize(280, 100);
+            frameCarga.setLocationRelativeTo(null);
+            frameCarga.setResizable(false);
+            hiloEstimacionPresupuesto = new ThreadCargaEstimacionPresupuesto();
+            hiloEstimacionPresupuesto.start();
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_botonEstimacionPresupuestoActionPerformed
 
     private void botonInvitacionMinimaCuantiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInvitacionMinimaCuantiaActionPerformed
@@ -256,6 +289,90 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonActaDesignacionSupervisorActionPerformed
 
+    class ThreadCargaEstudiosPrevios extends Thread {
+
+        @Override
+        public void run() {
+            frameCarga.jProgressBar.setIndeterminate(true);
+            frameCarga.jProgressBar.setMinimum(1);
+            frameCarga.jProgressBar.setMaximum(100);
+            /**
+             *
+             */
+            try {
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("CONTRATO", ClaseGeneral.contratos.getContrato());
+
+                ClaseInformes informes = new ClaseInformes();
+                informes.formatoEstudiosPrevios(parametros);
+            } catch (Exception e) {
+                ClaseMensaje.error("Error al mostrar el archivo.\n" + e);
+            }
+            /**
+             *
+             */
+            frameCarga.jProgressBar.setIndeterminate(false);
+            frameCarga.dispose();
+            hiloEstudiosPrevios = null;
+        }
+    }
+    
+    class ThreadCargaFichaTecnica extends Thread {
+
+        @Override
+        public void run() {
+            frameCarga.jProgressBar.setIndeterminate(true);
+            frameCarga.jProgressBar.setMinimum(1);
+            frameCarga.jProgressBar.setMaximum(100);
+            /**
+             *
+             */
+            try {
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("CONTRATO", ClaseGeneral.contratos.getContrato());
+
+                ClaseInformes informes = new ClaseInformes();
+                informes.formatoFichaTecnica(parametros);
+            } catch (Exception e) {
+                ClaseMensaje.error("Error al mostrar el archivo.\n" + e);
+            }
+            /**
+             *
+             */
+            frameCarga.jProgressBar.setIndeterminate(false);
+            frameCarga.dispose();
+            hiloFichaTecnica = null;
+        }
+    }
+    
+    class ThreadCargaEstimacionPresupuesto extends Thread {
+
+        @Override
+        public void run() {
+            frameCarga.jProgressBar.setIndeterminate(true);
+            frameCarga.jProgressBar.setMinimum(1);
+            frameCarga.jProgressBar.setMaximum(100);
+            /**
+             *
+             */
+            try {
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("CONTRATO", ClaseGeneral.contratos.getContrato());
+
+                ClaseInformes informes = new ClaseInformes();
+                informes.formatoEstimacionPresupuesto(parametros);
+            } catch (Exception e) {
+                ClaseMensaje.error("Error al mostrar el archivo.\n" + e);
+            }
+            /**
+             *
+             */
+            frameCarga.jProgressBar.setIndeterminate(false);
+            frameCarga.dispose();
+            hiloEstimacionPresupuesto = null;
+        }
+    }
+    
     class ThreadCargaContratos extends Thread {
 
         @Override
@@ -315,7 +432,7 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
              */
             frameCarga.jProgressBar.setIndeterminate(false);
             frameCarga.dispose();
-            hiloContratos = null;
+            hiloAnexoContrato = null;
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

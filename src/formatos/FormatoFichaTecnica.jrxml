@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoFichaTecnica" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
-	<property name="ireport.zoom" value="1.464100000000014"/>
+	<property name="ireport.zoom" value="1.2100000000000133"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="240"/>
+	<property name="ireport.y" value="374"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -243,6 +243,66 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="table 12">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
 	<subDataset name="DATASETBIENES" uuid="135b8fba-990f-4285-8bc3-8069ca7ddcf6">
 		<parameter name="IDSOLICITUDOFERTA_TABLE" class="java.lang.String"/>
 		<parameter name="ANOSOLICITUDOFERTA_TABLE" class="java.lang.Integer"/>
@@ -308,6 +368,35 @@ WHERE FKCONTRATO = $P{FKCONTRATOTABLE}]]>
 		<field name="valorsiniva" class="java.lang.Long"/>
 		<field name="valortotal" class="java.lang.Long"/>
 		<field name="valortotalsiniva" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="DATASETPOLIZAS" uuid="e445bafa-3647-4021-b07d-2508816c68a2">
+		<parameter name="FKCONTRATOTABLE" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT *
+FROM POLIZAS
+WHERE FKCONTRATO = $P{FKCONTRATOTABLE}]]>
+		</queryString>
+		<field name="fkcontrato" class="java.lang.String"/>
+		<field name="numeropoliza" class="java.lang.String"/>
+		<field name="aseguradora" class="java.lang.String"/>
+		<field name="fechaaprobacionpoliza" class="java.sql.Date"/>
+		<field name="fechaexpedicionpoliza" class="java.sql.Date"/>
+		<field name="fechafinalamparo" class="java.sql.Date"/>
+		<field name="fechainicialamparo" class="java.sql.Date"/>
+		<field name="resolucionpoliza" class="java.lang.String"/>
+		<field name="tipopoliza" class="java.lang.String"/>
+		<field name="valorasegurado" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="DATASETPAC" uuid="cd3fccfe-2ae1-4b3f-99b9-de86dbc1b866">
+		<parameter name="FKCONTRATOTABLE" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT *
+FROM FORMAPAGOPAC
+WHERE FKCONTRATO = $P{FKCONTRATOTABLE}]]>
+		</queryString>
+		<field name="fkcontrato" class="java.lang.String"/>
+		<field name="mes" class="java.lang.String"/>
+		<field name="valor" class="java.lang.Long"/>
 	</subDataset>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
@@ -571,58 +660,6 @@ WHERE
 				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAFICHATECNICA}.getYear() + 1900]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" x="20" y="47" width="109" height="16"/>
-				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Prestación de Servicios]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="caafcea9-bcea-4777-90fa-79d5f8d48a5a" x="163" y="47" width="40" height="16"/>
-				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Compra]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="9750496a-9068-41f8-befb-13412238e81e" x="241" y="47" width="29" height="16"/>
-				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Otro]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="4c93c24e-ce9d-47c6-9264-800585392d87" x="301" y="47" width="45" height="16"/>
-				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[¿Cuál?]]></text>
-			</staticText>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement uuid="af410729-3ccf-469b-a4ff-c5e9969d6f5f" mode="Transparent" x="129" y="47" width="17" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
-					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA["X"]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement uuid="3a2a0aeb-cba0-4845-934e-4561fae214c2" mode="Transparent" x="203" y="47" width="17" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
-					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA["X"]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement uuid="9fce6f19-f0a1-4c2f-8204-d35761e084e9" mode="Transparent" x="270" y="47" width="17" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
-					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA["X"]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement uuid="e4a5e922-b396-4957-9f10-f724f7e6ef13" mode="Transparent" x="346" y="47" width="206" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
-					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA["X"]]></textFieldExpression>
-			</textField>
-			<staticText>
 				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="63" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
@@ -644,6 +681,27 @@ WHERE
 				</textElement>
 				<text><![CDATA[DEPENDENCIA SOLICITANTE]]></text>
 			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="79f6c773-24c3-4a62-a384-e3d697994d63" stretchType="RelativeToTallestObject" x="20" y="47" width="126" height="16"/>
+				<textElement verticalAlignment="Middle" markup="html">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{CONTRATOS_TIPOCONTRATO}.equals("1: C1 Prestación de Servicios") ? "Prestación de Servicios <b>X</b>" : "Prestación de Servicios  ")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="79f6c773-24c3-4a62-a384-e3d697994d63" stretchType="RelativeToTallestObject" x="144" y="47" width="126" height="16"/>
+				<textElement verticalAlignment="Middle" markup="html">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{CONTRATOS_TIPOCONTRATO}.equals("6: C6 Compra Venta y/o Suministro") ? "Compra <b>X</b>" : "Compra  ")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="79f6c773-24c3-4a62-a384-e3d697994d63" stretchType="RelativeToTallestObject" x="270" y="47" width="282" height="16"/>
+				<textElement verticalAlignment="Middle" markup="html">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(!$F{CONTRATOS_TIPOCONTRATO}.equals("1: C1 Prestación de Servicios") && !$F{CONTRATOS_TIPOCONTRATO}.equals("6: C6 Compra Venta y/o Suministro")? "Otro <b>X</b> ¿Cuál? "+$F{CONTRATOS_TIPOCONTRATO} : "Otro    ¿Cuál?   ")]]></textFieldExpression>
+			</textField>
 		</band>
 		<band height="16">
 			<subreport>
@@ -972,7 +1030,7 @@ WHERE
 				<textFieldExpression><![CDATA["NO APLICA"]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="32">
+		<band height="64">
 			<staticText>
 				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="0" width="183" height="32"/>
 				<textElement verticalAlignment="Middle">
@@ -1011,8 +1069,83 @@ WHERE
 				<textFieldExpression><![CDATA[($F{CONTRATOS_ANTICIPIO} == "NO" ? "NO X   SI   |___| %" :
     ($F{CONTRATOS_ANTICIPIO} == "SI" ? "NO   SI X  |___| %" : ""))]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="32" width="89" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[FORMA DE PAGO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" style="table" stretchType="RelativeToTallestObject" x="109" y="32" width="94" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_TIPOTIEMPOPAGO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="203" y="32" width="89" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Detalle la Forma de Pago:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" style="table" stretchType="RelativeToTallestObject" x="292" y="32" width="260" height="32"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
 		</band>
-		<band height="41"/>
+		<band height="16">
+			<componentElement>
+				<reportElement uuid="436d6824-3fd6-4f4a-ba3b-178043aa3edc" key="table 14" style="table 14" x="20" y="0" width="532" height="16"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DATASETPAC" uuid="a76e6f8b-7b00-40cb-83b1-b6a9473cf5ca">
+						<datasetParameter name="FKCONTRATOTABLE">
+							<datasetParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column uuid="488a2cf2-da43-457b-b685-9ca7c9d6155c" width="266">
+						<jr:detailCell style="table 14_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="cce61180-34f9-4931-8d79-70e3e4651ea2" style="table" x="0" y="0" width="266" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[($F{mes}.equals( "Enero" ) ? "1" :
+    ($F{mes}.equals( "Febrero" ) ? "2" :
+        ($F{mes}.equals( "Marzo" ) ? "3" :
+             ($F{mes}.equals( "Abril" ) ? "4" :
+                 ($F{mes}.equals( "Mayo" ) ? "5" :
+                     ($F{mes}.equals( "Junio" ) ? "6" :
+                        ($F{mes}.equals( "Julio" ) ? "7" :
+                            ($F{mes}.equals( "Agosto" ) ? "8" :
+                                ($F{mes}.equals( "Septiembre" ) ? "9" :
+                                    ($F{mes}.equals( "Octubre" ) ? "10" :
+                                        ($F{mes}.equals( "Noviembre" ) ? "11" :
+                                            ($F{mes}.equals( "Diciembre" ) ? "12" : ""))))))))))))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="b2a0bc23-89cf-4079-9d68-143cc847cfda" width="266">
+						<jr:detailCell style="table 14_TD" height="20" rowSpan="1">
+							<textField pattern="¤ #,##0">
+								<reportElement uuid="d6072804-019d-4be5-99c2-7dd40e5e114f" style="table" x="0" y="0" width="266" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
 		<band height="32">
 			<staticText>
 				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="0" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
@@ -1288,7 +1421,7 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoFichaTecnica_subreport5.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="183">
+		<band height="212">
 			<staticText>
 				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="0" width="532" height="30" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
@@ -1553,6 +1686,37 @@ WHERE
 				</textElement>
 				<text><![CDATA[VIII. DETERMINACIÓN DE LAS GARANTÍAS A EXIGIR ]]></text>
 			</staticText>
+			<staticText>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="20" y="158" width="532" height="38"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Para garantizar el cumplimiento de las obligaciones surgidas con ocasión del proceso de selección y del contrato, se exigirá al proponente que ampare los siguientes riesgos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="196" width="424" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMPARO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="444" y="196" width="108" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[APLICA]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<subreport>
+				<reportElement uuid="9752eac5-6338-4b86-a032-fe51f0d39f19" x="20" y="0" width="532" height="16"/>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoFichaTecnica_subreport7.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 		<band height="32">
 			<staticText>

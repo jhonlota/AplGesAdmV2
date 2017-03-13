@@ -279,28 +279,6 @@ public class ClaseInformes {
     }
 
     public void formatoEstudiosPrevios(Map parametros) {
-        
-    }
-    
-    public void formatoFichaTecnica(Map parametros) {
-        
-    }
-    
-    public void formatoEstimacionPresupuesto(Map parametros) {
-        
-    }
-    
-    public void formatoInvitacionMinimaCuantia(Map parametros) {
-        
-    }
-    
-    public void formatoInformeEvaluacion(Map parametros) {
-        
-    }    
-    
-    public void formatoContrato(Map parametros) {
-               
-        /*****************ESTUDIOS PREVIOS***********************/
         try {
             URL url = clase.getClass().getResource("FormatoEstudiosPrevios.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
@@ -323,8 +301,9 @@ public class ClaseInformes {
             //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
-        
-        /*****************FICHA TÉCNICA***********************/
+    }
+    
+    public void formatoFichaTecnica(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoFichaTecnica.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
@@ -346,9 +325,10 @@ public class ClaseInformes {
         } catch (JRException ex) {
             //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
-        }
-        
-         /*****************ESTIMACIÓN DEL PRESUPUESTO***********************/
+        }        
+    }
+    
+    public void formatoEstimacionPresupuesto(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoEstimacionPresupuesto.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
@@ -371,7 +351,17 @@ public class ClaseInformes {
             //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
-        /******************ORDEN CONTRACTUAL***************/
+    }
+    
+    public void formatoInvitacionMinimaCuantia(Map parametros) {
+        
+    }
+    
+    public void formatoInformeEvaluacion(Map parametros) {
+        
+    }    
+    
+    public void formatoContrato(Map parametros) {        
         try {
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);

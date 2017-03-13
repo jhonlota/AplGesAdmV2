@@ -19,6 +19,7 @@ WHERE FKCONTRATO = $P{FKCONTRATO}]]>
 	<field name="proyecto" class="java.lang.String"/>
 	<field name="subgrupo" class="java.lang.String"/>
 	<field name="cinfo" class="java.lang.String"/>
+	<field name="verificacionestrategia" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -29,7 +30,8 @@ WHERE FKCONTRATO = $P{FKCONTRATO}]]>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{eje}+" "+
 $F{estrategia}+" "+
-$F{programa}+" "]]></textFieldExpression>
+$F{programa}+" "+
+$F{verificacionestrategia}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

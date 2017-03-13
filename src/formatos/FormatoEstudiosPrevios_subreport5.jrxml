@@ -106,9 +106,9 @@ AND CONTRATOS.CONTRATO = $P{CONTRATO}]]>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="1b08076b-86b6-4cac-b747-923880b19d3f" stretchType="RelativeToTallestObject" x="0" y="0" width="532" height="16"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="html"/>
 				<textFieldExpression><![CDATA["El presente proceso de contratación se fundamenta en la normatividad vigente contenida en el Estatuto de Contratación de la Universidad del Valle - Acuerdo 004 de 2016 \n"+
-"Artículo "+$F{articulo}+"  "+$F{nombre}+" - Fundamento de la Modalidad de Selección:\n"+
+"Artículo "+$F{articulo}+"  <b>"+$F{nombre}.substring($F{nombre}.indexOf(": ")+2, $F{nombre}.length())+"</b> - Fundamento de la Modalidad de Selección:\n"+
 $F{fundamento}+"\n"]]></textFieldExpression>
 			</textField>
 		</band>
