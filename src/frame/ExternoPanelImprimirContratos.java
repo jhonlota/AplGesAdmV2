@@ -66,7 +66,7 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         jLabel1.setBackground(ClaseGeneral.titulo);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Entrega de Documentos");
+        jLabel1.setText("Impresion de Contratos");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
