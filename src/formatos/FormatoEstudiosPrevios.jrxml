@@ -356,10 +356,19 @@ AND SERVICIOSSOLICITUDESOFERTA.ANO = $P{ANOSOLICITUDOFERTA_TABLE2}]]>
 	<subDataset name="DATASETCLASIFICADOR" uuid="e99ddc5e-e911-46af-be43-a4bf51a3b27c">
 		<parameter name="CONTRATOTABLE" class="java.lang.String"/>
 		<queryString>
-			<![CDATA[SELECT DISTINCT  CLASIFICADORUNSPSC.CODIGOSEGMENTO, CLASIFICADORUNSPSC.NOMBRESEGMENTO, CLASIFICADORUNSPSC.CODIGOFAMILIA, CLASIFICADORUNSPSC.NOMBREFAMILIA, CLASIFICADORUNSPSC.CODIGOCLASE, CLASIFICADORUNSPSC.NOMBRECLASE, CLASIFICADORUNSPSC.NOMBREGRUPO, CLASIFICADORUNSPSC.CODIGOGRUPO
+			<![CDATA[SELECT DISTINCT  CLASIFICADORUNSPSC.CODIGOSEGMENTO,
+	       CLASIFICADORUNSPSC.NOMBRESEGMENTO,
+	       CLASIFICADORUNSPSC.CODIGOFAMILIA,
+	       CLASIFICADORUNSPSC.NOMBREFAMILIA,
+                 CLASIFICADORUNSPSC.CODIGOCLASE,
+	       CLASIFICADORUNSPSC.NOMBRECLASE,
+	       CLASIFICADORUNSPSC.NOMBREGRUPO,
+                 CLASIFICADORUNSPSC.CODIGOGRUPO
 FROM CLASIFICADORUNSPSC AS CLASIFICADORUNSPSC
 JOIN CUBS AS CUBS
-ON CLASIFICADORUNSPSC.CODIGOPRODUCTO = CUBS.CODIGO
+ON CLASIFICADORUNSPSC.CODIGOPRODUCTO = (SELECT SUBSTRING (CUBS.CODIGO, POSITION('[' in CUBS.CODIGO)+1, 8)
+					FROM CUBS
+					WHERE FKCONTRATO = $P{CONTRATOTABLE})
 AND CUBS.FKCONTRATO = $P{CONTRATOTABLE}]]>
 		</queryString>
 		<field name="codigosegmento" class="java.lang.String"/>
@@ -891,7 +900,7 @@ WHERE
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10" isBold="false"/>
 				</textElement>
-				<text><![CDATA[De acuerdo a los establecido en el Articulo 27 de la Resolucion de Rectoria 2898 de 216, No es reqeurido el analisis de riesgos para contratos de mínima cuantia.]]></text>
+				<text><![CDATA[De acuerdo a los establecido en el Articulo 27 de la Resolucion de Rectoria 2898 de 2016, No es requerido el analisis de riesgos para contratos de mínima cuantia.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="67" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
