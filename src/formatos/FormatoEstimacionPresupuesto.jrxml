@@ -316,7 +316,7 @@ WHERE ID = $P{FKTERCEROFUNCIONARIOTABLE}]]>
 		<field name="sededependencia" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
@@ -525,7 +525,7 @@ WHERE
 			</staticText>
 			<image>
 				<reportElement uuid="6d9ac7ee-25bd-4612-b10f-f49a43de8628" x="34" y="8" width="43" height="35"/>
-				<imageExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\Univalle.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Univalle.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</pageHeader>

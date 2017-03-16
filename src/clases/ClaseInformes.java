@@ -124,7 +124,6 @@ public class ClaseInformes {
 
     public void formatoCondicionCuentas(Map parametros) {
         try {
-
             URL url = clase.getClass().getResource("FormatoCondicionCuentas.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
@@ -432,9 +431,8 @@ public class ClaseInformes {
     
     public void formatoAnexoContrato(Map parametros) {
         try {
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
-
             URL url = clase.getClass().getResource("FormatoAnexoContrato.jasper");
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);

@@ -216,7 +216,7 @@ public class PanelPolizas extends javax.swing.JPanel {
         add(jLabel30);
 
         tipopoliza.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipopoliza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Buen manejo del anticipo\t\t\t\t\t\t\t\t\t\t\t", "Calidad del servicio\t\t\t\t\t\t\t\t\t\t\t", "Calidad y correcto funcionamiento de los equipos suministrados\t\t\t\t\t\t\t\t\t\t\t", "Cumplimiento\t\t\t\t\t\t\t\t\t\t\t", "Estabilidad de la obra\t\t\t\t\t\t\t\t\t\t\t", "Provisión de repuestos y accesorios\t\t\t\t\t\t\t\t\t\t\t", "Responsabilidad civil extracontractual\t\t\t\t\t\t\t\t\t\t\t", "Salarios, prestaciones sociales e indemnizaciones\t\t\t\t\t\t\t\t\t\t\t", "Seriedad de la oferta\t\t\t\t\t\t\t\t\t\t\t", "\t\t\t\t\t\t\t\t\t", " " }));
+        tipopoliza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Buen manejo del anticipo", "Calidad del servicio", "Calidad y correcto funcionamiento de los equipos suministrados", "Cumplimiento", "Estabilidad de la obra", "Provisión de repuestos y accesorios", "Responsabilidad civil extracontractual", "Salarios, prestaciones sociales e indemnizaciones", "Seriedad de la oferta" }));
         tipopoliza.setPreferredSize(new java.awt.Dimension(260, 25));
         add(tipopoliza);
 

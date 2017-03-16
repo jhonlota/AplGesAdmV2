@@ -19,7 +19,7 @@
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
-<!--<script src="js/jquery-2.1.1.js"></script>-->
+        <!--<script src="js/jquery-2.1.1.js"></script>-->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -53,7 +53,7 @@
                 });
             }
         </script>       
-        
+
         <script type="text/javascript">
             $.fn.datepicker.dates['es'] = {
                 days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
@@ -67,7 +67,7 @@
                 titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
                 weekStart: 0
             };
-            
+
             function datepicker() {
                 $('.datepicker').datepicker({
                     format: "dd-mm-yyyy",
@@ -136,7 +136,7 @@
                                                         url: 'ResultadosConsultarDocumentosTerceros.php',
                                                         type: 'POST',
                                                         dataType: 'html',
-                                                        beforeSend: function() {
+                                                        beforeSend: function () {
                                                             $('#tabla1').html('');
                                                             $('#tabla2').html('');
                                                             $('#tabla3').html('');
@@ -221,5 +221,6 @@
                     </div>
                 </div>
             </div>
+        </div>
     </body>
 </html>

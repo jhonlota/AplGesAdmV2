@@ -18,6 +18,7 @@
      CUENTAS.EGRESO AS "CUENTAS_EGRESO",
      CUENTAS.FKTERCERO AS "CUENTAS_FKTERCERO",
      CUENTAS.SOPORTE AS "CUENTAS_SOPORTE",
+     CUENTAS.NUMEROSEGUIMIENTO AS "CUENTAS_NUMEROSEGUIMIENTO",
      CALIFICACION.TRAMITE AS "CALIFICACION_TRAMITE",
      CASE
           WHEN CALIFICACION.TRAMITE is null THEN 'vacio'
@@ -45,6 +46,7 @@ GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
 	<field name="CUENTAS_EGRESO" class="java.lang.Long"/>
 	<field name="CUENTAS_FKTERCERO" class="java.lang.String"/>
 	<field name="CUENTAS_SOPORTE" class="java.lang.String"/>
+	<field name="CUENTAS_NUMEROSEGUIMIENTO" class="java.lang.String"/>
 	<field name="CALIFICACION_TRAMITE" class="java.lang.String"/>
 	<field name="case" class="java.lang.String"/>
 	<background>
@@ -129,10 +131,17 @@ GROUP BY OBSERVACIONESCUENTAS.FKCUENTA,
 		<band height="25" splitType="Stretch">
 			<textField>
 				<reportElement uuid="9a1d163d-6a8b-4127-8bf2-11d51a7b2bc5" x="0" y="0" width="95" height="24"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="15" isBold="true"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{OBSERVACIONESCUENTAS_FKCUENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9a1d163d-6a8b-4127-8bf2-11d51a7b2bc5" x="0" y="10" width="95" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="10" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CUENTAS_NUMEROSEGUIMIENTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="c66c1748-9ade-4fc5-a961-884580f3da86" x="100" y="0" width="350" height="12">

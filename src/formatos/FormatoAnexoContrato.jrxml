@@ -210,11 +210,11 @@ WHERE CUBS.FKCONTRATO = $P{FKCONTRATO_TABLE}]]>
 		<field name="CUBS_VALORTOTAL" class="java.lang.Long"/>
 		<field name="CUBS_VALORTOTALSINIVA" class="java.lang.Long"/>
 	</subDataset>
-	<parameter name="FKCONTRATO" class="java.lang.String">
+	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String">
-		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
@@ -289,7 +289,7 @@ FROM
 JOIN CUBS
 ON   CONTRATOS.CONTRATO = CUBS.FKCONTRATO
 WHERE
-     CONTRATOS.CONTRATO = $P{FKCONTRATO}]]>
+     CONTRATOS.CONTRATO = $P{CONTRATO}]]>
 	</queryString>
 	<field name="CONTRATOS_CONTRATO" class="java.lang.String"/>
 	<field name="CONTRATOS_ANTICIPIO" class="java.lang.String"/>
@@ -432,7 +432,7 @@ WHERE
 			</staticText>
 			<image>
 				<reportElement uuid="76d5d6cb-b0f4-4b82-829d-bde60e2991d0" x="38" y="15" width="69" height="80"/>
-				<imageExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\Univalle.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Univalle.jpg"]]></imageExpression>
 			</image>
 			<rectangle>
 				<reportElement uuid="866b81b7-ba8f-437a-b139-98bf9f26e286" mode="Transparent" x="592" y="119" width="45" height="35"/>
@@ -473,7 +473,7 @@ WHERE
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="DATASET_CUBS" uuid="20374a18-395e-4fd1-87dc-252013585b70">
 						<datasetParameter name="FKCONTRATO_TABLE">
-							<datasetParameterExpression><![CDATA[$P{FKCONTRATO}]]></datasetParameterExpression>
+							<datasetParameterExpression><![CDATA[$P{CONTRATO}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>

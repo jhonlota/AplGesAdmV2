@@ -139,15 +139,15 @@ public class PanelCubs extends javax.swing.JPanel {
         jTextField13.setPreferredSize(new java.awt.Dimension(565, 25));
         add(jTextField13);
 
-        jLabel48.setText("CÓDIGO CUBS ELEMENTO : ");
-        jLabel48.setPreferredSize(new java.awt.Dimension(165, 25));
+        jLabel48.setText("CÓDIGO  UNSPSC ELEMENTO : ");
+        jLabel48.setPreferredSize(new java.awt.Dimension(180, 25));
         add(jLabel48);
 
         codigo.setBackground(ClaseGeneral.campo);
         codigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         codigo.setFocusable(false);
         codigo.setMargin(new java.awt.Insets(2, 4, 2, 4));
-        codigo.setPreferredSize(new java.awt.Dimension(610, 25));
+        codigo.setPreferredSize(new java.awt.Dimension(595, 25));
         add(codigo);
 
         botonBuscarCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/search.png"))); // NOI18N

@@ -19,7 +19,7 @@
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
-<!--<script src="js/jquery-2.1.1.js"></script>-->
+        <!--<script src="js/jquery-2.1.1.js"></script>-->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -68,32 +68,32 @@
         </script>
 
         <script type="text/javascript">
-            function tabla(){
-                $(document).ready(function() {
-                $('.dataTables-example').DataTable({
-                    pageLength: 10,
-                    responsive: true,
-                    dom: '<"html5buttons"B>lTfgitp',
-                    buttons: [
-                        {extend: 'copy'},
-                        {extend: 'excel', title: 'Reporte'},
-                        {extend: 'pdf', title: 'Reporte'},
-                        {extend: 'print',
-                            customize: function(win) {
-                                $(win.document.body).addClass('white-bg');
-                                $(win.document.body).css('font-size', '10px');
+            function tabla() {
+                $(document).ready(function () {
+                    $('.dataTables-example').DataTable({
+                        pageLength: 10,
+                        responsive: true,
+                        dom: '<"html5buttons"B>lTfgitp',
+                        buttons: [
+                            {extend: 'copy'},
+                            {extend: 'excel', title: 'Reporte'},
+                            {extend: 'pdf', title: 'Reporte'},
+                            {extend: 'print',
+                                customize: function (win) {
+                                    $(win.document.body).addClass('white-bg');
+                                    $(win.document.body).css('font-size', '10px');
 
-                                $(win.document.body).find('table')
-                                        .addClass('compact')
-                                        .css('font-size', 'inherit');
+                                    $(win.document.body).find('table')
+                                            .addClass('compact')
+                                            .css('font-size', 'inherit');
+                                }
                             }
-                        }
-                    ]
+                        ]
+
+                    });
 
                 });
-
-            });
-            }      
+            }
         </script>
     </head>
     <body class="top-navigation">
@@ -125,8 +125,8 @@
 
                                         </div>
                                         <script type="text/javascript">
-                                            $(document).ready(function() {
-                                                $('#form').submit(function(event) {
+                                            $(document).ready(function () {
+                                                $('#form').submit(function (event) {
                                                     event.preventDefault();
                                                     var fktercero = $('#fktercero').val();
                                                     var parametros = {
@@ -137,12 +137,12 @@
                                                         url: 'ResultadosConsultarPagosRealizados.php',
                                                         type: 'POST',
                                                         dataType: 'html',
-                                                        beforeSend: function() {
+                                                        beforeSend: function () {
                                                             $('#tabla1').html('');
                                                             $('#tabla2').html('');
                                                             $('#tabla3').html('');
                                                         },
-                                                        success: function(response) {
+                                                        success: function (response) {
                                                             var json_obj = $.parseJSON(response);
                                                             $('#divtercero').html(json_obj.divtercero);
                                                             $('#tabla1').html(json_obj.tabla1);
@@ -230,5 +230,6 @@
                     </div>
                 </div>
             </div>
+        </div>
     </body>
 </html>

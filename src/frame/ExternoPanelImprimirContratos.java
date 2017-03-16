@@ -61,12 +61,12 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         botonActaLiquidacion = new javax.swing.JButton();
         botonActaDesignacionSupervisor = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(410, 400));
+        setPreferredSize(new java.awt.Dimension(260, 400));
 
         jLabel1.setBackground(ClaseGeneral.titulo);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Impresion de Contratos");
+        jLabel1.setText("Impresion de Formatos");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
@@ -236,14 +236,13 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
 
     private void botonContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonContratoActionPerformed
         try {
-            String textoValorSoportesContratos = panelContratos.valorsoportescontratos.getText().replace(".", "");
+//            String textoValorSoportesContratos = panelContratos.valorsoportescontratoscertificado.getText().replace(".", "");
             String textoValorTotalConIvaCUBS = panelContratos.valortotalconivaCUBS.getText().replace(".", "");
             String textoValorTotalSinIvaCUBS = panelContratos.valortotalsinivaCUBS.getText().replace(".", "");
             String textoValor = "" + ClaseGeneral.contratos.getValor();
             String textoValorSinIva = "" + ClaseGeneral.contratos.getValorsiniva();
 
-            if (textoValor.equals(textoValorSoportesContratos)
-                    && textoValor.equals(textoValorTotalConIvaCUBS)
+            if (textoValor.equals(textoValorTotalConIvaCUBS)
                     && textoValorSinIva.equals(textoValorTotalSinIvaCUBS)) {
                 frameCarga.setVisible(true);
                 frameCarga.pack();
@@ -278,7 +277,23 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
     }//GEN-LAST:event_botonActaAprobacionPolizaActionPerformed
 
     private void botonActaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActaInicioActionPerformed
-        // TODO add your handling code here:
+        try {
+            String textoValorSoportesContratos = panelContratos.valorsoportescontratosregistro.getText().replace(".", "");
+            String textoValorTotalConIvaCUBS = panelContratos.valortotalconivaCUBS.getText().replace(".", "");
+            String textoValorTotalSinIvaCUBS = panelContratos.valortotalsinivaCUBS.getText().replace(".", "");
+            String textoValor = "" + ClaseGeneral.contratos.getValor();
+            String textoValorSinIva = "" + ClaseGeneral.contratos.getValorsiniva();
+
+            if (textoValor.equals(textoValorSoportesContratos)
+                    && textoValor.equals(textoValorTotalConIvaCUBS)
+                    && textoValorSinIva.equals(textoValorTotalSinIvaCUBS)) {
+                //To Do
+            } else {
+                ClaseMensaje.error("NO SE PUEDE IMPRIMIR:\n"
+                        + "Los valores del Contrato no concuerdan con los CUBS y Soportes");
+            }
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_botonActaInicioActionPerformed
 
     private void botonActaLiquidacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActaLiquidacionActionPerformed
@@ -387,14 +402,13 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
                 Map<String, String> parametros = new HashMap<String, String>();
                 parametros.put("CONTRATO", ClaseGeneral.contratos.getContrato());
 
-                ClaseInformes informes = new ClaseInformes();
-
                 if (ClaseGeneral.controlCubs.findCALCInCubsByFkcontrato(ClaseGeneral.contratos.getContrato()) > 8) {
                     parametros.put("isAnexoOrdenContractual", "ANEXO ORDEN CONTRACTUAL");
                 } else {
                     parametros.put("isAnexoOrdenContractual", "-");
                 }
 
+                ClaseInformes informes = new ClaseInformes();
                 informes.formatoContrato(parametros);
             } catch (Exception e) {
                 ClaseMensaje.error("Error al mostrar el archivo.\n" + e);
@@ -421,6 +435,7 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
             try {
                 Map<String, String> parametros = new HashMap<String, String>();
                 parametros.put("CONTRATO", ClaseGeneral.contratos.getContrato());
+                parametros.put("isAnexoOrdenContractual", "ANEXO ORDEN CONTRACTUAL");
 
                 ClaseInformes informes = new ClaseInformes();
                 informes.formatoAnexoContrato(parametros);

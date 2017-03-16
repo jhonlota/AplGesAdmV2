@@ -1,4 +1,5 @@
 <?php
+
 header("Content-Type: text/html;charset=ISO-8859-1");
 include("./ConexionConsulta.php");
 
@@ -56,7 +57,7 @@ if ($fktercero == "") {
             $i++;
             $sVer = "";
             $sVer .= (empty($rowContratos["secopnumeroconstancia"])) ? "<span class=\"label label-danger\"> - </span>" : "<button id=\"ver$i\" type=\"button\" class=\"btn btn-default btn-xs\" onclick=\"window.open('https://www.contratos.gov.co/consultas/detalleProceso.do?numConstancia=" . $rowContratos["secopnumeroconstancia"] . "')\" formtarget=\"_blank\">VER EN SECOP</button>";
-            
+
             $tabla1 .= "<tr class=\"gradeA odd\" role=\"row\">";
             $tabla1 .= "<td class=\"sorting_1\" tabindex=\"0\" >" . $i . "</td>";
             $tabla1 .= "<td class=\"sorting_1\" tabindex=\"0\" >" . $rowContratos["contrato"] . "</td>";
@@ -126,7 +127,7 @@ if ($fktercero == "") {
             $i++;
             $sPago = "";
             $sPago .= $rowComprobantes["comprobante"] === "0" ? "<span class=\"label label-danger\"> NO PAGO </span>" : "" . $rowComprobantes["comprobante"];
-            
+
             $tabla3 .= "<td class=\"sorting_1\" tabindex=\"0\" >" . $i . "</td>";
             $tabla3 .= "<td class=\"sorting_1\" tabindex=\"0\">" . $rowComprobantes["ano"] . "</td>";
             $tabla3 .= "<td class=\"sorting_1\" tabindex=\"0\">" . $sPago . "</td>";

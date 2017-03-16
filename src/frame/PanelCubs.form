@@ -113,9 +113,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel48">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xd3;DIGO CUBS ELEMENTO : "/>
+        <Property name="text" type="java.lang.String" value="C&#xd3;DIGO  UNSPSC ELEMENTO : "/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[165, 25]"/>
+          <Dimension value="[180, 25]"/>
         </Property>
       </Properties>
     </Component>
@@ -132,7 +132,7 @@
           <Insets value="[2, 4, 2, 4]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[610, 25]"/>
+          <Dimension value="[595, 25]"/>
         </Property>
       </Properties>
     </Component>

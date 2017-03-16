@@ -81,7 +81,7 @@ public class ExternoPanelCodigocubs extends javax.swing.JPanel {
 
         parametro.setBackground(ClaseGeneral.campo);
         parametro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GRUPO [nombregrupo]", "SEGMENTO [nombresegmento]", "FAMILIA [nombrefamilia]", "CLASE [nombreclase]", "PRODUCTO [nombreproducto]" }));
+        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLASE [nombreclase]", "PRODUCTO [nombreproducto]" }));
         parametro.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
         parametro.setPreferredSize(new java.awt.Dimension(445, 25));
         add(parametro);
@@ -137,7 +137,12 @@ public class ExternoPanelCodigocubs extends javax.swing.JPanel {
         DefaultListModel modeloLista = new DefaultListModel();
         for (int i = 0; i < listaCodigo.size(); i++) {
             ClaseGeneral.clasificadorunspsc = (Clasificadorunspsc) listaCodigo.get(i);
-            modeloLista.addElement(ClaseGeneral.clasificadorunspsc.getNombreproducto() + " [" + ClaseGeneral.clasificadorunspsc.getCodigoproducto() + "]");
+            
+            if (ClaseGeneral.parametro.equals("nombreclase")) {
+                modeloLista.addElement(ClaseGeneral.clasificadorunspsc.getNombreclase() + " [" + ClaseGeneral.clasificadorunspsc.getCodigoclase() + "]");
+            } else if (ClaseGeneral.parametro.equals("nombreproducto")) {
+                modeloLista.addElement(ClaseGeneral.clasificadorunspsc.getNombreproducto() + " [" + ClaseGeneral.clasificadorunspsc.getCodigoproducto() + "]");
+            }
         }
 
         lista.setModel(modeloLista);

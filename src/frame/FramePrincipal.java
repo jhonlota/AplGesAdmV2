@@ -678,7 +678,7 @@ Solicitud de Oferta
                 } else if (hijo.equals("Aprob. Pagos")
                         && ClaseGeneral.perfil.equals("root")) {
                     try {
-                        Desktop.getDesktop().browse(new URI(ClaseGeneral.servidor + "/AGA/build/classes/web/ConsultarAprobacionPagosFacultad.php"));
+                        Desktop.getDesktop().browse(new URI(ClaseGeneral.servidor + "/AGA/build/classes/web/ConsultarAprobacionPagosFacultad.php?key=1krTnVYOGe-uFKJFG0i_xyts9Vdcaj_sEmqUOGQ_j0h0"));
                     } catch (Exception ex) {
                         Logger.getLogger(PanelAnexoscontratos.class.getName()).log(Level.SEVERE, null, ex);
                     }

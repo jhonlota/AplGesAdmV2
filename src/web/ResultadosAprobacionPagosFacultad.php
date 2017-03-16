@@ -35,7 +35,7 @@ try {
                         <tbody>";
 
     $i = 0;
-    $result = pg_query($gbd, "SELECT * FROM COMPROBANTES WHERE tipopago = 'Aprobacion'");
+    $result = pg_query($gbd, "SELECT * FROM COMPROBANTES WHERE tipopago LIKE '%Aprobacion%' AND ano = '2017'");
     if (pg_num_rows($result) === 0) {
         $tabla = "<div class=\"alert alert-info alert-dismissable\">
                             <button aria-hidden=\"true\" data-dismiss=\"alert\" class=\"close\" type=\"button\">&#215;</button>
@@ -49,7 +49,7 @@ try {
         $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["fktercero"] . "</td>";
         $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["valor"] . "</td>";
         $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["fktercerofuncionario"] . "</td>";
-        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\"><small>" . $row["observacion"] . "</small></td>"; 
+        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\"><small><span id=\"observacion$i\" name=\"observacion$i\">" . $row["observacion"] . "</span></small></td>";
         $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">
                     <select class=\"form-control input-sm\" id=\"formadepago$i\" name=\"formadepago$i\">
                         <option value=\"Seleccione\">SELECCIONE...</option>
@@ -66,17 +66,23 @@ try {
                         <button id=\"actualizar$i\" name=\"actualizar$i\" class=\"btn btn-primary btn-xs\" type=\"submit\">Actualizar</button>
                         <div id=\"informacion$i\" class=\"alert alert-success\" role=\"alert\" style=\"display: none\"></div>
                         <div id=\"error$i\" class=\"alert alert-success\" role=\"alert\" style=\"display: none\"></div>
-                    </td>";        
+                    </td>";
         $tabla .= "</tr>";
-        
+
         $tabla .= " <script type=\"text/javascript\">
                         $('#actualizar$i').click(function() {
                             console.log('Clic en Actualizar'+$('#actualizar$i').attr('name'));
                             event.preventDefault();
+                                
+                            if($('#comentario$i').val() == '') {
+                                var comentario = $('#observacion$i').html();
+                            } else {
+                                var comentario = $('#observacion$i').html() + ' ['+  $('#comentario$i').val().toUpperCase() + ']';
+                            }
+                            
                             var id = '" . $row["id"] . "';
-                            var comentario = '". $row["observacion"] ." ['+  $('#comentario$i').val().toUpperCase() + ']' ;
                             var formadepago = $('#formadepago$i').val();                            
-                             var parametros = {
+                            var parametros = {
                                 'id': id,
                                 'comentario': comentario,
                                 'formadepago': formadepago
@@ -107,7 +113,7 @@ try {
                                 }    
                             });
                         });
-                        </script>";        
+                        </script>";
         $i++;
     }
 

@@ -187,14 +187,14 @@ public class ContratosJpaController {
                     + "CONDICIONESENTREGA = '" + contratos.getCondicionesentrega() + "', "
                     + "DIASTIEMPOPAGO = '" + contratos.getDiastiempopago() + "', "
                     + "ESTIMACION = '" + contratos.getEstimacion() + "', "
-                    + "FACULTAD = '" + contratos.getFacultad() + "', "
+//                    + "FACULTAD = '" + contratos.getFacultad() + "', "
 //                    + "FECHAACTAINICIO = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaactainicio()) + "', "
                     + "FECHAENTREGA = '" + ClaseInformacion.ConvertirFecha(contratos.getFechaentrega()) + "', "
                     + "FECHAFICHATECNICA = '" + ClaseInformacion.ConvertirFecha(contratos.getFechafichatecnica()) + "', "
                     + "FECHAINVITACION = '" + ClaseInformacion.ConvertirFecha(contratos.getFechainvitacion()) + "', "
                     + "LUGAREJECUCION = '" + contratos.getLugarejecucion() + "', "
-                    + "MODALIDADARTICULO = '" + contratos.getModalidadarticulo() + "', "
-                    + "MODALIDADFUNDAMENTO = '" + contratos.getModalidadfundamento() + "', "
+//                    + "MODALIDADARTICULO = '" + contratos.getModalidadarticulo() + "', "
+//                    + "MODALIDADFUNDAMENTO = '" + contratos.getModalidadfundamento() + "', "
                     + "NECESIDAD = '" + contratos.getNecesidad() + "', "
                     + "OBJETOESPECIFICO = '" + contratos.getObjetoespecifico() + "', "
                     + "OBLIGACIONESCONTRATISTA = '" + contratos.getObligacionescontratista() + "', "
@@ -326,7 +326,7 @@ public class ContratosJpaController {
                     && ClaseInformacion.ValidarSeleccione(contratos.getFormapago(), "FORMA DE PAGO DEL CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getInversion(), "ES INVERSION")
                     && ClaseInformacion.ValidarSeleccione(contratos.getModalidad(), "MODALIDAD DE CONTRATACIÓN")
-                    && ClaseInformacion.ValidarSeleccione(contratos.getMonedapago(), "MONEDA DE PAGO")
+//                    && ClaseInformacion.ValidarSeleccione(contratos.getMonedapago(), "MONEDA DE PAGO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getObservaciones(), "OBSERVACIÓN AL CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getObjeto(), "OBJETO DEL CONTRATO")
 //                    && ClaseInformacion.ValidarSeleccione(contratos.getPlazo(), "PLAZO")
@@ -334,7 +334,7 @@ public class ContratosJpaController {
                     && ClaseInformacion.ValidarSeleccione(contratos.getTipocontrato(), "TIPO DE CONTRATO")
                     && ClaseInformacion.ValidarSeleccione(contratos.getTipointerventoria(), "TIPO DE INTERVENTORÍA")
                     && ClaseInformacion.ValidarSeleccione(contratos.getTipovinculacionintersuper(), "TIPO DE VINCULACIÓN INTERVENTOR o  SUPERVISOR")
-                    && ClaseInformacion.ValidarSeleccione(contratos.getUnidadduracion(), "UNIDAD DE DURACIÓN")
+//                    && ClaseInformacion.ValidarSeleccione(contratos.getUnidadduracion(), "UNIDAD DE DURACIÓN")
                     && ClaseInformacion.ValidarSeleccione("" + contratos.getValor(), "VALOR INICIAL DEL CONTRATO")
                     && ClaseInformacion.ValidarSeleccione("" + contratos.getValorsiniva(), "VALOR SIN IVA")
                     && (ClaseGeneral.perfil.equals("root")
@@ -350,6 +350,7 @@ public class ContratosJpaController {
                 return false;
             }
         } catch (Exception ex) {
+            ex.printStackTrace();
             return false;
         } finally {
         }

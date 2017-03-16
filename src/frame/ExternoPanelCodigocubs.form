@@ -84,12 +84,9 @@
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value="GRUPO [nombregrupo]"/>
-            <StringItem index="1" value="SEGMENTO [nombresegmento]"/>
-            <StringItem index="2" value="FAMILIA [nombrefamilia]"/>
-            <StringItem index="3" value="CLASE [nombreclase]"/>
-            <StringItem index="4" value="PRODUCTO [nombreproducto]"/>
+          <StringArray count="2">
+            <StringItem index="0" value="CLASE [nombreclase]"/>
+            <StringItem index="1" value="PRODUCTO [nombreproducto]"/>
           </StringArray>
         </Property>
         <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">

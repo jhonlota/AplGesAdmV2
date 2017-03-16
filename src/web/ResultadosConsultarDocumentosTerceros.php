@@ -1,4 +1,5 @@
 <?php
+
 header("Content-Type: text/html;charset=ISO-8859-1");
 include("./ConexionConsulta.php");
 
@@ -118,7 +119,7 @@ if (empty($fktercero) || empty($persona)) {
                                 event.preventDefault();
                                 var fechadoc = $('#fechadoc$i').val();
                                 if(fechadoc === ''){
-                                    funMensaje('Debe Seleccionar una Fecha de Expedición Válida para el Documento: ".$row["verifica"]."');
+                                    funMensaje('Debe Seleccionar una Fecha de Expedición Válida para el Documento: " . $row["verifica"] . "');
                                 }else{
                                     var opcion = 'documentoindividual';
                                     var fktercero = $('#tercero').val();

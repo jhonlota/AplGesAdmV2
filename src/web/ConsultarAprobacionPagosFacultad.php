@@ -19,7 +19,7 @@
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
-<!--<script src="js/jquery-2.1.1.js"></script>-->
+        <!--<script src="js/jquery-2.1.1.js"></script>-->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -109,7 +109,7 @@
                                     <div class="ibox-title">
                                         <script type="text/javascript">
                                             $(document).ready(function () {
-                                                var key = '1krTnVYOGe-uFKJFG0i_xyts9Vdcaj_sEmqUOGQ_j0h0';
+                                                var key = '<?php echo $_GET['key']; ?>';
                                                 var parametros = {
                                                     'key': key
                                                 };

@@ -42,7 +42,6 @@ try {
 //        while ($row2 = pg_fetch_array($result2, NULL, PGSQL_ASSOC)) {
 //            $rowspan = $row2["cinfo"];
 //        }
-
 //        if ($cinfoAuxInicial == $cinfoAux) {
 //            $tabla .= "<tr class=\"gradeA odd\" role=\"row\">";
 //            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["cingreso"] . "</td>";
@@ -50,12 +49,12 @@ try {
 //            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["ccostos"] . "</td>";
 //            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cuentainterna"] . "</strong> <br/><small>" . $row["cuentainterna_nombre"] . "</small></td>";
 //        } else {
-            $tabla .= "<tr class=\"gradeA odd\" role=\"row\">";
-            $tabla .= "<td rowspan=\"$rowspan\" class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cinfo"] . "</strong> - " . $row["cinfo_nombre"] . "</td>";
-            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["cingreso"] . "</td>";
-            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["actividad"] . "</td>";
-            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["ccostos"] . "</td>";
-            $tabla .= "<td class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cuentainterna"] . "</strong> <br/><small>" . $row["cuentainterna_nombre"] . "</small></td>";
+        $tabla .= "<tr class=\"gradeA odd\" role=\"row\">";
+        $tabla .= "<td rowspan=\"$rowspan\" class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cinfo"] . "</strong> - " . $row["cinfo_nombre"] . "</td>";
+        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["cingreso"] . "</td>";
+        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["actividad"] . "</td>";
+        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\">" . $row["ccostos"] . "</td>";
+        $tabla .= "<td class=\"sorting_1\" tabindex=\"0\"><strong>" . $row["cuentainterna"] . "</strong> <br/><small>" . $row["cuentainterna_nombre"] . "</small></td>";
 
 //            $cinfoAuxInicial = $cinfoAux;
 //        }

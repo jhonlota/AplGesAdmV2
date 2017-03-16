@@ -166,13 +166,29 @@ public class SoportescontratosJpaController {
         }
     }
 
-    public BigDecimal CALCInSoportescontratosByFkcontrato(String fkcontrato) {
+    public BigDecimal CALCInSoportescontratosCertificadoByFkcontrato(String fkcontrato) {
         BigDecimal valor = BigDecimal.ZERO;
 
         try {
-            datos.query("SELECT SUM(CASE WHEN TIPO = 'Registro' THEN VALOR ELSE 0 END) AS REGISTRO,\n"
-                    + "SUM(CASE WHEN TIPO = 'Ajuste Debito' THEN VALOR ELSE 0 END) AS AJUSTEDEBITO,\n"
-                    + "SUM(CASE WHEN TIPO = 'Ajuste Crédito' THEN VALOR ELSE 0 END) AS AJUSTECREDITO\n"
+            datos.query("SELECT SUM(CASE WHEN TIPO = 'Certificado' THEN VALOR ELSE 0 END) AS CERTIFICADO "
+                    + "FROM SOPORTESCONTRATOS WHERE FKCONTRATO = '" + fkcontrato + "'");
+            while (ClaseBaseDatos.resultado.next()) {
+                valor = BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("CERTIFICADO")));
+            }
+            return valor;
+        } catch (SQLException ex) {
+            ClaseMensaje.errorFind(this.toString(), ex.toString());
+            return valor;
+        }
+    }
+    
+    public BigDecimal CALCInSoportescontratosRegistroByFkcontrato(String fkcontrato) {
+        BigDecimal valor = BigDecimal.ZERO;
+
+        try {
+            datos.query("SELECT SUM(CASE WHEN TIPO = 'Registro' THEN VALOR ELSE 0 END) AS REGISTRO, "
+                    + "SUM(CASE WHEN TIPO = 'Ajuste Debito' THEN VALOR ELSE 0 END) AS AJUSTEDEBITO, "
+                    + "SUM(CASE WHEN TIPO = 'Ajuste Crédito' THEN VALOR ELSE 0 END) AS AJUSTECREDITO "
                     + "FROM SOPORTESCONTRATOS WHERE FKCONTRATO = '" + fkcontrato + "'");
             while (ClaseBaseDatos.resultado.next()) {
                 valor = (BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("REGISTRO"))

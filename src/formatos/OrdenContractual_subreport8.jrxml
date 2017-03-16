@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport5" language="groovy" pageWidth="717" pageHeight="54" columnWidth="717" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7fe60d27-5753-44f6-a97e-23cf892cd294">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport5" language="groovy" pageWidth="750" pageHeight="54" columnWidth="750" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7fe60d27-5753-44f6-a97e-23cf892cd294">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -37,42 +37,42 @@ WHERE
 	<detail>
 		<band height="18" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="2" y="0" width="56" height="18"/>
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="0" y="0" width="60" height="18"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{eje}.substring( 4, $F{eje}.indexOf( ":" ))]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="58" y="0" width="48" height="18"/>
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="60" y="0" width="50" height="18"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{estrategia}.substring( 11, $F{estrategia}.indexOf( ":" ))]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="106" y="0" width="41" height="18"/>
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="110" y="0" width="43" height="18"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{programa}.substring( 9, $F{programa}.indexOf( ":" ))]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="147" y="0" width="460" height="18"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="153" y="0" width="482" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{proyecto}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="607" y="0" width="58" height="18"/>
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="694" y="0" width="56" height="18"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{subgrupo}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="665" y="0" width="52" height="18"/>
+				<reportElement uuid="5c69cc7c-8fee-4c74-bd29-8069f3b571ee" x="635" y="0" width="59" height="18"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
