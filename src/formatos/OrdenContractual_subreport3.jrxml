@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport3" language="groovy" pageWidth="753" pageHeight="55" columnWidth="713" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport3" language="groovy" pageWidth="750" pageHeight="48" columnWidth="750" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="eaaec09a-c07b-4bca-9ccf-d3569eba1f79">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -56,36 +56,48 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="55" splitType="Stretch">
+		<band height="48" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="8" width="465" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
+				<reportElement uuid="5e195e65-8447-4564-93ce-74662a3220ef" x="0" y="0" width="479" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="465" y="8" width="140" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
+				<reportElement uuid="10c6e70a-8bbc-4a76-83fe-4d65db9aa100" x="479" y="0" width="143" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="605" y="8" width="108" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
+				<reportElement uuid="4fd13a84-4bee-4f6f-b458-cd7fb415f8cd" x="622" y="0" width="128" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="35" width="335" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_DEPENDENCIA}]]></textFieldExpression>
+				<reportElement uuid="c3e0c23c-912e-4610-99c1-58ec48f3fd62" x="0" y="24" width="345" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_DEPENDENCIA}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="335" y="35" width="195" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_EDIFICIO}]]></textFieldExpression>
+				<reportElement uuid="12d20c90-5d3b-4b8d-b6dc-ff6d997bd823" x="345" y="24" width="196" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_EDIFICIO}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="530" y="35" width="183" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{TERCEROS_OFICINA}]]></textFieldExpression>
+				<reportElement uuid="e5bd16a3-08a6-4988-aa8d-53cd9ba4187e" x="541" y="24" width="209" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_OFICINA}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoFichaTecnica_subreport14" language="groovy" pageWidth="70" pageHeight="752" columnWidth="70" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="43230fe7-efc7-4481-b4c7-ca32562bbc61">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CONTRATO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT FORMAPAGOPAC.VALOR
+FROM FORMAPAGOPAC
+WHERE FKCONTRATO = $P{CONTRATO}
+AND FORMAPAGOPAC.MES = 'Mayo']]>
+	</queryString>
+	<field name="valor" class="java.lang.Long"/>
+	<detail>
+		<band height="16">
+			<rectangle>
+				<reportElement uuid="1aa81ecf-860f-41a7-bf53-ab9cce5ae396" x="0" y="0" width="70" height="16"/>
+			</rectangle>
+			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
+				<reportElement uuid="d8b6c753-db54-4ee9-b0b0-feabb535af1f" stretchType="RelativeToTallestObject" x="0" y="0" width="70" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
