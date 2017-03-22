@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoInvitacion_subreport7" language="groovy" pageWidth="532" pageHeight="730" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2a52cfc4-2411-401f-bfc5-242eaadabdd9">
+	<property name="ireport.zoom" value="1.3310000000000162"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="355"/>
+	<parameter name="CONTRATO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT CONTRATO FROM CONTRATOS WHERE CONTRATO = $P{CONTRATO}]]>
+	</queryString>
+	<field name="contrato" class="java.lang.String"/>
+	<detail>
+		<band height="494" splitType="Prevent">
+			<rectangle>
+				<reportElement uuid="099934cb-ae5a-4e1b-a0d0-6511137dc7bf" x="0" y="389" width="29" height="105"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="91dec1d1-3c7d-4bd8-b57e-31adeb2be767" x="0" y="117" width="29" height="72"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="db870c37-fee5-4734-a08b-c496df2b82d1" x="259" y="250" width="212" height="69"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="d47d8b51-194e-40a4-b34e-71d7eb9b2ba6" x="29" y="250" width="36" height="69"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="001d207a-f7a8-4192-b966-b0dcb0618616" x="29" y="189" width="36" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="be9e467e-7774-47e6-8566-ce3e8ee23db2" x="471" y="0" width="61" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="ec4e90ca-9041-4956-8e9d-7c71536c40c4" x="65" y="117" width="194" height="72"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="df656320-7a33-43b5-9da2-1e31b9d30873" x="0" y="319" width="29" height="70"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="40591095-c7b8-413a-8626-bdc4a7f38baf" x="65" y="389" width="194" height="105"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="a1ecf4ec-dc1f-4458-8d98-491753aa5659" x="29" y="389" width="36" height="105"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="a914cbf0-8c5a-4204-8171-706a7bca4268" x="259" y="117" width="212" height="72"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2a200892-a1ac-4904-8d6d-b4d7d0c6428c" x="65" y="319" width="194" height="70"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="a17653cd-8c03-4040-a88a-9aef583470e3" x="259" y="61" width="212" height="56"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="67081969-9ac8-4b57-857c-9cd9dc7f5628" x="259" y="0" width="212" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="dcea42ca-8b8d-4b6b-9019-1abe8c500dd3" x="0" y="189" width="29" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="0e35239b-8b8e-4695-94d5-7147d93dd506" x="29" y="117" width="36" height="72"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="5a621094-447d-4203-964a-a43666d04f5c" x="259" y="319" width="212" height="70"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="f89744fa-c3e0-4262-a9a1-dd1e1c276f68" x="65" y="0" width="194" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="fad78fb5-2d5e-4e2d-a638-ecba2a04e4fb" x="65" y="250" width="194" height="69"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="ee6e2621-db5c-44b3-a27b-fa023bbda1f6" x="0" y="61" width="29" height="56"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="606d14bf-ea18-4391-b0a9-ddb27fd2ae85" x="259" y="389" width="212" height="105"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="3bb2509a-4eec-4f61-997c-9e8dba6c9b33" x="259" y="189" width="212" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="e37ad1ec-7ec6-4995-9afb-1535edd5c947" x="0" y="250" width="29" height="69"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="c9991e5d-8bbb-4ba6-890c-611034a7f23f" x="65" y="189" width="194" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="96deded9-dc63-419a-a977-6535a27d9448" x="65" y="61" width="194" height="56"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="61621021-b56b-4aea-ac72-291a62fcac82" x="471" y="189" width="61" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="26bd61f0-21e9-424a-8594-3ed494ef08d5" x="471" y="61" width="61" height="56"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="21a6077b-6c45-47b7-a4bf-788698e753d9" x="471" y="117" width="61" height="72"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="ea149aab-1d77-44d7-9b30-dee4e1d6568c" x="471" y="250" width="61" height="69"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="f89744fa-c3e0-4262-a9a1-dd1e1c276f68" x="29" y="0" width="36" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="c2458392-6d41-45f8-b1ae-6b36841fd2ae" x="29" y="61" width="36" height="56"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="c983008d-72c2-4f4c-9af5-d8986c90f526" x="471" y="319" width="61" height="70"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="f89744fa-c3e0-4262-a9a1-dd1e1c276f68" x="0" y="0" width="29" height="61"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="df371517-9fca-463d-a1c4-37f89661c0f3" x="471" y="389" width="61" height="105"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="cce37b21-6e8a-46b2-86e9-024e9a18a968" x="29" y="319" width="36" height="70"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="471" y="250" width="61" height="69" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="471" y="61" width="61" height="56" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="471" y="389" width="61" height="105" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="29" y="319" width="36" height="70" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Técnico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="65" y="189" width="194" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[•  Entregar cronograma de obra, con cada una de las etapas. Este debe tener en cuenta todos los meses de ejecución
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="29" y="61" width="36" height="56" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="389" width="29" height="105" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[9.14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="117" width="29" height="73" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[9.10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="259" y="61" width="212" height="56" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[• Certificación bancaria donde se relacione el número de cuenta bancaria corriente o de ahorros, en la cual la Universidad le consignará todos los pagos que se generen en la ejecución contractual (en caso de que se suscriba el contrato).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="29" y="0" width="36" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Capacidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="29" y="117" width="36" height="73" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Técnico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="29" y="250" width="36" height="69" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Técnico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="259" y="389" width="212" height="105" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[•  Anexo 4 (Cantidades de obra - Oferta Económica) diligenciado, sin modificar o eliminar ítems, unidad de medida ni cantidades. (digital en hoja electrónica e impreso).
+Los costos directos y los precios unitarios se deberán aproximar por exceso y por defecto a pesos completos de la siguiente manera: Para decimales entre 0.01 y 0.49 se cambia al último dígito inferior entero del precio, y para decimales entre 0.50 y 0.99 se aproxima al dígito superior del precio.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="65" y="0" width="194" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[• Cumplir con la Capacidad Financiera y la Capacidad Organizacional exigida en la presente Invitación
+
+ ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="259" y="189" width="212" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[• Cronograma (en papel y digital)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="471" y="189" width="61" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="65" y="117" width="194" height="73" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[•  La Oferta debe ser avalada y suscrita por un (profesional requerido) con experiencia en ejecución de obras civiles, con copia de la tarjeta o matrícula profesional vigente.
+
+ ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="250" width="29" height="69" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[9.12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="65" y="61" width="194" height="56" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[• Certificación bancaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="471" y="117" width="61" height="73" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="29" y="389" width="36" height="105" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Económico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="259" y="0" width="212" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[• Se evaluará con base en la información consignada en el Registro Único de Proponentes de la Cámara de Comercio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="0" width="29" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[9.8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="471" y="319" width="61" height="70" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="319" width="29" height="70" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[9.13]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="471" y="0" width="61" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="65" y="389" width="194" height="105" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[•  Suministrar la Oferta económica Formulario de cantidades de obra.
+•  El total de la Oferta económica no puede superar el presupuesto oficial ni ser inferior al 90% del presupuesto oficial
+•  Que las correcciones aritméticas de la oferta económica no superen el 5% del presupuesto oficial
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="259" y="319" width="212" height="70" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Hoja de Vida certificada. El Proponente deberá adjuntar copia de actas de grado o diplomas y copia de certificados laborales o contratos.
+
+En caso de que aplique, de acuerdo con el perfil exigido debe aportar Tarjeta Profesional
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="259" y="250" width="212" height="69" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[• El proponente deberá anexar el material y documentación acreditativa que avale el cumplimiento de las especificaciones técnicas obligatorias a las que se compromete, esto es, manuales y folletos con características que amplíen la información técnica presentada
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="189" width="29" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[9.11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="0" y="61" width="29" height="56" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[9.9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="65" y="319" width="194" height="70" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[• En caso de prestación de servicios personales cumplir con el perfil requerido en la invitación.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="259" y="117" width="212" height="73" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[• Oferta firmada por (profesional requerido)
+• Copia de la tarjeta o matrícula profesional vigente del profesional que avala la Oferta.
+• Copia de la cédula de ciudadanía del profesional que avala la Oferta.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="65" y="250" width="194" height="69" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[• Cumplir o aceptar los requisitos técnicos exigidos para cada uno de los Bienes, Servicio, Obra o Mantenimiento.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6f66331-9879-4bd6-b11f-2b7310ae917f" mode="Transparent" x="29" y="189" width="36" height="61" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Técnico]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

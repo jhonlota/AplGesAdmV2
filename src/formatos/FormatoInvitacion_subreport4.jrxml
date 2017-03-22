@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoInvitacion_subreport4" language="groovy" pageWidth="532" pageHeight="752" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e74c36b1-b9e2-4e14-b7dd-805ee4f3b1e9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CONTRATO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+	CONTRATOS.MODALIDAD AS CONTRATOS_MODALIDAD,
+	MODALIDAD.ARTICULO AS MODALIDAD_ARTICULO,
+	MODALIDAD.NOMBRE AS MODALIDAD_NOMBRE,
+	MODALIDAD.FUNDAMENTO AS MODALIDAD_FUNDAMENTO
+FROM MODALIDAD
+JOIN CONTRATOS
+ON CONTRATOS.MODALIDAD = MODALIDAD.NOMBRE
+AND CONTRATOS.CONTRATO = $P{CONTRATO}]]>
+	</queryString>
+	<field name="contratos_modalidad" class="java.lang.String"/>
+	<field name="modalidad_articulo" class="java.lang.String"/>
+	<field name="modalidad_nombre" class="java.lang.String"/>
+	<field name="modalidad_fundamento" class="java.lang.String"/>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="416b8d4c-451d-41b3-8910-f8f1864e0253" stretchType="RelativeToTallestObject" x="0" y="0" width="532" height="16"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="html"/>
+				<textFieldExpression><![CDATA["El presente proceso se rige por el derecho privado, de acuerdo con lo previsto en la Ley 30 de 1992, el <b>Acuerdo No. 004 del 8 de Julio del 2016</b> del Consejo Superior de la Universidad del Valle, por el cual se expide el Estatuto de Contratación Administrativa de la Universidad del Valle, la <b>Resolución de Rectoría 2.898 de Septiembre 02 de 2016</b>, la cual reglamenta el Estatuto de Contratación y en lo que no esté particularmente regulado en ellas, por el Código de Comercio y el Código Civil.<br><br>"+
+"De acuerdo con lo establecido en el artículo <b>"+$F{modalidad_articulo}+"</b> del Estatuto de Contratación: <b>"+$F{modalidad_nombre}.substring( $F{modalidad_nombre}.indexOf(": ")+2, $F{modalidad_nombre}.length() ).toUpperCase()+"</b><br><br>"+
+$F{modalidad_fundamento}
+]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
