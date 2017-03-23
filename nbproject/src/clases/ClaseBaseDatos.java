@@ -69,7 +69,7 @@ public class ClaseBaseDatos {
     public void update(String sentencia) {
         try {
             isError = false;
-            System.out.println(sentencia);
+//            System.out.println(sentencia);
             estamento.executeUpdate(sentencia);
             estamento.clearBatch();
         } catch (SQLException ex) {
@@ -99,7 +99,7 @@ public class ClaseBaseDatos {
     public void query(String sentencia) {
         try {
             isError = false;
-            System.out.println(sentencia);
+//            System.out.println(sentencia);
             resultado = estamento.executeQuery(sentencia);
             estamento.clearBatch();
         } catch (SQLException ex) {

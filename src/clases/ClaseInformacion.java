@@ -225,7 +225,7 @@ public class ClaseInformacion {
     }
 
     public static boolean ValidarSeleccione(String texto, String componente) {
-        System.out.println("******************* " + componente + " " + texto);
+//        System.out.println("******************* " + componente + " " + texto);
         if (componente.equals("C. INGRESO*")
                 || componente.equals("ACTIVIDAD*")
                 || componente.equals("SUBGRUPO*")
