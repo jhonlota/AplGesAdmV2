@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoFichaTecnica" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
 	<property name="ireport.zoom" value="1.210000000000021"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="720"/>
+	<property name="ireport.y" value="427"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -1141,6 +1141,42 @@ WHERE
 			</textField>
 		</band>
 		<band height="32">
+			<rectangle>
+				<reportElement uuid="f2f57a6f-882c-45ad-9367-7695a7b38c83" x="382" y="0" width="68" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="f2f57a6f-882c-45ad-9367-7695a7b38c83" x="382" y="16" width="68" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="f2f57a6f-882c-45ad-9367-7695a7b38c83" x="472" y="0" width="80" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="f2f57a6f-882c-45ad-9367-7695a7b38c83" x="472" y="16" width="80" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="c7e46929-b1b1-45f1-9946-a8c80e81779e" x="291" y="16" width="69" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="6e21d60c-298f-480f-8075-eb14c33039ba" x="290" y="0" width="70" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="e1ba2627-ccc0-4124-b6b6-2fb85493bb17" x="206" y="16" width="70" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="a318eeb7-6630-402a-b15b-eba5b1b002a0" x="206" y="0" width="70" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="99842784-81c9-44d9-a56d-f0254ebaa6cb" x="120" y="16" width="70" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="0d526691-d8d7-46f9-b98d-8c937c1e7c0c" x="120" y="0" width="70" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="0d526691-d8d7-46f9-b98d-8c937c1e7c0c" x="35" y="16" width="70" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="ce5c7cb0-4585-4f7b-870c-b2d140060ef4" x="35" y="0" width="70" height="16"/>
+			</rectangle>
 			<subreport>
 				<reportElement uuid="2947e126-b14b-4e2f-bd69-bae642a88a21" x="35" y="0" width="70" height="16"/>
 				<subreportParameter name="CONTRATO">

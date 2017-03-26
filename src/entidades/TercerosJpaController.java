@@ -46,8 +46,8 @@ public class TercerosJpaController {
                     + "'" + terceros.getSalario() + "', "
                     + "'" + terceros.getIdrepresentante() + "', "
                     + "'" + terceros.getTipoidrepresentante() + "', "
-                    + "'" + terceros.getNombrerepresentante()+ "', "
-                    + "'" + terceros.getSedebanco()+ "', "
+                    + "'" + terceros.getNombrerepresentante() + "', "
+                    + "'" + terceros.getSedebanco() + "', "
                     + "'" + terceros.getSededependencia() + "')");
             if (!datos.isError) {
                 ClaseMensaje.informacionGuardarBD("El Tercero " + terceros.getId());
@@ -109,7 +109,7 @@ public class TercerosJpaController {
         } finally {
         }
     }
-    
+
     public void editEmail(String id, String email) {
         try {
             datos.update("UPDATE TERCEROS SET "
@@ -170,7 +170,7 @@ public class TercerosJpaController {
                 terceros.setNombrerepresentante(ClaseBaseDatos.resultado.getString("NOMBREREPRESENTANTE"));
                 terceros.setSedebanco(ClaseBaseDatos.resultado.getString("SEDEBANCO"));
                 terceros.setSededependencia(ClaseBaseDatos.resultado.getString("SEDEDEPENDENCIA"));
-                
+
                 listTerceros.add(terceros);
             }
             return listTerceros;
@@ -181,7 +181,7 @@ public class TercerosJpaController {
     }
 
     public List<Terceros> findAllInTercerosBy() {
-        
+
         List<Terceros> listTerceros = new ArrayList<Terceros>();
         Terceros terceros;
 
@@ -215,7 +215,7 @@ public class TercerosJpaController {
                 terceros.setNombrerepresentante(ClaseBaseDatos.resultado.getString("NOMBREREPRESENTANTE"));
                 terceros.setSedebanco(ClaseBaseDatos.resultado.getString("SEDEBANCO"));
                 terceros.setSededependencia(ClaseBaseDatos.resultado.getString("SEDEDEPENDENCIA"));
-                
+
                 listTerceros.add(terceros);
             }
             return listTerceros;
@@ -240,36 +240,37 @@ public class TercerosJpaController {
 //            return modeloCombo;
 //        }
 //    }
-
     public String findPersonaInTercerosById(String id) {
-        String persona = "";
+        String text = new String();
+
         try {
             datos.query("SELECT REGIMEN FROM TERCEROS WHERE ID = '" + id.substring(0, id.indexOf(" - ")) + "'");
             while (ClaseBaseDatos.resultado.next()) {
                 if (ClaseBaseDatos.resultado.getString("REGIMEN").equals("Régimen Común")) {
-                    persona = "PERSONAJURIDICA";
+                    text = "PERSONAJURIDICA";
                 } else {
-                    persona = "PERSONANATURAL";
+                    text = "PERSONANATURAL";
                 }
             }
-            return persona;
+            return text;
         } catch (SQLException ex) {
             ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return persona;
+            return text;
         }
     }
-    
+
     public String findNombreInTercerosById(String id) {
-        String nombre = "";
+        String text = new String();
+
         try {
             datos.query("SELECT NOMBRE FROM TERCEROS WHERE ID = '" + id + "'");
             while (ClaseBaseDatos.resultado.next()) {
-                nombre = ClaseBaseDatos.resultado.getString("NOMBRE");
+                text = ClaseBaseDatos.resultado.getString("NOMBRE");
             }
-            return nombre;
+            return text;
         } catch (SQLException ex) {
 //            ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return nombre;
+            return text;
         }
     }
 
@@ -286,18 +287,19 @@ public class TercerosJpaController {
             return salario;
         }
     }
-    
+
     public String findEmailInTercerosById(String id) {
-        String email = "";
+        String text = new String();
+
         try {
             datos.query("SELECT EMAIL FROM TERCEROS WHERE ID = '" + id.substring(0, id.indexOf(" - ")) + "'");
             while (ClaseBaseDatos.resultado.next()) {
-                email = ClaseBaseDatos.resultado.getString("EMAIL");
+                text = ClaseBaseDatos.resultado.getString("EMAIL");
             }
-            return email;
+            return text;
         } catch (SQLException ex) {
             ClaseMensaje.errorFind(this.toString(), ex.toString());
-            return email;
+            return text;
         }
     }
 

@@ -66,6 +66,8 @@ AND CUBS.FKCONTRATO = $P{FKCONTRATO}]]>
 	<field name="nombreclase" class="java.lang.String"/>
 	<field name="codigoproducto" class="java.lang.String"/>
 	<field name="nombreproducto" class="java.lang.String"/>
+	<field name="codigogrupo" class="java.lang.String"/>
+	<field name="nombregrupo" class="java.lang.String"/>
 	<field name="descripcion" class="java.lang.String"/>
 	<field name="fkcontrato" class="java.lang.String"/>
 	<field name="cantidad" class="java.lang.Long"/>

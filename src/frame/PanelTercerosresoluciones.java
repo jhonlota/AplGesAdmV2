@@ -924,7 +924,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         if (!panelBuscarImputacion.soporte.equals("Seleccione")) {
             StringTokenizer st = new StringTokenizer(panelBuscarImputacion.soporte.trim(), "-");
             while (st.hasMoreTokens()) {
-                listaSoporte.add(st.nextToken().trim());
+                listaSoporte.add(st.nextToken().trim());// Separa lo seleccionado por un guion "-"
             }
             
             fksoportecuenta = panelBuscarImputacion.fksoportecuenta;
@@ -933,10 +933,11 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
             fksoportecomprobanteid = panelBuscarImputacion.fksoportecomprobanteid;
             fksoportecomprobanteano = panelBuscarImputacion.fksoportecomprobanteano;
 
+            cuenta.setText("" + listaSoporte.get(0));
             actividad.setText("" + listaSoporte.get(1));
+            subgrupo.setText("" + listaSoporte.get(2));
             ccostos.setText("" + listaSoporte.get(3));
             cinfo.setText("" + listaSoporte.get(4));
-            cuenta.setText("" + listaSoporte.get(0));
             cuentainterna.setText("" + listaSoporte.get(5));
             valorSoporte.setText("" + listaSoporte.get(6));
             

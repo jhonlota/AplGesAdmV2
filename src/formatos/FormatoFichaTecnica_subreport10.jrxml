@@ -13,9 +13,6 @@ AND FORMAPAGOPAC.MES = 'Enero']]>
 	<field name="valor" class="java.lang.Long"/>
 	<detail>
 		<band height="16">
-			<rectangle>
-				<reportElement uuid="1aa81ecf-860f-41a7-bf53-ab9cce5ae396" x="0" y="0" width="70" height="16"/>
-			</rectangle>
 			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
 				<reportElement uuid="d8b6c753-db54-4ee9-b0b0-feabb535af1f" stretchType="RelativeToTallestObject" x="0" y="0" width="70" height="16"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">

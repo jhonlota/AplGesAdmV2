@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoInvitacion_subreport2" language="groovy" pageWidth="532" pageHeight="752" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c0f75f6e-e3ac-4612-9d3b-2cdcc9952cad">
+	<property name="ireport.zoom" value="1.6105100000000028"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CONTRATO" class="java.lang.String"/>
+	<parameter name="FKTERCEROFUNCIONARIO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+	CONTRATOS.FECHAINVITACION,
+	CONTRATOS.FECHAENTREGA,
+	TERCEROS.EMAIL,
+	TERCEROS.EDIFICIO,
+	TERCEROS.OFICINA
+FROM CONTRATOS
+JOIN TERCEROS
+ON TERCEROS.ID = $P{FKTERCEROFUNCIONARIO}
+AND CONTRATOS.CONTRATO = $P{CONTRATO}]]>
+	</queryString>
+	<field name="fechainvitacion" class="java.sql.Date"/>
+	<field name="fechaentrega" class="java.sql.Date"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="edificio" class="java.lang.String"/>
+	<field name="oficina" class="java.lang.String"/>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="7b94ac8c-7509-40d0-a6f0-1f4942d06115" stretchType="RelativeToTallestObject" x="159" y="0" width="373" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="9fbee3ad-2f7d-45a2-a79b-eee8af821735" stretchType="RelativeToTallestObject" x="159" y="16" width="373" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="572fb97b-82e4-4e62-974a-2552be28ac28" stretchType="RelativeToTallestObject" x="255" y="32" width="277" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="b8a6770c-5196-41e0-a821-750f6b6beec9" stretchType="RelativeToTallestObject" x="255" y="48" width="277" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="dd5c1ad2-4011-466c-b40c-e3de647cb960" stretchType="RelativeToTallestObject" x="255" y="64" width="277" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="70154059-94b2-4d3b-8f4e-4e9184bcf49c" stretchType="RelativeToTallestObject" x="159" y="48" width="96" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="9a4284ef-6b6b-419a-ad14-dc9559b3a688" stretchType="RelativeToTallestObject" x="0" y="32" width="159" height="48"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="95c13dc5-5520-4002-a762-77b0407d3212" stretchType="RelativeToTallestObject" x="0" y="16" width="159" height="16"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" stretchType="RelativeToTallestObject" x="0" y="32" width="159" height="48"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Medios de Entrega]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="a44bd3c7-1cd4-4193-b738-1d3b3c6295b8" stretchType="RelativeToTallestObject" x="0" y="0" width="159" height="16"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" stretchType="RelativeToTallestObject" x="0" y="0" width="159" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Fecha de Apertura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" stretchType="RelativeToTallestObject" x="0" y="16" width="159" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Fecha de Plazo de Entrega]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="70154059-94b2-4d3b-8f4e-4e9184bcf49c" stretchType="RelativeToTallestObject" x="159" y="64" width="96" height="16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1e3e886e-663b-4b42-b3c5-219456043a3d" stretchType="RelativeToTallestObject" x="159" y="32" width="96" height="16"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" stretchType="RelativeToTallestObject" x="159" y="48" width="96" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Correo Electrónico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" stretchType="RelativeToTallestObject" x="159" y="64" width="96" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Físico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" stretchType="RelativeToTallestObject" x="159" y="32" width="96" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Fax]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" stretchType="RelativeToTallestObject" x="159" y="16" width="373" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaentrega}.getDate()+" / "+
+($F{fechaentrega}.getMonth() + 1)+" / "+
+($F{fechaentrega}.getYear() + 1900)]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" stretchType="RelativeToTallestObject" x="159" y="0" width="373" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechainvitacion}.getDate()+" / "+
+($F{fechainvitacion}.getMonth() + 1)+" / "+
+($F{fechainvitacion}.getYear() + 1900)
+]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" stretchType="RelativeToTallestObject" x="255" y="32" width="277" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" stretchType="RelativeToTallestObject" x="255" y="64" width="277" height="16"/>
+				<textElement verticalAlignment="Middle" markup="html">
+					<font size="10"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Calle 13 N° 100 - 00 <b>Edificio </b>"+
+$F{edificio}+"  <b>Espacio </b>"+
+$F{oficina}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" stretchType="RelativeToTallestObject" x="255" y="48" width="277" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

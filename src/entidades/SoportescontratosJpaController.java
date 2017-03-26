@@ -203,7 +203,7 @@ public class SoportescontratosJpaController {
     }
 
     public String findTipoInSoportescontratosByFkcontratoRESGITRO(String fkcontrato) {
-        String tipo = "";
+        String text = new String();
         Soportescontratos soportescontratos;
         SoportescontratosPK soportescontratosPK;
 
@@ -217,18 +217,18 @@ public class SoportescontratosJpaController {
                         || ClaseBaseDatos.resultado.getString("SUBGRUPO").equals("065")
                         || ClaseBaseDatos.resultado.getString("SUBGRUPO").equals("066")
                         || ClaseBaseDatos.resultado.getString("SUBGRUPO").equals("067")) {
-                    tipo = "SERVICIOS";
+                    text = "SERVICIOS";
                 } else if (ClaseBaseDatos.resultado.getString("SUBGRUPO").equals("072")
                         || ClaseBaseDatos.resultado.getString("SUBGRUPO").equals("073")
                         || ClaseBaseDatos.resultado.getString("SUBGRUPO").equals("101")) {
-                    tipo = "RESOLUCION";
+                    text = "RESOLUCION";
                 } else if (ClaseBaseDatos.resultado.getString("SUBGRUPO").equals("000")) {
-                    tipo = "CORPORATIVO";
+                    text = "CORPORATIVO";
                 } else {
-                    tipo = "COMPRAS";
+                    text = "COMPRAS";
                 }
             }
-            return tipo;
+            return text;
         } catch (SQLException ex) {
             ClaseMensaje.errorFind(this.toString(), ex.toString());
             return "";

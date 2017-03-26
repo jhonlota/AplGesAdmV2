@@ -85,8 +85,8 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
-            <StringItem index="0" value="CLASE [nombreclase]"/>
-            <StringItem index="1" value="PRODUCTO [nombreproducto]"/>
+            <StringItem index="0" value="CLASE [clase]"/>
+            <StringItem index="1" value="PRODUCTO [producto]"/>
           </StringArray>
         </Property>
         <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">

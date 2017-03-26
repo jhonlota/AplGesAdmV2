@@ -128,7 +128,8 @@ public class AnexostercerosJpaController {
     }
 
     public String findDocumentoDiasTotalInAnexostercerosByFkterceroPersonaFecha(String fktercero, String persona, Date fecha) {
-        String mensaje = "";
+        String text = new String();
+        
         try {
             datos.query("SELECT *, ('" + ClaseInformacion.ConvertirFecha(fecha) + "' - FECHA) AS TOTAL FROM "
                     + "(SELECT * FROM VERIFICAANEXOSTERCEROS WHERE " + persona + " = TRUE) AS A LEFT JOIN "
@@ -148,7 +149,7 @@ public class AnexostercerosJpaController {
                         estado = "ACTIVO";
                     }
 
-                    mensaje += "<dt>" + ClaseBaseDatos.resultado.getString("VERIFICA") + "</dt><dd>"
+                    text += "<dt>" + ClaseBaseDatos.resultado.getString("VERIFICA") + "</dt><dd>"
                             + (ClaseBaseDatos.resultado.getDate("FECHA") == null ? "" : ClaseBaseDatos.resultado.getDate("FECHA"))
                             + (ClaseBaseDatos.resultado.getDate("FECHA") == null ? "" : " // " + ClaseBaseDatos.resultado.getInt("TOTAL") + " dias // ")
                             + estado + "</dd>";
@@ -156,7 +157,8 @@ public class AnexostercerosJpaController {
                     ClaseMensaje.errorFind(this.toString(), ex.toString());
                 }
             }
-            return mensaje;
+            
+            return text;
         } catch (SQLException ex) {
             ClaseMensaje.errorFind(this.toString(), ex.toString());
             return null;

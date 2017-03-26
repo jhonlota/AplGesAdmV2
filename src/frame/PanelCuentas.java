@@ -521,7 +521,7 @@ public class PanelCuentas extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. INGRESO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR"
+                "FUENTE", "ACTIVIDAD", "EGRESOS", "C. INGRESO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR"
             }
         ));
         jTableSoportesCuentas.setEnabled(false);

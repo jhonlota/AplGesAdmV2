@@ -39,7 +39,7 @@ public class ClaseImportar {
     private String fechapresupuestal;
     private String fechatransaccion;
     private String fktercero;
-    private String ingreso;
+    private String ingreso; 
     private String soporte;//LLAVE PRINCIPAL
     private String soporteAnterior;
     private String subgrupo;

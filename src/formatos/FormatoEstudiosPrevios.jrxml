@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstudiosPrevios" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="853"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -323,36 +323,6 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<subDataset name="DATASETBIENES" uuid="135b8fba-990f-4285-8bc3-8069ca7ddcf6">
-		<parameter name="IDSOLICITUDOFERTA_TABLE" class="java.lang.String"/>
-		<parameter name="ANOSOLICITUDOFERTA_TABLE" class="java.lang.Integer"/>
-		<queryString>
-			<![CDATA[SELECT BIENESSOLICITUDESOFERTA.NOMBRE, BIENESSOLICITUDESOFERTA.DESCRIPCION, BIENESSOLICITUDESOFERTA.CARACTERISTICAS, BIENESSOLICITUDESOFERTA.CANTIDAD, SOLICITUDESOFERTA.PLAZOEJECUCION
-FROM BIENESSOLICITUDESOFERTA, SOLICITUDESOFERTA
-WHERE BIENESSOLICITUDESOFERTA.FKSOLICITUDOFERTA = $P{IDSOLICITUDOFERTA_TABLE}
-AND BIENESSOLICITUDESOFERTA.ANO = $P{ANOSOLICITUDOFERTA_TABLE}]]>
-		</queryString>
-		<field name="nombre" class="java.lang.String"/>
-		<field name="descripcion" class="java.lang.String"/>
-		<field name="caracteristicas" class="java.lang.String"/>
-		<field name="cantidad" class="java.lang.Integer"/>
-		<field name="plazoejecucion" class="java.lang.String"/>
-	</subDataset>
-	<subDataset name="DATASETSERVICIOS" uuid="9f5ae301-c60c-4c8e-b52f-782328d267e2">
-		<parameter name="IDSOLICITUDOFERTA_TABLE2" class="java.lang.String"/>
-		<parameter name="ANOSOLICITUDOFERTA_TABLE2" class="java.lang.Integer"/>
-		<queryString>
-			<![CDATA[SELECT SERVICIOSSOLICITUDESOFERTA.NOMBRE, SERVICIOSSOLICITUDESOFERTA.DESCRIPCION, SERVICIOSSOLICITUDESOFERTA.CARACTERISTICAS, SERVICIOSSOLICITUDESOFERTA.CANTIDAD, SOLICITUDESOFERTA.PLAZOEJECUCION
-FROM SERVICIOSSOLICITUDESOFERTA, SOLICITUDESOFERTA
-WHERE SERVICIOSSOLICITUDESOFERTA.FKSOLICITUDOFERTA = $P{IDSOLICITUDOFERTA_TABLE2}
-AND SERVICIOSSOLICITUDESOFERTA.ANO = $P{ANOSOLICITUDOFERTA_TABLE2}]]>
-		</queryString>
-		<field name="nombre" class="java.lang.String"/>
-		<field name="descripcion" class="java.lang.String"/>
-		<field name="caracteristicas" class="java.lang.String"/>
-		<field name="cantidad" class="java.lang.Integer"/>
-		<field name="plazoejecucion" class="java.lang.String"/>
-	</subDataset>
 	<subDataset name="DATASETCLASIFICADOR" uuid="e99ddc5e-e911-46af-be43-a4bf51a3b27c">
 		<parameter name="CONTRATOTABLE" class="java.lang.String"/>
 		<queryString>
@@ -366,9 +336,8 @@ AND SERVICIOSSOLICITUDESOFERTA.ANO = $P{ANOSOLICITUDOFERTA_TABLE2}]]>
                  CLASIFICADORUNSPSC.CODIGOGRUPO
 FROM CLASIFICADORUNSPSC AS CLASIFICADORUNSPSC
 JOIN CUBS AS CUBS
-ON CLASIFICADORUNSPSC.CODIGOPRODUCTO = (SELECT SUBSTRING (CUBS.CODIGO, POSITION('[' in CUBS.CODIGO)+1, 8)
-					FROM CUBS
-					WHERE FKCONTRATO = $P{CONTRATOTABLE})
+ON (CUBS.CODIGO = CLASIFICADORUNSPSC.NOMBREPRODUCTO || ' [' || CLASIFICADORUNSPSC.CODIGOPRODUCTO  || ']'
+	OR CUBS.CODIGO = CLASIFICADORUNSPSC.NOMBRECLASE || ' [' || CLASIFICADORUNSPSC.CODIGOCLASE  || ']')
 AND CUBS.FKCONTRATO = $P{CONTRATOTABLE}]]>
 		</queryString>
 		<field name="codigosegmento" class="java.lang.String"/>

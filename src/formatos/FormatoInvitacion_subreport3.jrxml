@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoInvitacion_subreport3" language="groovy" pageWidth="250" pageHeight="752" columnWidth="250" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="fe00154f-af0c-4d87-a1e8-a8daa30a8b37">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CONTRATO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+	CONTRATOS.MODALIDAD AS CONTRATOS_MODALIDAD,
+	MODALIDAD.ARTICULO AS MODALIDAD_ARTICULO,
+	MODALIDAD.NOMBRE AS MODALIDAD_NOMBRE
+FROM MODALIDAD
+JOIN CONTRATOS
+ON CONTRATOS.MODALIDAD = MODALIDAD.NOMBRE
+AND CONTRATOS.CONTRATO = $P{CONTRATO}]]>
+	</queryString>
+	<field name="contratos_modalidad" class="java.lang.String"/>
+	<field name="modalidad_articulo" class="java.lang.String"/>
+	<field name="modalidad_nombre" class="java.lang.String"/>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement uuid="15647ffa-8310-4fc7-9d11-4fb3d7ce3a61" x="0" y="0" width="250" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{modalidad_articulo} == "22" && $F{modalidad_nombre} == "2_16: Mínima Cuantía" ? "INVITACIÓN DE MÍNIMA CUANTÍA" :
+    ($F{modalidad_articulo} == "23" && $F{modalidad_nombre} == "2_16: Contratación Directa" ? "CONTRATACIÓN DIRECTA" : ""))]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

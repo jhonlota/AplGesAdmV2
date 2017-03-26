@@ -1560,7 +1560,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR"
+                "FUENTE", "ACTIVIDAD", "EGRESOS", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR"
             }
         ));
         jTableSoportesComprobantes.setEnabled(false);
