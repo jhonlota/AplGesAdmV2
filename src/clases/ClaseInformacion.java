@@ -341,7 +341,7 @@ public class ClaseInformacion {
             Matcher matcher = p.matcher(cuenta);
 
             if (!matcher.matches()) {
-                ClaseGeneral.errorCUENTA = "Error (CUENTA) : " + cuenta + "\n";
+                ClaseGeneral.errorCUENTA = "Error (FUENTE) : " + cuenta + "\n";
             }
             return matcher.matches();
         } else {
@@ -373,7 +373,7 @@ public class ClaseInformacion {
         }
 
         if (!is) {
-            ClaseGeneral.errorSUBGRUPO = "Error (SUBGRUPO) : " + subgrupo + "\n";
+            ClaseGeneral.errorSUBGRUPO = "Error (EGRESOS) : " + subgrupo + "\n";
         }
 
         return is;

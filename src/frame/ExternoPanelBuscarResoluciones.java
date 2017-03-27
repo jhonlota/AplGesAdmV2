@@ -81,7 +81,7 @@ public class ExternoPanelBuscarResoluciones extends javax.swing.JPanel {
 
         parametro.setBackground(ClaseGeneral.campo);
         parametro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NÚMERO RESOLUCION [CAST(resolucion.id AS TEXT)]", "TERCERO [fktercero]", "FONDO RENOVABLE Y/O C. MENOR[upper(fkcomprobante)]", "SOLICITUD DE PAGO[upper(fkcuenta)]", "OTRO MEDIO DE PAGO[upper(soporte)]", "OBJETIVO [upper(objetivo)]" }));
+        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NÚMERO RESOLUCION [CAST(resolucion.id AS TEXT)]", "TERCERO [fktercero]", "FONDO RENOVABLE Y/O C. MENOR[upper(fkcomprobante)]", "IMPUTACION - FONDO RENOVABLE Y/O C. MENOR[upper(fksoportecomprobante)]", "IMPUTACION - SOLICITUD DE PAGO[upper(fksoportecuenta)]", "SOLICITUD DE PAGO[upper(fkcuenta)]", "OTRO MEDIO DE PAGO[upper(soporte)]", "OBJETIVO [upper(objetivo)]" }));
         parametro.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
         parametro.setPreferredSize(new java.awt.Dimension(445, 25));
         add(parametro);

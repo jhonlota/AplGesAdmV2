@@ -130,7 +130,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("CUENTA");
+        jLabel3.setText("FUENTE");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel3.setPreferredSize(new java.awt.Dimension(95, 25));
         jPanel1.add(jLabel3);
@@ -142,7 +142,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
         jPanel1.add(jLabel4);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("SUBGRUPO");
+        jLabel5.setText("EGRESOS");
         jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel5.setPreferredSize(new java.awt.Dimension(95, 25));
         jPanel1.add(jLabel5);
@@ -372,7 +372,7 @@ public class PanelSoportescomprobantes extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR"
+                "FUENTE", "ACTIVIDAD", "EGRESOS", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR"
             }
         ));
         jTable.setEnabled(false);

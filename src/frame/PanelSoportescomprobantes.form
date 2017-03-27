@@ -122,7 +122,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="CUENTA"/>
+            <Property name="text" type="java.lang.String" value="FUENTE"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                 <EtchetBorder/>
@@ -150,7 +150,7 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="SUBGRUPO"/>
+            <Property name="text" type="java.lang.String" value="EGRESOS"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                 <EtchetBorder/>
@@ -439,9 +439,9 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="7" rowCount="100">
-                <Column editable="true" title="CUENTA" type="java.lang.Object"/>
+                <Column editable="true" title="FUENTE" type="java.lang.Object"/>
                 <Column editable="true" title="ACTIVIDAD" type="java.lang.Object"/>
-                <Column editable="true" title="SUBGRUPO" type="java.lang.Object"/>
+                <Column editable="true" title="EGRESOS" type="java.lang.Object"/>
                 <Column editable="true" title="C. COSTOS" type="java.lang.Object"/>
                 <Column editable="true" title="C. INFO" type="java.lang.Object"/>
                 <Column editable="true" title="CUENTA INTERNA" type="java.lang.Object"/>

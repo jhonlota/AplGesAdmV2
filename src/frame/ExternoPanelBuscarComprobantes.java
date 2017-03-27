@@ -81,7 +81,7 @@ public class ExternoPanelBuscarComprobantes extends javax.swing.JPanel {
 
         parametro.setBackground(ClaseGeneral.campo);
         parametro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NÚMERO DE SOLICITUD [CAST(comprobantes.id AS TEXT)]", "CÉDULA DEL PROVEEDOR [fktercero]", "VALOR [CAST(comprobantes.valor AS TEXT)]", "FORMA DE PAGO (ESTADO) [upper(tipopago)]", "NÚMERO DE COMPROBANTE [CAST(comprobante AS TEXT)]", "OBSERVACIÓN AL PAGO [observacion]", "SUBGRUPO [subgrupo]", "C. INFO [cinfo]", "CUENTA INTERNA [cuentainterna]", "NÚMERO FACTURA [numero]" }));
+        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NÚMERO DE SOLICITUD [CAST(comprobantes.id AS TEXT)]", "CÉDULA DEL PROVEEDOR [fktercero]", "VALOR [CAST(comprobantes.valor AS TEXT)]", "FORMA DE PAGO (ESTADO) [upper(tipopago)]", "NÚMERO DE COMPROBANTE [CAST(comprobante AS TEXT)]", "OBSERVACIÓN AL PAGO [observacion]", "EGRESOS [subgrupo]", "C. INFO [cinfo]", "CUENTA INTERNA [cuentainterna]", "NÚMERO FACTURA [numero]" }));
         parametro.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
         parametro.setPreferredSize(new java.awt.Dimension(445, 25));
         add(parametro);

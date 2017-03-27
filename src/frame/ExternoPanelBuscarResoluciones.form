@@ -78,13 +78,15 @@
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
+          <StringArray count="8">
             <StringItem index="0" value="N&#xda;MERO RESOLUCION [CAST(resolucion.id AS TEXT)]"/>
             <StringItem index="1" value="TERCERO [fktercero]"/>
             <StringItem index="2" value="FONDO RENOVABLE Y/O C. MENOR[upper(fkcomprobante)]"/>
-            <StringItem index="3" value="SOLICITUD DE PAGO[upper(fkcuenta)]"/>
-            <StringItem index="4" value="OTRO MEDIO DE PAGO[upper(soporte)]"/>
-            <StringItem index="5" value="OBJETIVO [upper(objetivo)]"/>
+            <StringItem index="3" value="IMPUTACION - FONDO RENOVABLE Y/O C. MENOR[upper(fksoportecomprobante)]"/>
+            <StringItem index="4" value="IMPUTACION - SOLICITUD DE PAGO[upper(fksoportecuenta)]"/>
+            <StringItem index="5" value="SOLICITUD DE PAGO[upper(fkcuenta)]"/>
+            <StringItem index="6" value="OTRO MEDIO DE PAGO[upper(soporte)]"/>
+            <StringItem index="7" value="OBJETIVO [upper(objetivo)]"/>
           </StringArray>
         </Property>
         <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">

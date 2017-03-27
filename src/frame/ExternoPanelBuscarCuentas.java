@@ -81,7 +81,7 @@ public class ExternoPanelBuscarCuentas extends javax.swing.JPanel {
 
         parametro.setBackground(ClaseGeneral.campo);
         parametro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DOCUMENTO [documento]", "SOPORTE [soporte]", "CÉDULA DEL PROVEEDOR [fktercero]", "VALOR INGRESO [CAST(ingreso AS TEXT)]", "VALOR EGRESO [CAST(egreso AS TEXT)]", "CONTRATO [fkcontrato]", "NUMERO SEGUIMIENTO [numeroseguimiento]", "DESCRIPCION DEL PAGO [descripcion]", "SUBGRUPO [subgrupo]", "C. INFO [cinfo]", "CUENTA INTERNA [cuentainterna]" }));
+        parametro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DOCUMENTO [documento]", "SOPORTE [soporte]", "CÉDULA DEL PROVEEDOR [fktercero]", "VALOR INGRESO [CAST(ingreso AS TEXT)]", "VALOR EGRESO [CAST(egreso AS TEXT)]", "CONTRATO [fkcontrato]", "NUMERO SEGUIMIENTO [numeroseguimiento]", "DESCRIPCION DEL PAGO [descripcion]", "EGRESOS [subgrupo]", "C. INFO [cinfo]", "CUENTA INTERNA [cuentainterna]" }));
         parametro.setSelectedItem("COORDINACIÓN DE ÁREA ADMINISTRATIVA");
         parametro.setPreferredSize(new java.awt.Dimension(445, 25));
         add(parametro);

@@ -87,7 +87,7 @@
             <StringItem index="5" value="CONTRATO [fkcontrato]"/>
             <StringItem index="6" value="NUMERO SEGUIMIENTO [numeroseguimiento]"/>
             <StringItem index="7" value="DESCRIPCION DEL PAGO [descripcion]"/>
-            <StringItem index="8" value="SUBGRUPO [subgrupo]"/>
+            <StringItem index="8" value="EGRESOS [subgrupo]"/>
             <StringItem index="9" value="C. INFO [cinfo]"/>
             <StringItem index="10" value="CUENTA INTERNA [cuentainterna]"/>
           </StringArray>

@@ -362,7 +362,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="13" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="CUENTA : "/>
+                <Property name="text" type="java.lang.String" value="FUENTE : "/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[75, 25]"/>
                 </Property>
@@ -418,7 +418,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel_80">
               <Properties>
-                <Property name="text" type="java.lang.String" value="SUBGRUPO : "/>
+                <Property name="text" type="java.lang.String" value="EGRESOS : "/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[85, 25]"/>
                 </Property>
@@ -805,7 +805,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="13" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="CUENTA : "/>
+                <Property name="text" type="java.lang.String" value="FUENTE : "/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[75, 25]"/>
                 </Property>
@@ -861,7 +861,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel_82">
               <Properties>
-                <Property name="text" type="java.lang.String" value="SUBGRUPO : "/>
+                <Property name="text" type="java.lang.String" value="EGRESOS : "/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[85, 25]"/>
                 </Property>
@@ -1192,7 +1192,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="13" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="CUENTA : "/>
+                <Property name="text" type="java.lang.String" value="FUENTE : "/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[75, 25]"/>
                 </Property>
@@ -1592,7 +1592,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel_84">
               <Properties>
-                <Property name="text" type="java.lang.String" value="SUBGRUPO : "/>
+                <Property name="text" type="java.lang.String" value="EGRESOS : "/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[85, 25]"/>
                 </Property>

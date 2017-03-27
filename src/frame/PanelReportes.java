@@ -444,7 +444,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jPanel1.add(jLabel_11);
 
         jLabel_12.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel_12.setText("CUENTA : ");
+        jLabel_12.setText("FUENTE : ");
         jLabel_12.setPreferredSize(new java.awt.Dimension(75, 25));
         jPanel1.add(jLabel_12);
 
@@ -473,7 +473,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jLabel_79.setPreferredSize(new java.awt.Dimension(50, 24));
         jPanel1.add(jLabel_79);
 
-        jLabel_80.setText("SUBGRUPO : ");
+        jLabel_80.setText("EGRESOS : ");
         jLabel_80.setPreferredSize(new java.awt.Dimension(85, 25));
         jPanel1.add(jLabel_80);
 
@@ -654,7 +654,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jPanel2.add(jTextField_10);
 
         jLabel_26.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel_26.setText("CUENTA : ");
+        jLabel_26.setText("FUENTE : ");
         jLabel_26.setPreferredSize(new java.awt.Dimension(75, 25));
         jPanel2.add(jLabel_26);
 
@@ -683,7 +683,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jLabel_81.setPreferredSize(new java.awt.Dimension(50, 24));
         jPanel2.add(jLabel_81);
 
-        jLabel_82.setText("SUBGRUPO : ");
+        jLabel_82.setText("EGRESOS : ");
         jLabel_82.setPreferredSize(new java.awt.Dimension(85, 25));
         jPanel2.add(jLabel_82);
 
@@ -840,7 +840,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jPanel3.add(jTextField_14);
 
         jLabel_39.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel_39.setText("CUENTA : ");
+        jLabel_39.setText("FUENTE : ");
         jLabel_39.setPreferredSize(new java.awt.Dimension(75, 25));
         jPanel3.add(jLabel_39);
 
@@ -1030,7 +1030,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jLabel_83.setPreferredSize(new java.awt.Dimension(50, 24));
         jPanel4.add(jLabel_83);
 
-        jLabel_84.setText("SUBGRUPO : ");
+        jLabel_84.setText("EGRESOS : ");
         jLabel_84.setPreferredSize(new java.awt.Dimension(85, 25));
         jPanel4.add(jLabel_84);
 

@@ -575,7 +575,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("CUENTA");
+        jLabel3.setText("FUENTE");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel3.setPreferredSize(new java.awt.Dimension(90, 25));
         jPanel2.add(jLabel3);
@@ -587,7 +587,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
         jPanel2.add(jLabel4);
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("SUBGRUPO");
+        jLabel9.setText("EGRESOS");
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel9.setPreferredSize(new java.awt.Dimension(90, 25));
         jPanel2.add(jLabel9);
@@ -781,7 +781,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "SOPORTE", "CUENTA", "ACTIVIDAD", "SUBGRUPO", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR", "..."
+                "SOPORTE", "FUENTE", "ACTIVIDAD", "EGRESOS", "C. COSTOS", "C. INFO", "CUENTA INTERNA", "VALOR", "..."
             }
         ) {
             Class[] types = new Class [] {
