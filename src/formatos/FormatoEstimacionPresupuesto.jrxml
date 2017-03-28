@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoFichaTecnica" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
 	<property name="ireport.zoom" value="1.1000000000000105"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="77"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -652,10 +652,10 @@ WHERE
 				<text><![CDATA[DESCRIPCION DEL PROCESO DE ESTIMACION]]></text>
 			</staticText>
 		</band>
-		<band height="16">
+		<band height="355">
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" style="table" stretchType="RelativeToTallestObject" x="20" y="0" width="532" height="16"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
+				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" style="table" stretchType="RelativeToBandHeight" x="20" y="0" width="532" height="355"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_ESTIMACION}.substring( 0, 1 ).toUpperCase()+$F{CONTRATOS_ESTIMACION}.substring( 1, $F{CONTRATOS_ESTIMACION}.length() ).toLowerCase()]]></textFieldExpression>

@@ -286,7 +286,7 @@ MOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)]]></text>
 				<textElement verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cuenta : ]]></text>
+				<text><![CDATA[Fuente : ]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd">
 				<reportElement uuid="11525b2a-691e-498b-bc76-402b4d41da8e" style="Detail" x="610" y="40" width="90" height="20"/>

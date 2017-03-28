@@ -84,7 +84,7 @@ public class PolizasJpaController {
         try {
             datos.update("DELETE FROM POLIZAS "
                     + "WHERE "
-                    + "FKCONTRATO = '" + id.getFkcontrato() + " AND "
+                    + "FKCONTRATO = '" + id.getFkcontrato() + "' AND "
                     + "NUMEROPOLIZA = '" + id.getNumeropoliza() + "'");
             if (!datos.isError) {
                 ClaseMensaje.informacionEliminarBD("Poliza");

@@ -7,8 +7,8 @@
 	<parameter name="ano" class="java.lang.Integer"/>
 	<queryString>
 		<![CDATA[SELECT DISTINCT(fkresolucion)
-FROM tercerosresolucion
-WHERE fkcomprobante = CAST($P{id} AS TEXT)
+FROM soportesresoluciones
+WHERE fksoportecomprobante = $P{id}
 AND ano = $P{ano}]]>
 	</queryString>
 	<field name="fkresolucion" class="java.lang.Integer"/>
@@ -16,7 +16,7 @@ AND ano = $P{ano}]]>
 		<band height="25" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement uuid="28b20130-ade7-4620-ba9b-66f93eb1be3f" x="0" y="0" width="50" height="25"/>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>

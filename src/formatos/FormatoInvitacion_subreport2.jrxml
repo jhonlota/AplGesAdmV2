@@ -105,26 +105,21 @@ AND CONTRATOS.CONTRATO = $P{CONTRATO}]]>
 				</textElement>
 				<text><![CDATA[Fax]]></text>
 			</staticText>
-			<textField isStretchWithOverflow="true">
+			<textField isStretchWithOverflow="true" pattern="yyyy/MM/dd">
 				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" stretchType="RelativeToTallestObject" x="159" y="16" width="373" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{fechaentrega}.getDate()+" / "+
-($F{fechaentrega}.getMonth() + 1)+" / "+
-($F{fechaentrega}.getYear() + 1900)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{fechaentrega}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
+			<textField isStretchWithOverflow="true" pattern="yyyy/MM/dd">
 				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" stretchType="RelativeToTallestObject" x="159" y="0" width="373" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{fechainvitacion}.getDate()+" / "+
-($F{fechainvitacion}.getMonth() + 1)+" / "+
-($F{fechainvitacion}.getYear() + 1900)
-]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{fechainvitacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="cd3e855d-80d1-4caf-963c-b7bd9094edbb" stretchType="RelativeToTallestObject" x="255" y="32" width="277" height="16"/>

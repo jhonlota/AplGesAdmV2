@@ -1006,7 +1006,7 @@ public class PanelTercerosresoluciones extends javax.swing.JPanel {
 //        ClaseGeneral.soportesresoluciones.setFksoportecomprobante(fksoportecomprobante);
 //        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteid(fksoportecomprobanteid);
 //        ClaseGeneral.soportesresoluciones.setFksoportecomprobanteano(fksoportecomprobanteano);
-////        ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
+//        ClaseGeneral.soportesresoluciones.setFktercerosresolucion(ClaseGeneral.idTercerosresolucion);
 //        ClaseGeneral.soportesresoluciones.setCuenta(cuenta.getText());
 //        ClaseGeneral.soportesresoluciones.setActividad(actividad.getText());
 //        ClaseGeneral.soportesresoluciones.setSubgrupo("" + subgrupo.getSelectedItem());

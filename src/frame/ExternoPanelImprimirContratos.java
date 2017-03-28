@@ -26,6 +26,7 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
     private Thread hiloEstudiosPrevios = new ThreadCargaEstudiosPrevios();
     private Thread hiloFichaTecnica= new ThreadCargaFichaTecnica();
     private Thread hiloEstimacionPresupuesto = new ThreadCargaEstimacionPresupuesto();
+    private Thread hiloInvitacionMinimaCuantia = new ThreadCargaInvitacionMinimaCuantia();
     private Thread hiloContratos = new ThreadCargaContratos();
     private Thread hiloAnexoContrato = new ThreadCargaAnexoContrato();
     private PanelContratos panelContratos = new PanelContratos();
@@ -61,12 +62,12 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         botonActaLiquidacion = new javax.swing.JButton();
         botonActaDesignacionSupervisor = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(260, 400));
+        setPreferredSize(new java.awt.Dimension(410, 400));
 
         jLabel1.setBackground(ClaseGeneral.titulo);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Impresion de Formatos");
+        jLabel1.setText("Impresion de Contratos");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
@@ -106,7 +107,6 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         add(botonEstimacionPresupuesto);
 
         botonInvitacionMinimaCuantia.setText("Invitación Minima Cuantía");
-        botonInvitacionMinimaCuantia.setEnabled(false);
         botonInvitacionMinimaCuantia.setPreferredSize(new java.awt.Dimension(250, 25));
         botonInvitacionMinimaCuantia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +227,16 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
     }//GEN-LAST:event_botonEstimacionPresupuestoActionPerformed
 
     private void botonInvitacionMinimaCuantiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInvitacionMinimaCuantiaActionPerformed
-        // TODO add your handling code here:
+        try {
+            frameCarga.setVisible(true);
+            frameCarga.pack();
+            frameCarga.setSize(280, 100);
+            frameCarga.setLocationRelativeTo(null);
+            frameCarga.setResizable(false);
+            hiloInvitacionMinimaCuantia = new ThreadCargaInvitacionMinimaCuantia();
+            hiloInvitacionMinimaCuantia.start();
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_botonInvitacionMinimaCuantiaActionPerformed
 
     private void botonInformeEvaluacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInformeEvaluacionActionPerformed
@@ -376,6 +385,34 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
 
                 ClaseInformes informes = new ClaseInformes();
                 informes.formatoEstimacionPresupuesto(parametros);
+            } catch (Exception e) {
+                ClaseMensaje.error("Error al mostrar el archivo.\n" + e);
+            }
+            /**
+             *
+             */
+            frameCarga.jProgressBar.setIndeterminate(false);
+            frameCarga.dispose();
+            hiloEstimacionPresupuesto = null;
+        }
+    }
+    
+    class ThreadCargaInvitacionMinimaCuantia extends Thread {
+
+        @Override
+        public void run() {
+            frameCarga.jProgressBar.setIndeterminate(true);
+            frameCarga.jProgressBar.setMinimum(1);
+            frameCarga.jProgressBar.setMaximum(100);
+            /**
+             *
+             */
+            try {
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("CONTRATO", ClaseGeneral.contratos.getContrato());
+
+                ClaseInformes informes = new ClaseInformes();
+                informes.formatoInvitacionMinimaCuantia(parametros);
             } catch (Exception e) {
                 ClaseMensaje.error("Error al mostrar el archivo.\n" + e);
             }

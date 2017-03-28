@@ -126,7 +126,7 @@ public class PanelAnexoscontratos extends javax.swing.JPanel {
         add(jLabel2);
 
         documento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        documento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Ficha Técnica", "Solicitud de Oferta", "Invitación a Proveedores", "Cotización", "Informe de Recomendación", "Orden Contractual", "Acta de Inicio", "Acta de Seguimiento", "Acta de Finalización", "Acta de Liquidación", "__________________________", "Observación", "__________________________", "Documento Adicional" }));
+        documento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "__________________________", "Estudio Previos y del Sector Prestación de Servicios", "Estudio del Sector", "Estudios Previos", "Estimación del Presupuesto\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t", "Invitación Mínima Cuantía\t\t\t\t\t\t\t\t\t\t\t\t\t", "Informe de Evaluación", "Orden Contractual Prestación de Servicios", "Orden Contractual Compras, Obras y Mantenimiento", "Acta de Aprobación de Pólizas", "Acta de Designación de Supervisor\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t", "Informe de Supervisión", "Convocatoria a Veedurías", "__________________________", "Ficha Técnica", "Solicitud de Oferta", "Invitación a Proveedores", "Cotización", "Informe de Recomendación", "Orden Contractual", "Acta de Inicio", "Acta de Seguimiento", "Acta de Suspensión", "Acta de Finalización", "Acta de Liquidación", "__________________________", "Observación", "__________________________", "Documento Adicional", " " }));
         documento.setPreferredSize(new java.awt.Dimension(410, 25));
         add(documento);
 

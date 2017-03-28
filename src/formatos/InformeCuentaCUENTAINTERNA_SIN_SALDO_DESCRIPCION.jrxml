@@ -321,7 +321,7 @@ MOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)]]></text>
 				<textElement verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cuenta : ]]></text>
+				<text><![CDATA[Fuente : ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="33da5dc8-6c85-4438-9a3d-d7a649d3dc0d" x="540" y="0" width="252" height="20"/>

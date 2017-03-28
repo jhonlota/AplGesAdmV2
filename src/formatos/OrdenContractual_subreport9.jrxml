@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport5" language="groovy" pageWidth="255" pageHeight="50" columnWidth="255" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="524f57ec-e3c3-43d4-9d3c-e18767b00a5e">
+	<property name="ireport.zoom" value="1.4641000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKCONTRATO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TIPOPOLIZA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     *
+FROM
+     POLIZAS
+WHERE
+     FKCONTRATO = $P{FKCONTRATO}
+     AND tipopoliza = $P{TIPOPOLIZA}]]>
+	</queryString>
+	<field name="fkcontrato" class="java.lang.String"/>
+	<field name="numeropoliza" class="java.lang.String"/>
+	<field name="aseguradora" class="java.lang.String"/>
+	<field name="fechaaprobacionpoliza" class="java.sql.Date"/>
+	<field name="fechaexpedicionpoliza" class="java.sql.Date"/>
+	<field name="fechafinalamparo" class="java.sql.Date"/>
+	<field name="fechainicialamparo" class="java.sql.Date"/>
+	<field name="resolucionpoliza" class="java.lang.String"/>
+	<field name="tipopoliza" class="java.lang.String"/>
+	<field name="valorasegurado" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<printWhenExpression><![CDATA[( $V{COLUMN_COUNT} <= 1 ? true : false )]]></printWhenExpression>
+			<textField pattern="yyyy/MM/dd" isBlankWhenNull="true">
+				<reportElement uuid="69c2fa1b-de13-4f59-bda5-01c2606c5951" x="55" y="35" width="100" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechainicialamparo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd" isBlankWhenNull="true">
+				<reportElement uuid="69c2fa1b-de13-4f59-bda5-01c2606c5951" x="155" y="35" width="100" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechafinalamparo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0" isBlankWhenNull="true">
+				<reportElement uuid="69c2fa1b-de13-4f59-bda5-01c2606c5951" x="55" y="20" width="200" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorasegurado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d62d5761-2d9d-4f22-9794-4397b23796ba" x="0" y="0" width="20" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1fda0cc5-98eb-4dbd-863a-85dd9b90f451" x="115" y="35" width="30" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HASTA]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -353,7 +353,28 @@ public class ClaseInformes {
     }
     
     public void formatoInvitacionMinimaCuantia(Map parametros) {
-        
+        try {
+            URL url = clase.getClass().getResource("FormatoInvitacion.jasper");
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            long aleatorio = ClaseInformacion.LongAletario();
+            JasperExportManager.exportReportToPdfFile(imprimir, "invitacion_" + aleatorio + ".pdf");
+
+            File file = new File("invitacion_" + aleatorio + ".pdf");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
+        } catch (JRException ex) {
+            //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+            ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
+        }
     }
     
     public void formatoInformeEvaluacion(Map parametros) {

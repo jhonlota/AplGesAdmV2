@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1132" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1dff2f7-1a7b-4e7a-8338-fb7503d22907">
-	<property name="ireport.zoom" value="1.1000000000000045"/>
+	<property name="ireport.zoom" value="1.210000000000005"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="192"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -290,7 +290,7 @@ WHERE
 			</subreport>
 			<subreport>
 				<reportElement uuid="5e8208ac-6190-45a9-94bc-738089799dbc" x="0" y="338" width="750" height="55">
-					<printWhenExpression><![CDATA[( $F{CONTRATOS_NOMBREPROYECTO}.equals( null ) ? false : true )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[( $F{CONTRATOS_NOMBREPROYECTO}.equals( "" ) ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<subreportParameter name="ID">
 					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROINTERSUPER}.substring( 0, $F{CONTRATOS_FKTERCEROINTERSUPER}.indexOf( " - " ) )]]></subreportParameterExpression>
@@ -321,22 +321,22 @@ WHERE
 				<textFieldExpression><![CDATA[$F{CONTRATOS_VALORLETRAS}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="a8619b9e-dfc2-4e72-9323-da2b4d92346a" x="0" y="748" width="285" height="28"/>
+				<reportElement uuid="a8619b9e-dfc2-4e72-9323-da2b4d92346a" x="0" y="748" width="285" height="43"/>
 				<textElement>
 					<paragraph leftIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_PLAZO} + " - " +$F{CONTRATOS_UNIDADDURACION}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="d966bb82-0063-4715-98ad-80908a452824" x="290" y="733" width="453" height="14"/>
-				<textElement verticalAlignment="Bottom">
+				<reportElement uuid="d966bb82-0063-4715-98ad-80908a452824" x="290" y="735" width="453" height="26"/>
+				<textElement verticalAlignment="Top">
 					<font size="8"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_FORMAPAGO} + $F{FORMADEPAGOCONTRATOS}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="c3e62428-65b7-49a3-a48f-32dc0f8e74a9" x="290" y="762" width="453" height="14"/>
+				<reportElement uuid="c3e62428-65b7-49a3-a48f-32dc0f8e74a9" x="290" y="777" width="453" height="14"/>
 				<textElement verticalAlignment="Bottom">
 					<font size="8"/>
 					<paragraph leftIndent="5"/>
@@ -391,6 +391,94 @@ WHERE
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_NOMBREPROYECTO}]]></textFieldExpression>
 			</textField>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="0" y="820" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Buen manejo del anticipo"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="255" y="820" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Cumplimiento"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="502" y="820" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Calidad del servicio"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="0" y="888" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Estabilidad de la obra"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="255" y="888" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Calidad y correcto funcionamiento de los equipos suministrados"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="502" y="888" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Salarios, prestaciones sociales e indemnizaciones"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="0" y="953" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Provisión de repuestos y accesorios"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="255" y="953" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Responsabilidad civil extracontractual"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport9.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
 	<columnFooter>

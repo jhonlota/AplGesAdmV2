@@ -159,7 +159,8 @@ public class TercerosresolucionesJpaController {
             datos.query("SELECT * FROM TERCEROSRESOLUCION "
                     + "WHERE "
                     + "fkresolucion = " + fkresolucion + " "
-                    + "AND ano = " + ano + "");//ORDER BY
+                    + "AND ano = " + ano + " "
+                    + "ORDER BY id");//ORDER BY
             while (ClaseBaseDatos.resultado.next()) {
                 tercerosresoluciones = new Tercerosresoluciones();
                 tercerosresoluciones.setId(ClaseBaseDatos.resultado.getInt("ID"));

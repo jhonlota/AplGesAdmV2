@@ -1367,8 +1367,8 @@ public class PanelContratos extends javax.swing.JPanel {
         jTextField55.setPreferredSize(new java.awt.Dimension(470, 25));
         panelContractual.add(jTextField55);
 
-        jLabel103.setText("FECHA INVITACION A PROPONENTES : ");
-        jLabel103.setPreferredSize(new java.awt.Dimension(220, 25));
+        jLabel103.setText("FECHA INVITACION A PROPONENTES (PLAZO MAXIMO DOCUMENTACION)  : ");
+        jLabel103.setPreferredSize(new java.awt.Dimension(400, 25));
         panelContractual.add(jLabel103);
 
         jPanel19.setBackground(ClaseGeneral.campo);
@@ -1410,7 +1410,7 @@ public class PanelContratos extends javax.swing.JPanel {
         jTextField56.setFocusable(false);
         jTextField56.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField56.setOpaque(false);
-        jTextField56.setPreferredSize(new java.awt.Dimension(400, 25));
+        jTextField56.setPreferredSize(new java.awt.Dimension(220, 25));
         panelContractual.add(jTextField56);
 
         jLabel13.setText("FECHA DE SUSCRIPCION (ELABORACION) DEL CONTRATO : ");

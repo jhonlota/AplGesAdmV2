@@ -413,7 +413,7 @@ SALDOS DE CAJA (CUENTAS)]]></text>
 				<textElement verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cuenta : ]]></text>
+				<text><![CDATA[Fuente : ]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd">
 				<reportElement uuid="4db7d262-59f8-4710-a92a-04f59ec9984b" style="Detail" x="610" y="40" width="90" height="20"/>

@@ -340,14 +340,14 @@ SALDOS DE CAJA (CUENTAS)]]></text>
 				<textElement verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Cuenta : ]]></text>
+				<text><![CDATA[Fuente : ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="96df1cdd-c97d-42c4-a795-69f71603c095" x="540" y="0" width="90" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Subgrupo : ]]></text>
+				<text><![CDATA[Egresos : ]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd">
 				<reportElement uuid="4db7d262-59f8-4710-a92a-04f59ec9984b" style="Detail" x="630" y="40" width="80" height="20"/>

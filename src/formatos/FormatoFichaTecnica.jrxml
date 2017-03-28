@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoFichaTecnica" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
-	<property name="ireport.zoom" value="1.210000000000021"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="427"/>
+	<property name="ireport.y" value="1231"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -946,7 +946,7 @@ WHERE
 				<text><![CDATA[ANÁLISIS DE LA ESTIMACIÓN DEL PRESUPUESTO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="20" y="16" width="193" height="16"/>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="20" y="16" width="195" height="16"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -954,7 +954,7 @@ WHERE
 				<text><![CDATA[Cotizaciones (según cuantía)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="20" y="32" width="193" height="16"/>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="20" y="32" width="195" height="16"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -962,15 +962,15 @@ WHERE
 				<text><![CDATA[Información de otros contratos (misma vigencia)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="226" y="16" width="48" height="16"/>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="230" y="16" width="220" height="16"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<text><![CDATA[Otros]]></text>
+				<text><![CDATA[Otros (Consulta en bolsas, periódicos, internet, etc.)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="226" y="32" width="48" height="16"/>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="230" y="32" width="50" height="16"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isUnderline="false"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -978,7 +978,7 @@ WHERE
 				<text><![CDATA[¿Cuáles?]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="213" y="32" width="13" height="16"/>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="215" y="32" width="15" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -986,7 +986,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="274" y="32" width="278" height="16"/>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="280" y="32" width="272" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8" isBold="true" isUnderline="false" isStrikeThrough="false"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -994,7 +994,7 @@ WHERE
 				<text><![CDATA[VER ANEXO "ESTIMACIÓN DEL PRESUPESTO DEL PROCESO"]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="213" y="16" width="13" height="16"/>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="215" y="16" width="15" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1002,7 +1002,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="274" y="16" width="17" height="16"/>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="450" y="16" width="15" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1010,7 +1010,7 @@ WHERE
 				<text><![CDATA[X]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="aa5ff615-76f1-4e2a-b0d2-155a4738176a" style="table" x="291" y="16" width="261" height="16"/>
+				<reportElement uuid="aa5ff615-76f1-4e2a-b0d2-155a4738176a" style="table" x="465" y="16" width="87" height="16"/>
 				<textElement>
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
@@ -1032,12 +1032,12 @@ WHERE
 					<font size="8"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{CONTRATOS_TIPOFINANCIACION} == "Fondo Especial" ? "Fondo Especial X   Fondo Común   Estampilla ProUNIVALLE   CREE   Regalías   Estampilla ProUNAL" :
-    ($F{CONTRATOS_TIPOFINANCIACION} == "Fondo Común" ? "Fondo Especial   Fondo Común X   Estampilla ProUNIVALLE   CREE   Regalías   Estampilla ProUNAL" :
-        ($F{CONTRATOS_TIPOFINANCIACION} == "Estampilla ProUNIVALLE" ? "Fondo Especial   Fondo Común   Estampilla ProUNIVALLE X   CREE   Regalías   Estampilla ProUNAL":
-            ($F{CONTRATOS_TIPOFINANCIACION} == "CREE" ? "Fondo Especial   Fondo Común   Estampilla ProUNIVALLE   CREE X   Regalías   Estampilla ProUNAL" :
-                ($F{CONTRATOS_TIPOFINANCIACION} == "Regalías" ? "Fondo Especial   Fondo Común   Estampilla ProUNIVALLE   CREE   Regalías X   Estampilla ProUNAL":
-                    ($F{CONTRATOS_TIPOFINANCIACION} == "Estampilla ProUNAL" ? "Fondo Especial   Fondo Común   Estampilla ProUNIVALLE   CREE   Regalías   Estampilla ProUNAL X   " : ""))))))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{CONTRATOS_TIPOFINANCIACION} == "Fondo Especial" ? "Fondo Especial [X] Fondo Común [ ] Estampilla ProUNIVALLE [ ] CREE [ ] Regalías [ ] Estampilla ProUNAL [ ] " :
+    ($F{CONTRATOS_TIPOFINANCIACION} == "Fondo Común" ? "Fondo Especial [ ] Fondo Común [X] Estampilla ProUNIVALLE [ ] CREE [ ] Regalías [ ] Estampilla ProUNAL [ ] " :
+        ($F{CONTRATOS_TIPOFINANCIACION} == "Estampilla ProUNIVALLE" ? "Fondo Especial [ ] Fondo Común [ ] Estampilla ProUNIVALLE [X] CREE [ ] Regalías [ ] Estampilla ProUNAL [ ] ":
+            ($F{CONTRATOS_TIPOFINANCIACION} == "CREE" ? "Fondo Especial [ ] Fondo Común [ ] Estampilla ProUNIVALLE [ ] CREE [X] Regalías [ ] Estampilla ProUNAL [ ] " :
+                ($F{CONTRATOS_TIPOFINANCIACION} == "Regalías" ? "Fondo Especial [ ] Fondo Común [ ] Estampilla ProUNIVALLE [ ] CREE [ ] Regalías [X] Estampilla ProUNAL [ ] ":
+                    ($F{CONTRATOS_TIPOFINANCIACION} == "Estampilla ProUNAL" ? "Fondo Especial [ ] Fondo Común [ ] Estampilla ProUNIVALLE [ ] CREE [ ] Regalías [ ] Estampilla ProUNAL [X] " : ""))))))]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="48">
@@ -1086,7 +1086,7 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_UNIDADDURACION}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["[X] " + $F{CONTRATOS_UNIDADDURACION}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="399" y="0" width="153" height="16"/>
@@ -1101,8 +1101,8 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{CONTRATOS_ANTICIPIO} == "NO" ? "NO X   SI   |___| %" :
-    ($F{CONTRATOS_ANTICIPIO} == "SI" ? "NO   SI X  |___| %" : ""))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{CONTRATOS_ANTICIPIO} == "NO" ? "NO [X]  SI [ ] |___| %" :
+    ($F{CONTRATOS_ANTICIPIO} == "SI" ? "NO [ ]  SI [X] |___| %" : ""))]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="32">
@@ -1128,7 +1128,7 @@ WHERE
 					<font size="8"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_TIPOTIEMPOPAGO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["[X] " + $F{CONTRATOS_TIPOTIEMPOPAGO}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="1b08076b-86b6-4cac-b747-923880b19d3f" style="table" stretchType="RelativeToTallestObject" x="203" y="0" width="349" height="32"/>

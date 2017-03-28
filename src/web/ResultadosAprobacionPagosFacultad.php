@@ -75,9 +75,11 @@ try {
                             event.preventDefault();
                                 
                             if($('#comentario$i').val() == '') {
-                                var comentario = $('#observacion$i').html();
+                                var comentario = '';
+                                var observacion = $('#observacion$i').html();
                             } else {
-                                var comentario = $('#observacion$i').html() + ' ['+  $('#comentario$i').val().toUpperCase() + ']';
+                                var comentario = ' [' + $('#comentario$i').val().toUpperCase() + ']';
+                                var observacion = $('#observacion$i').html();
                             }
                             
                             var id = '" . $row["id"] . "';
@@ -85,6 +87,7 @@ try {
                             var parametros = {
                                 'id': id,
                                 'comentario': comentario,
+                                'observacion': observacion,
                                 'formadepago': formadepago
                             };
                             jQuery.ajax({

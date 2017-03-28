@@ -5,17 +5,18 @@ include("./ConexionConsulta.php");
 
 $id = $_POST['id'];
 $comentario = $_POST['comentario'];
+$observacion = $_POST['observacion'];
 $formadepago = $_POST['formadepago'];
 unset($htmlError);
 unset($htmlOk);
 
 if ($formadepago == "Seleccione" || $formadepago == "Aprobacion") {
     $htmlError .= "<script type=\"text/javascript\">
-                        funMensaje(\"Debe Seleccionar una Forma de Pago V&aacute;lida (Fondo Renovable, Caja Menor, Anulado)\");
+                        funMensaje(\"Debe Seleccionar una Forma de Pago Válida (Fondo Renovable, Caja Menor, Anulado)\");
                    </script>";
 } else {
     try {
-        pg_query($gbd, "UPDATE comprobantes SET tipopago = '$formadepago', observacion = '$comentario' WHERE id = $id");
+        pg_query($gbd, "UPDATE comprobantes SET tipopago = '$formadepago', observacion = observacion || '$comentario' WHERE id = $id");
         $htmlOk = "<p>Registro Actualizado <strong>Exitosamente</strong></p>";
     } catch (Exception $ex) {
         pg_query("ROLLBACK");
