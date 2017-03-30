@@ -209,6 +209,9 @@ public class PanelContratos extends javax.swing.JPanel {
         jPanel24 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         estimacion = new javax.swing.JTextArea();
+        jPanel27 = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        planadquisicion = new javax.swing.JTextArea();
         jLabel114 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         tipotiempopago = new javax.swing.JComboBox();
@@ -1061,7 +1064,7 @@ public class PanelContratos extends javax.swing.JPanel {
         panelPrecontractual2.add(jLabel116);
 
         jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCRIPCION PROCESO DE ESTIMACIÓN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel24.setPreferredSize(new java.awt.Dimension(800, 100));
+        jPanel24.setPreferredSize(new java.awt.Dimension(400, 100));
         jPanel24.setLayout(new java.awt.BorderLayout());
 
         jScrollPane11.setPreferredSize(new java.awt.Dimension(430, 70));
@@ -1078,6 +1081,25 @@ public class PanelContratos extends javax.swing.JPanel {
         jPanel24.add(jScrollPane11, java.awt.BorderLayout.CENTER);
 
         panelPrecontractual2.add(jPanel24);
+
+        jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PLAN ADQUISICION (ADICIONAR)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel27.setPreferredSize(new java.awt.Dimension(395, 100));
+        jPanel27.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane13.setPreferredSize(new java.awt.Dimension(430, 70));
+
+        planadquisicion.setColumns(20);
+        planadquisicion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        planadquisicion.setLineWrap(true);
+        planadquisicion.setRows(5);
+        planadquisicion.setWrapStyleWord(true);
+        planadquisicion.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        planadquisicion.setPreferredSize(new java.awt.Dimension(430, 70));
+        jScrollPane13.setViewportView(planadquisicion);
+
+        jPanel27.add(jScrollPane13, java.awt.BorderLayout.CENTER);
+
+        panelPrecontractual2.add(jPanel27);
 
         jLabel114.setPreferredSize(new java.awt.Dimension(800, 20));
         panelPrecontractual2.add(jLabel114);
@@ -1368,7 +1390,7 @@ public class PanelContratos extends javax.swing.JPanel {
         panelContractual.add(jTextField55);
 
         jLabel103.setText("FECHA INVITACION A PROPONENTES (PLAZO MAXIMO DOCUMENTACION)  : ");
-        jLabel103.setPreferredSize(new java.awt.Dimension(400, 25));
+        jLabel103.setPreferredSize(new java.awt.Dimension(430, 25));
         panelContractual.add(jLabel103);
 
         jPanel19.setBackground(ClaseGeneral.campo);
@@ -1410,7 +1432,7 @@ public class PanelContratos extends javax.swing.JPanel {
         jTextField56.setFocusable(false);
         jTextField56.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField56.setOpaque(false);
-        jTextField56.setPreferredSize(new java.awt.Dimension(220, 25));
+        jTextField56.setPreferredSize(new java.awt.Dimension(190, 25));
         panelContractual.add(jTextField56);
 
         jLabel13.setText("FECHA DE SUSCRIPCION (ELABORACION) DEL CONTRATO : ");
@@ -2386,7 +2408,7 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setObligacionesuniversidad(obligacionesuniversidad.getText());
         ClaseGeneral.contratos.setObservacionesactainicio("-");//SE INGRESA POSTERIORMENTE
         ClaseGeneral.contratos.setPerfilrequerido(perfilrequerido.getText());
-        ClaseGeneral.contratos.setPlanadquisicion("-");//SE INGRESA POSTERIORMENTE
+        ClaseGeneral.contratos.setPlanadquisicion(planadquisicion.getText());
         ClaseGeneral.contratos.setRequerimientostecnicos(requerimientostecnicos.getText());
         ClaseGeneral.contratos.setTipotiempopago("" + tipotiempopago.getSelectedItem());
         ClaseGeneral.contratos.setTipoestimacion("" + tipoestimacion.getSelectedItem());
@@ -2483,7 +2505,7 @@ public class PanelContratos extends javax.swing.JPanel {
         obligacionesuniversidad.setText(ClaseGeneral.contratos.getObligacionesuniversidad());
 //        observacionesactainicio.setText(ClaseGeneral.contratos.getObservacionesactainicio()); // BORRAR
         perfilrequerido.setText(ClaseGeneral.contratos.getPerfilrequerido());
-//        planadquisicion.setText(ClaseGeneral.contratos.getPlanadquisicion()); // BORRAR
+        planadquisicion.setText(ClaseGeneral.contratos.getPlanadquisicion()); // BORRAR
         requerimientostecnicos.setText(ClaseGeneral.contratos.getRequerimientostecnicos());
         tipotiempopago.setSelectedItem(ClaseGeneral.contratos.getTipotiempopago());
         tipoestimacion.setSelectedItem(ClaseGeneral.contratos.getTipoestimacion());
@@ -2590,7 +2612,7 @@ public class PanelContratos extends javax.swing.JPanel {
         ClaseGeneral.contratos.setObligacionesuniversidad(obligacionesuniversidad.getText());
 //        ClaseGeneral.contratos.setObservacionesactainicio("-"); // BORRAR
         ClaseGeneral.contratos.setPerfilrequerido(perfilrequerido.getText());
-//        ClaseGeneral.contratos.setPlanadquisicion("-"); // BORRAR
+        ClaseGeneral.contratos.setPlanadquisicion(planadquisicion.getText());
         ClaseGeneral.contratos.setRequerimientostecnicos(requerimientostecnicos.getText());
         ClaseGeneral.contratos.setTipotiempopago("" + tipotiempopago.getSelectedItem());
         ClaseGeneral.contratos.setTipoestimacion("" + tipoestimacion.getSelectedItem());
@@ -2850,6 +2872,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2859,6 +2882,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2944,6 +2968,7 @@ public class PanelContratos extends javax.swing.JPanel {
     private javax.swing.JPanel panelProyectos;
     private javax.swing.JPanel panelSECOP;
     private javax.swing.JTextArea perfilrequerido;
+    private javax.swing.JTextArea planadquisicion;
     private javax.swing.JTextField porcentajeactividad;
     private javax.swing.JTextField porcentajeavance;
     private javax.swing.JTextArea requerimientostecnicos;

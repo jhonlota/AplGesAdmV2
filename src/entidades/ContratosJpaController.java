@@ -201,7 +201,7 @@ public class ContratosJpaController {
                     + "OBLIGACIONESUNIVERSIDAD = '" + contratos.getObligacionesuniversidad() + "', "
 //                    + "OBSERVACIONESACTAINICIO = '" + contratos.getObservacionesactainicio() + "', "
                     + "PERFILREQUERIDO = '" + contratos.getPerfilrequerido() + "', "
-//                    + "PLANADQUISICION = '" + contratos.getPlanadquisicion() + "', "
+                    + "PLANADQUISICION = '" + contratos.getPlanadquisicion() + "', "
                     + "REQUERIMIENTOSTECNICOS = '" + contratos.getRequerimientostecnicos() + "', "
                     + "TIPOTIEMPOPAGO = '" + contratos.getTipotiempopago() + "', "
                     + "TIPOESTIMACION = '" + contratos.getTipoestimacion() + "', "
@@ -231,21 +231,6 @@ public class ContratosJpaController {
                     + "CONTRATO = '" + id.getContrato() + "'");
             if (!datos.isError) {
                 ClaseMensaje.informacionActualizarBD("El Contrato " + id.getContrato());
-            }
-        } catch (Exception ex) {
-            ClaseMensaje.errorActualizarBD();
-        } finally {
-        }
-    }
-    
-     public void editPlanadquicision(Contratos contratos, Contratos id) {
-        try {
-            datos.update("UPDATE CONTRATOS SET "
-                    + "PLANADQUISICION = '" + contratos.getPlanadquisicion() + "', "
-                    + "WHERE "
-                    + "CONTRATO = '" + id.getContrato() + "'");
-            if (!datos.isError) {
-                ClaseMensaje.informacionActualizarBD("El Contrato " + contratos.getContrato());
             }
         } catch (Exception ex) {
             ClaseMensaje.errorActualizarBD();

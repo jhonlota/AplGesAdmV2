@@ -27,6 +27,7 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
     private Thread hiloFichaTecnica= new ThreadCargaFichaTecnica();
     private Thread hiloEstimacionPresupuesto = new ThreadCargaEstimacionPresupuesto();
     private Thread hiloInvitacionMinimaCuantia = new ThreadCargaInvitacionMinimaCuantia();
+    private Thread hiloAnexoInvitacionMinimaCuantia = new ThreadCargaAnexoInvitacionMinimaCuantia();
     private Thread hiloContratos = new ThreadCargaContratos();
     private Thread hiloAnexoContrato = new ThreadCargaAnexoContrato();
     private PanelContratos panelContratos = new PanelContratos();
@@ -54,6 +55,7 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         botonFichaTecnica = new javax.swing.JButton();
         botonEstimacionPresupuesto = new javax.swing.JButton();
         botonInvitacionMinimaCuantia = new javax.swing.JButton();
+        botonAnexoInvitacionMinimaCuantia = new javax.swing.JButton();
         botonInformeEvaluacion = new javax.swing.JButton();
         botonContrato = new javax.swing.JButton();
         botonAnexoContrato = new javax.swing.JButton();
@@ -62,7 +64,7 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         botonActaLiquidacion = new javax.swing.JButton();
         botonActaDesignacionSupervisor = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(410, 400));
+        setPreferredSize(new java.awt.Dimension(290, 420));
 
         jLabel1.setBackground(ClaseGeneral.titulo);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -114,6 +116,15 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
             }
         });
         add(botonInvitacionMinimaCuantia);
+
+        botonAnexoInvitacionMinimaCuantia.setText("Anexos - Invitación Minima Cuantía");
+        botonAnexoInvitacionMinimaCuantia.setPreferredSize(new java.awt.Dimension(250, 25));
+        botonAnexoInvitacionMinimaCuantia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAnexoInvitacionMinimaCuantiaActionPerformed(evt);
+            }
+        });
+        add(botonAnexoInvitacionMinimaCuantia);
 
         botonInformeEvaluacion.setText("Informe de Evaluación");
         botonInformeEvaluacion.setEnabled(false);
@@ -313,6 +324,19 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonActaDesignacionSupervisorActionPerformed
 
+    private void botonAnexoInvitacionMinimaCuantiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnexoInvitacionMinimaCuantiaActionPerformed
+        try {
+            frameCarga.setVisible(true);
+            frameCarga.pack();
+            frameCarga.setSize(280, 100);
+            frameCarga.setLocationRelativeTo(null);
+            frameCarga.setResizable(false);
+            hiloAnexoInvitacionMinimaCuantia = new ThreadCargaAnexoInvitacionMinimaCuantia();
+            hiloAnexoInvitacionMinimaCuantia.start();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_botonAnexoInvitacionMinimaCuantiaActionPerformed
+
     class ThreadCargaEstudiosPrevios extends Thread {
 
         @Override
@@ -425,6 +449,34 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
         }
     }
     
+    class ThreadCargaAnexoInvitacionMinimaCuantia extends Thread {
+
+        @Override
+        public void run() {
+            frameCarga.jProgressBar.setIndeterminate(true);
+            frameCarga.jProgressBar.setMinimum(1);
+            frameCarga.jProgressBar.setMaximum(100);
+            /**
+             *
+             */
+            try {
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("CONTRATO", ClaseGeneral.contratos.getContrato());
+
+                ClaseInformes informes = new ClaseInformes();
+                informes.formatoAnexoInvitacionMinimaCuantia(parametros);
+            } catch (Exception e) {
+                ClaseMensaje.error("Error al mostrar el archivo.\n" + e);
+            }
+            /**
+             *
+             */
+            frameCarga.jProgressBar.setIndeterminate(false);
+            frameCarga.dispose();
+            hiloEstimacionPresupuesto = null;
+        }
+    }
+    
     class ThreadCargaContratos extends Thread {
 
         @Override
@@ -493,6 +545,7 @@ public class ExternoPanelImprimirContratos extends javax.swing.JPanel {
     private javax.swing.JButton botonActaInicio;
     private javax.swing.JButton botonActaLiquidacion;
     private javax.swing.JButton botonAnexoContrato;
+    private javax.swing.JButton botonAnexoInvitacionMinimaCuantia;
     private javax.swing.JButton botonContrato;
     private javax.swing.JButton botonEstimacionPresupuesto;
     private javax.swing.JButton botonEstudiosPrevios;

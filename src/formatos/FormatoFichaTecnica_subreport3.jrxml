@@ -44,14 +44,12 @@ WHERE ID = $P{FKTERCERO}]]>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" stretchType="RelativeToTallestObject" x="0" y="0" width="266" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[($F{regimen} == "Seleccione" ? "" :
-    ($F{regimen} == "Régimen Simplificado" ? $F{nombre} :
-        ($F{regimen} == "Régimen Común" && $F{nombrerepresentante} == null  ? "" : "")))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{nombrerepresentante} == "" ? $F{nombre} : $F{nombrerepresentante})]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" stretchType="RelativeToTallestObject" x="266" y="0" width="266" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[($F{regimen} == "Régimen Común" ? $F{nombre} : "")]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -34,13 +34,13 @@ public class FormapagopacJpaController {
 
     public void edit(Formapagopac formapagopac, Formapagopac id) {
         try {
-            datos.update("UPDATE FORMADEPAGOCONTRATOS SET "
+            datos.update("UPDATE FORMAPAGOPAC SET "
                     //+ "FKCONTRATO = '" + formapagopac.getFormapagopacPK().getFkcontrato() + "', "
-                    + "FECHA = '" + formapagopac.getFormapagopacPK().getMes() + "', "
+                    + "MES = '" + formapagopac.getFormapagopacPK().getMes() + "', "
                     + "VALOR = " + formapagopac.getValor() + " "
                     + "WHERE "
                     + "FKCONTRATO = '" + id.getFormapagopacPK().getFkcontrato() + "' AND "
-                    + "FECHA = '" + id.getFormapagopacPK().getMes() + "'");
+                    + "MES = '" + id.getFormapagopacPK().getMes() + "'");
             if (!datos.isError) {
                 ClaseMensaje.informacionActualizarBD("Forma de Pago");
             }
@@ -52,7 +52,7 @@ public class FormapagopacJpaController {
     
     public void editFkcontrato(String fkcontrato, String id) {
         try {
-            datos.update("UPDATE FORMADEPAGOCONTRATOS SET "
+            datos.update("UPDATE FORMAPAGOPAC SET "
                     + "FKCONTRATO = '" + fkcontrato + "' "
                     + "WHERE "
                     + "FKCONTRATO = '" + id + "'");
@@ -64,10 +64,10 @@ public class FormapagopacJpaController {
 
     public void destroy(Formapagopac id) {
         try {
-            datos.update("DELETE FROM FORMADEPAGOCONTRATOS "
+            datos.update("DELETE FROM FORMAPAGOPAC "
                     + "WHERE "
                     + "FKCONTRATO = '" + id.getFormapagopacPK().getFkcontrato() + "' AND "
-                    + "FECHA = '" + id.getFormapagopacPK().getMes() + "'");
+                    + "MES = '" + id.getFormapagopacPK().getMes() + "'");
             if (!datos.isError) {
                 ClaseMensaje.informacionEliminarBD("Forma de Pago");
             }
@@ -79,7 +79,7 @@ public class FormapagopacJpaController {
     
     public void destroyFkcontrato(String id) {
         try {
-            datos.update("DELETE FROM FORMADEPAGOCONTRATOS "
+            datos.update("DELETE FROM FORMAPAGOPAC "
                     + "WHERE "
                     + "FKCONTRATO = '" + id + "'");
             if (!datos.isError) {
@@ -106,14 +106,14 @@ public class FormapagopacJpaController {
         Formapagopac formapagopac = new Formapagopac();
         FormapagopacPK formapagopacPK = new FormapagopacPK();
         try {
-            datos.query("SELECT * FROM FORMADEPAGOCONTRATOS "
+            datos.query("SELECT * FROM FORMAPAGOPAC "
                     + "WHERE "
                     + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%'");//ORDER BY
             while (ClaseBaseDatos.resultado.next()) {
                 formapagopac = new Formapagopac();
                 formapagopacPK = new FormapagopacPK();
                 formapagopacPK.setFkcontrato(ClaseBaseDatos.resultado.getString("FKCONTRATO"));
-                formapagopacPK.setMes(ClaseBaseDatos.resultado.getString("FECHA"));
+                formapagopacPK.setMes(ClaseBaseDatos.resultado.getString("MES"));
                 formapagopac.setValor(BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("VALOR"))));
                 formapagopac.setFormapagopacPK(formapagopacPK);
                 listFormapagopac.add(formapagopac);
@@ -130,14 +130,14 @@ public class FormapagopacJpaController {
         Formapagopac formapagopac = new Formapagopac();
         FormapagopacPK formapagopacPK = new FormapagopacPK();
         try {
-            datos.query("SELECT * FROM FORMADEPAGOCONTRATOS "
+            datos.query("SELECT * FROM FORMAPAGOPAC "
                     + "WHERE "
-                    + "FKCONTRATO = '" + fkcontrato + "' ORDER BY FECHA");//ORDER BY
+                    + "FKCONTRATO = '" + fkcontrato + "' ORDER BY MES");//ORDER BY
             while (ClaseBaseDatos.resultado.next()) {
                 formapagopac = new Formapagopac();
                 formapagopacPK = new FormapagopacPK();
                 formapagopacPK.setFkcontrato(ClaseBaseDatos.resultado.getString("FKCONTRATO"));
-                formapagopacPK.setMes(ClaseBaseDatos.resultado.getString("FECHA"));
+                formapagopacPK.setMes(ClaseBaseDatos.resultado.getString("MES"));
                 formapagopac.setValor(BigDecimal.valueOf(Long.parseLong("" + ClaseBaseDatos.resultado.getBigDecimal("VALOR"))));
                 formapagopac.setFormapagopacPK(formapagopacPK);
                 listFormapagopac.add(formapagopac);

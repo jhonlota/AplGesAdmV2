@@ -83,11 +83,13 @@ try {
                             }
                             
                             var id = '" . $row["id"] . "';
+                            var ano = '" . $row["ano"] . "';
                             var formadepago = $('#formadepago$i').val();                            
                             var parametros = {
-                                'id': id,
                                 'comentario': comentario,
                                 'observacion': observacion,
+                                'id': id,
+                                'ano': ano,
                                 'formadepago': formadepago
                             };
                             jQuery.ajax({

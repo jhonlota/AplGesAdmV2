@@ -28,10 +28,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
 import net.sf.jasperreports.engine.util.JRLoader;
 
 /**
@@ -252,7 +255,7 @@ public class ClaseInformes {
         }
     }
 
-    public void formatoSolicitudOferta(Map parametros){
+    public void formatoSolicitudOferta(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoSolicitudoferta.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
@@ -281,6 +284,7 @@ public class ClaseInformes {
         try {
             URL url = clase.getClass().getResource("FormatoEstudiosPrevios.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -296,16 +300,44 @@ public class ClaseInformes {
                 }
             } else {
             }
+            
+            url = clase.getClass().getResource("FormatoAnexoEstudiosPrevios.jasper");
+            
+            reporte = (JasperReport) JRLoader.loadObject(url);
+            imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            aleatorio = ClaseInformacion.LongAletario();
+
+            JRXlsExporter exporter = new JRXlsExporter();
+
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, imprimir);
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
+            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "estudiosprevios_" + aleatorio + ".xls");
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.FALSE);
+            exporter.exportReport();
+
+            file = new File("estudiosprevios_" + aleatorio + ".xls");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
         } catch (JRException ex) {
             //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
     }
-    
+
     public void formatoFichaTecnica(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoFichaTecnica.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -324,9 +356,9 @@ public class ClaseInformes {
         } catch (JRException ex) {
             //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
-        }        
+        }
     }
-    
+
     public void formatoEstimacionPresupuesto(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoEstimacionPresupuesto.jasper");
@@ -351,11 +383,12 @@ public class ClaseInformes {
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
     }
-    
+
     public void formatoInvitacionMinimaCuantia(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoInvitacion.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -376,12 +409,128 @@ public class ClaseInformes {
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
     }
-    
+
+    public void formatoAnexoInvitacionMinimaCuantia(Map parametros) {
+        try {
+            URL url = clase.getClass().getResource("FormatoAnexoUNOInvitacion.jasper");
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            long aleatorio = ClaseInformacion.LongAletario();
+
+            JRXlsExporter exporter = new JRXlsExporter();
+
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, imprimir);
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
+            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "invitacion_" + aleatorio + ".xls");
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.FALSE);
+            exporter.exportReport();
+
+            File file = new File("invitacion_" + aleatorio + ".xls");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
+
+            url = clase.getClass().getResource("FormatoAnexoDOSInvitacion.jasper");
+
+            reporte = (JasperReport) JRLoader.loadObject(url);
+            imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            aleatorio = ClaseInformacion.LongAletario();
+
+            exporter = new JRXlsExporter();
+
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, imprimir);
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
+            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "invitacion_" + aleatorio + ".xls");
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.FALSE);
+            exporter.exportReport();
+
+            file = new File("invitacion_" + aleatorio + ".xls");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
+            
+            url = clase.getClass().getResource("FormatoAnexoTRESInvitacion.jasper");
+
+            reporte = (JasperReport) JRLoader.loadObject(url);
+            imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            aleatorio = ClaseInformacion.LongAletario();
+
+            exporter = new JRXlsExporter();
+
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, imprimir);
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
+            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "invitacion_" + aleatorio + ".xls");
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.FALSE);
+            exporter.exportReport();
+
+            file = new File("invitacion_" + aleatorio + ".xls");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
+            
+            url = clase.getClass().getResource("FormatoAnexoCUATROInvitacion.jasper");
+
+            reporte = (JasperReport) JRLoader.loadObject(url);
+            imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+            aleatorio = ClaseInformacion.LongAletario();
+
+            exporter = new JRXlsExporter();
+
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, imprimir);
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
+            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "invitacion_" + aleatorio + ".xls");
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.FALSE);
+            exporter.exportReport();
+
+            file = new File("invitacion_" + aleatorio + ".xls");
+            if (file.getAbsoluteFile().exists()) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+            }
+        } catch (JRException ex) {
+            //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+            ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
+        }
+    }
+
     public void formatoInformeEvaluacion(Map parametros) {
-        
-    }    
-    
-    public void formatoContrato(Map parametros) {        
+
+    }
+
+    public void formatoContrato(Map parametros) {
         try {
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
@@ -391,7 +540,6 @@ public class ClaseInformes {
 //            for (String key : keys) {
 //                System.out.println(key + ": " + parametros.get(key));
 //            }
-
             URL url;
             if (ClaseGeneral.contratos.getTipocontrato().equals("1: C1 Prestación de Servicios")
                     || ClaseGeneral.contratos.getTipocontrato().equals("2: C2 Consultoría")) {
@@ -449,12 +597,12 @@ public class ClaseInformes {
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
     }
-    
+
     public void formatoAnexoContrato(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoAnexoContrato.jasper");
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
-            
+
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
             long aleatorio = ClaseInformacion.LongAletario();
@@ -474,23 +622,23 @@ public class ClaseInformes {
             ClaseMensaje.error("ERROR AL MOMENTO DE REALIZAR LA ACCION\n" + ex);
         }
     }
-    
+
     public void formatoActaAprobacionPoliza(Map parametros) {
-        
+
     }
-    
+
     public void formatoActaInicio(Map parametros) {
-        
+
     }
-    
+
     public void formatoActaLiquidacion(Map parametros) {
-        
+
     }
-    
+
     public void formatoActaDesignacionSupervisor(Map parametros) {
-        
+
     }
-    
+
     public void formatoInformeComprobantesNOREEMBOLSADOS(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeComprobantes_NOREEMBOLSADOS.jasper");

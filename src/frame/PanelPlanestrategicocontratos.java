@@ -68,14 +68,16 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         eje = new javax.swing.JComboBox();
         estrategia = new javax.swing.JComboBox();
-        programa = new javax.swing.JComboBox();
+        jTextField17 = new javax.swing.JTextField();
         subgrupo = new javax.swing.JComboBox();
         cinfo = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        programa = new javax.swing.JComboBox();
         jLabel32 = new javax.swing.JLabel();
         proyecto = new javax.swing.JTextField();
         jLabel78 = new javax.swing.JLabel();
@@ -118,26 +120,28 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         add(jLabel72);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.setPreferredSize(new java.awt.Dimension(810, 70));
+        jPanel1.setPreferredSize(new java.awt.Dimension(810, 130));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("EJE");
         jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel10.setPreferredSize(new java.awt.Dimension(60, 25));
+        jLabel10.setPreferredSize(new java.awt.Dimension(120, 25));
         jPanel1.add(jLabel10);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ESTRATEGIA");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel2.setPreferredSize(new java.awt.Dimension(120, 25));
+        jLabel2.setPreferredSize(new java.awt.Dimension(280, 25));
         jPanel1.add(jLabel2);
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("PROGRAMA");
-        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel3.setPreferredSize(new java.awt.Dimension(435, 25));
-        jPanel1.add(jLabel3);
+        jTextField16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField16.setEnabled(false);
+        jTextField16.setFocusable(false);
+        jTextField16.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField16.setOpaque(false);
+        jTextField16.setPreferredSize(new java.awt.Dimension(215, 25));
+        jPanel1.add(jTextField16);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("SUBGRUPO");
@@ -156,7 +160,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         eje.setModel(ClaseGeneral.controlPlanestrategico.COMBOEjeInPlanestrategicoBy());
         eje.setSelectedItem("0");
         eje.setOpaque(false);
-        eje.setPreferredSize(new java.awt.Dimension(60, 25));
+        eje.setPreferredSize(new java.awt.Dimension(120, 25));
         jPanel1.add(eje);
 
         estrategia.setBackground(ClaseGeneral.campo);
@@ -164,16 +168,16 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         estrategia.setModel(ClaseGeneral.controlPlanestrategico.COMBOEstrategiaInPlanestrategicoBy());
         estrategia.setSelectedItem("0");
         estrategia.setOpaque(false);
-        estrategia.setPreferredSize(new java.awt.Dimension(120, 25));
+        estrategia.setPreferredSize(new java.awt.Dimension(280, 25));
         jPanel1.add(estrategia);
 
-        programa.setBackground(ClaseGeneral.campo);
-        programa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        programa.setModel(ClaseGeneral.controlPlanestrategico.COMBOProgramaInPlanestrategicoBy());
-        programa.setSelectedItem("0");
-        programa.setOpaque(false);
-        programa.setPreferredSize(new java.awt.Dimension(435, 25));
-        jPanel1.add(programa);
+        jTextField17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField17.setEnabled(false);
+        jTextField17.setFocusable(false);
+        jTextField17.setMargin(new java.awt.Insets(2, 4, 2, 4));
+        jTextField17.setOpaque(false);
+        jTextField17.setPreferredSize(new java.awt.Dimension(215, 25));
+        jPanel1.add(jTextField17);
 
         subgrupo.setBackground(ClaseGeneral.campo);
         subgrupo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -191,6 +195,20 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         cinfo.setPreferredSize(new java.awt.Dimension(80, 25));
         jPanel1.add(cinfo);
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("PROGRAMA");
+        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel3.setPreferredSize(new java.awt.Dimension(795, 25));
+        jPanel1.add(jLabel3);
+
+        programa.setBackground(ClaseGeneral.campo);
+        programa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        programa.setModel(ClaseGeneral.controlPlanestrategico.COMBOProgramaInPlanestrategicoBy());
+        programa.setSelectedItem("0");
+        programa.setOpaque(false);
+        programa.setPreferredSize(new java.awt.Dimension(795, 25));
+        jPanel1.add(programa);
+
         add(jPanel1);
 
         jLabel32.setText("PROYECTO : ");
@@ -206,7 +224,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         add(jLabel78);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCRIPCION DE LA ESTRATEGIA (ESTUDIOS PREVIOS)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
-        jPanel8.setPreferredSize(new java.awt.Dimension(800, 70));
+        jPanel8.setPreferredSize(new java.awt.Dimension(810, 70));
         jPanel8.setLayout(new java.awt.BorderLayout());
 
         jScrollPane4.setPreferredSize(new java.awt.Dimension(430, 70));
@@ -228,7 +246,7 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
         jLabel74.setPreferredSize(new java.awt.Dimension(810, 25));
         add(jLabel74);
 
-        jScrollPane.setPreferredSize(new java.awt.Dimension(810, 280));
+        jScrollPane.setPreferredSize(new java.awt.Dimension(810, 220));
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -465,6 +483,8 @@ public class PanelPlanestrategicocontratos extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     public javax.swing.JTable jTable;
     private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
     public javax.swing.JComboBox programa;
     private javax.swing.JTextField proyecto;
     public javax.swing.JComboBox subgrupo;

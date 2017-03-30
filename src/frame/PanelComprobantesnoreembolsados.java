@@ -92,7 +92,7 @@ public class PanelComprobantesnoreembolsados extends javax.swing.JPanel {
         add(jTextField17);
 
         jLabel54.setText("FECHA DEL PAGO (REMBOLSO) : ");
-        jLabel54.setPreferredSize(new java.awt.Dimension(180, 25));
+        jLabel54.setPreferredSize(new java.awt.Dimension(200, 25));
         add(jLabel54);
 
         fechaaplicacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -127,7 +127,7 @@ public class PanelComprobantesnoreembolsados extends javax.swing.JPanel {
         jTextField16.setFocusable(false);
         jTextField16.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField16.setOpaque(false);
-        jTextField16.setPreferredSize(new java.awt.Dimension(65, 25));
+        jTextField16.setPreferredSize(new java.awt.Dimension(45, 25));
         add(jTextField16);
 
         botonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos24/save.png"))); // NOI18N

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoInvitacion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
 	<property name="ireport.zoom" value="1.3310000000000235"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="144"/>
+	<property name="ireport.y" value="261"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -878,9 +878,9 @@ WHERE
 				<textFieldExpression><![CDATA[$F{CONTRATOS_OBJETO}.substring( 0, 1 ).toUpperCase()+$F{CONTRATOS_OBJETO}.substring( 1, $F{CONTRATOS_OBJETO}.length() ).toLowerCase()]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="64">
+		<band height="73">
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" stretchType="RelativeToTallestObject" x="20" y="18" width="157" height="18"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" stretchType="RelativeToTallestObject" x="20" y="27" width="157" height="18"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -888,7 +888,7 @@ WHERE
 				<text><![CDATA[Presupuesto estimado incluido IVA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" stretchType="RelativeToTallestObject" x="20" y="36" width="157" height="28"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" stretchType="RelativeToTallestObject" x="20" y="45" width="157" height="28"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -896,21 +896,21 @@ WHERE
 				<text><![CDATA[Numero de Certificado de Disponibilidad Presupuestal ]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" style="table" x="177" y="0" width="375" height="18"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
+				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" style="table" x="177" y="0" width="375" height="27"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<paragraph leftIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_PLAZO} + " " + $F{CONTRATOS_UNIDADDURACION}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="¤ #,##0">
-				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" style="table" stretchType="RelativeToTallestObject" x="177" y="18" width="375" height="18"/>
+				<reportElement uuid="c15b2e84-1353-4e15-9359-fac74bc4c45f" style="table" stretchType="RelativeToTallestObject" x="177" y="27" width="375" height="18"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_VALOR}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" positionType="Float" x="20" y="0" width="157" height="18"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" positionType="Float" x="20" y="0" width="157" height="27"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -918,7 +918,7 @@ WHERE
 				<text><![CDATA[Plazo de Ejecución]]></text>
 			</staticText>
 			<subreport>
-				<reportElement uuid="284fd410-7d96-4ba4-b5cd-0841c3dfa1aa" style="table" x="177" y="36" width="375" height="28"/>
+				<reportElement uuid="284fd410-7d96-4ba4-b5cd-0841c3dfa1aa" style="table" x="177" y="45" width="375" height="28"/>
 				<subreportParameter name="FKCONTRATO">
 					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
 				</subreportParameter>

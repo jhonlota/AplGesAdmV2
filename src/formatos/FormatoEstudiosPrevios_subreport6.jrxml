@@ -101,7 +101,8 @@ WHERE CONTRATOS.CONTRATO = $P{CONTRATO}]]>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="1b08076b-86b6-4cac-b747-923880b19d3f" stretchType="RelativeToTallestObject" x="0" y="0" width="492" height="16"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{planadquisicion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[
+(!$F{planadquisicion}.equals( "" ) ? $F{planadquisicion} : "Ver ANEXO Estudios Previos - Plan de Adquisiciones")]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

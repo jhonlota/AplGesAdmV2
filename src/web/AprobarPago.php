@@ -4,6 +4,7 @@ header("Content-Type: text/html;charset=ISO-8859-1");
 include("./ConexionConsulta.php");
 
 $id = $_POST['id'];
+$ano = $_POST['ano'];
 $comentario = $_POST['comentario'];
 $observacion = $_POST['observacion'];
 $formadepago = $_POST['formadepago'];
@@ -16,7 +17,7 @@ if ($formadepago == "Seleccione" || $formadepago == "Aprobacion") {
                    </script>";
 } else {
     try {
-        pg_query($gbd, "UPDATE comprobantes SET tipopago = '$formadepago', observacion = observacion || '$comentario' WHERE id = $id");
+        pg_query($gbd, "UPDATE comprobantes SET tipopago = '$formadepago', observacion = observacion || '$comentario' WHERE id = $id AND ano");
         $htmlOk = "<p>Registro Actualizado <strong>Exitosamente</strong></p>";
     } catch (Exception $ex) {
         pg_query("ROLLBACK");
