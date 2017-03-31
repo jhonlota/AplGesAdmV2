@@ -71,7 +71,6 @@ try {
 
         $tabla .= " <script type=\"text/javascript\">
                         $('#actualizar$i').click(function() {
-                            console.log('Clic en Actualizar'+$('#actualizar$i').attr('name'));
                             event.preventDefault();
                                 
                             if($('#comentario$i').val() == '') {

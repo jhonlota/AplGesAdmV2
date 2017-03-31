@@ -17,7 +17,7 @@ if ($formadepago == "Seleccione" || $formadepago == "Aprobacion") {
                    </script>";
 } else {
     try {
-        pg_query($gbd, "UPDATE comprobantes SET tipopago = '$formadepago', observacion = observacion || '$comentario' WHERE id = $id AND ano");
+        pg_query($gbd, "UPDATE comprobantes SET tipopago = '$formadepago', observacion = observacion || '$comentario' WHERE id = $id AND ano = $ano");
         $htmlOk = "<p>Registro Actualizado <strong>Exitosamente</strong></p>";
     } catch (Exception $ex) {
         pg_query("ROLLBACK");

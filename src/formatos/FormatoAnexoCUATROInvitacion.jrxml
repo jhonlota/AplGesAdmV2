@@ -492,7 +492,7 @@ WHERE
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
 				</textElement>
-				<text><![CDATA[MODELO DE PAGO PARAFISCALES - CERTIFICACIÓN DE PAGOS DE SEGURIDAD SOCIAL Y APORTES PARAFISCALES - ARTICULO 50 DE LA LEY 789 DE 202]]></text>
+				<text><![CDATA[OFERTA ECONÓMICA BIENES]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
