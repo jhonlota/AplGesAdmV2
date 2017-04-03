@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstudiosPreviosServicios_subreport3" language="groovy" pageWidth="512" pageHeight="752" columnWidth="512" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c9dd1cb3-d2a6-42e9-89ab-ea4c6f0f3d1c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKTERCEROFUNCIONARIO" class="java.lang.String"/>
+	<parameter name="CONTRATO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT CONTRATOS.PERFILREQUERIDO, CONTRATOS.ESTIMACION, CONTRATOS.VALOR, CONTRATOS.VALORLETRAS, TERCEROS.DEPENDENCIA
+FROM CONTRATOS, TERCEROS
+WHERE TERCEROS.ID = $P{FKTERCEROFUNCIONARIO}
+AND CONTRATOS.CONTRATO = $P{CONTRATO}]]>
+	</queryString>
+	<field name="perfilrequerido" class="java.lang.String"/>
+	<field name="estimacion" class="java.lang.String"/>
+	<field name="valor" class="java.lang.Long"/>
+	<field name="valorletras" class="java.lang.String"/>
+	<field name="dependencia" class="java.lang.String"/>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="0" y="0" width="512" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["Para efectos de determinar el valor del presupuesto oficial se tuvo en cuenta el perfil establecido por parte de la "+$F{dependencia}+
+", de acuerdo a la necesidad planteada por "+$F{dependencia}+"<br><br>"+
+"En ese orden de ideas, se estableció por parte de la Universidad del Valle la necesidad de contar con un "+$F{perfilrequerido}+"<br><br>"+
+"La Universidad del Valle en las vigencias 2015 y 2016 celebró los siguientes contratos, cuyo objeto se relacionan con la presente necesidad.<br><br>"+
+$F{estimacion}+"<br><br>"+
+"Por lo explicado anteriormente, se considera que el valor de "+$F{valorletras}+" ( "+$F{valor}+") con IVA incluido, es un valor justo para que se presente una propuesta acorde al objeto a contratar, el cual requiere que se cuente con un profesional con la idoneidad, la experiencia y de acuerdo al perfil señalado."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

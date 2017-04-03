@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstudiosPreviosServicios_subreport1" language="groovy" pageWidth="532" pageHeight="752" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ce3a1a7a-6992-43c5-9762-c72d783c18b1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKCONTRATO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM MODALIDAD
+JOIN CONTRATOS
+ON CONTRATOS.MODALIDAD = MODALIDAD.NOMBRE
+AND CONTRATOS.CONTRATO = $P{FKCONTRATO}]]>
+	</queryString>
+	<field name="articulo" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="fundamento" class="java.lang.String"/>
+	<field name="contrato" class="java.lang.String"/>
+	<field name="anticipio" class="java.lang.String"/>
+	<field name="cantidadespreciosvariables" class="java.lang.Long"/>
+	<field name="causal" class="java.lang.String"/>
+	<field name="codigoactividad" class="java.lang.String"/>
+	<field name="codigodepartamento" class="java.lang.String"/>
+	<field name="codigomodalidad" class="java.lang.String"/>
+	<field name="codigomunicipio" class="java.lang.String"/>
+	<field name="codigoproyecto" class="java.lang.String"/>
+	<field name="codigotipo" class="java.lang.String"/>
+	<field name="documentoterminacion" class="java.lang.String"/>
+	<field name="fechaactaavance" class="java.sql.Date"/>
+	<field name="fechaadjudicacion" class="java.sql.Date"/>
+	<field name="fechacierre" class="java.sql.Date"/>
+	<field name="fechafinalactividad" class="java.sql.Date"/>
+	<field name="fechainicialactividad" class="java.sql.Date"/>
+	<field name="fechainicio" class="java.sql.Date"/>
+	<field name="fechalegalizacion" class="java.sql.Date"/>
+	<field name="fechaperfeccionamiento" class="java.sql.Date"/>
+	<field name="fechasuscripcion" class="java.sql.Date"/>
+	<field name="fechaterminacion" class="java.sql.Date"/>
+	<field name="fktercero" class="java.lang.String"/>
+	<field name="fktercerointersuper" class="java.lang.String"/>
+	<field name="fkterceroordenadorgasto" class="java.lang.String"/>
+	<field name="inversion" class="java.lang.String"/>
+	<field name="ley80" class="java.lang.Long"/>
+	<field name="modalidad" class="java.lang.String"/>
+	<field name="monedapago" class="java.lang.String"/>
+	<field name="observaciones" class="java.lang.String"/>
+	<field name="objeto" class="java.lang.String"/>
+	<field name="plazo" class="java.lang.String"/>
+	<field name="porcentajeactividad" class="java.lang.String"/>
+	<field name="porcentajeavance" class="java.lang.String"/>
+	<field name="resolucionadjudicacion" class="java.lang.String"/>
+	<field name="tasacambio" class="java.lang.Long"/>
+	<field name="tipoactaavance" class="java.lang.String"/>
+	<field name="tipocontrato" class="java.lang.String"/>
+	<field name="tipointerventoria" class="java.lang.String"/>
+	<field name="tipoterminacion" class="java.lang.String"/>
+	<field name="tipovinculacionintersuper" class="java.lang.String"/>
+	<field name="unidadduracion" class="java.lang.String"/>
+	<field name="valor" class="java.lang.Long"/>
+	<field name="valoradministracion" class="java.lang.Long"/>
+	<field name="valorimprevisto" class="java.lang.Long"/>
+	<field name="valorivaobra" class="java.lang.Long"/>
+	<field name="valormonedaextranjera" class="java.lang.Long"/>
+	<field name="valorsaldo" class="java.lang.Long"/>
+	<field name="valorutilidad" class="java.lang.Long"/>
+	<field name="nombreproyecto" class="java.lang.String"/>
+	<field name="formapago" class="java.lang.String"/>
+	<field name="tiempogarantia" class="java.lang.String"/>
+	<field name="contratovigente" class="java.lang.String"/>
+	<field name="fechaterminacionvigente" class="java.sql.Date"/>
+	<field name="fktercerofuncionario" class="java.lang.String"/>
+	<field name="valorsiniva" class="java.lang.Long"/>
+	<field name="secopcodigoproceso" class="java.lang.String"/>
+	<field name="secopnumeroproceso" class="java.lang.String"/>
+	<field name="secopnumeroconstancia" class="java.lang.String"/>
+	<field name="secopfechapublicacion" class="java.sql.Date"/>
+	<field name="alcance" class="java.lang.String"/>
+	<field name="analisisriesgos" class="java.lang.String"/>
+	<field name="condicionesentrega" class="java.lang.String"/>
+	<field name="diastiempopago" class="java.lang.String"/>
+	<field name="estimacion" class="java.lang.String"/>
+	<field name="facultad" class="java.lang.String"/>
+	<field name="fechaactainicio" class="java.sql.Date"/>
+	<field name="fechaentrega" class="java.sql.Date"/>
+	<field name="fechafichatecnica" class="java.sql.Date"/>
+	<field name="fechainvitacion" class="java.sql.Date"/>
+	<field name="lugarejecucion" class="java.lang.String"/>
+	<field name="modalidadarticulo" class="java.lang.String"/>
+	<field name="modalidadfundamento" class="java.lang.String"/>
+	<field name="necesidad" class="java.lang.String"/>
+	<field name="objetoespecifico" class="java.lang.String"/>
+	<field name="obligacionescontratista" class="java.lang.String"/>
+	<field name="obligacionesuniversidad" class="java.lang.String"/>
+	<field name="observacionesactainicio" class="java.lang.String"/>
+	<field name="perfilrequerido" class="java.lang.String"/>
+	<field name="planadquisicion" class="java.lang.String"/>
+	<field name="requerimientostecnicos" class="java.lang.String"/>
+	<field name="tipotiempopago" class="java.lang.String"/>
+	<field name="tipoestimacion" class="java.lang.String"/>
+	<field name="tipofinanciacion" class="java.lang.String"/>
+	<field name="valorletras" class="java.lang.String"/>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="0" y="0" width="532" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["Teniendo en cuenta que con la contratación pública se busca el cumplimiento de los fines estatales, es imperioso que las entidades públicas cuenten con instrumentos que les faculten lograr la selección adecuada de los contratistas que les permitirán la consecución de los mismos. Por ello, el propio Estado ha expedido diferentes normas buscando dotar a las entidades con herramientas que permitan dicha selección idónea. Por lo anterior se citan las siguientes normas aplicables para la entidad contratante como para el contratista: <br><br>"+
+"<b>Normatividad aplicable a la UNIVERSIDAD DEL VALLE:</b><br>"+
+"De acuerdo a lo establecido en el manual de contratación de LA UNIVERSIDAD, el presente proceso se rige por el derecho privado, de acuerdo con lo previsto en la Ley 30 de 1992, el Acuerdo No. 004 del 8 de Julio del 2016 del Consejo Superior de la Universidad del Valle, por el cual se expide el Estatuto de Contratación Administrativa de la Universidad del Valle, la Resolución de Rectoría 2.898 de Septiembre 02 de 2016, la cual reglamenta el Estatuto de Contratación y en lo que no esté particularmente regulado en ellas, por el Código de Comercio y el Código Civil.<br><br>"+
+"De acuerdo a lo establecido en el Artículo "+$F{articulo}+" de Estatuto de Contratación:<b>"+$F{nombre}.substring($F{nombre}.indexOf(": ")+2, $F{nombre}.length())+":</b><br><br>"+
+$F{fundamento}+"<br><br>"+
+"De acuerdo con la naturaleza del objeto a contratar, que es la prestación de servicios profesionales y de apoyo a la gestión, la modalidad de selección del contratista es la que indicada en el Articulo 23 del numeral 7º del Acuerdo 004 de 2016 del Consejo Superior \"En los contratos de prestación de servicios profesionales de apoyo a la gestión, con cargo a los recursos de administración o derivados de convenios y contratos. En estos casos se podrá contratar directamente con la persona natural o jurídica que esté en capacidad de ejecutar el objeto del contrato y que haya demostrado la idoneidad y experiencia directamente relacionada con él.\""]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

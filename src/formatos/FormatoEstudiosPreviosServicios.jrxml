@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstudiosPreviosServicios" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
+	<property name="ireport.zoom" value="1.331000000000001"/>
+	<property name="ireport.x" value="6"/>
+	<property name="ireport.y" value="41"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#595050">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#FFE6E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 11">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 11_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 11_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 11_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="DATASETCLASIFICADOR" uuid="e99ddc5e-e911-46af-be43-a4bf51a3b27c">
+		<parameter name="CONTRATOTABLE" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT DISTINCT  CLASIFICADORUNSPSC.CODIGOSEGMENTO,
+	       CLASIFICADORUNSPSC.NOMBRESEGMENTO,
+	       CLASIFICADORUNSPSC.CODIGOFAMILIA,
+	       CLASIFICADORUNSPSC.NOMBREFAMILIA,
+                 CLASIFICADORUNSPSC.CODIGOCLASE,
+	       CLASIFICADORUNSPSC.NOMBRECLASE,
+	       CLASIFICADORUNSPSC.NOMBREGRUPO,
+                 CLASIFICADORUNSPSC.CODIGOGRUPO
+FROM CLASIFICADORUNSPSC AS CLASIFICADORUNSPSC
+JOIN CUBS AS CUBS
+ON (CUBS.CODIGO = CLASIFICADORUNSPSC.NOMBREPRODUCTO || ' [' || CLASIFICADORUNSPSC.CODIGOPRODUCTO  || ']'
+	OR CUBS.CODIGO = CLASIFICADORUNSPSC.NOMBRECLASE || ' [' || CLASIFICADORUNSPSC.CODIGOCLASE  || ']')
+AND CUBS.FKCONTRATO = $P{CONTRATOTABLE}]]>
+		</queryString>
+		<field name="codigosegmento" class="java.lang.String"/>
+		<field name="nombresegmento" class="java.lang.String"/>
+		<field name="codigofamilia" class="java.lang.String"/>
+		<field name="nombrefamilia" class="java.lang.String"/>
+		<field name="codigoclase" class="java.lang.String"/>
+		<field name="nombreclase" class="java.lang.String"/>
+		<field name="nombregrupo" class="java.lang.String"/>
+		<field name="codigogrupo" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="DATASETCUBS" uuid="586d3b2d-aa71-4d91-9fcc-45a3ee02af22">
+		<parameter name="CONTRATOTABLE" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT *
+FROM CUBS
+WHERE FKCONTRATO = $P{CONTRATOTABLE}]]>
+		</queryString>
+		<field name="descripcion" class="java.lang.String"/>
+		<field name="fkcontrato" class="java.lang.String"/>
+		<field name="cantidad" class="java.lang.Long"/>
+		<field name="certificado" class="java.lang.String"/>
+		<field name="codigo" class="java.lang.String"/>
+		<field name="valor" class="java.lang.Long"/>
+		<field name="valorsiniva" class="java.lang.Long"/>
+		<field name="valortotal" class="java.lang.Long"/>
+		<field name="valortotalsiniva" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="DATASETPOLIZAS" uuid="e445bafa-3647-4021-b07d-2508816c68a2">
+		<parameter name="FKCONTRATOTABLE" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT *
+FROM POLIZAS
+WHERE FKCONTRATO = $P{FKCONTRATOTABLE}]]>
+		</queryString>
+		<field name="fkcontrato" class="java.lang.String"/>
+		<field name="numeropoliza" class="java.lang.String"/>
+		<field name="aseguradora" class="java.lang.String"/>
+		<field name="fechaaprobacionpoliza" class="java.sql.Date"/>
+		<field name="fechaexpedicionpoliza" class="java.sql.Date"/>
+		<field name="fechafinalamparo" class="java.sql.Date"/>
+		<field name="fechainicialamparo" class="java.sql.Date"/>
+		<field name="resolucionpoliza" class="java.lang.String"/>
+		<field name="tipopoliza" class="java.lang.String"/>
+		<field name="valorasegurado" class="java.lang.Long"/>
+	</subDataset>
+	<subDataset name="DATASETSERVICIOS" uuid="2ac80f89-91c0-4cb4-9938-b43653f24f7f">
+		<parameter name="FKCONTRATOTABLE" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT DISTINCT CASE
+		WHEN CAST(CLASIFICADORUNSPSC.CODIGOPRODUCTO AS INT) < 999999
+			THEN CLASIFICADORUNSPSC.NOMBREPRODUCTO
+			ELSE CLASIFICADORUNSPSC.NOMBRECLASE
+		END AS NOMBREPRODUCTO,
+		CUBS.DESCRIPCION,
+		CUBS.CANTIDAD,
+		CONTRATOS.PLAZO,
+		CONTRATOS.UNIDADDURACION
+FROM
+CLASIFICADORUNSPSC AS CLASIFICADORUNSPSC
+JOIN CUBS AS CUBS
+ON (CUBS.CODIGO = CLASIFICADORUNSPSC.NOMBREPRODUCTO || ' [' || CLASIFICADORUNSPSC.CODIGOPRODUCTO  || ']'
+	OR CUBS.CODIGO = CLASIFICADORUNSPSC.NOMBRECLASE || ' [' || CLASIFICADORUNSPSC.CODIGOCLASE  || ']')
+JOIN CONTRATOS AS CONTRATOS
+ON CONTRATOS.CONTRATO = CUBS.FKCONTRATO
+AND CUBS.FKCONTRATO = $P{FKCONTRATOTABLE}
+WHERE CLASIFICADORUNSPSC.CODIGOGRUPO = 'F']]>
+		</queryString>
+		<field name="nombreproducto" class="java.lang.String"/>
+		<field name="descripcion" class="java.lang.String"/>
+		<field name="cantidad" class="java.lang.Long"/>
+		<field name="plazo" class="java.lang.String"/>
+		<field name="unidadduracion" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CONTRATO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     CONTRATOS.CONTRATO AS "CONTRATOS_CONTRATO",
+     CONTRATOS.ANTICIPIO AS "CONTRATOS_ANTICIPIO",
+     CONTRATOS.CANTIDADESPRECIOSVARIABLES AS "CONTRATOS_CANTIDADESPRECIOSVAR",
+     CONTRATOS.CAUSAL AS "CONTRATOS_CAUSAL",
+     CONTRATOS.CODIGOACTIVIDAD AS "CONTRATOS_CODIGOACTIVIDAD",
+     CONTRATOS.CODIGODEPARTAMENTO AS "CONTRATOS_CODIGODEPARTAMENTO",
+     CONTRATOS.CODIGOMODALIDAD AS "CONTRATOS_CODIGOMODALIDAD",
+     CONTRATOS.CODIGOMUNICIPIO AS "CONTRATOS_CODIGOMUNICIPIO",
+     CONTRATOS.CODIGOPROYECTO AS "CONTRATOS_CODIGOPROYECTO",
+     CONTRATOS.CODIGOTIPO AS "CONTRATOS_CODIGOTIPO",
+     CONTRATOS.DOCUMENTOTERMINACION AS "CONTRATOS_DOCUMENTOTERMINACION",
+     CONTRATOS.FECHAACTAAVANCE AS "CONTRATOS_FECHAACTAAVANCE",
+     CONTRATOS.FECHAADJUDICACION AS "CONTRATOS_FECHAADJUDICACION",
+     CONTRATOS.FECHACIERRE AS "CONTRATOS_FECHACIERRE",
+     CONTRATOS.FECHAFINALACTIVIDAD AS "CONTRATOS_FECHAFINALACTIVIDAD",
+     CONTRATOS.FECHAINICIALACTIVIDAD AS "CONTRATOS_FECHAINICIALACTIVIDA",
+     CONTRATOS.FECHAINICIO AS "CONTRATOS_FECHAINICIO",
+     CONTRATOS.FECHALEGALIZACION AS "CONTRATOS_FECHALEGALIZACION",
+     CONTRATOS.FECHAPERFECCIONAMIENTO AS "CONTRATOS_FECHAPERFECCIONAMIEN",
+     CONTRATOS.FECHASUSCRIPCION AS "CONTRATOS_FECHASUSCRIPCION",
+     CONTRATOS.FECHATERMINACION AS "CONTRATOS_FECHATERMINACION",
+     CONTRATOS.FKTERCERO AS "CONTRATOS_FKTERCERO",
+     CONTRATOS.FKTERCEROINTERSUPER AS "CONTRATOS_FKTERCEROINTERSUPER",
+     CONTRATOS.FKTERCEROORDENADORGASTO AS "CONTRATOS_FKTERCEROORDENADORGA",
+     CONTRATOS.INVERSION AS "CONTRATOS_INVERSION",
+     CONTRATOS.LEY80 AS "CONTRATOS_LEY80",
+     CONTRATOS.MODALIDAD AS "CONTRATOS_MODALIDAD",
+     CONTRATOS.MONEDAPAGO AS "CONTRATOS_MONEDAPAGO",
+     CONTRATOS.OBSERVACIONES AS "CONTRATOS_OBSERVACIONES",
+     CONTRATOS.OBJETO AS "CONTRATOS_OBJETO",
+     CONTRATOS.PLAZO AS "CONTRATOS_PLAZO",
+     CONTRATOS.PORCENTAJEACTIVIDAD AS "CONTRATOS_PORCENTAJEACTIVIDAD",
+     CONTRATOS.PORCENTAJEAVANCE AS "CONTRATOS_PORCENTAJEAVANCE",
+     CONTRATOS.RESOLUCIONADJUDICACION AS "CONTRATOS_RESOLUCIONADJUDICACI",
+     CONTRATOS.TASACAMBIO AS "CONTRATOS_TASACAMBIO",
+     CONTRATOS.TIPOACTAAVANCE AS "CONTRATOS_TIPOACTAAVANCE",
+     CONTRATOS.TIPOCONTRATO AS "CONTRATOS_TIPOCONTRATO",
+     CONTRATOS.TIPOINTERVENTORIA AS "CONTRATOS_TIPOINTERVENTORIA",
+     CONTRATOS.TIPOTERMINACION AS "CONTRATOS_TIPOTERMINACION",
+     CONTRATOS.TIPOVINCULACIONINTERSUPER AS "CONTRATOS_TIPOVINCULACIONINTER",
+     CONTRATOS.UNIDADDURACION AS "CONTRATOS_UNIDADDURACION",
+     CONTRATOS.VALOR AS "CONTRATOS_VALOR",
+     CONTRATOS.VALORADMINISTRACION AS "CONTRATOS_VALORADMINISTRACION",
+     CONTRATOS.VALORIMPREVISTO AS "CONTRATOS_VALORIMPREVISTO",
+     CONTRATOS.VALORIVAOBRA AS "CONTRATOS_VALORIVAOBRA",
+     CONTRATOS.VALORMONEDAEXTRANJERA AS "CONTRATOS_VALORMONEDAEXTRANJER",
+     CONTRATOS.VALORSALDO AS "CONTRATOS_VALORSALDO",
+     CONTRATOS.VALORUTILIDAD AS "CONTRATOS_VALORUTILIDAD",
+     CONTRATOS.NOMBREPROYECTO AS "CONTRATOS_NOMBREPROYECTO",
+     CONTRATOS.FORMAPAGO AS "CONTRATOS_FORMAPAGO",
+     CONTRATOS.TIEMPOGARANTIA AS "CONTRATOS_TIEMPOGARANTIA",
+     CONTRATOS.CONTRATOVIGENTE AS "CONTRATOS_CONTRATOVIGENTE",
+     CONTRATOS.FECHATERMINACIONVIGENTE AS "CONTRATOS_FECHATERMINACIONVIGE",
+     CONTRATOS.FKTERCEROFUNCIONARIO AS "CONTRATOS_FKTERCEROFUNCIONARIO",
+     CONTRATOS.VALORSINIVA AS "CONTRATOS_VALORSINIVA",
+     f_formadepagocontratos(CONTRATOS.CONTRATO) AS "FORMADEPAGOCONTRATOS",
+     CONTRATOS.ALCANCE AS "CONTRATOS_ALCANCE",
+     CONTRATOS.ANALISISRIESGOS AS "CONTRATOS_ANALISISRIESGOS",
+     CONTRATOS.CONDICIONESENTREGA AS "CONTRATOS_CONDICIONESENTREGA",
+     CONTRATOS.DIASTIEMPOPAGO AS "CONTRATOS_DIASTIEMPOPAGO",
+     CONTRATOS.ESTIMACION AS "CONTRATOS_ESTIMACION",
+     CONTRATOS.FACULTAD AS "CONTRATOS_FACULTAD",
+     CONTRATOS.FECHAACTAINICIO AS "CONTRATOS_FECHAACTAINICIO",
+     CONTRATOS.FECHAENTREGA AS "CONTRATOS_FECHAENTREGA",
+     CONTRATOS.FECHAFICHATECNICA AS "CONTRATOS_FECHAFICHATECNICA",
+     CONTRATOS.FECHAINVITACION AS "CONTRATOS_FECHAINVITACION",
+     CONTRATOS.LUGAREJECUCION AS "CONTRATOS_LUGAREJECUCION",
+     CONTRATOS.MODALIDADARTICULO AS "CONTRATOS_MODALIDADARTICULO",
+     CONTRATOS.MODALIDADFUNDAMENTO AS "CONTRATOS_MODALIDADFUNDAMENTO",
+     CONTRATOS.NECESIDAD AS "CONTRATOS_NECESIDAD",
+     CONTRATOS.OBJETOESPECIFICO AS "CONTRATOS_OBJETOESPECIFICO",
+     CONTRATOS.OBLIGACIONESCONTRATISTA AS "CONTRATOS_OBLIGACIONESCONTRATISTA",
+     CONTRATOS.OBLIGACIONESUNIVERSIDAD AS "CONTRATOS_OBLIGACIONESUNIVERSIDAD",
+     CONTRATOS.OBSERVACIONESACTAINICIO AS "CONTRATOS_OBSERVACIONESACTAINICIO",
+     CONTRATOS.PERFILREQUERIDO AS "CONTRATOS_PERFILREQUERIDO",
+     CONTRATOS.PLANADQUISICION AS "CONTRATOS_PLANADQUISICION",
+     CONTRATOS.REQUERIMIENTOSTECNICOS AS "CONTRATOS_REQUERIMIENTOSTECNICOS",
+     CONTRATOS.TIPOTIEMPOPAGO AS "CONTRATOS_TIPOTIEMPOPAGO",
+     CONTRATOS.TIPOESTIMACION AS "CONTRATOS_TIPOESTIMACION",
+     CONTRATOS.TIPOFINANCIACION AS "CONTRATOS_TIPOFINANCIACION",
+     CONTRATOS.VALORLETRAS AS "CONTRATOS_VALORLETRAS"
+
+FROM
+     CONTRATOS
+WHERE
+     CONTRATOS.CONTRATO = $P{CONTRATO}]]>
+	</queryString>
+	<field name="CONTRATOS_CONTRATO" class="java.lang.String"/>
+	<field name="CONTRATOS_ANTICIPIO" class="java.lang.String"/>
+	<field name="CONTRATOS_CANTIDADESPRECIOSVAR" class="java.lang.Long"/>
+	<field name="CONTRATOS_CAUSAL" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOACTIVIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGODEPARTAMENTO" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOMODALIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOMUNICIPIO" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOPROYECTO" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOTIPO" class="java.lang.String"/>
+	<field name="CONTRATOS_DOCUMENTOTERMINACION" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHAACTAAVANCE" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAADJUDICACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHACIERRE" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAFINALACTIVIDAD" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAINICIALACTIVIDA" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAINICIO" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHALEGALIZACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAPERFECCIONAMIEN" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHASUSCRIPCION" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHATERMINACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_FKTERCERO" class="java.lang.String"/>
+	<field name="CONTRATOS_FKTERCEROINTERSUPER" class="java.lang.String"/>
+	<field name="CONTRATOS_FKTERCEROORDENADORGA" class="java.lang.String"/>
+	<field name="CONTRATOS_INVERSION" class="java.lang.String"/>
+	<field name="CONTRATOS_LEY80" class="java.lang.Long"/>
+	<field name="CONTRATOS_MODALIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_MONEDAPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_OBSERVACIONES" class="java.lang.String"/>
+	<field name="CONTRATOS_OBJETO" class="java.lang.String"/>
+	<field name="CONTRATOS_PLAZO" class="java.lang.String"/>
+	<field name="CONTRATOS_PORCENTAJEACTIVIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_PORCENTAJEAVANCE" class="java.lang.String"/>
+	<field name="CONTRATOS_RESOLUCIONADJUDICACI" class="java.lang.String"/>
+	<field name="CONTRATOS_TASACAMBIO" class="java.lang.Long"/>
+	<field name="CONTRATOS_TIPOACTAAVANCE" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOCONTRATO" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOINTERVENTORIA" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOTERMINACION" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOVINCULACIONINTER" class="java.lang.String"/>
+	<field name="CONTRATOS_UNIDADDURACION" class="java.lang.String"/>
+	<field name="CONTRATOS_VALOR" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORADMINISTRACION" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORIMPREVISTO" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORIVAOBRA" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORMONEDAEXTRANJER" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORSALDO" class="java.lang.Long"/>
+	<field name="CONTRATOS_VALORUTILIDAD" class="java.lang.Long"/>
+	<field name="CONTRATOS_NOMBREPROYECTO" class="java.lang.String"/>
+	<field name="CONTRATOS_FORMAPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_TIEMPOGARANTIA" class="java.lang.String"/>
+	<field name="CONTRATOS_CONTRATOVIGENTE" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHATERMINACIONVIGE" class="java.sql.Date"/>
+	<field name="CONTRATOS_FKTERCEROFUNCIONARIO" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORSINIVA" class="java.lang.Long"/>
+	<field name="FORMADEPAGOCONTRATOS" class="java.lang.String"/>
+	<field name="CONTRATOS_ALCANCE" class="java.lang.String"/>
+	<field name="CONTRATOS_ANALISISRIESGOS" class="java.lang.String"/>
+	<field name="CONTRATOS_CONDICIONESENTREGA" class="java.lang.String"/>
+	<field name="CONTRATOS_DIASTIEMPOPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_ESTIMACION" class="java.lang.String"/>
+	<field name="CONTRATOS_FACULTAD" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHAACTAINICIO" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAENTREGA" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAFICHATECNICA" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAINVITACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_LUGAREJECUCION" class="java.lang.String"/>
+	<field name="CONTRATOS_MODALIDADARTICULO" class="java.lang.String"/>
+	<field name="CONTRATOS_MODALIDADFUNDAMENTO" class="java.lang.String"/>
+	<field name="CONTRATOS_NECESIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_OBJETOESPECIFICO" class="java.lang.String"/>
+	<field name="CONTRATOS_OBLIGACIONESCONTRATISTA" class="java.lang.String"/>
+	<field name="CONTRATOS_OBLIGACIONESUNIVERSIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_OBSERVACIONESACTAINICIO" class="java.lang.String"/>
+	<field name="CONTRATOS_PERFILREQUERIDO" class="java.lang.String"/>
+	<field name="CONTRATOS_PLANADQUISICION" class="java.lang.String"/>
+	<field name="CONTRATOS_REQUERIMIENTOSTECNICOS" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOTIEMPOPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOESTIMACION" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOFINANCIACION" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORLETRAS" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="58">
+			<rectangle radius="10">
+				<reportElement uuid="b5cb7370-fde8-4854-af01-df0c13424ed4" x="20" y="2" width="532" height="53"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="8c65405a-b413-44a7-b13a-eec9946a344e" x="77" y="8" width="208" height="16"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VICERRECTORÍA ADMINISTRATIVA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c22532a3-630d-44a1-abfb-161de7f64e3d" x="325" y="9" width="221" height="16"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTUDIOS PREVIOS Y DEL SECTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8c65405a-b413-44a7-b13a-eec9946a344e" x="77" y="27" width="208" height="16"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[División de Contratación]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="6d9ac7ee-25bd-4612-b10f-f49a43de8628" x="34" y="8" width="43" height="35"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Univalle.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="c22532a3-630d-44a1-abfb-161de7f64e3d" x="325" y="25" width="221" height="16"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRESTACIÓN DEL SERVICIO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="29">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="13" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[I. ANÁLISIS DEL PROCESO DE CONTRATACIÓN:]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="20" y="0" width="532" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["A través del presente documento nos permitimos documentar el ESTUDIO PREVIO Y DEL SECTOR ECONÓMICO Y DE LOS OFERENTES, de conformidad con lo establecido en el ARTÍCULO 8. PLANEACIÓN GENERAL DE LA CONTRATACIÓN del Acuerdo 004 de 2016, que establece: \"Los procesos de contratación de la Universidad del Valle deberán obedecer a una correcta planeación que considere la eficiente utilización de los recursos y la adecuada satisfacción de la necesidad de contratación; teniendo en cuenta, entre otros, los estudios y análisis del mercado, así como los registros o bases de datos de proveedores\".<br><br>"+
+"Dando aplicación al manual o guía expedido por Colombia Compra Eficiente, para la elaboración de estudios del sector en materia de contratación de prestación de servicios se establece el siguiente análisis del sector dejando claro que: No será necesario que la Universidad del Valle haga un estudio de la oferta y la demanda del sector de la prestación de servicios con particularidades sobre tipos, precios, calidades y cantidades de la oferta y la demanda.<br><br>"+
+"La UNIVERSIDAD DEL VALLE, dando cumplimiento a lo establecido en el artículo 2.2.1.1.1.6.1. del Decreto 1082 de 26 de mayo de 2015, el cual establece: \"Deber del análisis en las Entidades Estatales. La Entidad Estatal debe hacer, durante la etapa de planeación, el análisis necesario para conocer el sector relativo objeto del proceso de contratación desde la perspectiva: Legal, Comercial, financiera, Organizacional, técnica y Análisis de Riesgo. La Entidad debe dejar constancia de este análisis en los documentos del proceso\".<br><br>"+
+"En el caso de la contratación de prestación de servicios profesionales, técnicos se requieren los siguientes núcleos básico del conocimiento en: "+$F{CONTRATOS_PERFILREQUERIDO}+" , con el fin de se cumpla con los siguientes objetivos y metas:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="16">
+			<componentElement>
+				<reportElement uuid="f8b83db4-c2bf-4f43-b3d3-36f943b9c338" key="table 17" style="table 17" x="20" y="0" width="532" height="16" isRemoveLineWhenBlank="true"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DATASETSERVICIOS" uuid="81fa09e4-05e2-424a-8bfd-64ef6505c37f">
+						<datasetParameter name="FKCONTRATOTABLE">
+							<datasetParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column uuid="724fde67-6a0d-4b04-b87a-8ab1e2e41161" width="532">
+						<jr:detailCell style="table 17_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="f6b521c6-8f03-49d8-bfaf-ff486b5b3494" x="0" y="0" width="532" height="20"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="10" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[A. Necesidad Contractual]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="40" y="0" width="512" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_NECESIDAD}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="10" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[B. Especificaciones:]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="40" y="0" width="512" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_PERFILREQUERIDO}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[II. ASPECTO LEGAL]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<subreport>
+				<reportElement uuid="3438d3c3-3eaa-4951-a482-e8c2c89d9477" x="20" y="0" width="532" height="16"/>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPreviosServicios_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[III. PRESUPUESTO OFICIAL]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<subreport>
+				<reportElement uuid="78d35db0-27c2-47ee-a504-e1ad82184490" x="20" y="0" width="532" height="16"/>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPreviosServicios_subreport2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="10" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[A. Análisis del sector: Comprende los siguientes estudios:]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<subreport>
+				<reportElement uuid="228cea38-dca4-450a-a35a-60e25c205e5a" x="40" y="0" width="512" height="16"/>
+				<subreportParameter name="FKTERCEROFUNCIONARIO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROFUNCIONARIO}.substring(0,$F{CONTRATOS_FKTERCEROFUNCIONARIO}.indexOf(" - "))]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPreviosServicios_subreport3.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[IV. FORMA DE PAGO]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<subreport>
+				<reportElement uuid="228cea38-dca4-450a-a35a-60e25c205e5a" x="20" y="0" width="532" height="16"/>
+				<subreportParameter name="FKTERCEROFUNCIONARIO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROFUNCIONARIO}.substring(0,$F{CONTRATOS_FKTERCEROFUNCIONARIO}.indexOf(" - "))]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPreviosServicios_subreport4.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[V. PLAZO]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="20" y="0" width="532" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["El plazo de ejecución será de "+$F{CONTRATOS_PLAZO}+" "+$F{CONTRATOS_UNIDADDURACION}+
+", el término de ejecución del contrato se contará a partir de la expedición del Registro Presupuestal de compromisos y suscripción del acta de inicio."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="42">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[VI. OBLIGACIONES DE LAS PARTES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d1dcf20-5922-4440-89a9-80f60e9995c5" x="20" y="26" width="532" height="16"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Para el cumplimiento del contrato, las partes se comprometen a:]]></text>
+			</staticText>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="10" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[A. Obligaciones de la Universidad del Valle:]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="40" y="0" width="512" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_OBLIGACIONESUNIVERSIDAD}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="40" y="10" width="512" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[B. Obligaciones del Contratista:]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="40" y="0" width="512" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_OBLIGACIONESCONTRATISTA}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[VII. ESPECIFICACIONES TÉCNICAS O CONDICIONES DEL SERVICIO:]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="20" y="0" width="532" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_REQUERIMIENTOSTECNICOS}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="26">
+			<staticText>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[VIII.    ASPECTO DE ANÁLISIS DE RIESGOS]]></text>
+			</staticText>
+		</band>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="20" y="0" width="532" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["En caso que la UNIVERSIDAD en su análisis de riesgos, considere que El CONTRATISTA debe presentar a favor de la ENTIDAD, una Garantía Única que avalará el cumplimiento de todas las obligaciones surgidas del contrato y la ejecución idónea y oportuna del objeto contratado, consistente en Póliza de Seguros; Patrimonio Autónomo y/o Garantía Bancaria; la cual se mantendrá vigente durante la vida del contrato y la prolongación de sus efectos y se ajustara a los limites, existencias y extensión del riesgo amparado, se hará constar en los Estudios Previos. La entidad estatal, igualmente considerará en los estudios previos las “EXCEPCIONES AL OTORGAMIENTO DEL MECANISMO DE COBERTURA DEL RIESGO”, de conformidad con el artículo 2.2.1.2.1.4.5 del Decreto 1082 del 2015, estas garantías no serán obligatorias en la contratación directa y la justificación para exigirlas o no debe estar en los estudios y documentos previos.<br><br>"+
+"Finalmente y dado que se trata de contratos de prestación de servicios profesionales y de apoyo a la gestión con personas naturales y/o jurídicas, en los cuales la selección de los contratistas se basa en la capacidad de ejecutar el objeto del contrato y de verificar la idoneidad o experiencia requerida y relacionada con el área de que se trate, y que el pago se ha previsto a contra entrega del servicio, se establece que los posibles riesgos asociados al proceso de contratación, se relacionan con el retraso o limitaciones de actividades comprendidas en el objeto contractual y se mitigan a través del seguimiento técnico, administrativo, financiero, contable y jurídico sobre el cumplimiento del objeto del contrato, por parte de la supervisión del mismo. En estos casos se puede prescindir de la solicitud de las garantías de conformidad con lo previsto en el artículo 2.2.1.2.1.4.5 del Decreto 1082 del 2015."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="39">
+			<subreport>
+				<reportElement uuid="08a205d9-d0aa-45a2-9cda-c24daf91d308" x="20" y="23" width="532" height="16"/>
+				<subreportParameter name="FKTERCEROFUNCIONARIO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROFUNCIONARIO}.substring(0,$F{CONTRATOS_FKTERCEROFUNCIONARIO}.indexOf(" - "))]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoEstudiosPreviosServicios_subreport5.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<noData>
+		<band splitType="Immediate"/>
+	</noData>
+</jasperReport>

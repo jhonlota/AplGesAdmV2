@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstudiosPreviosServicios_subreport2" language="groovy" pageWidth="532" pageHeight="752" columnWidth="532" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="fa9e9fe2-4f6f-40aa-affb-fe08d7ae3e41">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FKCONTRATO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT SOPORTESCONTRATOS.NUMERO, SOPORTESCONTRATOS.FECHA, SOPORTESCONTRATOS.VALOR, SOPORTESCONTRATOS.TIPO, CONTRATOS.OBJETO
+FROM SOPORTESCONTRATOS, CONTRATOS
+WHERE SOPORTESCONTRATOS.FKCONTRATO = $P{FKCONTRATO}
+AND SOPORTESCONTRATOS.FKCONTRATO = CONTRATOS.CONTRATO
+AND SOPORTESCONTRATOS.TIPO = 'Certificado']]>
+	</queryString>
+	<field name="numero" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="valor" class="java.lang.Long"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="objeto" class="java.lang.String"/>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="0" y="0" width="532" height="16"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA["La Universidad del Valle cuenta con el Certificado de Disponibilidad Presupuestal No. "+
+$F{numero}+" de Fecha "+$F{fecha}.getDate()+"/"+$F{fecha}.getMonth() + 1+"/"+$F{fecha}.getYear() + 1900+"Por valor de ("+$F{valor}+")"+
+"incluyendo IVA para respaldar la contratación de "+$F{objeto}+"<br><br>"+
+"El valor antes relacionado es el resultado del siguiente análisis:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
