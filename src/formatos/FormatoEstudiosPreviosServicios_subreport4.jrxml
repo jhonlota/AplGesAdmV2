@@ -20,7 +20,7 @@ AND CONTRATOS.CONTRATO = $P{CONTRATO}]]>
 				<reportElement uuid="5b932e95-940b-4f25-9423-9db49b8ebb21" stretchType="RelativeToTallestObject" x="0" y="0" width="512" height="16"/>
 				<textElement textAlignment="Justified" markup="html"/>
 				<textFieldExpression><![CDATA["La Universidad del Valle pagará dentro de los "+$F{diastiempopago}+
-" días hábiles siguientes a la presentación de la cuenta de Cobro o factura ante la "+
+" días hábiles siguientes a la presentación de la cuenta de Cobro o factura ante el/la "+
 $F{dependencia}+", previa certificación por parte del supervisor de recibido a satisfacción del servicio y la constancia de estar a paz y salvo en materia de seguridad social y pago de impuestos de orden nacional, departamental y municipal en la cuantía que señale la Ley."]]></textFieldExpression>
 			</textField>
 		</band>

@@ -281,7 +281,7 @@ public class ClaseInformes {
     }
 
     public void formatoEstudiosPrevios(Map parametros) {
-        
+
         try {
             URL url;
             if (ClaseGeneral.contratos.getTipocontrato().equals("1: C1 Prestación de Servicios")
@@ -290,6 +290,7 @@ public class ClaseInformes {
             } else {
                 url = clase.getClass().getResource("FormatoEstudiosPrevios.jasper");
             }
+
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
 
@@ -307,32 +308,37 @@ public class ClaseInformes {
                 }
             } else {
             }
-            
-            url = clase.getClass().getResource("FormatoAnexoEstudiosPrevios.jasper");
-            
-            reporte = (JasperReport) JRLoader.loadObject(url);
-            imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
-            aleatorio = ClaseInformacion.LongAletario();
 
-            JRXlsExporter exporter = new JRXlsExporter();
-
-            exporter.setParameter(JRExporterParameter.JASPER_PRINT, imprimir);
-            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
-            exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, Boolean.TRUE);
-            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
-            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
-            exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "estudiosprevios_" + aleatorio + ".xls");
-            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.FALSE);
-            exporter.exportReport();
-
-            file = new File("estudiosprevios_" + aleatorio + ".xls");
-            if (file.getAbsoluteFile().exists()) {
-                try {
-                    Desktop.getDesktop().open(file);
-                } catch (IOException ex) {
-                    Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            if (ClaseGeneral.contratos.getTipocontrato().equals("1: C1 Prestación de Servicios")
+                    || ClaseGeneral.contratos.getTipocontrato().equals("2: C2 Consultoría")) {
+                //SOLO SE IMPRIME EL ANEXO, PARA LOS QUE SON DIFERENTES DE SERVICIOS
             } else {
+                url = clase.getClass().getResource("FormatoAnexoEstudiosPrevios.jasper");
+
+                reporte = (JasperReport) JRLoader.loadObject(url);
+                imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
+                aleatorio = ClaseInformacion.LongAletario();
+
+                JRXlsExporter exporter = new JRXlsExporter();
+
+                exporter.setParameter(JRExporterParameter.JASPER_PRINT, imprimir);
+                exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
+                exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, Boolean.TRUE);
+                exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
+                exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
+                exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "estudiosprevios_" + aleatorio + ".xls");
+                exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.FALSE);
+                exporter.exportReport();
+
+                file = new File("estudiosprevios_" + aleatorio + ".xls");
+                if (file.getAbsoluteFile().exists()) {
+                    try {
+                        Desktop.getDesktop().open(file);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                }
             }
         } catch (JRException ex) {
             //Logger.getLogger(ClaseInformes.class.getName()).log(Level.SEVERE, null, ex);
@@ -473,7 +479,7 @@ public class ClaseInformes {
                 }
             } else {
             }
-            
+
             url = clase.getClass().getResource("FormatoAnexoTRESInvitacion.jasper");
 
             reporte = (JasperReport) JRLoader.loadObject(url);
@@ -500,7 +506,7 @@ public class ClaseInformes {
                 }
             } else {
             }
-            
+
             url = clase.getClass().getResource("FormatoAnexoCUATROInvitacion.jasper");
 
             reporte = (JasperReport) JRLoader.loadObject(url);
