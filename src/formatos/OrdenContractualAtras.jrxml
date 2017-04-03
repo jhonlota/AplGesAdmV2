@@ -203,8 +203,9 @@ WHERE
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Grafico2.jpg"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement uuid="bb089e15-58cb-474a-874c-b42d81551801" x="307" y="956" width="443" height="15"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
+				<reportElement uuid="bb089e15-58cb-474a-874c-b42d81551801" x="306" y="954" width="443" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font isBold="true"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getDate() + " dias, del mes de " +

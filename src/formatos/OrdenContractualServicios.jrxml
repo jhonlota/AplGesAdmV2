@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1032" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0f6891eb-3340-4278-bb54-ee32989b585c">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1132" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0f6891eb-3340-4278-bb54-ee32989b585c">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="363"/>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
@@ -147,36 +147,13 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="992" splitType="Stretch">
+		<band height="1080" splitType="Stretch">
 			<image>
-				<reportElement uuid="46dfd68e-87d3-4fd8-8ecf-5f461a17308c" x="15" y="0" width="723" height="983"/>
+				<reportElement uuid="46dfd68e-87d3-4fd8-8ecf-5f461a17308c" x="0" y="0" width="750" height="1080"/>
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Grafico3.jpg"]]></imageExpression>
 			</image>
-			<textField>
-				<reportElement uuid="b5095d16-d7e1-4740-8fa6-c6cb0b2d466c" x="488" y="35" width="250" height="25"/>
-				<textElement>
-					<font size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></textFieldExpression>
-			</textField>
 			<subreport>
-				<reportElement uuid="cee70d2c-62e8-48d4-ac05-3a08ec4f6f40" x="15" y="403" width="723" height="45"/>
-				<subreportParameter name="ID">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCERO}.substring( 0, $F{CONTRATOS_FKTERCERO}.indexOf( " - " ) )]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport1.jasper"]]></subreportExpression>
-			</subreport>
-			<subreport>
-				<reportElement uuid="b96d0c19-bcb9-427d-8a0c-a3f9b01453c2" x="15" y="358" width="723" height="15"/>
-				<subreportParameter name="ID">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROINTERSUPER}.substring( 0, $F{CONTRATOS_FKTERCEROINTERSUPER}.indexOf( " - " ) )]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport2.jasper"]]></subreportExpression>
-			</subreport>
-			<subreport>
-				<reportElement uuid="e573b032-a083-4da8-a4cf-f42be7349067" x="15" y="550" width="723" height="135">
+				<reportElement uuid="e573b032-a083-4da8-a4cf-f42be7349067" x="22" y="542" width="728" height="98">
 					<printWhenExpression><![CDATA[!$P{isAnexoOrdenContractual}.equals( "ANEXO ORDEN CONTRACTUAL" )]]></printWhenExpression>
 				</reportElement>
 				<subreportParameter name="FKCONTRATO">
@@ -185,129 +162,170 @@ WHERE
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport4.jasper"]]></subreportExpression>
 			</subreport>
-			<textField>
-				<reportElement uuid="23f7d090-ac2f-4216-a69e-b1ec98ee2bf5" x="624" y="82" width="38" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHASUSCRIPCION}.getDate()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="2e1c870a-56fe-416d-9f78-dbf6cf09f471" x="700" y="82" width="38" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHASUSCRIPCION}.getYear() + 1900]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="39b4529f-0bf0-4474-b2a6-d499b43f205d" x="662" y="82" width="38" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHASUSCRIPCION}.getMonth() + 1]]></textFieldExpression>
-			</textField>
-			<subreport>
-				<reportElement uuid="40df4ca4-cfb0-4a02-ac49-c0c1a14b3688" x="90" y="200" width="320" height="35"/>
-				<subreportParameter name="FKCONTRATO">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport5.jasper"]]></subreportExpression>
-			</subreport>
-			<subreport>
-				<reportElement uuid="8e381bb9-dd2a-405f-ba12-cd60e8123faf" x="416" y="200" width="320" height="35"/>
-				<subreportParameter name="FKCONTRATO">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractual_subreport6.jasper"]]></subreportExpression>
-			</subreport>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="2079a04a-b14d-4ed7-b9b5-b1135dfb1c0e" x="25" y="490" width="705" height="36"/>
+				<reportElement uuid="2079a04a-b14d-4ed7-b9b5-b1135dfb1c0e" x="0" y="461" width="750" height="59"/>
 				<textElement>
-					<font size="8"/>
+					<font size="10"/>
+					<paragraph leftIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_OBJETO}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0" isBlankWhenNull="true">
-				<reportElement uuid="1727a24f-337f-4b97-8367-a7179ee32951" x="230" y="741" width="160" height="15"/>
-				<textElement verticalAlignment="Bottom"/>
+				<reportElement uuid="1727a24f-337f-4b97-8367-a7179ee32951" x="182" y="675" width="145" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="15"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_VALOR}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="3ac63f13-66c9-445f-aae6-6e36689c4450" x="430" y="783" width="270" height="20"/>
+				<reportElement uuid="3ac63f13-66c9-445f-aae6-6e36689c4450" x="365" y="705" width="365" height="35"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_PLAZO} + " - " +$F{CONTRATOS_UNIDADDURACION}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement uuid="c9250ea7-cb7b-4cfa-aa0a-e8328cce39d7" x="431" y="839" width="37" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAINICIO}.getDate()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="ee3820df-e49e-4e4d-9db6-8d4e89a29f13" x="507" y="839" width="55" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAINICIO}.getYear() + 1900]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="ffcea5b9-593e-4e29-b2d8-5540011fc498" x="469" y="839" width="37" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAINICIO}.getMonth() + 1]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="cc6ad90f-e133-4098-80d1-f9b1e6566947" x="566" y="839" width="38" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACION}.getDate()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="4a729d13-b484-444d-9968-e8af2c3d8624" x="642" y="839" width="58" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACION}.getYear() + 1900]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="1c43a680-0d2e-498f-95a6-d110f394dc6a" x="606" y="839" width="36" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACION}.getMonth() + 1]]></textFieldExpression>
-			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="181c4d0c-a212-4016-bfb4-4ed0f013031f" x="151" y="840" width="239" height="30"/>
+				<reportElement uuid="181c4d0c-a212-4016-bfb4-4ed0f013031f" x="10" y="760" width="317" height="26"/>
 				<textElement>
 					<font size="8" isStrikeThrough="false"/>
+					<paragraph leftIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_FORMAPAGO} + $F{FORMADEPAGOCONTRATOS}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement uuid="2079a04a-b14d-4ed7-b9b5-b1135dfb1c0e" x="21" y="708" width="709" height="30"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_OBSERVACIONES}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd MMMMM yyyy">
-				<reportElement uuid="b61551a3-8769-4334-ad84-de3b115736f8" x="562" y="269" width="176" height="15"/>
-				<textElement>
-					<font size="11" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAADJUDICACION}]]></textFieldExpression>
-			</textField>
-			<subreport>
-				<reportElement uuid="cedb5257-7413-4064-a696-86470cb7f9dd" x="16" y="129" width="720" height="63"/>
-				<subreportParameter name="FKCONTRATO">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport3.jasper"]]></subreportExpression>
-			</subreport>
 			<textField>
-				<reportElement uuid="37151ec1-2e80-47c9-ac27-5d3e600d97fb" x="38" y="550" width="693" height="15">
+				<reportElement uuid="37151ec1-2e80-47c9-ac27-5d3e600d97fb" x="22" y="542" width="728" height="12">
 					<printWhenExpression><![CDATA[$P{isAnexoOrdenContractual}.equals( "ANEXO ORDEN CONTRACTUAL" )]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
+					<font size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{isAnexoOrdenContractual}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="cb5631e5-beba-4f1d-88d9-49300c5a9568" x="0" y="311" width="753" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement uuid="cb5631e5-beba-4f1d-88d9-49300c5a9568" x="0" y="327" width="360" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
+					<paragraph leftIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FACULTAD}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement uuid="fe6d72a6-0121-4acd-b466-feb904af202c" x="700" y="65" width="50" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHASUSCRIPCION}.getYear() + 1900]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="cedb5257-7413-4064-a696-86470cb7f9dd" x="0" y="105" width="750" height="54"/>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport8.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement uuid="01330e10-895b-475f-a46a-639638f3f27d" x="665" y="65" width="28" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHASUSCRIPCION}.getMonth() + 1]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="cedb5257-7413-4064-a696-86470cb7f9dd" x="0" y="165" width="750" height="78"/>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport5.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement uuid="943d961d-224a-45b2-b9e1-74b780a31866" x="635" y="65" width="28" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHASUSCRIPCION}.getDate()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="17b3f4d9-ddb5-40f7-a189-6f8cd6f71b55" x="540" y="30" width="200" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="9a2d1e94-a91d-4c12-9d11-4eecf90e8cc0" x="0" y="364" width="750" height="70"/>
+				<subreportParameter name="ID">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCERO}.substring( 0, $F{CONTRATOS_FKTERCERO}.indexOf( " - " ) )]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport11.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="cffdeb9e-8bdf-4105-b4a9-e803b3c5c25e" x="360" y="327" width="390" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_NOMBREPROYECTO}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="502" y="817" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Calidad del servicio"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="0" y="817" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Buen manejo del anticipo"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="255" y="817" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Cumplimiento"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="0" y="887" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Calidad y correcto funcionamiento de los equipos suministrados"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="255" y="887" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Responsabilidad civil extracontractual"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport9.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="2b599f26-e54e-4b52-8b95-a6569116f1b2" x="502" y="887" width="255" height="50"/>
+				<subreportParameter name="TIPOPOLIZA">
+					<subreportParameterExpression><![CDATA["Salarios, prestaciones sociales e indemnizaciones"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServicios_subreport9.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
 	<columnFooter>

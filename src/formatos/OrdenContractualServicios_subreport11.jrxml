@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OrdenContractual_subreport1" language="groovy" pageWidth="723" pageHeight="70" columnWidth="723" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1812e7d3-fe53-4e0b-8fce-8722ff45da9a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     TERCEROS.ID AS "TERCEROS_ID",
+     TERCEROS.CARGO AS "TERCEROS_CARGO",
+     TERCEROS.DEPENDENCIA AS "TERCEROS_DEPENDENCIA",
+     TERCEROS.DIRECCION AS "TERCEROS_DIRECCION",
+     TERCEROS.EDIFICIO AS "TERCEROS_EDIFICIO",
+     TERCEROS.EMAIL AS "TERCEROS_EMAIL",
+     TERCEROS.NOMBRE AS "TERCEROS_NOMBRE",
+     TERCEROS.OFICINA AS "TERCEROS_OFICINA",
+     TERCEROS.PROFESION AS "TERCEROS_PROFESION",
+     TERCEROS.REGIMEN AS "TERCEROS_REGIMEN",
+     TERCEROS.TELEFONO AS "TERCEROS_TELEFONO",
+     TERCEROS.TIPOID AS "TERCEROS_TIPOID",
+     TERCEROS.NOMBREBANCO AS "TERCEROS_NOMBREBANCO",
+     TERCEROS.NUMEROCUENTA AS "TERCEROS_NUMEROCUENTA",
+     TERCEROS.TIPOCUENTA AS "TERCEROS_TIPOCUENTA"
+FROM
+     TERCEROS
+WHERE
+     TERCEROS.ID = $P{ID}]]>
+	</queryString>
+	<field name="TERCEROS_ID" class="java.lang.String"/>
+	<field name="TERCEROS_CARGO" class="java.lang.String"/>
+	<field name="TERCEROS_DEPENDENCIA" class="java.lang.String"/>
+	<field name="TERCEROS_DIRECCION" class="java.lang.String"/>
+	<field name="TERCEROS_EDIFICIO" class="java.lang.String"/>
+	<field name="TERCEROS_EMAIL" class="java.lang.String"/>
+	<field name="TERCEROS_NOMBRE" class="java.lang.String"/>
+	<field name="TERCEROS_OFICINA" class="java.lang.String"/>
+	<field name="TERCEROS_PROFESION" class="java.lang.String"/>
+	<field name="TERCEROS_REGIMEN" class="java.lang.String"/>
+	<field name="TERCEROS_TELEFONO" class="java.lang.String"/>
+	<field name="TERCEROS_TIPOID" class="java.lang.String"/>
+	<field name="TERCEROS_NOMBREBANCO" class="java.lang.String"/>
+	<field name="TERCEROS_NUMEROCUENTA" class="java.lang.String"/>
+	<field name="TERCEROS_TIPOCUENTA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="02dfa370-d343-4ac4-a177-b65c9daf82e3" mode="Transparent" x="0" y="0" width="420" height="27"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="57b5cef7-b207-4c66-b92c-1330058bc0fd" mode="Transparent" x="420" y="0" width="303" height="27"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f1c8b965-1e4b-48c3-a485-649267b7a6aa" mode="Transparent" x="0" y="27" width="223" height="27"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_ID}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="2cc11521-cf3a-4f7c-9324-39ccd79cb539" mode="Transparent" x="223" y="27" width="245" height="27"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_REGIMEN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f370d133-5666-4396-ab6f-db7182d21676" mode="Transparent" x="468" y="27" width="144" height="27"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="bb551117-769e-4739-8639-c93ee31239ec" mode="Transparent" x="612" y="27" width="111" height="27"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f1c8b965-1e4b-48c3-a485-649267b7a6aa" mode="Transparent" x="375" y="54" width="348" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TERCEROS_EMAIL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

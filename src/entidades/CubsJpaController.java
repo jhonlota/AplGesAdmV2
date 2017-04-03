@@ -162,7 +162,7 @@ public class CubsJpaController {
         int count = 0;
 
         try {
-            datos.query("SELECT COUNT(DESCRIPCION) AS COUNT FROM CUBS WHERE FKCONTRATO = '" + fkcontrato + "' GROUP BY DESCRIPCION");
+            datos.query("SELECT FKCONTRATO, COUNT(DESCRIPCION) AS COUNT FROM CUBS WHERE FKCONTRATO = '" + fkcontrato + "' GROUP BY FKCONTRATO");
             while (ClaseBaseDatos.resultado.next()) {
                 count = ClaseBaseDatos.resultado.getInt("COUNT");
                 

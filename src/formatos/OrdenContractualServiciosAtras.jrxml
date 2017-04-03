@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1032" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8f60c28-7f80-4e3c-8260-65452542a335">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="793" pageHeight="1132" columnWidth="753" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8f60c28-7f80-4e3c-8260-65452542a335">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="720"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
@@ -11,121 +11,179 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     CONTRATOS.CONTRATO AS "CONTRATOS_CONTRATO",
-     CONTRATOS.ANTICIPIO AS "CONTRATOS_ANTICIPIO",
-     CONTRATOS.CANTIDADESPRECIOSVARIABLES AS "CONTRATOS_CANTIDADESPRECIOSVAR",
-     CONTRATOS.CAUSAL AS "CONTRATOS_CAUSAL",
-     CONTRATOS.CODIGOACTIVIDAD AS "CONTRATOS_CODIGOACTIVIDAD",
-     CONTRATOS.CODIGODEPARTAMENTO AS "CONTRATOS_CODIGODEPARTAMENTO",
-     CONTRATOS.CODIGOMODALIDAD AS "CONTRATOS_CODIGOMODALIDAD",
-     CONTRATOS.CODIGOMUNICIPIO AS "CONTRATOS_CODIGOMUNICIPIO",
-     CONTRATOS.CODIGOPROYECTO AS "CONTRATOS_CODIGOPROYECTO",
-     CONTRATOS.CODIGOTIPO AS "CONTRATOS_CODIGOTIPO",
-     CONTRATOS.DOCUMENTOTERMINACION AS "CONTRATOS_DOCUMENTOTERMINACION",
-     CONTRATOS.FECHAACTAAVANCE AS "CONTRATOS_FECHAACTAAVANCE",
-     CONTRATOS.FECHAADJUDICACION AS "CONTRATOS_FECHAADJUDICACION",
-     CONTRATOS.FECHACIERRE AS "CONTRATOS_FECHACIERRE",
-     CONTRATOS.FECHAFINALACTIVIDAD AS "CONTRATOS_FECHAFINALACTIVIDAD",
-     CONTRATOS.FECHAINICIALACTIVIDAD AS "CONTRATOS_FECHAINICIALACTIVIDA",
-     CONTRATOS.FECHAINICIO AS "CONTRATOS_FECHAINICIO",
-     CONTRATOS.FECHALEGALIZACION AS "CONTRATOS_FECHALEGALIZACION",
-     CONTRATOS.FECHAPERFECCIONAMIENTO AS "CONTRATOS_FECHAPERFECCIONAMIEN",
-     CONTRATOS.FECHASUSCRIPCION AS "CONTRATOS_FECHASUSCRIPCION",
-     CONTRATOS.FECHATERMINACION AS "CONTRATOS_FECHATERMINACION",
-     CONTRATOS.FKTERCERO AS "CONTRATOS_FKTERCERO",
-     CONTRATOS.FKTERCEROINTERSUPER AS "CONTRATOS_FKTERCEROINTERSUPER",
-     CONTRATOS.FKTERCEROORDENADORGASTO AS "CONTRATOS_FKTERCEROORDENADORGA",
-     CONTRATOS.INVERSION AS "CONTRATOS_INVERSION",
-     CONTRATOS.LEY80 AS "CONTRATOS_LEY80",
-     CONTRATOS.MODALIDAD AS "CONTRATOS_MODALIDAD",
-     CONTRATOS.MONEDAPAGO AS "CONTRATOS_MONEDAPAGO",
-     CONTRATOS.OBSERVACIONES AS "CONTRATOS_OBSERVACIONES",
-     CONTRATOS.OBJETO AS "CONTRATOS_OBJETO",
-     CONTRATOS.PLAZO AS "CONTRATOS_PLAZO",
-     CONTRATOS.PORCENTAJEACTIVIDAD AS "CONTRATOS_PORCENTAJEACTIVIDAD",
-     CONTRATOS.PORCENTAJEAVANCE AS "CONTRATOS_PORCENTAJEAVANCE",
-     CONTRATOS.RESOLUCIONADJUDICACION AS "CONTRATOS_RESOLUCIONADJUDICACI",
-     CONTRATOS.TASACAMBIO AS "CONTRATOS_TASACAMBIO",
-     CONTRATOS.TIPOACTAAVANCE AS "CONTRATOS_TIPOACTAAVANCE",
-     CONTRATOS.TIPOCONTRATO AS "CONTRATOS_TIPOCONTRATO",
-     CONTRATOS.TIPOINTERVENTORIA AS "CONTRATOS_TIPOINTERVENTORIA",
-     CONTRATOS.TIPOTERMINACION AS "CONTRATOS_TIPOTERMINACION",
-     CONTRATOS.TIPOVINCULACIONINTERSUPER AS "CONTRATOS_TIPOVINCULACIONINTER",
-     CONTRATOS.UNIDADDURACION AS "CONTRATOS_UNIDADDURACION",
-     CONTRATOS.VALOR AS "CONTRATOS_VALOR",
-     CONTRATOS.VALORADMINISTRACION AS "CONTRATOS_VALORADMINISTRACION",
-     CONTRATOS.VALORIMPREVISTO AS "CONTRATOS_VALORIMPREVISTO",
-     CONTRATOS.VALORIVAOBRA AS "CONTRATOS_VALORIVAOBRA",
-     CONTRATOS.VALORMONEDAEXTRANJERA AS "CONTRATOS_VALORMONEDAEXTRANJER",
-     CONTRATOS.VALORSALDO AS "CONTRATOS_VALORSALDO",
-     CONTRATOS.VALORUTILIDAD AS "CONTRATOS_VALORUTILIDAD",
-     CONTRATOS.NOMBREPROYECTO AS "CONTRATOS_NOMBREPROYECTO",
-     CONTRATOS.FORMAPAGO AS "CONTRATOS_FORMAPAGO",
-     CONTRATOS.TIEMPOGARANTIA AS "CONTRATOS_TIEMPOGARANTIA",
-     CONTRATOS.CONTRATOVIGENTE AS "CONTRATOS_CONTRATOVIGENTE",
-     CONTRATOS.FECHATERMINACIONVIGENTE AS "CONTRATOS_FECHATERMINACIONVIGE",
-     CONTRATOS.FKTERCEROFUNCIONARIO AS "CONTRATOS_FKTERCEROFUNCIONARIO",
-     CONTRATOS.VALORSINIVA AS "CONTRATOS_VALORSINIVA"
+CONTRATOS.CONTRATO AS "CONTRATOS_CONTRATO",
+CONTRATOS.ANTICIPIO AS "CONTRATOS_ANTICIPIO",
+CONTRATOS.CANTIDADESPRECIOSVARIABLES AS "CONTRATOS_CANTIDADESPRECIOSVARIABLES",
+CONTRATOS.CAUSAL AS "CONTRATOS_CAUSAL",
+CONTRATOS.CODIGOACTIVIDAD AS "CONTRATOS_CODIGOACTIVIDAD",
+CONTRATOS.CODIGODEPARTAMENTO AS "CONTRATOS_CODIGODEPARTAMENTO",
+CONTRATOS.CODIGOMODALIDAD AS "CONTRATOS_CODIGOMODALIDAD",
+CONTRATOS.CODIGOMUNICIPIO AS "CONTRATOS_CODIGOMUNICIPIO",
+CONTRATOS.CODIGOPROYECTO AS "CONTRATOS_CODIGOPROYECTO",
+CONTRATOS.CODIGOTIPO AS "CONTRATOS_CODIGOTIPO",
+CONTRATOS.DOCUMENTOTERMINACION AS "CONTRATOS_DOCUMENTOTERMINACION",
+CONTRATOS.FECHAACTAAVANCE AS "CONTRATOS_FECHAACTAAVANCE",
+CONTRATOS.FECHAADJUDICACION AS "CONTRATOS_FECHAADJUDICACION",
+CONTRATOS.FECHACIERRE AS "CONTRATOS_FECHACIERRE",
+CONTRATOS.FECHAFINALACTIVIDAD AS "CONTRATOS_FECHAFINALACTIVIDAD",
+CONTRATOS.FECHAINICIALACTIVIDAD AS "CONTRATOS_FECHAINICIALACTIVIDAD",
+CONTRATOS.FECHAINICIO AS "CONTRATOS_FECHAINICIO",
+CONTRATOS.FECHALEGALIZACION AS "CONTRATOS_FECHALEGALIZACION",
+CONTRATOS.FECHAPERFECCIONAMIENTO AS "CONTRATOS_FECHAPERFECCIONAMIENTO",
+CONTRATOS.FECHASUSCRIPCION AS "CONTRATOS_FECHASUSCRIPCION",
+CONTRATOS.FECHATERMINACION AS "CONTRATOS_FECHATERMINACION",
+CONTRATOS.FKTERCERO AS "CONTRATOS_FKTERCERO",
+CONTRATOS.FKTERCEROINTERSUPER AS "CONTRATOS_FKTERCEROINTERSUPER",
+CONTRATOS.FKTERCEROORDENADORGASTO AS "CONTRATOS_FKTERCEROORDENADORGASTO",
+CONTRATOS.INVERSION AS "CONTRATOS_INVERSION",
+CONTRATOS.LEY80 AS "CONTRATOS_LEY80",
+CONTRATOS.MODALIDAD AS "CONTRATOS_MODALIDAD",
+CONTRATOS.MONEDAPAGO AS "CONTRATOS_MONEDAPAGO",
+CONTRATOS.OBSERVACIONES AS "CONTRATOS_OBSERVACIONES",
+CONTRATOS.OBJETO AS "CONTRATOS_OBJETO",
+CONTRATOS.PLAZO AS "CONTRATOS_PLAZO",
+CONTRATOS.PORCENTAJEACTIVIDAD AS "CONTRATOS_PORCENTAJEACTIVIDAD",
+CONTRATOS.PORCENTAJEAVANCE AS "CONTRATOS_PORCENTAJEAVANCE",
+CONTRATOS.RESOLUCIONADJUDICACION AS "CONTRATOS_RESOLUCIONADJUDICACION",
+CONTRATOS.TASACAMBIO AS "CONTRATOS_TASACAMBIO",
+CONTRATOS.TIPOACTAAVANCE AS "CONTRATOS_TIPOACTAAVANCE",
+CONTRATOS.TIPOCONTRATO AS "CONTRATOS_TIPOCONTRATO",
+CONTRATOS.TIPOINTERVENTORIA AS "CONTRATOS_TIPOINTERVENTORIA",
+CONTRATOS.TIPOTERMINACION AS "CONTRATOS_TIPOTERMINACION",
+CONTRATOS.TIPOVINCULACIONINTERSUPER AS "CONTRATOS_TIPOVINCULACIONINTERSUPER",
+CONTRATOS.UNIDADDURACION AS "CONTRATOS_UNIDADDURACION",
+CONTRATOS.VALOR AS "CONTRATOS_VALOR",
+CONTRATOS.VALORADMINISTRACION AS "CONTRATOS_VALORADMINISTRACION",
+CONTRATOS.VALORIMPREVISTO AS "CONTRATOS_VALORIMPREVISTO",
+CONTRATOS.VALORIVAOBRA AS "CONTRATOS_VALORIVAOBRA",
+CONTRATOS.VALORMONEDAEXTRANJERA AS "CONTRATOS_VALORMONEDAEXTRANJERA",
+CONTRATOS.VALORSALDO AS "CONTRATOS_VALORSALDO",
+CONTRATOS.VALORUTILIDAD AS "CONTRATOS_VALORUTILIDAD",
+CONTRATOS.NOMBREPROYECTO AS "CONTRATOS_NOMBREPROYECTO",
+CONTRATOS.FORMAPAGO AS "CONTRATOS_FORMAPAGO",
+CONTRATOS.TIEMPOGARANTIA AS "CONTRATOS_TIEMPOGARANTIA",
+CONTRATOS.CONTRATOVIGENTE AS "CONTRATOS_CONTRATOVIGENTE",
+CONTRATOS.FECHATERMINACIONVIGENTE AS "CONTRATOS_FECHATERMINACIONVIGENTE",
+CONTRATOS.FKTERCEROFUNCIONARIO AS "CONTRATOS_FKTERCEROFUNCIONARIO",
+CONTRATOS.VALORSINIVA AS "CONTRATOS_VALORSINIVA",
+CONTRATOS.SECOPCODIGOPROCESO AS "CONTRATOS_SECOPCODIGOPROCESO",
+CONTRATOS.SECOPNUMEROPROCESO AS "CONTRATOS_SECOPNUMEROPROCESO",
+CONTRATOS.SECOPNUMEROCONSTANCIA AS "CONTRATOS_SECOPNUMEROCONSTANCIA",
+CONTRATOS.SECOPFECHAPUBLICACION AS "CONTRATOS_SECOPFECHAPUBLICACION",
+CONTRATOS.ALCANCE AS "CONTRATOS_ALCANCE",
+CONTRATOS.ANALISISRIESGOS AS "CONTRATOS_ANALISISRIESGOS",
+CONTRATOS.CONDICIONESENTREGA AS "CONTRATOS_CONDICIONESENTREGA",
+CONTRATOS.DIASTIEMPOPAGO AS "CONTRATOS_DIASTIEMPOPAGO",
+CONTRATOS.ESTIMACION AS "CONTRATOS_ESTIMACION",
+CONTRATOS.FACULTAD AS "CONTRATOS_FACULTAD",
+CONTRATOS.FECHAACTAINICIO AS "CONTRATOS_FECHAACTAINICIO",
+CONTRATOS.FECHAENTREGA AS "CONTRATOS_FECHAENTREGA",
+CONTRATOS.FECHAFICHATECNICA AS "CONTRATOS_FECHAFICHATECNICA",
+CONTRATOS.FECHAINVITACION AS "CONTRATOS_FECHAINVITACION",
+CONTRATOS.LUGAREJECUCION AS "CONTRATOS_LUGAREJECUCION",
+CONTRATOS.MODALIDADARTICULO AS "CONTRATOS_MODALIDADARTICULO",
+CONTRATOS.MODALIDADFUNDAMENTO AS "CONTRATOS_MODALIDADFUNDAMENTO",
+CONTRATOS.NECESIDAD AS "CONTRATOS_NECESIDAD",
+CONTRATOS.OBJETOESPECIFICO AS "CONTRATOS_OBJETOESPECIFICO",
+CONTRATOS.OBLIGACIONESCONTRATISTA AS "CONTRATOS_OBLIGACIONESCONTRATISTA",
+CONTRATOS.OBLIGACIONESUNIVERSIDAD AS "CONTRATOS_OBLIGACIONESUNIVERSIDAD",
+CONTRATOS.OBSERVACIONESACTAINICIO AS "CONTRATOS_OBSERVACIONESACTAINICIO",
+CONTRATOS.PERFILREQUERIDO AS "CONTRATOS_PERFILREQUERIDO",
+CONTRATOS.PLANADQUISICION AS "CONTRATOS_PLANADQUISICION",
+CONTRATOS.REQUERIMIENTOSTECNICOS AS "CONTRATOS_REQUERIMIENTOSTECNICOS",
+CONTRATOS.TIPOTIEMPOPAGO AS "CONTRATOS_TIPOTIEMPOPAGO",
+CONTRATOS.TIPOESTIMACION AS "CONTRATOS_TIPOESTIMACION",
+CONTRATOS.TIPOFINANCIACION AS "CONTRATOS_TIPOFINANCIACION",
+CONTRATOS.VALORLETRAS AS "CONTRATOS_VALORLETRAS"
 FROM
      CONTRATOS
 WHERE
      CONTRATOS.CONTRATO = $P{CONTRATO}]]>
 	</queryString>
-	<field name="CONTRATOS_CONTRATO" class="java.lang.String"/>
-	<field name="CONTRATOS_ANTICIPIO" class="java.lang.String"/>
-	<field name="CONTRATOS_CANTIDADESPRECIOSVAR" class="java.lang.Long"/>
-	<field name="CONTRATOS_CAUSAL" class="java.lang.String"/>
-	<field name="CONTRATOS_CODIGOACTIVIDAD" class="java.lang.String"/>
-	<field name="CONTRATOS_CODIGODEPARTAMENTO" class="java.lang.String"/>
-	<field name="CONTRATOS_CODIGOMODALIDAD" class="java.lang.String"/>
-	<field name="CONTRATOS_CODIGOMUNICIPIO" class="java.lang.String"/>
-	<field name="CONTRATOS_CODIGOPROYECTO" class="java.lang.String"/>
-	<field name="CONTRATOS_CODIGOTIPO" class="java.lang.String"/>
-	<field name="CONTRATOS_DOCUMENTOTERMINACION" class="java.lang.String"/>
-	<field name="CONTRATOS_FECHAACTAAVANCE" class="java.sql.Date"/>
-	<field name="CONTRATOS_FECHAADJUDICACION" class="java.sql.Date"/>
-	<field name="CONTRATOS_FECHACIERRE" class="java.sql.Date"/>
+	<field name="CONTRATOS_FKTERCEROORDENADORGASTO" class="java.lang.String"/>
 	<field name="CONTRATOS_FECHAFINALACTIVIDAD" class="java.sql.Date"/>
-	<field name="CONTRATOS_FECHAINICIALACTIVIDA" class="java.sql.Date"/>
-	<field name="CONTRATOS_FECHAINICIO" class="java.sql.Date"/>
-	<field name="CONTRATOS_FECHALEGALIZACION" class="java.sql.Date"/>
-	<field name="CONTRATOS_FECHAPERFECCIONAMIEN" class="java.sql.Date"/>
-	<field name="CONTRATOS_FECHASUSCRIPCION" class="java.sql.Date"/>
-	<field name="CONTRATOS_FECHATERMINACION" class="java.sql.Date"/>
-	<field name="CONTRATOS_FKTERCERO" class="java.lang.String"/>
-	<field name="CONTRATOS_FKTERCEROINTERSUPER" class="java.lang.String"/>
-	<field name="CONTRATOS_FKTERCEROORDENADORGA" class="java.lang.String"/>
-	<field name="CONTRATOS_INVERSION" class="java.lang.String"/>
-	<field name="CONTRATOS_LEY80" class="java.lang.Long"/>
-	<field name="CONTRATOS_MODALIDAD" class="java.lang.String"/>
-	<field name="CONTRATOS_MONEDAPAGO" class="java.lang.String"/>
-	<field name="CONTRATOS_OBSERVACIONES" class="java.lang.String"/>
 	<field name="CONTRATOS_OBJETO" class="java.lang.String"/>
-	<field name="CONTRATOS_PLAZO" class="java.lang.String"/>
-	<field name="CONTRATOS_PORCENTAJEACTIVIDAD" class="java.lang.String"/>
-	<field name="CONTRATOS_PORCENTAJEAVANCE" class="java.lang.String"/>
-	<field name="CONTRATOS_RESOLUCIONADJUDICACI" class="java.lang.String"/>
-	<field name="CONTRATOS_TASACAMBIO" class="java.lang.Long"/>
+	<field name="CONTRATOS_MODALIDADFUNDAMENTO" class="java.lang.String"/>
 	<field name="CONTRATOS_TIPOACTAAVANCE" class="java.lang.String"/>
-	<field name="CONTRATOS_TIPOCONTRATO" class="java.lang.String"/>
-	<field name="CONTRATOS_TIPOINTERVENTORIA" class="java.lang.String"/>
-	<field name="CONTRATOS_TIPOTERMINACION" class="java.lang.String"/>
-	<field name="CONTRATOS_TIPOVINCULACIONINTER" class="java.lang.String"/>
-	<field name="CONTRATOS_UNIDADDURACION" class="java.lang.String"/>
-	<field name="CONTRATOS_VALOR" class="java.lang.Long"/>
-	<field name="CONTRATOS_VALORADMINISTRACION" class="java.lang.Long"/>
-	<field name="CONTRATOS_VALORIMPREVISTO" class="java.lang.Long"/>
-	<field name="CONTRATOS_VALORIVAOBRA" class="java.lang.Long"/>
-	<field name="CONTRATOS_VALORMONEDAEXTRANJER" class="java.lang.Long"/>
-	<field name="CONTRATOS_VALORSALDO" class="java.lang.Long"/>
-	<field name="CONTRATOS_VALORUTILIDAD" class="java.lang.Long"/>
-	<field name="CONTRATOS_NOMBREPROYECTO" class="java.lang.String"/>
-	<field name="CONTRATOS_FORMAPAGO" class="java.lang.String"/>
-	<field name="CONTRATOS_TIEMPOGARANTIA" class="java.lang.String"/>
-	<field name="CONTRATOS_CONTRATOVIGENTE" class="java.lang.String"/>
-	<field name="CONTRATOS_FECHATERMINACIONVIGE" class="java.sql.Date"/>
-	<field name="CONTRATOS_FKTERCEROFUNCIONARIO" class="java.lang.String"/>
+	<field name="CONTRATOS_CONDICIONESENTREGA" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHAINICIO" class="java.sql.Date"/>
+	<field name="CONTRATOS_ESTIMACION" class="java.lang.String"/>
+	<field name="CONTRATOS_OBLIGACIONESUNIVERSIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_ANALISISRIESGOS" class="java.lang.String"/>
 	<field name="CONTRATOS_VALORSINIVA" class="java.lang.Long"/>
+	<field name="CONTRATOS_CODIGOMODALIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHATERMINACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_VALOR" class="java.lang.Long"/>
+	<field name="CONTRATOS_NECESIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHATERMINACIONVIGENTE" class="java.sql.Date"/>
+	<field name="CONTRATOS_OBSERVACIONES" class="java.lang.String"/>
+	<field name="CONTRATOS_SECOPNUMEROCONSTANCIA" class="java.lang.String"/>
+	<field name="CONTRATOS_CONTRATO" class="java.lang.String"/>
+	<field name="CONTRATOS_SECOPFECHAPUBLICACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_MONEDAPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORIMPREVISTO" class="java.lang.Long"/>
+	<field name="CONTRATOS_FKTERCEROFUNCIONARIO" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHAFICHATECNICA" class="java.sql.Date"/>
+	<field name="CONTRATOS_DIASTIEMPOPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_PORCENTAJEAVANCE" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOCONTRATO" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGODEPARTAMENTO" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOINTERVENTORIA" class="java.lang.String"/>
+	<field name="CONTRATOS_PORCENTAJEACTIVIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOTIPO" class="java.lang.String"/>
+	<field name="CONTRATOS_PLAZO" class="java.lang.String"/>
+	<field name="CONTRATOS_MODALIDAD" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHAACTAAVANCE" class="java.sql.Date"/>
+	<field name="CONTRATOS_FACULTAD" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORMONEDAEXTRANJERA" class="java.lang.Long"/>
+	<field name="CONTRATOS_FECHAPERFECCIONAMIENTO" class="java.sql.Date"/>
+	<field name="CONTRATOS_FORMAPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHACIERRE" class="java.sql.Date"/>
+	<field name="CONTRATOS_FECHAENTREGA" class="java.sql.Date"/>
+	<field name="CONTRATOS_FKTERCERO" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHAINVITACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_CANTIDADESPRECIOSVARIABLES" class="java.lang.Long"/>
+	<field name="CONTRATOS_FECHAINICIALACTIVIDAD" class="java.sql.Date"/>
+	<field name="CONTRATOS_REQUERIMIENTOSTECNICOS" class="java.lang.String"/>
+	<field name="CONTRATOS_NOMBREPROYECTO" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOTIEMPOPAGO" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORSALDO" class="java.lang.Long"/>
+	<field name="CONTRATOS_CODIGOMUNICIPIO" class="java.lang.String"/>
+	<field name="CONTRATOS_TASACAMBIO" class="java.lang.Long"/>
+	<field name="CONTRATOS_CAUSAL" class="java.lang.String"/>
+	<field name="CONTRATOS_UNIDADDURACION" class="java.lang.String"/>
+	<field name="CONTRATOS_INVERSION" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHALEGALIZACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_CONTRATOVIGENTE" class="java.lang.String"/>
+	<field name="CONTRATOS_RESOLUCIONADJUDICACION" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORUTILIDAD" class="java.lang.Long"/>
+	<field name="CONTRATOS_ALCANCE" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORLETRAS" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOESTIMACION" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORADMINISTRACION" class="java.lang.Long"/>
+	<field name="CONTRATOS_TIPOVINCULACIONINTERSUPER" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHAACTAINICIO" class="java.sql.Date"/>
+	<field name="CONTRATOS_PLANADQUISICION" class="java.lang.String"/>
+	<field name="CONTRATOS_OBSERVACIONESACTAINICIO" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHASUSCRIPCION" class="java.sql.Date"/>
+	<field name="CONTRATOS_TIPOFINANCIACION" class="java.lang.String"/>
+	<field name="CONTRATOS_CODIGOPROYECTO" class="java.lang.String"/>
+	<field name="CONTRATOS_MODALIDADARTICULO" class="java.lang.String"/>
+	<field name="CONTRATOS_OBLIGACIONESCONTRATISTA" class="java.lang.String"/>
+	<field name="CONTRATOS_LUGAREJECUCION" class="java.lang.String"/>
+	<field name="CONTRATOS_LEY80" class="java.lang.Long"/>
+	<field name="CONTRATOS_PERFILREQUERIDO" class="java.lang.String"/>
+	<field name="CONTRATOS_TIEMPOGARANTIA" class="java.lang.String"/>
+	<field name="CONTRATOS_TIPOTERMINACION" class="java.lang.String"/>
+	<field name="CONTRATOS_VALORIVAOBRA" class="java.lang.Long"/>
+	<field name="CONTRATOS_OBJETOESPECIFICO" class="java.lang.String"/>
+	<field name="CONTRATOS_SECOPNUMEROPROCESO" class="java.lang.String"/>
+	<field name="CONTRATOS_ANTICIPIO" class="java.lang.String"/>
+	<field name="CONTRATOS_SECOPCODIGOPROCESO" class="java.lang.String"/>
+	<field name="CONTRATOS_FKTERCEROINTERSUPER" class="java.lang.String"/>
+	<field name="CONTRATOS_DOCUMENTOTERMINACION" class="java.lang.String"/>
+	<field name="CONTRATOS_FECHAADJUDICACION" class="java.sql.Date"/>
+	<field name="CONTRATOS_CODIGOACTIVIDAD" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -139,43 +197,28 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="992" splitType="Stretch">
+		<band height="1086" splitType="Stretch">
 			<image>
-				<reportElement uuid="9f070cb8-2e97-4034-8d64-563aad59379c" x="15" y="0" width="723" height="985"/>
+				<reportElement uuid="9f070cb8-2e97-4034-8d64-563aad59379c" x="0" y="0" width="750" height="1086"/>
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Grafico4.jpg"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement uuid="43fc2a97-50a0-4077-bbf0-efc204a0b33c" x="402" y="728" width="35" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Top"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAINICIO}.getDate()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="80b876ee-0529-4880-87d3-c862955903d5" x="681" y="728" width="57" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Top"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAINICIO}.getYear() + 1900]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="238558d4-d893-4891-863b-1ade78c2d426" x="525" y="728" width="98" height="15"/>
-				<textElement textAlignment="Center" verticalAlignment="Top"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAINICIO}.getMonth() + 1]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="3a09c883-6abd-40ee-91f8-dd14e6bb2d62" x="500" y="35" width="253" height="25"/>
+				<reportElement uuid="3a09c883-6abd-40ee-91f8-dd14e6bb2d62" x="500" y="28" width="253" height="25"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement uuid="ae6469f8-a8bc-4bf4-83e3-3a4ad37ca1d4" x="75" y="786" width="240" height="50"/>
+				<reportElement uuid="ae6469f8-a8bc-4bf4-83e3-3a4ad37ca1d4" x="59" y="984" width="240" height="50"/>
 				<subreportParameter name="ID">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROORDENADORGA}.substring( 0, $F{CONTRATOS_FKTERCEROORDENADORGA}.indexOf( " - " ) )]]></subreportParameterExpression>
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCEROORDENADORGASTO}.substring( 0, $F{CONTRATOS_FKTERCEROORDENADORGASTO}.indexOf( " - " ) )]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServiciosAtras_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
-				<reportElement uuid="c02e24db-216e-4011-a9a1-a71944139784" x="473" y="786" width="240" height="50"/>
+				<reportElement uuid="c02e24db-216e-4011-a9a1-a71944139784" x="465" y="984" width="240" height="50"/>
 				<subreportParameter name="ID">
 					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCERO}.substring( 0, $F{CONTRATOS_FKTERCERO}.indexOf( " - " ) )]]></subreportParameterExpression>
 				</subreportParameter>
@@ -183,31 +226,58 @@ WHERE
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualServiciosAtras_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="90ea6e2d-8c9a-4769-b286-b1ec62a1dedd" x="230" y="679" width="120" height="20"/>
+				<reportElement uuid="90ea6e2d-8c9a-4769-b286-b1ec62a1dedd" x="214" y="890" width="126" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{CONTRATOS_CONTRATOVIGENTE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="11d89348-8778-4b44-bb76-b33f96df1fb3" x="432" y="685" width="35" height="15">
+				<reportElement uuid="11d89348-8778-4b44-bb76-b33f96df1fb3" x="421" y="881" width="35" height="15">
 					<printWhenExpression><![CDATA[( $F{CONTRATOS_CONTRATOVIGENTE}.equals("") ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACIONVIGE}.getDate()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACIONVIGENTE}.getDate()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="b5956052-5034-4fa8-8c28-8fa2cd3da811" x="507" y="685" width="55" height="15">
+				<reportElement uuid="b5956052-5034-4fa8-8c28-8fa2cd3da811" x="496" y="881" width="55" height="15">
 					<printWhenExpression><![CDATA[( $F{CONTRATOS_CONTRATOVIGENTE}.equals("") ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACIONVIGE}.getYear() + 1900]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACIONVIGENTE}.getYear() + 1900]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="79b5b62c-9b03-40a0-b965-05ef8f47eb5d" x="470" y="685" width="35" height="15">
+				<reportElement uuid="79b5b62c-9b03-40a0-b965-05ef8f47eb5d" x="459" y="881" width="35" height="15">
 					<printWhenExpression><![CDATA[( $F{CONTRATOS_CONTRATOVIGENTE}.equals("") ? false : true )]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Top"/>
-				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACIONVIGE}.getMonth() + 1]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHATERMINACIONVIGENTE}.getMonth() + 1]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement uuid="bb089e15-58cb-474a-874c-b42d81551801" x="266" y="919" width="484" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getDate() + " dias, del mes de " +
+( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 0? "Enero" :
+    ( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 1? "Febrero" :
+        ( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 2? "Marzo" :
+            ( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 3? "Abril" :
+                ($F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 4? "Mayo" :
+                    ( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 5? "Junio" :
+                        ( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 6? "Julio" :
+                            ( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 7? "Agosto" :
+                                ( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 8? "Septiembre" :
+                                    ( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 9? "Octubre" :
+                                        ( $F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getMonth() == 10? "Noviembre" : "Diciembre"))))))))))) + ", del año " + ($F{CONTRATOS_FECHAPERFECCIONAMIENTO}.getYear() + 1900)]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="3888c03c-7dbd-429c-8eb0-7747a9688232" x="2" y="694" width="750" height="20"/>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "OrdenContractualAtras_subreport2.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
 	<columnFooter>
