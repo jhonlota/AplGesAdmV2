@@ -278,8 +278,15 @@ public class ClaseInformes {
     }
 
     public void formatoEstudiosPrevios(Map parametros) {
+        
         try {
-            URL url = clase.getClass().getResource("FormatoEstudiosPrevios.jasper");
+            URL url;
+            if (ClaseGeneral.contratos.getTipocontrato().equals("1: C1 Prestación de Servicios")
+                    || ClaseGeneral.contratos.getTipocontrato().equals("2: C2 Consultoría")) {
+                url = clase.getClass().getResource("FormatoEstudiosPreviosServicios.jasper");
+            } else {
+                url = clase.getClass().getResource("FormatoEstudiosPrevios.jasper");
+            }
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
