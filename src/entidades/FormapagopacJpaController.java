@@ -49,7 +49,7 @@ public class FormapagopacJpaController {
         } finally {
         }
     }
-    
+
     public void editFkcontrato(String fkcontrato, String id) {
         try {
             datos.update("UPDATE FORMAPAGOPAC SET "
@@ -76,7 +76,7 @@ public class FormapagopacJpaController {
         } finally {
         }
     }
-    
+
     public void destroyFkcontrato(String id) {
         try {
             datos.update("DELETE FROM FORMAPAGOPAC "
@@ -106,9 +106,33 @@ public class FormapagopacJpaController {
         Formapagopac formapagopac = new Formapagopac();
         FormapagopacPK formapagopacPK = new FormapagopacPK();
         try {
-            datos.query("SELECT * FROM FORMAPAGOPAC "
+            datos.query("SELECT CAST( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE (mes, 'Diciembre', '12'), "
+                    + "'Noviembre', '11'), "
+                    + "'Octubre', '10'),  "
+                    + "'Septiembre', '9'), "
+                    + "'Agosto', '8'), "
+                    + "'Julio', '7'), "
+                    + "'Junio', '6'), "
+                    + "'Mayo', '5'), "
+                    + "'Abril', '4'),                                                  "
+                    + "'Marzo', '3'), "
+                    + "'Febrero', '2'), "
+                    + "'Enero', '1') AS INTEGER) AS NUMEROMES, MES, FKCONTRATO, VALOR FROM FORMAPAGOPAC "
                     + "WHERE "
-                    + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%'");//ORDER BY
+                    + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' "
+                    + "ORDER BY NUMEROMES");//ORDER BY
             while (ClaseBaseDatos.resultado.next()) {
                 formapagopac = new Formapagopac();
                 formapagopacPK = new FormapagopacPK();
@@ -130,9 +154,33 @@ public class FormapagopacJpaController {
         Formapagopac formapagopac = new Formapagopac();
         FormapagopacPK formapagopacPK = new FormapagopacPK();
         try {
-            datos.query("SELECT * FROM FORMAPAGOPAC "
+            datos.query("SELECT CAST( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE( "
+                    + "REPLACE (mes, 'Diciembre', '12'), "
+                    + "'Noviembre', '11'), "
+                    + "'Octubre', '10'),  "
+                    + "'Septiembre', '9'), "
+                    + "'Agosto', '8'), "
+                    + "'Julio', '7'), "
+                    + "'Junio', '6'), "
+                    + "'Mayo', '5'), "
+                    + "'Abril', '4'),                                                  "
+                    + "'Marzo', '3'), "
+                    + "'Febrero', '2'), "
+                    + "'Enero', '1') AS INTEGER) AS NUMEROMES, MES, FKCONTRATO, VALOR FROM FORMAPAGOPAC "
                     + "WHERE "
-                    + "FKCONTRATO = '" + fkcontrato + "' ORDER BY MES");//ORDER BY
+                    + "FKCONTRATO = '" + fkcontrato + "' "
+                    + "ORDER BY NUMEROMES");//ORDER BY
             while (ClaseBaseDatos.resultado.next()) {
                 formapagopac = new Formapagopac();
                 formapagopacPK = new FormapagopacPK();

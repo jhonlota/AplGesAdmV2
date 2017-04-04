@@ -10,6 +10,7 @@
  */
 package frame;
 
+import clases.ClaseCorreo;
 import clases.ClaseGeneral;
 import clases.ClaseInformacion;
 import clases.ClaseMensaje;
@@ -23,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Message;
 
 /**
  *
@@ -371,7 +373,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
         botonEnviarEmailFktercero.setPreferredSize(new java.awt.Dimension(25, 24));
         botonEnviarEmailFktercero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEnviarEmailFktercerobotonBuscarFkterceroActionPerformed(evt);
+                botonEnviarEmailFkterceroActionPerformed(evt);
             }
         });
         add(botonEnviarEmailFktercero);
@@ -1659,9 +1661,48 @@ public class PanelComprobantes extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_botonCambiarActionPerformed
 
-    private void botonEnviarEmailFktercerobotonBuscarFkterceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarEmailFktercerobotonBuscarFkterceroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonEnviarEmailFktercerobotonBuscarFkterceroActionPerformed
+    private void botonEnviarEmailFkterceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarEmailFkterceroActionPerformed
+        String contenido = "<html><head></head><body>"
+                + "<table border=\"0\" cellspacing=\"5\" cellpadding=\"0\" style=\"font-family:Verdana, Geneva, sans-serif; font-size:11px\">"
+                + "<tr>"
+                + "<td width=\"550px\" align=\"justify\">"
+                + "<img src=\"" + ClaseGeneral.servidor  + "/AGA/EncabezadoCorreo.png\"/>"
+                + "<p align=\"justify\">"
+                + "<b>Señor(es):</b><br />"
+                + "<b>" + ClaseGeneral.comprobantes.getFktercero() + "</b><br />"
+                + "<b>La Ciudad</b><br />"
+                + "<br />"
+                + "</p>"
+                + "En la fecha <b>" + ClaseGeneral.comprobantes.getFechapago() + "</b> la Universidad del Valle - " + ClaseGeneral.facultad + ", "
+                + "realizara un pago a traves de <b>" + ClaseGeneral.comprobantes.getTipopago() + "</b> por el concepto que se detalla a continuación:<br />"
+                + "<p align=\"justify\">"
+                + "<i>" + ClaseGeneral.comprobantes.getObservacion() + "</i><br />"
+                + "</p>"
+                + "<p align=\"justify\">"
+                + "Los soportes (Facturas, Cuentas de Cobro y/o Resoluciones) relacionados en este pago son los siguientes:<br/>"
+                + "</p>"
+                + "<ul>" + ClaseGeneral.controlFacturascomprobantes.findNumeroFechaValorInFacturascomprobantesByFkcomprobante(ClaseGeneral.comprobantes.getId(), ClaseGeneral.comprobantes.getAno()) + "</ul>"
+                + "<p align=\"justify\">"
+                + "<span>Por favor dirigirse a la siguiente direccion:</span><br />" 
+                + ClaseGeneral.controlEstandar.findValorInEstandarByModuloCampo("correo", "direccion")
+                + "<br /><br />"
+                + "<mark>Los valores descritos en los soportes, esta sujetos a las deducciones de ley actuales.</mark>"
+                + "</p>"
+                + "</td></tr></table>"
+                + "</body></html>";
+
+        String receptor = ClaseGeneral.controlTerceros.findEmailInTercerosById("" + fktercero.getText());
+        boolean error;
+
+        if (!receptor.equals("")) {
+            do {
+                error = ClaseCorreo.enviarCorreo(contenido, ClaseCorreo.correo, receptor);
+                if (error) {
+                    new ClaseCorreo();
+                }
+            } while (error);
+        }
+    }//GEN-LAST:event_botonEnviarEmailFkterceroActionPerformed
 
     public void metodoInsertar() {
         ClaseGeneral.comprobantes = new Comprobantes();
@@ -1866,7 +1907,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
     private javax.swing.JButton botonBuscarFktercero;
     private javax.swing.JButton botonBuscarFktercerofuncionario;
     public javax.swing.JButton botonCambiar;
-    private javax.swing.JButton botonEnviarEmailFktercero;
+    public javax.swing.JButton botonEnviarEmailFktercero;
     public javax.swing.JTextField comprobante;
     public org.jdesktop.swingx.JXDatePicker fechaaplicacion;
     public org.jdesktop.swingx.JXDatePicker fechaelaboracion;

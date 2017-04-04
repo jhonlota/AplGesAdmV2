@@ -545,6 +545,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
                 panelPrincipal.fechapago.setEnabled(false);
                 panelPrincipal.tipopago.setEnabled(false);
                 panelPrincipal.comprobante.setEnabled(false);
+                panelPrincipal.botonEnviarEmailFktercero.setEnabled(false);
                 panelPrincipal.fechaaplicacion.setEnabled(false);
                 panelPrincipal.observacion.setFocusable(true);
                 panelPrincipal.jTabbedPane.setVisible(false);
@@ -555,6 +556,7 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
                 panelPrincipal.fechapago.setEnabled(false);
                 panelPrincipal.tipopago.setEnabled(false);
                 panelPrincipal.comprobante.setEnabled(false);
+                panelPrincipal.botonEnviarEmailFktercero.setEnabled(false);
                 panelPrincipal.fechaaplicacion.setEnabled(false);
                 panelPrincipal.observacion.setFocusable(false);
                 panelPrincipal.jTabbedPane.setVisible(true);
@@ -562,11 +564,13 @@ public class IFrameComprobantes extends javax.swing.JInternalFrame {
                     && estado.equals("nuevo")) {
                 panelPrincipal.fechaelaboracion.setEnabled(true);
                 panelPrincipal.ano.setFocusable(true);
+                panelPrincipal.botonEnviarEmailFktercero.setEnabled(false);
                 panelPrincipal.jTabbedPane.setVisible(false);
             } else if (ClaseGeneral.perfil.equals("root")
                     && estado.equals("consultar")) {
                 panelPrincipal.fechaelaboracion.setEnabled(false);
                 panelPrincipal.ano.setFocusable(false);
+                panelPrincipal.botonEnviarEmailFktercero.setEnabled(true);
                 panelPrincipal.jTabbedPane.setVisible(true);
             }
         } catch (SQLException ex) {

@@ -5,6 +5,7 @@
 package entidades;
 
 import clases.ClaseBaseDatos;
+import clases.ClaseInformacion;
 import clases.ClaseMensaje;
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -111,6 +112,24 @@ public class FacturascomprobantesJpaController {
         } catch (SQLException ex) {
             ClaseMensaje.errorFind(this.toString(), ex.toString());
             return null;
+        }
+    }
+    
+    public String findNumeroFechaValorInFacturascomprobantesByFkcomprobante(int fkcomprobante, int ano) {
+        String texto = new String();
+
+        try {
+            datos.query("SELECT * FROM FACTURASCOMPROBANTES WHERE FKCOMPROBANTE = " + fkcomprobante + " AND ANO = " + ano + " ORDER BY NUMERO");
+            while (ClaseBaseDatos.resultado.next()) {
+                texto += "<li>" + ClaseBaseDatos.resultado.getString("NUMERO");
+                texto += ",  (" + ClaseBaseDatos.resultado.getDate("FECHA") + ") : ";
+                texto += " $ " + ClaseInformacion.formatoDecimal.format(ClaseBaseDatos.resultado.getBigDecimal("VALOR"));
+                texto += "</li>";
+            }
+            return texto;
+        } catch (SQLException ex) {
+            ClaseMensaje.errorFind(this.toString(), ex.toString());
+            return texto;
         }
     }
 }
