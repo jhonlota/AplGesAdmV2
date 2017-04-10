@@ -717,7 +717,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jPanel2.add(checkEstandar2);
 
         checkConSubgrupos2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        checkConSubgrupos2.setText("INFORME CON SUBGRUPOS");
+        checkConSubgrupos2.setText("INFORME CON EGRESOS");
         checkConSubgrupos2.setPreferredSize(new java.awt.Dimension(810, 18));
         jPanel2.add(checkConSubgrupos2);
 

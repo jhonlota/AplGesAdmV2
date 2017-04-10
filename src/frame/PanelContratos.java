@@ -1619,8 +1619,8 @@ public class PanelContratos extends javax.swing.JPanel {
         jTextField16.setPreferredSize(new java.awt.Dimension(455, 25));
         panelContractual.add(jTextField16);
 
-        jLabel98.setText("FECHA PERFECCIONAMIENTO DEL CONTRATO : ");
-        jLabel98.setPreferredSize(new java.awt.Dimension(280, 25));
+        jLabel98.setText("FECHA PERFECCIONAMIENTO (FIRMA DEL CONTRATO) : ");
+        jLabel98.setPreferredSize(new java.awt.Dimension(350, 25));
         panelContractual.add(jLabel98);
 
         jPanel17.setBackground(ClaseGeneral.campo);
@@ -1662,7 +1662,7 @@ public class PanelContratos extends javax.swing.JPanel {
         jTextField53.setFocusable(false);
         jTextField53.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField53.setOpaque(false);
-        jTextField53.setPreferredSize(new java.awt.Dimension(340, 25));
+        jTextField53.setPreferredSize(new java.awt.Dimension(270, 25));
         panelContractual.add(jTextField53);
 
         jLabel108.setText("FECHA ENTREGA BIEN / SERVICIO : ");

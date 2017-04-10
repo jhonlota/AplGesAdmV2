@@ -40,6 +40,9 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
+        <parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      CUENTAS.DOCUMENTO AS "CUENTAS_DOCUMENTO",
@@ -293,15 +296,13 @@ ORDER BY SOPORTESCUENTAS.CUENTAINTERNA ASC, SOPORTESCUENTAS.CINFO ASC, CUENTAS.F
 				</textElement>
 				<textFieldExpression><![CDATA[$P{CUENTA}.replace( "%", "" )]]></textFieldExpression>
 			</textField>
-			<staticText>
+			<textField>
 				<reportElement uuid="2450492b-6556-42ef-b278-e864fe88ca5e" x="50" y="0" width="752" height="60"/>
 				<textElement>
 					<font size="15" isBold="true" isStrikeThrough="false"/>
 				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS
-COORDINACIÓN DE ÁREA ADMINISTRATIVA
-MOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{FACULTAD} + "\nCOORDINACIÓN DE ÁREA ADMINISTRATIVA\nMOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)"]]></textFieldExpression>
+			</textField>
 			<staticText>
 				<reportElement uuid="1cdaad84-dddb-4fa1-bb35-e7350a6e3234" x="540" y="40" width="70" height="20"/>
 				<textElement verticalAlignment="Middle">

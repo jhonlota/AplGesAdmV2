@@ -22,6 +22,9 @@
 	<parameter name="ANO" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+        <parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT ID AS "ID",
 COMPROBANTE AS "COMPROBANTE",
@@ -133,15 +136,13 @@ ORDER BY TIPOPAGO ASC, COMPROBANTE ASC) AS TABLA;]]>
 				<reportElement uuid="f61685e4-432e-43e9-b428-debee91f00f6" x="0" y="0" width="34" height="48"/>
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "Univalle.jpg"]]></imageExpression>
 			</image>
-			<staticText>
+			<textField>
 				<reportElement uuid="c213dc4a-be29-4fcf-99cd-23f71e6a5f45" x="35" y="0" width="520" height="46"/>
 				<textElement>
-					<font size="12" isBold="true" isStrikeThrough="false"/>
+					<font size="15" isBold="true" isStrikeThrough="false"/>
 				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS
-COORDINACIÓN DE ÁREA ADMINISTRATIVA
-INFORME DE COMPROBANTES NO REEMBOLSADOS]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{FACULTAD} + "\nCOORDINACIÓN DE ÁREA ADMINISTRATIVA\nMOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)"]]></textFieldExpression>
+			</textField>
 			<staticText>
 				<reportElement uuid="80d3adb3-1a1f-4af7-8436-19459292fae6" x="413" y="25" width="50" height="20"/>
 				<textElement verticalAlignment="Middle">

@@ -40,6 +40,9 @@
 	<parameter name="FECHAAPLICACION_FINAL" class="java.util.Date">
 		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
 	</parameter>
+        <parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      COMPROBANTES.COMPROBANTE AS "COMPROBANTES_COMPROBANTE",
@@ -143,15 +146,13 @@ ORDER BY
 	</background>
 	<title>
 		<band height="65" splitType="Stretch">
-			<staticText>
+			<textField>
 				<reportElement uuid="2b8ed708-8d05-4b33-8928-e760a9f47e5d" x="50" y="0" width="752" height="60"/>
 				<textElement>
 					<font size="15" isBold="true" isStrikeThrough="false"/>
 				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS
-COORDINACIÓN DE ÁREA ADMINISTRATIVA
-MOVIMIENTO DE COMPROBANTES DE EGRESO]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{FACULTAD} + "\nCOORDINACIÓN DE ÁREA ADMINISTRATIVA\nMOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)"]]></textFieldExpression>
+			</textField>
 			<staticText>
 				<reportElement uuid="2d7bd373-c644-4601-ae53-e7a4a419b26f" x="550" y="40" width="60" height="20"/>
 				<textElement verticalAlignment="Middle">

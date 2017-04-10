@@ -31,6 +31,9 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
+        <parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      CUENTAS.DOCUMENTO AS "CUENTAS_DOCUMENTO",
@@ -240,15 +243,13 @@ CUENTAS.FECHAPRESUPUESTAL ASC]]>
 				<reportElement uuid="14ed82ba-4518-4d30-8b65-ae5c3ff1d2ad" x="0" y="0" width="42" height="60"/>
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "univalle.jpg"]]></imageExpression>
 			</image>
-			<staticText>
+			<textField>
 				<reportElement uuid="470424db-2404-4ea0-8708-edba5ac6e6a9" x="50" y="0" width="752" height="60"/>
 				<textElement>
 					<font size="15" isBold="true" isStrikeThrough="false"/>
 				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS
-COORDINACIÓN DE ÁREA ADMINISTRATIVA
-TOTAL INGRESOS (CUENTAS)]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{FACULTAD} + "\nCOORDINACIÓN DE ÁREA ADMINISTRATIVA\nMOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)"]]></textFieldExpression>
+			</textField>
 			<staticText>
 				<reportElement uuid="08222236-ce7b-4b5d-9af8-1d75a111cbe0" x="540" y="40" width="70" height="20"/>
 				<textElement verticalAlignment="Middle">

@@ -28,6 +28,9 @@
 	<parameter name="ANO" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+        <parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      COMPROBANTES.COMPROBANTE AS "COMPROBANTES_COMPROBANTE",
@@ -229,15 +232,13 @@ ORDER BY
 	</background>
 	<title>
 		<band height="65" splitType="Stretch">
-			<staticText>
+			<textField>
 				<reportElement uuid="909f0894-8c8a-46be-aa67-d30550fcf72b" x="50" y="0" width="752" height="60"/>
 				<textElement>
 					<font size="15" isBold="true" isStrikeThrough="false"/>
 				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS
-COORDINACIÓN DE ÁREA ADMINISTRATIVA
-TOTAL COMPROBANTES DE EGRESOS]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{FACULTAD} + "\nCOORDINACIÓN DE ÁREA ADMINISTRATIVA\nMOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)"]]></textFieldExpression>
+			</textField>
 			<staticText>
 				<reportElement uuid="cfc8d070-2b3f-4efc-a309-dc66dd5213d4" x="540" y="40" width="70" height="20"/>
 				<textElement verticalAlignment="Middle">

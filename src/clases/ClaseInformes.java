@@ -4,22 +4,11 @@
  */
 package clases;
 
-//import com.itextpdf.text.Document;
-//import com.itextpdf.text.DocumentException;
-//import com.itextpdf.text.pdf.PdfContentByte;
-//import com.itextpdf.text.pdf.PdfImportedPage;
-//import com.itextpdf.text.pdf.PdfReader;
-//import com.itextpdf.text.pdf.PdfWriter;
 import formatos.Clase;
 import java.util.Map;
 import java.awt.Desktop;
 import java.io.File;
-//import java.io.FileInputStream;
-//import java.io.FileNotFoundException;
-//import java.io.FileOutputStream;
 import java.io.IOException;
-//import java.io.InputStream;
-//import java.io.OutputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -50,8 +39,8 @@ public class ClaseInformes {
     public void formatoCondicion(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoCondicion.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -76,8 +65,8 @@ public class ClaseInformes {
     public void formatoCondicionContratos(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoCondicionContratos.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -102,8 +91,8 @@ public class ClaseInformes {
     public void formatoCondicionContratosDigitalizados(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoCondicionContratosDigitalizados.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -128,8 +117,8 @@ public class ClaseInformes {
     public void formatoCondicionCuentas(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoCondicionCuentas.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -154,8 +143,8 @@ public class ClaseInformes {
     public void formatoCumplido(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoCumplido.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -180,8 +169,8 @@ public class ClaseInformes {
     public void formatoEntrega(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoEntrega.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -206,8 +195,8 @@ public class ClaseInformes {
     public void formatoResolucion(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoResolucion.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -232,8 +221,8 @@ public class ClaseInformes {
     public void formatoComprobante(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoComprobante.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -290,9 +279,9 @@ public class ClaseInformes {
             } else {
                 url = clase.getClass().getResource("FormatoEstudiosPrevios.jasper");
             }
-
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
+            
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -349,8 +338,8 @@ public class ClaseInformes {
     public void formatoFichaTecnica(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoFichaTecnica.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -400,8 +389,8 @@ public class ClaseInformes {
     public void formatoInvitacionMinimaCuantia(Map parametros) {
         try {
             URL url = clase.getClass().getResource("FormatoInvitacion.jasper");
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
             parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -545,9 +534,6 @@ public class ClaseInformes {
 
     public void formatoContrato(Map parametros) {
         try {
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
-            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
-
             //BORRAR
 //            List<String> keys = new ArrayList<String>(parametros.keySet());
 //            for (String key : keys) {
@@ -560,6 +546,9 @@ public class ClaseInformes {
             } else {
                 url = clase.getClass().getResource("OrdenContractual.jasper");
             }
+            
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -581,8 +570,6 @@ public class ClaseInformes {
         }
 
         try {
-            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
-
             URL url;
             if (ClaseGeneral.contratos.getTipocontrato().equals("1: C1 Prestación de Servicios")
                     || ClaseGeneral.contratos.getTipocontrato().equals("2: C2 Consultoría")) {
@@ -590,6 +577,9 @@ public class ClaseInformes {
             } else {
                 url = clase.getClass().getResource("OrdenContractualAtras.jasper");
             }
+            
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
+            parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
             JasperPrint imprimir = JasperFillManager.fillReport(reporte, parametros, ClaseBaseDatos.conexion);
@@ -655,6 +645,7 @@ public class ClaseInformes {
     public void formatoInformeComprobantesNOREEMBOLSADOS(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeComprobantes_NOREEMBOLSADOS.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -680,6 +671,7 @@ public class ClaseInformes {
     public void formatoInformeComprobanteCUENTAINTERNA(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeComprobanteCUENTAINTERNA.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -705,6 +697,7 @@ public class ClaseInformes {
     public void formatoInformeComprobanteAGRUPADOCOMPROBANTE(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeComprobanteAGRUPADOCOMPROBANTE.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -730,6 +723,7 @@ public class ClaseInformes {
     public void formatoInformeCuentaCUENTAINTERNA(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeCuentaCUENTAINTERNA.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -755,6 +749,7 @@ public class ClaseInformes {
     public void formatoInformeCuentaCUENTAINTERNA_SIN_SALDO_DESCRIPCION(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeCuentaCUENTAINTERNA_SIN_SALDO_DESCRIPCION.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -780,6 +775,7 @@ public class ClaseInformes {
     public void formatoInformeCuentaCUENTAINTERNA_SIN_SALDO_EGRESO(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeCuentaCUENTAINTERNA_SIN_SALDO_EGRESO.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -805,6 +801,7 @@ public class ClaseInformes {
     public void formatoInformeTotalComprobanteCUENTAINTERNA(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeTotalComprobanteCUENTAINTERNA.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -830,6 +827,7 @@ public class ClaseInformes {
     public void formatoInformeTotalCuentaCUENTAINTERNA_SALDOSCAJA(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeTotalCuentaCUENTAINTERNA_SALDOSCAJA.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -855,6 +853,7 @@ public class ClaseInformes {
     public void formatoInformeTotalCuentaCUENTAINTERNA_SALDOSCAJA_SUBGRUPOS(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeTotalCuentaCUENTAINTERNA_SALDOSCAJA_SUBGRUPOS.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -880,6 +879,7 @@ public class ClaseInformes {
     public void formatoInformeTotalCuentaCUENTAINTERNA_TOTALINGRESOS(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeTotalCuentaCUENTAINTERNA_TOTALINGRESOS.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
@@ -905,6 +905,7 @@ public class ClaseInformes {
     public void formatoInformeResumenEgresosReembolso(Map parametros) {
         try {
             URL url = clase.getClass().getResource("InformeResumenEgresos.jasper");
+            parametros.put("FACULTAD", "" + ClaseGeneral.facultad);
             parametros.put("SUBREPORT_DIR", "" + clase.getClass().getResource(""));
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(url);

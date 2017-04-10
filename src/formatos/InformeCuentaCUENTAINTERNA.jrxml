@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e5642153-5086-406e-9516-030d4b223f4f">
 	<property name="ireport.zoom" value="1.4641000000000008"/>
-	<property name="ireport.x" value="187"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
@@ -41,6 +41,9 @@
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FACULTAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
@@ -364,15 +367,13 @@ ORDER BY SOPORTESCUENTAS.CUENTAINTERNA ASC, SOPORTESCUENTAS.CINFO ASC, CUENTAS.F
 				</textElement>
 				<textFieldExpression><![CDATA[$P{CUENTA}.replace( "%", "" )]]></textFieldExpression>
 			</textField>
-			<staticText>
+			<textField>
 				<reportElement uuid="9d8d780e-d5a2-4894-8495-225443ebddf9" x="50" y="0" width="752" height="60"/>
 				<textElement>
 					<font size="15" isBold="true" isStrikeThrough="false"/>
 				</textElement>
-				<text><![CDATA[FACULTAD DE CIENCIAS NATURALES Y EXACTAS
-COORDINACIÓN DE ÁREA ADMINISTRATIVA
-MOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{FACULTAD} + "\nCOORDINACIÓN DE ÁREA ADMINISTRATIVA\nMOVIMIENTO DE DISPONIBILIDAD DE CAJA (CUENTAS)"]]></textFieldExpression>
+			</textField>
 			<staticText>
 				<reportElement uuid="ee0abcde-f5b1-4bcd-9fa2-2705fcbcaa1c" x="540" y="40" width="70" height="20"/>
 				<textElement verticalAlignment="Middle">

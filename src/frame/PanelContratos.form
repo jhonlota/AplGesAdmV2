@@ -3159,9 +3159,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel98">
               <Properties>
-                <Property name="text" type="java.lang.String" value="FECHA PERFECCIONAMIENTO DEL CONTRATO : "/>
+                <Property name="text" type="java.lang.String" value="FECHA PERFECCIONAMIENTO (FIRMA DEL CONTRATO) : "/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[280, 25]"/>
+                  <Dimension value="[350, 25]"/>
                 </Property>
               </Properties>
             </Component>
@@ -3253,7 +3253,7 @@
                 </Property>
                 <Property name="opaque" type="boolean" value="false"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[340, 25]"/>
+                  <Dimension value="[270, 25]"/>
                 </Property>
               </Properties>
             </Component>
