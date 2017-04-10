@@ -470,11 +470,11 @@ public class ContratosJpaController {
                         + "OR FKTERCEROFUNCIONARIO IN ("
                         + "SELECT ID || ' - ' || NOMBRE "
                         + "FROM TERCEROS "
-                        + "WHERE DEPENDENCIA = '" + ClaseGeneral.dependencia + "')) ORDER BY FECHASUSCRIPCION DESC");
+                        + "WHERE DEPENDENCIA = '" + ClaseGeneral.dependencia + "')) ORDER BY CONTRATO DESC");
             } else {
                 datos.query("SELECT * FROM CONTRATOS "
                         + "WHERE "
-                        + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' ORDER BY FECHASUSCRIPCION DESC");
+                        + ClaseGeneral.parametro + " LIKE '%" + ClaseGeneral.valor + "%' ORDER BY CONTRATO DESC");
             }
             while (ClaseBaseDatos.resultado.next()) {
                 contratos = new Contratos();

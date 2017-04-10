@@ -24,7 +24,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.mail.Message;
 
 /**
  *
@@ -1673,7 +1672,7 @@ public class PanelComprobantes extends javax.swing.JPanel {
                 + "<b>La Ciudad</b><br />"
                 + "<br />"
                 + "</p>"
-                + "En la fecha <b>" + ClaseGeneral.comprobantes.getFechapago() + "</b> la Universidad del Valle - " + ClaseGeneral.facultad + ", "
+                + "En la fecha <b>" + ClaseGeneral.comprobantes.getFechapago() + "</b> la UNIVERSIDAD DEL VALLE - " + ClaseGeneral.facultad + ", "
                 + "realizara un pago a traves de <b>" + ClaseGeneral.comprobantes.getTipopago() + "</b> por el concepto que se detalla a continuación:<br />"
                 + "<p align=\"justify\">"
                 + "<i>" + ClaseGeneral.comprobantes.getObservacion() + "</i><br />"

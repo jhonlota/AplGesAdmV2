@@ -11,7 +11,7 @@ WHERE CONTRATO = $P{CONTRATO}]]>
 	</queryString>
 	<field name="contrato" class="java.lang.String"/>
 	<detail>
-		<band height="315" splitType="Stretch">
+		<band height="325" splitType="Stretch">
 			<rectangle>
 				<reportElement uuid="173f3b19-1719-46bf-b169-919cd114df99" x="0" y="0" width="532" height="16"/>
 			</rectangle>
@@ -19,7 +19,7 @@ WHERE CONTRATO = $P{CONTRATO}]]>
 				<reportElement uuid="173f3b19-1719-46bf-b169-919cd114df99" x="0" y="117" width="532" height="16"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="173f3b19-1719-46bf-b169-919cd114df99" x="0" y="251" width="532" height="16"/>
+				<reportElement uuid="173f3b19-1719-46bf-b169-919cd114df99" x="0" y="261" width="532" height="16"/>
 			</rectangle>
 			<staticText>
 				<reportElement uuid="950866f2-5d55-4b1f-9604-247eb32018d3" x="0" y="16" width="532" height="95"/>
@@ -45,14 +45,14 @@ Es entendido que el proponente favorecido con la adjudicación del contrato, en 
 				<text><![CDATA[6. COMPROMISO ANTICORRUPCIÓN ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="950866f2-5d55-4b1f-9604-247eb32018d3" x="0" y="133" width="532" height="112"/>
+				<reportElement uuid="950866f2-5d55-4b1f-9604-247eb32018d3" x="0" y="133" width="532" height="122"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<text><![CDATA[En todas las actuaciones derivadas de lo regulado en el presente proceso contractual y lo estipulado en el contrato que se celebre, el proponente obrará con la transparencia y buena fe que la Constitución Política y las leyes consagran.
 
 En caso que la Universidad advierta hechos constitutivos de corrupción de parte de un proponente durante el proceso de selección, sin perjuicio de las acciones legales a que hubiere lugar, podrá rechazar la respectiva oferta. Así mismo, la Universidad advierte que en el evento de conocerse casos especiales de corrupción en las Entidades del Estado, se debe reportar el hecho al Programa Presidencial Lucha contra la Corrupción. También reportar el hecho a la Vicerrectoría Administrativa - División de Contratación de la Universidad del Valle a través del número telefónico 3212100 Ext. 2517.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="251" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" mode="Opaque" x="0" y="261" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement verticalAlignment="Middle" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -60,7 +60,7 @@ En caso que la Universidad advierta hechos constitutivos de corrupción de parte
 				<text><![CDATA[7. VEEDURÍAS CIUDADANAS ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="950866f2-5d55-4b1f-9604-247eb32018d3" x="0" y="267" width="532" height="48"/>
+				<reportElement uuid="950866f2-5d55-4b1f-9604-247eb32018d3" x="0" y="277" width="532" height="48"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
 				<text><![CDATA[De acuerdo con lo establecido en la Ley 850 de 2003, las veedurías ciudadanas y la ciudadanía en general podrán realizar el control social al presente proceso de contratación, para lo cual la Universidad y el Contratista suministrarán la información y documentación que sea requerida en su momento.]]></text>
 			</staticText>

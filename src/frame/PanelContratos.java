@@ -697,7 +697,7 @@ public class PanelContratos extends javax.swing.JPanel {
         jLabel107.setPreferredSize(new java.awt.Dimension(800, 5));
         panelPlaneacion.add(jLabel107);
 
-        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REQUERIMIENTOS TECNICOS (BIENES)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REQUERIMIENTOS TECNICOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanel26.setPreferredSize(new java.awt.Dimension(400, 140));
         jPanel26.setLayout(new java.awt.BorderLayout());
 
@@ -715,7 +715,7 @@ public class PanelContratos extends javax.swing.JPanel {
 
         panelPlaneacion.add(jPanel26);
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PERFIL REQUERIDO (SERVICIOS)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PERFIL REQUERIDO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanel10.setPreferredSize(new java.awt.Dimension(395, 140));
         jPanel10.setLayout(new java.awt.BorderLayout());
 
