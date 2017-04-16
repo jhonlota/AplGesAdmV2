@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1_subreport1" language="groovy" pageWidth="98" pageHeight="20" columnWidth="98" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0bfa213a-56c0-423d-833f-e62e4182d00a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CINFO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SOPORTESALDO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TOTALCINFO" class="java.math.BigDecimal">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     SUM(SOPORTESCUENTAS.VALOR) AS "SOPORTESCUENTAS_VALOR"
+FROM
+     SOPORTESCUENTAS INNER JOIN CUENTAS ON SOPORTESCUENTAS.FKCUENTA = CUENTAS.SOPORTE
+WHERE
+     SOPORTESCUENTAS.CINFO = $P{CINFO}
+ AND CUENTAS.SOPORTE = $P{SOPORTESALDO}]]>
+	</queryString>
+	<field name="SOPORTESCUENTAS_VALOR" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="#,##0">
+				<reportElement uuid="900df937-2511-47b3-a64f-2968d3d8736d" x="0" y="0" width="98" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOPORTESCUENTAS_VALOR} + $P{TOTALCINFO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

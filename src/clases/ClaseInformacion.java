@@ -464,6 +464,7 @@ public class ClaseInformacion {
         ClaseGeneral.bienessolicitudesoferta = null;
         ClaseGeneral.comprobantesnoreembolsados = null;
         ClaseGeneral.comprobantespendientes = null;
+        ClaseGeneral.contratosProponentes = null;
         ClaseGeneral.cubs = null;
         ClaseGeneral.cumplidoscomprobantes = null;
         ClaseGeneral.facturascomprobantes = null;
