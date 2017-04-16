@@ -288,7 +288,7 @@ ORDER BY SOPORTESCUENTAS.CUENTAINTERNA ASC, SOPORTESCUENTAS.CINFO ASC, CUENTAS.F
 		<groupHeader>
 			<band height="30">
 				<subreport>
-					<reportElement uuid="6270fc7c-e345-44e0-a817-ade4f15926f7" x="50" y="5" width="750" height="22"/>
+					<reportElement uuid="6270fc7c-e345-44e0-a817-ade4f15926f7" x="42" y="3" width="750" height="22"/>
 					<subreportParameter name="CODIGO">
 						<subreportParameterExpression><![CDATA[$F{SOPORTESCUENTAS_CINFO}]]></subreportParameterExpression>
 					</subreportParameter>

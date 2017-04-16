@@ -92,4 +92,20 @@ public class CuentainternaJpaController {
             return modeloCombo;
         }
     }
+    
+    public DefaultComboBoxModel SOLOImportarCOMBOCodigoInCuentainternaBy() {
+        DefaultComboBoxModel<String> modeloCombo = new DefaultComboBoxModel<String>();
+
+        try {
+            datos.query("SELECT DISTINCT(CODIGO) FROM CUENTAINTERNA ORDER BY CODIGO");
+            while (ClaseBaseDatos.resultado.next()) {
+                modeloCombo.addElement(ClaseBaseDatos.resultado.getString("CODIGO"));
+            }
+            modeloCombo.addElement("999999");
+            return modeloCombo;
+        } catch (SQLException ex) {
+            ClaseMensaje.errorFind(this.toString(), ex.toString());
+            return modeloCombo;
+        }
+    }
 }

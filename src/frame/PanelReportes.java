@@ -449,7 +449,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jPanel1.add(jLabel_12);
 
         cuenta_1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cuenta_1.setText("009");
+        cuenta_1.setText("04");
         cuenta_1.setMargin(new java.awt.Insets(2, 4, 2, 4));
         cuenta_1.setPreferredSize(new java.awt.Dimension(85, 25));
         cuenta_1.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -659,7 +659,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jPanel2.add(jLabel_26);
 
         cuenta_2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cuenta_2.setText("009");
+        cuenta_2.setText("04");
         cuenta_2.setMargin(new java.awt.Insets(2, 4, 2, 4));
         cuenta_2.setPreferredSize(new java.awt.Dimension(85, 25));
         cuenta_2.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -845,7 +845,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jPanel3.add(jLabel_39);
 
         cuenta_3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cuenta_3.setText("009");
+        cuenta_3.setText("04");
         cuenta_3.setMargin(new java.awt.Insets(2, 4, 2, 4));
         cuenta_3.setPreferredSize(new java.awt.Dimension(85, 25));
         cuenta_3.addFocusListener(new java.awt.event.FocusAdapter() {

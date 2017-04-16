@@ -78,7 +78,7 @@ public class ExternoPanelCuentainterna extends javax.swing.JPanel {
 
         cuentainterna.setBackground(ClaseGeneral.campo);
         cuentainterna.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cuentainterna.setModel(ClaseGeneral.controlCuentainterna.COMBOCodigoInCuentainternaBy());
+        cuentainterna.setModel(ClaseGeneral.controlCuentainterna.SOLOImportarCOMBOCodigoInCuentainternaBy());
         cuentainterna.setSelectedItem("0");
         cuentainterna.setPreferredSize(new java.awt.Dimension(120, 25));
         add(cuentainterna);
