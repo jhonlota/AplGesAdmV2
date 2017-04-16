@@ -38,6 +38,9 @@ public class ClaseGeneral {
     public static ComprobantesJpaController controlComprobantes = new ComprobantesJpaController();
     public static Contratos contratos = new Contratos();
     public static ContratosJpaController controlContratos = new ContratosJpaController();
+    public static ContratosProponentes contratosProponentes = new ContratosProponentes();
+    public static ContratosProponentesJpaController controlContratosProponentes = new ContratosProponentesJpaController();
+    public static ContratosProponentesPK contratosProponentesPK = new ContratosProponentesPK();
     public static Cubs cubs = new Cubs();
     public static CubsJpaController controlCubs = new CubsJpaController();
     public static CubsPK cubsPK = new CubsPK();
