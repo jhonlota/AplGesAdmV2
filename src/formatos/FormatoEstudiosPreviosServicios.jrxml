@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstudiosPreviosServicios" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
 	<property name="ireport.zoom" value="1.331000000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="240"/>
+	<property name="ireport.y" value="504"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -951,6 +951,27 @@ WHERE
 			</subreport>
 		</band>
 	</detail>
+	<pageFooter>
+		<band height="42">
+			<staticText>
+				<reportElement uuid="4aeec191-64e1-4f63-880c-237d6fd94fec" x="441" y="10" width="111" height="32"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Elaborado por:
+División de Contratación
+Vicerrectoría Administrativa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4aeec191-64e1-4f63-880c-237d6fd94fec" x="20" y="20" width="100" height="22"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[F-24-MP-08-01-02
+V-01-2017]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
 	<noData>
 		<band splitType="Immediate"/>
 	</noData>

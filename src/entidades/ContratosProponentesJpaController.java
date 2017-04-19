@@ -30,7 +30,7 @@ public class ContratosProponentesJpaController {
         
         try {
             datos.update("INSERT INTO "+ contratosProponentes.tabla +"VALUES ("
-                    + contratosProponentes.getContratosProponentesPK().getFkcontrato() + ", "
+                    + "'"+contratosProponentes.getContratosProponentesPK().getFkcontrato() + "', "
                     + "'" + contratosProponentes.getContratosProponentesPK().getFktercero() + "', "
                     + "" + contratosProponentes.getNumerofolios()+ ", "
                     + "" + contratosProponentes.getValorsiniva()+ ", "
@@ -48,6 +48,7 @@ public class ContratosProponentesJpaController {
         
         try {
             datos.update("UPDATE CONTRATOSPROPONENTES SET "
+                    + "FKTERCERO = '" + contratosProponentes.getContratosProponentesPK().getFktercero() + "', "
                     + "NUMEROFOLIOS = " + contratosProponentes.getNumerofolios() + ", "
                     + "VALORSINIVA = " + contratosProponentes.getValorsiniva() + ", "
                     + "VALORTOTAL = " + contratosProponentes.getValortotal() + " "
@@ -93,13 +94,13 @@ public class ContratosProponentesJpaController {
         }
     }
     
-    public List<ContratosProponentes> findAllInContratosProponentesByFkcontratoFktercero(String fkcontrato, String fktercero) {
+    public List<ContratosProponentes> findAllInContratosProponentesByFkcontrato(String fkcontrato) {
         List<ContratosProponentes> listContratosProponentes = new ArrayList<ContratosProponentes>();
         ContratosProponentes contratosProponentes;
         ContratosProponentesPK contratosProponentesPK;
 
         try {
-            datos.query("SELECT * FROM CONTRATOSPROPONENTES WHERE FKCONTRATO = '" + fkcontrato + "' AND FKTERCERO = '" + fktercero + "' ORDER BY FKTERCERO");
+            datos.query("SELECT * FROM CONTRATOSPROPONENTES WHERE FKCONTRATO = '" + fkcontrato + "'");
             while (ClaseBaseDatos.resultado.next()) {
                 contratosProponentes = new ContratosProponentes();
                 contratosProponentesPK = new ContratosProponentesPK();

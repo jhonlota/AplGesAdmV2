@@ -258,9 +258,8 @@ public class IFrameContratosProponentes extends javax.swing.JInternalFrame {
         jPanel.setVisible(false);
         jPanel.setVisible(true);
         jToolBarConsultar.setVisible(true);
-
-//        lista = ClaseGeneral.controlBienessolicitudesoferta.findAllInBienessolicitudesofertaByFksolicitudofertaAno(ClaseGeneral.solicitudesoferta.getId(), ClaseGeneral.solicitudesoferta.getAno());
-        lista = ClaseGeneral.controlContratosProponentes.findAllInContratosProponentesByFkcontratoFktercero(ClaseGeneral.contratosProponentes.getContratosProponentesPK().getFkcontrato(), ClaseGeneral.contratosProponentes.getContratosProponentesPK().getFktercero());
+        
+        lista = ClaseGeneral.controlContratosProponentes.findAllInContratosProponentesByFkcontrato(ClaseGeneral.contratosProponentes.getContratosProponentesPK().getFkcontrato());
         
         if (!lista.isEmpty()) {
             posicion = 0;

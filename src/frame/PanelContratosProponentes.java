@@ -79,7 +79,7 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
         jScrollPane = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
 
-        setName("panelBienessolicitudesoferta"); // NOI18N
+        setName("panelContratosProponentes"); // NOI18N
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel1.setText("CONTRATO:");
@@ -134,10 +134,14 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
         jLabel3.setPreferredSize(new java.awt.Dimension(150, 25));
         add(jLabel3);
 
-        numerofolios.setBackground(ClaseGeneral.campo);
         numerofolios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         numerofolios.setMargin(new java.awt.Insets(2, 4, 2, 4));
         numerofolios.setPreferredSize(new java.awt.Dimension(100, 25));
+        numerofolios.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldKeyReleased(evt);
+            }
+        });
         add(numerofolios);
 
         jLabel75.setPreferredSize(new java.awt.Dimension(20, 25));
@@ -162,6 +166,11 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
         valorsiniva.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valorsiniva.setMargin(new java.awt.Insets(2, 4, 2, 4));
         valorsiniva.setPreferredSize(new java.awt.Dimension(140, 25));
+        valorsiniva.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldKeyReleased(evt);
+            }
+        });
         add(valorsiniva);
 
         jLabel77.setPreferredSize(new java.awt.Dimension(20, 25));
@@ -186,6 +195,11 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
         valortotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valortotal.setMargin(new java.awt.Insets(2, 4, 2, 4));
         valortotal.setPreferredSize(new java.awt.Dimension(140, 25));
+        valortotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldKeyReleased(evt);
+            }
+        });
         add(valortotal);
 
         jLabel78.setPreferredSize(new java.awt.Dimension(20, 25));
@@ -338,20 +352,20 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
             if (!panelFktercero.fktercero.equals("Seleccione - ")) {
                 fktercero.setText(panelFktercero.fktercero);
             }
-//        } else if (eventoFktercero.equals("botonBuscarFktercerointersuper")) {
-//            if (!panelFktercero.fktercero.equals("Seleccione - ")) {
-//                fktercerointersuper.setText(panelFktercero.fktercero);
-//            }
-//        } else if (eventoFktercero.equals("botonBuscarFkterceroordenadorgasto")) {
-//            if (!panelFktercero.fktercero.equals("Seleccione - ")) {
-//                fkterceroordenadorgasto.setText(panelFktercero.fktercero);
-//            }
-//        } else if (eventoFktercero.equals("botonBuscarFktercerofuncionario")) {
-//            if (!panelFktercero.fktercero.equals("Seleccione - ")) {
-//                fktercerofuncionario.setText(panelFktercero.fktercero);
-//            }
         }
     }//GEN-LAST:event_botonBuscarFkterceroActionPerformed
+
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
+        // TODO add your handling code here:
+//        javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
+//        try{
+//            numerofolios.setText(ClaseInformacion.formatoDecimal.format(Double.parseDouble(numerofolios.getText().trim().replace(".", ""))));
+//            valorsiniva.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valorsiniva.getText().trim().replace(".", ""))));
+//            valortotal.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valortotal.getText().trim().replace(".", ""))));
+//        }catch (Exception ex) {
+//            Logger.getLogger(PanelContratosProponentes.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }//GEN-LAST:event_TextFieldKeyReleased
 
     public void metodoInsertar() {
         ClaseGeneral.contratosProponentes = new ContratosProponentes();
@@ -430,7 +444,7 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
 //        ClaseGeneral.bienessolicitudesoferta = new Bienessolicitudesoferta();
         ClaseGeneral.contratosProponentes = new ContratosProponentes();
 //        lista = ClaseGeneral.controlBienessolicitudesoferta.findAllInBienessolicitudesofertaByFksolicitudofertaAno(fkcontrato.getText(), ClaseGeneral.solicitudesoferta.getAno());
-        lista = ClaseGeneral.controlContratosProponentes.findAllInContratosProponentesByFkcontratoFktercero(fkcontrato.getText(), fktercero.getText());
+        lista = ClaseGeneral.controlContratosProponentes.findAllInContratosProponentesByFkcontrato(fkcontrato.getText());
         
         jTable.getColumnModel().getColumn(3).setCellRenderer(informacion.modeloDerecha);
 

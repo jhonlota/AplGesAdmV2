@@ -2245,7 +2245,7 @@ public class PanelContratos extends javax.swing.JPanel {
             valorutilidad.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valorutilidad.getText().trim().replace(".", ""))));
             valorsiniva.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valorsiniva.getText().trim().replace(".", ""))));
         } catch (Exception ex) {
-            Logger.getLogger(PanelPolizas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelContratos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_TextFieldKeyReleased
 
