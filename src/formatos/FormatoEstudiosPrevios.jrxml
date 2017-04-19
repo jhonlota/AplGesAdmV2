@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoEstudiosPrevios" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="823"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -385,7 +385,7 @@ WHERE FKCONTRATO = $P{FKCONTRATOTABLE}]]>
 		<field name="valorasegurado" class="java.lang.Long"/>
 	</subDataset>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
@@ -567,7 +567,7 @@ WHERE
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="58">
+		<band height="60">
 			<rectangle radius="10">
 				<reportElement uuid="b5cb7370-fde8-4854-af01-df0c13424ed4" x="20" y="2" width="532" height="53"/>
 			</rectangle>
@@ -1185,6 +1185,27 @@ WHERE
 			</subreport>
 		</band>
 	</detail>
+	<pageFooter>
+		<band height="41">
+			<staticText>
+				<reportElement uuid="4aeec191-64e1-4f63-880c-237d6fd94fec" x="435" y="9" width="117" height="32"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Elaborado por:
+División de Contratación
+Vicerrectoría Administrativa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4aeec191-64e1-4f63-880c-237d6fd94fec" x="20" y="19" width="100" height="22"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[F-18-MP-08-01-02
+V-02-2017]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
 	<noData>
 		<band splitType="Immediate"/>
 	</noData>

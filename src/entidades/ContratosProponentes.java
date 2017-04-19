@@ -6,12 +6,14 @@
 
 package entidades;
 
+import java.math.BigDecimal;
+
 public class ContratosProponentes {
     
     protected ContratosProponentesPK contratosProponentesPK = new ContratosProponentesPK();
-    private int numerofolios;
-    private int valorsiniva;
-    private int valortotal;
+    private BigDecimal numerofolios;
+    private BigDecimal valorsiniva;
+    private BigDecimal valortotal;
     public String tabla = "contratosproponentes(fkcontrato, fktercero, numerofolios, valorsiniva, valortotal)";
 
     public ContratosProponentes() {
@@ -21,7 +23,7 @@ public class ContratosProponentes {
         this.contratosProponentesPK = contratosProponentesPK;
     } 
 
-    public ContratosProponentes(int numerofolios, int valorsiniva, int valortotal) {
+    public ContratosProponentes(BigDecimal numerofolios, BigDecimal valorsiniva, BigDecimal valortotal) {
         this.numerofolios = numerofolios;
         this.valorsiniva = valorsiniva;
         this.valortotal = valortotal;
@@ -35,27 +37,27 @@ public class ContratosProponentes {
         this.contratosProponentesPK = contratosProponentesPK;
     }
 
-    public int getNumerofolios() {
+    public BigDecimal getNumerofolios() {
         return numerofolios;
     }
 
-    public void setNumerofolios(int numerofolios) {
+    public void setNumerofolios(BigDecimal numerofolios) {
         this.numerofolios = numerofolios;
     }
 
-    public int getValorsiniva() {
+    public BigDecimal getValorsiniva() {
         return valorsiniva;
     }
 
-    public void setValorsiniva(int valorsiniva) {
+    public void setValorsiniva(BigDecimal valorsiniva) {
         this.valorsiniva = valorsiniva;
     }
 
-    public int getValortotal() {
+    public BigDecimal getValortotal() {
         return valortotal;
     }
 
-    public void setValortotal(int valortotal) {
+    public void setValortotal(BigDecimal valortotal) {
         this.valortotal = valortotal;
     }
 
@@ -65,6 +67,6 @@ public class ContratosProponentes {
 
     public void setTabla(String tabla) {
         this.tabla = tabla;
-    }
+    }   
     
 }

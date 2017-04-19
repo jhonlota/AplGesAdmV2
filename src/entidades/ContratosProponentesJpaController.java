@@ -107,9 +107,9 @@ public class ContratosProponentesJpaController {
                 contratosProponentesPK.setFkcontrato(ClaseBaseDatos.resultado.getString("FKCONTRATO"));
                 contratosProponentesPK.setFktercero(ClaseBaseDatos.resultado.getString("FKTERCERO"));
                 contratosProponentes.setContratosProponentesPK(contratosProponentesPK);
-                contratosProponentes.setNumerofolios(ClaseBaseDatos.resultado.getInt("NUMEROFOLIOS"));
-                contratosProponentes.setValorsiniva(ClaseBaseDatos.resultado.getInt("VALORSINIVA"));
-                contratosProponentes.setValortotal(ClaseBaseDatos.resultado.getInt("VALORTOTAL"));
+                contratosProponentes.setNumerofolios(ClaseBaseDatos.resultado.getBigDecimal("NUMEROFOLIOS"));
+                contratosProponentes.setValorsiniva(ClaseBaseDatos.resultado.getBigDecimal("VALORSINIVA"));
+                contratosProponentes.setValortotal(ClaseBaseDatos.resultado.getBigDecimal("VALORTOTAL"));
 
                 listContratosProponentes.add(contratosProponentes);
             }

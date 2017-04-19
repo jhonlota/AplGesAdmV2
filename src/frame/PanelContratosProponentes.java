@@ -357,14 +357,14 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
 
     private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
         // TODO add your handling code here:
-//        javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
-//        try{
-//            numerofolios.setText(ClaseInformacion.formatoDecimal.format(Double.parseDouble(numerofolios.getText().trim().replace(".", ""))));
-//            valorsiniva.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valorsiniva.getText().trim().replace(".", ""))));
-//            valortotal.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valortotal.getText().trim().replace(".", ""))));
-//        }catch (Exception ex) {
-//            Logger.getLogger(PanelContratosProponentes.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        javax.swing.JTextField componente = (javax.swing.JTextField) evt.getComponent();
+        try{
+            numerofolios.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(numerofolios.getText().trim().replace(".", ""))));
+            valorsiniva.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valorsiniva.getText().trim().replace(".", ""))));
+            valortotal.setText(ClaseInformacion.formatoDecimal.format(Long.parseLong(valortotal.getText().trim().replace(".", ""))));
+        }catch (Exception ex) {
+            Logger.getLogger(PanelContratosProponentes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_TextFieldKeyReleased
 
     public void metodoInsertar() {
@@ -375,9 +375,9 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
         ClaseGeneral.contratosProponentesPK.setFktercero(""+fktercero.getText());
         
         ClaseGeneral.contratosProponentes.setContratosProponentesPK(ClaseGeneral.contratosProponentesPK);
-        ClaseGeneral.contratosProponentes.setNumerofolios(Integer.parseInt(""+numerofolios.getText()));
-        ClaseGeneral.contratosProponentes.setValorsiniva(Integer.parseInt(""+valorsiniva.getText()));
-        ClaseGeneral.contratosProponentes.setValortotal(Integer.parseInt(""+valortotal.getText())); 
+        ClaseGeneral.contratosProponentes.setNumerofolios(BigDecimal.valueOf(Long.parseLong("" + numerofolios.getText().trim().replace(".", ""))));
+        ClaseGeneral.contratosProponentes.setValorsiniva(BigDecimal.valueOf(Long.parseLong("" + valorsiniva.getText().trim().replace(".", ""))));
+        ClaseGeneral.contratosProponentes.setValortotal(BigDecimal.valueOf(Long.parseLong("" + valortotal.getText().trim().replace(".", ""))));
 
         if (ClaseGeneral.controlContratosProponentes.verify(ClaseGeneral.contratosProponentes)) {
             try {
@@ -392,9 +392,9 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
         try {
             fkcontrato.setText(""+ClaseGeneral.contratosProponentes.getContratosProponentesPK().getFkcontrato());
             fktercero.setText(""+ClaseGeneral.contratosProponentes.getContratosProponentesPK().getFktercero());
-            numerofolios.setText(""+ClaseGeneral.contratosProponentes.getNumerofolios());
-            valorsiniva.setText(""+ClaseGeneral.contratosProponentes.getValorsiniva());
-            valortotal.setText(""+ClaseGeneral.contratosProponentes.getValortotal());
+            numerofolios.setText(""+ClaseInformacion.formatoDecimal.format(ClaseGeneral.contratosProponentes.getNumerofolios()));
+            valorsiniva.setText(""+ClaseInformacion.formatoDecimal.format(ClaseGeneral.contratosProponentes.getValorsiniva()));
+            valortotal.setText(""+ClaseInformacion.formatoDecimal.format(ClaseGeneral.contratosProponentes.getValortotal()));
             
         } catch (Exception ex) {
             Logger.getLogger(PanelSolicitudesOferta.class.getName()).log(Level.SEVERE, null, ex);
@@ -411,9 +411,9 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
         ClaseGeneral.contratosProponentesPK.setFkcontrato(""+fkcontrato.getText());
         ClaseGeneral.contratosProponentesPK.setFktercero(""+fktercero.getText());
         ClaseGeneral.contratosProponentes.setContratosProponentesPK(ClaseGeneral.contratosProponentesPK);
-        ClaseGeneral.contratosProponentes.setNumerofolios(Integer.parseInt(numerofolios.getText()));
-        ClaseGeneral.contratosProponentes.setValorsiniva(Integer.parseInt(valorsiniva.getText()));
-        ClaseGeneral.contratosProponentes.setValortotal(Integer.parseInt(valortotal.getText()));
+        ClaseGeneral.contratosProponentes.setNumerofolios(BigDecimal.valueOf(Long.parseLong("" + numerofolios.getText().trim().replace(".", ""))));
+        ClaseGeneral.contratosProponentes.setValorsiniva(BigDecimal.valueOf(Long.parseLong("" + valorsiniva.getText().trim().replace(".", ""))));
+        ClaseGeneral.contratosProponentes.setValortotal(BigDecimal.valueOf(Long.parseLong("" + valortotal.getText().trim().replace(".", ""))));
 
         if (ClaseGeneral.controlContratosProponentes.verify(ClaseGeneral.contratosProponentes)) {
             try {
@@ -446,6 +446,8 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
 //        lista = ClaseGeneral.controlBienessolicitudesoferta.findAllInBienessolicitudesofertaByFksolicitudofertaAno(fkcontrato.getText(), ClaseGeneral.solicitudesoferta.getAno());
         lista = ClaseGeneral.controlContratosProponentes.findAllInContratosProponentesByFkcontrato(fkcontrato.getText());
         
+        jTable.getColumnModel().getColumn(1).setCellRenderer(informacion.modeloDerecha);
+        jTable.getColumnModel().getColumn(2).setCellRenderer(informacion.modeloDerecha);
         jTable.getColumnModel().getColumn(3).setCellRenderer(informacion.modeloDerecha);
 
         for (int i = 0; i < 100; i++) {
@@ -459,16 +461,16 @@ public class PanelContratosProponentes extends javax.swing.JPanel {
         for (Object lista1 : lista) {
             ClaseGeneral.contratosProponentes = (ContratosProponentes) lista1;
             jTable.setValueAt("" + ClaseGeneral.contratosProponentes.getContratosProponentesPK().getFktercero(), i, 0);
-            jTable.setValueAt("" + ClaseGeneral.contratosProponentes.getNumerofolios(), i, 1);
-            jTable.setValueAt("" + ClaseGeneral.contratosProponentes.getValorsiniva(), i, 2);
-            jTable.setValueAt("" + ClaseGeneral.contratosProponentes.getValortotal(), i, 3);
+            jTable.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.contratosProponentes.getNumerofolios()), i, 1);
+            jTable.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.contratosProponentes.getValorsiniva()), i, 2);
+            jTable.setValueAt("" + ClaseInformacion.formatoDecimal.format(ClaseGeneral.contratosProponentes.getValortotal()), i, 3);
             i++;
         }
 
         jTable.clearSelection();
-        jTable.getColumnModel().getColumn(0).setPreferredWidth(210);
-        jTable.getColumnModel().getColumn(1).setPreferredWidth(110);
-        jTable.getColumnModel().getColumn(2).setPreferredWidth(110);
+        jTable.getColumnModel().getColumn(0).setPreferredWidth(410);
+        jTable.getColumnModel().getColumn(1).setPreferredWidth(10);
+        jTable.getColumnModel().getColumn(2).setPreferredWidth(10);
         jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
