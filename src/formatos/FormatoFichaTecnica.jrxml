@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FormatoFichaTecnica" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac663b7-f31a-4225-a540-62a55a11782d">
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="1.3636363636363635"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="943"/>
+	<property name="ireport.y" value="1192"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -430,7 +430,7 @@ AND CONTRATOS.CONTRATO = $P{CONTRATO}]]>
 		<field name="fundamento" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
@@ -717,21 +717,21 @@ WHERE
 				<textElement verticalAlignment="Middle" markup="html">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{CONTRATOS_TIPOCONTRATO}.equals("1: C1 Prestación de Servicios") ? "Prestación de Servicios <b>X</b>" : "Prestación de Servicios  ")]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{CONTRATOS_TIPOCONTRATO}.equals("1: C1 Prestación de Servicios") ? "Prestación de Servicios <b>[ X ]</b>" : "Prestación de Servicios  ")]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="79f6c773-24c3-4a62-a384-e3d697994d63" stretchType="RelativeToTallestObject" x="144" y="47" width="126" height="16"/>
 				<textElement verticalAlignment="Middle" markup="html">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{CONTRATOS_TIPOCONTRATO}.equals("6: C6 Compra Venta y/o Suministro") ? "Compra <b>X</b>" : "Compra  ")]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{CONTRATOS_TIPOCONTRATO}.equals("6: C6 Compra Venta y/o Suministro") ? "Compra <b>[ X ]</b>" : "Compra  ")]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="79f6c773-24c3-4a62-a384-e3d697994d63" stretchType="RelativeToTallestObject" x="270" y="47" width="282" height="16"/>
 				<textElement verticalAlignment="Middle" markup="html">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[(!$F{CONTRATOS_TIPOCONTRATO}.equals("1: C1 Prestación de Servicios") && !$F{CONTRATOS_TIPOCONTRATO}.equals("6: C6 Compra Venta y/o Suministro")? "Otro <b>X</b> ¿Cuál? "+$F{CONTRATOS_TIPOCONTRATO} : "Otro    ¿Cuál?   ")]]></textFieldExpression>
+				<textFieldExpression><![CDATA[(!$F{CONTRATOS_TIPOCONTRATO}.equals("1: C1 Prestación de Servicios") && !$F{CONTRATOS_TIPOCONTRATO}.equals("6: C6 Compra Venta y/o Suministro")? "Otro <b>[ X ]</b> ¿Cuál? "+$F{CONTRATOS_TIPOCONTRATO} : "Otro    ¿Cuál?   ")]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="16">
@@ -1550,7 +1550,7 @@ WHERE
 				</jr:table>
 			</componentElement>
 		</band>
-		<band height="32">
+		<band height="16">
 			<staticText>
 				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="0" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
@@ -1559,107 +1559,20 @@ WHERE
 				</textElement>
 				<text><![CDATA[VI. POSIBLES PROVEEDORES]]></text>
 			</staticText>
-			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="286" y="16" width="266" height="16"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[NOMBRE SOCIEDAD]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="16" width="266" height="16"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[REPRESENTANTE LEGAL O PERSONA NATURAL]]></text>
-			</staticText>
 		</band>
 		<band height="16">
 			<subreport>
 				<reportElement uuid="76bfcaa2-72ae-4511-a76e-ff9d44f3e966" x="20" y="0" width="532" height="16"/>
-				<subreportParameter name="FKTERCERO">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCERO}.substring(0,$F{CONTRATOS_FKTERCERO}.indexOf(" - "))]]></subreportParameterExpression>
+				<subreportParameter name="FKCONTRATO">
+					<subreportParameterExpression><![CDATA[$F{CONTRATOS_CONTRATO}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoFichaTecnica_subreport3.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="16">
+		<band height="222">
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="0" width="441" height="16"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[IDENTIFICACIÓN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="461" y="0" width="91" height="16"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[R.U.P]]></text>
-			</staticText>
-		</band>
-		<band height="16">
-			<subreport>
-				<reportElement uuid="37cff303-a7d9-4ee5-89fb-2cae35f47cbe" x="20" y="0" width="441" height="16"/>
-				<subreportParameter name="FKTERCERO">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCERO}.substring(0,$F{CONTRATOS_FKTERCERO}.indexOf(" - "))]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoFichaTecnica_subreport4.jasper"]]></subreportExpression>
-			</subreport>
-			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="461" y="0" width="46" height="16"/>
-				<textElement verticalAlignment="Middle">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[ SI]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="507" y="0" width="45" height="16"/>
-				<textElement verticalAlignment="Middle">
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[ NO]]></text>
-			</staticText>
-		</band>
-		<band height="16">
-			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="0" width="126" height="16"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[TELEFONOS]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="146" y="0" width="200" height="16"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[DIRECCIÓN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="346" y="0" width="206" height="16"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[CORREO ELÉCTRONICO]]></text>
-			</staticText>
-		</band>
-		<band height="16">
-			<subreport>
-				<reportElement uuid="fbaf997a-8672-4683-bd0b-19f33c19d913" x="20" y="0" width="532" height="16"/>
-				<subreportParameter name="FKTERCERO">
-					<subreportParameterExpression><![CDATA[$F{CONTRATOS_FKTERCERO}.substring(0,$F{CONTRATOS_FKTERCERO}.indexOf(" - "))]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "FormatoFichaTecnica_subreport5.jasper"]]></subreportExpression>
-			</subreport>
-		</band>
-		<band height="212">
-			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="0" width="532" height="30" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="10" width="532" height="30" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -1667,7 +1580,7 @@ WHERE
 				<text><![CDATA[VII. ESTIMACIÓN, TIPIFICACIÓN Y ASIGNACIÓN DE LOS RIESGOS PREVISIBLES QUE PUEDAN AFECTAR EL EQUILIBRIO ECONÓMICO DEL CONTRATO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="30" width="532" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="40" width="532" height="16"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1675,7 +1588,7 @@ WHERE
 				<text><![CDATA[A) RIESGOS ASIGNADOS AL CONTRATISTA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="46" width="109" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="56" width="109" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1683,7 +1596,7 @@ WHERE
 				<text><![CDATA[Clasificación Amenaza]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="129" y="46" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="129" y="56" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1691,7 +1604,7 @@ WHERE
 				<text><![CDATA[Amenaza]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="203" y="46" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="203" y="56" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1699,7 +1612,7 @@ WHERE
 				<text><![CDATA[Vulnerabilidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="277" y="46" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="277" y="56" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1707,7 +1620,7 @@ WHERE
 				<text><![CDATA[Controles Existentes]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="351" y="46" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="351" y="56" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1715,7 +1628,7 @@ WHERE
 				<text><![CDATA[Probabilidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="425" y="46" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="425" y="56" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1723,7 +1636,7 @@ WHERE
 				<text><![CDATA[Impacto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="499" y="46" width="53" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="499" y="56" width="53" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1731,7 +1644,7 @@ WHERE
 				<text><![CDATA[Valor. Riesgo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="351" y="62" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="351" y="72" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1739,7 +1652,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="62" width="109" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="72" width="109" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1747,7 +1660,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="499" y="62" width="53" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="499" y="72" width="53" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1755,7 +1668,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="425" y="62" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="425" y="72" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1763,7 +1676,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="277" y="62" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="277" y="72" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1771,7 +1684,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="129" y="62" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="129" y="72" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1779,7 +1692,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="203" y="62" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="203" y="72" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1787,7 +1700,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="78" width="532" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="88" width="532" height="16"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1795,7 +1708,7 @@ WHERE
 				<text><![CDATA[B) RIESGOS ASIGNADOS AL CONTRATANTE (UNIVERSIDAD):]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="351" y="94" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="351" y="104" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1803,7 +1716,7 @@ WHERE
 				<text><![CDATA[Probabilidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="94" width="109" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="104" width="109" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1811,7 +1724,7 @@ WHERE
 				<text><![CDATA[Clasificación Amenaza]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="499" y="94" width="53" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="499" y="104" width="53" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1819,7 +1732,7 @@ WHERE
 				<text><![CDATA[Valor. Riesgo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="203" y="94" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="203" y="104" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1827,7 +1740,7 @@ WHERE
 				<text><![CDATA[Vulnerabilidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="425" y="94" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="425" y="104" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1835,7 +1748,7 @@ WHERE
 				<text><![CDATA[Impacto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="277" y="94" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="277" y="104" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1843,7 +1756,7 @@ WHERE
 				<text><![CDATA[Controles Existentes]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="129" y="94" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="129" y="104" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1851,7 +1764,7 @@ WHERE
 				<text><![CDATA[Amenaza]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="351" y="110" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="351" y="120" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1859,7 +1772,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="425" y="110" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="425" y="120" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1867,7 +1780,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="129" y="110" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="129" y="120" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1875,7 +1788,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="203" y="110" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="203" y="120" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1883,7 +1796,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="277" y="110" width="74" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="277" y="120" width="74" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1891,7 +1804,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="499" y="110" width="53" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="499" y="120" width="53" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1899,7 +1812,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="110" width="109" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="120" width="109" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="6" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1907,7 +1820,7 @@ WHERE
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="126" width="532" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="136" width="532" height="16"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
@@ -1915,7 +1828,7 @@ WHERE
 				<text><![CDATA[C) EN CASOS DE FUERZA MAYOR O CASO FORTUITO SE PROCEDERÁ CON LO ESTABLECIDO EN LA LEY.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="142" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
+				<reportElement uuid="29692370-a4f9-4a10-a5e3-4fe941be7d73" style="table" mode="Opaque" x="20" y="152" width="532" height="16" forecolor="#FFFFFF" backcolor="#666666"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
 					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single" leftIndent="5"/>
@@ -1923,21 +1836,21 @@ WHERE
 				<text><![CDATA[VIII. DETERMINACIÓN DE LAS GARANTÍAS A EXIGIR ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="20" y="158" width="532" height="38"/>
+				<reportElement uuid="d437ef50-ae0f-4f47-bd50-64d7b5820c82" style="table" x="20" y="168" width="532" height="38"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
 				<text><![CDATA[Para garantizar el cumplimiento de las obligaciones surgidas con ocasión del proceso de selección y del contrato, se exigirá al proponente que ampare los siguientes riesgos:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="196" width="424" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="20" y="206" width="424" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[AMPARO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="444" y="196" width="108" height="16"/>
+				<reportElement uuid="027d23e0-0659-4730-a1b2-c6989343e0fb" style="table" x="444" y="206" width="108" height="16"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
@@ -2035,6 +1948,27 @@ Certifico que la presente solicitud da cumplimiento al Artículo 2.8.4.4.5. del 
 			</staticText>
 		</band>
 	</detail>
+	<pageFooter>
+		<band height="42">
+			<staticText>
+				<reportElement uuid="4aeec191-64e1-4f63-880c-237d6fd94fec" x="20" y="20" width="100" height="22"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[F-05-MP-08-01-02
+V-02-2017]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4aeec191-64e1-4f63-880c-237d6fd94fec" x="444" y="10" width="108" height="32"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Elaborado por:
+División de Contratación
+Vicerrectoría Administrativa]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
 	<noData>
 		<band splitType="Immediate"/>
 	</noData>
