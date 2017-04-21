@@ -36,7 +36,7 @@ WHERE
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
-			<textField pattern="#,##0">
+			<textField pattern="#,##0" isBlankWhenNull="true">
 				<reportElement uuid="a3bc3cd2-d73a-426b-8a83-cab4ecf0880d" x="0" y="0" width="78" height="20"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="11" isBold="false"/>

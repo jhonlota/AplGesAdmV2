@@ -453,7 +453,7 @@ WHERE CLASIFICADORUNSPSC.CODIGOGRUPO = 'F']]>
 		<field name="unidadduracion" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\User\\Google Drive\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\User\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="CONTRATO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>

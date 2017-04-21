@@ -83,6 +83,10 @@ public class UtilidadesJpaController {
         try {
             String cuentainternaAux = "-1";
             boolean isPrimero = true;
+            
+            if(cingreso.equals("0")) {
+                cingreso = "*";
+            }
 
             datos.query("SELECT * FROM " 
                     + "(SELECT CUENTAINTERNA, 60 AS PESO "
@@ -139,7 +143,9 @@ public class UtilidadesJpaController {
                 isPrimero = false;
             }
 
-            if (!cuentainternaAux.equals(cuentainterna)) {
+            if(cuentainterna.equals("999999")) {
+                cuentainternaAux = "999999";
+            } else if (!cuentainternaAux.equals(cuentainterna)) {
                 ClaseGeneral.errorValidarIngresoCUENTAINTERNA = "Error (CINFO) : " + cinfo + "\n   NO empareja con\n   C. INTERNA : " + cuentainterna + "\n";
             }
 

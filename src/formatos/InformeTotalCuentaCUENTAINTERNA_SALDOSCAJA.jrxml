@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9844e2e6-2cac-44d2-b6ee-9e8934b575bf">
 	<property name="ireport.zoom" value="1.3310000000000008"/>
-	<property name="ireport.x" value="256"/>
+	<property name="ireport.x" value="251"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
@@ -35,7 +35,7 @@
 		<defaultValueExpression><![CDATA["%%"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="FACULTAD" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
@@ -243,6 +243,31 @@ CUENTAS.FECHAPRESUPUESTAL ASC]]>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 						<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CINFO_subreport1_pequena.jasper"]]></subreportExpression>
 					</subreport>
+					<subreport>
+						<reportElement uuid="61db76e6-f601-45ac-b5e5-5cb796265cc1" x="440" y="0" width="80" height="20"/>
+						<subreportParameter name="SOPORTESALDO">
+							<subreportParameterExpression><![CDATA[$P{SOPORTESALDO}]]></subreportParameterExpression>
+						</subreportParameter>
+						<subreportParameter name="CINFO">
+							<subreportParameterExpression><![CDATA[$F{SOPORTESCUENTAS_CINFO}]]></subreportParameterExpression>
+						</subreportParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "InformeTotalCuentaCINFO_subreport1_pequena.jasper"]]></subreportExpression>
+					</subreport>
+					<subreport>
+						<reportElement uuid="7b4cbdbd-79b6-49d6-b00d-2f03e00036dc" x="680" y="0" width="80" height="20"/>
+						<subreportParameter name="SOPORTESALDO">
+							<subreportParameterExpression><![CDATA[$P{SOPORTESALDO}]]></subreportParameterExpression>
+						</subreportParameter>
+						<subreportParameter name="TOTALCINFO">
+							<subreportParameterExpression><![CDATA[$V{TOTALINGRESO_CINFO} - $V{TOTALEGRESO_CINFO}]]></subreportParameterExpression>
+						</subreportParameter>
+						<subreportParameter name="CINFO">
+							<subreportParameterExpression><![CDATA[$F{SOPORTESCUENTAS_CINFO}]]></subreportParameterExpression>
+						</subreportParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "InformeTotalCuentaCINFO_subreport1_pequena.jasper"]]></subreportExpression>
+					</subreport>
 					<textField pattern="#,##0">
 						<reportElement uuid="0bd1c306-5f55-4e70-91f2-eb75ae007a2d" x="522" y="0" width="76" height="20"/>
 						<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -266,6 +291,12 @@ CUENTAS.FECHAPRESUPUESTAL ASC]]>
 						</graphicElement>
 					</rectangle>
 					<rectangle>
+						<reportElement uuid="e2901737-5639-4594-8cdf-384201a98d4c" stretchType="RelativeToBandHeight" mode="Transparent" x="440" y="0" width="80" height="20"/>
+						<graphicElement>
+							<pen lineWidth="1.0" lineStyle="Dotted"/>
+						</graphicElement>
+					</rectangle>
+					<rectangle>
 						<reportElement uuid="638e809b-f9c9-4e98-8991-53fce35fddf2" stretchType="RelativeToBandHeight" mode="Transparent" x="520" y="0" width="80" height="20"/>
 						<graphicElement>
 							<pen lineWidth="1.0" lineStyle="Dotted"/>
@@ -273,6 +304,12 @@ CUENTAS.FECHAPRESUPUESTAL ASC]]>
 					</rectangle>
 					<rectangle>
 						<reportElement uuid="29aac6b0-aae1-414b-a3f9-42de898d2338" stretchType="RelativeToBandHeight" mode="Transparent" x="600" y="0" width="80" height="20"/>
+						<graphicElement>
+							<pen lineWidth="1.0" lineStyle="Dotted"/>
+						</graphicElement>
+					</rectangle>
+					<rectangle>
+						<reportElement uuid="315939fb-0dd7-44dc-8fef-d495c673f0fb" stretchType="RelativeToBandHeight" mode="Transparent" x="680" y="0" width="80" height="20"/>
 						<graphicElement>
 							<pen lineWidth="1.0" lineStyle="Dotted"/>
 						</graphicElement>
@@ -290,22 +327,6 @@ CUENTAS.FECHAPRESUPUESTAL ASC]]>
 						</textElement>
 						<text><![CDATA[C. INFO]]></text>
 					</staticText>
-					<subreport>
-						<reportElement uuid="61db76e6-f601-45ac-b5e5-5cb796265cc1" x="440" y="0" width="80" height="20"/>
-						<subreportParameter name="SOPORTESALDO">
-							<subreportParameterExpression><![CDATA[$P{SOPORTESALDO}]]></subreportParameterExpression>
-						</subreportParameter>
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-						<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "InformeTotalCuentaCINFO_subreport1_pequena.jasper"]]></subreportExpression>
-					</subreport>
-					<subreport>
-						<reportElement uuid="7b4cbdbd-79b6-49d6-b00d-2f03e00036dc" x="680" y="0" width="80" height="20"/>
-						<subreportParameter name="TOTALCUENTAINTERNA">
-							<subreportParameterExpression><![CDATA[$V{TOTALINGRESO} - $V{TOTALEGRESO}]]></subreportParameterExpression>
-						</subreportParameter>
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-						<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "InformeTotalCuentaCINFO_subreport1_pequena.jasper"]]></subreportExpression>
-					</subreport>
 				</frame>
 			</band>
 		</groupFooter>

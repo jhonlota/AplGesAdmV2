@@ -145,6 +145,11 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         texto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         texto.setMargin(new java.awt.Insets(2, 4, 2, 4));
         texto.setPreferredSize(new java.awt.Dimension(435, 25));
+        texto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TextFieldKeyReleased(evt);
+            }
+        });
         add(texto);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -221,6 +226,10 @@ public class ExternoPanelBuscarNumeracionContratos extends javax.swing.JPanel {
         texto.setText(dependenciaAux + "_018." + tipocontratoAux + "-" + numContrato + "-" + anoAux);
         contrato = dependenciaAux + "_018." + tipocontratoAux + "-" + numContrato + "-" + anoAux;
     }//GEN-LAST:event_ItemStateChanged
+
+    private void TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextFieldKeyReleased
+        contrato = texto.getText();
+    }//GEN-LAST:event_TextFieldKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

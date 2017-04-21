@@ -10,7 +10,7 @@
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\xampp\\htdocs\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\xampp\\htdocs\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="FACULTAD" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>

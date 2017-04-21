@@ -29,7 +29,7 @@
 		<defaultValueExpression><![CDATA["Fondo Renovable"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Dropbox\\AGA\\src\\formatos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Admin\\Desktop\\AplGesAdmV2\\src\\formatos\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="ANO" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -40,7 +40,7 @@
 	<parameter name="FECHAAPLICACION_FINAL" class="java.util.Date">
 		<defaultValueExpression><![CDATA["2000-01-01"]]></defaultValueExpression>
 	</parameter>
-        <parameter name="FACULTAD" class="java.lang.String">
+	<parameter name="FACULTAD" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
 	<queryString>

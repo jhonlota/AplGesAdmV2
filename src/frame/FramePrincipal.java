@@ -53,7 +53,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
     private IFrameComprobantesnoreembolsados comprobantesnoreembolsados;
     private IFrameComprobantespendientes comprobantespendientes;
     private IFrameContratos contratos;
-    private IFrameContratosProponentes contratosProponentes;
+    private IFrameContratosproponentes contratosproponentes;
     private IFrameCubs cubs;
     private IFrameCuentas cuentas;
     private IFrameCumplidoscomprobantes cumplidoscomprobantes;
@@ -128,7 +128,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         labelEntidad = new javax.swing.JLabel();
         botonPantallazo = new javax.swing.JButton();
 
-        jFileChooser.setCurrentDirectory(new java.io.File("C:\\Program Files\\NetBeans 8.2"));
+        jFileChooser.setCurrentDirectory(new java.io.File("C:\\Program Files\\NetBeans 8.1"));
         jFileChooser.setFileFilter(filter);
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -222,6 +222,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         observacionescuentas.setResizable(false);
         planestrategicocontratos.setResizable(false);
         polizas.setResizable(false);
+        contratosproponentes.setResizable(false);
         resoluciones.setResizable(false);
         serviciossolicitudesoferta.setResizable(false);
         solicitudesoferta.setResizable(false);
@@ -252,7 +253,7 @@ public class FramePrincipal extends javax.swing.JFrame implements Printable {
         jDesktopPane.add(observacionescuentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(planestrategicocontratos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(polizas, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane.add(contratosProponentes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane.add(contratosproponentes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(reportes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(resoluciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane.add(serviciossolicitudesoferta, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -538,10 +539,10 @@ Solicitud de Oferta
                     polizas.metodoLimpiar();
                 }else if (hijo.equals("Proponentes")
                         && !ClaseGeneral.contratos.getContrato().equals("")) {
-                    contratosProponentes.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
-                    contratosProponentes.setVisible(true);
-                    contratosProponentes.metodoEstado("reiniciar");
-                    contratosProponentes.metodoLimpiar();
+                    contratosproponentes.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
+                    contratosproponentes.setVisible(true);
+                    contratosproponentes.metodoEstado("reiniciar");
+                    contratosproponentes.metodoLimpiar();
                 } else if (hijo.equals("Soportes")
                         && !ClaseGeneral.contratos.getContrato().equals("")) {
                     soportescontratos.setBounds(0, 0, jDesktopPane.getWidth(), jDesktopPane.getHeight());
@@ -968,8 +969,8 @@ Solicitud de Oferta
                 System.out.println("*** IFrameContratos()");
                 break;
             case 8:
-                contratosProponentes = new IFrameContratosProponentes();
-                System.out.println("*** IFrameContratosProponentes()");
+                contratosproponentes = new IFrameContratosproponentes();
+                System.out.println("*** IFrameContratosproponentes()");
                 break;
             case 9:
                 cubs = new IFrameCubs();
@@ -1070,7 +1071,7 @@ Solicitud de Oferta
         comprobantesnoreembolsados.setVisible(false);
         comprobantespendientes.setVisible(false);
         contratos.setVisible(false);
-        contratosProponentes.setVisible(false);
+        contratosproponentes.setVisible(false);
         cubs.setVisible(false);
         cuentas.setVisible(false);
         cumplidoscomprobantes.setVisible(false);

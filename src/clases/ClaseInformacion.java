@@ -428,6 +428,7 @@ public class ClaseInformacion {
             if (cuentainterna.equals(ClaseGeneral.controlCuentainterna.findCondigoInCuentainternaBy().get(i))) {
                 is = true;
             }
+            
         }
 
         if (!is) {
@@ -464,7 +465,7 @@ public class ClaseInformacion {
         ClaseGeneral.bienessolicitudesoferta = null;
         ClaseGeneral.comprobantesnoreembolsados = null;
         ClaseGeneral.comprobantespendientes = null;
-        ClaseGeneral.contratosProponentes = null;
+        ClaseGeneral.contratosproponentes = null;
         ClaseGeneral.cubs = null;
         ClaseGeneral.cumplidoscomprobantes = null;
         ClaseGeneral.facturascomprobantes = null;

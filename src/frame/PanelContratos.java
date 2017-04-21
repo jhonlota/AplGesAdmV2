@@ -592,8 +592,8 @@ public class PanelContratos extends javax.swing.JPanel {
         panelPlaneacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelPlaneacion.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabelContrato.setText("NÚMERO DEL CONTRATO : ");
-        jLabelContrato.setPreferredSize(new java.awt.Dimension(165, 25));
+        jLabelContrato.setText("NÚMERO DEL PROCESO : ");
+        jLabelContrato.setPreferredSize(new java.awt.Dimension(155, 25));
         panelPlaneacion.add(jLabelContrato);
 
         contrato.setBackground(ClaseGeneral.campo);
@@ -627,7 +627,7 @@ public class PanelContratos extends javax.swing.JPanel {
         jTextField15.setFocusable(false);
         jTextField15.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jTextField15.setOpaque(false);
-        jTextField15.setPreferredSize(new java.awt.Dimension(325, 25));
+        jTextField15.setPreferredSize(new java.awt.Dimension(335, 25));
         panelPlaneacion.add(jTextField15);
 
         jLabelFktercero.setText("CÉDULA / NIT DEL CONTRATISTA : ");
